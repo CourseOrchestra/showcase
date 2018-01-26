@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="specialTypes.xsd" />
+	<xs:element name="action">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="main_context" minOccurs="0" />
+				<xs:element name="navigator" minOccurs="0">
+					<xs:complexType>
+						<xs:attribute name="element" type="notNullType" />
+						<xs:attribute name="refresh" type="xs:boolean" />
+						<xs:assert test="(count(@element)=1 or count(@refresh)=1)" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="datapanel" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="element" maxOccurs="unbounded"
+								minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="add_context" minOccurs="0" />
+									</xs:sequence>
+									<xs:attribute name="id" type="notNullType" />
+									<xs:attribute name="group" type="simpleList" />
+									<xs:attribute name="keep_user_settings" type="xs:boolean" />
+									<xs:attribute name="partial_update" type="xs:boolean" />
+									<xs:attribute name="current_level_update" type="xs:boolean" />									
+									<xs:attribute name="child_level_update" type="xs:boolean" />									
+									<xs:attribute name="preserve_hidden" type="xs:boolean" />
+									<xs:assert test="((count(@id)=1 and count(@group)=0) or (count(@group)=1 and count(@id)=0))" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="type" type="xmlType" use="required" />
+						<xs:attribute name="tab" type="notNullType" />
+						<xs:attribute name="dataPanelCaching" type="xs:boolean" />
+					</xs:complexType>
+					<xs:unique name="elementId">
+						<xs:selector xpath="element" />
+						<xs:field xpath="@id" />
+					</xs:unique>
+				</xs:element>
+				<xs:element name="modalwindow" minOccurs="0">
+					<xs:complexType>
+						<xs:attribute name="caption" type="xs:string" />
+						<xs:attribute name="width" type="xs:positiveInteger" />
+						<xs:attribute name="height" type="xs:positiveInteger" />	
+						<xs:attribute name="class_style" type="xs:string" />
+						<xs:attribute name="show_close_bottom_button" type="xs:boolean" />
+						<xs:attribute name="close_on_esc" type="xs:boolean" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="server" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="activity" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="add_context" minOccurs="0" />
+									</xs:sequence>
+									<xs:attributeGroup ref="identGroup" />								
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+					<xs:unique name="sActivityId">
+						<xs:selector xpath="activity" />
+						<xs:field xpath="@id" />
+					</xs:unique>					
+				</xs:element>
+				<xs:element name="client" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="activity" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="add_context" minOccurs="0" />
+									</xs:sequence>
+									<xs:attributeGroup ref="identGroup" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+					<xs:unique name="cActivityId">
+						<xs:selector xpath="activity" />
+						<xs:field xpath="@id" />
+					</xs:unique>
+				</xs:element>
+			</xs:all>
+			<xs:attribute name="show_in" type="showInMode" />
+			<xs:attribute name="keep_user_settings" type="xs:boolean" />
+			<xs:attribute name="partial_update" type="xs:boolean" />
+			<xs:attribute name="current_level_update" type="xs:boolean" />
+			<xs:attribute name="child_level_update" type="xs:boolean" />			
+			<xs:attribute name="preserve_hidden" type="xs:boolean" />
+			<xs:assert
+				test="if (datapanel or server) then main_context[not(preceding-sibling::*)] else true()" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

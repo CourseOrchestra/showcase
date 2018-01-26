@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<style type="text/css">
+		.xforms-output .xforms-value{
+		background-color: transparent !important;
+		border: #FFF !important;
+		}
+		</style>
+		<xf:model id="xformId_mainModel" xmlns="">
+			<xf:instance id="mainInstance" xmlns="">
+				<schema>
+					<methods/>
+				</schema>
+			</xf:instance>
+
+			<xf:instance id="methodInstance" xmlns="">
+				<schema>
+					<method id="" name=""/>
+				</schema>
+			</xf:instance>
+
+			<xf:bind>
+				<xf:bind/>
+			</xf:bind>
+
+		</xf:model>
+	</head>
+	<body>
+		<!--<xf:output value="serialize(instance('mainInstance'))"></xf:output>-->
+		<div class="xformId_nameInput" style="float: left, clear: both, width: 350px">
+			<div class="blue">
+				<!-- <xf:multiselector buttonLabel="&lt;div &gt;&lt;xf:output value=&quot;'56565'&quot;/&gt;&lt;/div &gt;" dataWidth="'600px'" dataHeight="'450px'"
+          selectedDataWidth="'500px'" visibleRecordCount="'25'"
+          procCount="'ssmmd.xforms.settingsResearchConnections.usersCount.celesta'"
+          procList="'ssmmd.xforms.settingsResearchConnections.usersList.celesta'" generalFilters="''"
+          currentValue="''" windowCaption="'XPath(instance(quot(mainInstance))/methods)'" needClear="true"
+          needInitSelection="true" xpathRoot="'XPath(instance(quot(mainInstance))/methods)'"
+          xpathMapping="{'XPath(instance(quot(methodInstance))/method)':{'id': '@id','name':'@name'}}"/> -->
+				<xf:group ref="instance('mainInstance')/methods[@readonly=0]">
+					<trigger xmlns="http://www.w3.org/2002/xforms">	
+						<xf:label>
+							<xf:output  value="concat('Выбор ', if(instance('mainInstance')/methods/@add='researchMethod',
+											'методов исследования', if(instance('mainInstance')/methods/@add='prepProcedure',
+											'подготовительных процедур', if(instance('mainInstance')/methods/@add='researchCondition',
+											'условия проведения исследования', if(instance('mainInstance')/methods/@add='substrate',
+											'субстратов', '')))))"/>
+						</xf:label>
+		
+						<action ev:event="DOMActivate">		
+							<load resource="javascript:showMultiSelector({currentValue : '',
+																		  dataHeight : '250px',
+																		  dataWidth : '300px', 
+																		  generalFilters : '', 
+																		  needClear : true, 
+																		  needInitSelection : true, 
+																		  procCount : 'ssmmd.xforms.settingsResearchConnections.usersCount.celesta', 
+																		  procList : 'ssmmd.xforms.settingsResearchConnections.usersList.celesta', 
+																		  selectedDataWidth : '300px', 
+																		  visibleRecordCount : '15', 
+																		  windowCaption : '', 
+																		  xpathMapping : {'XPath(instance(quot(methodInstance))/method)':
+																			{'id': '@id','name':'@name'}}, 
+																		  xpathRoot : 'XPath(instance(quot(mainInstance))/methods)',  id:'connections'});"/>
+						</action>
+					</trigger>
+				</xf:group>
+			</div>
+			<div class="" style="float: left; margin-top: 5px; clear: both;"> <xf:output value="concat('Выбранные  ', if(instance('mainInstance')/methods/@add='researchMethod',
+											'методы исследования', if(instance('mainInstance')/methods/@add='prepProcedure',
+											'подготовительные процедуры', if(instance('mainInstance')/methods/@add='researchCondition',
+											'условия проведения исследования', if(instance('mainInstance')/methods/@add='substrate',
+											'субстраты', '')))), ':')"/> </div>
+			<div class="ScrollPanel1" style="width: 370px; padding: 2px; float: left; clear: both;">
+				<xf:repeat id="methods" nodeset="instance('mainInstance')/methods/method">
+					<div style="width: 250px; padding: 0px; float: left;clear: both;">
+						<xf:output class="baseInput" ref="@name"/>
+					</div>
+					<xf:group ref=".[../@readonly=0]">
+						<div style="float:left">
+							<xf:trigger>
+								<xf:label>X</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:delete nodeset="current()"/>
+								</xf:action>
+							</xf:trigger>
+						</div>
+					</xf:group>
+				</xf:repeat>
+			</div>
+		</div>
+		<hr style="margin-top:21px; width: 100%;  float: left; clear: both;" />
+		<xf:group ref="instance('mainInstance')/methods[@readonly=0]">
+			<div class="dirusing newbutton" style="float: left">
+				<xf:trigger class="blue">
+					<xf:label>Сохранить</xf:label>
+					<xf:action ev:event="DOMActivate" if="(is-valid(instance('mainInstance'))=false())">
+						<xf:message>Заполнено с ошибкой!</xf:message>
+					</xf:action>
+					<xf:action ev:event="DOMActivate" if="(is-valid(instance('mainInstance'))=true())">
+						<xf:load
+				resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'mainInstance')))">
+						</xf:load>
+					</xf:action>
+				</xf:trigger>
+			</div>
+			<div class="dirusing newbutton" style="float: right">
+				<xf:trigger class="blue">
+					<xf:label>Закрыть</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</xf:group>
+		<xf:group ref="instance('mainInstance')/methods[@readonly=1]">
+			<div class="dirusing newbutton" align="center">
+				<xf:trigger class="blue">
+					<xf:label>Закрыть</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</xf:group>
+	</body>
+</html>

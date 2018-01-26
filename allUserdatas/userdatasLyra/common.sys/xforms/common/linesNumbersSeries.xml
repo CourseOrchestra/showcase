@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema> </schema>
+			</xf:instance>
+			<xf:bind>
+				<xf:bind nodeset="instance('xformId_mainInstance')/numberSeries/@isFixedLength" type="boolean" ></xf:bind>
+				<xf:bind nodeset="instance('xformId_mainInstance')/numberSeries/@isOpened" type="boolean" ></xf:bind>
+				<xf:bind nodeset="instance('xformId_mainInstance')/numberSeries/@startingDate" type="dateTime" required="true()"></xf:bind>
+				<xf:bind nodeset="instance('xformId_mainInstance')/numberSeries/@lastUsedDate" type="dateTime" required="true()"></xf:bind>
+				<xf:bind nodeset="instance('xformId_mainInstance')/numberSeries/@numberOfLine" required="true()" type="nonNegativeInteger" constraint=".&lt;2147483648"></xf:bind>
+				<xf:bind nodeset="instance('xformId_mainInstance')/numberSeries/@startingNumber" required="true()" type="nonNegativeInteger" constraint=".&lt;2147483648"></xf:bind>
+				<xf:bind nodeset="instance('xformId_mainInstance')/numberSeries/@endingNumber" required="true()" type="nonNegativeInteger" constraint=".&lt;2147483648"></xf:bind>
+				<xf:bind nodeset="instance('xformId_mainInstance')/numberSeries/@incrimentByNumber" required="true()" type="nonNegativeInteger" constraint=".&lt;2147483648"></xf:bind>
+			</xf:bind>
+		</xf:model>
+	</head>
+	<body>
+		<!--<xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>-->
+		<div class="baseInput200 break">
+			<xf:output ref="instance('xformId_mainInstance')/numberSeries/@seriesId">
+				<xf:label>Серия:</xf:label>
+			</xf:output>
+		</div>
+		<div class="baseInput200 break">
+			<xf:input ref="instance('xformId_mainInstance')/numberSeries/@numberOfLine">
+				<xf:label>Номер:</xf:label>
+				<xf:action ev:event="xforms-invalid" if=".!=''">
+					<xf:message>Слишком большое число!</xf:message>
+				</xf:action>
+			</xf:input>
+		</div>
+		<div class="dateInput break">
+			<xf:input ref="instance('xformId_mainInstance')/numberSeries/@startingDate">
+				<xf:label>Начальная дата:</xf:label>
+			</xf:input>
+		</div>
+		<div class="baseInput200 break">
+			<xf:input ref="instance('xformId_mainInstance')/numberSeries/@startingNumber">
+				<xf:label>Начальный номер:</xf:label>
+				<xf:action ev:event="xforms-invalid" if=".!=''">
+					<xf:message>Слишком большое число!</xf:message>
+				</xf:action>
+			</xf:input>
+		</div>
+		<div class="baseInput200 break">
+			<xf:input ref="instance('xformId_mainInstance')/numberSeries/@endingNumber">
+				<xf:label>Последний номер:</xf:label>
+				<xf:action ev:event="xforms-invalid" if=".!=''">
+					<xf:message>Слишком большое число!</xf:message>
+				</xf:action>
+			</xf:input>
+		</div>
+		<div class="baseInput200 break">
+			<xf:input ref="instance('xformId_mainInstance')/numberSeries/@incrimentByNumber">
+				<xf:label>Инкремент:</xf:label>
+				<xf:action ev:event="xforms-invalid" if=".!=''">
+					<xf:message>Слишком большое число!</xf:message>
+				</xf:action>
+			</xf:input>
+		</div>
+		<div class="baseInput200 break">
+			<xf:input ref="instance('xformId_mainInstance')/numberSeries/@lastUsedNumber">
+				<xf:label>Последний использованный номер:</xf:label>
+				<xf:action ev:event="xforms-invalid" if=".!=''">
+					<xf:message>Слишком большое число!</xf:message>
+				</xf:action>
+			</xf:input>
+		</div>
+		<div class="boolInput200 break">
+			<xf:input ref="instance('xformId_mainInstance')/numberSeries/@isOpened">
+				<xf:label>Используется</xf:label>
+			</xf:input>
+		</div>
+		<div class="dateInput break">
+			<xf:input ref="instance('xformId_mainInstance')/numberSeries/@lastUsedDate">
+				<xf:label>Дата последнего использования:</xf:label>
+			</xf:input>
+		</div>
+		<div class="baseInput200 break">
+			<xf:input ref="instance('xformId_mainInstance')/numberSeries/@prefix">
+				<xf:label>Префикс:</xf:label>
+			</xf:input>
+		</div>
+		<div class="baseInput200 break">
+			<xf:input ref="instance('xformId_mainInstance')/numberSeries/@postfix">
+				<xf:label>Постфикс:</xf:label>
+			</xf:input>
+		</div>
+		<div class="boolInput200 break">
+			<xf:input ref="instance('xformId_mainInstance')/numberSeries/@isFixedLength">
+				<xf:label>Фиксированная длина</xf:label>
+			</xf:input>
+		</div>
+
+		<hr class="break" style="margin-top:21px; width: 100%;  float: left;" />
+		<div class="button100" style="float: left">
+			<xf:trigger>
+				<xf:label>Сохранить</xf:label>
+				<xf:action ev:event="DOMActivate"
+					if="(is-valid(instance('xformId_mainInstance'))=false())">
+					<xf:message>Заполнено с ошибкой!</xf:message>
+				</xf:action>
+				<xf:action ev:event="DOMActivate"
+					if="(is-valid(instance('xformId_mainInstance'))=true())">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"> </xf:load>
+					<xf:message>Данные сохранены</xf:message>
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<div class="button100" style="float: right">
+			<xf:trigger>
+				<xf:label>Закрыть</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"></xf:load>
+				</xf:action>
+			</xf:trigger>
+		</div>
+	</body>
+</html>

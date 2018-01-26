@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+	<tab id="5" name="График(xml)">
+        <element id="0" type="chart" proc="chart_pas_xmlds"/>        
+    </tab>	
+	<tab id="51" name="График(xml). fliped">
+        <element id="051" type="chart" proc="chart_pas_xmlds_fliped"/>        
+    </tab>	
+	<tab id="8" name="Карта. Раскраска по значению">
+		<element id="81" type="geomap" proc="geomap_func2_xmlds"/>
+	</tab>
+	<tab id="-01" name="Карты Гугль и Яндекса">
+		<element id="-0101" type="geomap" proc="geomap_world_gm_xmlds" cacheData="false"/>
+		<element id="-0102" type="geomap" proc="geomap_func2_ym_xmlds" cacheData="false"/>	
+	</tab>	
+</datapanel>

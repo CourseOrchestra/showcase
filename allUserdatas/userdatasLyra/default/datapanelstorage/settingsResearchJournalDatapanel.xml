@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="2" name="Настройка вопросов">
+
+		<element id="settingsDevelopmentsFilter" type="xforms"
+			template="settingsDevelopmentsFilter.xml"
+			proc="ssmmd.xforms.settingsDevelopmentsFilter.cardData.celesta">
+		</element>
+
+		<element id="treeSGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.settingsDevelopSectionsGrid.treeGrid.celesta">
+			<proc id="toolbarSections"
+				name="ssmmd.grids.settingsDevelopSectionsGrid.gridToolBar.celesta" type="TOOLBAR"/>
+			<related id="settingsDevelopmentsFilter"/>
+		</element>
+
+		<element id="treeQGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.settingsJournalQuestGrid.treeGrid.celesta" hideOnLoad="true">
+			<proc id="toolbar"
+				name="ssmmd.grids.settingsJournalQuestGrid.gridToolBar.celesta" type="TOOLBAR"/>
+			<related id="treeSGrid"/>
+		</element>
+
+		<element id="settingsJournalQuest" type="xforms" template="rulesTemplate.py"
+			proc="ssmmd.xforms.settingsJournalQuest.cardData.celesta" hideOnLoad="true">
+			<proc id="settingsDevelopQuestSave"
+				name="ssmmd.xforms.settingsJournalQuest.cardDataSave.celesta" type="SAVE"/>
+			<proc id="question_picture_upload"
+				name="ssmmd.xforms.settingsJournalQuest.questionPictureUpload.celesta" type="UPLOAD"/>
+			<related id="treeSGrid"/>
+			<related id="treeQGrid"/>
+		</element>
+
+		<element id="delete" type="xforms"
+			template="settingsJournalQuestDelete.xml"
+			proc="ssmmd.xforms.settingsJournalQuestDelete.cardData.celesta"
+			hideOnLoad="true">
+			<proc id="settingsJournalQuestDeleteSave"
+				name="ssmmd.xforms.settingsJournalQuestDelete.cardDataSave.celesta" type="SAVE"/>
+			<related id="treeQGrid"/>
+		</element>
+
+		<element id="moveRight" type="xforms" template="settingsJournalQuestRight.xml"
+			proc="ssmmd.xforms.settingsJournalQuestRight.cardData.celesta" hideOnLoad="true">
+			<proc id="savemove"
+				name="ssmmd.xforms.settingsJournalQuestRight.moveRight.celesta" type="SAVE"/>
+			<related id="treeSGrid"/>
+			<related id="treeQGrid"/>
+		</element>
+
+	</tab>
+</datapanel>

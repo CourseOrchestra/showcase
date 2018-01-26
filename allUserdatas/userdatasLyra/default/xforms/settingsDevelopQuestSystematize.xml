@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns="">
+					<questions/>
+				</schema>
+			</xf:instance>
+
+			<xf:instance id="xformId_questionInstance">
+				<schema xmlns="">
+					<question id="" name=""/>
+				</schema>
+			</xf:instance>
+
+			<xf:bind>
+				<xf:bind nodeset="instance('xformId_mainInstance')/questions/question/@name"
+					readonly="true()"/>
+			</xf:bind>
+		</xf:model>
+	</head>
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/> -->
+		<div style="clear:both">
+			<xf:trigger>
+				<xf:label>Добавить вопросы</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+								resource="javascript:gwtCreatePlugin
+										  ({
+											id:'xformId',
+											plugin:'extJsTree',
+											getDataProcName:'ssmmd.xforms.settingsDevelopQuestSystematize.treeQuestion.celesta',
+											postProcessProc:'handleExtJsTree.py',
+											generalFilters: ['XPath(instance(quot(xformId_mainInstance))/questions)'],
+											params:
+											{treePanel:
+												{title: 'Вопросы разработки'},
+											  core:
+											   {checkParent:true,
+											   filter:
+												{startsWith:true,
+												  delay:900}},
+											  dataModel:
+											  {fields: ''},
+											  view:
+											  {columns: ''}},
+											options: {								
+											  dataWidth: '600px',
+											  dataHeight: '450px',
+											  windowCaption: 'Выбор вопросов',
+											  onSelectionComplete: function(ok, plugin) {
+												if (ok) {
+												plugin.utils.multiXpathMapping({
+												xpathRoot:'XPath(instance(quot(xformId_mainInstance))/questions)',
+												xpathMapping:{'XPath(instance(quot(xformId_questionInstance))/question)':{'id': '@id','name': '@name'}}
+												  }, true);
+						
+														}
+																						}
+												  }
+										  });"/>
+				</xf:action>
+			</xf:trigger>						
+		</div>
+		<xf:repeat id="xformId_actionRow" nodeset="instance('xformId_mainInstance')/questions/question">
+			<div style="clear:both">
+				<div style="float: left">
+					<div class="inputText" style="width: 355px">
+						<xf:input ref="@name"/>
+					</div>
+				</div>
+				<xf:trigger>
+					<xf:label>X</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:delete nodeset="current()"/>
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</xf:repeat>
+		<hr style="margin-top:21px; width: 100%;  float: left; clear: both;" />
+		<div class="dirusing newbutton" style="float: left">
+			<xf:trigger class="blue">
+				<xf:label>Сохранить</xf:label>
+				<xf:action ev:event="DOMActivate" if="count(instance('xformId_mainInstance')/questions/question)=0">
+					<xf:message>Выберите хотя бы один вопрос</xf:message>
+				</xf:action>
+				<xf:action ev:event="DOMActivate" if="count(instance('xformId_mainInstance')/questions/question)&gt;0">
+					<xf:load
+            resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))">
+					</xf:load>
+					<xf:message>Данные сохранены</xf:message>
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<div class="dirusing newbutton" style="float: right">
+			<xf:trigger class="blue">
+				<xf:label>Закрыть</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+				</xf:action>
+			</xf:trigger>
+		</div>
+	</body>
+</html>

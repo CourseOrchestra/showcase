@@ -1,0 +1,2084 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documentset>
+	<document>
+		<documentset>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<status>Форма отчета сформирована</status>
+						<roleoimanager>B2E8F898-473F-4123-936C-46175CC56FA6
+						</roleoimanager>
+						<roleacmanager>952796B9-1AF1-468D-8056-05E70042F11D
+						</roleacmanager>
+						<datefill>2010-10-20</datefill>
+						<datecheck>2010-10-20</datecheck>
+						<transition>Запустить процесс работы с отчетом</transition>
+						<ProjectName>Поддержка семьи</ProjectName>
+						<ProjectNumber>3</ProjectNumber>
+						<Responsible>Минздравсоцразвития России</Responsible>
+						<repcampaign>21417674-D1E2-4D4E-978C-8A5C59609617</repcampaign>
+						<Period>январь-сентябрь 2010</Period>
+						<inyearperiod>январь-сентябрь</inyearperiod>
+						<year>2010</year>
+						<FIO />
+						<remark />
+						<ChangeStr>false</ChangeStr>
+						<Executor />
+						<Date />
+					</Info>
+					<Task Code="2765" Consider="true" GUID="2765"
+						Name="Совершенствование нормативной правовой базы в сфере поддержки семей с детьми"
+						Napr="Задачи" resp="Минздравсоцразвития России">
+						<Action AntiKr="" Cause1="" Cause2="" Code="10382"
+							Consider="true" GUID="10382"
+							Name="Совершенствование нормативной правовой базы по выплате государственных пособий семьям с детьми"
+							Number="1" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Самарина Ольга Викторовна" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10383"
+							Consider="true" GUID="10383"
+							Name="Совершенствование нормативной правовой базы по предоставлению дополнительных мер государственной поддержки семьям, имеющим детей"
+							Number="2" Pok1="2010-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Самарина Ольга Викторовна" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10384"
+							Consider="true" GUID="10384"
+							Name="Совершенствование нормативной правовой базы по организации отдыха и оздоровления детей"
+							Number="3" Pok1="2009-08-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2010-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Самарина Ольга Викторовна" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10385"
+							Consider="true" GUID="10385"
+							Name="Нормативное обеспечение предоставления из федерального бюджета субсидий бюджетам субъектов Российской Федерации на реализацию мероприятий по проведению оздоровительной кампании детей, находящихся в трудной жизненной ситуации"
+							Number="4" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2010-05-01" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Самарина Ольга Викторовна" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10386"
+							Consider="true" GUID="10386"
+							Name="Совершенствование нормативной правовой базы для осуществления перевозки между субъектами Российской Федерации несовершеннолетних, самовольно ушедших из семей, детских домов, школ-интернатов, специальных учебно-воспитательных и иных детских учреждений"
+							Number="5" Pok1="2010-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2010-06-01" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Самарина Ольга Викторовна" />
+					</Task>
+					<Task Code="2766" Consider="true" GUID="2766"
+						Name="Исполнение публичных обязательств по государственной поддержке семей, имеющих детей"
+						Napr="Задачи" resp="Минздравсоцразвития России">
+						<Action AntiKr="" Cause1="" Cause2="" Code="10387"
+							Consider="true" GUID="10387"
+							Name="Выплата государственных пособий гражданам, имеющим детей"
+							Number="1" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Рау Л Н" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10388"
+							Consider="true" GUID="10388"
+							Name="Выплата ежемесячных компенсаций нетрудоустроенным женщинам, имеющим детей в возрасте до 3-х лет, уволенным в связи с ликвидацией организации"
+							Number="2" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Самарина Ольга Викторовна" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10389"
+							Consider="true" GUID="10389"
+							Name="Предоставление материнского (семейного) капитала" Number="3"
+							Pok1="2009-08-01" Pok10="" Pok11="" Pok12="" Pok13="" Pok14=""
+							Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6="" Pok7=""
+							Pok8="" Pok9="" resp="Дроздов А В" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10390"
+							Consider="true" GUID="10390"
+							Name="Оплата дополнительных дней, предоставляемых для ухода за детьми- инвалидами"
+							Number="4" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Рау Л Н" />
+					</Task>
+					<Task Code="2767" Consider="true" GUID="2767"
+						Name="Повышение статуса семьи с детьми" Napr="Задачи"
+						resp="Минздравсоцразвития России">
+						<Action AntiKr="" Cause1="" Cause2="" Code="10391"
+							Consider="true" GUID="10391" Name="Пропаганда семейных ценностей"
+							Number="1" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Самарина Ольга Викторовна" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10392"
+							Consider="true" GUID="10392"
+							Name="Пропаганда семейного устройства детей-сирот и детей, оставшихся без попечения родителей в рамках проведения всероссийских мероприятий информационно-консультативной направленности"
+							Number="2" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Левитская А А" />
+					</Task>
+					<Task Code="2768" Consider="true" GUID="2768"
+						Name="Профилактика семейного неблагополучия, беспризорности и безнадзорности, социального сиротства"
+						Napr="Задачи" resp="Минздравсоцразвития России">
+						<Action AntiKr="" Cause1="" Cause2="" Code="10393"
+							Consider="true" GUID="10393"
+							Name="Организация деятельности, связанной с перевозкой несовершеннолетних, самовольно ушедших из места постоянного проживания"
+							Number="1" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Самарина Ольга Викторовна" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10394"
+							Consider="true" GUID="10394"
+							Name="Разработка и реализация комплекса мер по оказанию поддержки детям, оказавшимся в трудной жизненной ситуации"
+							Number="2" Pok1="2009-07-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Гордеева М В" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10395"
+							Consider="true" GUID="10395"
+							Name="Предоставление субсидий из федерального бюджета бюджетам субъектов Российской Федерации на содержание детей в семьях опекунов (попечителей) и приемных семьях, а также на вознаграждение, причитающееся приемному родителю"
+							Number="3" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Левитская А А" />
+					</Task>
+					<Task Code="2769" Consider="true" GUID="2769"
+						Name="Обеспечение предоставления социальных услуг семьям с детьми и оздоровления детей, находящихся в трудной жизненной ситуации"
+						Napr="Задачи" resp="Минздравсоцразвития России">
+						<Action AntiKr="" Cause1="" Cause2="" Code="10396"
+							Consider="true" GUID="10396"
+							Name="Оснащение автотранспортом и оборудованием учреждений социального обслуживания семьи и детей в рамках программы ФЦП «Дети России» 2007 – 2010 годы"
+							Number="1" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2010-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Самарина Ольга Викторовна" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10397"
+							Consider="true" GUID="10397"
+							Name="Строительство и реконструкция учреждений социального обслуживания семьи и детей в рамках ФЦП &quot;Дети России&quot;"
+							Number="2" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2010-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Самарина Ольга Викторовна" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10398"
+							Consider="true" GUID="10398"
+							Name="Обеспечение учреждений социального обслуживания семьи и детей новыми технологиями и формами социальной работы с семьями и детьми, в том числе оказавшимися в трудной жизненной ситуации в рамках ФЦП &quot;Дети России&quot;"
+							Number="3" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2010-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Самарина Ольга Викторовна" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10399"
+							Consider="true" GUID="10399"
+							Name="Обеспечение отдыха и оздоровления детей, проведение фестивалей и спартакиад детей, оказавшихся в трудной жизненной ситуации в рамках ФЦП &quot;Дети России&quot;"
+							Number="4" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2010-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Самарина Ольга Викторовна" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10400"
+							Consider="true" GUID="10400"
+							Name="Содействие субъектам Российской Федерации в организации отдыха и оздоровления детей, оказавшихся в трудной жизненной ситуации"
+							Number="5" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Самарина Ольга Викторовна" />
+						<Action AntiKr="" Cause1="" Cause2="" Code="10401"
+							Consider="true" GUID="10401"
+							Name="Развитие системы социального обслуживания семьи и детей"
+							Number="6" Pok1="2011-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+							Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" Pok8="" Pok9="" resp="Самарина Ольга Викторовна" />
+					</Task>
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<status>статус отсутствует</status>
+						<Num_table>3</Num_table>
+						<Nazn> ac (20.08.2010) -&gt; minzdrav (15.08.2010) -&gt; fmba
+							(10.08.2010) </Nazn>
+						<ProjectName>Поддержка социально незащищенных групп населения
+						</ProjectName>
+						<PriorDir> Совершенствование системы социальных выплат и
+							социальных услуг </PriorDir>
+						<Task Consider="true"> Повышение адресной направленности социальных
+							выплат </Task>
+						<ActionSuperviser>Минздравсоцразвития России</ActionSuperviser>
+						<Responsible>Минздравсоцразвития России</Responsible>
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype />
+						<Period>2010, январь-июль</Period>
+					</Info>
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7141"
+						Name="Подготовка законодательного решения по совершенствованию механизма индексации социальных выплат"
+						Number="1" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2010-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Самарина Ольга Викторовна, директор Департамента" />
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7142"
+						Name="Разработка нормативных правовых решений по выплате социальных доплат к пенсии"
+						Number="2" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2010-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Самарина Ольга Викторовна, директор Департамента" />
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7143"
+						Name="Организация обеспечения социальных выплат отдельным незащищенным категориям граждан в порядке исполнения федеральных публичных обязательств в целях их адресной социальной поддержки"
+						Number="3" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Самарина Ольга Викторовна, директор Департамента">
+						<Fin KBK="09211055050704002" Number="" Pok1="0.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050801004" Number="" Pok1="1348.8000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050602004" Number="" Pok1="544.2000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="05511044900400017" Number="" Pok1="2120.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="38810035056400005" Number="" Pok1="972.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050104002" Number="" Pok1="25.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055051201004" Number="" Pok1="645.2000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050702004" Number="" Pok1="459.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="15010035050105005" Number="" Pok1="9335.7000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050703002" Number="" Pok1="3.5000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050802004" Number="" Pok1="51.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050604002" Number="" Pok1="0.0100" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="15010035050705005" Number="" Pok1="73.9000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="05511035051900009" Number="" Pok1="1976.6000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050102004" Number="" Pok1="10648.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050902004" Number="" Pok1="28.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="38810035051800005" Number="" Pok1="700.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050901004" Number="" Pok1="893.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055051101004" Number="" Pok1="10490.1000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050103002" Number="" Pok1="1166.9000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050300004" Number="" Pok1="23180.5000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050401004" Number="" Pok1="70855.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050202004" Number="" Pok1="259041.8000"
+							Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="09211055053800004" Number="" Pok1="10138.0000" Pok2=""
+							Pok3="" Pok4="" />
+					</Action>
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7144"
+						Name="Внедрение системы социальных контрактов при предоставлении адресной социальной помощи бедным семьям"
+						Number="4" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Колбанов Виталий Федорович, Директор Департамента анализа и прогноза развития здравоохранения и социально-трудовой сферы" />
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>3</Num_table>
+						<Nazn> ac (20.08.2010) -&gt; minzdrav (15.08.2010) -&gt; fmba
+							(10.08.2010) </Nazn>
+						<ProjectName>Поддержка социально незащищенных групп населения
+						</ProjectName>
+						<PriorDir> Совершенствование системы социальных выплат и
+							социальных услуг </PriorDir>
+						<Task Consider="true"> Повышение адресной направленности социальных
+							выплат </Task>
+						<ActionSuperviser>Минздравсоцразвития России</ActionSuperviser>
+						<Responsible>Минздравсоцразвития России</Responsible>
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype />
+						<Period>2010, январь-июль</Period>
+						<status>статус отсутствует</status>
+					</Info>
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7141"
+						Name="Подготовка законодательного решения по совершенствованию механизма индексации социальных выплат"
+						Number="1" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2010-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Самарина Ольга Викторовна, директор Департамента" />
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7142"
+						Name="Разработка нормативных правовых решений по выплате социальных доплат к пенсии"
+						Number="2" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2010-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Самарина Ольга Викторовна, директор Департамента" />
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7143"
+						Name="Организация обеспечения социальных выплат отдельным незащищенным категориям граждан в порядке исполнения федеральных публичных обязательств в целях их адресной социальной поддержки"
+						Number="3" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Самарина Ольга Викторовна, директор Департамента">
+						<Fin KBK="09211055050704002" Number="" Pok1="0.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050801004" Number="" Pok1="1348.8000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050602004" Number="" Pok1="544.2000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="05511044900400017" Number="" Pok1="2120.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="38810035056400005" Number="" Pok1="972.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050104002" Number="" Pok1="25.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055051201004" Number="" Pok1="645.2000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050702004" Number="" Pok1="459.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="15010035050105005" Number="" Pok1="9335.7000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050703002" Number="" Pok1="3.5000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050802004" Number="" Pok1="51.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050604002" Number="" Pok1="0.0100" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="15010035050705005" Number="" Pok1="73.9000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="05511035051900009" Number="" Pok1="1976.6000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050102004" Number="" Pok1="10648.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050902004" Number="" Pok1="28.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="38810035051800005" Number="" Pok1="700.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050901004" Number="" Pok1="893.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055051101004" Number="" Pok1="10490.1000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050103002" Number="" Pok1="1166.9000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050300004" Number="" Pok1="23180.5000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050401004" Number="" Pok1="70855.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050202004" Number="" Pok1="259041.8000"
+							Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="09211055053800004" Number="" Pok1="10138.0000" Pok2=""
+							Pok3="" Pok4="" />
+					</Action>
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7144"
+						Name="Внедрение системы социальных контрактов при предоставлении адресной социальной помощи бедным семьям"
+						Number="4" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Колбанов Виталий Федорович, Директор Департамента анализа и прогноза развития здравоохранения и социально-трудовой сферы" />
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>3</Num_table>
+						<Nazn> ac (20.08.2010) -&gt; minzdrav (15.08.2010) -&gt; fmba
+							(10.08.2010) </Nazn>
+						<ProjectName>Поддержка социально незащищенных групп населения
+						</ProjectName>
+						<PriorDir> Совершенствование системы социальных выплат и
+							социальных услуг </PriorDir>
+						<Task Consider="true"> Повышение адресной направленности социальных
+							выплат </Task>
+						<ActionSuperviser>Минздравсоцразвития России</ActionSuperviser>
+						<Responsible>Минздравсоцразвития России</Responsible>
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype />
+						<Period>2010, январь-июль</Period>
+						<status>статус отсутствует</status>
+					</Info>
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7141"
+						Name="Подготовка законодательного решения по совершенствованию механизма индексации социальных выплат"
+						Number="1" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2010-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Самарина Ольга Викторовна, директор Департамента" />
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7142"
+						Name="Разработка нормативных правовых решений по выплате социальных доплат к пенсии"
+						Number="2" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2010-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Самарина Ольга Викторовна, директор Департамента" />
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7143"
+						Name="Организация обеспечения социальных выплат отдельным незащищенным категориям граждан в порядке исполнения федеральных публичных обязательств в целях их адресной социальной поддержки"
+						Number="3" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Самарина Ольга Викторовна, директор Департамента">
+						<Fin KBK="09211055050704002" Number="" Pok1="0.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050801004" Number="" Pok1="1348.8000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050602004" Number="" Pok1="544.2000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="05511044900400017" Number="" Pok1="2120.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="38810035056400005" Number="" Pok1="972.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050104002" Number="" Pok1="25.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055051201004" Number="" Pok1="645.2000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050702004" Number="" Pok1="459.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="15010035050105005" Number="" Pok1="9335.7000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050703002" Number="" Pok1="3.5000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050802004" Number="" Pok1="51.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050604002" Number="" Pok1="0.0100" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="15010035050705005" Number="" Pok1="73.9000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="05511035051900009" Number="" Pok1="1976.6000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050102004" Number="" Pok1="10648.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050902004" Number="" Pok1="28.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="38810035051800005" Number="" Pok1="700.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050901004" Number="" Pok1="893.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055051101004" Number="" Pok1="10490.1000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050103002" Number="" Pok1="1166.9000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050300004" Number="" Pok1="23180.5000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050401004" Number="" Pok1="70855.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050202004" Number="" Pok1="259041.8000"
+							Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="09211055053800004" Number="" Pok1="10138.0000" Pok2=""
+							Pok3="" Pok4="" />
+					</Action>
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7144"
+						Name="Внедрение системы социальных контрактов при предоставлении адресной социальной помощи бедным семьям"
+						Number="4" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Колбанов Виталий Федорович, Директор Департамента анализа и прогноза развития здравоохранения и социально-трудовой сферы" />
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>3</Num_table>
+						<Nazn> ac (20.08.2010) -&gt; minzdrav (15.08.2010) -&gt; fmba
+							(10.08.2010) </Nazn>
+						<ProjectName>Поддержка социально незащищенных групп населения
+						</ProjectName>
+						<PriorDir> Совершенствование системы социальных выплат и
+							социальных услуг </PriorDir>
+						<Task Consider="true"> Повышение адресной направленности социальных
+							выплат </Task>
+						<ActionSuperviser>Минздравсоцразвития России</ActionSuperviser>
+						<Responsible>Минздравсоцразвития России</Responsible>
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype />
+						<Period>2010, январь-июль</Period>
+						<status>статус отсутствует</status>
+					</Info>
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7141"
+						Name="Подготовка законодательного решения по совершенствованию механизма индексации социальных выплат"
+						Number="1" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2010-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Самарина Ольга Викторовна, директор Департамента" />
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7142"
+						Name="Разработка нормативных правовых решений по выплате социальных доплат к пенсии"
+						Number="2" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2010-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Самарина Ольга Викторовна, директор Департамента" />
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7143"
+						Name="Организация обеспечения социальных выплат отдельным незащищенным категориям граждан в порядке исполнения федеральных публичных обязательств в целях их адресной социальной поддержки"
+						Number="3" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Самарина Ольга Викторовна, директор Департамента">
+						<Fin KBK="09211055050704002" Number="" Pok1="0.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050801004" Number="" Pok1="1348.8000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050602004" Number="" Pok1="544.2000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="05511044900400017" Number="" Pok1="2120.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="38810035056400005" Number="" Pok1="972.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050104002" Number="" Pok1="25.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055051201004" Number="" Pok1="645.2000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050702004" Number="" Pok1="459.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="15010035050105005" Number="" Pok1="9335.7000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050703002" Number="" Pok1="3.5000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050802004" Number="" Pok1="51.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050604002" Number="" Pok1="0.0100" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="15010035050705005" Number="" Pok1="73.9000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="05511035051900009" Number="" Pok1="1976.6000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050102004" Number="" Pok1="10648.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050902004" Number="" Pok1="28.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="38810035051800005" Number="" Pok1="700.0000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050901004" Number="" Pok1="893.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055051101004" Number="" Pok1="10490.1000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050103002" Number="" Pok1="1166.9000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050300004" Number="" Pok1="23180.5000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050401004" Number="" Pok1="70855.3000" Pok2=""
+							Pok3="" Pok4="" />
+						<Fin KBK="09211055050202004" Number="" Pok1="259041.8000"
+							Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="09211055053800004" Number="" Pok1="10138.0000" Pok2=""
+							Pok3="" Pok4="" />
+					</Action>
+					<Action Consider="true" Cause1="rr" Cause2="ghhg" Code="7144"
+						Name="Внедрение системы социальных контрактов при предоставлении адресной социальной помощи бедным семьям"
+						Number="4" Pok1="2009-01-01" Pok10="" Pok11="" Pok12="" Pok13=""
+						Pok14="" Pok15="" Pok2="2012-12-31" Pok3="" Pok4="" Pok5="" Pok6=""
+						Pok7="" Pok8="" Pok9=""
+						resp="Минздравсоцразвития России, Колбанов Виталий Федорович, Директор Департамента анализа и прогноза развития здравоохранения и социально-трудовой сферы" />
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag>0</Flag>
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>2.1</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir />
+						<Task Consider="true">Обеспечение деятельности Бюро
+							медико-социальной
+							экспертной комиссии</Task>
+						<Objective> Улучшение взаимодействия служб</Objective>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype>superadministrator</Usertype>
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+						<status>статус отсутствует</status>
+					</Info>
+					<Objective>
+						<Indicator Code="" Name="Индикатор 4441" Number="1"
+							Pok8="1Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения"
+							Pok9="2"
+							Rem="3Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения" />
+						<Indicator Code="" Name="Индикатор 65872" Number="2"
+							Pok8="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения"
+							Pok9=""
+							Rem="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения" />
+						<Indicator Code="" Name="Индикатор 683" Number="3"
+							Pok8="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения"
+							Pok9=""
+							Rem="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения" />
+					</Objective>
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag>0</Flag>
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>2.1</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir />
+						<Task Consider="true">Повышение адресной направленности социальных
+							выплат</Task>
+						<Objective> Улучшение взаимодействия служб</Objective>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype>superadministrator</Usertype>
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+						<status>статус отсутствует</status>
+					</Info>
+					<Objective>
+						<Indicator Code="" Name="Индикатор 1" Number="1"
+							Pok8="1Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения"
+							Pok9="2"
+							Rem="3Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения" />
+						<Indicator Code="" Name="Индикатор 2" Number="2"
+							Pok8="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения"
+							Pok9=""
+							Rem="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения" />
+						<Indicator Code="" Name="Индикатор 3" Number="3"
+							Pok8="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения"
+							Pok9=""
+							Rem="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения" />
+					</Objective>
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag>0</Flag>
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>2.1</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir />
+						<Task Consider="true">Повышение адресной направленности социальных
+							выплат</Task>
+						<Objective> Разработка технического регламента и национальных
+							стандартов на
+							реабилитационные мероприятия, технические средства реабилитации и
+							услуги, предоставляемые инвалиду за счет средств федерального
+							бюджета</Objective>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype>superadministrator</Usertype>
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+						<status>статус отсутствует</status>
+					</Info>
+					<Objective>
+						<Indicator Code="" Name="Чай 1" Number="1"
+							Pok8="1Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения"
+							Pok9="2"
+							Rem="3Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения" />
+						<Indicator Code="" Name="Чай 2" Number="2"
+							Pok8="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения"
+							Pok9=""
+							Rem="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения" />
+						<Indicator Code="" Name="Чай 3" Number="3"
+							Pok8="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения"
+							Pok9=""
+							Rem="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения" />
+					</Objective>
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag>0</Flag>
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>2.1</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir />
+						<Task Consider="true">Повышение адресной направленности социальных
+							выплат</Task>
+						<Objective> Улучшение взаимодействия служб</Objective>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype>superadministrator</Usertype>
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+						<status>статус отсутствует</status>
+					</Info>
+					<Objective>
+						<Indicator Code="" Name="Индюка 1" Number="1"
+							Pok8="1Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения"
+							Pok9="2"
+							Rem="3Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения" />
+						<Indicator Code="" Name="Индюк 2" Number="2"
+							Pok8="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения"
+							Pok9=""
+							Rem="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения" />
+						<Indicator Code="" Name="Индюк 3" Number="3"
+							Pok8="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения"
+							Pok9=""
+							Rem="Разработка методических рекомендаций по планированию, организации и бюджетированию социального обслуживания населения" />
+					</Objective>
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>2.2</Num_table>
+						<status />
+						<transition />
+						<Executor />
+						<Date />
+						<PriorDir>Задачи </PriorDir>
+						<Task Consider="" GUID=""> Исполнение публичных обязательств по
+							государственной поддержке семей, имеющих детей </Task>
+						<Responsible />
+					</Info>
+					<Task GUID="2766">
+						<Indicator Code="7171.0000" Consider="true" GUID="7171.0000"
+							Name="Размер индексации пособий семьям, имеющим детей (к предыдущему году)"
+							Number="1" Pok8="1.1000" Pok9="" Rem="" />
+					</Task>
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>2.2</Num_table>
+						<status />
+						<transition />
+						<Executor />
+						<Date />
+						<PriorDir>Задачи </PriorDir>
+						<Task Consider="" GUID=""> Обеспечение предоставления социальных
+							услуг
+							семьям с детьми и оздоровления детей, находящихся в трудной жизненной
+							ситуации </Task>
+						<Responsible />
+					</Info>
+					<Task GUID="2769">
+						<Indicator Code="7175.0000" Consider="true" GUID="7175.0000"
+							Name="Удельный вес детей, находящихся в трудной жизненной ситуации, охваченных всеми формами отдыха и оздоровления (за счет средств федерального бюджета), в общей численности детского населения"
+							Number="1" Pok8="1.6000" Pok9="" Rem="" />
+						<Indicator Code="7176.0000" Consider="true" GUID="7176.0000"
+							Name="Удельный вес семей с детьми-инвалидами , получивших услуги в специализированных учреждениях для детей с ограниченными возможностями в общем количестве нуждающихся в услугах семей с детьми-инвалидами"
+							Number="2" Pok8="25.2000" Pok9="" Rem="" />
+					</Task>
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>2.2</Num_table>
+						<status />
+						<transition />
+						<Executor />
+						<Date />
+						<PriorDir>Задачи </PriorDir>
+						<Task Consider="" GUID="">Повышение статуса семьи с детьми
+						</Task>
+						<Responsible />
+					</Info>
+					<Task GUID="2767">
+						<Indicator Code="7172.0000" Consider="true" GUID="7172.0000"
+							Name="Число рожденных детей" Number="1" Pok8="1770.0000" Pok9=""
+							Rem="" />
+						<Indicator Code="7173.0000" Consider="true" GUID="7173.0000"
+							Name="Доля детей сирот и детей, оставшихся без попечения родителей, переданных на воспитание в семьи, в общем количестве детей-сирот и детей, оставшихся без попечения родителей"
+							Number="2" Pok8="72.5000" Pok9="" Rem="" />
+					</Task>
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>2.2</Num_table>
+						<status />
+						<transition />
+						<Executor />
+						<Date />
+						<PriorDir>Задачи </PriorDir>
+						<Task Consider="true" GUID=""> Профилактика семейного
+							неблагополучия,
+							беспризорности и безнадзорности, социального сиротства </Task>
+						<Responsible />
+					</Info>
+					<Task GUID="2768">
+						<Indicator Code="7174.0000" Consider="true" GUID="7174.0000"
+							Name="Численность безнадзоных и беспризорных детей, состоящих на учете в учреждениях социального обслуживания семьи и детей"
+							Number="1" Pok8="262.4000" Pok9="" Rem="" />
+					</Task>
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>4</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>ФМБА России, Уйба Валентин Викторович, руководитель
+						</PriorDir>
+						<Task Consider="true">Разработка административных регламентов
+							социального
+							обслуживания населения</Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype />
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+						<status>статус отсутствует</status>
+					</Info>
+					<Action Consider="true" Code="" Name="123" Number="1" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="rrrrrrrrrrrrrrrrrrrrrr"
+						Pok8="cроки реализации" Pok9="средняя" resp="">
+						<Keypoint Code="" Name="123" Number="1" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="321" Number="2" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="333" Number="3" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Fin KBK="555" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="444" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="333" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="2" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="rrrrrrrrrrrrrrrrrrrrrrrrrrr"
+						Pok8="результаты реализации" Pok9="сильная" resp="" />
+					<Action Consider="true" Code="" Name="321" Number="3" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="gggggggggggggggggggg"
+						Pok8="финансирование по задачам проекта и по проекту" Pok9="слабая"
+						resp="" />
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>4</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>ФМБА России, Уйба Валентин Викторович, руководитель
+						</PriorDir>
+						<Task Consider="true">Организация предоставления субсидий из
+							федерального
+							бюджета общероссийским общественным организациям инвалидов</Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype />
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+						<status>статус отсутствует</status>
+					</Info>
+					<Action Consider="true" Code="" Name="123" Number="1" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="rrrrrrrrrrrrrrrrrrrrrr"
+						Pok8="cроки реализации" Pok9="средняя" resp="">
+						<Keypoint Code="" Name="123" Number="1" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="321" Number="2" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="333" Number="3" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Fin KBK="555" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="444" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="333" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="2" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="rrrrrrrrrrrrrrrrrrrrrrrrrrr"
+						Pok8="результаты реализации" Pok9="сильная" resp="" />
+					<Action Consider="true" Code="" Name="321" Number="3" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="gggggggggggggggggggg"
+						Pok8="финансирование по задачам проекта и по проекту" Pok9="слабая"
+						resp="" />
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>4</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>Организация предоставления субсидий из федерального
+							бюджета
+							общероссийским общественным организациям инвалидов</PriorDir>
+						<Task Consider="true">Организация предоставления субсидий из
+							федерального
+							бюджета общероссийским общественным организациям инвалидов</Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype />
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+						<status>статус отсутствует</status>
+					</Info>
+					<Action Consider="true" Code="" Name="123" Number="1" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="rrrrrrrrrrrrrrrrrrrrrr"
+						Pok8="cроки реализации" Pok9="средняя" resp="">
+						<Keypoint Code="" Name="123" Number="1" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="321" Number="2" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="333" Number="3" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Fin KBK="555" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="444" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="333" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="2" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="rrrrrrrrrrrrrrrrrrrrrrrrrrr"
+						Pok8="результаты реализации" Pok9="сильная" resp="" />
+					<Action Consider="true" Code="" Name="321" Number="3" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="gggggggggggggggggggg"
+						Pok8="финансирование по задачам проекта и по проекту" Pok9="слабая"
+						resp="" />
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>4</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>ФМБА России, Уйба Валентин Викторович, руководитель
+						</PriorDir>
+						<Task Consider="true">Разработка административных регламентов
+							социального
+							обслуживания населения</Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype />
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+						<status>статус отсутствует</status>
+					</Info>
+					<Action Consider="true" Code="" Name="123" Number="1" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="rrrrrrrrrrrrrrrrrrrrrr"
+						Pok8="cроки реализации" Pok9="средняя" resp="">
+						<Keypoint Code="" Name="123" Number="1" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="321" Number="2" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="333" Number="3" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Fin KBK="555" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="444" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="333" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="2" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="rrrrrrrrrrrrrrrrrrrrrrrrrrr"
+						Pok8="результаты реализации" Pok9="сильная" resp="" />
+					<Action Consider="true" Code="" Name="321" Number="3" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="gggggggggggggggggggg"
+						Pok8="финансирование по задачам проекта и по проекту" Pok9="слабая"
+						resp="" />
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>5</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>Кофе</PriorDir>
+						<Task Consider="true">Лимон</Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName />
+						<Userisp />
+						<Usertype />
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+						<status>статус отсутствует</status>
+					</Info>
+					<Action Consider="true" Code="" Name="123" Number="1" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Keypoint Cause1="" Cause2="" Code="1111" Consider=""
+							Name="" Number="1" Pok1="" Pok2="" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" />
+						<Keypoint Cause1="" Cause2="" Code="2222" Consider=""
+							Name="Организация исполнения бюджетных обязательств по выплате инвалидам, имеющим транспортные средства по установленным медицинским показаниям, компенсаций страховых премий по договорам ОСАГО"
+							Number="2" Pok1="2010-09-21" Pok2="" Pok3="" Pok4="" Pok5="средняя"
+							Pok6="" Pok7="" />
+						<Keypoint Cause1="" Cause2="" Code="3333" Consider=""
+							Name="333" Number="3" Pok1="" Pok2="" Pok3="" Pok4="" Pok5="отсутствует"
+							Pok6="" Pok7="" />
+						<Fin KBK="555" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="444" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="333" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="2" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Keypoint Cause1="" Cause2="" Code="4444" Consider=""
+							Name="444Организация исполнения бюджетных обязательств по выплате инвалидам, имеющим транспортные средства по установленным медицинским показаниям, компенсаций страховых премий по договорам ОСАГО"
+							Number="1" Pok1="2010-09-14" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="3" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Keypoint Cause1="" Cause2="" Code="5555" Consider=""
+							Name="Организация исполнения бюджетных обязательств по выплате инвалидам, имеющим транспортные средства по установленным медицинским показаниям, компенсаций страховых премий по договорам ОСАГО"
+							Number="1" Pok1="2010-09-07" Pok2="" Pok3="" Pok4="" Pok5="сильная"
+							Pok6="" Pok7="" />
+					</Action>
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>5</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>Кофе</PriorDir>
+						<Task Consider="true">Молоко</Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName />
+						<Userisp />
+						<Usertype />
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+						<status>статус отсутствует</status>
+					</Info>
+					<Action Consider="true" Code="" Name="123" Number="10" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Keypoint Cause1="" Cause2="" Code="1111" Consider=""
+							Name="" Number="1" Pok1="" Pok2="" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" />
+						<Keypoint Cause1="" Cause2="" Code="2222" Consider=""
+							Name="Организация исполнения бюджетных обязательств по выплате инвалидам, имеющим транспортные средства по установленным медицинским показаниям, компенсаций страховых премий по договорам ОСАГО"
+							Number="2" Pok1="2010-09-21" Pok2="" Pok3="" Pok4="" Pok5="средняя"
+							Pok6="" Pok7="" />
+						<Keypoint Cause1="" Cause2="" Code="3333" Consider=""
+							Name="333" Number="3" Pok1="" Pok2="" Pok3="" Pok4="" Pok5="отсутствует"
+							Pok6="" Pok7="" />
+						<Fin KBK="555" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="444" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="333" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="2" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Keypoint Cause1="" Cause2="" Code="4444" Consider=""
+							Name="444Организация исполнения бюджетных обязательств по выплате инвалидам, имеющим транспортные средства по установленным медицинским показаниям, компенсаций страховых премий по договорам ОСАГО"
+							Number="1" Pok1="2010-09-14" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="3" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Keypoint Cause1="" Cause2="" Code="5555" Consider=""
+							Name="Организация исполнения бюджетных обязательств по выплате инвалидам, имеющим транспортные средства по установленным медицинским показаниям, компенсаций страховых премий по договорам ОСАГО"
+							Number="1" Pok1="2010-09-07" Pok2="" Pok3="" Pok4="" Pok5="сильная"
+							Pok6="" Pok7="" />
+					</Action>
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>5</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>Чай</PriorDir>
+						<Task Consider="true">Молоко</Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName />
+						<Userisp />
+						<Usertype />
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+						<status>статус отсутствует</status>
+					</Info>
+					<Action Consider="true" Code="" Name="123" Number="1" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Keypoint Cause1="" Cause2="" Code="1111" Consider=""
+							Name="" Number="1" Pok1="" Pok2="" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" />
+						<Keypoint Cause1="" Cause2="" Code="2222" Consider=""
+							Name="Организааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааапппппппппппппппппппппыуввввввввволнения бюджетных обязательств по выплате инвалидам, имеющим транспортные средства по установленным медицинским показаниям, компенсаций страховых премий по договорам ОСАГО"
+							Number="2" Pok1="2010-09-21" Pok2="" Pok3="" Pok4="" Pok5="средняя"
+							Pok6="" Pok7="" />
+						<Keypoint Cause1="" Cause2="" Code="3333" Consider=""
+							Name="333" Number="3" Pok1="" Pok2="" Pok3="" Pok4="" Pok5="отсутствует"
+							Pok6="" Pok7="" />
+						<Fin KBK="555" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="444" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="333" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="2" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Keypoint Cause1="" Cause2="" Code="4444" Consider=""
+							Name="444Организуууууууууууууууууууууууууьств по выплате инвалидам, имеющим транспортные средства по установленным медицинским показаниям, компенсаций страховых премий по договорам ОСАГО"
+							Number="1" Pok1="2010-09-14" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="3" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Keypoint Cause1="" Cause2="" Code="5555" Consider=""
+							Name="Организация исполнения бюджетных обязательств по выплате инвалидам, имеющим транспортные средства по установленным медицинским показаниям, компенсаций страховых премий по договорам ОСАГО"
+							Number="1" Pok1="2010-09-07" Pok2="" Pok3="" Pok4="" Pok5="сильная"
+							Pok6="" Pok7="" />
+					</Action>
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>5</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>Кофе</PriorDir>
+						<Task Consider="true">Гречка</Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName />
+						<Userisp />
+						<Usertype />
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+						<status>статус отсутствует</status>
+					</Info>
+					<Action Consider="true" Code="" Name="123" Number="10" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="guig">
+						<Keypoint Cause1="" Cause2="" Code="1111" Consider=""
+							Name="" Number="1" Pok1="" Pok2="" Pok3="" Pok4="" Pok5="" Pok6=""
+							Pok7="" />
+						<Keypoint Cause1="" Cause2="" Code="2222" Consider=""
+							Name="ппппппп5555555бюджетных обязательств по выплате инвалидам, имеющим транспортные средства по установленным медицинским показаниям, компенсаций страховых премий по договорам ОСАГО"
+							Number="2" Pok1="2010-09-21" Pok2="" Pok3="" Pok4="" Pok5="средняя"
+							Pok6="" Pok7="" />
+						<Keypoint Cause1="" Cause2="" Code="3333" Consider=""
+							Name="333" Number="3" Pok1="" Pok2="" Pok3="" Pok4="" Pok5="отсутствует"
+							Pok6="" Pok7="" />
+						<Fin KBK="555" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="444" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+						<Fin KBK="333" Number="" Pok1="" Pok2="" Pok3="" Pok4="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="2" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Keypoint Cause1="" Cause2="" Code="4444" Consider=""
+							Name="444Организацеееееееееееееееееия исполнения бюджетных обязательств по выплате инвалидам, имеющим транспортные средства по установленным медицинским показаниям, компенсаций страховых премий по договорам ОСАГО"
+							Number="1" Pok1="2010-09-14" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="3" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Keypoint Cause1="" Cause2="" Code="5555" Consider=""
+							Name="я исполнения бюджетных обязательств по выплате инвалидам, имеющим транспортные средства по установленным медицинским показаниям, компенсаций страховых премий по договорам ОСАГО"
+							Number="1" Pok1="2010-09-07" Pok2="" Pok3="" Pok4="" Pok5="сильная"
+							Pok6="" Pok7="" />
+					</Action>
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag>0</Flag>
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>6</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>Макар</PriorDir>
+						<Task Consider="true"> Дед </Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype>superadministrator</Usertype>
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+					</Info>
+					<Action Consider="true" Code="7"
+						Name="ррррррррррррррррррррррррррррррр" Number="1" Pok1="" Pok10=""
+						Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2="" Pok3="" Pok4=""
+						Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Fin KBK_GRBS="1" KBK_podrazdel="3" KBK_rashod="5" KBK_razdel="2"
+							KBK_statya="4" Number="" Pok1="6" Pok2="8" Pok3="9" Pok4="10"
+							Pok5="11" Pok6="12" Pok7="13" Rem="dsdssd" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="2" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Fin KBK_GRBS="1" KBK_podrazdel="3" KBK_rashod="5" KBK_razdel="2"
+							KBK_statya="4" Number="" Pok1="6" Pok2="8" Pok3="9" Pok4="10"
+							Pok5="11" Pok6="12" Pok7="13" Rem="dsdssd" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="3" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Fin KBK_GRBS="1" KBK_podrazdel="3" KBK_rashod="5" KBK_razdel="2"
+							KBK_statya="4" Number="" Pok1="6" Pok2="8" Pok3="9" Pok4="10"
+							Pok5="11" Pok6="12" Pok7="13" Rem="dsdssd" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem="" />
+					</Action>
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag>0</Flag>
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>6</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>Макар</PriorDir>
+
+						<Task Consider="true"> Лодка </Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype>superadministrator</Usertype>
+						<Period>2010, июнь</Period>
+
+						<History>
+							<Rec />
+						</History>
+					</Info>
+
+					<Action Consider="true" Code="7"
+						Name="ррррррррррррррррррррррррррррррр" Number="10" Pok1="" Pok10=""
+						Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2="" Pok3="" Pok4=""
+						Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Fin KBK_GRBS="1" KBK_podrazdel="3" KBK_rashod="5" KBK_razdel="2"
+							KBK_statya="4" Number="" Pok1="6" Pok2="8" Pok3="9" Pok4="10"
+							Pok5="11" Pok6="12" Pok7="13" Rem="dsdssd" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="2" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="" />
+					<Action Consider="true" Code="" Name="321" Number="3" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="" />
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+
+					<Temp>
+						<Flag>0</Flag>
+						<Error />
+					</Temp>
+
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+
+					<Info>
+						<Num_table>6</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>Одуванчик</PriorDir>
+
+						<Task Consider="true"> Лодка </Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype>superadministrator</Usertype>
+						<Period>2010, июнь</Period>
+
+						<History>
+							<Rec />
+						</History>
+					</Info>
+
+					<Action Consider="true" Code="7"
+						Name="ррррррррррррррррррррррррррррррр" Number="1" Pok1="" Pok10=""
+						Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2="" Pok3="" Pok4=""
+						Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Fin KBK_GRBS="1" KBK_podrazdel="3" KBK_rashod="5" KBK_razdel="2"
+							KBK_statya="4" Number="" Pok1="6" Pok2="8" Pok3="9" Pok4="10"
+							Pok5="11" Pok6="12" Pok7="13" Rem="dsdssd" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="2" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="" />
+					<Action Consider="true" Code="" Name="321" Number="3" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="" />
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+
+					<Temp>
+						<Flag>0</Flag>
+						<Error />
+					</Temp>
+
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+
+					<Info>
+						<Num_table>6</Num_table>
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>Сапсан</PriorDir>
+
+						<Task Consider="true"> Калоши </Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype>superadministrator</Usertype>
+						<Period>2010, июнь</Period>
+
+						<History>
+							<Rec />
+						</History>
+					</Info>
+
+					<Action Consider="true" Code="7"
+						Name="ррррррррррррррррррррррррррррррр" Number="1" Pok1="" Pok10=""
+						Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2="" Pok3="" Pok4=""
+						Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="">
+						<Fin KBK_GRBS="1" KBK_podrazdel="3" KBK_rashod="5" KBK_razdel="2"
+							KBK_statya="4" Number="" Pok1="6" Pok2="8" Pok3="9" Pok4="10"
+							Pok5="11" Pok6="12" Pok7="13" Rem="dsdssd" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem="" />
+					</Action>
+					<Action Consider="true" Code="" Name="321" Number="2" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="" />
+					<Action Consider="true" Code="" Name="321" Number="3" Pok1=""
+						Pok10="" Pok11="" Pok12="" Pok13="" Pok14="" Pok15="" Pok2=""
+						Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="" />
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag>0</Flag>
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>7</Num_table>
+						<status>статус отсутствует</status>
+						<transition />
+						<roleoimanager />
+						<roleacmanager />
+						<datefill />
+						<datecheck />
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>Приоритетное направление 1 </PriorDir>
+						<Task Consider="true">Повышение адресной направленности социальных
+							выплат</Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype>superadministrator</Usertype>
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+					</Info>
+					<Action Consider="true" AntiKr="" Code="" Name="1111111111111111"
+						Number="1" Pok1="" Pok10="" Pok11="" Pok12="" Pok13="bb" Pok14="cc"
+						Pok15="dd" Pok2="" Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8=""
+						Pok9="" resp="aa">
+						<Keypoint Code="" Name="123" Number="1" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="321" Number="2" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="333" Number="3" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem1="" Rem2="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem1="" Rem2="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem1="" Rem2="" />
+					</Action>
+					<Action Consider="true" AntiKr="" Code="" Name="321ппппппппппппп"
+						Number="2" Pok1="" Pok10="" Pok11="" Pok12="" Pok13="ннннннннннннннннннно"
+						Pok14="лллллллллллллллллл" Pok15="аеееееее" Pok2="" Pok3="" Pok4=""
+						Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="апппппппппппппппппппппп" />
+					<Action Consider="true" AntiKr="" Code=""
+						Name="321рррррррррррррррррррррррррррррррррррррррррррррр" Number="3"
+						Pok1="" Pok10="" Pok11="" Pok12="" Pok13="кееееееееееееее" Pok14="пппппппппп"
+						Pok15="ррррррррррррррррррррррррррррр" Pok2="" Pok3="" Pok4=""
+						Pok5="" Pok6="" Pok7="" Pok8="" Pok9=""
+						resp="ппппоооооооооооооооооооооооооооо" />
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag>0</Flag>
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>7</Num_table>
+						<status>статус отсутствует</status>
+						<transition />
+						<roleoimanager />
+						<roleacmanager />
+						<datefill />
+						<datecheck />
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>Приоритетное направление 1 </PriorDir>
+						<Task Consider="true">Уменьшение адресной направленности социальных
+							выплат</Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype>superadministrator</Usertype>
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+					</Info>
+					<Action Consider="true" AntiKr="" Code="" Name="1111111111111111"
+						Number="1" Pok1="" Pok10="" Pok11="" Pok12="" Pok13="bb" Pok14="cc"
+						Pok15="dd" Pok2="" Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8=""
+						Pok9="" resp="aa">
+						<Keypoint Code="" Name="123" Number="1" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="321" Number="2" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="333" Number="3" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem1="" Rem2="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem1="" Rem2="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem1="" Rem2="" />
+					</Action>
+					<Action Consider="true" AntiKr="" Code="" Name="321ппппппппппппп"
+						Number="2" Pok1="" Pok10="" Pok11="" Pok12="" Pok13="ннннннннннннннннннно"
+						Pok14="лллллллллллллллллл" Pok15="аеееееее" Pok2="" Pok3="" Pok4=""
+						Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="апппппппппппппппппппппп" />
+					<Action Consider="true" AntiKr="" Code=""
+						Name="321рррррррррррррррррррррррррррррррррррррррррррррр" Number="3"
+						Pok1="" Pok10="" Pok11="" Pok12="" Pok13="кееееееееееееее" Pok14="пппппппппп"
+						Pok15="ррррррррррррррррррррррррррррр" Pok2="" Pok3="" Pok4=""
+						Pok5="" Pok6="" Pok7="" Pok8="" Pok9=""
+						resp="ппппоооооооооооооооооооооооооооо" />
+				</Schema>
+
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag>0</Flag>
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>7</Num_table>
+						<status>статус отсутствует</status>
+						<transition />
+						<roleoimanager />
+						<roleacmanager />
+						<datefill />
+						<datecheck />
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>Приоритетное направление 2 </PriorDir>
+						<Task Consider="true">Повышение адресной направленности социальных
+							выплат</Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype>superadministrator</Usertype>
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+					</Info>
+					<Action Consider="true" AntiKr="" Code="" Name="1111111111111111"
+						Number="1" Pok1="" Pok10="" Pok11="" Pok12="" Pok13="bb" Pok14="cc"
+						Pok15="dd" Pok2="" Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8=""
+						Pok9="" resp="aa">
+						<Keypoint Code="" Name="123" Number="1" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="321" Number="2" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="333" Number="3" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem1="" Rem2="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem1="" Rem2="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem1="" Rem2="" />
+					</Action>
+					<Action Consider="true" AntiKr="" Code="" Name="321ппппппппппппп"
+						Number="2" Pok1="" Pok10="" Pok11="" Pok12="" Pok13="ннннннннннннннннннно"
+						Pok14="лллллллллллллллллл" Pok15="аеееееее" Pok2="" Pok3="" Pok4=""
+						Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="апппппппппппппппппппппп" />
+					<Action Consider="true" AntiKr="" Code=""
+						Name="321рррррррррррррррррррррррррррррррррррррррррррррр" Number="3"
+						Pok1="" Pok10="" Pok11="" Pok12="" Pok13="кееееееееееееее" Pok14="пппппппппп"
+						Pok15="ррррррррррррррррррррррррррррр" Pok2="" Pok3="" Pok4=""
+						Pok5="" Pok6="" Pok7="" Pok8="" Pok9=""
+						resp="ппппоооооооооооооооооооооооооооо" />
+				</Schema>
+			</document>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag>0</Flag>
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<Num_table>7</Num_table>
+						<status>статус отсутствует</status>
+						<transition />
+						<roleoimanager />
+						<roleacmanager />
+						<datefill />
+						<datecheck />
+						<Nazn>111</Nazn>
+						<ProjectName />
+						<PriorDir>Приоритетное направление 3 </PriorDir>
+						<Task Consider="true">Уменьшение адресной направленности социальных
+							выплат</Task>
+						<ActionSuperviser />
+						<Responsible />
+						<FIOisp />
+						<FIOuch />
+						<UserName>super</UserName>
+						<Userisp />
+						<Usertype>superadministrator</Usertype>
+						<Period>2010, июнь</Period>
+						<History>
+							<Rec />
+						</History>
+					</Info>
+					<Action Consider="true" AntiKr="" Code="" Name="1111111111111111"
+						Number="1" Pok1="" Pok10="" Pok11="" Pok12="" Pok13="bb" Pok14="cc"
+						Pok15="dd" Pok2="" Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" Pok8=""
+						Pok9="" resp="aa">
+						<Keypoint Code="" Name="123" Number="1" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="321" Number="2" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Keypoint Code="" Name="333" Number="3" Pok1="" Pok2=""
+							Pok3="" Pok4="" Pok5="" Pok6="" Pok7="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem1="" Rem2="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem1="" Rem2="" />
+						<Fin KBK_GRBS="555" KBK_podrazdel="" KBK_rashod="" KBK_razdel=""
+							KBK_statya="" Number="" Pok1="" Pok2="" Pok3="" Pok4="" Pok5=""
+							Pok6="" Pok7="" Rem1="" Rem2="" />
+					</Action>
+					<Action Consider="true" AntiKr="" Code="" Name="321ппппппппппппп"
+						Number="2" Pok1="" Pok10="" Pok11="" Pok12="" Pok13="ннннннннннннннннннно"
+						Pok14="лллллллллллллллллл" Pok15="аеееееее" Pok2="" Pok3="" Pok4=""
+						Pok5="" Pok6="" Pok7="" Pok8="" Pok9="" resp="апппппппппппппппппппппп" />
+					<Action Consider="true" AntiKr="" Code=""
+						Name="321рррррррррррррррррррррррррррррррррррррррррррррр" Number="3"
+						Pok1="" Pok10="" Pok11="" Pok12="" Pok13="кееееееееееееее" Pok14="пппппппппп"
+						Pok15="ррррррррррррррррррррррррррррр" Pok2="" Pok3="" Pok4=""
+						Pok5="" Pok6="" Pok7="" Pok8="" Pok9=""
+						resp="ппппоооооооооооооооооооооооооооо" />
+				</Schema>
+
+			</document>
+		</documentset>
+		<PriorDirs>
+			<PriorDir>Задачи </PriorDir>
+			<PriorDir>Задачи </PriorDir>
+			<PriorDir>Задачи </PriorDir>
+			<PriorDir>Задачи </PriorDir>
+		</PriorDirs>
+	</document>
+</documentset>

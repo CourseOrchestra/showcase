@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Системные вопросы">
+
+		<element id="settingsDevelopmentsFilter" type="xforms"
+			template="settingsDevelopmentsFilter.xml"
+			proc="ssmmd.xforms.settingsDevelopmentsFilter.cardData.celesta">
+		</element>
+
+		<element id="treeSGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.settingsDevelopSectionsGrid.treeGrid.celesta" hideOnLoad="true">
+			<proc id="toolbarSections"
+				name="ssmmd.grids.settingsDevelopSectionsGrid.gridToolBar.celesta" type="TOOLBAR"/>
+			<related id="settingsDevelopmentsFilter"/>
+		</element>
+		
+		<element id="developments_questions_report" type="xforms" neverShowInPanel="true"
+			template="developmentsQuestionsReport.xml"
+			proc="ssmmd.xforms.systemQuestionsReport.cardData.celesta">
+			<proc id="reportDownload"
+				name="ssmmd.xforms.systemQuestionsReport.createReport.celesta" type="DOWNLOAD"/>
+			<related id="treeSGrid"/>
+		</element>
+
+		<element id="treeQGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.settingsDevelopQuestGrid.treeGrid.celesta" hideOnLoad="true">
+			<proc id="toolbarNosologyDev"
+				name="ssmmd.grids.settingsDevelopQuestGrid.gridToolBar.celesta" type="TOOLBAR"/>
+			<related id="treeSGrid"/>
+		</element>
+
+		<element id="settingsDevelopQuest" type="xforms"
+			template="rulesTemplate.py"
+			proc="ssmmd.xforms.settingsDevelopQuest.cardData.celesta" hideOnLoad="true">
+			<proc id="settingsDevelopQuestSave"
+				name="ssmmd.xforms.settingsDevelopQuest.cardDataSave.celesta" type="SAVE"/>
+			<proc id="question_picture_upload"
+				name="ssmmd.xforms.settingsDevelopQuest.questionPictureUpload.celesta" type="UPLOAD"/>
+			<related id="treeSGrid"/>
+			<related id="treeQGrid"/>
+		</element>
+
+		<element id="settingsDevelopQuestDelete" type="xforms"
+			template="settingsDevelopQuestDelete.xml"
+			proc="ssmmd.xforms.settingsDevelopQuestDelete.cardData.celesta"
+			hideOnLoad="true">
+			<proc id="settingsDevelopQuestDeleteSave"
+				name="ssmmd.xforms.settingsDevelopQuestDelete.cardDataSave.celesta" type="SAVE"/>
+			<related id="treeQGrid"/>
+			<related id="treeSGrid"/>
+		</element>
+
+		<element id="moveRight" type="xforms" template="settingsDevelopQuestRight.xml"
+			proc="ssmmd.xforms.settingsDevelopQuestRight.cardData.celesta" hideOnLoad="true">
+			<proc id="savemove"
+				name="ssmmd.xforms.settingsDevelopQuestRight.moveRight.celesta" type="SAVE"/>
+			<related id="treeQGrid"/>
+		</element>
+
+	</tab>
+
+</datapanel>

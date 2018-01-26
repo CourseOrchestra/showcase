@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" 
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns="">
+					<data id="" name=""/>
+				</schema>
+			</xf:instance>
+
+			<xf:instance id="xformId_choiceInstance">
+				<schema xmlns="">
+					<choice>
+						<id/>
+						<name/>
+					</choice>
+				</schema>
+			</xf:instance>
+
+			<xf:bind>
+				<xf:bind readonly="instance('xformId_mainInstance')/data/@mainAdd = 'true'" nodeset="instance('xformId_mainInstance')/data/@isMain"/>
+				<xf:bind nodeset="instance('xformId_mainInstance')//*" 
+					readonly="if(instance('xformId_mainInstance')/data/readonly=1, true(), false())"/>
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@systemTreeName" />
+
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/choice/name"
+					readonly="instance('xformId_mainInstance')/data/@isSystem='true'"/>
+
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/@multipleChoice"
+					type="boolean" readonly="instance('xformId_mainInstance')/data/@isSystem='true'"/>
+
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@catalogName" />
+
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@extName"/>				
+
+
+				<xf:bind readonly="instance('xformId_mainInstance')/data/@isSystem = 'true'" nodeset="instance('xformId_mainInstance')/data/@name"/>				
+
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@attrTypeName"/>				
+
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@typeName"/>
+
+				<xf:bind readonly="instance('xformId_mainInstance')/data/@type = 'edit' and instance('xformId_mainInstance')/data/@isSystem = 'true'"
+				nodeset="instance('xformId_mainInstance')/data/@name" />
+
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/@branching" type="boolean"/>
+			</xf:bind>
+		</xf:model>
+	</head>
+
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/>   -->
+		<xf:group>
+			<xf:group ref="instance('xformId_mainInstance')/data[@type='add']">
+				<div class="selector">
+					<table>
+						<tr>
+							<td>
+								<div style="padding: 4px 0px 0px 3px; width: 350px; float: left;">
+									<xf:output ref="instance('xformId_mainInstance')/data/@parentName">
+										<xf:label>Родительский элемент:</xf:label>
+									</xf:output>
+								</div>
+							</td> 
+						</tr>
+					</table>
+				</div>
+			</xf:group>
+			<xf:group ref="instance('xformId_mainInstance')/data[@systemAdd='true']">
+				<div class="inputText" style="width: 214px; padding-left: 3px">
+					<xf:select1 ref="instance('xformId_mainInstance')/data/@addingSystem">
+						<xf:label>Способ ввода диагноза</xf:label>
+						<xf:item>
+							<xf:label>На основе системного диагноза</xf:label>
+							<xf:value>true</xf:value>
+						</xf:item>
+						<xf:item>
+							<xf:label>Ручной ввод</xf:label>
+							<xf:value>false</xf:value>
+						</xf:item>
+					</xf:select1>
+				</div>
+			</xf:group>
+			<xf:group ref="instance('xformId_mainInstance')/data[@addingSystem='false']">
+				<xf:group ref="instance('xformId_mainInstance')/data[@isExternal='false']">
+					<xf:group ref="instance('xformId_mainInstance')/data[@isAttribute='false']">
+						<div class="selector" style="clear: both">
+							<table>
+								<tr>
+									<td>
+										<xf:select1 ref="instance('xformId_mainInstance')/data/@isMain" appearance="minimal">
+											<xf:label> Тип заключения </xf:label>
+											<xf:item>
+												<xf:label>
+													<div>Основное</div>
+												</xf:label>
+												<xf:value>true</xf:value>
+											</xf:item>
+											<xf:item>
+												<xf:label>
+													<div>Промежуточное</div>
+												</xf:label>
+												<xf:value>false</xf:value>
+											</xf:item>									
+										</xf:select1>
+									</td> 
+								</tr>
+							</table>
+						</div>
+					</xf:group>
+					<xf:group ref="instance('xformId_mainInstance')/data[@isAttribute='true']">
+						<div class="selector" style="clear: both">
+							<table>
+								<tr>
+									<div>
+										<td>
+											<xf:group ref="instance('xformId_mainInstance')/data[@type='add' or @type ='edit']">
+												<div style="width: 350px; float: left;">
+													<xf:output class="author baseInput" ref="@typeName">
+														<xf:label>Тип:</xf:label>
+														<xf:action ev:event="xforms-value-changed">
+															<xf:setvalue ref="../@name" value=""/>
+															<xf:setvalue ref="../@id" value=""/>
+														</xf:action> 
+													</xf:output>
+												</div> 
+											</xf:group>
+										</td> 
+									</div>
+								</tr>
+							</table>
+						</div>
+						<div class="selector" style="clear: both">
+							<table>
+								<tr>
+									<div>
+										<td>
+											<xf:group ref="instance('xformId_mainInstance')/data[@type='add' or @type ='edit']">
+												<xf:group ref="instance('xformId_mainInstance')/data[@isSystem = 'false']">
+													<div style="width: 350px; float: left;">
+														<xf:input class="author baseInput" ref="@attrTypeName">
+															<xf:label>Тип атрибута</xf:label>
+															<!-- 							<xf:action ev:event="xforms-value-changed">
+													<xf:setvalue ref="../@name" value=""/>
+													<xf:setvalue ref="../@id" value=""/>
+												</xf:action>  -->
+														</xf:input>
+													</div>
+													<div style="color:red; float: left; padding-top: 20px; padding-left: 3px">*</div>
+
+													<xf:group ref="instance('xformId_mainInstance')/data[readonly = '0']">
+														<div style="float:left; padding-top: 20px">
+															<xf:selector buttonLabel="..."
+																		procListAndCount="'ssmmd.xforms.dependencyCard.typeListAndCount.celesta'"
+																		generalFilters="['XPath(instance(quot(xformId_mainInstance))/data/@parentId)']"
+																		currentValue="''" windowCaption="'Выбор типа атрибута'"
+																		xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@attrTypeId)' : 'id',
+																		'XPath(instance(quot(xformId_mainInstance))/data/@attrTypeName)' : 'name'}"/>
+														</div>
+														<div style="float:left; padding-top: 20px">
+															<xf:trigger >
+																<xf:label>X</xf:label>
+																<xf:action ev:event="DOMActivate">
+																	<xf:setvalue ref="instance('xformId_mainInstance')/data/@attrTypeName" value=""/>
+																	<xf:setvalue ref="instance('xformId_mainInstance')/data/@attrTypeId" value=""/>
+																</xf:action>
+															</xf:trigger>
+														</div>
+													</xf:group>
+												</xf:group>
+												<xf:group ref="instance('xformId_mainInstance')/data[@isSystem = 'true']">
+													<div style="width: 350px; float: left;">
+														<xf:input class="author baseInput" ref="@attrTypeName">
+															<xf:label>Тип атрибута</xf:label>
+															<!-- 							<xf:action ev:event="xforms-value-changed">
+														<xf:setvalue ref="../@name" value=""/>
+														<xf:setvalue ref="../@id" value=""/>
+													</xf:action>  -->
+														</xf:input>
+													</div>
+												</xf:group>
+											</xf:group>
+										</td> 
+									</div>
+								</tr>
+							</table>
+						</div>
+					</xf:group>
+					<xf:group ref="instance('xformId_mainInstance')/data">
+						<div class="control" style="width: 100%; float: left;clear:both; ">
+							<table>
+								<tr>
+									<td>
+										<div class="xforms-required" style="width: 415px; ">
+											<xf:input class="author baseInput" ref="instance('xformId_mainInstance')/data/@name">
+												<xf:label>Наименование:</xf:label>
+											</xf:input>
+										</div>
+
+									</td>
+								</tr>
+							</table>
+						</div>
+					</xf:group>
+					<xf:group ref="instance('xformId_mainInstance')/data[@attrTypeId='choice' or @attrTypeId='catalog']">
+						<div class="inputText">
+							<xf:input ref="instance('xformId_mainInstance')/data/@multipleChoice"/>
+							<xf:output value="'Множественный выбор'"/>
+						</div>
+					</xf:group>
+					<xf:group ref=".[@attrTypeId='choice']">
+						<xf:group ref=".[@isSystem='false']">
+							<div class="break">
+								<xf:trigger>
+									<xf:label>Добавить</xf:label>
+									<xf:action ev:event="DOMActivate">
+										<xf:insert nodeset="choice"
+										origin="instance('xformId_choiceInstance')/choice"
+										at="last()" position="after"/>
+										<xf:setvalue ref="./choice[last()]/id"
+										value="concat('var', count(//choice))"/>
+									</xf:action>
+								</xf:trigger>
+							</div>
+						</xf:group>
+						<xf:repeat id="xformId_actionRow" nodeset="choice">
+							<div class="break">
+								<div style="float: left; margin-top: 24px; margin-right: 5px; width: 20px">
+									<xf:output value="id"/>
+								</div>
+								<xf:group ref=".[../@isSystem='false']">
+									<div class="selectorShort200 xforms-required">
+										<xf:input ref="name">
+											<xf:label>Вариант ответа:</xf:label>
+										</xf:input>
+										<xf:trigger>
+											<xf:label>X</xf:label>
+											<xf:action ev:event="DOMActivate">
+												<xf:delete nodeset="current()"/>
+												<xf:setvalue iterate="instance('xformId_mainInstance')/data/choice" ref="id"
+													value="concat('var', count(../preceding-sibling::choice) + 1)"/>
+											</xf:action>
+										</xf:trigger>
+									</div>
+								</xf:group>
+								<xf:group ref=".[../@isSystem!='false']">
+									<div class="baseInput200 xforms-required">
+										<xf:input ref="name">
+											<xf:label>Вариант ответа:</xf:label>
+										</xf:input>
+									</div>
+								</xf:group>
+							</div>
+						</xf:repeat>
+					</xf:group>
+					<xf:group ref="instance('xformId_mainInstance')/data[@attrTypeId='catalog']">
+						<div class="break selectorShort400 xforms-required" style="width: 214px;">
+							<xf:input class="author baseInput" ref="instance('xformId_mainInstance')/data/@catalogName">
+								<xf:label>Справочник:</xf:label>
+							</xf:input>
+							<xf:selector buttonLabel="..."
+								procListAndCount="'ssmmd.other.ruleSelector.catalogListAndCount.celesta'"
+								generalFilters="" currentValue="''"
+								windowCaption="'Выбор каталога'"
+								xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@catalogName)' : 'name',
+											   'XPath(instance(quot(xformId_mainInstance))/data/@catalogId)' : 'id'}"
+							/>
+						</div>
+					</xf:group>
+				</xf:group>
+				<xf:group ref="instance('xformId_mainInstance')/data[@isExternal='true']">
+
+					<xf:group ref="instance('xformId_mainInstance')/data">
+						<div style="width: 350px; float: left; clear:both">
+							<xf:input class="author baseInput" ref="@extName">
+								<xf:label>Элемент</xf:label>
+							</xf:input>
+						</div>
+						<div style="color:red; float: left; padding-top: 20px; padding-left: 3px">*</div>
+						<div style="float:left; padding-top: 20px">	 
+							<xf:trigger>
+								<xf:label>...</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:load
+									resource="javascript:gwtCreatePlugin
+								({
+									id:'xformId',
+									plugin:'extJsTree',
+									getDataProcName:'ssmmd.xforms.diagnosisCard.treeSelectorXML.celesta',
+									postProcessProc:'handleExtJsTree.py',
+									generalFilters: ['XPath(instance(quot(xformId_mainInstance))/data)'],
+									params:
+									{
+										treePanel:
+										{
+											title: 'Внешние заключения'
+										},
+										core:
+										{
+											filter:{
+												startsWith:false,
+												delay:900
+											}
+										},
+										dataModel:
+										{
+											fields:
+											[
+												{name: 'type', type: 'string', devId:'string'}
+											]
+										},
+										view:
+										{
+											columns:
+											[
+												{ header: 'Тип', dataIndex: 'type'}
+											]
+										}
+									},
+									options: 
+									{								
+										dataWidth: '600px',
+										dataHeight: '450px',
+										windowCaption: 'Выбор внешнего заключения',
+										onSelectionComplete: function(ok, plugin) {
+										if (ok) {
+										plugin.utils.singleXpathMapping({
+											'XPath(instance(quot(xformId_mainInstance))/data/@extName)':'name',
+											'XPath(instance(quot(xformId_mainInstance))/data/@externalDiagnosesId)':'id',
+											'XPath(instance(quot(xformId_mainInstance))/data/@externalDevId)':'devId'
+										});
+									}
+								}
+									}
+								});"
+								  >
+									</xf:load>
+								</xf:action>
+							</xf:trigger>
+						</div>
+						<div style="float:left; padding-top: 20px">
+							<xf:trigger >
+								<xf:label>X</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:setvalue ref="instance('xformId_mainInstance')/data/@externalDiagnosesId" value=""/>
+									<xf:setvalue ref="instance('xformId_mainInstance')/data/@extName" value=""/>
+								</xf:action>
+							</xf:trigger>
+						</div>				
+					</xf:group>
+				</xf:group>			
+			</xf:group>
+			<xf:group ref="instance('xformId_mainInstance')/data[@addingSystem='true']">
+				<div class="selector" style="clear: both">
+					<table>
+						<tr>
+							<div>
+								<td>
+									<xf:group>
+										<div style="width: 350px; float: left;">
+											<xf:input class="author baseInput" ref="@systemTreeName">
+												<xf:label>Системное диагностическое заключение:</xf:label>
+
+											</xf:input>
+										</div>
+										<div style="color:red; float: left; padding-top: 20px; padding-left: 3px">*</div>
+										<div style="float:left; padding-top: 20px">
+											<xf:selector buttonLabel="..."
+											procListAndCount="'ssmmd.xforms.diagnosisCard.systemTreeListAndCount.celesta'"
+											generalFilters=""
+											currentValue="''" windowCaption="'Выбор системного диагностического заключения'"
+											xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@systemTreeId)' : 'id',
+											'XPath(instance(quot(xformId_mainInstance))/data/@systemTreeName)' : 'name'}"/>
+										</div>
+										<div style="float:left; padding-top: 20px">
+											<xf:trigger >
+												<xf:label>X</xf:label>
+												<xf:action ev:event="DOMActivate">
+													<xf:setvalue ref="instance('xformId_mainInstance')/data/@systemTreeId" value=""/>
+													<xf:setvalue ref="instance('xformId_mainInstance')/data/@systemTreeName" value=""/>
+												</xf:action>
+											</xf:trigger>
+										</div> 
+									</xf:group>
+								</td> 
+							</div>
+						</tr>
+					</table>
+				</div>
+			</xf:group>
+		</xf:group>
+
+
+
+
+
+
+
+
+
+		<xf:group ref="instance('xformId_mainInstance')/rules">
+			<div class="rule"/>
+		</xf:group>
+
+
+		<hr style="margin-top:21px; width: 100%;  float: left; clear: both;"/>
+		<xf:group ref="instance('xformId_mainInstance')/data[readonly!=1]">
+			<div class="author newbutton" style="margin-left:10px; padding: 2px;float: left;clear: both">
+				<xf:trigger class="blue">
+					<xf:label>Сохранить и закрыть</xf:label>
+					<xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=true())">
+						<xf:load resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 
+				'xformId_mainInstance')))"/>
+					</xf:action>
+					<xf:action ev:event="DOMActivate"
+						if="(is-valid(instance('xformId_mainInstance'))=false())">
+						<xf:message>Заполнено с ошибкой!</xf:message>
+					</xf:action>
+				</xf:trigger>
+			</div>
+
+			<div class="author newbutton" style="margin-right:10px; padding: 2px;float: right;">
+				<xf:trigger class="blue">
+					<xf:label>Закрыть</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</xf:group>
+		<xf:group ref="instance('xformId_mainInstance')/data[readonly=1]">
+			<div class="author newbutton" style="margin-left:10px; padding: 2px;float: left;clear: both">
+				<xf:trigger class="blue">
+					<xf:label>Закрыть</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</xf:group>
+
+	</body>
+</html>

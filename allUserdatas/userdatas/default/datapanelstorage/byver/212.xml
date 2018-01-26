@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="02" name="Self related">
+		<element id="0201" type="grid" proc="grid_portals_id_and_css" />
+		<element id="0203" type="webtext" proc="webtext/UpdateGrid1.py">
+		</element>
+		<element id="grid1" type="grid" proc="grid_cities_data"
+			showLoadingMessage="true">
+			<proc id="d101" name="grid_cities_metadata" type="METADATA" />
+			<related id="0201" />
+			<related id="grid1" />
+			<related id="xform1" />
+			<related id="livegrid1" />
+		</element>
+		<element id="xform1" type="xforms" template="Showcase_Template_Submissions.xml"
+			proc="xforms_proc_dep" showLoadingMessage="true">
+			<related id="xform1" />
+		</element>
+		<element id="livegrid1" type="grid" subtype="EXT_LIVE_GRID" proc="grid_cities_data">
+			<proc id="040101" name="extlivegrid_cities_metadata" type="METADATA" />
+			<related id="livegrid1" />
+		</element>		
+	</tab>
+	<tab id="01" name="Плагин ExtJS radar chart">
+		<element id="0101" type="plugin" proc="pluginRadarInfo"
+			plugin="radar">
+			<proc id="010101" name="plugin/handleRadar.py" type="POSTPROCESS" />
+		</element>
+	</tab>
+	<tab id="03" name="Плагин FlashD">
+		<element id="0301" type="plugin" proc="pluginRadarInfo"
+			plugin="flashD">
+			<proc id="030101" name="plugin/handleFlashD.py" type="POSTPROCESS" />
+		</element>
+	</tab>
+</datapanel>

@@ -1,0 +1,83 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<link rel="stylesheet" href="../../dijit/themes/claro/claro.css"/>
+
+<script>
+	dojoConfig = {
+		isDebug: true,
+		parseOnLoad: false,
+		paths: {djeo: "../djeo"},
+		djeoEngine: "djeo",
+		geKey: "ABQIAAAA-DMAtggvLwlIYlUJiASaAxRQnCpeV9jusWIeBw0POFqU6SItGxRWZhddpS8pIkVUd2fDQhzwPUWmMA",
+		ymapsKey: "AMOPgE4BAAAA9Y-BUwMAonjZ5NBRJDj54c-cDVPzQcYlLNAAAAAAAAAAAACPSuKS9WyCiMuXm9An1ZKCx5Pk-A=="
+	};
+</script>
+<script src="util.js"></script>
+<script src="../../dojo/dojo.js"></script>
+
+<script>
+var highlight, tooltip, navigation;
+
+DebugUtil.timer.start("loading");
+
+require([
+	"djeo/tests/data/usa_features_style",
+	"dijit/form/ToggleButton",
+	"djeo/Map",
+	"djeo/control/Highlight",
+	"djeo/control/Tooltip",
+	"djeo/control/Navigation",
+	"dojo/domReady!"
+],
+function(mapConfig){
+	DebugUtil.timer.end("loading");
+	
+	new dijit.form.ToggleButton({
+		checked: true,
+		onChange: function(value){
+			highlight.enable(value);
+		},
+		iconClass: "dijitRadioIcon"
+	}, "highlight");
+	
+	new dijit.form.ToggleButton({
+		checked: true,
+		onChange: function(value){
+			tooltip.enable(value);
+		},
+		iconClass: "dijitRadioIcon"
+	}, "tooltip");
+	
+	new dijit.form.ToggleButton({
+		checked: true,
+		onChange: function(value){
+			navigation.enable(value);
+		},
+		iconClass: "dijitRadioIcon"
+	}, "navigation");
+	
+	DebugUtil.timer.start("render");
+	var map = new djeo.Map("map", mapConfig);
+	map.ready(function() {
+		DebugUtil.timer.end("render");
+		highlight = new djeo.control.Highlight(map);
+		tooltip = new djeo.control.Tooltip(map);
+		navigation = new djeo.control.Navigation(map);
+	});
+});
+</script>
+
+</head>
+
+<body class="claro">
+
+<div id="highlight">Highlight control</div>
+<div id="tooltip">Tooltip control</div>
+<div id="navigation">Navigation control</div>
+
+<div id="map" style="width:800px;height:400px;"></div>
+
+</body>
+</html>

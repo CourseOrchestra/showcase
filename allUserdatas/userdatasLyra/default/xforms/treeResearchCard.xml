@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns="">
+					<data id="" name=""/>
+				</schema>
+			</xf:instance>
+
+			<xf:bind>
+				<xf:bind nodeset="instance('xformId_mainInstance')//*"
+					readonly="if(instance('xformId_mainInstance')/data/readonly=1, true(), false())"/>
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@typeName"/>
+
+				<xf:bind
+					readonly="instance('xformId_mainInstance')/data/@typeId = '11' or instance('xformId_mainInstance')/data/@typeId = '4' or instance('xformId_mainInstance')/data/@typeId = '5' or instance('xformId_mainInstance')/data/@typeId = '6' or instance('xformId_mainInstance')/data/@typeId = '7' or instance('xformId_mainInstance')/data/@typeId = '3'"
+					nodeset="instance('xformId_mainInstance')/data/@name">
+				</xf:bind>
+
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/@branching" type="boolean"/>
+
+				<xf:bind readonly="true()"
+					nodeset="instance('xformId_mainInstance')/data/rules/rule/operator/condition/substrateName"
+				/>
+			</xf:bind>
+
+		</xf:model>
+	</head>
+
+	<body>
+		<!--<xf:output value="serialize(instance('xformId_mainInstance'))"/> -->
+		<xf:group>
+			<div class="break">
+				<xf:output ref="instance('xformId_mainInstance')/data/@parentName">
+					<xf:label>Родительский элемент:</xf:label>
+				</xf:output>
+			</div>
+			<div class="break">
+				<xf:input ref="instance('xformId_mainInstance')/data/@branching"/>
+				<xf:output value="'Ветвление'"/>
+			</div>
+			<div class="break baseInput200" >
+				<xf:select1 ref="instance('xformId_mainInstance')/data[@typeName!='Комбинация']/@priority">
+					<xf:label>Приоритет</xf:label>
+					<xf:item>
+						<xf:label>0</xf:label>
+						<xf:value>0</xf:value>
+					</xf:item>
+					<xf:item>
+						<xf:label>1</xf:label>
+						<xf:value>1</xf:value>
+					</xf:item>
+					<xf:item>
+						<xf:label>2</xf:label>
+						<xf:value>2</xf:value>
+					</xf:item>
+					<xf:item>
+						<xf:label>3</xf:label>
+						<xf:value>3</xf:value>
+					</xf:item>
+					<xf:item>
+						<xf:label>4</xf:label>
+						<xf:value>4</xf:value>
+					</xf:item>
+					<xf:item>
+						<xf:label>5</xf:label>
+						<xf:value>5</xf:value>
+					</xf:item>
+				</xf:select1>
+			</div>
+
+			<xf:group ref="instance('xformId_mainInstance')/data[@type='add' and @typeName!='Комбинация']">
+				<xf:group ref=".[readonly=0]">
+					<div class="selectorLong400 break xforms-required">	
+						<xf:input ref="@typeName">
+							<xf:label>Тип:</xf:label>
+							<xf:action ev:event="xforms-value-changed">
+								<xf:setvalue ref="../@name" value=""/>
+								<xf:setvalue ref="../@id" value=""/>
+							</xf:action>
+						</xf:input>
+						<xf:selector buttonLabel="..."
+								procListAndCount="'ssmmd.xforms.treeResearchCard.typeListAndCount.celesta'"
+								generalFilters="['XPath(instance(quot(xformId_mainInstance))/data/@parentId)']"
+								currentValue="''"
+								windowCaption="'Выбор исследования'"
+								xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@typeId)' : 'id',
+								'XPath(instance(quot(xformId_mainInstance))/data/@typeName)' : 'name'}"/>
+
+						<xf:trigger>
+							<xf:label>X</xf:label>
+							<xf:action ev:event="DOMActivate">
+								<xf:setvalue
+										ref="instance('xformId_mainInstance')/data/@typeName"
+										value="">
+								</xf:setvalue>
+								<xf:setvalue
+										ref="instance('xformId_mainInstance')/data/@typeId"
+										value="">
+								</xf:setvalue>
+							</xf:action>
+						</xf:trigger>
+					</div>
+					<xf:group ref=".[readonly!=0]">
+						<div class="baseInput400 break xforms-required">
+							<xf:input ref="@typeName">
+								<xf:label>Тип:</xf:label>
+								<xf:action ev:event="xforms-value-changed">
+									<xf:setvalue ref="../@name" value=""/>
+									<xf:setvalue ref="../@id" value=""/>
+								</xf:action>
+							</xf:input>
+						</div>
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+			<xf:group ref="instance('xformId_mainInstance')/data[@type='edit' or @typeName='Комбинация']">
+			<div class="baseInput400 break xforms-required">
+				<xf:output ref="@typeName">
+					<xf:label>Тип:</xf:label>
+					<xf:action ev:event="xforms-value-changed">
+						<xf:setvalue ref="../@name" value=""/>
+						<xf:setvalue ref="../@id" value=""/>
+					</xf:action>
+				</xf:output>
+				</div>
+			</xf:group>
+
+			<xf:group ref="instance('xformId_mainInstance')/data[@typeId='1' or @typeId='2' or @typeId='']">
+				<div class="break baseInput400 xforms-required">
+					<xf:input ref="instance('xformId_mainInstance')/data/@name">
+						<xf:label>Наименование:</xf:label>
+					</xf:input>
+				</div>
+			</xf:group>
+
+			<xf:group ref="instance('xformId_mainInstance')/data[@typeId='3']">
+
+				<xf:group ref=".[readonly=0]">
+					<div class="break selectorLong400 xforms-required">
+						<xf:input ref="instance('xformId_mainInstance')/data/@name">
+							<xf:label>Исследование:</xf:label>
+						</xf:input>
+
+						<xf:trigger>
+							<xf:label>...</xf:label>
+							<xf:action ev:event="DOMActivate">
+								<xf:load resource="javascript:gwtCreatePlugin
+										({id:'xformId',
+											plugin:'extJsTree',
+											getDataProcName:'ssmmd.xforms.treeResearchCard.researchTreeSelectorXML.celesta',
+											postProcessProc:'handleExtJsTree.py',
+											generalFilters: '',
+											params:
+											{treePanel:
+												{title: 'Исследования'},
+												 core:
+													{filter:
+														{startsWith:false,
+														 delay:900}},
+												 dataModel:
+													{fields:
+														[{name: 'type',
+														  type: 'string'}]},
+												 view:
+													{columns:
+														[{header: 'Тип',
+														  dataIndex: 'type'}]}},
+											 options: 
+												{dataWidth: '600px',
+												 dataHeight: '450px',
+												 windowCaption: 'Выбор исследования',
+												 onSelectionComplete: function(ok, plugin)
+													{if (ok)
+														{plugin.utils.singleXpathMapping({'XPath(instance(quot(xformId_mainInstance))/data/@name)':'name',
+																						  'XPath(instance(quot(xformId_mainInstance))/data/@id)':'id'
+												});}}}});"/>
+							</xf:action>
+						</xf:trigger>
+						<xf:trigger>
+							<xf:label>X</xf:label>
+							<xf:action ev:event="DOMActivate">
+								<xf:setvalue
+									ref="instance('xformId_mainInstance')/data/@name"
+									value="">
+								</xf:setvalue>
+								<xf:setvalue
+									ref="instance('xformId_mainInstance')/data/@id"
+									value="">
+								</xf:setvalue>
+							</xf:action>
+						</xf:trigger>
+					</div>
+
+						
+
+				</xf:group>
+			</xf:group>
+			<xf:group
+				ref="instance('xformId_mainInstance')/data[@typeId='4' or @typeId='5' or @typeId='6' or @typeId='7' or @typeId='12']">
+				<xf:group ref=".[readonly=0]">
+					<div class="break xforms-required selectorLong400" >
+						<xf:input ref="instance('xformId_mainInstance')/data/@name">
+							<xf:label>Название:</xf:label>
+						</xf:input>
+
+						<xf:selector buttonLabel="..."
+							procListAndCount="'ssmmd.xforms.treeResearchCard.elementsListAndCount.celesta'"
+							generalFilters="['XPath(instance(quot(xformId_mainInstance))/data/@parentId)',
+											 'XPath(instance(quot(xformId_mainInstance))/data/@typeId)']"
+							currentValue="''" windowCaption="'Выбор элемента'"
+							xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@id)' : 'id',
+										   'XPath(instance(quot(xformId_mainInstance))/data/@name)' : 'name'}"/>
+
+						<xf:trigger>
+							<xf:label>X</xf:label>
+							<xf:action ev:event="DOMActivate">
+								<xf:setvalue
+									ref="instance('xformId_mainInstance')/data/@name"
+									value="">
+								</xf:setvalue>
+								<xf:setvalue
+									ref="instance('xformId_mainInstance')/data/@id"
+									value="">
+								</xf:setvalue>
+							</xf:action>
+						</xf:trigger>
+					</div>
+				</xf:group>
+				<xf:group ref=".[readonly!=0]">
+					<div class="break xforms-required baseInput400" >
+						<xf:input ref="instance('xformId_mainInstance')/data/@name">
+							<xf:label>Название:</xf:label>
+						</xf:input>
+					</div>
+				</xf:group>
+
+			</xf:group>
+			<xf:group ref="instance('xformId_mainInstance')/data[@typeId='11']">
+				<xf:group ref=".[readonly=0]">
+					<div class="break xforms-required selectorLong400" >
+						<xf:input ref="instance('xformId_mainInstance')/data/@name">
+							<xf:label>Название:</xf:label>
+						</xf:input>
+
+						<xf:selector buttonLabel="..."
+							procListAndCount="'ssmmd.xforms.treeResearchCard.samplingMethodListAndCount.celesta'"
+							generalFilters="['XPath(instance(quot(xformId_mainInstance))/data/@parentId)',
+											 'XPath(instance(quot(xformId_mainInstance))/data/@typeId)']"
+							currentValue="''" windowCaption="'Выбор элемента'"
+							xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@id)' : 'id',
+										   'XPath(instance(quot(xformId_mainInstance))/data/@name)' : 'name'}"/>
+
+						<xf:trigger>
+							<xf:label>X</xf:label>
+							<xf:action ev:event="DOMActivate">
+								<xf:setvalue
+									ref="instance('xformId_mainInstance')/data/@name"
+									value="">
+								</xf:setvalue>
+								<xf:setvalue
+									ref="instance('xformId_mainInstance')/data/@id"
+									value="">
+								</xf:setvalue>
+							</xf:action>
+						</xf:trigger>
+					</div>
+				</xf:group>
+				<xf:group ref=".[readonly!=0]">
+					<div class="break xforms-required baseInput400" >
+						<xf:input ref="instance('xformId_mainInstance')/data/@name">
+							<xf:label>Название:</xf:label>
+						</xf:input>
+					</div>
+				</xf:group>
+
+
+
+			</xf:group>
+
+			<xf:group ref="instance('xformId_mainInstance')/data[@typeId='8'and @type='add']">
+				<div class="break">
+					<table>
+						<tr>
+							<td>
+								<xf:select ref="instance('xformId_mainInstance')/data/@name"
+									appearance="full">
+									<xf:label> Признак срочности </xf:label>
+									<xf:item>
+										<xf:label>
+											<div style="margin-top: -18px">Cito!</div>
+										</xf:label>
+										<xf:value>Cito!</xf:value>
+									</xf:item>
+								</xf:select>
+							</td>
+							<td/>
+						</tr>
+					</table>
+				</div>
+			</xf:group>
+
+			<xf:group ref="instance('xformId_mainInstance')/data[@typeId='8' and @type='edit']">
+				<div class="control" style="width: 100%; padding: 2px; float: left;clear:both; ">
+					<table>
+						<tr>
+							<td>
+								<xf:select1 ref="instance('xformId_mainInstance')/data/@name"
+									appearance="full">
+									<xf:label> Признак срочности </xf:label>
+									<xf:item>
+										<xf:label>
+											<div style="margin-top: -15px; margin-right: 20px"
+												>Cito!</div>
+										</xf:label>
+										<xf:value>Cito!</xf:value>
+									</xf:item>
+									<xf:item>
+										<xf:label>
+											<div style="margin-top: -15px">Не Cito!</div>
+										</xf:label>
+										<xf:value>Не Cito!</xf:value>
+									</xf:item>
+								</xf:select1>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</xf:group>
+		</xf:group>
+		<xf:group ref="instance('xformId_mainInstance')/rules">
+			<div class="rule"/>
+		</xf:group>
+
+
+		<hr class="break"/>
+		<xf:group ref="instance('xformId_mainInstance')/data[readonly=0]">
+			<div class="author newbutton"
+				style="margin-left:10px; padding: 2px;float: left;clear: both">
+				<xf:trigger class="blue" id="Tab10">
+					<xf:label>Сохранить и закрыть</xf:label>
+					<xf:action ev:event="DOMActivate"
+						if="(is-valid(instance('xformId_mainInstance'))=true())">
+						<xf:load
+							resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 
+					'xformId_mainInstance')))"/>
+					</xf:action>
+					<xf:action ev:event="DOMActivate"
+						if="(is-valid(instance('xformId_mainInstance'))=false())">
+						<xf:message>Заполнено с ошибками!</xf:message>
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</xf:group>
+
+		<div class="author newbutton" style="margin-right:10px; padding: 2px;float: right;">
+			<xf:trigger class="blue" id="Tab20">
+				<xf:label>Закрыть</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+				</xf:action>
+			</xf:trigger>
+		</div>
+
+	</body>
+</html>

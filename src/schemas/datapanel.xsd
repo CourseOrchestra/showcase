@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="specialTypes.xsd" />
+
+	<xs:attributeGroup name="StyleGroup">
+		<xs:attribute name="style" type="notNullType" />
+		<xs:attribute name="styleClass" type="notNullType" />
+	</xs:attributeGroup>
+	
+	<xs:element name="datapanel">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="tab" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:choice minOccurs="0" maxOccurs="unbounded">
+							<xs:element ref="element" />
+							<xs:element ref="tr"/>
+						</xs:choice>
+						<xs:attributeGroup ref="identGroup" />
+						<xs:attributeGroup ref="StyleGroup" />
+						<xs:attribute name="layout" type="dataPanelTabLayout" />
+						<xs:assert
+							test="if (@layout='TABLE') then count(element[child::*])=0 else count(tr[child::*])=0" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="elementId">
+			<xs:selector xpath="tab/element | tab/tr/td/element" />
+			<xs:field xpath="@id" />
+		</xs:unique>
+		<xs:unique name="htmlId">
+			<xs:selector xpath="tab/tr/td | tab/tr | tab" />
+			<xs:field xpath="@id" />
+		</xs:unique>		
+	</xs:element>
+	<xs:element name="element">
+		<xs:complexType>	
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="proc" >
+					<xs:complexType>
+						<xs:attributeGroup ref="identGroup" />
+						<xs:attribute name="type" use="required" type="dataPanelElementProcType" />
+						<xs:attribute name="transform" type="xslType" />
+						<xs:attribute name="schema" type="xsdType" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="related">
+					<xs:complexType>
+						<xs:attribute name="id" use="required" type="notNullType" />
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+			<xs:attributeGroup ref="StyleGroup" />			
+			<xs:attribute name="id" use="required" type="notNullType" />
+			<xs:attribute name="type" use="required" type="dataPanelElementType" />
+			<xs:attribute name="hideOnLoad" type="xs:boolean"
+				default="false" />
+			<xs:attribute name="neverShowInPanel" type="xs:boolean"
+				default="false" />
+			<xs:attribute name="subtype" type="dataPanelElementSubType" />
+			<xs:attribute name="editable" type="xs:boolean" />
+			<xs:attribute name="proc" type="notNullType" />
+			<xs:attribute name="template" type="xmlType" />
+			<xs:attribute name="transform" type="xslType" />
+			<xs:attribute name="cacheData" type="xs:boolean" />
+			<xs:attribute name="showLoadingMessage" type="xs:boolean" />
+			<xs:attribute name="showLoadingMessageForFirstTime" type="xs:boolean" />
+			<xs:attribute name="refreshByTimer" type="xs:boolean" />
+			<xs:attribute name="refreshInterval" type="xs:positiveInteger" />
+			<xs:attribute name="plugin" type="notNullType" />
+			<xs:attribute name="buildTemplate" type="xs:boolean" />
+			<xs:attribute name="group" use="optional" type="simpleList" />
+			<xs:assert test="(@type='webtext' and count(@proc)+count(@transform)>0) or (@type='xforms' and count(@template)=1) or (@type='plugin' and count(@proc)=1 and count(@plugin)=1) or (count(@proc)=1 and count(@transform)=0) or (@type='jsForm' and count(@template)=1)" />
+			<xs:assert test="count(proc/@type[.='SAVE']) &lt;= 1" />
+			<xs:assert test="count(proc/@type[.='METADATA']) &lt;= 1" />
+			<xs:assert test="count(proc/@type[.='POSTPROCESS']) &lt;= 1" />
+			<xs:assert test="count(proc/@type[.='TOOLBAR']) &lt;= 1" />
+			<xs:assert test="count(proc/@type[.='EXPORTDATA']) &lt;= 1" />
+		</xs:complexType>
+		<xs:unique name="relatedElementId">
+			<xs:selector xpath="related" />
+			<xs:field xpath="@id" />
+		</xs:unique>
+		<xs:unique name="procId">
+			<xs:selector xpath="proc" />
+			<xs:field xpath="@id" />
+		</xs:unique>		
+	</xs:element>
+
+	<xs:element name="tr">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="td" maxOccurs="unbounded" />
+			</xs:sequence>
+			<xs:attribute name="id" type="notNullType" />
+			<xs:attribute name="height" type="HtmlSizeType" />
+			<xs:attributeGroup ref="StyleGroup" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="td">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="element" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+			<xs:attribute name="id" type="notNullType" />
+			<xs:attribute name="width" type="HtmlSizeType" />
+			<xs:attribute name="rowspan" type="xs:positiveInteger" />
+			<xs:attribute name="colspan" type="xs:positiveInteger" />
+			<xs:attributeGroup ref="StyleGroup" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

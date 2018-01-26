@@ -1,0 +1,1113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Showcase</groupId>
+  <artifactId>Showcase</artifactId>
+  <version>6.1</version>
+<!--  <version>${proj_version}</version> -->
+  <packaging>war</packaging>
+  <name>Showcase</name>
+  <description>Showcase</description>
+  
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<!-- 		<project.version>${proj.version}</project.version> -->
+	</properties>
+
+<dependencies>
+
+<dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-servlet</artifactId>
+      <version>2.5.1</version>
+      <scope>compile</scope>
+    </dependency>
+    
+ 
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-user</artifactId>
+      <version>2.5.1</version>
+      <scope>provided</scope>
+    </dependency>
+
+<dependency>
+    <groupId>com.google.gwt</groupId>
+    <artifactId>gwt-codeserver</artifactId>
+    <version>2.5.1</version>
+    <scope>provided</scope>
+	</dependency>
+<dependency>
+    <groupId>javax.validation</groupId>
+    <artifactId>validation-api</artifactId>
+    <version>1.0.0.GA</version>
+        <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>xerces</groupId>
+    <artifactId>xercesImpl</artifactId>
+    <version>2.10.0</version>
+	    <scope>provided</scope>
+</dependency>
+
+
+<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+	 		<scope>provided</scope> 
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>annotations-api</artifactId>
+    <version>6.0.53</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>catalina-ant</artifactId>
+    <version>6.0.53</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>catalina-ha</artifactId>
+    <version>6.0.53</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>tomcat</groupId>
+    <artifactId>catalina-storeconfig</artifactId>
+    <version>5.5.23</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tribes</artifactId>
+    <version>6.0.53</version>
+        <scope>provided</scope>
+ </dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>catalina</artifactId>
+    <version>6.0.53</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.eclipse.jdt.core.compiler</groupId>
+    <artifactId>ecj</artifactId>
+    <version>4.5.1</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>javax.el</groupId>
+    <artifactId>el-api</artifactId>
+    <version>2.2</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>jasper-el</artifactId>
+    <version>6.0.53</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>jasper</artifactId>
+    <version>6.0.53</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>jsp-api</artifactId>
+    <version>6.0.53</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-api</artifactId>
+    <version>8.0.41</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-coyote</artifactId>
+    <version>8.0.41</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-dbcp</artifactId>
+    <version>8.0.41</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-i18n-es</artifactId>
+    <version>8.0.41</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+  <groupId>org.apache.tomcat</groupId>
+  <artifactId>tomcat-i18n-fr</artifactId>
+  <version>8.0.41</version>
+  <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-i18n-ja</artifactId>
+    <version>8.0.41</version>
+  <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-jdbc</artifactId>
+    <version>8.0.41</version>
+  <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-jni</artifactId>
+    <version>8.0.41</version>
+  <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-util-scan</artifactId>
+    <version>8.0.41</version>
+  <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-util</artifactId>
+    <version>8.0.41</version>
+  <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-websocket</artifactId>
+    <version>8.0.41</version>
+  <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>javax.websocket</groupId>
+    <artifactId>javax.websocket-api</artifactId>
+    <version>1.1</version>
+    <scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-bpmn-converter</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-bpmn-layout</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-bpmn-model</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-camel</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-cdi</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-common-rest</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-crystalball</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-cxf</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-diagram-rest</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-engine</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-explorer</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-image-generator</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-json-converter</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-ldap</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-modeler</artifactId>
+    <version>5.16</version>
+</dependency>
+<!--<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-mule</artifactId>
+    <version>5.16</version>
+</dependency>-->
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-osgi</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-process-validation</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-rest</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-simple-workflow</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-spring</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>org.activiti</groupId>
+    <artifactId>activiti-spring-boot</artifactId>
+    <version>5.16</version>
+</dependency>
+<dependency>
+    <groupId>net.minidev</groupId>
+    <artifactId>asm</artifactId>
+    <version>1.0.2</version>
+</dependency>
+<dependency>
+    <groupId>asm</groupId>
+    <artifactId>asm</artifactId>
+    <version>3.3.1</version>
+</dependency>
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjrt</artifactId>
+    <version>1.8.9</version>
+</dependency>
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjweaver</artifactId>
+    <version>1.8.9</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-anim</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-awt-util</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-bridge</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-codec</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-css</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-dom</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-ext</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-gui-util</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-gvt</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-parser</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-script</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-svg-dom</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-transcoder</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-util</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-xml</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.bouncycastle</groupId>
+    <artifactId>bcprov-jdk15on</artifactId>
+    <version>1.56</version>
+</dependency>
+<dependency>
+    <groupId>org.bouncycastle</groupId>
+    <artifactId>bcprov-jdk16</artifactId>
+    <version>1.46</version>
+	<scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.bouncycastle</groupId>
+    <artifactId>bcpkix-jdk15on</artifactId>
+    <version>1.56</version>
+</dependency>
+
+<dependency>
+    <groupId>org.codehaus.janino</groupId>
+    <artifactId>commons-compiler</artifactId>
+    <version>2.6.1</version>
+</dependency>
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.2.2</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.1</version>
+</dependency>
+<dependency>
+    <groupId>commons-logging</groupId>
+    <artifactId>commons-logging</artifactId>
+    <version>1.1.1</version>
+</dependency>
+
+<dependency>
+    <groupId>org.ehcache</groupId>
+    <artifactId>ehcache</artifactId>
+    <version>3.0.0.m4</version>
+</dependency>
+<dependency>
+    <groupId>com.sun.xml.fastinfoset</groupId>
+    <artifactId>FastInfoset</artifactId>
+    <version>1.2.12</version>
+</dependency>
+<dependency>
+    <groupId>org.glassfish.gmbal</groupId>
+    <artifactId>gmbal-api-only</artifactId>
+    <version>3.1.0-b001</version>
+</dependency>
+<dependency>
+    <groupId>org.codehaus.groovy</groupId>
+    <artifactId>groovy-all</artifactId>
+    <version>2.3.6</version>
+</dependency>
+
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>1.7.1</version>
+</dependency>
+
+<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+    <version>1.4.180</version>
+
+</dependency>
+<dependency>
+    <groupId>org.glassfish.ha</groupId>
+    <artifactId>ha-api</artifactId>
+    <version>3.1.8</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.4.1</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpcore</artifactId>
+    <version>4.4.1</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpmime</artifactId>
+    <version>4.4.1</version>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-annotations</artifactId>
+    <version>2.3.0</version>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-core</artifactId>
+    <version>2.3.0</version>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.3.0</version>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.module</groupId>
+    <artifactId>jackson-module-jaxb-annotations</artifactId>
+    <version>2.3.0</version>
+</dependency>
+<dependency>
+    <groupId>org.codehaus.janino</groupId>
+    <artifactId>janino</artifactId>
+    <version>2.6.1</version>
+</dependency>
+<dependency>
+    <groupId>javax.xml.bind</groupId>
+    <artifactId>jaxb-api</artifactId>
+    <version>2.2.7</version>
+</dependency>
+<dependency>
+    <groupId>com.sun.xml.bind</groupId>
+    <artifactId>jaxb-impl</artifactId>
+    <version>2.2.7</version>
+</dependency>
+<dependency>
+    <groupId>com.sun.xml.bind</groupId>
+    <artifactId>jaxb-xjc</artifactId>
+    <version>2.2.7</version>
+</dependency>
+<dependency>
+    <groupId>javax.xml</groupId>
+    <artifactId>jaxws-api</artifactId>
+    <version>2.0</version>
+</dependency>
+<dependency>
+    <groupId>com.sun.xml.ws</groupId>
+    <artifactId>jaxws-rt</artifactId>
+    <version>2.2.7</version>
+</dependency>
+<dependency>
+    <groupId>com.sun.xml.ws</groupId>
+    <artifactId>jaxws-tools</artifactId>
+    <version>2.2.7</version>
+</dependency>
+<dependency>
+    <groupId>jdepend</groupId>
+    <artifactId>jdepend</artifactId>
+    <version>2.9.1</version>
+    <!-- <scope>test</scope>-->
+ </dependency>
+<dependency>
+    <groupId>joda-time</groupId>
+    <artifactId>joda-time</artifactId>
+    <version>2.1</version>
+</dependency>
+<dependency>
+    <groupId>com.jayway.jsonpath</groupId>
+    <artifactId>json-path</artifactId>
+    <version>2.0.0</version>
+</dependency>
+<dependency>
+    <groupId>net.minidev</groupId>
+    <artifactId>json-smart</artifactId>
+    <version>2.1.1</version>
+</dependency>
+<dependency>
+    <groupId>javax.servlet.jsp.jstl</groupId>
+    <artifactId>jstl-api</artifactId>
+    <version>1.2</version>
+</dependency>
+<dependency>
+    <groupId>org.python</groupId>
+    <artifactId>jython</artifactId>
+    <version>2.7.1b3</version>
+</dependency>
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.0.0</version>
+<!--     <scope>test</scope> -->
+</dependency>
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-core</artifactId>
+    <version>1.0.0</version>
+</dependency>
+<dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>mail</artifactId>
+    <version>1.4.5</version>
+</dependency>
+<dependency>
+    <groupId>org.glassfish.external</groupId>
+    <artifactId>management-api</artifactId>
+    <version>3.0.0-b012</version>
+</dependency>
+<dependency>
+    <groupId>org.jvnet.mimepull</groupId>
+    <artifactId>mimepull</artifactId>
+    <version>1.8</version>
+</dependency>
+<dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis</artifactId>
+    <version>3.1.0</version>
+</dependency>
+<dependency>
+    <groupId>org.terracotta</groupId>
+    <artifactId>offheap-store</artifactId>
+    <version>2.1.2</version>
+</dependency>
+
+<dependency>
+	    <groupId>com.oracle.weblogic</groupId>
+	    <artifactId>ojdbc7</artifactId>
+	    <version>12.1.3-0-0</version>
+	</dependency>
+<dependency>
+    <groupId>com.sun.xml.ws</groupId>
+    <artifactId>policy</artifactId>
+    <version>2.3.1</version>
+</dependency>
+<dependency>
+    <groupId>javax.xml.soap</groupId>
+    <artifactId>saaj-api</artifactId>
+    <version>1.3</version>
+</dependency>
+<dependency>
+    <groupId>com.sun.xml.messaging.saaj</groupId>
+    <artifactId>saaj-impl</artifactId>
+    <version>1.3</version>
+</dependency>
+<dependency>
+    <groupId>org.w3c.css</groupId>
+    <artifactId>sac</artifactId>
+    <version>1.3</version>
+</dependency>
+<dependency>
+    <groupId>xalan</groupId>
+    <artifactId>serializer</artifactId>
+    <version>2.7.1</version>
+</dependency>
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.7.7</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-aop</artifactId>
+    <version>3.2.6.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-beans</artifactId>
+    <version>3.2.6.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>3.2.6.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>3.2.6.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-expression</artifactId>
+    <version>3.2.6.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>3.2.6.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-config</artifactId>
+    <version>3.2.0.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-core</artifactId>
+    <version>3.2.0.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-web</artifactId>
+    <version>3.2.0.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>3.2.6.RELEASE</version>
+    <!-- <scope>test</scope> -->
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-tx</artifactId>
+    <version>3.2.6.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-web</artifactId>
+    <version>3.2.6.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>3.2.6.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.jvnet.staxex</groupId>
+    <artifactId>stax-ex</artifactId>
+    <version>1.6</version>
+</dependency>
+<dependency>
+    <groupId>org.codehaus.woodstox</groupId>
+    <artifactId>stax2-api</artifactId>
+    <version>3.1.1</version>
+</dependency>
+<dependency>
+    <groupId>com.sun.xml.stream.buffer</groupId>
+    <artifactId>streambuffer</artifactId>
+    <version>1.5</version>
+</dependency>
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>6.5.1</version>
+    <!-- <scope>test</scope> -->
+</dependency>
+<dependency>
+    <groupId>org.codehaus.woodstox</groupId>
+    <artifactId>woodstox-core-asl</artifactId>
+    <version>4.1.2</version>
+</dependency>
+<dependency>
+    <groupId>xml-apis</groupId>
+    <artifactId>xml-apis-ext</artifactId>
+    <version>1.3.04</version>
+</dependency>
+<dependency>
+    <groupId>xml-apis</groupId>
+    <artifactId>xml-apis</artifactId>
+    <version>1.4.01</version>
+</dependency>
+<dependency>
+    <groupId>xmlunit</groupId>
+    <artifactId>xmlunit</artifactId>
+    <version>1.3</version>
+    <!-- <scope>test</scope> -->
+</dependency>
+<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.2-1004-jdbc4</version>
+		</dependency>
+
+		
+		<dependency>
+			<groupId>net.sf.saxon</groupId>
+			<artifactId>Saxon-HE</artifactId>
+			<version>9.7.0-10</version>
+		</dependency>
+
+  <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>6.2.2.jre8</version>
+        </dependency>
+
+	<dependency>
+			<groupId>org.junit.extensions</groupId>
+			<artifactId>cpsuite</artifactId>
+			<version>1.2.5</version>
+		</dependency>		
+<dependency>
+    <groupId>org.aopalliance</groupId>
+    <artifactId>com.springsource.org.aopalliance</artifactId>
+    <version>1.0.0</version>
+</dependency>
+		<dependency>
+			<groupId>java_cup.runtime</groupId>
+			<artifactId>cupv10k-runtime</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kiouri.sliderbar</groupId>
+			<artifactId>gwt-slider-bar</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+			<version>4.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation</artifactId>
+			<version>3.1.1.b06</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-rt-javadoc</artifactId>
+			<version>2.2.7</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-tools-javadoc</artifactId>
+			<version>2.2.7</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mxgraph</groupId>
+			<artifactId>jgraphx</artifactId>
+			<version>3.0.0.0</version>
+		</dependency>
+		
+		<dependency>
+		<groupId>org.mozilla</groupId>
+		<artifactId>rhino</artifactId>
+		<version>1.7.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.jws</groupId>
+			<artifactId>jsr-api</artifactId>
+			<version>1.8.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.taglibs.standard</groupId>
+			<artifactId>jstl-impl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.xhaus</groupId>
+			<artifactId>jyson</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>gnu.gettext</groupId>
+			<artifactId>libintl-patchedByKurs</artifactId>
+			<version>0.19</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlgraphics</groupId>
+			<artifactId>pdf-transcoder</artifactId>
+			<version>1.0beta2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xml</groupId>
+			<artifactId>resolver</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.rowset</groupId>
+			<artifactId>rowset</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.spnego</groupId>
+			<artifactId>spnego</artifactId>
+			<version>r7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terracotta</groupId>
+			<artifactId>terracotta-toolkit-runtime</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>org.eclipse.wst</groupId>
+			<artifactId>xml-xpath2-processor</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+
+
+<dependency>
+    <groupId>aopalliance</groupId>
+    <artifactId>aopalliance</artifactId>
+    <version>1.0</version>
+	<scope>provided</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20170516</version>
+</dependency>
+
+</dependencies>
+  <build>
+	<finalName>${project.artifactId}-${project.version}.${revision.number}_build${build.number}</finalName>
+	<sourceDirectory>src/main/java</sourceDirectory>
+    <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
+    <resources>
+      <resource>
+        <directory>src</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+
+	<resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/client/**</include>
+		  <include>**/api/**</include>
+          <include>**/*.gwt.xml</include>
+		  <include>**/*.xsl</include>
+		  <include>**/*.xml</include>
+		  <include>**/*.xlsx</include>
+		  <include>**/*.html</include>
+		  <include>**/*.xhtml</include>
+		  <include>**/*.txt</include>
+		  <include>**/*.svg</include>
+		  <include>**/*.css</include>
+		  <include>**/*.ico</include>
+		  <include>**/*.jar</include>
+		  <include>**/*.php</include>
+		  <include>**/*.txs</include>
+		  <include>**/*.jpg</include>
+		  <include>**/*.gif</include>
+		  <include>**/*.png</include>
+		  <include>**/*.PNG</include>
+		  <include>**/*.js</include>
+		  <include>**/*.properties</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+       <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0-alpha-2</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>read-project-properties</goal>
+                        </goals>
+                        <configuration>
+                            <files>
+                                <file>src/version.properties</file>
+                            </files>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <encoding>UTF-8</encoding>
+         <excludes>
+            <exclude>**/*Test.java</exclude>
+            <exclude>**/*Tests.java</exclude>
+            <exclude>**/test/*.java</exclude>
+            <exclude>**/test/**/*.java</exclude>
+	    </excludes>
+		</configuration>
+      </plugin>
+	  <plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy userdatas</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<finalName>userdata-${project.version}.${revision.number}_build${build.number}</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
+							<descriptors>
+								<descriptor>src/assembly/userdatas_zip.xml</descriptor>
+							</descriptors>
+							<attach>false</attach>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy sql scripts</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<finalName>sql-scripts-${project.version}.${revision.number}_build${build.number}</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
+							<descriptors>
+								<descriptor>src/assembly/sql_scripts_zip.xml</descriptor>
+							</descriptors>
+							<attach>false</attach>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+       <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>2.5.1</version>
+		
+        <executions>
+          <execution>
+            <!-- <phase>compile</phase>  -->
+			<goals>
+              <goal>compile</goal>
+			  <!-- <goal>enforce-encoding</goal> -->
+<!--                <goal>generateAsync</goal>  -->
+<!--               <goal>test</goal> -->
+            </goals>
+          </execution>
+        </executions>
+		<configuration>
+          <!-- <draftCompile>true</draftCompile>
+          <strict>true</strict>
+          <inplace>false</inplace> -->
+          <runTarget>index.jsp</runTarget>
+		  <!-- <webappDirectory>src/main/webapp</webappDirectory> -->
+        <!--   <style>${gwt.style}</style>
+          <i18nMessagesBundle>com.domain.client.i18n.Messages</i18nMessagesBundle>
+          <i18nConstantsBundle>comdomain.client.properties.ClientProperties</i18nConstantsBundle> -->         
+          <compileReport>true</compileReport>
+          <module>ru.curs.showcase.app.App</module>
+          <logLevel>INFO</logLevel>
+          <copyWebapp>true</copyWebapp>
+        </configuration>
+      </plugin>
+      <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>javacc-maven-plugin</artifactId>
+                        <version>2.6</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>javacc</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>net.java.dev.javacc</groupId>
+                                <artifactId>javacc</artifactId>
+                                <version>5.0</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+	  <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.4</version>
+
+		<configuration>
+          <warSourceDirectory>src/main/webapp</warSourceDirectory>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+		  <!-- <warSourceExcludes>WEB-INF/classes/assembly, WEB-INF/classes/main</warSourceExcludes> -->
+		   <packagingExcludes>WEB-INF/classes/assembly/**, WEB-INF/classes/main/**</packagingExcludes>
+		</configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

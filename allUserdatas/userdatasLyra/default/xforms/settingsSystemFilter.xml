@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel" xmlns="">
+			<xf:instance id="xformId_mainInstance">
+				<schema xmlns="">
+					<info name=""/>
+				</schema>
+			</xf:instance>
+			<xf:bind>
+			</xf:bind>
+		</xf:model>
+	</head>
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/> -->
+		<div style="clear: both">
+			<div style="float: left; font-weight: bold; padding-right: 5px; ">Разделы:</div>
+			<div class="bigArrow">
+				<xf:trigger id="xformId_question" appearance="minimal">
+					<xf:label>
+						<xf:output value="if(instance('xformId_mainInstance')/info/@show = 1, ' &lt;&lt;&lt;', ' &gt;&gt;&gt;')"/>
+					</xf:label>
+
+					<xf:action ev:event="DOMActivate">
+						<xf:setvalue ref="instance('xformId_mainInstance')/info/@show"
+						value="1 - instance('xformId_mainInstance')/info/@show"/>
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</div>
+
+		<xf:group ref="instance('xformId_mainInstance')/info[@show=1]">
+			<div style="float: left; width: 400px">
+				<xf:input ref="@name">
+					<xf:label>Название раздела</xf:label>
+				</xf:input>
+			</div>
+			<div class="dirusing newbutton" style="clear:both">
+			<xf:trigger class="blue">
+				<xf:label>Отобразить</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+              resource="javascript:gwtXFormUpdate('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"
+            >
+					</xf:load>
+				</xf:action>
+			</xf:trigger>
+		</div>
+		</xf:group>
+
+
+		
+
+	</body>
+</html>

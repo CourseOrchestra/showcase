@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documentset>
+	<document>
+		<documentset>
+			<document>
+				<Schema>
+					<Temp>
+						<Flag />
+						<Error />
+					</Temp>
+					<Stat>
+						<Isp />
+						<DateIsp />
+						<Uch />
+						<DateUch />
+						<AC />
+						<DateAC />
+						<Paper />
+						<DatePaper />
+					</Stat>
+					<Info>
+						<status>Форма отчета сформирована</status>
+						<roleoimanager>B2E8F898-473F-4123-936C-46175CC56FA6
+						</roleoimanager>
+						<roleacmanager>952796B9-1AF1-468D-8056-05E70042F11D
+						</roleacmanager>
+						<datefill>2010-10-20</datefill>
+						<datecheck>2010-10-20</datecheck>
+						<transition>Запустить процесс работы с отчетом</transition>
+						<ProjectName>Поддержка семьи</ProjectName>
+						<ProjectNumber>3</ProjectNumber>
+						<Responsible>Минздравсоцразвития России</Responsible>
+						<repcampaign>21417674-D1E2-4D4E-978C-8A5C59609617</repcampaign>
+						<Period>январь-сентябрь 2010</Period>
+						<inyearperiod>январь-сентябрь</inyearperiod>
+						<year>2010</year>
+						<FIO />
+						<remark />
+						<ChangeStr>false</ChangeStr>
+						<Executor />
+						<Date />
+					</Info>
+				</Schema>
+			</document>
+		</documentset>
+	</document>
+</documentset>

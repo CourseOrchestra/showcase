@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+   <head>
+      <script src="../../js/EJSGantt/Grid/GridE1.js"> </script>
+      <link href="../../js/EJSGantt/Styles/Examples.css" rel="stylesheet" type="text/css" />
+   </head>
+   <body>
+      <!-- BodyStart --> 
+      <script>
+
+// --- To specify grouping by Complete, differ only 100%, 0% and others ---
+Grids.OnGetSortValue = function(G,row,col,val,desc,group){
+if(group && col=='C') {
+   if(val=="100%") return 100;
+   if(val=="0%") return 0;
+   return "50";
+   }
+return val;
+}
+
+// --- Informational message when printing ---
+Grids.OnClickButtonPrint = function(){
+alert("To successfully print the chart you should have chosen 'Printing of background colors and images' in your browser.\nIn IE in Internet options -> Advanced -> Print.\nIn FF in Page setup -> Format and options");
+}
+
+      </script>
+
+      <h2>Interactive Gantt chart</h2>
+         A demonstration of TreeGrid application showing interactive Gantt chart - timetable of tasks and their completion in project management.<br/>
+         <br />
+
+      <div id="Gantt" style="WIDTH:100%;HEIGHT:520px;">
+         <script>TreeGrid('<bdo Sync="1" Debug="Check" DebugCheckIgnore="Res" Layout_Url="GanttDef.xml" Data_Url="GanttData.xml"></bdo>',"Gantt");</script>
+      </div>
+      <!-- BodyEnd -->
+      
+      <script>
+      if(location.hostname.search(/coqsoft\.|treegrid\./i)>=0) setTimeout('location.replace("../../../www/#..*Examples*Html*Gantt*Gantt.html"+location.hash.replace("#","\'"));',500);
+      </script>
+   </body>
+</html>

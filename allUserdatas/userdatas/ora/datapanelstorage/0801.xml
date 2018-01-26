@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Фильтрация гридом">
+		<element id="11" type="grid" proc="grid_bal" />
+		<element id="5" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+	</tab>	
+	<tab id="3" name="Обновление навигатора">
+		<element id="31" type="webtext" proc="webtext_navigator" />
+		<element id="32" type="webtext" proc="webtext_filter_and_add"
+			hideOnLoad="true" />	
+	</tab>	
+	<tab id="6" name="Раскраска стилями">
+		<element id="62" type="geomap" proc="geomap_bal"/>
+	</tab>			
+	<tab id="7" name="Раскраска по значению">
+		<element id="61" type="geomap" proc="geomap_func2"/>
+		<element id="06" type="webtext" proc="webtext_grid" hideOnLoad="true" />
+	</tab>		
+</datapanel>

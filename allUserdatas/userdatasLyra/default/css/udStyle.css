@@ -1,0 +1,480 @@
+@CHARSET "UTF-8";
+
+@import "dirusing.css";
+@import "ssmmd.css";
+
+body, table td, select { 
+    font-family: sans-serif;
+    font-size: small;
+}
+div {
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+}
+div.group {
+    padding: 8px 4px 8px 4px;
+    margin: 0px 2px 2px 2px;
+    border: 2px solid #a3b2c0;
+    width: 98%;
+    float: left;
+}
+div.group-wide {
+    padding: 0px 8px 8px 8px;
+    margin: 0px 2px 2px 2px;
+    border: 1px solid #959DA6;
+    width: 98%;
+    float: left;
+}
+
+div.cell {
+    margin: 0px 0px 0px 2px;
+    control
+    padding: 2px;
+    min-height: 25px;
+    border-bottom: 1px dashed grey;
+}
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab-selected {
+    background: none repeat scroll 0 0 #477DB3;
+    color: white;
+    cursor: default;
+}
+div.cellbutton {
+    margin: 0px 0px 0px 2px;
+    control
+    padding: 2px;
+    min-height: 25px;
+    border-bottom: 1px dashed grey;
+}
+div.cellHeader {
+    margin: 0px 0px 0px 2px;
+    padding: 2px;
+    min-height: 14px;
+    border-bottom: 1px dashed grey;
+    background-color: #5A8BC3;
+    color: white;
+    font-size: x-small;
+    font-weight: bold;
+    text-align: center;
+}
+div.control {
+    min-height: 40px;
+}
+div.controlTable {
+    padding: 2px 4px 2px 2px;
+}
+
+.baseInput
+.xforms-value {
+    display: block;
+    width: 100%;
+    border: 0px;
+    padding: 2px 0px 2px 0px;
+    background-color: #E5F2FF;
+    margin: 6px 0px 0px 0px;
+    min-height: 14px;
+} 
+
+.baseInput30{
+    width: 30px;
+	margin: 2px 0px 2px 0px;
+	float: left;
+}
+
+.baseInput30 .xforms-value{
+    width: calc(100% - 4px);
+    padding: 2px 0px 2px 0px;
+    margin: 2px 0px 0px 0px;
+    min-height: 16px;
+	display: inline-block;
+}
+
+.baseInput30 select {
+	height: 22px;
+}
+
+.baseInput30 .xforms-output .xforms-value {
+	height: 18px;
+}
+
+.baseInput30 input[type=checkbox]
+{
+	height: 15px;
+}
+
+.dateInput .xforms-value {
+    border: 0 none;
+    margin: 6px 0 0;
+    min-height: 13px;
+    padding: 2px 0;
+    /* width: 70px !important; */
+}
+.xforms-value {
+    background-color: #E5F2FF;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    border-color: #C2DAF2;
+    width: 100%;
+}
+.xforms-label {
+    display: block;
+    font-size: x-small;
+    width: 100%;
+    padding: 0px;
+    font-weight: bold;
+    margin: 4px 2px 4px 2px;
+    white-space: nowrap;
+}
+label {
+    display: block;
+    font-size: x-small;
+    width: 100%;
+    padding: 0px;
+    font-weight: bold;
+    margin: 4px 0px 4px 2px;
+    white-space: nowrap;
+}
+.xforms-trigger .xforms-label {
+    margin: 0px;
+    font-weight: normal;
+}
+.control button, .controlTable button, .cell button {
+    width: 70px;
+}
+.controlTable button, .cell button {
+    margin-top: 4px;
+}
+.control .actionbutton button {
+    width: 100px;
+}
+th.TableHeader {
+    background-color:
+    #5A8BC3;
+    color:
+    white;
+    padding: 2px;
+    text-align: center;
+}
+
+.xforms-invalid .xforms-value {
+    background-color: #FCC !important;
+    border: 0 !important;
+}
+
+.xforms-required .xforms-value {
+    /*background-color: red !important;*/
+    border: 0 !important;
+}
+
+
+/*.xforms-required .xforms-required-icon {
+    float: left;
+	margin-top: -15px;
+	margin-left: -10px;
+	
+}*/
+
+span.xforms-alert-icon {
+background-image: none;
+background-repeat: no-repeat;
+}
+
+.HideButton {
+    display:
+    none;
+}
+
+.dataPanelElement-BorderCorners {
+    border-color: #477DB3;
+    border-style: hidden hidden dashed;
+    border-width: medium medium 0px;
+    padding: 8px;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab-selected {
+    background: none repeat scroll 0 0 #477DB3;
+    color: white;
+    cursor: default;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelContent {
+    border-color: #477DB3;
+    border-style: solid;
+    border-width: 3px 0 0;
+    overflow: hidden;
+    padding: 6px;
+}
+
+td.Tab,
+td.Current {
+    height: 20px;
+}
+td.Tab {
+    background-color: #C2DAF2;
+}
+td.Hide {
+    display:
+    none;
+}
+button.TabButton {
+    border:
+    0px;
+    background-color:
+    transparent;
+    width:
+    100%;
+    height: 100%;
+    font-weight: bold;
+    font-size: x-small;
+}
+button.TabButtonSpec {
+    border:
+    0px;
+    background-color:
+    transparent;
+    width:
+    100%;
+    height: 30px;
+    font-weight: bold;
+    font-size: x-small;
+}
+div.Hide {
+    display:
+    none;
+}
+div.Show {
+    display:
+    inline;
+}
+
+.gwt-Image {
+  cursor:pointer;
+ }
+
+
+span.xforms-hint-icon:hover div.xforms-hint-value { 
+  display: block; 
+}
+                
+span.xforms-hint-icon div.xforms-hint-value { 	
+  display: none; 
+  }
+
+.newbutton .xforms-trigger .xforms-label {
+        display: block;
+        font-size: 	small;
+        width: 100%;		
+        
+        color:white;
+        }
+        
+        .newbutton .disabled .xforms-label {
+        display: block;
+        font-size: 	small;
+        width: 100%;		
+        color: #aaa;
+        }
+        
+        
+        .newbutton span button {
+        display:inline-block;
+        border:1px solid #333;
+        outline:0;			   
+        padding-left:10px;
+        padding-right:10px;
+        font:9px Helvetica,Arial,sans-serif;
+        text-align:center;
+        cursor:pointer;
+        -moz-border-radius:5px;
+        border-radius:5px;
+        -moz-box-shadow:inset 1px 1px 1px rgba(255,255,255,0.2),0 0 1px rgba(255,255,255,0.5);
+        -webkit-box-shadow:inset 1px 1px 1px rgba(255,255,255,0.2),0 0 1px rgba(255,255,255,0.5);
+        box-shadow:inset 1px 1px 1px rgba(255,255,255,0.2),0 0 4px rgba(255,255,255,0.5);
+        background-color:#e0e0e0;
+        background-image:url(images/gradient.png);
+        background-image:-moz-linear-gradient(top,#f7edff,#b1b1b1);
+        background-image:-webkit-linear-gradient(top,#f7edff,#b1b1b1);
+        background-image:-ms-linear-gradient(top,#f7edff,#b1b1b1);
+        background-image:-o-linear-gradient(top,#f7edff,#b1b1b1);
+        background-image:linear-gradient(top,#f7edff,#b1b1b1);
+        -moz-background-clip:padding;
+        -webkit-background-clip:padding-box;
+        background-clip:padding-box
+        }
+        .newbutton span button:link,span button:visited,span button:hover {
+        color:#444;
+        text-decoration:none
+        }
+        .newbutton span button:hover,.newbutton span button:focus {
+        background-image:-moz-linear-gradient(top,#f5f5ff,#999);
+        background-image:-webkit-linear-gradient(top,#f5f5ff,#999);
+        background-image:-ms-linear-gradient(top,#f5f5ff,#999);
+        background-image:-o-linear-gradient(top,#f5f5ff,#999);
+        background-image:linear-gradient(top,#f5f5ff,#999)
+        }
+        
+	.defaultbutton span button {
+	height:22px;
+	}
+        
+	.highbutton span button {
+	height:40px;
+	}
+
+        .newbutton .disabled button{
+        border-color:#CCC;
+        background:#e0e0e0;
+        color:#CCC;
+		width:100%;
+		height:22px;
+        cursor:default;
+        -moz-box-shadow:none;
+        -webkit-box-shadow:none;
+        box-shadow:none;
+        opacity:.7;
+        -ms-filter:"alpha(opacity=70)";
+        filter:alpha(opacity=70)
+        font-color: #000;
+        }
+        .newbutton .disabled button:hover,.newbutton .disabled button:active,.newbutton .disabled button:focus {
+        top:0;
+        background:#e0e0e0;
+        -moz-box-shadow:none;
+        -webkit-box-shadow:none;
+        box-shadow:none
+        }
+        .newbutton .blue button:link,.newbutton .blue button:visited,.newbutton .black button:link,.newbutton .black button:visited {
+        color:#FFF;
+        font-weight:bold;
+        text-shadow:0 1px 1px rgba(0,0,0,0.6)
+        }
+        
+        .newbutton .blue button {
+        border-color:#003b80;
+        background-color:#004ca3;
+		width:100%;
+		height:22px;
+        background-image:-webkit-linear-gradient(top,#61AAF2,#477DB3);
+        background-image:-moz-linear-gradient(top,#61AAF2,#477DB3);
+        background-image:-ms-linear-gradient(top,#61AAF2,#477DB3);
+        background-image:-o-linear-gradient(top,#61AAF2,#477DB3);
+        background-image:linear-gradient(top,#61AAF2,#477DB3);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#61AAF2',EndColorStr='#477DB3')
+        }
+        .newbutton .blue button:hover,.newbutton .blue button:focus {
+        background-color:#61AAF2;
+        background-image:-webkit-linear-gradient(top,#61AAF2,#2E5073);
+        background-image:-moz-linear-gradient(top,#61AAF2,#2E5073);
+        background-image:-ms-linear-gradient(top,#61AAF2,#2E5073);
+        background-image:-o-linear-gradient(top,#61AAF2,#2E5073);
+        background-image:linear-gradient(top,#61AAF2,#2E5073);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#61AAF2',EndColorStr='#2E5073')
+        }
+        
+        
+        .newbutton.black button {
+        border-color:#000;
+        background-color:#333;
+        background-image:-webkit-linear-gradient(top,#666,#333);
+        background-image:-moz-linear-gradient(top,#666,#333);
+        background-image:-ms-linear-gradient(top,#666,#333);
+        background-image:-o-linear-gradient(top,#666,#333);
+        background-image:linear-gradient(top,#666,#333);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#666666',EndColorStr='#333333')
+        }
+        .newbutton.black button:hover,.black button:focus {
+        background-color:#000;
+        background-image:-webkit-linear-gradient(top,#666,#000);
+        background-image:-moz-linear-gradient(top,#666,#000);
+        background-image:-ms-linear-gradient(top,#666,#000);
+        background-image:-o-linear-gradient(top,#666,#000);
+        background-image:linear-gradient(top,#666,#000);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#666666',EndColorStr='#000000')
+        }
+        
+        
+        .newbutton span button:active {
+        position:relative;
+        top:1px;
+        -moz-box-shadow:inset 0 0 8px rgba(80,80,80,0.5);
+        -webkit-box-shadow:inset 0 0 8px rgba(80,80,80,0.5);
+        box-shadow:inset 0 0 8px rgba(80,80,80,0.5)
+        }		
+        
+        a[href], input[type='submit'], input[type='image'], select, button {
+        cursor: pointer;}
+        
+td .divisionTab {
+font-size: x-small; 
+cursor: pointer; 
+font-size: normal; 
+border-width: 1px 1px 0px 1px; 
+border-style: dotted; 
+border-color: black;
+}
+
+.darkblue {
+background-color: #61AAF2
+}
+
+.lightblue {
+background-color: #C2DAF2
+}
+
+table.questionnaire td{
+	padding:2px;
+	height:15px;
+}            
+table.questionnaire td.headerCell{
+	font-weight:bold; 
+	text-align:center;
+	font-size:x-small;
+	background-color:#cbdde1;
+}
+		 
+table.questionnaire td.cell{
+	border-right:1px solid black;
+	border-bottom:1px solid black;
+	text-align:center;
+	font-size:xx-small;
+}
+table.questionnaire .boldRightCell{
+	border-right:3px solid black !important;
+}
+table.questionnaire .boldTopCell{
+	border-top:3px solid black !important;
+}
+table.questionnaire .boldLeftCell{
+	border-left:3px solid black !important;
+}
+table.questionnaire .boldBottomCell{
+	border-bottom:3px solid black !important;
+}
+table.questionnaire td.leftCell{
+	border-left:1px solid black;
+}
+table.questionnaire td.topCell{
+	border-top:1px solid black;
+}
+table.questionnaire div.cellHeight{
+	height:11.5px;
+}
+
+button .close {
+  background-image:url(images/gradient.png);  
+}
+
+div .ScrollPanell {
+	float: left;
+	clear: both;
+}
+
+.xforms-output .xforms-value {
+	background-color: transparent;
+	border: none;
+}
+
+.xforms-label .xforms-value {
+	background-color: transparent;
+	border-width: 0px 0px 0px 0px;
+	width: 100%;
+}

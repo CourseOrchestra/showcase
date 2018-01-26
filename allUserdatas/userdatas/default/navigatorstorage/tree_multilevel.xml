@@ -1,0 +1,87 @@
+﻿<navigator hideOnLoad="true" width="200px">
+	<group id="1" name="Балансы зерна">
+		<level1 id="C6B886DB-A835-464B-BCF8-522419CD8770" name="Ввоз, включая импорт - Всего" >
+			<action>
+				<main_context>Ввоз, включая импорт - Всего</main_context>
+				<datapanel type="a.xml" />
+			</action>
+		</level1>
+		<level1 id="C6CC2BA4-A6ED-4630-8E58-CBBFA9C8C0A9" name="Вывоз, включая экспорт - Всего" selectOnLoad="true">
+			<action>
+				<main_context>Вывоз, включая экспорт - Всего</main_context>
+				<datapanel type="a.xml" />
+			</action>
+			<level2 id="C6CC2BA4-A6ED-4630-8E58-CBBFA9C8C0A8" name="Вывоз, включая экспорт - Ноябрь">
+				<action>
+					<main_context>Вывоз, включая экспорт - Ноябрь</main_context>
+					<datapanel type="test.xml">
+						<element id="1">
+							<add_context>(1=1)</add_context>
+						</element>
+					</datapanel>
+				</action>
+			</level2>
+		</level1>
+		<level1 id="uniq1" name="обновить навигатор">
+			<action>
+				<navigator refresh="true" />
+			</action>
+		</level1>
+		<level1 id="uniq2" name="обновить навигатор и выделить текущий элемент">
+			<action>
+				<navigator refresh="true" element="uniq2" />
+			</action>
+		</level1>
+		<level1 id="uniq3" name="выделить текущий элемент">
+			<action>
+				<navigator element="uniq2" />
+			</action>
+		</level1>
+		<level1 id="9CBCF924-B7EC-413F-BF49-F35F1E6A92DB" name="Запасы на конец отчетного периода - Всего">
+			<action show_in="MODAL_WINDOW" keep_user_settings="false">
+				<main_context>Запасы на конец отчетного периода - Всего
+				</main_context>
+				<modalwindow caption="test_action_name" width="99"
+					height="98" show_close_bottom_button="true" />
+				<datapanel type="a.xml">
+					<element id="elid">
+						<add_context>add_context</add_context>
+					</element>
+					<element id="elid2"
+						keep_user_settings="true">
+						<add_context>add_context</add_context>
+					</element>
+				</datapanel>
+				<server>
+				<activity id="srv01" name="test">
+				<add_context>
+				test
+				</add_context>
+				</activity>
+				</server>
+				<client>
+				<activity id="id01" name="testJS">
+				<add_context>				
+				01				
+				</add_context>
+				</activity>			
+				</client>					
+			</action>
+		</level1>	
+		<level1 id="9CBCF924-B7EC-413F-BF49-F35F1E6A92DC" name="Запасы на конец отчетного периода - Всего">
+			<action keep_user_settings="false">
+				<main_context>Запасы на конец отчетного периода - Всего
+				</main_context>
+				<datapanel type="a.xml">
+					<element id="elid">
+						<add_context>add_context</add_context>
+					</element>
+					<element id="elid2"
+						keep_user_settings="true">
+						<add_context>add_context</add_context>
+					</element>
+				</datapanel>					
+			</action>
+		</level1>		
+	</group>
+</navigator>

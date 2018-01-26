@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xsd="http://www.w3.org/2001/XMLschema"
+      xmlns:fs="http://www.curs.ru/ns/FormServer"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+	
+	
+		
+		<style type="text/css">
+			/*
+			  -----Заголовок
+			  таблицы-----
+			 */
+			div.ScrollPanel {
+			    margin: 0px;
+			    padding: 0px;
+			    width: 949px;
+			    height: 270px;
+			    overflow-y: auto;
+			    overflow-x: hidden;
+			}
+			th.TableHeader {
+			    background-color:
+			    #5A8BC3;
+			    color:
+			    white;
+			    padding: 2px;
+			    text-align: center;
+			}
+			/*
+			  -----Заголовок
+			  таблицы-----
+			 */
+			.xforms-value {
+			    border: 1px
+			    solid
+			    #B3B3B3;
+			    padding:
+			    0.3em;
+			    margin: 0px 1px
+			    0px 0px;
+			    font-size: 11px;
+			    width: 96px;
+			}
+			th.NameHeader {
+			    width:
+			    900px;
+			}
+			/*
+			  -----№
+			  п/п-----
+			 */
+			th.SobNumberHeader {
+			    width:
+			    26px;
+			}
+			th.SobNameHeader {
+			    width:
+			    310px;
+			}
+			th.SobResponsibleHeader {
+			    width:
+			    310px;
+			}
+			th.SobConsiderHeader {
+			    width:
+			    20px;
+			    text-align: center;
+			}
+			th.SobResponsibleHeader1 {
+			    width:
+			    184px;
+			}
+			th.SobDateHeader1 {
+			    width:
+			    86px;
+			}
+			th.SobPeriodHeader1 {
+			}
+			/*
+			  -----Общая
+			  информация-----
+			 */
+			.InfoTable {
+			    text-align: left;
+			    background-color:
+			    white;
+			    color: black;
+			}
+			.WarningInput
+			.xforms-value {
+			    color: red;
+			    border: 0px;
+			    font-weight: bold;
+			    width: 800px;
+			    font-size: 120%;
+			}
+			.HintInput
+			.xforms-value {
+			    color: green;
+			    border: 0px;
+			    font-weight: bold;
+			    width: 800px;
+			    font-size: 100%;
+			}
+			.RoleInput
+			.xforms-value {
+			    width: 806px;
+			}
+			.StatusInput
+			.xforms-value {
+			    width: 785px;
+			}
+			.PeriodInput
+			.xforms-value {
+			    width: 120px;
+			}
+			.ExecutorElemInput
+			.xforms-value {
+			    width: 816px;
+			}
+			.ExecutorInput
+			.xforms-value {
+			width: 806px;
+			}			
+			.ProjectInput
+			.xforms-value {
+			    width: 806px;
+			}
+			.TransitionInput
+			.xforms-value {
+			    width: 660px;
+			}
+			.DateInput
+			.xforms-value {
+			    width: 60px;
+			}
+			.FIOInput
+			.xforms-value {
+			    width: 806px;
+			}
+			.EmailInput
+			.xforms-value {
+			    width: 200px;
+			}
+			.TelInput
+			.xforms-value {
+			    width: 200px;
+			}
+			.RemarkInput
+			.xforms-value {
+			    width: 806px;
+			    height: 450px;
+			}
+			.CommentInput
+			.xforms-value {
+			    width: 806px;
+			    height: 100px;
+			}
+			.TaskInput
+			.xforms-value {
+			    width: 675px;
+			    background-color: #bbbbbb;
+			}
+			.NaprInput
+			.xforms-value {
+			    width: 675px;
+			}
+			.ResponsibleInput
+			.xforms-value {
+			    width: 675px;
+			}
+			.ConsiderInput
+			.xforms-value {
+			    width: 22px;
+			}
+			.CodeInput
+			.xforms-value {
+			    width: 50px;
+			}
+			.NaznInput
+			.xforms-value {
+			    width: 806px;
+			    text-align: right;
+			    border: 0px;
+			}
+			.NameInput
+			.xforms-value {
+
+			    width:
+			    870px;
+
+			}
+			/* -----Первая вкладка----- */
+			.TaskInput1
+			.xforms-value {
+			    width: 940px;
+			    text-align: center;
+			}
+			.NumberInput1
+			.xforms-value {
+			    width: 70%;
+			    margin-top: 1px;
+			    border: 0px;
+			}
+			.NameInput1
+			.xforms-value {
+			    width:
+			    162px;
+			    border:
+			    0px;
+			}
+			.ResponsibleInput1
+			.xforms-value {
+			    width:
+			    191px;
+			    border:
+			    0px;
+			}
+			.NumberInput
+			.xforms-value {
+			    width: 17px;
+			    border:
+			    0px;
+			}
+			.ActionInput
+			.xforms-value {
+			    width:
+			    301px;
+			    border:
+			    0px;
+			}
+			.ConsiderInput
+			.xforms-value {
+			    width:
+			    10px;
+			    border:
+			    0px;
+			}
+			.Pok1Input1
+			.xforms-value {
+			    width:
+			    80px;
+			    border:
+			    0px;
+			}
+			.DateInput1
+			.xforms-value {
+			    width:
+			    64%;
+			    border: 0px;
+			}
+			.CauseInput1
+			.xforms-value {
+			    width: 96.8%;
+			    border: 0px;
+			}
+			th.SobNumberHeader1, th.SobNumberHeader,
+			th.SobNameHeader,th.SobAntiKrHeader,th.SobResponsibleHeader,
+			th.SobPeriodHeader1, th.SobConsiderHeader {
+			    vertical-align:
+			    middle;
+			    font-size:
+			    10px;
+			    background-color:
+			    #5A8BC3;
+			    color:
+			    white;
+			}
+			.xforms-invalid
+			.xforms-value {
+			    border: 1px
+			    solid red;
+			}
+			div.Hide {
+			    display:
+			    none;
+			}
+			div.Show {
+			    display:
+			    inline;
+			}</style>
+	
+
+		
+		
+		
+        <!-- Простейшие контролы ввода и вывода -->
+        <xf:model id="mainModel">
+            <xf:instance id="mainInstance">
+                <schema xmlns="">
+                    <info>
+                        <name/>
+                        <id/>
+                    </info>
+                </schema>
+            </xf:instance>         
+            <xf:bind> </xf:bind>
+        </xf:model>
+    </head>
+    <body>
+        <div style="font-size: 15px;"> Имя: </div>
+        <div>
+            <xf:input ref="/schema/info/name">
+                <xf:hint>Тип статьи баланса</xf:hint>
+            </xf:input>
+			
+			
+			<xf:trigger>
+			<xf:label>Выбрать</xf:label>
+			<xf:action ev:event="DOMActivate">
+			<xf:load resource="javascript:showSelector({
+			           id : 'xformId',			
+                       procCount : '[dbo].[balancecount]',
+                       procList  : '[dbo].[balancelist]',                       
+                       generalFilters      : '',
+                       currentValue        : '',
+                       windowCaption       : 'Выберите название',
+                       onSelectionComplete : function(ok, selected){
+					if (ok) {
+					var a = xforms.defaultModel.defaultInstance.doc.getElementsByTagName('info')[0].getElementsByTagName('name')[0];
+					setValue(a, selected.name);
+					a = xforms.defaultModel.defaultInstance.doc.getElementsByTagName('info')[0].getElementsByTagName('id')[0];
+					setValue(a, selected.id);		 
+					xforms.ready = false;
+					xforms.refresh();
+					xforms.ready = true;
+							}
+								   }});;"/>
+			</xf:action>
+			</xf:trigger>		
+			
+        </div>
+        <div style="clear: both;">
+            <xf:output ref="'Выбран тип статьи баланса ' + /schema/info/name  "/>
+        </div>
+        
+
+        <div>
+            <xf:trigger>
+                <xf:label>Отфильтровать</xf:label>
+                <xf:action ev:event="DOMActivate">
+                <xf:load resource="javascript:gwtXFormFilter('xformId', '1',  Writer.toString(xforms.defaultModel.getInstanceDocument('mainInstance')))"/>
+                </xf:action>
+            </xf:trigger>
+            
+        </div>
+  
+        
+    </body>
+</html>
+
+
+
+
+
+

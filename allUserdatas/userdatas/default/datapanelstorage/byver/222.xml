@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+    <tab id="1" name="XForms. Задание размеров селекторов" layout="VERTICAL">
+        <element id="0502" type="xforms" template="Showcase_Template_multiselector_simple.xml"
+            proc="xforms_proc_no_data">
+            <proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+        </element>
+    </tab>
+	<tab id="2" name="XForms. needReload">		
+		<element id="81" type="xforms" template="Showcase_Template2.xml"
+			proc="xforms_proc2"/>
+		<element id="82" type="webtext" proc="webtext_3buttons" hideOnLoad="true"/>
+		<element id="83" type="grid" proc="grid_bal_articles"/>	
+		<element id="84" type="xforms" template="Showcase_Template3.xml"
+			proc="xforms_proc3" neverShowInPanel="true">
+			<proc id="proc1" name="xforms_saveproc3" type="SAVE"/>
+		</element>
+	</tab>
+</datapanel>

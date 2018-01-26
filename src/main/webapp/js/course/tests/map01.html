@@ -1,0 +1,60 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<link rel="stylesheet" href="../../dijit/themes/claro/claro.css"/>
+
+<!--
+Supported mapping engines (replace the value for the djeoEngine parameter):
+
+djeo native mapping engine - djeoEngine: 'djeo'
+
+Google Maps API - djeoEngine: 'gmaps'
+
+Google Earth API - djeoEngine: 'ge'
+
+Yandex Maps API - djeoEngine: 'ymaps'
+Important: apply for a key at http://api.yandex.ru/maps/form.xml and
+place it as the value of the ymapsKey parameter
+-->
+<script>
+dojoConfig = {
+	djeoEngine: "djeo",
+	ymapsKey: "AMOPgE4BAAAA9Y-BUwMAonjZ5NBRJDj54c-cDVPzQcYlLNAAAAAAAAAAAACPSuKS9WyCiMuXm9An1ZKCx5Pk-A==",
+	packages: [
+		{name: "dojo", location: "../dojo"},
+		{name: "dijit", location: "../dijit"},
+		{name: "djeo", location: "../djeo"},
+		{name: "djeo-gmaps", location: "../djeo-gmaps"},
+		{name: "djeo-ge", location: "../djeo-ge"},
+		{name: "djeo-ymaps", location: "../djeo-ymaps"},
+		{name: "djeo-jenks", location: "../djeo-jenks"},
+		{name: "djeo-colorbrewer", location: "../djeo-colorbrewer"},
+		{name: "course", location: "../course"},
+		{name: "courseApp", location: "../course/tests"}
+	]
+}
+</script>
+<script src="../../dojo/dojo.js"></script>
+
+<script>
+require([
+	"course/tests/data/features",
+	"course/tests/data/options",
+	"course/geo2",
+	"dojo/domReady!"
+],
+function(features, options){
+	course.geo.makeMap("map", "legend", features, options);
+});
+</script>
+
+</head>
+
+<body class="claro">
+
+<div id="map" style="width:800px;height:400px;"></div>
+<div id="legend"></div>
+
+</body>
+</html>

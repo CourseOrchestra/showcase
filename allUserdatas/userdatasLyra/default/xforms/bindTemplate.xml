@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<specialTag xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<xf:bind nodeset="instance('xformId_mainInstance')/rules/rule/operator/constants/valueTypeName"
+		readonly="true()"/>
+	<xf:bind nodeset="instance('xformId_mainInstance')/rules/rule/operator/constants/value"
+		readonly="instance('xformId_mainInstance')/rules/rule/operator/constants/valueType='degreeAssurance'"/>
+	<xf:bind type="date"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/constants[valueType='date']/value"/>
+	<xf:bind type="nonNegativeInteger"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/constants[valueType='int']/value"/>
+	<xf:bind type="decimal"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/constants[valueType='float']/value"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/constants[valueType='catalog']/value"/>
+	<xf:bind nodeset="instance('xformId_mainInstance')/rules/rule/operator/questions/visitNumber"
+		type="int"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/questions/questionName"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/questions/catalogName"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/questions/answerId"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/title/questionName"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/title/catalogName"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/title/answerId"/>
+	<xf:bind nodeset="instance('xformId_mainInstance')/rules/rule/operator/diagnoses/visitNumber"
+		type="int"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/diagnoses/diagnos"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/diagnoses/attribute"/>
+	<xf:bind nodeset="instance('xformId_mainInstance')/rules/rule/operator/journal/visitNumber"
+		type="int"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/journal/research"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/journal/questionName"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/journal/catalogName"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/journal/answerId"/>
+	<xf:bind
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/researches/researchNumber"
+		type="int"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/researches/research"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/researches/questionName"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/researches/catalogName"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/researches/answerId"/>
+	<xf:bind readonly="true()"
+		nodeset="instance('xformId_mainInstance')/rules/rule/operator/current/answer"/>
+	<xf:bind nodeset="instance('xformId_mainInstance')/rules/rule/query/@status"
+		type="boolean"/>
+	<!--<xf:bind nodeset="instance('xformId_mainInstance')/rules/rule/query[@statusType='_current']/@status"
+		readonly="instance('xformId_mainInstance')/rules/rule/query[@statusType='_current']/@status='true'"/>-->
+
+	<xf:instance id="xformId_queryInstance" xmlns="">
+		<schema xmlns="">
+			<query status="" normal_query="" statusType=""/>			
+		</schema>
+	</xf:instance>
+
+	<xf:instance id="xformId_typeInstance" xmlns="">
+		<schema xmlns="">
+			<type type="permits" value="Разрешения"/>
+			<type type="restrictions" value="Ограничения"/>
+			<type type="textRule" value="Правило на текст"/>
+			<type type="byDefault" value="Ответ по умолчанию"/>
+			<type type="contrRel" value="Относительные противопоказания"/>
+			<type type="contrAbs" value="Абсолютные противопоказания"/>
+			<type type="exactly" value="Установлен точно"/>
+			<type type="excluded" value="Исключается"/>
+			<type type="notExclude" value="Нельзя исключить"/>
+			<type type="unlikely" value="Маловероятен"/>
+			<type type="beSuspected" value="Можно заподозрить"/>
+		</schema>
+	</xf:instance>
+
+	<xf:submission id="xformId_textSubmission" method="post"
+		targetref="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/query[index('queries')]/@normal_query"
+		replace="text" ref="instance('xformId_mainInstance')" mode="synchronous"
+		action="secured/submit?proc=ssmmd.other.textTranslator.textSubmission.celesta">
+		</xf:submission>
+
+	<xf:submission id="xformId_choiceSubmission" method="post" targetref="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/operator"
+		replace="instance" ref="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/operator" mode="synchronous"
+		action="secured/submit?proc=ssmmd.other.ruleSelector.choiceSendSubmission.celesta">
+		<xf:load
+			resource="javascript:
+			xforms.ready = false;
+			getSubformModel('xformId_mainModel').recalculate();
+			getSubformModel('xformId_mainModel').revalidate();
+			xforms.refresh();
+			xforms.ready = true;"
+		/>
+	</xf:submission>
+
+	<xf:submission id="xformId_saveSubmission" method="post" instance="xformId_mainInstance"
+		replace="instance" ref="instance('xformId_mainInstance')"
+		action="secured/submit?proc=ssmmd.other.ruleSelector.saveSubmission.celesta">
+		<xf:action ev:event="xforms-submit-error">
+			<xf:load
+				resource="javascript:
+						if (confirm ('Разбор формул завершился неудачно, продолжить сохранение?'))
+							{gwtXFormSave('xformId',
+									  '1', 
+									  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))}
+						else
+							{xforms.ready = false;
+							 getSubformModel('xformId_mainModel').recalculate();
+							 getSubformModel('xformId_mainModel').revalidate();
+							 xforms.refresh();
+							 xforms.ready = true;}"
+			/>
+		</xf:action>
+		<xf:action ev:event="xforms-submit-done">
+			<xf:load
+				resource="javascript:gwtXFormSave('xformId', '1',
+									Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"
+			/>
+		</xf:action>
+	</xf:submission>
+	<!-- instance('xformId_mainInstance')rules/rule/operator/researches/answerType='catalog' and instance('xformId_mainInstance')rules/rule/operator/researches/answerChoice!='' -->
+</specialTag>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>	
+	<tab id="01" name="Jython как источник данных">
+		<element id="0101" type="webtext" proc="webtext/GetJythonProc.py" transform="pas.xsl"/>
+		<element id="0102" type="xforms" proc="xform/GetJythonProc.py" template="Showcase_Template.xml"/>						
+	</tab>
+	<tab id="02" name="XML как источник данных">
+		<element id="0201" type="webtext" proc="3buttons_enh.xml" />		
+		<element id="0202" type="xforms" proc="Showcase_Data.xml" template="Showcase_Template.xml"/>						
+	</tab>	
+	<tab id="03" name="Jython навигатор">
+		<element id="0301" type="webtext" proc="webtext/WebTextUserData1Proc.py"/>
+	</tab>
+	<tab id="01dop" name="Jython - возврат ошибок">
+		<element id="0801" type="webtext" proc="webtext_sa_error" showLoadingMessage="true"/>
+		<element id="d1" type="webtext" proc="webtext/GetJythonProc.py" showLoadingMessage="true"/>							
+	</tab>		
+	<tab id="04" name="showLoadingMessage - отключено">
+		<element id="0401" type="grid" proc="grid_bal_multiaction" />
+		<element id="d5" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" showLoadingMessage="true"/>		
+		<element id="d2" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+	</tab>		
+	<tab id="05" name="showLoadingMessage - карта" layout="TABLE" styleClass="css-class">
+		<tr id="r01" height="300px" style="border-width: medium" styleClass="css-class">
+			<td id="d0101" width="30%" style="border-width: medium; background: green;" styleClass="css-class" rowspan="2" >
+				<element id="0501" type="grid" proc="grid_bal_multiaction" />
+			</td>	
+			<td id="d0102" width="70%" styleClass="css-class" >
+				<element id="d3" type="geomap" proc="geomap_world_small" cacheData="false" showLoadingMessage="true"/>
+			</td>									
+		</tr>	
+		<tr id="r02" height="300px" style="border-width: medium" styleClass="css-class">	
+			<td id="d0201" width="70%" styleClass="css-class">
+				<element id="d4" type="geomap" proc="geomap_world_small" cacheData="false" showLoadingMessage="false"/>
+			</td>
+		</tr>				
+	</tab>
+</datapanel>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+	<tab id="01" name="Samples">
+		<element id="0101" type="xforms" template="Template.xml" proc="g1.xform.main.celesta">
+			<proc id="proc1" name="g1.xform.save.celesta" type="SAVE" />
+			<proc id="upload" name="g1.xform.uploadFile.celesta" type="UPLOAD" />
+			<proc id="download" name="g1.xform.downloadFile.celesta" type="DOWNLOAD" />
+
+<!--
+			<related id="102" />
+-->			
+ 		</element>
+ 		
+ 		
+<!--		
+ 		<element id="102" type="GRID"  subtype="JS_TREE_GRID" proc="g1.jsTreeGridEditor.getDataAndSetting.celesta" 
+		    plugin="treeDGrid">
+			<proc id="toolBar" name="g1.jsTreeGridEditor.gridToolBar.celesta" type="TOOLBAR"/>		    
+		    <proc id="11" name="g1.jsTreeGridEditor.gridAddRecord.celesta" type="ADDRECORD" />
+		    <proc id="12" name="g1.jsTreeGridEditor.gridSaveData.celesta" type="SAVE" />
+		    
+   			<proc id="14" name="g1.jsTreeGridEditor.gridPartialUpdate.celesta" type="PARTIALUPDATE" />
+		</element>
+ -->		
+		
+	</tab>
+	
+	
+</datapanel>

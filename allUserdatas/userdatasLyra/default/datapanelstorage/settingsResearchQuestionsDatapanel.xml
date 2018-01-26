@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+
+	<tab id="2" name="Настройка вопросов">
+
+		<element id="questionGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.settingsResearchQuestGrid.treeGrid.celesta">
+			<proc id="toolbar"
+				name="ssmmd.grids.settingsResearchQuestGrid.gridToolBar.celesta" type="TOOLBAR"/>
+		</element>
+
+		<element id="settingsResearchQuest" type="xforms" template="rulesTemplate.py"
+			proc="ssmmd.xforms.settingsResearchQuest.cardData.celesta" hideOnLoad="true">
+			<proc id="settingsDevelopQuestSave"
+				name="ssmmd.xforms.settingsResearchQuest.cardDataSave.celesta" type="SAVE"/>
+			<proc id="question_picture_upload"
+				name="ssmmd.xforms.settingsResearchQuest.questionPictureUpload.celesta" type="UPLOAD"/>
+			<related id="questionGrid"/>
+		</element>
+
+		<element id="delete" type="xforms"
+			template="settingsResearchQuestDelete.xml"
+			proc="ssmmd.xforms.settingsResearchQuestDelete.cardData.celesta"
+			hideOnLoad="true">
+			<proc id="settingsResearchQuestDeleteSave"
+				name="ssmmd.xforms.settingsResearchQuestDelete.cardDataSave.celesta" type="SAVE"/>
+			<related id="questionGrid"/>
+		</element>
+
+		<element id="moveRight" type="xforms" template="settingsResearchQuestRight.xml"
+			proc="ssmmd.xforms.settingsResearchQuestRight.cardData.celesta" hideOnLoad="true">
+			<proc id="savemove"
+				name="ssmmd.xforms.settingsResearchQuestRight.moveRight.celesta" type="SAVE"/>
+			<related id="questionGrid"/>
+		</element>
+
+	</tab>
+
+</datapanel>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+
+	
+	<tab id="10" name="Геодерево">
+ 		<element id="102" type="GRID"  subtype="JS_TREE_GRID" proc="exttreegrid_geo" 
+		    plugin="treeDGrid">
+			<proc id="020101" name="gridToolBar" type="TOOLBAR"/>		    
+		    <proc id="11" name="jstreegrid_addrecord1" type="ADDRECORD" />		    
+		    <proc id="12" name="jstreegrid_save1" type="SAVE" />		    
+		</element>
+		<element id="0202" type="webtext" proc="webtext/selectedRowWriter.py" hideOnLoad="true" />		    
+		<element id="105" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+	</tab>
+	
+	
+	
+	
+	<tab id="12" name="Jython">
+ 		<element id="1022" type="GRID"  subtype="JS_TREE_GRID" proc="grid/jsTreeGridJython.py" 
+		    plugin="treeDGrid">
+			<proc id="020101" name="gridToolBar" type="TOOLBAR"/>		    
+		    <proc id="11" name="grid/jsTreeGrid_AddRecord1.py" type="ADDRECORD" />		    
+		    <proc id="12" name="grid/jsTreeGrid_Save1.py" type="SAVE" />		    
+		</element>
+	</tab>
+	
+	
+	
+	
+	
+	<tab id="15" name="Картинки на ноды">
+		<element id="152" type="GRID"  subtype="JS_TREE_GRID" proc="exttreegrid_geo_icons"
+		    plugin="treeDGrid">
+     	    <proc id="020101" name="gridToolBar" type="TOOLBAR"/>
+		    <proc id="11" name="jstreegrid_addrecord1" type="ADDRECORD" />		    
+		    <proc id="12" name="jstreegrid_save1" type="SAVE" />		    
+		</element>	    
+		    		
+		<element id="155" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+	</tab>
+	
+	
+	<tab id="2" name="Начало">
+		<element id="2" type="GRID"  subtype="JS_TREE_GRID" proc="exttreegrid_bal" 
+		    plugin="treeDGrid" >
+		    <proc id="11" name="jstreegrid_addrecord1" type="ADDRECORD" />		    
+		    <proc id="12" name="jstreegrid_save1" type="SAVE" />		    
+		</element>
+		 <!-- 		 refreshByTimer="true" refreshInterval="10"  -->
+		<element id="5" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+		<element id="3" type="chart" proc="chart_bal_extgridlive" hideOnLoad="true" />
+	</tab>
+	<tab id="3" name="JSTreeGrid как зависимый элемент">
+		<element id="14" type="grid" subtype="JS_TREE_GRID" proc="exttreegrid_exttreegrid" 
+		    plugin="treeDGrid" >
+		    <proc id="11" name="jstreegrid_addrecord1" type="ADDRECORD" />		    
+		    <proc id="12" name="jstreegrid_save1" type="SAVE" />		    
+		</element>
+		<element id="11" type="grid" subtype="JS_TREE_GRID" proc="exttreegrid_exttreegrid1" hideOnLoad="true"
+		    plugin="treeDGrid" >
+		    <proc id="11" name="jstreegrid_addrecord1" type="ADDRECORD" />		    
+		    <proc id="12" name="jstreegrid_save1" type="SAVE" />		    
+		<related id="14"/>
+		</element>
+		<element id="10" type="webtext" proc="webtext_grid"
+			hideOnLoad="true" />
+	</tab>
+	<tab id="5" name="Ссылки в гриде">
+		<element id="511" type="grid" subtype="JS_TREE_GRID" proc="exttreegrid_portals" 
+			plugin="treeDGrid" >
+		    <proc id="11" name="jstreegrid_addrecord1" type="ADDRECORD" />		    
+		    <proc id="12" name="jstreegrid_save1" type="SAVE" />		    
+		</element>
+	</tab>
+	<tab id="6" name="задание css и id для строки грида">
+		<element id="0201" type="grid" subtype="JS_TREE_GRID" proc="exttreegrid_portals_id_and_css"
+			plugin="treeDGrid" >
+		    <proc id="11" name="jstreegrid_addrecord1" type="ADDRECORD" />		    
+		    <proc id="12" name="jstreegrid_save1" type="SAVE" />		    
+		</element>
+		<element id="0203" type="webtext" proc="webtext_dep62">
+			<related id="0201" />
+		</element>
+	</tab>
+	<tab id="7" name="Скачивание файлов из грида">
+		<element id="0701" type="grid" subtype="JS_TREE_GRID" proc="exttreegrid_download_load"
+			plugin="treeDGrid" >
+			<proc id="11" name="grid_download1" type="DOWNLOAD" />
+			<proc id="12" name="grid_download2" type="DOWNLOAD" />
+			
+		    <proc id="13" name="jstreegrid_addrecord1" type="ADDRECORD" />		    
+		    <proc id="14" name="jstreegrid_save1" type="SAVE" />		    
+			
+		</element>		
+	</tab>		
+</datapanel>

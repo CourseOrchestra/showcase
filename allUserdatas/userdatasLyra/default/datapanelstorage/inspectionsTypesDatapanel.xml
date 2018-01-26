@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Типы осмотров">
+		
+		<element id="treeGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid" 
+			proc="ssmmd.grids.inspectionsTypesGrid.treeGrid.celesta">
+			<proc id="toolbarInspectionsTypes" name="ssmmd.grids.inspectionsTypesGrid.gridToolBar.celesta" type="TOOLBAR"
+			/>
+		</element>
+		
+		<element id="treeCardAdd" type="xforms" template="developAddCard.xml"
+			proc="ssmmd.xforms.developCard.cardDataAdd.celesta" neverShowInPanel="true">
+			<proc id="cardSaveDev" name="ssmmd.xforms.developCard.cardDataAddSave.celesta" type="SAVE"/>
+			<related id="treeGrid"/>
+		</element>
+		
+		<element id="treeCardEdit" type="xforms" template="developEditCard.xml"
+			proc="ssmmd.xforms.developCard.cardDataEdit.celesta" neverShowInPanel="true">
+			<proc id="cardSaveDev" name="ssmmd.xforms.developCard.cardDataEditSave.celesta" type="SAVE"/>
+			<related id="treeGrid"/>
+		</element>
+		
+		
+		<element id="treeCardDel" type="xforms" template="classifyerDelete.xml"
+			proc="ssmmd.xforms.classifyerTreeDel.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardDelete" name="ssmmd.xforms.classifyerTreeDel.cardDelete.celesta" type="SAVE"/>
+			<related id="treeGrid"/>
+		</element>
+		
+		<element id="gridDev" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid"
+			proc="ssmmd.grids.devByInspectionGrid.getData.celesta" hideOnLoad="true">
+			<proc id="gridMetaClassifyer" name="ssmmd.grids.devByInspectionGrid.getSettings.celesta"
+				type="METADATA"/>
+			<proc id="toolbarClassifyer" name="ssmmd.grids.devByInspectionGrid.gridToolBar.celesta" type="TOOLBAR"
+			/>
+			<related id="treeGrid"/>
+		</element>
+		
+		<element id="cardDev" type="xforms" template="developmentByInspectionCard.xml"
+			proc="ssmmd.xforms.devByInspectionCard.cardData.celesta" neverShowInPanel="true">
+			<proc id="devByInspectionCard" name="ssmmd.xforms.devByInspectionCard.cardDataSave.celesta" type="SAVE"/>
+			<related id="treeGrid"/>
+			<related id="gridDev"/>
+		</element>
+		
+		<element id="cardDevDel" type="xforms" template="devByInspectionDelete.xml"
+			proc="ssmmd.xforms.devByInspectionDelete.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardDelete2" name="ssmmd.xforms.devByInspectionDelete.cardDelete.celesta" type="SAVE"/>
+			<related id="treeGrid"/>
+			<related id="gridDev"/>
+		</element>
+		
+		<element id="moveRight" type="xforms" template="developRight.xml"
+			proc="ssmmd.xforms.developByInspectionRight.cardData.celesta" hideOnLoad="true">
+			<proc id="savemove"
+				name="ssmmd.grids.inspectionsTypesGrid.moveRight.celesta" type="SAVE"/>
+			<related id="treeGrid"/>
+		</element>
+		
+	</tab>
+</datapanel>

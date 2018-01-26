@@ -1,0 +1,2182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<specialTag xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:xf="http://www.w3.org/2002/xforms">
+    <!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/> -->
+    <xf:repeat id="specialFields" nodeset="rule">
+        <!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/> -->
+        <hr style="margin-top:21px; margin-bottom: 10px; width: 100%;  float: left; clear: both;"/>
+        <div style="clear: both; ">
+            <div style="float: left; font-weight: bold; padding-right: 5px; font-size: 11pt">
+                <!--value = "if(instance('xformId_typeInstance')/type[@type=instance('xformId_typeInstance')/rules/rule[index('specialFields')]/@type]!='', 
+                instance('xformId_typeInstance')/type[@type=instance('xformId_typeInstance')/rules/rule[index('specialFields')]/@type]/@value,
+                'Правило'"-->
+
+                <xf:output
+                    value="if(@type='permits', 'Разрешения ',
+                                        if(@type='restrictions', 'Ограничения ',
+                                            if(@type='textRule', 'Правило на текст ',
+                                                if(@type='byDefault', 'Ответ по умолчанию ',
+                                                    if(@type='contrRel', 'Относительные противопоказания',
+                                                        if(@type='contrAbs', 'Абсолютные противопоказания', 
+                                                            if(@type='exactly', 'Установлен точно', 
+                                                                if(@type='excluded', 'Исключается', 
+                                                                    if(@type='notExclude', 'Нельзя исключить', 
+                                                                        if(@type='unlikely', 'Маловероятен', 
+                                                                            if(@type='beSuspected', 'Можно заподозрить', 'Правило')))))))))))"
+                />
+            </div>
+            <div class="bigArrow">
+                <xf:trigger appearance="minimal">
+                    <xf:label>
+                        <xf:output value="if(show = 1, ' &lt;&lt;&lt;', ' &gt;&gt;&gt;')"/>
+                    </xf:label>
+                    <xf:action ev:event="DOMActivate">
+                        <xf:setvalue ref="show" value="1-."/>
+                    </xf:action>
+                </xf:trigger>
+            </div>
+        </div>
+
+        <xf:group ref=".[show=1]" class="group-wide">
+            <xf:group ref=".[../../data/readonly!=1]">
+                <table class="bigButtonText">
+                    <tr>
+                        <td width="250">Функции</td>
+                        <td class="bigHint">
+                            <xf:trigger>
+                                <xf:label>ВЫБОР</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;ВЫБОР \\n  ЕСЛИ \\n    ТО \\n  ИНАЧЕ \\nКОНЕЦ&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                                <xf:hint>
+                                    <p>Функция "ВЫБОР" используется для возвращения одного из
+                                        множества возможных значений в зависимости от указанных
+                                        условий. У функции "ВЫБОР" два формата:</p>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <ul>
+                                                  <li style="list-style-type: none;">ВЫБОР
+                                                  &lt;проверяемое выражение&gt;</li>
+                                                  <ul>
+                                                  <li style="list-style-type: none;">ЕСЛИ
+                                                  &lt;возможное значение 1&gt;</li>
+                                                  <ul>
+                                                  <li style="list-style-type: none;">ТО
+                                                  &lt;возвращаемое значение 1&gt;</li>
+                                                  </ul>
+                                                  <li style="list-style-type: none;">...</li>
+                                                  <li style="list-style-type: none;">ЕСЛИ
+                                                  &lt;возможное значение N&gt;</li>
+                                                  <ul>
+                                                  <li style="list-style-type: none;">ТО
+                                                  &lt;возвращаемое значение N&gt;</li>
+                                                  </ul>
+                                                  <li style="list-style-type: none;">ИНАЧЕ
+                                                  &lt;возвращаемое значение&gt;</li>
+                                                  </ul>
+                                                  <li style="list-style-type: none;">КОНЕЦ</li>
+                                                </ul>
+                                            </td>
+                                            <td width="250"> Возвращается значение, соответствующее
+                                                "ЕСЛИ", у которого возможное значение совпадет со
+                                                значением проверяемого выражения. </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <ul>
+                                                  <li style="list-style-type: none;">ВЫБОР</li>
+                                                  <ul>
+                                                  <li style="list-style-type: none;">ЕСЛИ
+                                                  &lt;условие 1&gt;</li>
+                                                  <ul>
+                                                  <li style="list-style-type: none;">ТО
+                                                  &lt;возвращаемое значение 1&gt;</li>
+                                                  </ul>
+                                                  <li style="list-style-type: none;">...</li>
+                                                  <li style="list-style-type: none;">ЕСЛИ
+                                                  &lt;условие N&gt;</li>
+                                                  <ul>
+                                                  <li style="list-style-type: none;">ТО
+                                                  &lt;возвращаемое значение N&gt;</li>
+                                                  </ul>
+                                                  <li style="list-style-type: none;">ИНАЧЕ
+                                                  &lt;возвращаемое значение&gt;</li>
+                                                  </ul>
+                                                  <li style="list-style-type: none;">КОНЕЦ</li>
+                                                </ul>
+                                            </td>
+                                            <td> Возвращается значение, соответствующее первому
+                                                "ЕСЛИ" с выполнившимся условием. </td>
+                                        </tr>
+                                    </table>
+                                    <p>Если не выполнилось ни одно из условий "ЕСЛИ", возвращается
+                                        значение, указанное после ключевого слова "ИНАЧЕ". При
+                                        отсутствии раздела "ИНАЧЕ" будет возвращено пустое
+                                        значение.</p>
+                                </xf:hint>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>ЕСЛИ ... ТО ...</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;\\n  ЕСЛИ \\n    ТО &quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                                <xf:hint>Часть функции "ВЫБОР". Определяет условие, которое
+                                    проверяется на истинность и значение, которое будет
+                                    присваиваться при выполнении этого условия. </xf:hint>
+                            </xf:trigger>
+                        </td>
+                        <td class="bigHint">
+                            <xf:trigger>
+                                <xf:label>КОЛВО</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;КОЛВО()&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                                <xf:hint>
+                                    <p>Определяет количество выражений с истиным результатом.
+                                        Истиным результатом считается либо выражение с результатом
+                                        ИСТИНА, либо любое число отличное от нуля, либо любая строка
+                                        ненулевой длины, отличная от строки со словом 'ЛОЖЬ'.</p>
+                                    <p>Формат функции:</p>
+                                    <p>КОЛВО (&lt;возможное значение 1&gt;, &lt;возможное значение
+                                        2&gt;,..., &lt;возможное значение N&gt;)</p>
+                                </xf:hint>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>В</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;В()&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                                <xf:hint>
+                                    <p>Функция, которая проверяет наличие элемента в заданном
+                                        списке.</p>
+                                    <p>Формат функции:</p>
+                                    <p>&lt;проверяемое выражение&gt; В (&lt;возможное значение
+                                        1&gt;, &lt;возможное значение 2&gt;,..., &lt;возможное
+                                        значение N&gt;)</p>
+                                </xf:hint>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>МЕЖДУ И</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;МЕЖДУ  И&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                                <xf:hint>
+                                    <p>Функция, которая проверяет, находится ли элемент между
+                                        заданными величинами.</p>
+                                    <p>Формат функции:</p>
+                                    <p>&lt;проверяемое выражение&gt; МЕЖДУ &lt;левая граница
+                                        интервала&gt; И &lt;правая граница интервала&gt;</p>
+                                    <p>Функция имеет смысл только для числовых величин и дат.</p>
+                                </xf:hint>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>ПУСТО</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;ПУСТО()&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                                <xf:hint>
+                                    <p>Специальная функция, проверяющая наличие ответа на выбранный
+                                        вопрос.</p>
+                                    <p>Формат функции:</p>
+                                    <p>ПУСТО(&lt;проверяемое выражение&gt;)</p>
+                                </xf:hint>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>||</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;||&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                                <xf:hint>
+                                    <p>Функция, объединяющая строки.</p>
+                                    <p>Формат функции:</p>
+                                    <p>&lt;строка 1&gt;||&lt;строка 2&gt;</p>
+                                    <p>Объединение строк имеет минимальный приоритет, так что
+                                        выражение 6 || 5 + 2 будет иметь результат '67.0'.</p>
+                                </xf:hint>
+                            </xf:trigger>
+                        </td>
+                    </tr>
+                </table>
+                <table class="bigButtonText">
+                    <tr>
+                        <td width="250">Операции сравнения</td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>&gt;</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;&gt;&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>≥</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;≥&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>=</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;=&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>≠</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;≠&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>&lt;</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;&lt;&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>≤</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;≤&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                    </tr>
+                </table>
+                <table class="bigButtonText">
+                    <tr>
+                        <td width="250">Арифметические операции</td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>+</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;+&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>-</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;-&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>*</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;*&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>/</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;/&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>^</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;^&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                                <xf:hint>Возведение в степень</xf:hint>
+                            </xf:trigger>
+                        </td>
+                    </tr>
+                </table>
+                <table class="bigButtonText">
+                    <tr>
+                        <td width="250">Функции для работы с датами</td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>СЕГОДНЯ</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;ДАТА()&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                                <xf:hint>Функция, используемая для получения текущей даты.</xf:hint>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>ДАТА</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;ДАТА( , , )&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                                <xf:hint>
+                                    <p>Функция, используемая для преобразования трех числовых
+                                        значений, отвечающих за год, месяц и день, в дату.</p>
+                                    <p>Пример использования</p>
+                                    <p>ДАТА(2014, 7, 29)</p>
+                                </xf:hint>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>ГОД</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;ГОД()&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                                <xf:hint>
+                                    <p>Функция, используемая для преобразования получения года в
+                                        числовом формате из даты</p>
+                                    <p>Пример использования:</p>
+                                    <p>ГОД(D20140803) -> 2014</p>
+                                </xf:hint>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>МЕСЯЦ</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;МЕСЯЦ()&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                                <xf:hint>
+                                    <p>Функция, используемая для преобразования получения месяца в
+                                        числовом формате из даты</p>
+                                    <p>Пример использования:</p>
+                                    <p>МЕСЯЦ(D20140803) -> 8</p>
+                                </xf:hint>
+
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>ДЕНЬ</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;ДЕНЬ()&quot;, &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                                <xf:hint>
+                                    <p>Функция, используемая для преобразования получения дня в
+                                        числовом формате из даты</p>
+                                    <p>Пример использования:</p>
+                                    <p>ДЕНЬ(D20140803) -> 3</p>
+                                </xf:hint>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>[ДАТА]</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;.[дата]&quot;, 
+                                        &quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                                <xf:hint>
+                                    <p>При использовании в качестве атрибута позволяет определить
+                                        дату проведения</p>
+                                    <p>Пример использования</p>
+                                    <p>[v-1].[дата]</p>
+                                </xf:hint>
+                            </xf:trigger>
+                        </td>
+
+                        <td>
+                            <xf:group ref=".[operator/constants/valueType='degreeAssurance']">
+                                <xf:trigger>
+                                    <xf:label>[ТЕКСТ]</xf:label>
+                                    <xf:action ev:event="DOMActivate">
+                                        <xf:load>
+                                            <xf:resource
+                                                value="concat('javascript:InsertCodeInTextArea(&quot;.[текст]&quot;, 
+										&quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                            />
+                                        </xf:load>
+                                    </xf:action>
+                                    <xf:hint>.[текст]</xf:hint>
+                                </xf:trigger>
+                            </xf:group>
+                        </td>
+
+                    </tr>
+                </table>
+                <table class="bigButtonText">
+                    <tr>
+                        <td width="250">Логические операторы и константы</td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>(</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;(&quot;,
+								&quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>)</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;)&quot;,
+								&quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>НЕ</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;НЕ&quot;,
+								&quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>И</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;И&quot;,
+								&quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>ИЛИ</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;ИЛИ&quot;,
+								&quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>ИСТИНА</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;ИСТИНА&quot;,
+								&quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                        <td>
+                            <xf:trigger>
+                                <xf:label>ЛОЖЬ</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;ЛОЖЬ&quot;,
+								&quot;xformId_',@type,'Query&quot;, &quot;&quot;, ',@queryIndex, ')')"
+                                        />
+                                    </xf:load>
+                                </xf:action>
+                            </xf:trigger>
+                        </td>
+                    </tr>
+                </table>
+                <table class="bigButtonText">
+                    <tr>
+                        <td width="250">Константы</td>
+                        <td>
+                            <div class="selectorShort200">
+                                <xf:input ref="operator/constants/valueTypeName">
+                                    <xf:label>Тип константы:</xf:label>
+                                </xf:input>
+                                <xf:selector buttonLabel="..."
+                                    procListAndCount="'ssmmd.other.ruleSelector.answerTypeListAndCount.celesta'"
+                                    generalFilters="'constant'" currentValue="''"
+                                    windowCaption="'Выбор значения'"
+                                    xpathMapping="{
+							'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/constants/valueTypeName)' : 'name',
+                            'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/constants/valueType)' : 'id'}"/>
+
+                            </div>
+                            <div class="baseInput200">
+                                <xf:group
+                                    ref=".[operator/constants/valueType!='date' and operator/constants/valueType!='degreeAssurance']">
+                                    <xf:input ref="operator/constants/value">
+                                        <xf:label>Значение</xf:label>
+                                    </xf:input>
+                                </xf:group>
+                            </div>
+                            <xf:group ref=".[operator/constants/valueType='date']">
+                                <div class="dateInput">
+                                    <xf:input ref="operator/constants/value">
+                                        <xf:label>Значение</xf:label>
+                                    </xf:input>
+                                </div>
+                            </xf:group>
+                            <xf:group ref=".[operator/constants/valueType='degreeAssurance']">
+                                <div class="selectorShort200">
+                                    <xf:input ref="operator/constants/value">
+                                        <xf:label>Степень уверенности:</xf:label>
+                                    </xf:input>
+                                    <xf:selector buttonLabel="..."
+                                        procListAndCount="'ssmmd.other.ruleSelector.degreeAssuranceListAndCount.celesta'"
+                                        generalFilters="''" currentValue="''"
+                                        windowCaption="'Выбор значения'"
+                                        xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/constants/value)' : 'name',
+									'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/constants/valueId)' : 'id'}"/>
+
+                                </div>
+                            </xf:group>
+
+                            <!-- невидимый костыль -->
+                            <xf:textarea style="display: none" ref="operator/constants/valueType">
+                                <xf:action ev:event="xforms-value-changed" if=".!=''">
+                                    <xf:setvalue ref="../value" value=""/>
+                                    <xf:send submission="xformId_choiceSubmission"/>
+                                </xf:action>
+                            </xf:textarea>
+                        </td>
+                        <td>
+                            <div class="button100">
+                                <xf:trigger>
+                                    <xf:label>Вставить</xf:label>
+                                    <xf:action ev:event="DOMActivate"
+                                        if="(is-valid(instance('xformId_mainInstance'))=true() and
+									operator/constants/valueType!='' and operator/constants/value!='')">
+                                        <xf:action
+                                            if="operator/constants/valueType!='degreeAssurance'">
+                                            <xf:load>
+                                                <xf:resource
+                                                  value="concat('javascript:InsertCodeInTextArea(&quot;',
+                                        operator/constants/value, '&quot;, &quot;', 
+										concat('xformId_',@type,'Query'), '&quot;, &quot;',
+                                        operator/constants/valueType, '&quot;, ', @queryIndex, ')')"
+                                                />
+                                            </xf:load>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/constants/valueType='degreeAssurance'">
+                                            <xf:load>
+                                                <xf:resource
+                                                  value="concat('javascript:InsertCodeInTextArea(&quot;',
+                                                    concat('[', operator/constants/valueId, ']'), '&quot;, &quot;', 
+                                                    concat('xformId_',@type,'Query'), '&quot;, &quot;',
+                                                    operator/constants/valueType, '&quot;, ', @queryIndex, ')')"
+                                                />
+                                            </xf:load>
+                                        </xf:action>
+                                    </xf:action>
+                                    <xf:action ev:event="DOMActivate"
+                                        if="(is-valid(instance('xformId_mainInstance'))=false())">
+                                        <xf:message>Неверный формат</xf:message>
+                                    </xf:action>
+                                    <xf:action ev:event="DOMActivate"
+                                        if="(operator/constants/valueType='')">
+                                        <xf:message>Заполните тип константы</xf:message>
+                                    </xf:action>
+                                </xf:trigger>
+                            </div>
+                            <div class="button30">
+                                <xf:trigger>
+                                    <xf:label>X</xf:label>
+                                    <xf:action ev:event="DOMActivate">
+                                        <xf:setvalue ref="operator/constants/value" value="''"/>
+                                        <xf:setvalue ref="operator/constants/valueType" value=""/>
+                                        <xf:setvalue ref="operator/constants/valueTypeName" value=""
+                                        />
+                                    </xf:action>
+                                </xf:trigger>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <xf:group ref=".[../permission/title='true']">
+                    <div class="break">
+                        <div class="baseInput200" style="width:255px; padding-top:10px;">Титульный
+                            лист
+                            <!--<xf:output value="'Титульный лист'">                                
+                            </xf:output>-->
+                        </div>
+
+                        <div class="selectorShort200">
+                            <xf:input ref="operator/title/questionName">
+                                <xf:action ev:event="xforms-value-changed" if=".!=''">
+                                    <xf:setvalue ref="../answer" value=""/>
+                                    <xf:setvalue ref="../answerId" value=""/>
+                                    <xf:send submission="xformId_choiceSubmission"/>
+                                </xf:action>
+                                <xf:label>Вопрос:</xf:label>
+                            </xf:input>
+                            <xf:trigger>
+                                <xf:label>...</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:action
+                                        if="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/operator/researches/researchId!=''">
+                                        <xf:setvalue
+                                            ref="instance('xformId_mainInstance')/filters/researchId"
+                                            value="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/operator/researches/researchId"
+                                        />
+                                    </xf:action>
+                                    <xf:load
+                                        resource="javascript:gwtCreatePlugin
+                                                        ({
+															id : 'xformId',
+															plugin : 'extJsTree',
+															getDataProcName : 'ssmmd.other.ruleSelector.questionsListAndCount.celesta',
+															postProcessProc : 'handleExtJsTree.py',
+															generalFilters : ['XPath(instance(quot(xformId_mainInstance))/filters/primary)',
+																'title',
+																'XPath(instance(quot(xformId_mainInstance))/filters/researchId)',
+																'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/@type)'],
+															params : {
+																treePanel : {
+																	hideHeaders : false,
+																	sortableColumns : false,
+																	title : 'Вопрос'
+																},
+																core : {
+																	Update : {
+																		startsWith : true,
+																		delay : 900
+																	}
+																},
+																dataModel : {
+																	fields :
+																	[{
+																			name : 'attr1',
+																			type : 'string'
+																		}, {
+																			name : 'attr2',
+																			type : 'string'
+																		}, {
+																			name : 'attr3',
+																			type : 'string'
+																		},
+																		{
+																			name : 'column1',
+																			type : 'string'
+																		}, {
+																			name : 'column2',
+																			type : 'string'
+																		}
+																	]
+																},
+																view : {
+																	columns :
+																	[{
+																			header : 'id',
+																			menuDisabled : true,
+																			dataIndex : 'column1'
+																		}, {
+																			header : 'Раздел',
+																			menuDisabled : true,
+																			dataIndex : 'column2'
+																		}
+																	]
+																}
+															},
+															options : {
+																dataWidth : '600px',
+																dataHeight : '450px',
+																windowCaption : 'Выбор вопроса',
+																onSelectionComplete : function (ok, plugin) {
+																	if (ok) {
+																		plugin.utils.singleXpathMapping({
+			'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/title/answerType)' : 'attr1',
+			'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/title/answerChoice)' : 'attr2',
+			'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/title/questionId)' : 'attr3',
+			'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/title/questionName)' : 'name'
+																		}, true);
+																	}
+																}
+															}
+														}
+);"
+                                    />
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                        <!-- невидимый костыль -->
+                        <xf:textarea style="display: none" ref="operator/title/answerType">
+                            <xf:action ev:event="xforms-value-changed" if=".!=''">
+                                <xf:send submission="xformId_choiceSubmission"/>
+                            </xf:action>
+                        </xf:textarea>
+
+                        <xf:group ref=".[operator/title/answerType='choice']">
+                            <div class="baseInput200">
+                                <xf:select1 ref="operator/title/answer">
+                                    <xf:item>
+                                        <xf:label/>
+                                        <xf:value/>
+                                    </xf:item>
+                                    <xf:itemset nodeset="../answerChoice/*">
+                                        <xf:label ref="."/>
+                                        <xf:value ref="."/>
+                                    </xf:itemset>
+                                    <xf:action ev:event="xforms-value-changed"
+                                        if=".!='' and ../from!='this' and ../answerType!='catalog'">
+                                        <xf:setvalue ref="../answerId"
+                                            value="concat('[', name(../answerChoice/*/.[.=../../answer]), ']')"
+                                        />
+                                    </xf:action>
+                                    <xf:action ev:event="xforms-value-changed" if=".=''">
+                                        <xf:setvalue ref="../answerId" value=""/>
+                                    </xf:action>
+                                    <xf:label>Варианты ответа:</xf:label>
+                                </xf:select1>
+                            </div>
+                        </xf:group>
+
+                        <xf:group
+                            ref=".[operator/title/answerType='catalog' and operator/title/answerChoice!='']">
+                            <div class="selectorShort200">
+                                <xf:input ref="operator/title/answerId">
+                                    <xf:label>Ответ</xf:label>
+                                </xf:input>
+                                <xf:trigger>
+                                    <xf:label>...</xf:label>
+                                    <xf:action ev:event="DOMActivate">
+                                        <xf:load
+                                            resource="javascript:gwtCreatePlugin
+                                                    ({
+                                                    id:'xformId',
+                                                    plugin:'extJsTree',
+                                                    getDataProcName:'ssmmd.other.ruleSelector.catalogSelectListAndCount.celesta',
+                                                    postProcessProc:'handleExtJsTree.py',
+                                                    generalFilters: ['XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/title/answerChoice)'],
+                                                    params:
+                                                    {core:
+                                                    {Update:
+                                                    {startsWith:true,
+                                                    delay:900}},
+                                                    dataModel:
+                                                    {fields:
+                                                    []},
+                                                    view:
+                                                    {columns:
+                                                    []}},
+                                                    options: {
+                                                    dataWidth: '600px',
+                                                    dataHeight: '450px',
+                                                    windowCaption: 'Выбор значения из справочника',
+                                                    onSelectionComplete: function(ok, plugin) {
+                                                    if (ok) {
+                                                    plugin.utils.singleXpathMapping({			
+                                                    'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/title/answerId)' : 'name',
+                                                    'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/title/answer)' : 'id'}, true);	}}}});"
+                                        />
+                                    </xf:action>
+                                </xf:trigger>
+                            </div>
+                        </xf:group>
+                        <div class="button100">
+                            <xf:trigger>
+                                <xf:label>Вставить</xf:label>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(is-valid(instance('xformId_mainInstance'))=true())">
+                                    <xf:setvalue ref="operator/title/valueToInsert" value=""/>
+                                    <xf:action if="operator/title/questionName!=''">
+                                        <xf:action
+                                            if="operator/title/answerType!='catalog' or operator/title/answerType='catalog' and operator/title/answer=''">
+                                            <xf:setvalue ref="operator/title/valueToInsert"
+                                                value="concat(.,../questionId)"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/title/answerType='choice' and operator/title/answerId!=''">
+                                            <xf:setvalue ref="operator/title/valueToInsert"
+                                                value="concat(.,'.',../answerId)"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/title/answerType='bool' and operator/title/answer!=''">
+                                            <xf:setvalue ref="operator/title/valueToInsert"
+                                                value="concat(.,'.',../answer)"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/title/answerType='catalog' and operator/title/answer!=''">
+                                            <xf:setvalue ref="operator/title/valueToInsert"
+                                                value="../answer"/>
+                                        </xf:action>
+                                    </xf:action>
+                                    <xf:action>
+                                        <xf:load>
+                                            <xf:resource
+                                                value="concat('javascript:InsertCodeInTextArea(&quot;',operator/title/valueToInsert, '&quot;,
+                                                    &quot;',concat('xformId_',@type,'Query'), '&quot;, &quot;&quot;,', @queryIndex, ')'
+                                                    )"
+                                            />
+                                        </xf:load>
+                                    </xf:action>
+                                </xf:action>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(is-valid(instance('xformId_mainInstance'))=false())">
+                                    <xf:message>Неверный формат</xf:message>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                        <div class="button30">
+                            <xf:trigger>
+                                <xf:label>X</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:setvalue ref="operator/title/answer" value="''"/>
+                                    <xf:setvalue ref="operator/title/questionId" value=""/>
+                                    <xf:setvalue ref="operator/title/questionName" value=""/>
+                                    <xf:setvalue ref="operator/title/catalogName" value=""/>
+                                    <xf:setvalue ref="operator/title/answerType" value=""/>
+                                    <xf:setvalue ref="operator/title/answerChoice" value=""/>
+                                    <xf:setvalue ref="operator/title/answerTypeName" value=""/>
+                                    <xf:setvalue ref="operator/title/answerId" value=""/>
+                                    <xf:setvalue ref="operator/title/valueToInsert" value=""/>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                    </div>
+                </xf:group>
+
+                <xf:group ref=".[../permission/questions='true']">
+                    <div class="break">
+                        <div class="baseInput200" style="width:255px; padding-top:10px;">Вопросы
+                            <!--<xf:output value="'Вопросы'"> </xf:output>-->
+                        </div>
+                        <div class="baseInput200">
+                            <xf:input ref="operator/questions/visitNumber">
+                                <xf:label>Номер осмотра</xf:label>
+                            </xf:input>
+                        </div>
+                        <div class="selectorShort200">
+                            <xf:input ref="operator/questions/questionName">
+                                <xf:action ev:event="xforms-value-changed" if=".!=''">
+                                    <xf:setvalue ref="../answer" value=""/>
+                                    <xf:setvalue ref="../answerId" value=""/>
+                                    <xf:send submission="xformId_choiceSubmission"/>
+                                </xf:action>
+                                <xf:label>Вопрос:</xf:label>
+                            </xf:input>
+                            <xf:trigger>
+                                <xf:label>...</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:action
+                                        if="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/operator/researches/researchId!=''">
+                                        <xf:setvalue
+                                            ref="instance('xformId_mainInstance')/filters/researchId"
+                                            value="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/operator/researches/researchId"
+                                        />
+                                    </xf:action>
+                                    <xf:load
+                                        resource="javascript:gwtCreatePlugin
+                                                        ({id:'xformId',
+                                                        plugin:'extJsTree',
+                                                        getDataProcName:'ssmmd.other.ruleSelector.questionsListAndCount.celesta',
+                                                        postProcessProc:'handleExtJsTree.py',
+							
+                                                        generalFilters: ['XPath(instance(quot(xformId_mainInstance))/filters/primary)', 'questions', 'XPath(instance(quot(xformId_mainInstance))/filters/researchId)', 'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/@type)'],
+                                                        params:
+                                                        {treePanel:
+                                                        {hideHeaders: false,
+                                                        sortableColumns: false,
+                                                        title: 'Вопрос'},
+                                                        core:
+                                                        {Update:
+                                                        {startsWith:true,
+                                                        delay:900}},
+                                                        dataModel:
+                                                        {fields:
+                                                        [{name: 'attr1', type: 'string'},
+                                                        {name: 'attr2', type: 'string'},
+                                                        {name: 'attr3', type: 'string'},
+							
+                                                        {name: 'column1', type: 'string'},
+                                                        {name: 'column2', type: 'string'}]},
+                                                        view:
+                                                        {columns:
+                                                        [{header: 'id',menuDisabled: true, dataIndex: 'column1'},
+                                                        {header: 'Раздел', menuDisabled: true, dataIndex: 'column2'}]}},
+                                                        options: {
+                                                        dataWidth: '600px',
+                                                        dataHeight: '450px',
+                                                        windowCaption: 'Выбор вопроса',
+                                                        onSelectionComplete: function(ok, plugin) {
+                                                        if (ok) {
+                                                        plugin.utils.singleXpathMapping({
+                                                        'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/questions/answerType)' : 'attr1',
+                                                        'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/questions/answerChoice)' : 'attr2',
+                                                        'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/questions/questionId)' : 'attr3',
+                                                        'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/questions/questionName)' : 'name'}, true);	}}}});"
+                                    />
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                        <!-- невидимый костыль -->
+                        <xf:textarea style="display: none" ref="operator/questions/answerType">
+                            <xf:action ev:event="xforms-value-changed" if=".!=''">
+                                <xf:send submission="xformId_choiceSubmission"/>
+                            </xf:action>
+                        </xf:textarea>
+
+                        <xf:group ref=".[operator/questions/answerType='choice']">
+                            <div class="baseInput200">
+                                <xf:select1 ref="operator/questions/answer">
+                                    <xf:item>
+                                        <xf:label/>
+                                        <xf:value/>
+                                    </xf:item>
+                                    <xf:itemset nodeset="../answerChoice/*">
+                                        <xf:label ref="."/>
+                                        <xf:value ref="."/>
+                                    </xf:itemset>
+                                    <xf:action ev:event="xforms-value-changed"
+                                        if=".!='' and ../from!='this' and ../answerType!='catalog'">
+                                        <xf:setvalue ref="../answerId"
+                                            value="concat('[', name(../answerChoice/*/.[.=../../answer]), ']')"
+                                        />
+                                    </xf:action>
+                                    <xf:action ev:event="xforms-value-changed" if=".=''">
+                                        <xf:setvalue ref="../answerId" value=""/>
+                                    </xf:action>
+                                    <xf:label>Варианты ответа:</xf:label>
+                                </xf:select1>
+                            </div>
+                        </xf:group>
+                        <xf:group
+                            ref=".[operator/questions/answerType='catalog' and operator/questions/answerChoice!='']">
+                            <div class="selectorShort200">
+                                <xf:input ref="operator/questions/answerId">
+                                    <xf:label>Ответ</xf:label>
+                                </xf:input>
+                                <xf:trigger>
+                                    <xf:label>...</xf:label>
+                                    <xf:action ev:event="DOMActivate">
+                                        <xf:load
+                                            resource="javascript:gwtCreatePlugin
+                                                    ({
+                                                    id:'xformId',
+                                                    plugin:'extJsTree',
+                                                    getDataProcName:'ssmmd.other.ruleSelector.catalogSelectListAndCount.celesta',
+                                                    postProcessProc:'handleExtJsTree.py',
+                                                    generalFilters: ['XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/questions/answerChoice)'],
+                                                    params:
+                                                    {core:
+                                                    {Update:
+                                                    {startsWith:true,
+                                                    delay:900}},
+                                                    dataModel:
+                                                    {fields:
+                                                    []},
+                                                    view:
+                                                    {columns:
+                                                    []}},
+                                                    options: {
+                                                    dataWidth: '600px',
+                                                    dataHeight: '450px',
+                                                    windowCaption: 'Выбор значения из справочника',
+                                                    onSelectionComplete: function(ok, plugin) {
+                                                    if (ok) {
+                                                    plugin.utils.singleXpathMapping({			
+                                                    'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/questions/answerId)' : 'name',
+                                                    'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/questions/answer)' : 'id'}, true);	}}}});"
+                                        />
+                                    </xf:action>
+                                </xf:trigger>
+                            </div>
+                        </xf:group>
+
+
+                        <div class="button100">
+                            <xf:trigger>
+                                <xf:label>Вставить</xf:label>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(is-valid(instance('xformId_mainInstance'))=true())">
+                                    <xf:setvalue ref="operator/questions/valueToInsert" value=""/>
+                                    <xf:action
+                                        if="operator/questions/visitNumber!='' and operator/questions/answer=''">
+                                        <xf:setvalue ref="operator/questions/valueToInsert"
+                                            value="concat('[v',../visitNumber,']')"/>
+                                    </xf:action>
+                                    <xf:action if="operator/questions/questionName!=''">
+                                        <xf:action
+                                            if="operator/questions/visitNumber!='' and operator/questions/answer=''">
+                                            <xf:setvalue ref="operator/questions/valueToInsert"
+                                                value="concat(.,'.')"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/questions/answerType!='catalog' or operator/questions/answerType='catalog' and operator/questions/answer=''">
+                                            <xf:setvalue ref="operator/questions/valueToInsert"
+                                                value="concat(.,../questionId)"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/questions/answerType='choice' and operator/questions/answerId!=''">
+                                            <xf:setvalue ref="operator/questions/valueToInsert"
+                                                value="concat(.,'.',../answerId)"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/questions/answerType='bool' and operator/questions/answer!=''">
+                                            <xf:setvalue ref="operator/questions/valueToInsert"
+                                                value="concat(.,'.',../answer)"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/questions/answerType='catalog' and operator/questions/answer!=''">
+                                            <xf:setvalue ref="operator/questions/valueToInsert"
+                                                value="../answer"/>
+                                        </xf:action>
+                                    </xf:action>
+                                    <xf:action>
+                                        <xf:load>
+                                            <xf:resource
+                                                value="concat('javascript:InsertCodeInTextArea(&quot;',operator/questions/valueToInsert, '&quot;,
+                                            &quot;',concat('xformId_',@type,'Query'), '&quot;, &quot;&quot;,', @queryIndex, ')'
+                                            )"
+                                            />
+                                        </xf:load>
+                                    </xf:action>
+                                </xf:action>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(is-valid(instance('xformId_mainInstance'))=false())">
+                                    <xf:message>Неверный формат</xf:message>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                        <div class="button30">
+                            <xf:trigger>
+                                <xf:label>X</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:setvalue ref="operator/questions/answer" value="''"/>
+                                    <xf:setvalue ref="operator/questions/questionId" value=""/>
+                                    <xf:setvalue ref="operator/questions/questionName" value=""/>
+                                    <xf:setvalue ref="operator/questions/catalogName" value=""/>
+                                    <xf:setvalue ref="operator/questions/answerType" value=""/>
+                                    <xf:setvalue ref="operator/questions/answerChoice" value=""/>
+                                    <xf:setvalue ref="operator/questions/answerTypeName" value=""/>
+                                    <xf:setvalue ref="operator/questions/answerId" value=""/>
+                                    <xf:setvalue ref="operator/questions/visitNumber" value=""/>
+                                    <xf:setvalue ref="operator/questions/valueToInsert" value=""/>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                    </div>
+                </xf:group>
+
+                <xf:group ref=".[../permission/journal='true']">
+                    <div class="break">
+                        <div class="baseInput200" style="width:255px; padding-top:10px;">Дневник
+                            <!--<xf:output value="'Дневник'"> </xf:output>-->
+                        </div>
+                        <div class="baseInput200" style="float: left">
+                            <xf:input ref="operator/journal/visitNumber">
+                                <xf:label>Номер осмотра</xf:label>
+                            </xf:input>
+                        </div>
+                        <xf:group ref=".[../../filters/showResearch='true']">
+                            <div class="selectorShort200">
+                                <xf:input ref="operator/journal/research">
+                                    <xf:label>Исследование:</xf:label>
+                                </xf:input>
+                                <xf:selector buttonLabel="..."
+                                    procListAndCount="'ssmmd.other.ruleSelector.researchListAndCount.celesta'"
+                                    generalFilters="''" currentValue="''"
+                                    windowCaption="'Выбор значения'"
+                                    xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/journal/research)' : 'name',
+                                'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/journal/researchId)' : 'id'}"
+                                />
+                            </div>
+                        </xf:group>
+                        <div class="selectorShort200">
+                            <xf:input ref="operator/journal/questionName">
+                                <xf:action ev:event="xforms-value-changed" if=".!=''">
+                                    <xf:setvalue ref="../answer" value=""/>
+                                    <xf:setvalue ref="../answerId" value=""/>
+                                    <xf:send submission="xformId_choiceSubmission"/>
+                                </xf:action>
+                                <xf:label>Вопрос:</xf:label>
+                            </xf:input>
+                            <xf:trigger>
+                                <xf:label>...</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:action
+                                        if="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/operator/journal/researchId=''">
+                                        <xf:setvalue
+                                            ref="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/operator/journal/researchId"
+                                            value="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/operator/reserches/researchId"
+                                        />
+                                    </xf:action>
+                                    <xf:action
+                                        if="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/operator/journal/researchId!=''">
+                                        <xf:setvalue
+                                            ref="instance('xformId_mainInstance')/filters/researchId"
+                                            value="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/operator/journal/researchId"
+                                        />
+                                    </xf:action>
+                                    <xf:load
+                                        resource="javascript:gwtCreatePlugin
+                                                            ({id:'xformId',
+                                                            plugin:'extJsTree',
+                                                            getDataProcName:'ssmmd.other.ruleSelector.questionsListAndCount.celesta',
+                                                            postProcessProc:'handleExtJsTree.py',
+                                                            generalFilters: ['XPath(instance(quot(xformId_mainInstance))/filters/primary)', 'journal', 'XPath(instance(quot(xformId_mainInstance))/filters/researchId)', 'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/@type)'],
+                                                            params:
+                                                            {treePanel:
+                                                            {hideHeaders: false,
+                                                            sortableColumns: false,
+                                                            title: 'Вопрос'},
+                                                            core:
+                                                            {Update:
+                                                            {startsWith:true,
+                                                            delay:900}},
+                                                            dataModel:
+                                                            {fields:
+                                                            [{name: 'attr1', type: 'string'},
+                                                            {name: 'attr2', type: 'string'},
+                                                            {name: 'attr3', type: 'string'},
+							
+                                                            {name: 'column1', type: 'string'},
+                                                            {name: 'column2', type: 'string'}]},
+                                                            view:
+                                                            {columns:
+                                                            [{header: 'id',menuDisabled: true, dataIndex: 'column1'},
+                                                            {header: 'Раздел', menuDisabled: true, dataIndex: 'column2'}]}},
+                                                            options: {
+                                                            dataWidth: '600px',
+                                                            dataHeight: '450px',
+                                                            windowCaption: 'Выбор вопроса',
+                                                            onSelectionComplete: function(ok, plugin) {
+                                                            if (ok) {
+                                                            plugin.utils.singleXpathMapping({
+                                                            'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/journal/answerType)' : 'attr1',
+                                                            'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/journal/answerChoice)' : 'attr2',
+                                                            'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/journal/questionId)' : 'attr3',
+                                                            'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/journal/questionName)' : 'name'}, true);	}}}});"
+                                    />
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+
+                        <!-- невидимый костыль -->
+                        <xf:textarea style="display: none" ref="operator/journal/answerType">
+                            <xf:action ev:event="xforms-value-changed" if=".!=''">
+                                <xf:send submission="xformId_choiceSubmission"/>
+                            </xf:action>
+                        </xf:textarea>
+
+                        <xf:group ref=".[operator/journal/answerType='choice']">
+                            <div class="baseInput200">
+                                <xf:select1 ref="operator/journal/answer">
+                                    <xf:item>
+                                        <xf:label/>
+                                        <xf:value/>
+                                    </xf:item>
+                                    <xf:itemset nodeset="../answerChoice/*">
+                                        <xf:label ref="."/>
+                                        <xf:value ref="."/>
+                                    </xf:itemset>
+                                    <xf:action ev:event="xforms-value-changed"
+                                        if=".!='' and ../from!='this' and ../answerType!='catalog'">
+                                        <xf:setvalue ref="../answerId"
+                                            value="concat('[', name(../answerChoice/*/.[.=../../answer]), ']')"
+                                        />
+                                    </xf:action>
+                                    <xf:action ev:event="xforms-value-changed" if=".=''">
+                                        <xf:setvalue ref="../answerId" value=""/>
+                                    </xf:action>
+                                    <xf:label>Варианты ответа:</xf:label>
+                                </xf:select1>
+                            </div>
+                        </xf:group>
+                        <xf:group
+                            ref=".[operator/journal/answerType='catalog' and operator/journal/answerChoice!='']">
+                            <div class="selectorShort200">
+                                <xf:input ref="operator/journal/answerId">
+                                    <xf:label>Ответ</xf:label>
+                                </xf:input>
+                                <xf:trigger>
+                                    <xf:label>...</xf:label>
+                                    <xf:action ev:event="DOMActivate">
+                                        <xf:load
+                                            resource="javascript:gwtCreatePlugin
+                                            ({
+                                            id:'xformId',
+                                            plugin:'extJsTree',
+                                            getDataProcName:'ssmmd.other.ruleSelector.catalogSelectListAndCount.celesta',
+                                            postProcessProc:'handleExtJsTree.py',
+                                            generalFilters: ['XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/journal/answerChoice)'],
+                                            params:
+                                            {core:
+                                            {Update:
+                                            {startsWith:true,
+                                            delay:900}},
+                                            dataModel:
+                                            {fields:
+                                            []},
+                                            view:
+                                            {columns:
+                                            []}},
+                                            options: {
+                                            dataWidth: '600px',
+                                            dataHeight: '450px',
+                                            windowCaption: 'Выбор значения из справочника',
+                                            onSelectionComplete: function(ok, plugin) {
+                                            if (ok) {
+                                            plugin.utils.singleXpathMapping({			
+                                            'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/journal/answerId)' : 'name',
+                                            'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/journal/answer)' : 'id'}, true);	}}}});"
+                                        />
+                                    </xf:action>
+                                </xf:trigger>
+                            </div>
+                        </xf:group>
+                        <div class="button100">
+                            <xf:trigger>
+                                <xf:label>Вставить</xf:label>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(is-valid(instance('xformId_mainInstance'))=true())">
+                                    <xf:setvalue ref="operator/journal/valueToInsert" value=""/>
+                                    <xf:action
+                                        if="operator/journal/visitNumber!='' and operator/journal/answer=''">
+                                        <xf:setvalue ref="operator/journal/valueToInsert"
+                                            value="concat('[v',../visitNumber,']')"/>
+                                    </xf:action>
+                                    <!--<xf:action if="operator/journal/researchId!=''">
+                                        <xf:action if="operator/journal/visitNumber!=''">
+                                            <xf:setvalue ref="operator/journal/valueToInsert"
+                                                value="concat(.,'.')"/>
+                                        </xf:action>
+                                        <xf:setvalue ref="operator/journal/valueToInsert"
+                                            value="concat(.,../researchId)"/>
+                                        <xf:action if="operator/journal/questionName=''">
+                                            <xf:setvalue ref="operator/journal/valueToInsert"
+                                                value="concat(.,'.[дата]')"/>
+                                        </xf:action>
+                                    </xf:action>-->
+                                    <xf:action if="operator/journal/questionName!=''">
+                                        <xf:action
+                                            if="operator/journal/visitNumber!='' and operator/journal/answer=''">
+                                            <xf:setvalue ref="operator/journal/valueToInsert"
+                                                value="concat(.,'.')"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/journal/answerType!='catalog' or operator/journal/answerType='catalog' and operator/journal/answer=''">
+                                            <xf:setvalue ref="operator/journal/valueToInsert"
+                                                value="concat(.,../questionId)"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/journal/answerType='choice' and operator/journal/answerId!=''">
+                                            <xf:setvalue ref="operator/journal/valueToInsert"
+                                                value="concat(.,'.',../answerId)"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/journal/answerType='bool' and operator/journal/answer!=''">
+                                            <xf:setvalue ref="operator/journal/valueToInsert"
+                                                value="concat(.,'.',../answer)"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/journal/answerType='catalog' and operator/journal/answer!=''">
+                                            <xf:setvalue ref="operator/journal/valueToInsert"
+                                                value="../answer"/>
+                                        </xf:action>
+                                    </xf:action>
+                                    <xf:action>
+                                        <xf:load>
+                                            <xf:resource
+                                                value="concat('javascript:InsertCodeInTextArea(&quot;',operator/journal/valueToInsert, '&quot;,
+                                            &quot;',concat('xformId_',@type,'Query'), '&quot;, &quot;&quot;,', @queryIndex, ')'
+                                            )"
+                                            />
+                                        </xf:load>
+                                    </xf:action>
+                                </xf:action>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(is-valid(instance('xformId_mainInstance'))=false())">
+                                    <xf:message>Неверный формат</xf:message>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                        <div class="button30">
+                            <xf:trigger>
+                                <xf:label>X</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:setvalue ref="operator/journal/answer" value="''"/>
+                                    <xf:setvalue ref="operator/journal/questionId" value=""/>
+                                    <xf:setvalue ref="operator/journal/questionName" value=""/>
+                                    <xf:setvalue ref="operator/journal/catalogName" value=""/>
+                                    <xf:setvalue ref="operator/journal/answerType" value=""/>
+                                    <xf:setvalue ref="operator/journal/answerChoice" value=""/>
+                                    <xf:setvalue ref="operator/journal/answerType" value=""/>
+                                    <xf:setvalue ref="operator/journal/answerId" value=""/>
+                                    <xf:setvalue ref="operator/journal/visitNumber" value=""/>
+                                    <xf:setvalue ref="operator/journal/research" value=""/>
+                                    <xf:setvalue ref="operator/journal/researchId" value=""/>
+                                    <xf:setvalue ref="operator/journal/valueToInsert" value=""/>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                    </div>
+                </xf:group>
+
+                <xf:group ref=".[../permission/diagnoses='true']">
+                    <div class="break">
+                        <div class="baseInput200" style="width:255px; padding-top:10px;">Диагнозы
+                            <!--<xf:output value="'Диагнозы'"> </xf:output>-->
+                        </div>
+                        <div class="baseInput200">
+                            <xf:input ref="operator/diagnoses/visitNumber">
+                                <xf:label>Номер осмотра</xf:label>
+                            </xf:input>
+                        </div>
+                        <div class="selectorShort200">
+                            <xf:input ref="operator/diagnoses/diagnos">
+                                <xf:label>Диагноз:</xf:label>
+                            </xf:input>
+                            <xf:selector buttonLabel="..."
+                                procListAndCount="'ssmmd.other.ruleSelector.attributesListAndCount.celesta'"
+                                generalFilters="['diagnos', 'XPath(instance(quot(xformId_mainInstance))/filters/diagnosisId)']"
+                                currentValue="''" windowCaption="'Выбор значения'"
+                                xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/diagnoses/diagnos)' : 'name',
+                                'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/diagnoses/diagnosId)' : 'id'}"
+                            />
+                        </div>
+                        <div class="selectorShort200">
+                            <xf:input ref="operator/diagnoses/attribute">
+                                <xf:label>Атрибут диагноза:</xf:label>
+                            </xf:input>
+                            <xf:selector buttonLabel="..."
+                                procListAndCount="'ssmmd.other.ruleSelector.attributesListAndCount.celesta'"
+                                generalFilters="['attribute', 'XPath(instance(quot(xformId_mainInstance))/filters/diagnosisId)']"
+                                currentValue="''" windowCaption="'Выбор значения'"
+                                xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/diagnoses/attribute)' : 'name',
+                                'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/diagnoses/answerType)' : 'answerType',
+                                'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/diagnoses/answerChoice)' : 'answerChoice',
+                                'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/diagnoses/attributeId)' : 'id'}"
+                            />
+                        </div>
+                        <xf:group ref=".[operator/diagnoses/answerType='choice']">
+                            <div class="baseInput200">
+                                <xf:select1 ref="operator/diagnoses/answer">
+                                    <xf:item>
+                                        <xf:label/>
+                                        <xf:value/>
+                                    </xf:item>
+                                    <xf:itemset nodeset="../answerChoice/*">
+                                        <xf:label ref="."/>
+                                        <xf:value ref="."/>
+                                    </xf:itemset>
+                                    <xf:action ev:event="xforms-value-changed"
+                                        if=".!='' and ../from!='this' and ../answerType!='catalog'">
+                                        <xf:setvalue ref="../answerId"
+                                            value="concat('[', name(../answerChoice/*/.[.=../../answer]), ']')"
+                                        />
+                                    </xf:action>
+                                    <xf:action ev:event="xforms-value-changed" if=".=''">
+                                        <xf:setvalue ref="../answerId" value=""/>
+                                    </xf:action>
+                                    <xf:label>Варианты ответа:</xf:label>
+                                </xf:select1>
+                            </div>
+                        </xf:group>
+                        <xf:group
+                            ref=".[operator/diagnoses/answerType='catalog' and operator/diagnoses/answerChoice!='']">
+                            <div class="selectorShort200">
+                                <xf:input ref="operator/diagnoses/answerId">
+                                    <xf:label>Ответ</xf:label>
+                                </xf:input>
+                                <xf:trigger>
+                                    <xf:label>...</xf:label>
+                                    <xf:action ev:event="DOMActivate">
+                                        <xf:load
+                                            resource="javascript:gwtCreatePlugin
+                                            ({
+                                            id:'xformId',
+                                            plugin:'extJsTree',
+                                            getDataProcName:'ssmmd.other.ruleSelector.catalogSelectListAndCount.celesta',
+                                            postProcessProc:'handleExtJsTree.py',
+                                            generalFilters: ['XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/diagnoses/answerChoice)'],
+                                            params:
+                                            {core:
+                                            {Update:
+                                            {startsWith:true,
+                                            delay:900}},
+                                            dataModel:
+                                            {fields:
+                                            []},
+                                            view:
+                                            {columns:
+                                            []}},
+                                            options: {
+                                            dataWidth: '600px',
+                                            dataHeight: '450px',
+                                            windowCaption: 'Выбор значения из справочника',
+                                            onSelectionComplete: function(ok, plugin) {
+                                            if (ok) {
+                                            plugin.utils.singleXpathMapping({			
+                                            'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/diagnoses/answerId)' : 'name',                                            
+                                            'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/diagnoses/answer)' : 'id'}, true);	}}}});"
+                                        />
+                                    </xf:action>
+                                </xf:trigger>
+                            </div>
+                        </xf:group>
+                        <div class="button100">
+                            <xf:trigger>
+                                <xf:label>Вставить</xf:label>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(is-valid(instance('xformId_mainInstance'))=true())">
+                                    <xf:setvalue ref="operator/diagnoses/valueToInsert" value=""/>
+                                    <xf:action if="operator/diagnoses/visitNumber!=''">
+                                        <xf:setvalue ref="operator/diagnoses/valueToInsert"
+                                            value="concat('[v',../visitNumber,']')"/>
+                                    </xf:action>
+                                    <xf:action if="operator/diagnoses/diagnos!=''">
+                                        <xf:action if="operator/diagnoses/visitNumber!=''">
+                                            <xf:setvalue ref="operator/diagnoses/valueToInsert"
+                                                value="concat(.,'.')"/>
+                                        </xf:action>
+                                        <xf:setvalue ref="operator/diagnoses/valueToInsert"
+                                            value="concat(.,../diagnosId)"/>
+                                    </xf:action>
+                                    <xf:action if="operator/diagnoses/attribute!=''">
+                                        <xf:setvalue ref="operator/diagnoses/valueToInsert"
+                                            value="concat(.,'.',../attributeId)"/>
+                                    </xf:action>
+                                    <xf:action
+                                        if="operator/diagnoses/answerType='choice' and operator/diagnoses/answerId!=''">
+                                        <xf:setvalue ref="operator/diagnoses/valueToInsert"
+                                            value="concat(.,'.',../answerId)"/>
+                                    </xf:action>
+                                    <xf:action
+                                        if="operator/journal/answerType='bool' and operator/journal/answer!=''">
+                                        <xf:setvalue ref="operator/journal/valueToInsert"
+                                            value="concat(.,'.',../answer)"/>
+                                    </xf:action>
+                                    <xf:action
+                                        if="operator/journal/answerType='catalog' and operator/journal/answer!=''">
+                                        <xf:setvalue ref="operator/journal/valueToInsert"
+                                            value="../answer"/>
+                                    </xf:action>
+                                    <xf:action>
+                                        <xf:load>
+                                            <xf:resource
+                                                value="concat('javascript:InsertCodeInTextArea(&quot;',operator/diagnoses/valueToInsert, '&quot;,
+                                            &quot;',concat('xformId_',@type,'Query'), '&quot;, &quot;&quot;,', @queryIndex, ')'
+                                            )"
+                                            />
+                                        </xf:load>
+                                    </xf:action>
+                                </xf:action>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(is-valid(instance('xformId_mainInstance'))=false())">
+                                    <xf:message>Неверный формат</xf:message>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                        <div class="button30">
+                            <xf:trigger>
+                                <xf:label>X</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:setvalue ref="operator/diagnoses/attributeId" value=""/>
+                                    <xf:setvalue ref="operator/diagnoses/attribute" value=""/>
+                                    <xf:setvalue ref="operator/diagnoses/diagnosId" value=""/>
+                                    <xf:setvalue ref="operator/diagnoses/diagnos" value=""/>
+                                    <xf:setvalue ref="operator/diagnoses/visitNumber" value=""/>
+                                    <xf:setvalue ref="operator/diagnoses/valueToInsert" value=""/>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                    </div>
+                </xf:group>
+
+                <xf:group ref=".[../permission/researches='true']">
+                    <div class="break">
+                        <div class="baseInput200" style="width:255px; padding-top:10px;"
+                            >Исследования <!--<xf:output value="'Исследования'"> </xf:output>-->
+                        </div>
+                        <div class="baseInput200">
+                            <xf:input ref="operator/researches/researchNumber">
+                                <xf:label>Номер исследования</xf:label>
+                            </xf:input>
+                        </div>
+                        <xf:group ref=".[../../filters/showResearch='true']">
+                            <div class="selectorShort200">
+                                <xf:input ref="operator/researches/research">
+                                    <xf:label>Исследование:</xf:label>
+                                </xf:input>
+
+                                <xf:selector buttonLabel="..."
+                                    procListAndCount="'ssmmd.other.ruleSelector.researchListAndCount.celesta'"
+                                    generalFilters="''" currentValue="''"
+                                    windowCaption="'Выбор значения'"
+                                    xpathMapping="{
+								'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/researches/research)' : 'name',
+								'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/researches/researchId)' : 'id',
+                                'XPath(instance(quot(xformId_mainInstance))/filters/researchId)' : 'id'}"
+                                />
+                            </div>
+                        </xf:group>
+                        <div class="selectorShort200">
+                            <xf:input ref="operator/researches/questionName">
+                                <xf:action ev:event="xforms-value-changed" if=".!=''">
+                                    <xf:setvalue ref="../answer" value=""/>
+                                    <xf:setvalue ref="../answerId" value=""/>
+                                    <xf:send submission="xformId_choiceSubmission"/>
+                                </xf:action>
+                                <xf:label>Вопрос:</xf:label>
+                            </xf:input>
+                            <xf:trigger>
+                                <xf:label>...</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <!-- <xf:action
+                                        if="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/operator/researches/researchId!=''">
+                                        <xf:setvalue
+                                            ref="instance('xformId_mainInstance')/filters/researchId"
+                                            value="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/operator/researches/researchId"
+                                        />
+                                    </xf:action> -->
+                                    <xf:load resource="javascript:gwtCreatePlugin
+                                                        ({
+															id : 'xformId',
+															plugin : 'extJsTree',
+															getDataProcName : 'ssmmd.other.ruleSelector.questionsListAndCount.celesta',
+															postProcessProc : 'handleExtJsTree.py',
+															generalFilters : ['XPath(instance(quot(xformId_mainInstance))/filters/primary)',
+																			  'researches',
+																			  'XPath(instance(quot(xformId_mainInstance))/filters/researchId)',
+																			  'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/@type)'],
+															params : {
+																treePanel : {
+																	hideHeaders : false,
+																	sortableColumns : false,
+																	title : 'Вопрос'
+																},
+																core : {
+																	Update : {
+																		startsWith : true,
+																		delay : 900
+																	}
+																},
+																dataModel : {
+																	fields :
+																	[{
+																			name : 'attr1',
+																			type : 'string'
+																		}, {
+																			name : 'attr2',
+																			type : 'string'
+																		}, {
+																			name : 'attr3',
+																			type : 'string'
+																		},
+																		{
+																			name : 'column1',
+																			type : 'string'
+																		}, {
+																			name : 'column2',
+																			type : 'string'
+																		}
+																	]
+																},
+																view : {
+																	columns :
+																	[{
+																			header : 'id',
+																			menuDisabled : true,
+																			dataIndex : 'column1'
+																		}, {
+																			header : 'Раздел',
+																			menuDisabled : true,
+																			dataIndex : 'column2'
+																		}
+																	]
+																}
+															},
+															options : {
+																dataWidth : '600px',
+																dataHeight : '450px',
+																windowCaption : 'Выбор вопроса',
+																onSelectionComplete : function (ok, plugin) {
+																	if (ok) {
+																		plugin.utils.singleXpathMapping({
+																			'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/researches/answerType)' : 'attr1',
+																			'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/researches/answerChoice)' : 'attr2',
+																			'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/researches/questionId)' : 'attr3',
+																			'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/researches/questionName)' : 'name'
+																		}, true);
+																	}
+																}
+															}
+														}
+);"
+                                    />
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                        <!-- невидимый костыль -->
+                        <xf:textarea style="display: none" ref="operator/researches/answerType">
+                            <xf:action ev:event="xforms-value-changed" if=".!=''">
+                                <xf:send submission="xformId_choiceSubmission"/>
+                            </xf:action>
+                        </xf:textarea>
+                        <xf:group ref=".[operator/researches/answerType='choice']">
+                            <div style="width: 250px; float: left;">
+                                <xf:select1 ref="operator/researches/answer">
+                                    <xf:item>
+                                        <xf:label/>
+                                        <xf:value/>
+                                    </xf:item>
+                                    <xf:itemset nodeset="../answerChoice/*">
+                                        <xf:label ref="."/>
+                                        <xf:value ref="."/>
+                                    </xf:itemset>
+                                    <xf:action ev:event="xforms-value-changed"
+                                        if=".!='' and ../from!='this' and ../answerType!='catalog'">
+                                        <xf:setvalue ref="../answerId"
+                                            value="concat('[', name(../answerChoice/*/.[.=../../answer]), ']')"
+                                        />
+                                    </xf:action>
+                                    <xf:action ev:event="xforms-value-changed" if=".=''">
+                                        <xf:setvalue ref="../answerId" value=""/>
+                                    </xf:action>
+                                    <xf:label>Варианты ответа:</xf:label>
+                                </xf:select1>
+                            </div>
+                        </xf:group>
+                        <xf:group ref=".[operator/researches/answerType='catalog' and operator/researches/answerChoice!='']">
+                            <div class="selectorShort200">
+                                <xf:input ref="operator/researches/answerId">
+                                    <xf:label>Ответ</xf:label>
+                                </xf:input>
+                                <xf:trigger>
+                                    <xf:label>...</xf:label>
+                                    <xf:action ev:event="DOMActivate">
+                                        <xf:load
+                                            resource="javascript:gwtCreatePlugin
+                                            ({
+												id : 'xformId',
+												plugin : 'extJsTree',
+												getDataProcName : 'ssmmd.other.ruleSelector.catalogSelectListAndCount.celesta',
+												postProcessProc : 'handleExtJsTree.py',
+												generalFilters :
+								['XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/researches/answerChoice)'],
+												params : {
+													core : {
+														Update : {
+															startsWith : true,
+															delay : 900
+														}
+													},
+													dataModel : {
+														fields :
+														[]
+													},
+													view : {
+														columns :
+														[]
+													}
+												},
+												options : {
+													dataWidth : '600px',
+													dataHeight : '450px',
+													windowCaption : 'Выбор значения из справочника',
+													onSelectionComplete : function (ok, plugin) {
+														if (ok) {
+															plugin.utils.singleXpathMapping({
+							'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/researches/answerId)' : 'name',
+							'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/researches/answer)' : 'id'
+															}, true);
+														}
+													}
+												}
+											}
+);"
+                                        />
+                                    </xf:action>
+                                </xf:trigger>
+                            </div>
+                        </xf:group>
+                        <div class="button100">
+                            <xf:trigger>
+                                <xf:label>Вставить</xf:label>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(is-valid(instance('xformId_mainInstance'))=true())">
+                                    <xf:setvalue ref="operator/researches/valueToInsert" value=""/>
+                                    <xf:action
+                                        if="operator/researches/researchNumber!='' and operator/researches/answer='' and operator/researches/researchId=''">
+                                        <xf:setvalue ref="operator/researches/valueToInsert"
+                                            value="concat('[r',../researchNumber,']')"/>
+                                    </xf:action>
+									
+									<xf:action
+                                        if="operator/researches/researchNumber!='' and operator/researches/answer='' and operator/researches/researchId!=''">
+                                        <xf:setvalue ref="operator/researches/valueToInsert"
+                                            value="concat('[r', ../researchNumber, '].', ../researchId)"/>
+                                    </xf:action>
+									
+                                    <!--<xf:action if="operator/researches/researchId!=''">
+                                        <xf:action if="operator/researches/researchNumber!=''">
+                                            <xf:setvalue ref="operator/researches/valueToInsert"
+                                                value="concat(.,'.')"/>
+                                        </xf:action>
+                                        <xf:setvalue ref="operator/researches/valueToInsert"
+                                            value="concat(.,../researchId)"/>
+                                        <xf:action if="operator/researches/questionName=''">
+                                            <xf:setvalue ref="operator/researches/valueToInsert"
+                                                value="concat(.,'.[дата]')"/>
+                                        </xf:action>
+                                    </xf:action>-->
+                                    <xf:action if="operator/researches/questionName!=''">
+                                        <xf:action
+                                            if="operator/researches/researchNumber!='' and operator/researches/answer=''">
+                                            <xf:setvalue ref="operator/researches/valueToInsert"
+                                                value="concat(.,'.')"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/researches/answerType!='catalog' or operator/researches/answerType='catalog' and operator/researches/answer=''">
+                                            <xf:setvalue ref="operator/researches/valueToInsert"
+                                                value="concat(.,../questionId)"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/researches/answerType='choice' and operator/researches/answerId!=''">
+                                            <xf:setvalue ref="operator/researches/valueToInsert"
+                                                value="concat(.,'.',../answerId)"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/researches/answerType='bool' and operator/researches/answer!=''">
+                                            <xf:setvalue ref="operator/researches/valueToInsert"
+                                                value="concat(.,'.',../answer)"/>
+                                        </xf:action>
+                                        <xf:action
+                                            if="operator/researches/answerType='catalog' and operator/researches/answer!=''">
+                                            <xf:setvalue ref="operator/researches/valueToInsert"
+                                                value="../answer"/>
+                                        </xf:action>
+                                    </xf:action>
+                                    <xf:action>
+                                        <xf:load>
+                                            <xf:resource
+                                                value="concat('javascript:InsertCodeInTextArea(&quot;',operator/researches/valueToInsert, '&quot;,
+                                            &quot;',concat('xformId_',@type,'Query'), '&quot;, &quot;&quot;,', @queryIndex, ')'
+                                            )"
+                                            />
+                                        </xf:load>
+                                    </xf:action>
+                                </xf:action>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(is-valid(instance('xformId_mainInstance'))=false())">
+                                    <xf:message>Неверный формат</xf:message>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                        <div class="button30">
+                            <xf:trigger>
+                                <xf:label>X</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:setvalue ref="operator/researches/answer" value="''"/>
+                                    <xf:setvalue ref="operator/researches/questionId" value=""/>
+                                    <xf:setvalue ref="operator/researches/questionName" value=""/>
+                                    <xf:setvalue ref="operator/researches/catalogName" value=""/>
+                                    <xf:setvalue ref="operator/researches/answerType" value=""/>
+                                    <xf:setvalue ref="operator/researches/answerChoice" value=""/>
+                                    <xf:setvalue ref="operator/researches/answerType" value=""/>
+                                    <xf:setvalue ref="operator/researches/answerId" value=""/>
+                                    <xf:setvalue ref="operator/researches/researchNumber" value=""/>
+                                    <xf:setvalue ref="operator/researches/research" value=""/>
+                                    <xf:setvalue ref="operator/researches/researchId" value=""/>
+                                    <xf:setvalue ref="operator/researches/valueToInsert" value=""/>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                    </div>
+                </xf:group>
+                <xf:group ref=".[../permission/researchesAttributes='true']">
+                    <div class="break">
+                        <div class="baseInput200" style="width:255px; padding-top:10px;">Аттрибуты
+                            исследования
+                        </div>
+                        <div class="baseInput200">
+                            <xf:select1 ref="operator/researchesAttributes/attribute">
+                                <xf:item>
+                                    <xf:label>Подготовительные процедуры</xf:label>
+                                    <xf:value>[prepProcedures]</xf:value>
+                                </xf:item>
+                                <xf:item>
+                                    <xf:label>Методы исследования</xf:label>
+                                    <xf:value>[researchMethods]</xf:value>
+                                </xf:item>
+                                <xf:item>
+                                    <xf:label>Способы забора</xf:label>
+                                    <xf:value>[samplingMethods]</xf:value>
+                                </xf:item>
+                                <xf:item>
+                                    <xf:label>Субстраты</xf:label>
+                                    <xf:value>[substrates]</xf:value>
+                                </xf:item>
+                                <xf:item>
+                                    <xf:label>Условия проведения</xf:label>
+                                    <xf:value>[researchConditions]</xf:value>
+                                </xf:item>
+                                <xf:label>Аттрибуты:</xf:label>
+                            </xf:select1>
+                        </div>
+                        <div class="button100">
+                            <xf:trigger>
+                                <xf:label>Вставить</xf:label>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(is-valid(instance('xformId_mainInstance'))=true())">
+                                    <xf:action>
+                                        <xf:load>
+                                            <xf:resource
+                                                value="concat('javascript:InsertCodeInTextArea(&quot;',operator/researchesAttributes/attribute, '&quot;,
+                                            &quot;',concat('xformId_',@type,'Query'), '&quot;, &quot;&quot;,', @queryIndex, ')')"/>
+                                        </xf:load>
+                                    </xf:action>
+                                </xf:action>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(is-valid(instance('xformId_mainInstance'))=false())">
+                                    <xf:message>Неверный формат</xf:message>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                        <div class="button30">
+                            <xf:trigger>
+                                <xf:label>X</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:setvalue ref="operator/researchesAttributes/attribute" value=""/>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                    </div>
+                </xf:group>
+                <xf:group ref=".[../permission/current='true' and (../../data/answerTypeId='choice')
+							and count(//choice)&gt;0 or ../../data/answerTypeId='catalog' and ../../data/catalogId!='']">
+                    <div class="break">
+                        <div class="baseInput200" style="width:255px; padding-top:10px;">
+							Текущий вопрос
+                        </div>
+                        <xf:group ref=".[../../data/answerTypeId='choice' and count(//choice)&gt;0]">
+                            <div class="baseInput200">
+                                <xf:select1 ref="operator/current/answerId">
+                                    <xf:item>
+                                        <xf:label/>
+                                        <xf:value/>
+                                    </xf:item>
+                                    <xf:itemset
+                                        nodeset="instance('xformId_mainInstance')/data/choice">
+                                        <xf:label ref="name"/>
+                                        <xf:value ref="id"/>
+                                    </xf:itemset>
+                                    <xf:label>Вариант ответа:</xf:label>
+                                </xf:select1>
+                            </div>
+                        </xf:group>
+                        <xf:group ref=".[../../data/answerTypeId='catalog' and ../../data/catalogId!='']">
+                            <div class="selectorShort200">
+                                <xf:input ref="operator/current/answer">
+                                    <xf:label>Ответ</xf:label>
+                                </xf:input>
+                                <xf:trigger>
+                                    <xf:label>...</xf:label>
+                                    <xf:action ev:event="DOMActivate">
+                                        <xf:load
+                                            resource="javascript:gwtCreatePlugin
+                                        ({
+											id : 'xformId',
+											plugin : 'extJsTree',
+											getDataProcName : 'ssmmd.other.ruleSelector.catalogSelectListAndCount.celesta',
+											postProcessProc : 'handleExtJsTree.py',
+											generalFilters : ['XPath(instance(quot(xformId_mainInstance))/data/catalogId)'],
+											params : {
+												core : {
+													Update : {
+														startsWith : true,
+														delay : 900
+													}
+												},
+												dataModel : {
+													fields :
+													[]
+												},
+												view : {
+													columns :
+													[]
+												}
+											},
+											options : {
+												dataWidth : '600px',
+												dataHeight : '450px',
+												windowCaption : 'Выбор значения из справочника',
+												onSelectionComplete : function (ok, plugin) {
+													if (ok) {
+														plugin.utils.singleXpathMapping({
+								'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/current/answerId)' : 'id',
+								'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/operator/current/answer)' : 'name'
+														}, true);
+													}
+												}
+											}
+										}
+									);"/>
+                                    </xf:action>
+                                </xf:trigger>
+                            </div>
+                        </xf:group>
+
+                        <div class="button100">
+                            <xf:trigger>
+                                <xf:label>Вставить</xf:label>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(is-valid(instance('xformId_mainInstance'))=true())">
+                                    <xf:setvalue ref="operator/current/valueToInsert"
+                                        value="../answerId"/>
+                                    <xf:action if="../../data/answerTypeId='choice'">
+                                        <xf:setvalue ref="operator/current/valueToInsert"
+                                            value="concat('[current].[', ., ']')"/>
+                                    </xf:action>
+                                    <xf:load>
+                                        <xf:resource
+                                            value="concat('javascript:InsertCodeInTextArea(&quot;',operator/current/valueToInsert, '&quot;,
+                                                    &quot;',concat('xformId_',@type,'Query'), '&quot;, &quot;&quot;,', @queryIndex, ')')"/>
+                                    </xf:load>
+                                </xf:action>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(is-valid(instance('xformId_mainInstance'))=false())">
+                                    <xf:message>Неверный формат</xf:message>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                        <div class="button30">
+                            <xf:trigger>
+                                <xf:label>X</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:setvalue ref="operator/current/answer" value="''"/>
+                                    <xf:setvalue ref="operator/current/questionId" value=""/>
+                                    <xf:setvalue ref="operator/current/questionName" value=""/>
+                                    <xf:setvalue ref="operator/current/catalogName" value=""/>
+                                    <xf:setvalue ref="operator/current/answerType" value=""/>
+                                    <xf:setvalue ref="operator/current/answerChoice" value=""/>
+                                    <xf:setvalue ref="operator/current/answerType" value=""/>
+                                    <xf:setvalue ref="operator/current/answerId" value=""/>
+                                    <xf:setvalue ref="operator/current/researchNumber" value=""/>
+                                    <xf:setvalue ref="operator/current/research" value=""/>
+                                    <xf:setvalue ref="operator/current/researchId" value=""/>
+                                    <xf:setvalue ref="operator/current/valueToInsert" value=""/>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                    </div>
+                </xf:group>
+            </xf:group>
+
+            <xf:group ref=".[../@multiQuery='true' and ../../data/readonly!=1]">
+                <div class="button100 break">
+                    <xf:trigger>
+                        <xf:label>Добавить</xf:label>
+                        <xf:action ev:event="DOMActivate">
+                            <xf:insert nodeset="./query"
+                                origin="instance('xformId_queryInstance')/query" at="last()"
+                                position="after"/>
+                        </xf:action>
+                    </xf:trigger>
+                </div>
+            </xf:group>
+
+            <xf:repeat id="queries" nodeset="query">
+                <div class="xformId_{../@type}Query" style="clear: both;">
+                    <xf:group ref=".[../../@multiQuery='true'  and ../../../data/readonly!=1]">
+                        <div class="boolInput200">
+                            <xf:input ref="./@status">
+                                <xf:action ev:event="xforms-value-changed"
+                                    if="(instance('xformId_mainInstance')/rules/rule[index('specialFields')]/query[index('queries')]/@status=true())">
+                                    <!--<xf:message>Неверный формат</xf:message>-->
+                                    <xf:setvalue ref="./@statusType"
+                                        iterate="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/query"
+                                        value=""/>
+                                    <xf:setvalue
+                                        ref="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/query[index('queries')]/@statusType"
+                                        value="'_current'"/>
+                                    <xf:setvalue
+                                        ref="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/query[@status=true() and @statusType!='_current']/@status"
+                                        value="false()"/>
+                                    <xf:setvalue
+                                        ref="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/@queryIndex"
+                                        value="index('queries')"/>
+                                </xf:action>
+                                <xf:action ev:event="xforms-value-changed"
+                                    if="(instance('xformId_mainInstance')/rules/rule[index('specialFields')]/query[index('queries')]/@status=false())">
+                                    <!--<xf:message>Неверный формат</xf:message>-->
+                                    <!--<xf:setvalue
+                                ref="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/query[index('queries')]/@statusType"
+                                value="notCurrent"/>-->
+                                    <xf:setvalue
+                                        ref="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/query[index('queries')]/@status"
+                                        value="true()"/>
+                                </xf:action>
+                            </xf:input>
+                        </div>
+                        <div class="button30" style="float:right;">
+                            <xf:trigger>
+                                <xf:label>—</xf:label>
+                                <xf:action ev:event="DOMActivate"
+                                    if="(instance('xformId_mainInstance')/rules/rule[index('specialFields')]/query[index('queries')]/@statusType!='_current')">
+                                    <xf:delete
+                                        nodeset="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/query[index('queries')]"/>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                    </xf:group>
+                    <div class="baseInput800 textareaHeight100 break" style="width: 98%;">
+                        <xf:textarea ref=".">
+                            <xf:action ev:event="xforms-value-changed">
+                                <xf:action>
+                                    <xf:setvalue
+                                        ref="instance('xformId_mainInstance')/rules/@currentNode"
+                                        value="index('specialFields')"/>
+                                    <xf:setvalue ref="./@statusType"
+                                        iterate="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/query"
+                                        value=""/>
+                                    <xf:setvalue
+                                        ref="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/query[index('queries')]/@statusType"
+                                        value="'_current'"/>
+                                    <xf:setvalue
+                                        ref="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/query[@status=true() and
+																													@statusType!='_current']/@status"
+                                        value="false()"/>
+                                    <xf:setvalue
+                                        ref="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/query[index('queries')]/@status"
+                                        value="true()"/>
+                                    <xf:setvalue
+                                        ref="instance('xformId_mainInstance')/rules/rule[index('specialFields')]/@queryIndex"
+                                        value="index('queries')"/>
+                                </xf:action>
+                                <xf:action>
+                                    <xf:send submission="xformId_textSubmission"/>
+                                </xf:action>
+                            </xf:action>
+                        </xf:textarea>
+                    </div>
+                    <xf:output class="baseInput800 break"
+                        style="width: 98%; min-height:100px; margin: 2px"
+                        value="concat(./@normal_query, ' ')"/>
+                </div>
+            </xf:repeat>
+        </xf:group>
+    </xf:repeat>
+</specialTag>

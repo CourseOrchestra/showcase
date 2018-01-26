@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance">
+				<schema xmlns="">
+				</schema>
+			</xf:instance>			
+			<xf:bind>
+			</xf:bind>
+		</xf:model>
+	</head>
+	<body>
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов tinymce плагина</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtCreatePlugin({
+							id:'xformId',
+							/*parentId:'pluginWraper',*/
+							plugin:'htmlEditorTinymce',
+							proc:'plugin/htmlEditorTinymce.py',
+							params:{
+								tinymce: {
+									plugins: ['code']
+								}
+							},
+							options: {								
+								dataWidth: '500px',
+								dataHeight: '260px',
+								windowCaption: 'Редактирование HTML',
+								onSelectionComplete: function(ok, plugin) {
+									if (ok) {
+										alert(plugin.getTinymceEditor().getContent());
+									}
+								}
+							}
+						});" />
+				</xf:action>
+			</xf:trigger>
+					
+			<div id="pluginWraper"></div>
+		</div>
+		
+		<hr/>
+		
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="diagnoses" name="Диагностические заключения">
+		<element id="systemDiagnosesGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.systemDiagnosesGrid.treeGrid.celesta">
+			<proc id="systemDiagnosesGridToolbar" name="ssmmd.grids.systemDiagnosesGrid.gridToolBar.celesta" type="TOOLBAR"
+			/>
+		</element>
+		
+ 		<element id="systemDiagnosisAddCard" type="xforms" template="systemDiagnosisCard.xml"
+			proc="ssmmd.xforms.systemDiagnosisCard.addCardData.celesta" neverShowInPanel="true">
+			<proc id="addSystemDiagnosisCardSave" name="ssmmd.xforms.systemDiagnosisCard.addCardSave.celesta" type="SAVE"/>
+			<related id="systemDiagnosesGrid"/>
+		</element>
+		
+		<element id="systemDiagnosisEditCard" type="xforms" template="systemDiagnosisCard.xml"
+			proc="ssmmd.xforms.systemDiagnosisCard.editCardData.celesta" neverShowInPanel="true">
+			<proc id="editSystemDiagnosisCardSave" name="ssmmd.xforms.systemDiagnosisCard.editCardSave.celesta" type="SAVE"/>
+			<related id="systemDiagnosesGrid"/>
+		</element>
+		
+		<element id="systemDiagnosisDel" type="xforms" template="systemDiagnosisDel.xml"
+			proc="ssmmd.xforms.systemDiagnosisDel.cardData.celesta" neverShowInPanel="true">
+			<proc id="systemDiagnosisDel" name="ssmmd.xforms.systemDiagnosisDel.cardDataDel.celesta" type="SAVE"/>
+			<related id="systemDiagnosesGrid"/>
+		</element> 
+		
+  		<element id="systemDiagnosesDependencyGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.systemDiagnosesDependencyGrid.treeGrid.celesta" hideOnLoad="true">
+			<proc id="systemDiagnosesDependencyGridToolbar" name="ssmmd.grids.systemDiagnosesDependencyGrid.gridToolBar.celesta" type="TOOLBAR"
+			/>
+			<related id="systemDiagnosesGrid"/>
+		</element>
+	
+		
+		<element id="systemDependencyAddCard" type="xforms" template="systemDependencyCard.xml"
+			proc="ssmmd.xforms.systemDependencyCard.addCardData.celesta" neverShowInPanel="true">
+			<proc id="addSystemDependencyCardSave" name="ssmmd.xforms.systemDependencyCard.addCardSave.celesta" type="SAVE"/>
+			<related id="systemDiagnosesGrid"/>
+			<related id="systemDiagnosesDependencyGrid" />
+		</element>
+		
+ 		<element id="systemDependencyDel" type="xforms" template="systemDependencyDel.xml"
+			proc="ssmmd.xforms.systemDependencyDel.cardData.celesta" neverShowInPanel="true">
+			<proc id="systemDependencyDel" name="ssmmd.xforms.systemDependencyDel.cardDataDel.celesta" type="SAVE"/>
+			<related id="systemDiagnosesGrid"/>
+			<related id="systemDiagnosesDependencyGrid" />
+		</element> 
+	</tab>
+</datapanel>

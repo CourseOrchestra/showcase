@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages>
+<message id="test1" type="ERROR">
+Ошибка
+</message>
+<message id="test2" type="WARNING">
+Предупреждение
+</message>
+<message id="test3" type="INFO">
+Информация
+</message>
+</messages>

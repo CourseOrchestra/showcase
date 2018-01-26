@@ -1,0 +1,22 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="../../../dijit/themes/claro/claro.css"/>
+
+<script src="../../../dojo/dojo.js" djConfig="isDebug: false, parseOnLoad: true, modulePaths: {course: '../course', app: '../../'}"></script>
+<script src="../Theme.js"></script>
+
+<script>
+dojo.require("course.chartinggui.Theme");
+
+dojo.addOnLoad(function(){
+    new course.chartinggui.Theme({}, "theme");
+});
+</script>
+
+</head>
+
+<body class="claro">
+    <div id="theme"></div>
+</body>
+</html>

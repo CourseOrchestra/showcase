@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+	<tab id="3" name="Вебтекст">		
+		<element id="77" type="webtext" proc="WebText_self_refresh" />
+	</tab>
+	<tab id="6" name="XForms как фильтр">
+		<element id="61" type="xforms" template="Showcase_Template.xml"
+			proc="xForms_proc1">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+		</element>
+		<element id="62" type="webtext" proc="webtext_filter_and_add"
+			hideOnLoad="true" />		
+	</tab>
+	<tab id="2" name="Файлы в XForms">
+		<element id="21" type="xforms" template="Showcase_Template21.xml"
+			proc="xForms_proc21">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="03" name="xforms_download1" type="DOWNLOAD" />
+			<proc id="04" name="xforms_upload1" type="UPLOAD" />
+			<proc id="05" name="xforms_upload1" type="UPLOAD" />
+			<proc id="06" name="xforms_download2" type="DOWNLOAD" schema="test_good_small.xsd" transform="test_good.xsl"/>
+			<proc id="07" name="xforms_upload1" type="UPLOAD" schema="test_good.xsd" transform="test_good.xsl"/>					
+		</element>
+		<element id="22" type="webtext" proc="webtext_filter_and_add"
+			hideOnLoad="true" />		
+	</tab>
+	<tab id="7" name="Плагин">
+		<element id="12" type="plugin"  proc="radarInfo" plugin="radar">
+			<proc id="010201" name="plugin/handleRadar.py" type="POSTPROCESS" />
+		</element>	
+	</tab>
+	<tab id="41" name="Грид(2 процедуры)">
+		<element id ="0401" type="grid" proc="grid_cities_data">
+			<proc id="040101" name="grid_cities_metadata" type="METADATA"/>
+		</element>
+	</tab>
+	<tab id="42" name="Грид(xml). Задание css и id для строки грида">
+		<element id="0201" type="grid" proc="grid_portals_id_and_css_xmlds"> 
+			<proc id="11" name="grid_download1" type="DOWNLOAD" />
+			<proc id="12" name="grid_download2" type="DOWNLOAD" />
+		</element>
+	</tab>
+	<tab id="43" name="Грид(xml). Различные типы столбцов">
+		<element id="0101" type="grid" proc="grid_col_types_xmlds">
+		</element>	
+	</tab>
+</datapanel>

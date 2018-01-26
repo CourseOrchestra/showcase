@@ -1,0 +1,83 @@
+<script type="text/javascript">
+  require(["dijit/registry", "dijit/form/Button", "dojo/dom", "dojo/domReady!"], function(registry, Button, dom){   
+    //Destroy widgets
+    //Without this, there will be an error when re-loading this script
+    var destroy = function(widget) {
+      if (widget) {      
+        widget.destroyRecursive(true);
+      }
+    }
+    destroy(registry.byId("submitAsynchDBButton"));
+    destroy(registry.byId("submitAsynchJythonButton"));
+    destroy(registry.byId("submitSynchJythonButton"));
+    destroy(registry.byId("submitSynchDBButton"));
+    
+    var callback = function(resulData) {
+      if (resulData) {
+        if (resulData.isError) {
+          dom.byId("result1").innerHTML += "Failure. Error message: '"+resulData.message+"'";
+        } else {
+          dom.byId("result1").innerHTML += "Success! Received data: '"+resulData+"'";
+        }
+      } else {
+        dom.byId("result1").innerHTML += "Data not received";
+      }    
+    }
+    
+    var submitAsynchDBButton = new Button({
+      label: "Asynch Submit (DB)",
+      onClick: function(){
+          jsFormSubmitAsynch('1','submit01', 'data', 
+            function(data) {
+              callback(data);
+            }, function(err) {
+              callback(err);
+            }
+          );
+      }
+    }, "submitAsynchDBButton").startup();
+    
+    var submitSynchDBButton = new Button({
+      label: "Synch Submit (DB)",
+      onClick: function(){
+          var resulData = jsFormSubmitSynch('1','submit01', 'data');
+          callback(resulData);
+      }
+    }, "submitSynchDBButton").startup();
+    
+    var submitAsynchJythonButton = new Button({
+      label: "Asynch Submit (Jython)",
+      onClick: function(){
+          jsFormSubmitAsynch('1','submit02', 'data', 
+            function(data) {
+              callback(data);
+            }, function(err) {
+              callback(err);
+            }
+          );
+      }
+    }, "submitAsynchJythonButton").startup();
+    
+    var submitSynchJythonButton = new Button({
+      label: "Synch Submit (Jython)",
+      onClick: function(){
+          var resulData = jsFormSubmitSynch('1','submit02', 'data');
+          callback(resulData);
+      }
+    }, "submitSynchJythonButton").startup();
+  });
+</script>
+<script type="text/javascript">
+ function doActionJsAction() {
+  jsFormAction('${elementId}','l1');
+ }
+</script>
+<button id="submitAsynchDBButton" type="button"></button>
+<button id="submitSynchDBButton" type="button"></button>
+<div></div>
+<button id="submitAsynchJythonButton" type="button"></button>
+<button id="submitSynchJythonButton" type="button"></button>
+<div id="result1"></div>
+<div>----------</div>
+<button id="doActionButton" type="button" onclick="doActionJsAction();">doActionButton</button>
+<div>----------</div>

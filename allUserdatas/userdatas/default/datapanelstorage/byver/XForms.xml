@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+
+
+	<tab id="21" name="XForms как фильтр">
+		<element id="61" type="xforms" template="Showcase_Template.xml"
+			proc="xforms_proc1">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+			<proc id="051" name="xforms_upload_by_userdata" type="UPLOAD" />			
+		</element>
+		<element id="62" type="webtext" proc="webtext_filter_and_add"
+			hideOnLoad="true" />		
+	</tab>
+	
+	
+	
+	<tab id="011111" name="XForm - jython submission">
+		<element id="01011111" type="xforms" template="Showcase_Template_Submissions.xml"
+			proc="xforms_proc_dep">
+			<proc id="proc1" name="xform/simple_submission.py" type="SUBMISSION" />
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+			
+			<related id="1022" />			
+		</element>
+		
+		
+ 		<element id="1022" type="GRID"  subtype="JS_LIVE_GRID" proc="grid/jsTreeGridJython.py" 
+		    plugin="liveDGrid">
+		</element>
+		
+	</tab>
+	
+	
+	
+	
+	
+	
+    <tab id="101" name="XForms. Задание размеров селекторов" layout="VERTICAL">
+        <element id="0502" type="xforms" template="Showcase_Template_multiselector_simple.xml"
+            proc="xforms_proc_no_data">
+            <proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+        </element>
+    </tab>
+	
+	
+	
+	<tab id="09" name="Упрощенная загрузка файлов">
+		<element id="0001" type="xforms" template="Showcase_Template_uploaders_simple.xml"
+			proc="xforms_proc_all">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="04" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="041" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="05" name="xforms_upload_by_userdata_err" type="UPLOAD" />
+			<proc id="051" name="xforms_upload_by_userdata" type="UPLOAD" />			
+		</element>	
+	</tab>	
+	
+	
+	
+	
+	<tab id="01" name="Передача названий файлов в XForm">
+		<element id="0101" type="xforms" template="xforms_template_uploaders_simple"
+			proc="xforms_proc_all">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="04" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="041" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="05" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="051" name="xforms_upload_by_userdata" type="UPLOAD" />			
+		</element>			
+	</tab>
+	
+
+
+
+	<tab id="04" name="XForms - возможности">
+		<element id="0401" type="xforms" template="Showcase_Template_all.xml"
+			proc="xforms_proc_all">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="03" name="xforms_download_by_userdata" type="DOWNLOAD" />
+			<proc id="04" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+			<proc id="proc3" name="xforms_submission_ec" type="SUBMISSION" />
+			<proc id="proc4" name="xforms_submission_um" type="SUBMISSION" />
+			<proc id="proc5" name="xforms_submission_re" type="SUBMISSION" />
+		</element>
+	</tab>
+	
+	<tab id="03" name="Переменные в HTML">
+		<element id="0301" type="webtext" proc="webtext_variables" />
+		<element id="0302" type="xforms" proc="xforms_variables" template="Showcase_Template_Variables.xml"/>
+	</tab>				
+	
+
+<!--
+
+	<tab id="6" name="XForms. Календарь">
+		<element id="61" type="xforms" template="dateButton_card_template.xml"
+			proc="xforms_date">
+			<proc id="proc1" name="xforms_date_save" type="SAVE" />
+		</element>		
+		<element id="dateCard" type="xforms" template="dateButton_card_template.xml"
+			proc="xforms_date" neverShowInPanel="true">
+			<proc id="proc1" name="xforms_date_save" type="SAVE" />
+		</element>	
+		<element id="62" type="webtext" proc="webtext_for_date"/>						
+	</tab>
+
+-->	
+	
+	
+</datapanel>

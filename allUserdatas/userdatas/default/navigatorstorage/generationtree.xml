@@ -1,0 +1,3623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigator width="200px">
+  <group id="00" name="Фичи">
+    <level1 id="07" name="7-й этап">
+      <action>
+        <main_context>main_context</main_context>
+        <datapanel type="07.xml" tab="firstOrCurrent" />
+      </action>
+    </level1>
+    <level1 id="08" name="8-й этап">
+      <level2 id="0801" name="8-й этап, 1-я неделя">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="0801.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="0802" name="8-й этап, 2-я неделя">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="0802.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="0803" name="8-й этап, 3-я неделя">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="0803.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="0804" name="8-й этап, 4-я неделя">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="0804.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="0805" name="8-й этап, 5-я неделя">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="0805.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+    </level1>
+    <level1 id="09" name="9-й этап">
+      <level2 id="0901" name="9-й этап, 1-я неделя">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="0901.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="0902" name="9-й этап, 2-я неделя">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="0902.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="0903" name="9-й этап, 3-5 недели" selectOnLoad="false">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="dp0903" tab="firstOrCurrent" />
+        </action>
+      </level2>
+    </level1>    
+    <level1 id="10" name="10-й этап">    
+      <level2 id="1001" name="10-й этап, 1 неделя">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="1001.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>  
+      <level2 id="1002" name="10-й этап, 2 неделя" selectOnLoad="false">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="1002.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>   
+      <level2 id="1003" name="10-й этап, 3 неделя" selectOnLoad="false">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="1003.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>  
+    </level1>       
+    <level1 id="11" name="11-й этап">         
+      <level2 id="1101" name="11-й этап, 1 неделя" selectOnLoad="false">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="1101.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>   
+      <level2 id="1102" name="11-й этап, 2 неделя" selectOnLoad="false">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="1102.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>    
+      <level2 id="1103" name="11-й этап, 3 неделя" selectOnLoad="false">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="1103.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>                              
+    </level1>  
+    <level1 id="12" name="12-й этап">
+      <level2 id="1201" name="12-й этап, 1 неделя">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="1201.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>   
+      <level2 id="1202" name="12-й этап, 2 неделя">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="1202.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>          
+    </level1> 
+    <level1 id="13" name="13-й этап">
+      <level2 id="1301" name="13-й этап, 1 неделя" selectOnLoad="false">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="datapanel/dp1301.py" tab="firstOrCurrent" />
+        </action>
+      </level2>    
+      <level2 id="1302" name="13-й этап, 2 неделя">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="1302.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="1303" name="13-й этап, 3 неделя">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="1303.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>                   
+    </level1>
+    <level1 id="20" name="Версия 2">
+
+      <level2 id="JSLiveGridNew1" name="JSLiveGridNew1"   >
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSLiveGridNew.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="JSLiveGridNew2" name="JSLiveGridNew2"   >
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSLiveGridNew2.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="JSLiveGridNew3" name="JSLiveGridNew3"      >
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSLiveGridNew3.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      
+      
+      
+      <level2 id="JSPageGridNew1" name="JSPageGridNew1"     >
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSPageGridNew.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="JSPageGridNew2" name="JSPageGridNew2"   >
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSPageGridNew2.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="JSPageGridNew3" name="JSPageGridNew3"      >
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSPageGridNew3.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      
+      
+
+      <level2 id="JSTreeGridNew1" name="JSTreeGridNew1"     >
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSTreeGridNew.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="JSTreeGridNew2" name="JSTreeGridNew2">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSTreeGridNew2.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="JSTreeGridNew3" name="JSTreeGridNew3">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSTreeGridNew3.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+    
+    
+    
+    
+      <level2 id="JSLiveGrid1" name="JSLiveGrid1"    >
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSLiveGrid.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="JSLiveGrid2" name="JSLiveGrid2"   >
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSLiveGrid2.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="JSLiveGrid3" name="JSLiveGrid3">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSLiveGrid3.xml" tab="firstOrCurrent" >  
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="JSPageGrid1" name="JSPageGrid1"  >
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSPageGrid.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="JSPageGrid2" name="JSPageGrid2">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSPageGrid2.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="JSPageGrid3" name="JSPageGrid3">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSPageGrid3.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="JSTreeGrid1" name="JSTreeGrid1"   >
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSTreeGrid.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="JSTreeGrid2" name="JSTreeGrid2">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSTreeGrid2.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="JSTreeGrid3" name="JSTreeGrid3">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/JSTreeGrid3.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      
+      
+      
+
+      <level2 id="Calendar" name="Плагины"  selectOnLoad="false" >
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/Calendar.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+    
+    
+    
+	  <level2 id="levelGridExportData" name="Выгрузка данных">
+        <action>
+          <main_context>none</main_context>
+          <datapanel type="gridExportData.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="gridJython" name="Источник данных Jython">
+        <action>
+          <main_context>none</main_context>
+          <datapanel type="dataSourceJython.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+	  <level2 id="extJsTreePlugin" name="Плагин extJsTree" >
+        <action>
+          <main_context>none</main_context>
+          <datapanel type="extJsTree.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      
+	  <level2 id="GridToolBar" name="Панель инструментов для Grid (Tree, Live, Page)" >
+        <action>
+          <main_context>none</main_context>
+          <datapanel type="TreeGridToolBar.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="xmlDS" name="XML-датасеты">
+        <action>
+          <main_context>jython_save_data.xml</main_context>
+          <datapanel type="byver/xmlDS.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="XForms" name="XForms"   >
+        <action>
+          <main_context>jython_save_data.xml</main_context>
+          <datapanel type="byver/XForms.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="jsForm" name="jsForm" selectOnLoad="true" >
+        <action>
+          <main_context>Data of main context</main_context>
+          <datapanel type="byver/jsForm.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="SubForms1" name="Подформы1">
+        <action>
+          <main_context>jython_save_data.xml</main_context>
+          <datapanel type="byver/SubForms.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="SubForms2" name="Подформы2">
+        <action>
+          <main_context>jython_save_data.xml</main_context>
+          <datapanel type="byver/SubForms2.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="SubForms31" name="Подформы31">
+        <action>
+          <main_context>jython_save_data.xml</main_context>
+          <datapanel type="byver/SubForms31.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="SubForms32" name="Подформы32">
+        <action>
+          <main_context>jython_save_data.xml</main_context>
+          <datapanel type="byver/SubForms32.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="SubForms4" name="Подформы4"  >
+        <action>
+          <main_context>jython_save_data.xml</main_context>
+          <datapanel type="byver/SubForms4.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      
+      
+
+      
+      
+      
+      
+      <level2 id="208" name="2.0.8">
+        <action>
+          <main_context>jython_save_data.xml</main_context>
+          <datapanel type="byver/208.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="210" name="2.1.0">
+        <action>
+          <main_context>jython_save_data.xml</main_context>
+          <datapanel type="byver/210.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>   
+      <level2 id="211" name="2.1.1">
+        <action>
+          <main_context>jython_save_data.xml</main_context>
+          <datapanel type="byver/211.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>    
+      <level2 id="212" name="2.1.2">
+        <action>
+          <main_context>jython_save_data.xml</main_context>
+          <datapanel type="byver/212.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2> 
+      <level2 id="221" name="2.2.1">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="datapanel/221.sql" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+      <level2 id="222" name="2.2.2">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="byver/222.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>      
+    </level1>
+    
+    <level1 id="400" name="Версия 4">
+      <level2 id="partTemplateTest" name="XFormsPartTemplate">
+        <action>
+          <main_context>none</main_context>
+          <datapanel type="xformsPartTemplateTest.xml" tab="firstOrCurrent" >          
+          </datapanel>
+        </action>
+      </level2>
+    </level1>
+    
+  </group>
+  <group id="1" name="Балансы продовольственных ресурсов">
+    <level1 id="3" name="Балансы зерна">   
+      <level2 id="B873822B-C087-4F68-9C12-3E437488976A" name="Личное потребление (фонд потребления) без продуктов переработки - Всего">
+        <action>
+          <main_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</main_context>
+          <datapanel type="a.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="68683FB2-1B52-4DF1-92CA-3E63F5FD660D" name="Потери - Всего">
+        <action>
+          <main_context>Потери - Всего</main_context>
+          <datapanel type="a.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="E1142B95-3EB1-4F95-BEE1-7BECFC8F4FF0" name="Производственное потребление в сельхозорганизациях и у населения - На семена">
+        <action>
+          <main_context>Производственное потребление в сельхозорганизациях и у населения - На семена</main_context>
+          <datapanel type="a.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="699D3D2F-CC12-42B1-A193-922EA0E2C392" name="Производственное потребление в сельхозорганизациях и у населения - На корм скоту">
+        <action>
+          <main_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</main_context>
+          <datapanel type="a.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="C45F603C-6B00-4B76-AB1B-A58213A26FD7" name="Производство (валовый сбор в весе после доработки) - Всего">
+        <action>
+          <main_context>Производство (валовый сбор в весе после доработки) - Всего</main_context>
+          <datapanel type="a.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="939F3676-D4D6-4846-8FBE-CE2DC9AEB6DC" name="Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения">
+        <action>
+          <main_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</main_context>
+          <datapanel type="a.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="E7C2E0F4-F18C-4906-8688-EDF7746A40CF" name="Межрегиональный обмен - Всего">
+        <action>
+          <main_context>Межрегиональный обмен - Всего</main_context>
+          <datapanel type="a.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="A5785002-B677-4280-B0B3-EF3F7E951E75" name="Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями">
+        <action>
+          <main_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</main_context>
+          <datapanel type="a.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+      <level2 id="9CBCF924-B7EC-413F-BF49-F35F1E6A92DB" name="Запасы на конец отчетного периода - Всего">
+        <action>
+          <main_context>Запасы на конец отчетного периода - Всего</main_context>
+          <datapanel type="a.xml" tab="firstOrCurrent" />
+        </action>
+      </level2>
+    </level1>
+  </group>
+  <group id="2" name="Регионы">
+    <level1 id="1C5670CE-BDA5-45A3-93EC-F460F8BD7B4B" name="Алтайский край">
+      <action>
+        <main_context>Алтайский край</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="E77A2B6F-7676-4FCE-88C1-57E557C3581F" name="Амурская обл.">
+      <action>
+        <main_context>Амурская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="BDE7FFAB-F2CB-4FE1-A6E5-49098AEF37E3" name="Архангельская обл.">
+      <action>
+        <main_context>Архангельская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="5748D4A6-E9E7-41F0-A08B-AC302525F42E" name="Астраханская обл.">
+      <action>
+        <main_context>Астраханская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="E4272435-98FE-46CA-BE40-5C54386F95DA" name="Белгородская обл.">
+      <action>
+        <main_context>Белгородская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="255F922B-68D6-4828-8F63-6E23EF2488C7" name="Брянская обл.">
+      <action>
+        <main_context>Брянская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="C8118D09-D83E-4C96-8465-FB8369ADCFA8" name="Владимирская обл.">
+      <action>
+        <main_context>Владимирская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="11EBC19F-1200-4C8B-AA1C-239BE7F08C40" name="Волгоградская обл.">
+      <action>
+        <main_context>Волгоградская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="71236BA2-FBCF-48BB-BBC2-2180868976D5" name="Вологодская обл.">
+      <action>
+        <main_context>Вологодская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="27AF596E-CF81-48D8-8892-CAF2A4370ADB" name="Воронежская обл.">
+      <action>
+        <main_context>Воронежская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="F81F1827-DE49-4D6D-9894-DC024D911820" name="г. Москва">
+      <action>
+        <main_context>г. Москва</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="BAE1C04A-A144-4644-82BF-298F28454DD2" name="г. Санкт-Петербург">
+      <action>
+        <main_context>г. Санкт-Петербург</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="3F833893-F697-4420-918B-4464EC26FD4B" name="Дальневосточный ФО">
+      <action>
+        <main_context>Дальневосточный ФО</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="5ED27D67-54CB-49B8-B668-E904092FC681" name="Еврейская авт. обл.">
+      <action>
+        <main_context>Еврейская авт. обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="13495B0D-2DF5-47CA-A875-9BA9854FA032" name="Забайкальский край (Читинская обл.)">
+      <action>
+        <main_context>Забайкальский край (Читинская обл.)</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="A7782013-6AA3-4BD3-A815-853C6355CCD0" name="Ивановская обл.">
+      <action>
+        <main_context>Ивановская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="150C9B89-E0E8-4752-BD21-27A8BC4FCE14" name="Иркутская обл.">
+      <action>
+        <main_context>Иркутская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="DA963AB9-52F1-4F50-B0DF-78893C46FAE8" name="Итого по России">
+      <action>
+        <main_context>Итого по России</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="A8DCA200-9E44-4A09-802C-3743DF3C7CD7" name="Кабардино-Балкарская Респ.">
+      <action>
+        <main_context>Кабардино-Балкарская Респ.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="05CFB78F-6AA6-49F3-BDC0-6311A8E6498B" name="Калининградская обл.">
+      <action>
+        <main_context>Калининградская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="0BFA3E00-0519-4CE1-A70E-9435C87655CF" name="Калужская обл.">
+      <action>
+        <main_context>Калужская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="570B13AF-7440-4515-A1C7-B6C98CF0A01F" name="Камчатская обл.">
+      <action>
+        <main_context>Камчатская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="23EC91F9-B3CA-452C-A2AF-82E01BE941DE" name="Камчатский край (Камчатская обл.)">
+      <action>
+        <main_context>Камчатский край (Камчатская обл.)</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="D13829D7-CCE2-44EC-9E7F-83DC25647C72" name="Карачаево-Черкесская Респ.">
+      <action>
+        <main_context>Карачаево-Черкесская Респ.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="B897CE22-297C-4EEB-86A7-A02CE1076E9F" name="Кемеровская обл.">
+      <action>
+        <main_context>Кемеровская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="90321F70-379E-4B22-A3A5-5FF8DDAE2527" name="Кировская обл.">
+      <action>
+        <main_context>Кировская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="1BE8B4EB-EED9-4A87-818C-4B039DD0FC0E" name="Костромская обл.">
+      <action>
+        <main_context>Костромская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="8631B21B-C6F8-42D9-92E9-C4C263DB102E" name="Краснодарский край">
+      <action>
+        <main_context>Краснодарский край</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="B5205303-11E5-433D-ABBA-9FC52FFCB40B" name="Красноярский край">
+      <action>
+        <main_context>Красноярский край</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="E658A03F-A7B2-44B5-AC81-0EB489F09E5D" name="Курганская обл.">
+      <action>
+        <main_context>Курганская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="5D944913-4EC0-42F4-B880-65A2A5BC6C07" name="Курская обл.">
+      <action>
+        <main_context>Курская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="009328C8-50C6-46B2-B4BC-85A1C7D2EA55" name="Ленинградская обл.">
+      <action>
+        <main_context>Ленинградская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="EAAF5D5C-3503-487D-A873-EF3DD0980223" name="Липецкая обл.">
+      <action>
+        <main_context>Липецкая обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="A3D5CA83-ED42-4A22-8917-AD046C05E03F" name="Магаданская обл.">
+      <action>
+        <main_context>Магаданская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="D4A33C2F-6471-4B33-AC8C-5AFB140F53C8" name="Московская обл.">
+      <action>
+        <main_context>Московская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="B26CB32F-D999-4CCB-8C11-1A7F7E0E620D" name="Мурманская обл.">
+      <action>
+        <main_context>Мурманская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="F04FD2D8-61FC-46D7-A2DF-3F5803D361A5" name="Нижегородская обл.">
+      <action>
+        <main_context>Нижегородская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="4F4EE5C3-194A-4446-BE10-07057902471C" name="Новгородская обл.">
+      <action>
+        <main_context>Новгородская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="AD3600E9-30E7-4BCD-88E6-504F8D618C13" name="Новосибирская обл.">
+      <action>
+        <main_context>Новосибирская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="E10B7086-D397-4DD2-86E5-6561ECE6CC45" name="Омская обл.">
+      <action>
+        <main_context>Омская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="0254F639-41EC-4563-88FB-6B5D63EF247A" name="Оренбургская обл.">
+      <action>
+        <main_context>Оренбургская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="8A1133E6-B97D-445F-9BC7-DC0B164ABDCA" name="Орловская обл.">
+      <action>
+        <main_context>Орловская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="8F6B91B4-D054-4C5C-BFCA-7001798580AC" name="Пензенская обл.">
+      <action>
+        <main_context>Пензенская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="5C2DF7C9-24DC-45A3-87BB-6B9A37C95AC0" name="Пермская обл.">
+      <action>
+        <main_context>Пермская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="FBC85130-7530-4006-8A4A-3F841533C8EB" name="Пермский край (Пермская обл.)">
+      <action>
+        <main_context>Пермский край (Пермская обл.)</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="9423786E-BF5F-4932-AAA2-845BFD9FE1A8" name="Приволжский ФО">
+      <action>
+        <main_context>Приволжский ФО</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="D41D8F1C-A85A-4A78-9F0E-C458D092BC3F" name="Приморский край">
+      <action>
+        <main_context>Приморский край</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="412934A0-3496-498F-A194-CB567714F9BB" name="Псковская обл.">
+      <action>
+        <main_context>Псковская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="395E31ED-932E-428C-A8C9-ED498B816EDE" name="Респ. Адыгея (Адыгея)">
+      <action>
+        <main_context>Респ. Адыгея (Адыгея)</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="40766BB5-BC2B-42E0-A482-2FFDBF562E43" name="Респ. Алтай">
+      <action>
+        <main_context>Респ. Алтай</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="938C2366-38CE-4F42-8200-0AD2805982C2" name="Респ. Башкортостан">
+      <action>
+        <main_context>Респ. Башкортостан</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="B01F9ACB-8B58-4D57-9D95-5A7AF042F660" name="Респ. Бурятия">
+      <action>
+        <main_context>Респ. Бурятия</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="6F61436C-11C6-4FC2-8272-40F77A284729" name="Респ. Дагестан">
+      <action>
+        <main_context>Респ. Дагестан</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="DFDA6007-14E9-49BD-8487-46731CDCF4D7" name="Респ. Ингушетия">
+      <action>
+        <main_context>Респ. Ингушетия</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="D6487D55-B537-4C29-8DE8-792E066B6A05" name="Респ. Калмыкия">
+      <action>
+        <main_context>Респ. Калмыкия</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="94B3FCB1-5EFC-4CE4-BE4A-316B5DADEA37" name="Респ. Карелия">
+      <action>
+        <main_context>Респ. Карелия</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="AD8C18E6-C877-4965-82AE-51CE293F5522" name="Респ. Коми">
+      <action>
+        <main_context>Респ. Коми</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="5FE57EEB-5112-4183-BFA8-33EA82D17FF9" name="Респ. Марий Эл">
+      <action>
+        <main_context>Респ. Марий Эл</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="9005BCCA-9FBF-416F-BE2F-F434B99E7406" name="Респ. Мордовия">
+      <action>
+        <main_context>Респ. Мордовия</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="F4887A36-FB88-4B7E-8B40-9E258AC44E1A" name="Респ. Саха (Якутия)">
+      <action>
+        <main_context>Респ. Саха (Якутия)</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="C0B3C9D6-1FA7-44A1-86CC-1812A17D0C08" name="Респ. Северная Осетия - Алания">
+      <action>
+        <main_context>Респ. Северная Осетия - Алания</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="73B76803-1CB8-45A1-8258-5A980D8C9C5E" name="Респ. Татарстан">
+      <action>
+        <main_context>Респ. Татарстан</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="08E0129C-33A1-4B03-9185-CE6975D596D3" name="Респ. Тыва">
+      <action>
+        <main_context>Респ. Тыва</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="9B9DF3C5-BAE8-4171-8C24-D02CEDF732D3" name="Респ. Хакасия">
+      <action>
+        <main_context>Респ. Хакасия</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="ADFC3722-E5B9-42C8-A7A4-B11A70E8C16F" name="Российская Федерация">
+      <action>
+        <main_context>Российская Федерация</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="FA73FFFD-8381-4704-9F90-B169C7A96CBD" name="Ростовская обл.">
+      <action>
+        <main_context>Ростовская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="728998A6-9F79-4C67-8530-3D9269A57E7E" name="Рязанская обл.">
+      <action>
+        <main_context>Рязанская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="A40012C8-8CBC-4B4E-B856-66F03DEFF041" name="Самарская обл.">
+      <action>
+        <main_context>Самарская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="4766EEA0-5B02-46C0-A118-09ADD294DE44" name="Саратовская обл.">
+      <action>
+        <main_context>Саратовская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="425BC9D0-8FAE-4311-B479-78EB2E543575" name="Сахалинская обл.">
+      <action>
+        <main_context>Сахалинская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="B4A9E2DB-72E6-45B1-B884-41B130566685" name="Свердловская обл.">
+      <action>
+        <main_context>Свердловская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="437A3253-F808-42FD-96E5-48A2DC01459D" name="Северо-Западный ФО">
+      <action>
+        <main_context>Северо-Западный ФО</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="C2457711-AFEB-4E70-9FEB-956509BB7C11" name="Сибирский ФО">
+      <action>
+        <main_context>Сибирский ФО</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="5393D78C-94E5-474E-A972-1E87E4615EDD" name="Смоленская обл.">
+      <action>
+        <main_context>Смоленская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="423907CA-8AA7-451A-AA98-B570B779B712" name="Ставропольский край">
+      <action>
+        <main_context>Ставропольский край</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="7DF6F1F5-2D3A-43E8-B10E-FD8847EE70A7" name="Тамбовская обл.">
+      <action>
+        <main_context>Тамбовская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="D1DE1972-9E78-4D25-85EA-4FCC5768CCA4" name="Тверская обл.">
+      <action>
+        <main_context>Тверская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="2CD4DA3F-DDD9-4877-8154-2B26416EC62E" name="Томская обл.">
+      <action>
+        <main_context>Томская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="60BF7E33-2A03-47EB-9F91-9D7F98323564" name="Тульская обл.">
+      <action>
+        <main_context>Тульская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="D4D82865-D0B3-4384-9D15-2931482DD5A8" name="Тюменская обл.">
+      <action>
+        <main_context>Тюменская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="0503D627-578C-4B61-8E55-8A94A50F70F8" name="Удмуртская Респ.">
+      <action>
+        <main_context>Удмуртская Респ.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="5730BF29-48EF-4CD8-9036-1E4B9A838327" name="Ульяновская обл.">
+      <action>
+        <main_context>Ульяновская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="C6317A75-AA8F-4B4E-A76A-6C178245DD74" name="Уральский ФО">
+      <action>
+        <main_context>Уральский ФО</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="D648B53B-8B6B-46F7-85E3-59DB8C368967" name="Хабаровский край">
+      <action>
+        <main_context>Хабаровский край</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="7396BA32-AE6E-4C00-BCC8-4B0F85B1F68C" name="Центральный ФО">
+      <action>
+        <main_context>Центральный ФО</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="56AD0F14-F945-4F91-A48D-67ADCD9BF502" name="Челябинская обл.">
+      <action>
+        <main_context>Челябинская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="334233F6-462A-4E05-AFF2-6376361FB4F5" name="Чеченская Респ.">
+      <action>
+        <main_context>Чеченская Респ.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="52A6EB9C-6A01-48DD-A1E6-E97264F25012" name="Читинская обл.">
+      <action>
+        <main_context>Читинская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="5B8F6734-2DB7-492C-A3AC-C620132513F1" name="Чувашская Респ.">
+      <action>
+        <main_context>Чувашская Респ.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="250EBD56-E975-47C4-8189-1933236B2675" name="Чукотский а.о.">
+      <action>
+        <main_context>Чукотский а.о.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="5F9E4381-F87D-4AD8-B667-8EF41FD2FDD8" name="Южный ФО">
+      <action>
+        <main_context>Южный ФО</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+    <level1 id="9ED41E1E-40FF-4720-8D8E-0943B918A554" name="Ярославская обл.">
+      <action>
+        <main_context>Ярославская обл.</main_context>
+        <datapanel type="b.xml">
+          <element id="12">
+            <add_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</add_context>
+          </element>
+          <element id="10">
+            <add_context>Потери - Всего</add_context>
+          </element>
+          <element id="6">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На семена</add_context>
+          </element>
+          <element id="7">
+            <add_context>Производственное потребление в сельхозорганизациях и у населения - На корм скоту</add_context>
+          </element>
+          <element id="3">
+            <add_context>Производство (валовый сбор в весе после доработки) - Всего</add_context>
+          </element>
+          <element id="8">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</add_context>
+          </element>
+          <element id="14">
+            <add_context>Межрегиональный обмен - Всего</add_context>
+          </element>
+          <element id="9">
+            <add_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</add_context>
+          </element>
+          <element id="2">
+            <add_context>Запасы на конец отчетного периода - Всего</add_context>
+          </element>
+        </datapanel>
+      </action>
+    </level1>
+  </group>
+</navigator>

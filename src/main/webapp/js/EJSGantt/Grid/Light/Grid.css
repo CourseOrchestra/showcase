@@ -1,0 +1,1539 @@
+/* -----------------------------------------------------------------------*/
+/* ------------------ "Light" TreeGrid style definition ------------------*/
+/* -----------------------------------------------------------------------*/
+
+/* ------------- Base tags ------------- */
+
+.GLImage { padding-bottom:256px; }
+.GLNone { display:none; }
+.GLSection,.GLSectionFF3 { table-layout:fixed; width:0px; font-size:1px; }
+.GLSectionFF3 { border-collapse:collapse; }
+.GLNothing { height:0px; width:0px; overflow:hidden; }
+
+/* -------------- Sections ------------------ */
+
+.GLMainTable { border-left:1px solid #E0E0E0; border-right:1px solid #E0E0E0; border-collapse:separate; text-align:left; }
+.GLBodyLeft,.GLBodyMid,.GLBodyRight,.GLHeadLeft,.GLHeadMid,.GLHeadRight,.GLFootLeft,.GLFootMid,.GLFootRight { }
+.GLBodyLeft,.GLBodyMid,.GLBodyRight { border-top:1px solid #b0b0a0; }
+.GLHeadLeft,.GLHeadMid,.GLHeadRight { }
+.GLFootLeft,.GLFootMid,.GLFootRight { border-top:1px solid #e0e0e0; }
+.GLHeadLeft,.GLBodyLeft,.GLFootLeft { }	
+.GLHeadMid,.GLBodyMid,.GLFootMid {  }
+.GLHeadRight,.GLBodyRight,.GLFootRight { }	
+.GLVScroll { padding-top:1px; padding-bottom:1px; } 
+.GLHScrollLeft { padding-right:1px; cursor:default; }
+.GLHScrollMid { cursor:default; }
+.GLHScrollRight { padding-left:1px; cursor:default; }
+.GLHScrollLeftResize { margin-right:1px; border-right:1px dotted black; padding-right:5px; background:white; }
+.GLHScrollRightResize { margin-left:1px; border-left:1px dotted black; padding-left:5px; background:white; }
+.GLHScrollMidLeftResize { border-left:1px dotted black; padding-left:5px; background:white; }
+.GLHScrollMidRightResize { border-right:1px dotted black; padding-right:5px; background:white; }
+.GLHScrollLeftResizeTouch { margin-right:1px; border-right:1px solid black; padding-right:18px; background:white; }
+.GLHScrollRightResizeTouch { margin-left:1px; border-left:1px solid black; padding-left:18px; background:white; }
+.GLHScrollMidLeftResizeTouch { border-left:1px solid black; padding-left:19px; background:white; }
+.GLHScrollMidRightResizeTouch { border-right:1px solid black; padding-right:19px; background:white; }
+.GLHScrollWide { }
+.GLHScrollHidden { overflow:visible!important; background:#F4F4F4; }
+.GLXScroll { margin-left:1px; background:#F4F4F4; }
+.GLPageFirst { }
+.GLPage { }
+.GLPageOne { }
+.GLChildPart { }
+
+/* ------------- Round corners ------------- */
+
+.GLTop { }
+.GLTop1 { margin-left:5px; margin-right:5px; height:1px; background:#E0E0E0; overflow:hidden; }
+.GLTop2 { margin-left:3px; margin-right:3px; border-left:2px solid #E0E0E0; border-right:2px solid #E0E0E0; background:#F0F0E0; height:1px; overflow:hidden; }
+.GLTop3 { margin-left:2px; margin-right:2px; border-left:1px solid #E0E0E0; border-right:1px solid #E0E0E0; background:#F0F0E0; height:1px; overflow:hidden; }
+.GLTop4 { margin-left:1px; margin-right:1px; border-left:1px solid #E0E0E0; border-right:1px solid #E0E0E0; background:#F0F0E0; height:2px; overflow:hidden; }
+.GLTop5 { display:none; }
+.GLBottom { }
+.GLBottom5 { margin-left:5px; margin-right:5px; height:1px; background:#E0E0E0; overflow:hidden; }
+.GLBottom4 { margin-left:3px; margin-right:3px; border-left:2px solid #E0E0E0; border-right:2px solid #E0E0E0; background:#F0F0E0; height:1px; overflow:hidden; }
+.GLBottom3 { margin-left:2px; margin-right:2px; border-left:1px solid #E0E0E0; border-right:1px solid #E0E0E0; background:#F0F0E0; height:1px; overflow:hidden; }
+.GLBottom2 { margin-left:1px; margin-right:1px; border-left:1px solid #E0E0E0; border-right:1px solid #E0E0E0; background:#F0F0E0; height:2px; overflow:hidden; }
+.GLBottom1 { display:none; }
+
+/* ------------- Rows ------------------ */
+.GLSpaceRowHeight { height:17px; }
+.GLRowHeight { height:18px; }
+.GLRowHeightTouch { height:22px; }
+.GLSpaceMargin { margin:0px; }
+.GLSpaceMarginTouch { margin:5px; }
+
+.GLToolbarRow,.GLToolbar1Row,.GLToolbar2Row,.GLTopbarRow,.GLTopbar1Row,.GLTopbar2Row,.GLSpaceRow,.GLGroupRow,.GLSearchRow,.GLPagerRow {
+   font-size:1px; background-color:#F0F0E0; overflow:hidden; padding-top:3px; padding-bottom:3px;
+   }
+.GLTopbarRow,.GLTopbar2Row { border-bottom:1px solid #d0d0c0; margin-bottom:1px; padding-bottom:4px; }
+.GLToolbarRow,.GLToolbar1Row { border-top:1px solid #b0b0a0; padding-top:4px; }
+.GLFillRow { background-color:#F0F0E0; }
+.GLTabberRow { background: #F0F0E0; }
+.GLRowAbove,.GLRowBelow { border-left:1px solid #E0E0E0; border-right:1px solid #E0E0E0; background-color:#F0F0E0; margin-left:5px; margin-right:5px; }
+.GLRowAbove { margin-top:3px; background:url(Backgrounds.gif) 0px 0px; overflow:hidden; }
+.GLRowBelow { margin-bottom:3px; background:url(Backgrounds.gif) 0px bottom; overflow:hidden; }
+.GLNoDataRow { padding-left:5px; padding-top:5px; padding-bottom:5px; color:gray; font-style:italic; background:#F5F5F5; }
+
+/* ------------- Cell ------------- */
+
+.GLCell,.GLCellPanel,.GLCellFilter,.GLCellFilterPanel,.GLCellHeader,.GLCellHeaderPanel,.GLCellFilterPanel,
+.GLHeaderDrag,.GLHeaderGroup,.GLCellUser,.GLCellEmpty,.GLCellHeaderEmpty { 
+	vertical-align:top; white-space:nowrap; overflow:hidden; overflow:auto!IE; height:auto; border:0px none;
+	}
+.GLCellHeaderPanel { padding-top:2px; padding-bottom:5px; }
+.GLCellBorderFF3 { border-left:0px none; border-top:0px none; }
+
+.GLCellSpace,.GLCellSpaceEdit,.GLCellSpaceSelect,.GLCellSpaceEditIcon,.GLCellSpaceEditButton,
+.GLCellSpaceButton,.GLCellSpaceButtonButton {
+   vertical-align:top; white-space:nowrap;
+   padding-top:2px!important;
+   }
+.GLCellSpacePanel,.GLCellSpaceBool { vertical-align:top; text-align:center; }
+.GLCellSpaceRadio { }
+.GLCellSpaceEdit,.GLCellSpaceSelect,.GLCellSpaceEditIcon,.GLCellSpaceEditButton { background-color:white; }   
+.GLCellSpaceEditIcon { padding-left:0px!important; }
+.GLCellSpaceSelect { white-space:nowrap!important; }
+.GLCellSpaceButtonButton { padding-top:0px!important; }
+.GLCellSpaceAbove { border-top:1px solid #e0e0ff; }
+.GLCellSpaceBelow { border-bottom:1px solid #e0e0ff; }
+
+.GLCellHeader,.GLCellHeaderEmpty { background-color:#F0F0E0; }
+.GLCellPanel,.GLCellHeaderPanel { background-color:#F0F0E0; white-space:nowrap; direction:ltr; }
+.GLCellFilterPanel { background-color:#F0F0E0; text-align:center; padding-top:0px; padding-left:0px; direction:ltr; }
+.GLCellUser { background-color:#F0F0E0; }
+.GLCellEmpty { background:#F0F0E0; }
+.GLCellHeaderEmpty { }
+.GLCellHidden { background:transparent!important; border-top:none!important; border-bottom:none!important; }
+
+.GLHeaderButton { padding:0px; }
+.GLHeaderGroup { font:11px "Microsoft Sans Serif",Verdana,Arial; padding-left:3px; background:#E0E0D0; border-right:1px solid #b0b0a0; }
+.GLHeaderGroupFocus { background-color: #C0C0A0; }
+.GLHeaderGroupDelete { background-color: #F0F0E0; color: #F0F0E0; }
+.GLHeaderGroupCustom {
+   font:italic 11px "Microsoft Sans Serif",Verdana,Arial;
+   color:#BBB; padding-left:5px; cursor:default; white-space:nowrap;
+   }
+.GLHeaderDrag { background-color: #C0C0B0; cursor:default; overflow:hidden; }
+.GLHeaderFocus { background-color: #DEDFD8; }
+.GLPanel { padding-left:80px; }
+.GLNoTreeLines1 { text-align:right; }
+.GLNoTreeLines2 { text-align:right; vertical-align:middle; padding-top:0px; }
+.GLNoTreeLines3 { text-align:left; }
+.GLTree { padding-top:0px; white-space:nowrap; }
+.GLSpannedTree { vertical-align:top; }
+.GLCellClassInner { padding-top:0px; padding-bottom:0px; }
+
+/* ------------- Inside cell ------------- */
+
+.GLHtml,.GLText,.GLLines,.GLPass,.GLInt,.GLFloat,.GLDate,.GLLink,.GLImg,.GLRadio,.GLRadioText,.GLList,.GLEnum,.GLDropCols,.GLAbs,.GLPagerEdit,.GLUser,.GLChart {
+   font-size:11px; font-family:"Microsoft Sans Serif",Verdana,Arial; white-space:nowrap;
+   padding-left:3px; padding-right:3px; padding-top:2px; padding-bottom:2px;
+   }
+.GLInt,.GLFloat,.GLDate { text-align:right; }
+.GLLines,.GLRadio,.GLHtml,.GLList { white-space:normal; }	
+.GLImg,.GLHtml { padding-top:0px; padding-bottom:0px; }
+.GLChart { padding:5px; }
+.GLPass { font-size:14px; padding:0px; padding-left:3px; }
+.GLRadio,.GLRadioText { padding:0px; font-weight:normal!important; }
+.GLBool { text-align:center; }
+.GLIcon { background-repeat:no-repeat; }
+.GLHidden { }
+.GLHiddenSpace { display:none; }
+.GLHeaderText { font:13px "Times New Roman"; padding-left:3px; padding-right:3px; padding-bottom:1px; padding-top:1px; }
+.GLAbs { padding:0px; }
+.GLUser { padding:0px; }
+.GLPagerEdit  {
+   vertical-align:top; text-align:center; background:white;
+   padding-top:2px; padding-bottom:1px; border:0px none;
+   }
+.GLRightButton { font:10px "Times New Roman"; padding:0px; height:17px; width:19px; margin:0px; }
+.GLRightHtml { font:12px "Times New Roman"; }
+.GLRightImg { font:12px "Times New Roman"; }
+.GLMergedCellH { padding:0px; padding-right:5px; }
+.GLMergedCellV { padding:0px; padding-bottom:1px; }
+
+.GLWrap0 { white-space:nowrap; }
+.GLWrap1 { white-space:normal; }
+.GLAlignLeft { text-align:left; }
+.GLAlignCenter { text-align:center; }
+.GLAlignJustify { text-align:center; }
+.GLAlignRight { text-align:right; }
+.GLNoSpaceLeft { border-left:0px none; padding-left:0px; }
+.GLNoSpaceRight { border-right:0px none; padding-right:0px; }
+.GLCellRotate1 { vertical-align:bottom; padding-top:1px; padding-bottom:1px; }
+.GLCellRotate2 { vertical-align:top; padding-top:1px; padding-bottom:1px; }
+.GLCellRotate3 { vertical-align:middle; padding-top:1px; padding-bottom:1px; }
+.GLRotate1 { filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+   -moz-transform:rotate(-90deg); -webkit-transform: rotate(-90deg); -o-transform: rotate(-90deg);  
+   }
+.GLRotate2 { writing-mode:tb-rl;
+   -moz-transform:rotate(-270deg); -webkit-transform: rotate(-270deg); -o-transform: rotate(-270deg);
+   }
+
+/*--------------- Pages type cell ----------------- */
+
+.GLPages { overflow:visible; padding-left:3px; padding-right:3px;}
+.GLPagesLink,.GLPagesLinkActive {
+   padding-left:2px; padding-right:1px; padding-top:2px; padding-bottom:2px; margin-top:2px; margin-bottom:2px;
+   display:inline-block; font:11px "Microsoft Sans Serif",Verdana,Arial; cursor:pointer; _cursor:hand; color:blue;
+   }
+.GLPagesLink:visited { color:blue; }
+.GLPagesLink:hover { color:red; }
+.GLPagesLinkActive { color:black; font-weight:bold; border:1px dotted black; margin-top:1px; margin-bottom:1px; }
+
+/*--------------- Gantt type cell ----------------- */
+
+.GLGantt { border:0px none; padding:0px; border-right:1px solid #e0e0ff; cursor:default; background:transparent; -webkit-user-select:none; -moz-user-select:none; }
+
+.GLGantt0Out,.GLGantt10Out,.GLGantt90Out,.GLGantt100Out,.GLGanttNullOut {
+   margin-top:2px; padding:1px; background:white; border:1px solid black; overflow:hidden;
+   }
+.GLGanttHoverOut { border:2px solid red; margin-top:1px; }
+.GLGantt10Out { padding-left:0px; border-left:0px none; }
+.GLGantt90Out { padding-right:0px; border-right:0px none; }
+.GLGantt0In,.GLGantt10In,.GLGantt90In,.GLGantt100In,.GLGanttNullIn,
+.GLGantt0InErr,.GLGantt10InErr,.GLGantt90InErr,.GLGantt100InErr,.GLGanttNullInErr,
+.GLGantt0InCrit,.GLGantt10InCrit,.GLGantt90InCrit,.GLGantt100InCrit,.GLGanttNullInCrit { height:9px; overflow:hidden; font-size:1px; }
+.GLGantt0In { background:#08F; }
+.GLGantt0InErr { background:#F00; }
+.GLGantt0InCrit { background:#FA0; }
+.GLGantt10In { background:#00F; }
+.GLGantt10InErr { background:#B00; }
+.GLGantt10InCrit { background:#D80; }
+.GLGantt90In,.GLGantt90InErr,.GLGantt90InCrit { background:#0B0; }
+.GLGantt100In,.GLGantt100InErr,.GLGantt100InCrit { background:#0F0; }
+.GLGanttNullIn { background:#777; }
+.GLGanttNullInErr { background:#F00; }
+.GLGanttNullInCrit { background:#FA0; }
+.GLGanttG0In { background:#FFF; }
+.GLGanttG0InCrit { background:#FD8; }
+.GLGanttG0InErr { background:#FCC; }
+.GLGanttG10In { background:#EEE; }
+.GLGanttG10InCrit { background:#FC6; }
+.GLGanttG10InErr { background:#FAA; }
+.GLGanttG90In,.GLGanttG90InErr,.GLGanttG90InCrit { background:#666; }
+.GLGanttG100In,.GLGanttG100InErr,.GLGanttG100InCrit { background:#000; }
+.GLGanttGNullIn { background:#FFF; }
+.GLGanttGNullInErr { background:#F88; }
+.GLGanttGNullInCrit { background:#FD8; }
+.GLGanttRed0In,.GLGanttRed10In { background:white; } .GLGanttRed90In,.GLGanttRed100In,.GLGanttRedNullIn { background:red; }
+.GLGanttBlue0In,.GLGanttBlue10In { background:white; } .GLGanttBlue90In,.GLGanttBlue100In,.GLGanttBlueNullIn { background:blue; }
+.GLGanttGreen0In,.GLGanttGreen10In { background:white; } .GLGanttGreen90In,.GLGanttGreen100In,.GLGanttGreenNullIn { background:green; }
+.GLGanttFuchsia0In,.GLGanttFuchsia10In { background:white; } .GLGanttFuchsia90In,.GLGanttFuchsia100In,.GLGanttFuchsiaNullIn { background:fuchsia; }
+.GLGanttAqua0In,.GLGanttAqua10In { background:white; } .GLGanttAqua90In,.GLGanttAqua100In,.GLGanttAquaNullIn { background:aqua; }
+.GLGanttLime0In,.GLGanttLime10In { background:white; } .GLGanttLime90In,.GLGanttLime100In,.GLGanttLimeNullIn { background:lime; }
+.GLGanttMaroon0In,.GLGanttMaroon10In { background:white; } .GLGanttMaroon90In,.GLGanttMaroon100In,.GLGanttMaroonNullIn { background:maroon; }
+.GLGanttNavy0In,.GLGanttNavy10In { background:white; } .GLGanttNavy90In,.GLGanttNavy100In,.GLGanttNavyNullIn { background:navy; }
+.GLGanttOlive0In,.GLGanttOlive10In { background:white; } .GLGanttOlive90In,.GLGanttOlive100In,.GLGanttOliveNullIn { background:olive; }
+.GLGanttOrange0In,.GLGanttOrange10In { background:white; } .GLGanttOrange90In,.GLGanttOrange100In,.GLGanttOrangeNullIn { background:orange; }
+.GLGanttPurple0In,.GLGanttPurple10In { background:white; } .GLGanttPurple90In,.GLGanttPurple100In,.GLGanttPurpleNullIn { background:purple; }
+.GLGanttSilver0In,.GLGanttSilver10In { background:white; } .GLGanttSilver90In,.GLGanttSilver100In,.GLGanttSilverNullIn { background:silver; }
+.GLGanttTeal0In,.GLGanttTeal10In { background:white; } .GLGanttTeal90In,.GLGanttTeal100In,.GLGanttTealNullIn { background:teal; }
+.GLGanttYellow0In,.GLGanttYellow10In { background:white; } .GLGanttYellow90In,.GLGanttYellow100In,.GLGanttYellowNullIn { background:yellow; }
+.GLGanttBlack0In,.GLGanttBlack10In { background:white; } .GLGanttBlack90In,.GLGanttBlack100In,.GLGanttBlackNullIn { background:black; }
+.GLGanttGray0In,.GLGanttGray10In { background:white; } .GLGanttGray90In,.GLGanttGray100In,.GLGanttGrayNullIn { background:gray; }
+.GLGanttWhite0In,.GLGanttWhite10In,.GLGanttWhite90In,.GLGanttWhite100In,.GLGanttWhiteNullIn { background:white; } 
+.GLGanttWhite90In { border-right:1px solid black; margin-right:1px; } .GLGanttWhite10In { border-left:1px solid black; }
+.GLGanttOutLeft,.GLGanttOutRight { background:url(Gantt.gif) no-repeat -293px 0px; width:13px; height:16px; overflow:hidden; }
+.GLGanttOutRight { background-position: -353px 0px; }
+
+.GLGanttFlowOut { margin-top:6px; border:1px solid black; overflow:hidden; }
+.GLGanttFlowHover { border:2px solid red; margin-top:5px; overflow:hidden; }  
+.GLGanttFlowIn,.GLGanttFlowInErr,.GLGanttFlowInCrit { height:3px; overflow:hidden; background:yellow; font-size:1px; }
+.GLGanttGFlowIn { background:white; }
+.GLGanttFlowInErr { background:#F55; }
+.GLGanttFlowInCrit { background:#FA0; }
+
+.GLFGanttBase { height:11px; margin:1px; border:1px solid; padding:1px; padding-left:2px; padding-right:2px; overflow:hidden; }
+.GLFGanttRunEmpty,.GLFGanttRunBox,.GLFGanttRunSolid,.GLFGanttRunLeft,.GLFGanttRunRight,.GLFGanttRunFixed,
+.GLFGanttRunBound,.GLFGanttRunBoundStart,.GLFGanttRunEnd,.GLFGanttRunEndStart,.GLFGanttRunNbsp,.GLFGanttRunComplete {
+   border-top:1px solid #e0e0ff; border-left:1px solid #e0e0ff; border-right:1px solid #b0b0df; border-bottom:1px solid #b0b0df;
+   padding:1px; padding-left:2px; padding-right:2px; overflow:hidden; font:10px Arial; white-space:nowrap;
+   }
+.GLFGanttRunGroupHover { border-color:brown!important; overflow:hidden; }
+.GLFGanttRunHover { border-color:red!important; overflow:hidden; }  
+.GLFGanttRunEmpty { border:none; padding:2px; padding-left:3px; padding-right:3px; }
+.GLFGanttRunNbsp { border:none; border-top:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; padding-left:3px; padding-right:3px; }
+.GLFGanttRunBox { background:#F0F0E0; }
+.GLFGanttRunSolid { background:#FFFF00; }
+.GLFGanttRunFixed,.GLFGanttRunLeft,.GLFGanttRunBound,.GLFGanttRunBoundStart { border-left-style:solid!important; border-left-width:2px!important; border-left-color:black; padding-left:1px!important;}
+.GLFGanttRunFixed,.GLFGanttRunRight,.GLFGanttRunBound,.GLFGanttRunBoundStart { border-right-style:solid!important; border-right-width:2px!important; border-right-color:black; padding-right:1px!important; }
+.GLFGanttRunFixed,.GLFGanttRunLeft,.GLFGanttRunRight { background:#C0C0C0; }
+.GLFGanttRunBound,.GLFGanttRunBoundStart,.GLFGanttRunEnd,.GLFGanttRunEndStart { background:#80FF80; }
+.GLFGanttRunComplete { background:#0F0; }
+.GLGanttRunGroupHover { border-color:brown!important; overflow:hidden; }  
+.GLGanttRunHover { border-color:red!important; overflow:hidden; }  
+.GLGanttRunEmptyOut,.GLGanttRunBoxOut,.GLGanttRunSolidOut,.GLGanttRunLeftOut,.GLGanttRunRightOut,.GLGanttRunFixedOut,
+.GLGanttRunBoundOut,.GLGanttRunBoundStartOut,.GLGanttRunEndOut,.GLGanttRunEndStartOut,.GLGanttRunNbspOut,.GLGanttRunCompleteOut {
+   margin-top:1px; border-top:1px solid #e0e0ff; border-left:1px solid #e0e0ff; border-right:1px solid #b0b0df; border-bottom:1px solid #b0b0df; margin-left:1px; margin-right:1px; overflow:hidden; 
+   }
+.GLGanttRunEmptyIn,.GLGanttRunBoxIn,.GLGanttRunSolidIn,.GLGanttRunLeftIn,.GLGanttRunRightIn,.GLGanttRunFixedIn,
+.GLGanttRunBoundIn,.GLGanttRunBoundStartIn,.GLGanttRunEndIn,.GLGanttRunEndStartIn,.GLGanttRunNbspIn,.GLGanttRunCompleteIn {
+   height:13px; overflow:hidden; font:10px Arial; padding-left:1px; width:100%!IE; white-space:nowrap;
+   }
+.GLGanttRunEmptyOut { border:none; }
+.GLGanttRunEmptyIn { }
+.GLGanttRunNbspOut { border:none; border-top:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; margin-left:0px; margin-right:0px; }
+.GLGanttRunNbspIn { }
+.GLGanttRunBoxOut { }
+.GLGanttRunBoxIn { background:#F0F0E0; }
+.GLGanttRunSolidOut { }
+.GLGanttRunSolidIn { background:#FFFF00; }
+.GLGanttRunFixedOut,.GLGanttRunLeftOut,.GLGanttRunBoundOut,.GLGanttRunBoundStartOut { border-left-style:solid!important; border-left-width:2px!important; border-left-color:black; margin-left:0px;}
+.GLGanttRunFixedOut,.GLGanttRunRightOut,.GLGanttRunBoundOut,.GLGanttRunBoundStartOut { border-right-style:solid!important; border-right-width:2px!important; border-right-color:black; }
+.GLGanttRunFixedIn,.GLGanttRunLeftIn,.GLGanttRunRightIn { background:#C0C0C0; }
+.GLGanttRunBoundOut,.GLGanttRunBoundStartOut,.GLGanttRunEndOut,.GLGanttRunEndStartOut { }
+.GLGanttRunBoundIn,.GLGanttRunBoundStartIn,.GLGanttRunEndIn,.GLGanttRunEndStartIn { background:#80FF80; }
+.GLGanttRunCompleteIn { background:#0F0; }
+.GLGanttRunRedIn,.GLFGanttRunRed { background:red; }
+.GLGanttRunBlueIn,.GLFGanttRunBlue { background:blue; color:white; }
+.GLGanttRunGreenIn,.GLFGanttRunGreen { background:green; color:white; }
+.GLGanttRunFuchsiaIn,.GLFGanttRunFuchsia { background:fuchsia; }
+.GLGanttRunAquaIn,.GLFGanttRunAqua { background:aqua; }
+.GLGanttRunLimeIn,.GLFGanttRunLime { background:lime; }
+.GLGanttRunMaroonIn,.GLFGanttRunMaroon { background:maroon; color:white; }
+.GLGanttRunNavyIn,.GLFGanttRunNavy { background:navy; color:white; }
+.GLGanttRunOliveIn,.GLFGanttRunOlive { background:olive; color:white; }
+.GLGanttRunOrangeIn,.GLFGanttRunOrange { background:orange; }
+.GLGanttRunPurpleIn,.GLFGanttRunPurple { background:purple; color:white; }
+.GLGanttRunSilverIn,.GLFGanttRunSilver { background:silver; }
+.GLGanttRunTealIn,.GLFGanttRunTeal { background:teal; color:white; }
+.GLGanttRunYellowIn,.GLFGanttRunYellow { background:yellow; }
+.GLGanttRunBlackIn,.GLFGanttRunBlack { background:black; color:white; }
+.GLGanttRunGrayIn,.GLFGanttRunGray { background:gray; color:white; }
+.GLGanttRunWhiteIn,.GLFGanttRunWhite { background:white; }
+.GLGanttRunErrorIn,.GLFGanttRunError { background:#FFA0A0; opacity:0.5; filter:alpha(opacity=50); }
+.GLFGanttRunErrorIE { background:#FFA0A0; filter:alpha(opacity=50); }
+.GLGanttRunCritIn,.GLFGanttRunCrit { background:#FA0; }
+.GLGanttRunErrIn,.GLFGanttRunErr { background:#F55; }
+.GLGanttRunJoinLeft,.GLFGanttRunJoinLeft { border-left-style:dotted; border-left-color:red; }
+.GLGanttRunJoinRight,.GLFGanttRunJoinRight { border-right-style:dotted; border-right-color:red; }
+.GLGanttRunMoveOut { border:1px solid #0F0; margin:0px; padding:0px; }
+.GLGanttRunMoveIn { background:#F0F0F0; color:black; }
+.GLGanttRunRemoveOut { border:1px solid #0F0; margin:0px; padding:0px; }
+.GLGanttRunRemoveIn { background:red; color:black; }
+.GLGanttRunCopyOut { border:1px solid blue; margin:0px; padding:0px; }
+.GLGanttRunCopyIn { }
+.GLGanttRunUnknownIn,.GLFGanttRunUnknown { background:black; color:White; font:bold 12px verdana;}
+
+.GLFGanttRunMove { border:1px solid #0F0; padding:1px; padding-left:2px; padding-right:2px; background:#F0F0F0; color:black; }
+.GLFGanttRunRemove { border:1px solid #0F0; padding:1px; padding-left:2px; padding-right:2px; background:red; color:black; }
+.GLFGanttRunCopy { border:1px solid blue; padding:1px; padding-left:2px; padding-right:2px; }
+
+.GLGanttMilestone,.GLGanttMilestone0,.GLGanttMilestone100,
+.GLGanttMilestoneCrit,.GLGanttMilestone0Crit,.GLGanttMilestone100Crit,
+.GLGanttMilestoneErr,.GLGanttMilestone0Err,.GLGanttMilestone100Err { 
+   background:url(Gantt.gif) no-repeat; width:17px; height:17px; overflow:hidden; 
+   }
+.GLGanttMilestone { background-position: -900px 0px; }
+.GLGanttMilestoneHover { background-position: -950px 0px; }
+.GLGanttMilestone0 { background-position: -1100px 0px; }
+.GLGanttMilestone0Hover { background-position: -1150px 0px; }
+.GLGanttMilestone100,.GLGanttMilestone100Crit,.GLGanttMilestone100Err { background-position: -1800px 0px; }
+.GLGanttMilestone100Hover,.GLGanttMilestone100CritHover,.GLGanttMilestone100CritHover { background-position: -1850px 0px; }
+.GLGanttMilestoneCrit,.GLGanttMilestone0Crit { background-position:-1700px 0px; }
+.GLGanttMilestoneCritHover,.GLGanttMilestone0CritHover { background-position: -1750px 0px; }
+.GLGanttMilestoneErr,.GLGanttMilestone0Err { background-position:-1000px 0px; }
+.GLGanttMilestoneErrHover,.GLGanttMilestone0ErrHover { background-position: -1050px 0px; }
+.GLGanttGMilestone,.GLGanttGMilestone100,.GLGanttGMilestone100Crit,.GLGanttGMilestone100Err { background-position: 0px 0px; }
+.GLGanttGMilestoneHover,.GLGanttGMilestone100Hover,.GLGanttGMilestone100CritHover,.GLGanttGMilestone100ErrHover { background-position: -50px 0px; }
+.GLGanttGMilestone0 { background-position: -1600px 0px; }
+.GLGanttGMilestone0Hover { background-position: -1650px 0px; }
+.GLGanttGMilestoneCrit,.GLGanttGMilestone0Crit { background-position:-1400px 0px; }
+.GLGanttGMilestoneCritHover,.GLGanttGMilestone0CritHover { background-position: -1450px 0px; }
+.GLGanttGMilestoneErr,.GLGanttGMilestone0Err { background-position:-1300px 0px; }
+.GLGanttGMilestoneErrHover,.GLGanttGMilestoneErr0Hover { background-position: -1350px 0px; }
+
+.GLGanttFlag { background:url(Gantt.gif) no-repeat -100px 0px; background-color:transparent!important; width:16px; height:15px; overflow:hidden; }
+.GLGanttFlagCustom { background-position:0px 0px!important; background-repeat:no-repeat; width:16px; height:15px; overflow:hidden; }
+.GLGanttFlagHover { background-position:-150px 0px; background-color:red; }
+.GLGanttFlagMenu { padding-right:16px; padding-bottom:256px; font:15px Arial; background-repeat:no-repeat; }
+
+.GLGanttPoint1,.GLGanttPoint2,.GLGanttPoint3,.GLGanttPoint4,.GLGanttPoint5,.GLGanttPoint6,.GLGanttPoint7,.GLGanttPoint8 {
+   background:url(Gantt.gif) no-repeat; width:17px; height:17px; overflow:hidden; 
+   }
+.GLGanttPointCustom { background-position:0px 0px!important; background-repeat:no-repeat; width:17px; height:17px; overflow:hidden; }  
+.GLGanttPointCustomHover { background-color:red; }
+.GLGanttPoint1 { background-position:-900px 0px; }
+.GLGanttPoint1Hover { background-position: -950px 0px; }
+.GLGanttPoint2 { background-position:-1000px 0px; }
+.GLGanttPoint2Hover { background-position:-1050px 0px; }
+.GLGanttPoint3 { background-position:-1100px 0px; }
+.GLGanttPoint3Hover { background-position:-1150px 0px; }
+.GLGanttPoint4 { background-position:-1200px 0px; }
+.GLGanttPoint4Hover { background-position:-1250px 0px; }
+.GLGanttPoint5 { background-position:-1300px 0px; }
+.GLGanttPoint5Hover { background-position:-1350px 0px; }
+.GLGanttPoint6 { background-position:-1400px 0px; }
+.GLGanttPoint6Hover { background-position:-1450px 0px; }
+.GLGanttPoint7 { background-position:-1500px 0px; }
+.GLGanttPoint7Hover { background-position:-1550px 0px; }
+.GLGanttPoint8 { background-position:-1600px 0px; }
+.GLGanttPoint8Hover { background-position:-1650px 0px; }
+
+.GLGanttMark,.GLGanttMark1,.GLGanttMark2,.GLGanttMark3,.GLGanttMark4,.GLGanttMark5 { height:500px; overflow:hidden; background:#880; }
+.GLGanttMark1 { background:red; }
+.GLGanttMark2 { background:green; }
+.GLGanttMark3 { background:yellow; }
+.GLGanttMark4 { background:black; }
+.GLGanttMark5 { background:silver; }
+.GLGanttMark6 { background:#F8F; margin-top:15px!important; height:2px!important; margin-bottom:-17px!important; }
+.GLGanttMark7 { background:#0F0; margin-top:13px!important; height:2px!important; margin-bottom:-15px!important; }
+.GLGanttMark8 { background:silver; margin-top:13px!important; height:2px!important; margin-bottom:-15px!important; }
+.GLGanttMark9 { background:#F8F; margin-top:4px!important; height:2px!important; margin-bottom:-6px!important; }
+.GLGanttMark10 { background:#0F0; margin-top:2px!important; height:2px!important; margin-bottom:-4px!important; }
+.GLGanttMark11 { background:silver; margin-top:2px!important; height:2px!important; margin-bottom:-4px!important; }
+.GLGanttMark12 { background:#F8F; margin-top:8px!important; height:1px!important; margin-bottom:-9px!important; }
+.GLGanttMark13 { background:#0F0; margin-top:8px!important; height:1px!important; margin-bottom:-9px!important; }
+.GLGanttMark14 { background:silver; margin-top:8px!important; height:1px!important; margin-bottom:-9px!important; }
+
+
+.GLGanttResource { font:bold 12px "Times New Roman"; margin-top:1px; }
+.GLGanttResourceChar { width:6px; }
+
+.GLGanttChart { height:500px; background:#CCF; border:1px solid #88F; border-bottom:0px none; }
+.GLGanttChartErr { height:500px; background:#F99; border:1px solid #F00; border-bottom:0px none; }
+.GLGanttChartRes { height:500px; background:#EE9; border:1px solid #CC0; border-bottom:0px none; }
+.GLGanttChartText { color:black; text-align:center; font:bold 12px Arial; overflow:visible!important; }
+.GLGanttChartTextErr { color:red; text-align:center; font:bold 12px Arial; overflow:visible!important; }
+.GLGanttChartTextRes { color:#AA0; text-align:center; font:12px Arial; overflow:visible!important; }
+
+.GLGanttDepFirst { height:500px; overflow:hidden; }
+.GLGanttDepVert,.GLGanttDepVertBottom,.GLGanttDepVertTop,.GLGanttDepVertBottom2,.GLGanttDepVertTop2,.GLGanttDepVertBottom3 {
+   border-left:1px solid #DDF; border-right:1px solid #BBF; background:blue; width:1px; overflow:hidden;
+   }
+.GLGanttDepVert { margin-top:-500px; height:500px; }
+.GLGanttDepVertTop { margin-top:-500px; height:8px; margin-bottom:492px; }
+.GLGanttDepVertTop2 { margin-top:-499px; height:7px; margin-bottom:492px; }
+.GLGanttDepVertBottom { margin-top:-491px; height:491px; }
+.GLGanttDepVertBottom2 { margin-top:-491px; height:8px; margin-bottom:483px; }
+.GLGanttDepVertBottom3 { margin-top:-482px; height:482px; }
+.GLGanttDepHorzIn { border-top:1px solid #DDF; border-bottom:1px solid #BBF; background:blue; margin-top:7px; overflow:hidden; }
+.GLGanttDepHorzInLag { border-top:1px dotted blue; margin-top:8px; overflow:hidden; }
+.GLGanttDepHorzTop { border-bottom:1px solid #BBF; background:blue; overflow:hidden; }
+.GLGanttDepHorzBottom { border-top:1px solid #DDF; background:blue; margin-top:16px; overflow:hidden; }
+.GLGanttDepHorzOut { margin-top:-500px; height:18px; margin-bottom:482px; overflow:hidden; font-size:1px; line-height:1px; }
+.GLGanttDepErr { border-top-color:#FDD; border-bottom-color:#FBB; border-left-color:#FDD; border-right-color:#FBB; background:red; }
+.GLGanttDepLagErr { border-color:red; }
+.GLGanttDepIcon { margin-top:-500px; height:500px; overflow:hidden; }
+.GLGanttDepArrowLeft,.GLGanttDepArrowRight,.GLGanttDepArrowErrLeft,.GLGanttDepArrowErrRight,
+.GLGanttDepArrowLeftRtl,.GLGanttDepArrowRightRtl,.GLGanttDepArrowErrLeftRtl,.GLGanttDepArrowErrRightRtl {
+   height:500px; background:url(Gantt.gif) no-repeat; overflow:hidden; 
+   }
+.GLGanttDepArrowLeft { background-position:-200px 0px; width:12px; }
+.GLGanttDepArrowRight { background-position:-250px 0px; width:12px; }
+.GLGanttDepArrowErrLeft { background-position:-400px 0px; width:12px; }
+.GLGanttDepArrowErrRight { background-position:-450px 0px; width:12px; }
+.GLGanttDepArrowLeftRtl { background-position:-251px 0px; width:12px; }
+.GLGanttDepArrowRightRtl { background-position:-202px 0px; width:12px; }
+.GLGanttDepArrowErrLeftRtl { background-position:-450px 0px; width:12px; }
+.GLGanttDepArrowErrRightRtl { background-position:-401px 0px; width:12px; }
+.GLGanttDepStart { width:4px; overflow:hidden; }
+.GLGanttDepEnd { width:10px; overflow:hidden; }
+
+.GLGanttMinStart,.GLGanttMaxStart,.GLGanttMinEnd,.GLGanttMaxEnd { background:url(Gantt.gif) no-repeat; width:7px; height:17px; overflow:hidden; }
+.GLGanttMinStart { background-position:-500px 0px; }
+.GLGanttMaxStart { background-position:-550px 0px; }
+.GLGanttMinEnd { background-position:-600px 0px; }
+.GLGanttMaxEnd { background-position:-650px 0px; }
+.GLGanttMinStartHover { background-position:-700px 0px; }
+.GLGanttMaxStartHover { background-position:-750px 0px; }
+.GLGanttMinEndHover { background-position:-800px 0px; }
+.GLGanttMaxEndHover { background-position:-850px 0px; }
+
+.GLGanttBack { background:white; }
+.GLGanttBack0,.GLGanttBack1,.GLGanttBack2,.GLGanttBack3,.GLGanttBack4,.GLGanttBack5 { 
+   height:500px; overflow:hidden; margin-left:auto; margin-right:auto; 
+   }
+.GLGanttBack0 { background:#FFF; }
+.GLGanttBack1 { background:#E8E8E8; }
+.GLGanttBack2 { background:#DDD; }
+.GLGanttBack3 { background:#BBB; }
+.GLGanttBack4 { background:#C72; }
+.GLGanttBack5 { background:#27C; }
+
+
+.GLGanttExclude,.GLGanttExcludeHidden { height:500px; overflow:hidden; background:#F0F0E0; margin-left:auto; margin-right:auto; }
+.GLGanttExcludeHidden { }
+
+.GLGanttBase,.GLGanttBaseAuto,.GLGanttFinish,.GLGanttFinishAuto { height:500px; overflow:hidden; border-left:2px solid #FF9E0C; width:2px; margin-left:auto; margin-right:auto; }
+.GLGanttFinishAuto,.GLGanttBaseAuto { border-left:1px solid #FF9E0C; }
+
+.GLGanttHeader { margin-left:-4px; margin-right:-4px; margin-top:-2px; }
+.GLGanttHeader1,.GLGanttHeader2,.GLGanttHeader3,.GLGanttHeader4,.GLGanttHeader5 {
+   font:13px "Times New Roman"; text-align:center;
+   }   
+
+/* ------------- Tree Img with lines ------------- */
+
+.GL000,.GL010,.GL001,.GL011,.GL100,.GL110,.GL101,.GL111, 
+.GL000T,.GL010T,.GL001T,.GL011T,.GL100T,.GL110T,.GL101T,.GL111T,
+.GL00,.GL01,.GL10,.GL11,
+.GL00T,.GL01T,.GL10T,.GL11T,
+.GL0T,.GL1T,.GL0TL,.GL1TL,.GL0C,.GL1C,.GL0CL,.GL1CL,.GL0E,.GL1E,.GL0EL,.GL1EL,
+.GL0,.GL1,
+.GLT,.GLTL,.GLC,.GLCL,.GLE,.GLEL,.GLD0,.GLD1,.GLD2,.GLD3,.GLD4,.GLD0L,.GLD1L,.GLD2L,.GLD3L,.GLD4L {   
+   font-size:10px; background-image:url(Tree.gif); vertical-align:top;
+   }
+
+u.GL000,u.GL010,u.GL001,u.GL011,u.GL100,u.GL110,u.GL101,u.GL111 { padding-left:63px; }
+u.GL000T,u.GL010T,u.GL001T,u.GL011T,u.GL100T,u.GL110T,u.GL101T,u.GL111T { padding-left:89px; }
+u.GL00,u.GL01,u.GL10,u.GL11 { padding-left:42px; }   
+u.GL00T,u.GL01T,u.GL10T,u.GL11T { padding-left:68px; }   
+u.GL0T,u.GL1T,u.GL0TL,u.GL1TL,u.GL0C,u.GL1C,u.GL0CL,u.GL1CL,u.GL0E,u.GL1E,u.GL0EL,u.GL1EL { padding-left:47px; }   
+u.GL0,u.GL1 { padding-left:21px; }
+u.GLT,u.GLTL,u.GLC,u.GLCL,u.GLE,u.GLEL,u.GLD0,u.GLD1,u.GLD2,u.GLD3,u.GLD4,u.GLD0L,u.GLD1L,u.GLD2L,u.GLD3L,u.GLD4L { padding-left:26px; }   
+
+.GL000,.GL000T { background-position:0px 0px; }
+.GL010,.GL010T { background-position:-128px 0px; }
+.GL001,.GL001T { background-position:-256px 0px; }
+.GL011,.GL011T { background-position:-384px 0px; }
+.GL100,.GL100T { background-position:-512px 0px; }
+.GL110,.GL110T { background-position:-640px 0px; }
+.GL101,.GL101T { background-position:-768px 0px; }
+.GL111,.GL111T { background-position:-896px 0px; }
+
+.GL00,.GL00T { background-position:-21px 0px; }
+.GL10,.GL10T { background-position:-149px 0px; }
+.GL01,.GL01T { background-position:-277px 0px; }
+.GL11,.GL11T { background-position:-405px 0px; }
+
+.GL0,.GL0T { background-position:-42px 0px; }
+.GL1,.GL1T { background-position:-298px 0px; }
+
+.GLT { background-position:-63px 0px; }
+
+.GL0TL { background-position:-1024px 0px; }
+.GL1TL { background-position:-1088px 0px; }
+.GL0C { background-position:-1152px 0px; }
+.GL1C { background-position:-1216px 0px; }
+.GL0CL { background-position:-1280px 0px; }
+.GL1CL { background-position:-1344px 0px; }
+.GL0E { background-position:-1408px 0px; }
+.GL1E { background-position:-1472px 0px; }
+.GL0EL { background-position:-1536px 0px; }
+.GL1EL { background-position:-1600px 0px; }
+
+.GLTL { background-position:-1045px 0px; }
+.GLC { background-position:-1173px 0px; }
+.GLCL { background-position:-1301px 0px; }
+.GLE { background-position:-1429px 0px; }
+.GLEL { background-position:-1557px 0px; }
+
+.GLD0 { background-position:-1664px 0px; }
+.GLD1 { background-position:-1696px 0px; }
+.GLD2 { background-position:-1728px 0px; }
+.GLD3 { background-position:-1760px 0px; }
+.GLD0L { background-position:-1792px 0px; }
+.GLD1L { background-position:-1824px 0px; }
+.GLD2L { background-position:-1856px 0px; }
+.GLD3L { background-position:-1888px 0px; }
+.GLD4 { background-position:-1920px 0px; }
+.GLD4L { background-position:-1952px 0px; }
+
+/* ------------- Tree Img without lines ------------- */
+
+.GLND0,.GLND1,.GLND2,.GLND3,.GLND4,.GLNC,.GLNE,.GLNCR,.GLNER { font-size:10px; background-image:url(TreeN.gif); background-repeat:no-repeat; vertical-align:top; }
+u.GLND0,u.GLND1,u.GLND2,u.GLND3,u.GLND4,u.GLNC,u.GLNE,u.GLNCR,u.GLNER { padding-left:20px; }
+.GLND0 { background-position: -6px 0px; }
+.GLND1 { background-position: -56px 0px; }
+.GLND2 { background-position: -106px 0px; }
+.GLND3 { background-position: -156px 0px; }
+.GLND4 { background-position: -206px 0px; }
+.GLNC { background-position:right -50px;}
+.GLNE { background-position:right -2000px;}
+.GLNCR { background-position:-255px -50px;}
+.GLNER { background-position:-255px -2000px;}
+u.GLNL { padding-left:21px; }
+
+/* ------------- Panel img ------------- */
+
+.GLPanelImage,.GLPanelMove,.GLPanelMoveOff,.GLPanelSelect,.GLPanelSelectOn,.GLPanelSelectOff,.GLPanelDelete,.GLPanelDeleteOff,.GLPanelCopy,.GLPanelCopyOff,.GLPanelEmpty {
+   font-size:10px; padding-left:16px; background-image:url(Panel.gif); background-repeat:no-repeat;
+   }
+.GLPanelEmpty { background:none; }   
+.GLPanelMove { background-position: 0px 0px; }
+.GLPanelMoveOff { background-position: -50px 0px; }
+.GLPanelSelect { background-position: -100px 0px; }
+.GLPanelSelectOn { background-position: -150px 0px; }
+.GLPanelSelectOff { background-position: -200px 0px; }
+.GLPanelDelete { background-position: -250px 0px; }
+.GLPanelDeleteOff { background-position: -300px 0px; }
+.GLPanelCopy { background-position: -350px 0px; }
+.GLPanelCopyOff { background-position: -400px 0px; }
+.GLPanelButton { font:10px "Microsoft Sans Serif",Verdana,Arial; padding:0px; height:18px; width:19px; margin:0px; cursor:pointer; _cursor:hand; }
+
+/* ------------- Fast Panel img ------------- */
+
+.GLP1111,.GLP1211,.GLP1011,.GLP1101,.GLP1201,.GLP1001,.GLP1110,.GLP1210,.GLP1010,.GLP1100,.GLP1200,.GLP1000,
+.GLP0111,.GLP0211,.GLP0011,.GLP0101,.GLP0201,.GLP0001,.GLP0110,.GLP0210,.GLP0010,.GLP0100,.GLP0200,.GLP0000, 
+.GLP111x,.GLP121x,.GLP101x,.GLP110x,.GLP120x,.GLP100x,.GLP011x,.GLP021x,.GLP001x,.GLP010x,.GLP020x,.GLP000x,
+.GLP11xx,.GLP12xx,.GLP10xx,.GLP01xx,.GLP02xx,.GLP00xx,
+.GLPx111,.GLPx211,.GLPx011,.GLPx101,.GLPx201,.GLPx001,.GLPx110,.GLPx210,.GLPx010,.GLPx100,.GLPx200,.GLPx000,
+.GLPx11x,.GLPx21x,.GLPx01x,.GLPx10x,.GLPx20x,.GLPx00x,
+.GLPxx11,.GLPxx10,.GLPxx01,.GLPxx00, 
+.GLPxxx1,.GLPxxx0,.GLPxx1x,.GLPxx0x,.GLPx2xx,.GLPx1xx,.GLPx0xx,.GLP1xxx,.GLP0xxx {
+   font-size:10px; background-image:url(FastPanel1.gif); background-repeat:no-repeat;
+   }
+.GLP1111,.GLP111x,.GLP11xx,.GLP1xxx { background-position:0px 0px; }
+.GLP1211,.GLP121x,.GLP12xx { background-position:-80px 0px; }
+.GLP1011,.GLP101x,.GLP10xx { background-position:-160px 0px; }
+.GLP1101,.GLP110x { background-position:-240px 0px; }
+.GLP1201,.GLP120x { background-position:-320px 0px; }
+.GLP1001,.GLP100x { background-position:-400px 0px; }
+.GLP1110 { background-position:-480px 0px; }
+.GLP1210 { background-position:-560px 0px; }
+.GLP1010 { background-position:-640px 0px; }
+.GLP1100 { background-position:-720px 0px; }
+.GLP1200 { background-position:-800px 0px; }
+.GLP1000 { background-position:-880px 0px; }
+.GLP0111,.GLP011x,.GLP01xx,.GLP0xxx { background-position:-960px 0px; }
+.GLP0211,.GLP021x,.GLP02xx { background-position:-1040px 0px; }
+.GLP0011,.GLP001x,.GLP00xx { background-position:-1120px 0px; }
+.GLP0101,.GLP010x { background-position:-1200px 0px; }
+.GLP0201,.GLP020x { background-position:-1280px 0px; }
+.GLP0001,.GLP000x { background-position:-1360px 0px; }
+.GLP0110 { background-position:-1440px 0px; }
+.GLP0210 { background-position:-1520px 0px; }
+.GLP0010 { background-position:-1600px 0px; }
+.GLP0100 { background-position:-1680px 0px; }
+.GLP0200 { background-position:-1760px 0px; }
+.GLP0000 { background-position:-1840px 0px; }
+
+.GLPx111,.GLPx11x,.GLPx1xx { background-position:-16px 0px; }
+.GLPx211,.GLPx21x,.GLPx2xx { background-position:-96px 0px; }
+.GLPx011,.GLPx01x,.GLPx0xx { background-position:-176px 0px; }
+.GLPx101,.GLPx10x { background-position:-256px 0px; }
+.GLPx201,.GLPx20x { background-position:-336px 0px; }
+.GLPx001,.GLPx00x { background-position:-416px 0px; }
+.GLPx110 { background-position:-496px 0px; }
+.GLPx210 { background-position:-576px 0px; }
+.GLPx010 { background-position:-656px 0px; }
+.GLPx100 { background-position:-736px 0px; }
+.GLPx200 { background-position:-816px 0px; }
+.GLPx000 { background-position:-896px 0px; }
+
+.GLPxx11,.GLPxx1x { background-position:-32px 0px; }
+.GLPxx01,.GLPxx0x { background-position:-272px 0px; }
+.GLPxx10{ background-position:-512px 0px; }
+.GLPxx00 { background-position:-752px 0px; }
+
+.GLPxxx1 { background-position:-48px 0px; }
+.GLPxxx0 { background-position:-528px 0px; }
+
+.GLP11x1,.GLP12x1,.GLP10x1,.GLP11x0,.GLP12x0,.GLP10x0,.GLP01x1,.GLP02x1,.GLP00x1,.GLP01x0,.GLP02x0,.GLP00x0,
+.GLPx1x1,.GLPx2x1,.GLPx0x1,.GLPx1x0,.GLPx2x0,.GLPx0x0,
+.GLP1x11,.GLP1x01,.GLP1x10,.GLP1x00,.GLP0x11,.GLP0x01,.GLP0x10,.GLP0x00,
+.GLP1x1x,.GLP1x0x,.GLP0x1x,.GLP0x0x,
+.GLP1xx1,.GLP1xx0,.GLP0xx1,.GLP0xx0 {
+   font-size:11px; background-image:url(FastPanel2.gif); background-repeat:no-repeat;
+   }
+.GLP11x1 { background-position:0px 0px; }
+.GLP12x1 { background-position:-80px 0px; }
+.GLP10x1 { background-position:-160px 0px; }
+.GLP11x0 { background-position:-240px 0px; }
+.GLP12x0 { background-position:-320px 0px; }
+.GLP10x0 { background-position:-400px 0px; }
+.GLP01x1 { background-position:-480px 0px; }
+.GLP02x1 { background-position:-560px 0px; }
+.GLP00x1 { background-position:-640px 0px; }
+.GLP01x0 { background-position:-720px 0px; }
+.GLP02x0 { background-position:-800px 0px; }
+.GLP00x0 { background-position:-880px 0px; }
+
+.GLPx1x1 { background-position:-16px 0px; }
+.GLPx2x1 { background-position:-96px 0px; }
+.GLPx0x1 { background-position:-176px 0px; }
+.GLPx1x0 { background-position:-256px 0px; }
+.GLPx2x0 { background-position:-336px 0px; }
+.GLPx0x0 { background-position:-416px 0px; }
+
+.GLP1x11,.GLP1x1x { background-position:-960px 0px; }
+.GLP1x01,.GLP1x0x { background-position:-1040px 0px; }
+.GLP1x10 { background-position:-1120px 0px; }
+.GLP1x00 { background-position:-1200px 0px; }
+.GLP0x11,.GLP0x1x { background-position:-1280px 0px; }
+.GLP0x01,.GLP0x0x { background-position:-1360px 0px; }
+.GLP0x10 { background-position:-1440px 0px; }
+.GLP0x00 { background-position:-1520px 0px; }
+
+.GLP1xx1 { background-position:-1600px 0px; }
+.GLP1xx0 { background-position:-1680px 0px; }
+.GLP0xx1 { background-position:-1760px 0px; }
+.GLP0xx0 { background-position:-1840px 0px; }
+
+.GLPSpace1 { padding-left:15px; }
+.GLPSpace2 { padding-left:31px; }
+.GLPSpace3 { padding-left:47px; }
+.GLPSpace4 { padding-left:63px; }
+u.GLPSpace1 { padding-left:13px; }
+u.GLPSpace2 { padding-left:29px; }
+u.GLPSpace3 { padding-left:45px; }
+u.GLPSpace4 { padding-left:61px; }
+
+/* ------------- Button type ------------- */   
+
+.GLTabHtml,.GLTabHtml1 {
+	font:bold 11px "Microsoft Sans Serif",Verdana,Arial; white-space:nowrap;
+	padding-left:5px; padding-right:5px; text-align:center;
+   }
+.GLTabHtml1 { background:#BBBBBB; color:white; }
+.GLTabSep,.GLTabSepLeft,.GLTabSepRight { padding-left:2px; background:white!important; cursor:default!important; border:none; border-left:1px solid #e0e0e0; border-right:1px solid #e0e0e0; }
+.GLTabSepRight,.GLTabSepLeft { padding-left:5px; }
+.GLTabSepLast { padding-left:1px; background:white!important; cursor:default!important; border:none; border-left:1px solid #e0e0e0; }
+.GLTabSepFirst { padding-left:1px; background:white!important; cursor:default!important; border:none; border-right:1px solid #e0e0e0; }
+
+.GLToolHtml,.GLToolHtml1 { font:11px "Microsoft Sans Serif",Verdana,Arial; padding-left:3px; padding-right:3px; }
+.GLToolHtml1 { font-weight:bold; color:blue; }
+.GLToolButton { text-align:center; padding-left:1px; padding-right:1px;}
+.GLToolButtonButton,.GLToolButtonButton1,.GLToolSpaceButton,.GLToolSpaceButton1 {
+ 	font:11px "Microsoft Sans Serif",Verdana,Arial; height:18px;
+ 	padding-left:0px; padding-right:0px; cursor:pointer; _cursor:hand;
+ 	border:none; background:transparent;
+   }
+.GLToolButtonButton1,.GLToolSpaceButton1 { color:blue; font-weight:bold; }
+
+.GLIconHtml { text-align:left; }
+.GLDisabledButton { opacity:0.3; filter:alpha(opacity=30); }
+
+.GLToolHeader { border:none!important; padding-bottom:100px; }
+.GLToolMenuHeader { }    
+.GLToolMenuItem { background:#F0F0E0!important; }
+.GLToolMenuOuter { background:#F0F0E0!important; }
+.GLToolMenuBody { background:#F0F0E0!important; border:1px solid #e0e0ff!important;}
+
+/* ------------- Special Toolbar buttons ------------- */   
+.GLResizeGrid,.GLResizeGridRtl,.GLToolSave,.GLToolReload,.GLToolRepaint,.GLToolRepaint1,.GLToolAdd,.GLToolAddChild,.GLToolJoin,.GLToolSplit,.GLToolSort1,.GLToolSort,.GLToolCalc1,.GLToolCalc,
+.GLToolExpandAll,.GLToolCollapseAll,.GLToolColumns,.GLToolCfg,.GLToolHelp,.GLToolPrint,.GLToolExport,.GLToolExportPDF,.GLToolDebug,.GLToolOutdent,.GLToolIndent,
+.GLToolUndo,.GLToolUndo1,.GLToolRedo,.GLToolRedo1,.GLToolCorrect,.GLToolCorrect1,.GLToolZoomIn,.GLToolZoomIn1,.GLToolZoomOut,.GLToolZoomOut1,.GLToolZoomFit,
+.GLToolPagerFirst,.GLToolPagerFirst1,.GLToolPagerPrev,.GLToolPagerPrev1,.GLToolPagerNext,.GLToolPagerNext1,.GLToolPagerLast,.GLToolPagerLast1 {
+   font-size:11px; background-image:url(Toolbar.gif); background-repeat:no-repeat;
+   padding-right:1px; padding-left:18px;
+   }
+.GLToolPagerFirst,.GLToolPagerFirst1,.GLToolPagerPrev,.GLToolPagerPrev1,.GLToolPagerNext,.GLToolPagerNext1,.GLToolPagerLast,.GLToolPagerLast1 {
+   border:0px none;
+   }   
+.GLToolSave { background-position:0px 0px; }
+.GLToolReload { background-position:-50px 0px; }
+.GLToolRepaint1 { background-position:-100px 0px; }
+.GLToolAdd { background-position:-150px 0px; }
+.GLToolAddChild { background-position:-200px 0px; }
+.GLToolSort1 { background-position:-250px 0px; }
+.GLToolSort { background-position:-300px 0px; }
+.GLToolCalc1 { background-position:-350px 0px; }
+.GLToolCalc { background-position:-400px 0px; }
+.GLToolExpandAll { background-position:-450px 0px; }
+.GLToolCollapseAll { background-position:-500px 0px; }
+.GLToolCfg { background-position:-550px 0px; }
+.GLToolHelp { background-position:-600px 0px; }
+.GLToolColumns { background-position:-650px 0px; }
+.GLToolPrint { background-position:-750px 0px; }
+.GLToolExport { background-position:-800px 0px; }
+.GLToolPagerFirst1 { background-position:-850px 0px; }
+.GLToolPagerFirst { background-position:-900px 0px; }
+.GLToolPagerPrev1 { background-position:-950px 0px; }
+.GLToolPagerPrev { background-position:-1000px 0px; }
+.GLToolPagerNext1 { background-position:-1050px 0px; }
+.GLToolPagerNext { background-position:-1100px 0px; }
+.GLToolPagerLast1 { background-position:-1150px 0px; }
+.GLToolPagerLast { background-position:-1200px 0px; }
+.GLToolDebug { background-position:-1250px 0px; }
+.GLToolUndo1 { background-position:-1350px 0px; }
+.GLToolUndo { background-position:-1400px 0px; }
+.GLToolRedo1 { background-position:-1450px 0px; }
+.GLToolRedo { background-position:-1500px 0px; }
+.GLToolCorrect1 { background-position:-1550px 0px; }
+.GLToolCorrect { background-position:-1600px 0px; }
+.GLToolZoomIn1 { background-position:-1800px 0px; }
+.GLToolZoomIn { background-position:-1850px 0px; }
+.GLToolZoomOut1 { background-position:-1700px 0px; }
+.GLToolZoomOut { background-position:-1750px 0px; }
+.GLToolZoomFit { background-position:-1900px 0px; }
+.GLToolExportPDF { background-position:-1950px 0px; }
+.GLToolJoin { background-position:-2000px 0px; }
+.GLToolSplit { background-position:-2050px 0px; }
+.GLToolRepaint { background-position:-2100px 0px; }
+.GLToolOutdent { background-position:-2150px 0px; }
+.GLToolIndent { background-position:-2200px 0px; }
+
+.GLResizeGrid  {
+   background-position:-703px -1px; 
+   margin-left:auto; margin-right:0px; margin-top:-16px;
+   height:19px; width:17px; overflow:hidden; padding:0px; cursor:nw-resize; 
+   }
+.GLResizeGridRtl {
+   background-position:-1303px -1px; 
+   margin-right:auto; margin-left:0px; margin-top:-16px;
+   height:19px; width:17px; overflow:hidden; padding:0px; cursor:ne-resize;
+   }
+
+
+/* ------------- Cell images ------------- */
+.GLIconLeft,.GLIconRight,.GLIconCenter { font-size:11px; background-repeat:no-repeat; }
+.GLIconLeft { background-position:left 0px; padding-left:20px!important; }
+.GLIconRight { background-position:right 0px; padding-right:20px!important; }
+.GLIconCenter { background-position:center 0px; }
+
+.GLDateLeft,.GLDatesLeft,.GLDefaultsLeft,.GLDefaultsSpaceLeft,.GLEnumLeft,.GLDateRight,.GLDatesRight,.GLDefaultsRight,.GLDefaultsSpaceRight,.GLEnumRight,
+.GLCollapseRight,.GLExpandRight,.GLCollapseLeft,.GLExpandLeft,.GLCollapseHeaderRight,.GLExpandHeaderRight,.GLCollapseHeaderLeft,.GLExpandHeaderLeft,
+.GLRadio0Left,.GLRadio0Right,.GLRadio1Left,.GLRadio1Right,.GLRadio2Left,.GLRadio2Right,.GLRadio3Left,.GLRadio3Right, 
+.GLBoolXSpace,.GLBoolXSpaceRO,.GLBool0Space,.GLBool1Space,.GLBool0SpaceRO,.GLBool1SpaceRO,
+.GLBoolX,.GLBoolXRO,.GLBool0,.GLBool1,.GLBool0RO,.GLBool1RO,.GLBool2,.GLBool3,.GLBool2RO,.GLBool3RO {
+   font-size:11px; background-image:url(Button.gif); background-repeat:no-repeat; }
+.GLFilter0,.GLFilter1,.GLGroup0,.GLGroup1,.GLSearch0,.GLSearch1 {
+   font-size:11px; background-image:url(Filter.gif); background-repeat:no-repeat; }   
+.GLDateLeft,.GLDatesLeft,.GLDefaultsLeft,.GLDefaultsSpaceLeft,.GLExpandLeft,.GLCollapseLeft,.GLExpandHeaderLeft,.GLCollapseHeaderLeft { padding-left:20px!important; }
+.GLDateRight,.GLDatesRight,.GLDefaultsRight,.GLDefaultsSpaceRight,.GLExpandRight,.GLCollapseRight,.GLExpandHeaderRight,.GLCollapseHeaderRight { padding-right:20px!important; }
+u.GLDateRight,u.GLDatesRight,u.GLDefaultsRight,u.GLDefaultsSpaceRight,u.GLExpandRight,u.GLCollapseRight,u.GLExpandHeaderRight,u.GLCollapseHeaderRight { padding-right:0px!important; padding-left:17px; }
+.GLDateLeft,.GLDatesLeft { background-position:left -250px; }
+.GLDateRight,.GLDatesRight { background-position:right -250px; }
+.GLDefaultsLeft { background-position:left 0px; }
+.GLDefaultsRight { background-position:right 0px; }
+.GLDefaultsSpaceLeft { background-position:left 0px; }
+.GLDefaultsSpaceRight { background-position:right 0px; }
+.GLEnumLeft { background-position:left -500px; padding-left:17px; }
+.GLEnumRight { background-position:right -500px; padding-right:17px; }
+u.GLEnumRight { padding-right:0px; padding-left:17px; }
+.GLExpandLeft { background-position:left -2498px; }
+.GLExpandRight { background-position:right -2498px; }
+.GLExpandHeaderLeft { background-position:left -2498px; }
+.GLExpandHeaderRight { background-position:right -2498px; }
+.GLCollapseLeft { background-position:left -2248px;}
+.GLCollapseRight { background-position:right -2248px;}
+.GLCollapseHeaderLeft { background-position:left -2248px; }
+.GLCollapseHeaderRight { background-position:right -2248px; }
+
+.GLRadio0Left,.GLRadio1Left,.GLRadio2Left,.GLRadio3Left { padding-left:17px; padding-top:0px; padding-right:3px; line-height:17px; }
+.GLRadio0Right,.GLRadio1Right,.GLRadio2Right,.GLRadio3Right { padding-right:17px; padding-top:0px; padding-left:3px; line-height:17px;}
+.GLRadio0Left { background-position:left -1250px; } 
+.GLRadio1Left { background-position:left -1500px;} 
+.GLRadio2Left { background-position:left -750px; }
+.GLRadio3Left { background-position:left -1000px;}
+.GLRadio0Right { background-position:right -1250px; } 
+.GLRadio1Right { background-position:right -1500px;} 
+.GLRadio2Right { background-position:right -750px; }
+.GLRadio3Right { background-position:right -1000px;}
+.GLRadioInput { margin-top:0px; margin-bottom:0px; margin-top:-4px!IE; }
+nobr.GLRadio0Left,nobr.GLRadio1Left,nobr.GLRadio2Left,nobr.GLRadio3Left,
+nobr.GLRadio0Right,nobr.GLRadio1Right,nobr.GLRadio2Right,nobr.GLRadio3Right,
+span.GLRadio0Left,span.GLRadio1Left,span.GLRadio2Left,span.GLRadio3Left,
+span.GLRadio0Right,span.GLRadio1Right,span.GLRadio2Right,span.GLRadio3Right {
+   padding-top:2px; padding-bottom:2px;
+   }
+
+u.GLBoolXSpace,u.GLBool0Space,u.GLBool1Space,u.GLBoolXSpaceRO,u.GLBool0SpaceRO,u.GLBool1SpaceRO,
+u.GLBoolX,u.GLBoolXRO,u.GLBool0,u.GLBool1,u.GLBool0RO,u.GLBool1RO,u.GLBool2,u.GLBool3,u.GLBool2RO,u.GLBool3RO,
+u.GLFilter0,u.GLFilter1 { padding-left:18px; }
+.GLBoolXSpace { background-position:center -2001px; padding-left:18px; background-image:url(Sort.gif); }
+.GLBoolXSpaceRO { }
+.GLBool0Space { background-position:center -751px; padding-left:18px; }
+.GLBool1Space { background-position:center -1001px; padding-left:18px; }
+.GLBool0SpaceRO { background-position:center -1751px; padding-left:18px; }
+.GLBool1SpaceRO { background-position:center -2001px; padding-left:18px; }
+.GLBoolX { background-position:center -2000px; padding-left:18px; background-image:url(Sort.gif); }
+.GLBoolXRO { }
+.GLBool0 { background-position:center -750px; }
+.GLBool1 { background-position:center -1000px; }
+.GLBool0RO { background-position:center -1750px; }
+.GLBool1RO { background-position:center -2000px; }
+.GLBool2,.GLBool2RO { background-position:center -1250px; }
+.GLBool3,.GLBool3RO { background-position:center -1500px; }
+.GLFilter0 { background-position:center -1900px; }
+.GLFilter1 { background-position:center -2000px; }
+.GLGroup0 { background-position:center -1900px; }
+.GLGroup1 { background-position:center -2000px; }
+.GLSearch0 { background-position:center -1900px; }
+.GLSearch1 { background-position:center -2000px; }
+.GLBoolInput { margin-top:2px; margin-bottom:0px; padding:0px; margin-top:-2px!IE;margin-bottom:-6px!IE; }
+
+.GLBoolChar0,.GLBoolChar1,.GLBoolChar2,.GLBoolChar0RO,.GLBoolChar1RO,.GLBoolChar2RO {
+   border:1px solid black; border-bottom:1px solid #DDD; border-right:1px solid #DDD; color:blue; text-align:center;
+   height:10px; width:10px; overflow:hidden;
+   font:bold 9px Arial; margin:auto; margin-top:1px;
+   }
+.GLBoolChar2 { color:green; }
+.GLBoolChar0RO,.GLBoolChar1RO,.GLBoolChar2RO { color:gray; }
+.GLBoolCharIE { height:12px; width:12px; }
+
+.GLPopupLeft,.GLPopupRight { font-size:11px; background-image:url(Menu.gif); background-repeat:no-repeat; }
+.GLPopupLeft { background-position:-6px -250px; padding-left:14px;}
+.GLPopupRight { background-position:right -250px; padding-right:14px;}
+.GLPopupNone { padding-right:14px; }
+
+/* ------------- Filter images ------------- */
+.GLFilter0Left,.GLFilter1Left,.GLFilter2Left,.GLFilter3Left,.GLFilter4Left,.GLFilter5Left,.GLFilter6Left,.GLFilter7Left,.GLFilter8Left,.GLFilter9Left,.GLFilter10Left,.GLFilter11Left,.GLFilter12Left,
+.GLFilter0Right,.GLFilter1Right,.GLFilter2Right,.GLFilter3Right,.GLFilter4Right,.GLFilter5Right,.GLFilter6Right,.GLFilter7Right,.GLFilter8Right,.GLFilter9Right,.GLFilter10Right,.GLFilter11Right,.GLFilter12Right {
+   font-size:11px; background-image:url(Filter.gif); background-repeat:no-repeat;
+   }
+.GLFilter0Left,.GLFilter1Left,.GLFilter2Left,.GLFilter3Left,.GLFilter4Left,.GLFilter5Left,.GLFilter6Left,.GLFilter7Left,.GLFilter8Left,.GLFilter9Left,.GLFilter10Left,.GLFilter11Left,.GLFilter12Left {
+   padding-left:17px;
+   }
+.GLFilter0Right,.GLFilter1Right,.GLFilter2Right,.GLFilter3Right,.GLFilter4Right,.GLFilter5Right,.GLFilter6Right,.GLFilter7Right,.GLFilter8Right,.GLFilter9Right,.GLFilter10Right,.GLFilter11Right,.GLFilter12Right {
+   padding-right:17px;
+   }
+u.GLFilter0Right,u.GLFilter1Right,u.GLFilter2Right,u.GLFilter3Right,u.GLFilter4Right,u.GLFilter5Right,u.GLFilter6Right,u.GLFilter7Right,u.GLFilter8Right,u.GLFilter9Right,u.GLFilter10Right,u.GLFilter11Right,u.GLFilter12Right {  
+   padding-right:0px; padding-left:17px;
+   }
+.GLFilter0Left,.GLFilter0Menu { background-position:left 0px; }   
+.GLFilter1Left,.GLFilter1Menu { background-position:left -150px; }
+.GLFilter2Left,.GLFilter2Menu { background-position:left -300px; }
+.GLFilter3Left,.GLFilter3Menu { background-position:left -450px; }
+.GLFilter4Left,.GLFilter4Menu { background-position:left -600px; }
+.GLFilter5Left,.GLFilter5Menu { background-position:left -750px; }   
+.GLFilter6Left,.GLFilter6Menu { background-position:left -900px; }
+.GLFilter7Left,.GLFilter7Menu { background-position:left -1050px; }
+.GLFilter8Left,.GLFilter8Menu { background-position:left -1200px; }
+.GLFilter9Left,.GLFilter9Menu { background-position:left -1350px; }
+.GLFilter10Left,.GLFilter10Menu { background-position:left -1500px; }
+.GLFilter11Left,.GLFilter11Menu { background-position:left -1650px; }
+.GLFilter12Left,.GLFilter12Menu { background-position:left -1800px; }
+.GLFilter0Right { background-position:right 0px; }   
+.GLFilter1Right { background-position:right -150px; }
+.GLFilter2Right { background-position:right -300px; }
+.GLFilter3Right { background-position:right -450px; }
+.GLFilter4Right { background-position:right -600px; }
+.GLFilter5Right { background-position:right -750px; }   
+.GLFilter6Right { background-position:right -900px; }
+.GLFilter7Right { background-position:right -1050px; }
+.GLFilter8Right { background-position:right -1200px; }
+.GLFilter9Right { background-position:right -1350px; }
+.GLFilter10Right { background-position:right -1500px; }
+.GLFilter11Right { background-position:right -1650px; }
+.GLFilter12Right { background-position:right -1800px; }
+
+.GLFilter0Menu,.GLFilter1Menu,.GLFilter2Menu,.GLFilter3Menu,.GLFilter4Menu,.GLFilter5Menu,.GLFilter6Menu,.GLFilter7Menu,.GLFilter8Menu,.GLFilter9Menu,.GLFilter10Menu,.GLFilter11Menu,.GLFilter12Menu {
+   width:17px; height:17px; overflow:hidden; background-image:url(Filter.gif); background-repeat:no-repeat; margin-left:-1px;
+   }
+.GLFilterMenuHeader { padding-left:2px; border-bottom:0px none!important; }
+
+/* ------------- Sort images ------------- */
+.GLSort0Left,.GLSort1Left,.GLSort2Left,.GLSort3Left,.GLSort4Left,.GLSort5Left,.GLSort6Left,
+.GLSort0Right,.GLSort1Right,.GLSort2Right,.GLSort3Right,.GLSort4Right,.GLSort5Right,.GLSort6Right {
+   font-size:11px; background-image:url(Sort.gif); background-repeat:no-repeat;  
+   }
+.GLSort0Left,.GLSort1Left,.GLSort2Left,.GLSort3Left,.GLSort4Left,.GLSort5Left,.GLSort6Left { padding-left:17px; }
+.GLSort0Right,.GLSort1Right,.GLSort2Right,.GLSort3Right,.GLSort4Right,.GLSort5Right,.GLSort6Right{ padding-right:17px; }
+u.GLSort0Right,u.GLSort1Right,u.GLSort2Right,u.GLSort3Right,u.GLSort4Right,u.GLSort5Right,u.GLSort6Right { padding-right:0px; padding-left:17px; }
+.GLSort0Left { background-position:left 0px; }   
+.GLSort1Left { background-position:left -250px; }
+.GLSort2Left { background-position:left -500px; }
+.GLSort3Left { background-position:left -750px; }
+.GLSort4Left { background-position:left -1000px; }
+.GLSort5Left { background-position:left -1250px; }
+.GLSort6Left { background-position:left -1500px; }
+.GLSort0Right { background-position:right 0px; }   
+.GLSort1Right { background-position:right -250px; }
+.GLSort2Right { background-position:right -500px; }
+.GLSort3Right { background-position:right -750px; }
+.GLSort4Right { background-position:right -1000px; }
+.GLSort5Right { background-position:right -1250px; }
+.GLSort6Right { background-position:right -1500px; }
+
+/* -------------- Pager ------------------ */
+.GLPagerMain { }
+.GLPagerBody { border-left:1px solid #a0a090; background: #F0F0E0; }
+.GLPagerHeader {
+	border-bottom:1px solid #b0b0a0;
+	vertical-align:top; padding-bottom:1px; background: #F0F0E0; cursor:default;
+	}
+.GLPagerCaption { font:13px "Times New Roman"; padding-left:3px; padding-right:3px; padding-bottom:2px; white-space:nowrap; }
+.GLPagerItem {
+	font:11px "Microsoft Sans Serif",Verdana,Arial; cursor:pointer; _cursor:hand; overflow:hidden;
+	padding-left:3px; padding-right:3px; padding-top:1px; padding-bottom:1px;
+	background:#f8f8f8; height:14px; overflow:hidden; white-space:nowrap;
+	}
+.GLPagerFocus {
+   position:relative; cursor:pointer; _cursor:hand; overflow:hidden;
+   overflow:hidden; background:#AFAF00; opacity:0.3; filter:alpha(opacity=30); 
+   }
+.GLPagerHover {
+   position:relative; cursor:pointer; _cursor:hand; overflow:hidden;
+   opacity:0.1; filter:alpha(opacity=10); background:#00F;
+   }
+
+
+.GLPagerSort1 { color: #006600; }
+.GLPagerSort2 {	color: #00AE00; }
+.GLPagerSort3 {	color: #00FF00; }
+.GLPagerSortS {	color: black; }
+
+/* -------------- State classes ------------- */
+/* The colors must be set by numbers not by names */
+
+.GLColorDefault { background-color:#FAFAFA; }
+.GLColorNoFocus { background-color:#F6F6E6; }
+.GLClassReadOnly { color:#888; }
+.GLColorPreview { background-color:#FFFFFF; }
+
+.GLColorAlternate { background-color:#EBFFFF; }
+
+.GLColorSelected { background-color:#FFFF80; }
+
+.GLColorError { background-color:#FF6969; }
+.GLColorDeleted { background-color:#FFCDCD; }
+.GLClassDeleted { font-style:italic; }
+.GLColorAdded { font-weight:bold; }
+.GLClassAdded { background-color:#CDFFCD; }
+.GLColorMoved1 { background-color:#FFFFFF; }
+.GLColorMoved2 { background-color:#D7EBEB; }
+.GLColorChanged { background-color:#EBEBFF; }
+.GLColorChangedCell { background-color:#E1E1FF; }
+.GLClassChangedCell { font-weight:bold; }
+
+.GLColorDetail { background-color:#FFF0FF; }
+.GLColorDetailSelected { background-color:#FFF0E0; }
+
+.GLColorDragged { background-color:#E0E0C0; }
+
+.GLColorMaxChildren { background-color:#FFFFF0; }
+
+.GLColorFound1 { background-color:#FF87FF; }
+.GLColorFound2 { background-color:#FFC387; }
+.GLColorFound3 { background-color:#87FF87; }
+
+.GLColorHovered { background-color:#F0F0FF; }
+.GLColorHoveredCell { background-color:#D0D0FF; }
+.GLColorHoveredCellReadOnly { background-color:#E8E8FF; }
+.GLColorHoveredCellNoFocus { background-color:#F8F8F8; }
+.GLColorHoveredCellHeader { background-color:#F8F8F8; }
+.GLColorHoveredCellPanel { background-color:#F8F8F8; }
+.GLColorHoveredCellFastPanel { background-color:#F8F8F8; }
+.GLColorHoveredCellSpace { background-color:#FFFFFF; }
+.GLColorHoveredCellSpaceEdit { background-color:#D0D0FF; }
+.GLColorHoveredCellSpaceBool { background-color:#FFFFFF; }
+.GLColorHoveredCellButton { background-color:#FFFFFE; }
+.GLClassHoveredCellButton { color:green; }
+.GLColorHoveredCellButton1 { background-color:#FFFFFE; }
+.GLClassHoveredCellButton1 { color:red; }
+.GLColorHoveredCellTab { background-color:#FFFFFE; }
+.GLClassHoveredCellTab { background-position:0px -1751px; color:green; }
+.GLColorHoveredCellTab1 { background-color:#CCCCCC; }
+.GLClassHoveredCellTab1 { background-image:none; }
+
+.GLColorFocused { background-color:#E8FFF2; }
+.GLColorFocusedCell { background-color:#C0F0A0; }
+.GLColorFocusedCellSafari { background-color:#C0F0A0; }
+.GLColorFocusedCellSpace { background-color:#C0F0A0; }
+.GLColorFocusedCellButton { background-color:#FFFFFE; }
+.GLColorFocusedCellHeader { background-color:#FFFFFE; }
+.GLColorFocusedCellPanel { background-color:#FFFFFE; }
+.GLColorEditedCell { background-color:#E0FFC0; }
+.GLColorViewedCell { background-color:#F0FFD0; }
+
+/* --------------- Hover, focus, edit cursors ----------------- */
+.GLHoverPanelBackground { }
+.GLHoverRowBackground { opacity:0.1; filter:alpha(opacity=10); background:#00F; }
+.GLHoverRowBorder { z-index:1; cursor:default; }
+.GLHoverCellBorder { z-index:3; padding:1px; background:white; }
+.GLFocusPanelBackground { }
+.GLFocusRowBackground { opacity:0.1; filter:alpha(opacity=10); background:#0FF; }
+.GLFocusRowBorder { z-index:2; border:1px solid #d0d0d0; }
+.GLFocusCellBorder,.GLEditCellBorder,.GLFocusCellSpaceBorder,.GLEditCellSpaceBorder { z-index:4; border:1px solid #6666FF; }
+.GLEditCellBorder,.GLEditCellSpaceBorder { border-color:#FF6666; }
+.GLEditCellInput { position:relative; overflow:hidden; z-index:2; }
+
+.GLCursorBackground { position:relative; border:none; padding:0px; overflow:hidden; }
+.GLCursorBorderLeft { position:relative; padding-right:0px; padding-top:0px; padding-bottom:0px; border-right:none; border-top:none; border-bottom:none; overflow:hidden; width:0px; height:0px; }
+.GLCursorBorderRight { position:relative; padding-left:0px; padding-top:0px; padding-bottom:0px; border-left:none; border-top:none; border-bottom:none; overflow:hidden; width:0px; height:0px; }
+.GLCursorBorderTop { position:relative; padding-bottom:0px; padding-left:0px; padding-right:0px; border-bottom:none; border-left:none; border-right:none; overflow:hidden; width:0px; height:0px; }
+.GLCursorBorderBottom { position:relative; padding-top:0px; padding-left:0px; padding-right:0px; border-top:none; border-left:none; border-right:none; overflow:hidden; width:0px; height:0px; }
+
+/* --------------- Hover cell / row ----------------- */
+.GLHoverCellBorderLeft,.GLHoverCellBorderLeftFF3  { margin-left:-1px; margin-top:-1px; border-left:1px solid #FFF; padding-bottom:1px; }
+.GLHoverCellBorderTop,.GLHoverCellBorderTopFF3   { margin-left:-1px; margin-top:-1px; border-top: 1px solid #FFF; padding-right: 1px; }
+.GLHoverCellBorderRight,.GLHoverCellBorderRightFF3 { margin-left: 0px; margin-top:-1px; border-left:1px solid #FFF; padding-bottom:1px; }
+.GLHoverCellBorderBottom,.GLHoverCellBorderBottomFF3{ margin-left:-1px; margin-top: 0px; border-top: 1px solid #FFF; padding-right: 2px; }
+
+.GLHoverRowPanel { }
+.GLHoverRowLeft,.GLHoverRowRight {	opacity:0.05; filter:alpha(opacity=5);	background:#000; }
+.GLHoverHeaderLeft,.GLHoverHeaderRight,.GLHoverHeaderPanel { }
+
+/* --------------- Focus cell / row ----------------- */
+.GLFocusCellBorderLeft  { margin-left:-2px; margin-top:-2px; border-left:1px solid #6666FF; padding-bottom:4px; }
+.GLFocusCellBorderTop   { margin-left:-2px; margin-top:-2px; border-top: 1px solid #6666FF; padding-right: 4px; }
+.GLFocusCellBorderRight { margin-left: 1px; margin-top:-1px; border-left:1px solid #6666FF; padding-bottom:3px; }
+.GLFocusCellBorderBottom{ margin-left:-1px; margin-top: 1px; border-top: 1px solid #6666FF; padding-right: 3px; }
+
+.GLFocusRowBorderLeft   { margin-left:-1px; margin-top:-1px; border-left:1px solid #d0d0d0; padding-bottom:1px; }
+.GLFocusRowBorderTop    { margin-left:-1px; margin-top:-1px; border-top: 1px solid #d0d0d0; padding-right: 1px; }
+.GLFocusRowBorderRight  { margin-left:-1px; margin-top:-1px; border-left:1px solid #d0d0d0; padding-bottom:1px; }
+.GLFocusRowBorderBottom { margin-left:-1px; margin-top: 0px; border-top: 1px solid #d0d0d0; padding-right: 1px; }
+
+/* --------------- Edit cell ----------------- */
+.GLEditCellBorderLeft   { margin-left:-2px; margin-top:-2px; border-left:1px solid #FF6666; padding-bottom:4px; z-index:2; }
+.GLEditCellBorderTop    { margin-left:-2px; margin-top:-2px; border-top: 1px solid #FF6666; padding-right: 4px; z-index:2; }
+.GLEditCellBorderRight  { margin-left: 1px; margin-top:-1px; border-left:1px solid #FF6666; padding-bottom:3px; z-index:2; }
+.GLEditCellBorderBottom { margin-left:-1px; margin-top: 1px; border-top: 1px solid #FF6666; padding-right: 3px; z-index:2; }
+.GLEditCell { padding:1px; overflow:hidden; z-index:2; }
+
+/*--------------- Cell edges ----------------- */
+.GLNoLeft { border-left:0px none; }
+.GLNoRight { border-right:0px none; }
+
+.GLEmpty { text-decoration:none; font-size:1px; line-height:1px;}
+
+/*--------------- Dragging ----------------- */
+.GLMouseObject { opacity:0.5; filter:alpha(opacity=50); z-index:300; overflow:hidden; }
+.GLDragObject {
+   z-index:300; margin-left:10px; margin-top:10px; 
+   font:11px "Microsoft Sans Serif",Arial;
+   background:#f4f4f4; border:1px solid #e0e0e0; padding:3px;
+   }
+.GLDragColInsideTop,.GLDragColInsideBottom,.GLDragColOutsideTop,.GLDragColOutsideBottom,.GLDragGanttRunTop,.GLDragGanttRunBottom {
+   position:absolute; background-image:url(Sort.gif); width:15px; height:11px; overflow:hidden; z-index:258;
+   }
+.GLDragColInsideTop  { background-position:0px -1750px;  }
+.GLDragColInsideBottom  { background-position:0px -1770px;  }
+.GLDragColOutsideTop  { background-position:0px -1790px;  }
+.GLDragColOutsideBottom  { background-position:0px -1810px;  }
+.GLDragGanttRunTop  { background-position:0px -1750px;  }
+.GLDragGanttRunBottom  { background-position:0px -1770px;  }
+
+/*--------------- Messages ----------------- */
+.GLDisabled { position:absolute; z-index:264; background:white; opacity:0.5; filter:alpha(opacity=50); } 
+.GLMessage {
+	background:#F0F0E0; border:1px solid #d0d0d0; padding:10px; white-space:nowrap; text-align:center;
+	font:13px "Microsoft Sans Serif",Verdana,Arial;
+   position: absolute; left:0px; top:0px; visibility:hidden; z-index:266;
+	}
+.GLMessageShadow {
+   position:absolute; margin-left:3px; margin-top:3px; z-index:265;
+   background:#888; opacity:0.5; filter:alpha(opacity=50);
+   left:0px; top:0px; visibility:hidden;
+   }	
+.GLPageMessage { background:#FAFAFA; border:1px solid #f77; padding:10px; font:13px "Microsoft Sans Serif",Verdana,Arial; }
+
+.GLProgressMain { font:13px "Microsoft Sans Serif",Verdana,Arial; }
+.GLProgressCaption { font-weight:bold; margin-bottom:15px; }
+.GLProgressText { margin-bottom:15px; }
+.GLProgressOuter { text-align:left; width:200px; border:1px solid #d0d0d0; padding:2px; margin-bottom:15px; }
+.GLProgressInner { height:10px; background:green; }
+.GLProgressButton,.GLMessageButton { font:11px "Microsoft Sans Serif",Verdana,Arial; }
+.GLProgressButton { margin:2px; margin-top:5px; margin-bottom:0px; white-space:nowrap; padding-left:10px; padding-right:10px; }
+.GLMessageButton { margin-top:10px; width:50px; }
+
+
+   
+/*--------------- Other ----------------- */
+/* !!! No .GL style prefix here !!! */
+.GridTmpTag { position:absolute; left:5px; top:5px; visibility:hidden; }
+
+/*--------------- Debug print ----------------- */
+/* !!! No .GL style prefix here !!! */
+.GridDebugTag,.GridDebugTagMax { overflow:auto; overflow-y:scroll; border:1px solid black; background:#DDD; }
+.GridDebugTag,.GridDebugTagMax,.GridDebugButtons,.GridDebugButtonsMax {
+   position:fixed; z-index:256; left:5px; right:5px; bottom:5px; height:200px; padding:4px;
+   position:absolute!IE;
+   left:expression((5+(document.compatMode=="CSS1Compat"?document.documentElement.scrollLeft:document.body.scrollLeft))+"px")!IE;
+   width:expression((-10+(document.compatMode=="CSS1Compat"?document.documentElement.clientWidth-8:document.body.clientWidth))+"px")!IE;
+   top:expression((-205+(document.compatMode=="CSS1Compat"?document.documentElement.scrollTop+document.documentElement.clientHeight-8:document.body.scrollTop+document.body.clientHeight))+"px")!IE;
+   }
+.GridDebugTagMax,.GridDebugButtonsMax {
+   top:5px; height:auto; 
+   top:expression((5+(document.compatMode=="CSS1Compat"?document.documentElement.scrollTop:document.body.scrollTop))+"px")!IE;
+   height:expression((-10+(document.compatMode=="CSS1Compat"?document.documentElement.clientHeight-8:document.body.clientHeight))+"px")!IE;
+   }
+.GridDebugButtons,.GridDebugButtonsMax {
+   text-align:right; margin-right:25px; width:130px; left:auto;
+   left:expression((-155+(document.compatMode=="CSS1Compat"?document.documentElement.clientWidth-8:document.body.clientWidth))+"px")!IE;
+   }
+.GridDebugButton { font-size:10px; width:40px; padding:0px; }
+.GridDebugTitle { font-size:10px; color:blue; font-style:normal;font-weight:normal; }
+.GridDebugMark { font-weight:bold; }
+.GridDebugStop { font-size:18px; font-weight:bold; color:red; }
+.GridDebugError { font-size:12px; color:red; }
+.GridDebugWarning { font-size:12px; color:#A60;}
+.GridDebugList { font-size:10px; color:#888;}
+.GridDebugInfo { font-size:12px; }
+
+/* ------------------- Popup menus, TGLib ------------------- */
+
+.GLMenuMain { position:absolute; left:0px; top:0px; z-index:258; }
+.GLMenuStatic { }
+.GLMenuOuter { overflow:hidden; background:white; }
+.GLMenuHeader {
+   overflow:hidden; position:absolute; z-index:258;
+   border:1px solid #aaaadd; background:white; cursor:pointer; _cursor:hand; padding-bottom:2px;
+   }
+.GLMenuHead {
+   border:1px solid #aaaadd; border-bottom:none; text-align:center; padding-top:3px; padding-bottom:4px;
+   background:#E7F4FF; font:bold 12px Verdana,Arial; 
+   }
+.GLMenuClose {
+   float:right; width:14px; cursor:pointer; _cursor:hand; display:none;
+   background:url(Menu.gif) no-repeat right -352px;
+   }
+.GLMenuBody {
+   cursor:default; border:1px solid #aaaadd; background:white; padding-top:1px; padding-bottom:1px;
+   }
+.GLMenuShadow {
+   position:absolute; margin-left:3px; margin-top:3px; z-index:257;
+   background:#888; opacity:0.5; filter:alpha(opacity=50);
+   }
+
+.GLMenuCheckedIconLeft { background:url(Menu.gif) no-repeat -2px -51px; padding-left:17px; }
+.GLMenuCheckedIconRight { background:url(Menu.gif) no-repeat right -51px; padding-right:17px; }
+.GLMenuUncheckedIconLeft { background:url(Menu.gif) no-repeat -2px -1px; padding-left:17px; }
+.GLMenuUncheckedIconRight { background:url(Menu.gif) no-repeat right -1px; padding-right:17px; }
+.GLMenuCheckedRadioLeft { background:url(Menu.gif) no-repeat -2px -748px; padding-left:17px; }
+.GLMenuCheckedRadioRight { background:url(Menu.gif) no-repeat right -748px; padding-right:17px; }
+.GLMenuUncheckedRadioLeft { background:url(Menu.gif) no-repeat -2px -698px; padding-left:17px; }
+.GLMenuUncheckedRadioRight { background:url(Menu.gif) no-repeat right -698px; padding-right:17px; }
+.GLMenuCursorIcon { background:url(Menu.gif) no-repeat -6px -150px; }
+.GLMenuHoverIcon { background:url(Menu.gif) no-repeat -6px -100px; }   
+.GLMenuCursorIconRtl { background:url(Menu.gif) no-repeat right -1000px; }
+.GLMenuHoverIconRtl { background:url(Menu.gif) no-repeat right -950px; }   
+.GLMenuExpandedIcon { background:url(Menu.gif) no-repeat -6px -200px; }
+.GLMenuCollapsedIcon { background:url(Menu.gif) no-repeat -6px -250px; }
+.GLMenuNextIcon { background:url(Menu.gif) no-repeat right -300px; padding-right:14px; }
+.GLMenuNextIconRtl { background:url(Menu.gif) no-repeat left -900px; padding-left:14px; }
+
+.GLMenuItemText,.GLMenuItemIcon,.GLMenuEnum,.GLMenuEnumHeader,.GLMenuEdit { font:12px "Microsoft Sans Serif",Arial; white-space:nowrap; overflow:hidden; }
+.GLMenuItemDisabled { opacity:0.50; filter:alpha(opacity=30); overflow:hidden; }
+.GLMenuLevel { color:blue; text-align:center; }  
+.GLMenuEnumParent,.GLMenuEditParent { padding-left:5px; padding-right:2px;}
+.GLMenuItemIcon { background-repeat:no-repeat; }
+.GLMenuEnum {
+   border:1px solid #DDD; border-top:1px solid #666; border-left:1px solid #666;
+   background:white url(Menu.gif) no-repeat left -800px; padding-left:15px; padding-bottom:2px;
+   }
+.GLMenuEnumHeader  {
+   padding-left:16px; padding-top:1px; cursor:default;
+   background:white url(Menu.gif) no-repeat 1px -799px; padding-bottom:2px;
+   }   
+.GLMenuEdit {
+   border:1px solid #DDD; border-top:1px solid #666; border-left:1px solid #666;
+   background:white; padding-left:2px; padding-right:2px; overflow:hidden; 
+   white-space:nowrap; padding-bottom:1px;
+   }
+.GLMenuEditInput,.GLMenuEditTextarea {
+   margin:0px; margin:-1px!IE; border:0px none; background:#FDD; 
+   padding:0px; padding-right:1px!IE; padding-left:1px!IE; font:12px "Microsoft Sans Serif",Arial;
+   }   
+.GLMenuEditTextarea { line-height:13px;  }   
+.GLMenuEditInt,.GLMenuEditFloat,.GLMenuEditDate { text-align:right; } 
+.GLMenuEditText { }
+.GLMenuEditMulti { white-space:normal; }
+
+
+.GLMenuItem { background:#fff; padding-left:2px; padding-right:2px; }   
+.GLMenuItemHover { background:#ffeeaa; margin-left:2px; margin-right:2px; }
+.GLMenuFocus { margin-left:2px; margin-right:2px; background:#ddd; }
+.GLMenuFocusHover { margin-left:2px; margin-right:2px; background:#ddcc77; }   
+.GLMenuSeparator {
+   margin-top:1px; margin-right:3px; margin-left:3px; height:1px;   
+   border-top:1px solid #aaaadd; overflow:hidden;
+   }
+.GLMenuCaption { padding-top:2px; padding-bottom:2px; padding-left:2px; padding-right:2px; background:#ddd; color:blue; text-align:center; }
+.GLMenuVSeparator { border-right:1px solid #DDD; }
+.GLMenuSection  { }
+
+.GLMenuFoot { border:1px solid #aaaadd; border-top:none; text-align:center; background:white; white-space:nowrap; }  
+.GLMenuButton { font:11px "Microsoft Sans Serif",Arial; height:19px; width:48px; margin:2px; white-space:nowrap; padding-left:0px; padding-right:0px; } 
+
+/*--------------- Grid configuration menus ----------------- */
+.GLCfgMenuOuter,.GLColumnsMenuOuter { border:1px solid #E0E0E0; padding:6px; background:#F0F0E0; }
+.GLCfgMenuHead,.GLColumnsMenuHead { background:#F0F0E0; border:none; font-size:11px; padding-bottom:5px; }
+.GLCfgMenuBody,.GLColumnsMenuBody { padding:0px; border:none; padding-bottom:3px; padding-top:3px; border-top:1px solid white; background:#F0F0E0; }
+.GLCfgMenuFoot,.GLColumnsMenuFoot { padding-top:5px; background:#F0F0E0; border:none; border-top:1px solid white; }
+.GLCfgMenuButton { width:70px; } 
+.GLColumnsMenuButton { width:58px; } 
+.GLCfgMenuItemText,.GLColumnsMenuItemText { padding-left:3px; font-size:11px; }
+.GLColumnsMenuItemText { white-space:nowrap; }
+.GLCfgMenuItem,.GLColumnsMenuItem { padding-top:2px; padding-bottom:2px; background:#F0F0E0; }
+.GLCfgMenuItemHover,.GLCfgMenuFocus,.GLCfgMenuFocusHover,
+.GLColumnsMenuItemHover,.GLColumnsMenuFocus,.GLColumnsMenuFocusHover { padding-top:2px; padding-bottom:2px; }
+.GLCfgMenuSeparator,.GLColumnsMenuSeparator {
+   margin-top:3px; margin-bottom:3px; margin-right:3px; margin-left:3px; height:1px;   
+   overflow:hidden; border:none; background:white;
+   }
+
+/*--------------- Popup grid dialog ----------------- */
+
+.GLPopupGridOuter { border:0px none; overflow:visible; }
+.GLPopupGridHead { padding:0px; }
+.GLPopupGridBody { padding:0px; border:0px none; background:none; }
+.GLPopupGridFoot { padding:0px; }
+.GLPopupGridButton { width:50px; margin-top:-2px; margin-bottom:0px; } 
+
+/* ------------------- Date picker, TGLib ------------------- */
+
+.GLPickMain { position:absolute; left:0px; top:0px; z-index:258; }
+.GLPickOuter { overflow:hidden; border:1px solid black; background:#eeeeee; }
+.GLPickHeader {
+   overflow:hidden; position:absolute; z-index:258;
+   border:1px solid black; background:white; cursor:pointer; _cursor:hand;
+   }
+.GLPickHeaderBottom { border-bottom:0px none; padding-bottom:1px; }
+.GLPickHeaderTop { border-top:0px none; padding-bottom:1px; }
+.GLPickHead {
+   background:#E7F4FF; font:bold 11px "Microsoft Sans Serif",Arial; cursor:default;
+   padding-left:5px; padding-top:3px; padding-bottom:4px;
+   }
+.GLPickClose {
+   float:right; width:14px; cursor:pointer; _cursor:hand; display:none;
+   background:url(Menu.gif) no-repeat right -353px;
+   }
+.GLPickBody { cursor:default; border:none; }
+.GLPickShadow {
+   position:absolute; background:#888; z-index:257; margin-left:3px; margin-top:3px;
+   opacity:0.5; filter:alpha(opacity=50);
+   }   
+.GLPickFooter,.GLPick2Footer {
+   background:white; color:blue; cursor:default;
+   font:11px "Microsoft Sans Serif",Arial;
+   padding-top:2px; padding-bottom:2px;
+   text-align:center;
+   }
+.GLPickMY {
+   font:bold 11px "Microsoft Sans Serif",Arial;
+   background:white; color:black;
+   text-align:center; padding-top:4px; padding-bottom:4px;
+   }   
+.GLPickMYDown { padding-right:13px; background:url(Menu.gif) no-repeat right -400px; cursor:pointer; _cursor:hand; }   
+.GLPickMYUp { padding-right:13px; background:url(Menu.gif) no-repeat right -450px; cursor:pointer; _cursor:hand; }
+.GLPickMYRtl { padding-right:0px; padding-left:13px; }
+.GLPickBL,.GLPickBR { margin-top:2px; padding-top:3px; cursor:pointer; _cursor:hand; width:24px; height:14px; }
+.GLPickBL { float:left; background:url(Menu.gif) no-repeat left -500px; display:none;}
+.GLPickBR { float:right; background:url(Menu.gif) no-repeat right -550px; display:none; }
+
+.GLPickTableParent { padding-left:3px; padding-right:3px; padding-bottom:5px; padding-top:5px; }
+.GLPickTable { table-layout:fixed; width:0px; }
+.GLPickRow { background:#EEE; }
+.GLPickRowW { background:#888; }   
+.GLPickCell { width:26px; }
+.GLPickWDN {
+   background:#888; color:white; text-align:center; padding:1px;
+   margin-left:3px; margin-right:3px; margin-top:2px; margin-bottom:2px;
+   font:11px "Microsoft Sans Serif",Arial; cursor:default;
+   }
+.GLPickHover,.GLPickSelHover,.GLPickWD,.GLPickSa,.GLPickSu,.GLPickSel,.GLPickNow,.GLPickWDNE,.GLPickSaNE,.GLPickSuNE,.GLPickSelNE,.GLPickNowNE,.GLPickOM,.GLPickOMNE {
+   text-align:center; font:12px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   margin-left:3px; margin-right:3px; margin-top:2px; margin-bottom:2px;
+   }
+.GLPickWN,.GLPickWNE { 
+   text-align:center; font:12px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   padding-left:4px; padding-right:4px; padding-top:3px; padding-bottom:3px;
+   background:#888; color:white;
+   }
+.GLPickWDNE,.GLPickSaNE,.GLPickSuNE,.GLPickSelNE,.GLPickNowNE,.GLPickWLE { cursor:default; }
+.GLPickWD { background-color:#ffffff; }
+.GLPickSa { background-color:#ddddff; }
+.GLPickSu { background-color:#aaaaff; }
+.GLPickSel { background-color:#ffff77; }
+.GLPickSelNE { background-color:#ffffdd;	}
+.GLPickNow { background-color:#dd44dd; }
+.GLPickNowNE { background-color:#ffe0ff; }
+.GLPickOM { background-color:inherit; color:black; }
+.GLPickOMNE { color:#aaaaaa; }
+.GLPickEmpty { background:url(Menu.gif) no-repeat center -1050px; cursor:pointer; _cursor:hand; }
+.GLPickHover { background-color:#DDD; }
+.GLPickSelHover { background-color:#eeee77; }
+
+.GLPickTimeCell { text-align:right; background-color:white; padding-bottom:4px; padding-top:6px; padding-right:5px; }
+.GLPickTime { font:12px Verdana,Arial; border:0px none; white-space:nowrap; text-align:right; }
+.GLPickButton { width:60px; font-size:11px; margin:2px; margin-left:4px; margin-right:4px; text-align:center; padding-left:0px; padding-right:0px; }
+
+.GLPick2TableParent { padding-left:2px; padding-right:2px; padding-bottom:2px; padding-top:2px; text-align:center; }
+.GLPick2Table { table-layout:fixed; width:0px; }
+.GLPick2Row { background:#EEE; }
+.GLPick2CellM { height:25px; width:64px; }
+.GLPick2CellY { height:25px; width:38px; }
+.GLPick2CellSep { height:25px; width:6px; }
+.GLPick2M,.GLPick2Y,.GLPick2MSel,.GLPick2YSel,.GLPick2MHover,.GLPick2YHover,.GLPick2MSelHover,.GLPick2YSelHover {
+   font:11px "Microsoft Sans Serif",Arial; overflow:hidden;
+   margin-left:2px; margin-right:2px; padding-left:2px; padding-right:2px;
+   background-color:white; cursor:pointer; _cursor:hand; text-align:center; border:1px solid white;
+   }
+.GLPick2MSel,.GLPick2YSel { background-color:#c0f3ff; }
+.GLPick2MHover,.GLPick2YHover { background-color:#DDD; border:1px solid #AAA; }
+.GLPick2MSelHover,.GLPick2YSelHover { background-color:#80e0f0; border:1px solid #AAA; }   
+.GLPick2SepH { width:1px; height:1px; overflow:hidden; }
+.GLPick2Sep {
+   width:1px; background:#777; overflow:hidden; 
+   margin-right:3px; margin-left:2px; height:25px;
+   }    
+.GLPick2BL,.GLPick2BR { width:45px; cursor:pointer; _cursor:hand; }
+.GLPick2BL { background:url(Menu.gif) no-repeat center -598px; }
+.GLPick2BR { background:url(Menu.gif) no-repeat center -648px; }
+
+/* ------------------- Edit controls, TGLib ------------------- */
+
+.GLEdit,.GLEditInline {
+   font:11px "Microsoft Sans Serif",Arial;
+   padding-left:4px; padding-right:4px; padding-top:2px; padding-bottom:2px;
+   overflow:hidden; border:1px solid #CCC; background:#EEE;
+   }
+.GLEditInline { display:inline-block; vertical-align:bottom; }
+.GLEditInput,.GLEditTextarea {
+   font:11px "Microsoft Sans Serif",Arial;
+   vertical-align:top; border:0px none; margin:0px; 
+   padding:0px; padding-left:1px!IE; padding-right:1px!IE;
+   }
+.GLEditTextarea { line-height:13px; }
+.GLEditNormalInput,.GLEditNormalTextarea,.GLEditSpaceInput,.GLEditSpaceTextarea { background-color:#E0FFC0; }
+.GLEditInt,.GLEditFloat,.GLEditDate { text-align:right; }
+.GLEditText { }
+.GLEditMulti { white-space:normal; }
+.GLEditReadOnly { background-color:#F0FFD0; }
+.GLEditParent { position:absolute; z-index:258; overflow:hidden;}
+
+/*.GLEnum,.GLEnumInline {
+   font:11px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   padding-left:15px; padding-right:4px; padding-top:2px; padding-bottom:2px;
+   border:1px solid #CCC; background:#EEE url(Menu.gif) no-repeat left -800px; overflow:hidden;
+   }
+.GLEnumInline { display:inline-block; vertical-align:bottom; }*/
+.GLEnumHeaderLeft,.GLEnumHeaderRight,.GLEnumHeaderNone {
+   background:white; font:11px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   padding-left:2px; padding-right:4px; padding-top:3px; padding-bottom:2px;
+   }
+.GLEnumHeaderLeft { background:white url(Menu.gif) no-repeat left -799px; padding-left:17px; }
+.GLEnumHeaderRight { background:white url(Menu.gif) no-repeat right -799px; padding-right:17px;}
+.GLEnumMenuHeader { background:white; }   
+
+.GLEnumControl,.GLEnumInline {
+   font:11px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   padding-left:15px; padding-right:4px; padding-top:2px; padding-bottom:2px;
+   border:1px solid #CCC; background:#EEE url(Menu.gif) no-repeat left -800px; overflow:hidden;
+   }
+.GLEnumInline { display:inline-block; vertical-align:bottom; }
+.GLEnumHeader {
+   background:white url(Menu.gif) no-repeat left -798px; 
+   font:11px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   padding-left:15px; padding-right:4px; padding-top:2px; padding-bottom:2px;
+   }
+
+/* ------------------- Line chart, TGLib ------------------- */
+
+.GLChartInner { background:white; width:100%; }
+.GLChartLayer { overflow:hidden; height:1000px; }
+.GLChartAxisY { background:black; height:1px; overflow:hidden; }
+.GLChartAxisYLabel { overflow:hidden; }
+.GLChartAxisYText { margin-right:5px; margin-top:12px; text-align:right; font:12px Arial; }
+.GLChartAxisX { width:1px; overflow:hidden; background:black; }
+.GLChartAxisXLabel { overflow:hidden; }
+.GLChartAxisXText { text-align:center; font:12px Arial; }
+.GLChartCaption { text-align:center; font:12px Arial; margin-top:3px; }
+
+.GLChartPoint1,.GLChartPoint2,.GLChartPoint3,.GLChartPoint4,.GLChartPoint5,.GLChartPoint6,.GLChartPoint7,.GLChartPoint8 {
+   background:url(Gantt.gif) no-repeat; width:32px; height:32px; overflow:hidden; 
+   }
+.GLChartPoint1 { background-position:-892px 7px; }
+.GLChartPoint1Hover { background-position: -942px 7px; }
+.GLChartPoint2 { background-position:-992px 7px; }
+.GLChartPoint2Hover { background-position:-1042px 7px; }
+.GLChartPoint3 { background-position:-1092px 7px; }
+.GLChartPoint3Hover { background-position:-1142px 7px; }
+.GLChartPoint4 { background-position:-1192px 7px; }
+.GLChartPoint4Hover { background-position:-1242px 7px; }
+.GLChartPoint5 { background-position:-1292px 7px; }
+.GLChartPoint5Hover { background-position:-1342px 7px; }
+.GLChartPoint6 { background-position:-1392px 7px; }
+.GLChartPoint6Hover { background-position:-1442px 7px; }
+.GLChartPoint7 { background-position:-1492px 7px; }
+.GLChartPoint7Hover { background-position:-1542px 7px; }
+.GLChartPoint8 { background-position:-1592px 7px; }
+.GLChartPoint8Hover { background-position:-1642px 7px; }
+
+/* -------------- Custom scrollbars ------------------ */
+
+.GLCustScroll1RightHidden { background:url(VScroll.gif) left -108px; height:18px; overflow:hidden; }
+.GLCustScroll1Right { padding-right:18px; background:url(VScroll.gif) right 0px; }
+.GLCustScroll1RightHover { padding-right:18px; background:url(VScroll.gif) right -18px; }
+.GLCustScroll1Left { padding-left:18px;  background:url(VScroll.gif) left 0px; }
+.GLCustScroll1LeftHover { padding-left:18px;  background:url(VScroll.gif) left -18px; }
+.GLCustScroll1SliderRight { padding-right:3px; background:url(VScroll.gif) right -36px; }
+.GLCustScroll1SliderLeft { padding-left:3px; background:url(VScroll.gif) left -36px; }
+.GLCustScroll1SliderHIn { height:18px; overflow:hidden; background:url(VScroll.gif) center -54px; }
+.GLCustScroll1SliderRightHover { padding-right:3px; background:url(VScroll.gif) right -72px; }
+.GLCustScroll1SliderLeftHover { padding-left:3px; background:url(VScroll.gif) left -72px; }
+.GLCustScroll1SliderHInHover { height:18px; overflow:hidden; background:url(VScroll.gif) center -90px; }
+.GLCustScroll1X { background:#F4F4F4; }
+
+.GLCustScroll2RightHidden { background:url(VScroll.gif) left -364px; height:36px; overflow:hidden; }
+.GLCustScroll2Right { padding-right:36px; background:url(VScroll.gif) right -148px; }
+.GLCustScroll2RightHover { padding-right:36px; background:url(VScroll.gif) right -184px; }
+.GLCustScroll2Left { padding-left:36px;  background:url(VScroll.gif) left -148px; }
+.GLCustScroll2LeftHover { padding-left:36px;  background:url(VScroll.gif) left -184px; }
+.GLCustScroll2SliderRight { padding-right:6px; background:url(VScroll.gif) right -220px; }
+.GLCustScroll2SliderLeft { padding-left:6px; background:url(VScroll.gif) left -220px; }
+.GLCustScroll2SliderHIn { height:36px; overflow:hidden; background:url(VScroll.gif) center -256px; }
+.GLCustScroll2SliderRightHover { padding-right:6px; background:url(VScroll.gif) right -292px; }
+.GLCustScroll2SliderLeftHover { padding-left:6px; background:url(VScroll.gif) left -292px; }
+.GLCustScroll2SliderHInHover { height:36px; overflow:hidden; background:url(VScroll.gif) center -328px; }
+.GLCustScroll2X { background:#F4F4F4; }
+
+.GLCustScroll3Right,.GLCustScroll3RightHidden { background:white; height:9px; overflow:hidden; }
+.GLCustScroll3SliderRight,.GLCustScroll3SliderRightHover { padding-right:3px; height:9px; background:url(VScroll.gif) right -126px; }
+.GLCustScroll3SliderLeft,.GLCustScroll3SliderLeftHover { height:9px; background:url(VScroll.gif) left -126px; }
+.GLCustScroll3SliderRightHover { background-position:right -135px; }
+.GLCustScroll3SliderLeftHover { background-position:left -135px; }
+.GLCustScroll3X { background:white; }
+
+.GLCustScroll4Right,.GLCustScroll4RightHidden,.GLCustScroll4SliderRight,.GLCustScroll4SliderRightHover { height:1px; overflow:hidden; }
+.GLCustScroll4X { }
+
+.GLCustScroll1DownHidden { background:url(HScroll.png) -108px top; width:18px; overflow:hidden; }
+.GLCustScroll1Down { padding-bottom:18px; background:url(HScroll.png) 0px bottom; cursor:default; width:18px; overflow:hidden; }
+.GLCustScroll1DownHover { padding-bottom:18px; background:url(HScroll.png) -18px bottom; width:18px; overflow:hidden; }
+.GLCustScroll1Up { padding-top:18px; background:url(HScroll.png) 0px top; width:18px; overflow:hidden; }
+.GLCustScroll1UpHover { padding-top:18px;  background:url(HScroll.png) -18px top; width:18px; overflow:hidden; }
+.GLCustScroll1SliderDown { padding-bottom:3px; background:url(HScroll.png) -36px bottom; width:18px; overflow:hidden; }
+.GLCustScroll1SliderUp { padding-top:3px; background:url(HScroll.png) -36px top; width:18px; overflow:hidden; }
+.GLCustScroll1SliderVIn { background:url(HScroll.png) -54px center; width:18px; overflow:hidden; }
+.GLCustScroll1SliderDownHover { padding-bottom:3px; background:url(HScroll.png) -72px bottom; width:18px; overflow:hidden; }
+.GLCustScroll1SliderUpHover { padding-top:3px; background:url(HScroll.png) -72px top; width:18px; overflow:hidden; }
+.GLCustScroll1SliderVInHover { background:url(HScroll.png) -90px center; width:18px; overflow:hidden; }
+
+.GLCustScroll2DownHidden { background:url(HScroll.png) -364px top; width:36px; overflow:hidden; }
+.GLCustScroll2Down { padding-bottom:36px; background:url(HScroll.png) -148px bottom; cursor:default; width:36px; overflow:hidden; }
+.GLCustScroll2DownHover { padding-bottom:36px; background:url(HScroll.png) -184px bottom; width:36px; overflow:hidden; }
+.GLCustScroll2Up { padding-top:36px; background:url(HScroll.png) -148px top; width:36px; overflow:hidden; }
+.GLCustScroll2UpHover { padding-top:36px;  background:url(HScroll.png) -184px top; width:36px; overflow:hidden; }
+.GLCustScroll2SliderDown { padding-bottom:6px; background:url(HScroll.png) -220px bottom; width:36px; overflow:hidden; }
+.GLCustScroll2SliderUp { padding-top:6px; background:url(HScroll.png) -220px top; width:36px; overflow:hidden; }
+.GLCustScroll2SliderVIn { background:url(HScroll.png) -256px center; width:36px; overflow:hidden; }
+.GLCustScroll2SliderDownHover { padding-bottom:6px; background:url(HScroll.png) -292px bottom; width:36px; overflow:hidden; }
+.GLCustScroll2SliderUpHover { padding-top:6px; background:url(HScroll.png) -292px top; width:36px; overflow:hidden; }
+.GLCustScroll2SliderVInHover { background:url(HScroll.png) -328px center; width:36px; overflow:hidden; }
+
+.GLCustScroll3Down,.GLCustScroll3DownHidden { background:white; width:9px; overflow:hidden; cursor:default; }
+.GLCustScroll3SliderDown,.GLCustScroll3SliderDownHover { padding-bottom:3px; width:9px; background:url(HScroll.png) -126px bottom; }
+.GLCustScroll3SliderUp,.GLCustScroll3SliderUpHover { width:9px; background:url(HScroll.png) -126px top; cursor:default; }
+.GLCustScroll3SliderDownHover { background-position:-135px bottom; }
+.GLCustScroll3SliderUpHover { background-position:-135px top; cursor:default; }
+
+.GLCustScroll4Down,.GLCustScroll4DownHidden,.GLCustScroll4SliderDown,.GLCustScroll4SliderDownHover { width:1px; overflow:hidden; }
+
+/* ------------------- Other messages, TGLib ------------------- */
+
+.GLHintMain { position:absolute; left:0px; top:0px; z-index:260; background:#fff; cursor:default; }
+.GLHintOuter { overflow:hidden; padding-bottom:2px; background:#fff; text-align:left; border:none; }
+.GLHintShadow {
+   position:absolute; margin-left:3px; margin-top:3px; z-index:259;
+   background:#888; opacity:0.5; filter:alpha(opacity=50);
+   }
+
+.GLTipMain { position:absolute; left:0px; top:0px; z-index:262; visibility:hidden; }
+.GLTipOuter  {
+   overflow:hidden; cursor:default; font:11px "Microsoft Sans Serif",Arial;
+   background:#f4f4f4; border:1px solid #e0e0e0; padding:3px;
+   }
+.GLTipBody { background:#f4f4f4; white-space:nowrap; }     
+.GLTipShadow {
+   position:absolute; margin-left:3px; margin-top:3px; z-index:261;
+   background:#888; opacity:0.5; filter:alpha(opacity=50);
+   visibility:hidden;
+   }
+
+.GLMouseOrig { background:yellow!important; opacity:0.5; filter:alpha(opacity=50); }
+.GLMouseDragObject { position:absolute; z-index:260; background:#888; opacity:0.5; filter:alpha(opacity=50); }
+
+.GLFocus { border:1px solid blue; background-color:white; }    
+
+.GridDisabled { position:absolute; z-index:256; background:white; opacity:0.5; filter:alpha(opacity=50); } 
+.GridMain { z-index:255; }
+
+/* Do not change, marks the style loaded */
+.GLLoaded { border:1px solid black!important; }

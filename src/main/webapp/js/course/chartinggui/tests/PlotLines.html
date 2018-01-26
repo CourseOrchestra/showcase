@@ -1,0 +1,22 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="../../../dijit/themes/claro/claro.css"/>
+
+<script src="../../../dojo/dojo.js" djConfig="isDebug: false, parseOnLoad: true, modulePaths: {course: '../course', app: '../../'}"></script>
+<script src="../PlotLines.js"></script>
+
+<script>
+dojo.require("course.chartinggui.PlotLines");
+
+dojo.addOnLoad(function(){
+    new course.chartinggui.PlotLines({}, "widget");
+});
+</script>
+
+</head>
+
+<body class="claro">
+    <div id="widget"></div>
+</body>
+</html>

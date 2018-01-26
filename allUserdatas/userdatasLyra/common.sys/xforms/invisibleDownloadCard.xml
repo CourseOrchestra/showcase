@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <xf:model id="xformId_mainModel">
+            <xf:instance id="xformId_mainInstance">
+                <schema xmlns="">
+                </schema>
+            </xf:instance>
+
+            <xf:action ev:event="xforms-subform-ready">
+                <xf:load resource="javascript: gwtXFormDownload('xformId', 'event_download', null)"/>
+                <xf:load resource="javascript: gwtXFormUpdate('xformId', null, null, true)"/>
+            </xf:action>
+
+        </xf:model>
+    </head>
+
+    <body>
+
+        <div class="break">
+            <img src="solutions/default/resources/progress.gif"/>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+  <tab id="1" name="Тест">
+	
+	<!--
+    <element id="12" type="webtext" proc="dirusing.webtext.dircontentbuttons.buttons.celesta">
+      <related id="13"/>
+    </element> -->
+	
+	<!--
+    <element id="13" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid" proc="dirusing.grids.dircontentgrid.getData.celesta">
+		<proc id="14" name="dirusing.grids.dircontentgrid.getSettings.celesta" type="METADATA"/>
+		<proc id="toolbar1" name="dirusing.grids.dircontentgrid.gridToolBar.celesta" type="TOOLBAR"/>
+		<proc id="download1" name="dirusing.commonfunctions.downloadFileFromGrid.celesta" type="DOWNLOAD"/>
+
+	</element>
+	
+    <element id="15" type="xforms" template="directory_data_card.xml" proc="dirusing.xforms.dircontentcard.cardData.celesta" neverShowInPanel="true">
+      <proc id="proc1" name="dirusing.xforms.dircontentcard.cardDataSave.celesta" type="SAVE"/>
+	  <proc id="download2" name="dirusing.commonfunctions.downloadFileFromXform.celesta" type="DOWNLOAD"/>
+	  <proc id="upload2" name="dirusing.commonfunctions.uploadFileToXform.celesta" type="UPLOAD"/>
+	  <related id="13"/>
+    </element>
+	-->
+  </tab>
+</datapanel>

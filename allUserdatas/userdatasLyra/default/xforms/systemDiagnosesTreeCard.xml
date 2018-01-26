@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" 
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer" 
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns="">
+					<data id="" name=""/>
+				</schema>
+			</xf:instance>
+
+
+			<xf:bind>
+
+				<xf:bind required="true()" nodeset="instance('xformId_mainInstance')/data/@name" />
+
+
+			</xf:bind>
+		
+
+		</xf:model>
+	</head>
+
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/>  -->
+		
+				<div style="padding: 4px 0px 0px 0px; width: 350px; float: left;clear:both;">
+					<xf:input ref="instance('xformId_mainInstance')/data/@name">
+						<xf:label>Наименование:</xf:label>
+					</xf:input>
+				</div>
+
+
+<hr style="margin-top:21px; width: 100%;  float: left; clear: both;"/>
+
+<div class="author newbutton" style="margin-left:10px; padding: 2px;float: left;clear: both">
+	<xf:trigger class="blue" id="Tab10">
+		<xf:label>Сохранить и закрыть</xf:label>
+		<xf:action ev:event="DOMActivate">
+			<xf:load resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 
+				'xformId_mainInstance')))"/>
+		</xf:action>
+		
+	</xf:trigger>
+</div>
+
+<div class="author newbutton" style="margin-right:10px; padding: 2px;float: right;">
+	<xf:trigger class="blue" id="Tab20">
+		<xf:label>Закрыть</xf:label>
+		<xf:action ev:event="DOMActivate">
+			<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+		</xf:action>
+	</xf:trigger>
+</div>
+
+</body>
+</html>

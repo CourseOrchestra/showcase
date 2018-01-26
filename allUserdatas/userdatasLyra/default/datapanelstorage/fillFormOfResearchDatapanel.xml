@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="abcdefghy" name="Заполнение обследования">
+
+		<element id="fillingFormOfResearch" type="xforms" template="inspectionQuestionsCard.xml"
+			proc="ssmmd.xforms.fillingFormOfResearch.cardData.celesta">
+			<proc id="fillingFormOfResearchSave"
+				name="ssmmd.xforms.fillingFormOfResearch.cardDataSave.celesta" type="SAVE"/>
+		</element>
+		<element id="questions_pictures_card" type="xforms"
+			template="inspectionQuestionsPicturesCard.xml"
+			proc="ssmmd.xforms.inspectionQuestionsPicturesCard.cardData.celesta"
+			neverShowInPanel="true" hideOnLoad="true">
+			<related id="fillingFormOfResearch"/>
+		</element>
+	</tab>
+</datapanel>

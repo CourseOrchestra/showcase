@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="00" name="Карта - подписи">
+		<element id="0001" type="geomap" proc="_206_geomap_labels"
+			cacheData="false" />
+	</tab>
+	<tab id="01" name="Карта из Jython">
+		<element id="0101" type="geomap" proc="geomap/GeoMapSimple.py" showLoadingMessage="true"/>
+	</tab>	
+	<tab id="02" name="XForms - сохранение через Jython">
+		<element id="0201" type="xforms" template="Showcase_Template.xml"
+			proc="xforms_proc_dep">
+			<proc id="proc1" name="xform/XFormSaveProc.py" type="SAVE" />
+		</element>
+		<element id="d01" type="webtext" proc="webtext/GetXFormsData.py"
+			hideOnLoad="true" />
+	</tab>
+</datapanel>

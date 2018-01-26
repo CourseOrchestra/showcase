@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+  <head>
+    <xf:model id="xformId_mainModel">
+      <xf:instance id="xformId_mainInstance" xmlns="">
+        <schema>
+          <user sid="" password="" userName="" subjectId="" subjectName=""></user>
+        </schema>
+      </xf:instance>
+      <xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/user/@sid" readonly="true()"></xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/user/@userName"
+          readonly="instance('xformId_mainInstance')/user/@add!='add'"
+          required="instance('xformId_mainInstance')/user/@isAuthServer!='true'"></xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/user/@password"
+          readonly="instance('xformId_mainInstance')/user/@isAuthServer='true'"
+          required="instance('xformId_mainInstance')/user/@add='add'"></xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/user/@subjectName" readonly="true()"></xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/user/@employeeName" readonly="true()"
+        ></xf:bind>
+      </xf:bind>
+      <xf:submission id="xformId_idGeneratePassword" method="post" instance="xformId_mainInstance"
+        replace="instance" ref="instance('xformId_mainInstance')"
+        action="secured/submit?proc=security.functions.submissionGenPass.celesta">
+        <xf:action if="event('response-body')!='null'" ev:event="xforms-submit-error">
+          <xf:message>Заполните имя пользователя <xf:output value="event('response-body')"
+            ></xf:output>
+          </xf:message>
+        </xf:action>
+      </xf:submission>
+    </xf:model>
+  </head>
+  <body>
+    <!--<xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>-->
+    <div class="baseInput200 break">
+      <xf:input ref="instance('xformId_mainInstance')/user/@userName">
+        <xf:label>Имя пользователя:</xf:label>
+      </xf:input>
+    </div>
+    <xf:group ref="instance('xformId_mainInstance')/user[@isAuthServer='false']">
+      <div class="break">
+        <div class="baseInput200">
+          <xf:input ref="instance('xformId_mainInstance')/user/@password">
+            <xf:label>Пароль:</xf:label>
+          </xf:input>
+        </div>
+        <div class="button30 imageButton">
+          <xf:trigger appearance="xf:image">
+            <!--<image src="./solutions/default/resources/key_2009.png"></image>-->
+            <xf:label>
+              <xf:output style="width:16px; height:16px"
+                value="'./solutions/default/resources/key_2009.png'" mediatype="image/*"
+              ></xf:output>
+            </xf:label>
+            <xf:action ev:event="DOMActivate">
+              <xf:send submission="xformId_idGeneratePassword"></xf:send>
+            </xf:action>
+          </xf:trigger>
+        </div>
+      </div>
+    </xf:group>
+    <xf:group ref="instance('xformId_mainInstance')/user[@loginIsSubject='false']">
+      <div class="selectorLong200 break">
+        <xf:input ref="instance('xformId_mainInstance')/user/@subjectName">
+          <xf:label>Сотрудник:</xf:label>
+        </xf:input>
+        <xf:selector buttonLabel="..." procCount="'security.xform.users.subjectsCount.celesta'"
+          procList="'security.xform.users.subjectsList.celesta'" generalFilters="" currentValue="''"
+          windowCaption="'Выбор значения'"
+          xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/user/@subjectId)' : 'id',
+          'XPath(instance(quot(xformId_mainInstance))/user/@subjectName)' : 'name'}"></xf:selector>
+        <xf:trigger>
+          <xf:label>X</xf:label>
+          <xf:action ev:event="DOMActivate">
+            <xf:setvalue ref="instance('xformId_mainInstance')/user/@subjectId" value=""></xf:setvalue>
+            <xf:setvalue ref="instance('xformId_mainInstance')/user/@subjectName" value=""
+            ></xf:setvalue>
+          </xf:action>
+        </xf:trigger>
+      </div>
+    </xf:group>
+    <xf:group ref="instance('xformId_mainInstance')/user[@loginIsSubject='true' and @isEmployees='true']">
+      <div class="selectorLong200 break">
+        <xf:input ref="instance('xformId_mainInstance')/user/@employeeName">
+          <xf:label>Сотрудник:</xf:label>
+        </xf:input>
+        <xf:selector buttonLabel="..." procCount="'security.xform.users.employeesCount.celesta'"
+          procList="'security.xform.users.employeesList.celesta'" generalFilters=""
+          currentValue="''" windowCaption="'Выбор значения'"
+          xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/user/@employeeId)' : 'id',
+          'XPath(instance(quot(xformId_mainInstance))/user/@employeeName)' : 'name'}"></xf:selector>
+        <xf:trigger>
+          <xf:label>X</xf:label>
+          <xf:action ev:event="DOMActivate">
+            <xf:setvalue ref="instance('xformId_mainInstance')/user/@employeeId" value=""></xf:setvalue>
+            <xf:setvalue ref="instance('xformId_mainInstance')/user/@employeeName" value=""
+            ></xf:setvalue>
+          </xf:action>
+        </xf:trigger>
+      </div>
+    </xf:group>
+    <hr class="break" style="margin-top:21px; width: 100%;  float: left;" />
+    <div class="button100" style="float: left">
+      <xf:trigger>
+        <xf:label>Сохранить</xf:label>
+        <xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=false())">
+          <xf:message>Заполнено с ошибкой!</xf:message>
+        </xf:action>
+        <xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=true())">
+          <xf:load
+            resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"></xf:load>
+          <xf:message>Данные сохранены</xf:message>
+        </xf:action>
+      </xf:trigger>
+    </div>
+    <div class="button100" style="float: right">
+      <xf:trigger>
+        <xf:label>Закрыть</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"></xf:load>
+        </xf:action>
+      </xf:trigger>
+    </div>
+  </body>
+</html>

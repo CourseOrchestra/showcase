@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="showcase_Template_uploaders_simple_subform_mainModel">
+			<xf:instance id="Showcase_Template_uploaders_simple_subform_mainInstance">
+				<schema xmlns="">
+					<info>
+						<name />
+						<growth />
+						<eyescolour />
+						<music />
+						<comment />
+					</info>
+				</schema>
+			</xf:instance>
+			
+            <xf:instance id="Showcase_Template_uploaders_simple_subform_myInstance">
+                <schema xmlns="">
+				  <files1>                
+					<file>Файл11</file>                
+					<file>Файл12</file>
+				  </files1>
+				  <files2>                
+					<file>Файл21</file>                
+					<file>Файл22</file>
+					<file>Файл23</file>					
+				  </files2>
+                </schema>
+           </xf:instance>
+
+			<xf:bind>
+			</xf:bind>
+		</xf:model>
+	</head>
+	
+	<body>
+	
+		<h1>Шаблон Showcase_Template_uploaders_simple_subform</h1>	
+	
+		<div>
+			Быстрая загрузка файла - 1-й (Выдается ошибка при загрузке, задан submitLabel, запрет мультивыбора)					
+		</div>
+		<xf:upload id="05"  submit="true" submitLabel="Загрузить файлы" singleFile="true"  />
+			
+		<div>
+			Быстрая загрузка файла - 2-й (submitLabel по умолчанию)			
+		</div>
+		<xf:upload id="051"  submit="true"  />
+	
+		<hr />
+	
+		<br />	
+	
+		<div>
+			Обычная загрузка файла - 1-й (задан filenamesMapping с предварительной очисткой списка файлов)					
+		</div>
+		<xf:upload id="04" filenamesMapping="XPath(instance(quot(Showcase_Template_uploaders_simple_subform_myInstance))/files1)" needClearFilenames ="true"  />
+		<div>
+			Список файлов:	
+        <xf:select1 ref="instance('Showcase_Template_uploaders_simple_subform_mainInstance')/info/name">
+            <xf:item>
+                <xf:label>-</xf:label>
+                <xf:value>-</xf:value>
+            </xf:item>
+            <xf:itemset nodeset="instance('Showcase_Template_uploaders_simple_subform_myInstance')/files1/file">
+                <xf:label ref="."/>
+                <xf:value ref="."/>
+            </xf:itemset>
+        </xf:select1>
+        </div>
+        
+		<br />		
+		
+		<div>
+			Обычная загрузка файла - 2-й (задан filenamesMapping без предварительной очистки списка файлов)			
+		</div>
+		<xf:upload id="041" filenamesMapping="XPath(instance(quot(Showcase_Template_uploaders_simple_subform_myInstance))/files2)" />
+		<div>
+			Список файлов:	
+        <xf:select1 ref="instance('Showcase_Template_uploaders_simple_subform_mainInstance')/info/growth">
+            <xf:item>
+                <xf:label>-</xf:label>
+                <xf:value>-</xf:value>
+            </xf:item>
+            <xf:itemset nodeset="instance('Showcase_Template_uploaders_simple_subform_myInstance')/files2/file">
+                <xf:label ref="."/>
+                <xf:value ref="."/>
+            </xf:itemset>
+        </xf:select1>
+        </div>
+        
+		<br />        
+		
+		<hr />		
+		
+		<div>
+			<xf:trigger>
+				<xf:label>Запустить upload (через gwtXFormSave)
+				</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId', '1', Writer.toString(getSubformInstanceDocument('Showcase_Template_uploaders_simple_subform_mainModel', 'Showcase_Template_uploaders_simple_subform_mainInstance')))" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+		
+
+	</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+  <head>
+    <xf:model id="xformId_mainModel" xmlns="">
+      <xf:instance id="xformId_mainInstance" xmlns="">
+        <schema xmlns="">
+          <context add=""></context>
+        </schema>
+      </xf:instance>
+    </xf:model>
+  </head>
+  <body>
+    <!--<xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>-->
+    <div class="xformId_nameInput" style="float: left, clear: both, width: 350px">
+      <xf:group ref="instance('xformId_mainInstance')/context[@add='upload']">
+        <div class="break">Загрузить данные в базу?</div>
+        <xf:upload class="button30" id="xformId_tableXformUpload"  singleFile="true"></xf:upload>
+      </xf:group>
+      <xf:group ref="instance('xformId_mainInstance')/context[@add='download']">
+        <div class="break">Скачать данные из базы?</div>
+      </xf:group>
+    </div>
+    <hr class="break" style="margin-top:21px; width: 100%;  float: left;" />
+    <xf:group ref="instance('xformId_mainInstance')/context[@add='download']">
+      <div class="button100" style="float: left">
+        <xf:trigger>
+          <xf:label>Скачать</xf:label>
+          <xf:action ev:event="DOMActivate">
+            <xf:load
+              resource="javascript:gwtXFormDownload('xformId','tableXformDownload',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')));gwtXFormUpdate('xformId','1', null)"></xf:load>
+            <xf:message>Выгрузка завершена</xf:message>
+          </xf:action>
+        </xf:trigger>
+      </div>
+    </xf:group>
+    <xf:group ref="instance('xformId_mainInstance')/context[@add='upload']">
+      <div class="button100" style="float: left">
+        <xf:trigger>
+          <xf:label>Загрузить</xf:label>
+          <xf:action ev:event="DOMActivate">
+            <xf:load
+              resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"></xf:load>
+            <!--<xf:message>Загрузка завершена</xf:message>-->
+          </xf:action>
+        </xf:trigger>
+      </div>
+    </xf:group>
+    <div class="button100" style="float: right">
+      <xf:trigger>
+        <xf:label>Закрыть</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"></xf:load>
+        </xf:action>
+      </xf:trigger>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="XFormsPartTemplates">
+	    <element id="11" type="xforms" template="xformsPartTemplateElement1.xml" proc="xforms_part_template1" showLoadingMessageForFirstTime="true" 
+	        buildTemplate="true">
+	    </element>
+	    <element id="12" type="xforms" template="xformsPartTemplateElement2.xml" proc="xforms_part_template2" showLoadingMessageForFirstTime="true"
+	        buildTemplate="true" >
+	    </element>
+	    <element id="13" type="xforms" template="xformsPartTemplateElement3.xml" proc="xforms_part_template3" showLoadingMessageForFirstTime="true"
+	        buildTemplate="true" >
+	    </element>
+	</tab>
+</datapanel>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="0" name="Исследования">
+		<!--<element id="researchSectionGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.settingsResearchSectionsGrid.treeGrid.celesta">
+			<proc id="toolbarSections"
+				name="ssmmd.grids.settingsResearchSectionsGrid.gridToolBar.celesta" type="TOOLBAR"/>
+		</element>-->
+		
+		<element id="research_filter" type="xforms" template="researchFilter.xml"
+			proc="ssmmd.xforms.researchFilter.cardData.celesta">			
+		</element>
+		
+		<element id="researchGrid" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid"
+			proc="ssmmd.grids.settingsResearchGrid.getData.celesta" hideOnLoad="true">
+			<proc id="gridMetasettingsListDevelopments" name="ssmmd.grids.settingsResearchGrid.getData.celesta"
+				type="METADATA"/>
+			<proc id="toolbarsettingsListDevelopments" name="ssmmd.grids.settingsResearchGrid.gridToolBar.celesta" type="TOOLBAR"/>
+			<!--<related id="researchSectionGrid"/>-->
+			<related id="research_filter"/>
+		</element>
+		
+		<element id="card" type="xforms" template="rulesTemplate.py"
+			proc="ssmmd.xforms.settingsResearchCard.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardSaveCatalog" name="ssmmd.xforms.settingsResearchCard.cardDataSave.celesta" type="SAVE"/>
+			<!--<related id="researchSectionGrid"/>-->
+			<related id="researchGrid"/>
+		</element>
+		
+		<element id="delete" type="xforms" template="settingsResearchDelete.xml"
+			proc="ssmmd.xforms.settingsResearchDelete.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardDelete" name="ssmmd.xforms.settingsResearchDelete.gridDelete.celesta" type="SAVE"/>
+			<related id="researchGrid"/>
+		</element>
+		
+		<element id="connections" type="xforms" template="settingsResearchConnections.xml"
+			proc="ssmmd.xforms.settingsResearchConnections.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardDelete" name="ssmmd.xforms.settingsResearchConnections.cardDataSave.celesta" type="SAVE"/>
+			<related id="researchGrid"/>
+		</element>
+		
+		<element id="report" type="xforms" neverShowInPanel="true"
+			template="researchReport.xml"
+			proc="ssmmd.xforms.researchReport.cardData.celesta">
+			<proc id="reportDownload"
+				name="ssmmd.xforms.researchReport.createReport.celesta" type="DOWNLOAD"/>
+			<related id="researchGrid"/>
+		</element>
+		
+		<element id="systematize" type="xforms" template="settingsResearchSystematize.xml"
+			proc="ssmmd.xforms.settingsResearchSystematize.cardData.celesta" hideOnLoad="true">
+			<proc id="savesystematize"
+				name="ssmmd.xforms.settingsResearchSystematize.cardDataSave.celesta" type="SAVE"/>
+			<related id="researchGrid"/>
+		</element>
+	</tab>
+</datapanel>

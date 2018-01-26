@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+  <head>
+    <xf:model id="xformId_mainModel">
+      <xf:instance id="xformId_mainInstance">
+        <schema xmlns="">
+          <roleid></roleid>
+          <grainid></grainid>
+          <tablename></tablename>
+        </schema>
+      </xf:instance>
+      <xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/roleid" readonly="true()"></xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/grainid" readonly="true()"></xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/tablename" readonly="true()"></xf:bind>
+      </xf:bind>
+    </xf:model>
+  </head>
+  <body>
+    <!--<xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>-->
+    <div class="selectorLong400 break">
+      <xf:input ref="instance('xformId_mainInstance')/roleid">
+        <xf:label>Роль:</xf:label>
+      </xf:input>
+      <xf:selector buttonLabel="..." procCount="'security.xform.permissions.rolesCount.celesta'"
+        procList="'security.xform.permissions.rolesList.celesta'" generalFilters=""
+        currentValue="''" windowCaption="'Выбор значения'"
+        xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/roleid)' : 'id'}"></xf:selector>
+      <xf:trigger>
+        <xf:label>X</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:setvalue ref="instance('xformId_mainInstance')/roleid" value=""></xf:setvalue>
+        </xf:action>
+      </xf:trigger>
+    </div>
+    <div class="selectorLong400 break">
+      <xf:input ref="instance('xformId_mainInstance')/grainid">
+        <xf:label>Гранула:</xf:label>
+      </xf:input>
+      <xf:selector buttonLabel="..." procCount="'security.xform.permissions.grainsCount.celesta'"
+        procList="'security.xform.permissions.grainsList.celesta'" generalFilters=""
+        currentValue="''" windowCaption="'Выбор значения'"
+        xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/grainid)' : 'id'}"></xf:selector>
+      <xf:trigger>
+        <xf:label>X</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:setvalue ref="instance('xformId_mainInstance')/grainid" value=""></xf:setvalue>
+          <xf:setvalue ref="instance('xformId_mainInstance')/tablename" value=""></xf:setvalue>
+        </xf:action>
+      </xf:trigger>
+    </div>
+    <div class="selectorLong400 break">
+      <xf:input ref="instance('xformId_mainInstance')/tablename">
+        <xf:label>Таблица:</xf:label>
+      </xf:input>
+      <xf:selector buttonLabel="..." procCount="'security.xform.permissions.tablesCount.celesta'"
+        procList="'security.xform.permissions.tablesList.celesta'"
+        generalFilters="['XPath(instance(quot(xformId_mainInstance))/grainid)']" currentValue="''"
+        windowCaption="'Выбор значения'"
+        xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/tablename)' : 'id',}"></xf:selector>
+      <xf:trigger>
+        <xf:label>X</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:setvalue ref="instance('xformId_mainInstance')/tablename" value=""></xf:setvalue>
+        </xf:action>
+      </xf:trigger>
+    </div>
+    <div class="button100 break">
+      <xf:trigger>
+        <xf:label>Отобразить</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:load
+            resource="javascript:gwtXFormUpdate('xformId','11',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"
+          ></xf:load>
+        </xf:action>
+      </xf:trigger>
+    </div>
+  </body>
+</html>

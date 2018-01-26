@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance">
+				<schema xmlns="">
+					<info>
+						<name />
+						<growth />
+						<eyescolour />
+						<music />
+						<comment />
+					</info>
+				</schema>
+			</xf:instance>
+			<xf:instance id="xformId_instanse555">
+				<mesid xmlns="">555</mesid>
+			</xf:instance>
+			<xf:instance id="xformId_instanse556">
+				<mesid xmlns="">556</mesid>
+			</xf:instance>							
+
+			
+			<xf:submission id="xformId_submit_ec" method="post" instance="xformId_mainInstance"
+				replace="instance" ref="instance('xformId_mainInstance')" action="secured/submit?proc=xforms_submission_ec">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Submission успешно выполнен</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при выполнении submission:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>
+			</xf:submission>	
+			
+			<xf:submission id="xformId_submit_ec555" method="post" instance="xformId_instanse555"
+				replace="instance" ref="instance('xformId_instanse555')" action="secured/submit?proc=xforms_submission_ec">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Submission успешно выполнен</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при выполнении submission:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>
+			</xf:submission>	
+			
+			<xf:submission id="xformId_submit_ec556" method="post" instance="xformId_instanse556"
+				replace="instance" ref="instance('xformId_instanse556')" action="secured/submit?proc=xforms_submission_ec">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Submission успешно выполнен</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при выполнении submission:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>
+			</xf:submission>							
+			
+			<xf:submission id="xformId_submit_um" method="post" instance="xformId_mainInstance"
+				replace="instance" ref="instance('xformId_mainInstance')" action="secured/submit?proc=xforms_submission_um">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Submission успешно выполнен</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при выполнении submission:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>
+			</xf:submission>						
+
+			<xf:submission id="xformId_submit_re" method="post" instance="xformId_mainInstance"
+				replace="instance" ref="instance('xformId_mainInstance')" action="secured/submit?proc=xforms_submission_re">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Submission успешно выполнен</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при выполнении submission:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>
+			</xf:submission>
+
+
+			<xf:bind>
+			</xf:bind>
+		</xf:model>
+	</head>
+	<body>
+
+		<h1>Примеры возможных способов возврата сообщений для пользователя</h1>
+		
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов sql transform с ошибкой: просто код возврата</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="xformId_submit_ec" />
+				</xf:action>
+			</xf:trigger>
+		</div>		
+		<hr/>
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов sql transform с ошибкой: user.messages.xml</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="xformId_submit_um" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<hr/>
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов sql transform с ошибкой: просто RAISE</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="xformId_submit_re" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<hr/>			
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов sql transform с ошибкой: код возврата - форматирование</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="xformId_submit_ec555" />
+				</xf:action>
+			</xf:trigger>
+		</div>	
+		<hr/>			
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов sql transform с ошибкой: код возврата - вставка</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="xformId_submit_ec556" />
+				</xf:action>
+			</xf:trigger>
+		</div>		
+	</body>
+</html>
+
+
+
+
+
+

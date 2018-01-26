@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xsd="http://www.w3.org/2001/XMLschema"
+      xmlns:fs="http://www.curs.ru/ns/FormServer"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+	
+		
+		
+        <!-- Простейшие контролы ввода и вывода -->
+        <xf:model id="xformId_mainModel">
+            <xf:instance id="xformId_mainInstance">
+                <schema xmlns="">
+                    <info>
+                        <name/>
+                        <id/>
+                    </info>
+                </schema>
+            </xf:instance>  
+            
+            <xf:action ev:event="xforms-ready">
+                <xf:action if="instance('xformId_srvdata')/element/needReload = 'true'">
+                    <xf:message>Действие на загрузку</xf:message>
+                </xf:action>
+            </xf:action>            
+                   
+            <xf:bind> </xf:bind>
+        </xf:model>
+    </head>
+    <body>
+        <div style="font-size: 15px;"> Имя: </div>
+        <div>
+            <xf:input ref="instance('xformId_mainInstance')/info/name">
+                <xf:hint>Тип статьи баланса</xf:hint>
+            </xf:input>
+			
+			
+			<xf:trigger>
+			<xf:label>Выбрать</xf:label>
+			<xf:action ev:event="DOMActivate">
+			<xf:load resource="javascript:showSelector({
+			           id : 'xformId',			
+                       procCount : '[dbo].[balancecount]',
+                       procList  : '[dbo].[balancelist]',                       
+                       generalFilters      : '',
+                       currentValue        : '',
+                       windowCaption       : 'Выберите название',
+                       onSelectionComplete : function(ok, selected){
+					if (ok) {
+                    var a = getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance').getElementsByTagName('info')[0].getElementsByTagName('name')[0];
+					setValue(a, selected.name);
+					a = getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance').getElementsByTagName('info')[0].getElementsByTagName('id')[0];
+					setValue(a, selected.id);		 
+					xforms.ready = false;
+					xforms.refresh();
+					xforms.ready = true;
+							}
+								   }});;"/>
+			</xf:action>
+			</xf:trigger>		
+			
+        </div>
+        <div style="clear: both;">
+            <xf:output value="'Выбран тип статьи баланса '"/> 
+            <xf:output value="instance('xformId_mainInstance')/info/name"/>  
+            
+        </div>
+        
+
+        <div>
+            <xf:trigger>
+                <xf:label>Отфильтровать</xf:label>
+                <xf:action ev:event="DOMActivate">
+                <xf:load resource="javascript:gwtXFormFilter('xformId', '1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"/>
+                </xf:action>
+            </xf:trigger>
+            
+        </div>
+  
+        
+    </body>
+</html>
+
+
+
+
+
+

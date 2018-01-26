@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+	<event name="single_click" linkId="l1">
+		<action show_in="MODAL_WINDOW">
+			<main_context>current</main_context>
+			<datapanel type="current" tab="current">
+				<element id="2"/>
+			</datapanel>
+		</action>
+	</event>
+</properties>

@@ -1,0 +1,91 @@
+
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+    xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    
+        <style  type="text/css" >
+            .xformId_dateInput2
+            .xforms-value {
+            width: 120px !important;
+            border: 0px;
+            padding: 2px 0px 2px 0px; 
+            background-color: #E5F2FF;
+            margin: 2px 0px 0px 0px;
+            min-height: 53px;
+            }
+            .aid-button,
+            .aid-button
+            button {
+            width: 30px !important;
+            }
+            .xforms-invalid .xforms-alert
+            {
+            display:none !important;
+            }
+            .xforms-invalid
+            .xforms-value {
+            background-color: red !important;
+            border: 0 !important;
+            }
+        </style>
+        
+        
+        
+        <xf:model id="xformId_mainModel">
+            <xf:instance id="xformId_mainInstance">
+                <schema xmlns="">
+                    <date/>
+                </schema>
+            </xf:instance>
+           
+                <xf:bind nodeset="instance('xformId_mainInstance')/date" type="date"/>
+        </xf:model>        
+    </head>
+    <body>
+    
+        <div class="control" style="width: 150px; padding: 2px; float: left;">
+            <xf:input class="xformId_dateInput2" ref="instance('xformId_mainInstance')/date">
+                <xf:label>Выберите дату: </xf:label>
+            </xf:input>
+        </div>    
+        
+        <div class="control" style="width: 10px; padding: 2px; float: left;  clear: both;"/>
+        
+        
+        <div style="float: left;">
+            <table cellpadding="0px" cellspacing="1px" width="250px">
+                <tr height="20px;"/>
+                <tr>
+                    <td class="Tab" id="xformId_Tab4" style="width: 150px; text-align: center">
+                        <SPAN id="xformId_Tab4Button">
+                            <BUTTON class="TabButton" hasXFElement="false" type="submit">Сохранить и
+                                Закрыть</BUTTON>
+                        </SPAN>
+                        <xf:trigger class="HideButton" id="xformId_Tab4Button">
+                            <xf:action ev:event="DOMActivate">
+                    <xf:load
+                        resource="javascript:gwtXFormSave('${elementId}','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"
+                    />
+                            </xf:action>
+                        </xf:trigger>
+                    </td>
+                    <td class="Tab" id="xformId_Tab5" style="width: 100px; text-align: center">
+                        <SPAN id="xformId_Tab5Button">
+                            <BUTTON class="TabButton" hasXFElement="false" type="submit"
+                                >Закрыть</BUTTON>
+                        </SPAN>
+                        <xf:trigger class="HideButton" id="xformId_Tab5Button">
+                            <xf:action ev:event="DOMActivate">
+                                <xf:load resource="javascript:gwtXFormFilter('${elementId}', '1', null)"/>
+                            </xf:action>
+                        </xf:trigger>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+    </body>
+</html>

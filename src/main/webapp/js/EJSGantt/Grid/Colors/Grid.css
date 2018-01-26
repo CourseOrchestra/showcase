@@ -1,0 +1,1504 @@
+/* -----------------------------------------------------------------------*/
+/* ----------------- "Colors" TreeGrid style definition ------------------*/
+/* -----------------------------------------------------------------------*/
+
+/* ------------- Base tags ------------- */
+
+.GCImage { padding-bottom:256px; }
+.GCNone { display:none; }
+.GCSection,.GCSectionFF3 { table-layout:fixed; width:0px; font-size:1px; }
+.GCSectionFF3 { border-collapse:collapse; }
+
+/* -------------- Sections ------------------ */
+.GCMainTable { border:1px solid #d0d0d0; border-collapse:separate; text-align:left; background: url(MainBG.gif) repeat; }
+.GCBodyLeft,.GCBodyMid,.GCBodyRight,.GCHeadLeft,.GCHeadMid,.GCHeadRight,.GCFootLeft,.GCFootMid,.GCFootRight { margin:5px;  }
+.GCBodyLeft,.GCBodyMid,.GCBodyRight { }
+.GCHeadLeft,.GCHeadMid,.GCHeadRight { }
+.GCFootLeft,.GCFootMid,.GCFootRight { }
+.GCHeadLeft,.GCBodyLeft,.GCFootLeft { }	
+.GCHeadMid,.GCBodyMid,.GCFootMid {  }
+.GCHeadRight,.GCBodyRight,.GCFootRight { }	
+.GCVScroll { padding-top:5px; padding-bottom:5px; } 
+.GCHScrollLeft,.GCHScrollMid,.GCHScrollRight,.GCHScrollWide,.GCHScrollLeftResize,.GCHScrollRightResize,.GCHScrollLeftResizeTouch,.GCHScrollRightResizeTouch { 
+   padding-left:5px; padding-right:5px; margin-bottom:5px; cursor:default; 
+   }
+.GCHScrollLeftResize { border-right:2px solid blue; padding-right:5px; background:#F4F4F4; }
+.GCHScrollRightResize { border-left:2px solid blue; padding-left:5px; background:#F4F4F4; }
+.GCHScrollMidLeftResize { border-left:1px solid blue; padding-left:5px; background:#F4F4F4; }
+.GCHScrollMidRightResize { border-right:1px solid blue; padding-right:5px; background:#F4F4F4; }
+.GCHScrollLeftResizeTouch { border-right:2px solid blue; padding-right:18px; background:#F4F4F4; }
+.GCHScrollRightResizeTouch { border-left:2px solid blue; padding-left:18px; background:#F4F4F4; }
+.GCHScrollMidLeftResizeTouch { border-left:1px solid blue; padding-left:19px; background:#F4F4F4; }
+.GCHScrollMidRightResizeTouch { border-right:1px solid blue; padding-right:19px; background:#F4F4F4; }
+.GCHScrollHidden { }
+.GCXScroll {  }
+.GCPageFirst { }
+.GCPage { border-top:1px solid #E0E0E0;}
+.GCPageOne { }
+.GCChildPart { }
+
+/* ------------- Rows ------------------ */
+.GCSpaceRowHeight { height:17px; }
+.GCRowHeight { height:19px; }
+.GCRowHeightTouch { height:23px; }
+.GCSpaceMargin { margin:0px; }
+.GCSpaceMarginTouch { margin:5px; }
+
+.GCToolbarRow,.GCToolbar1Row,.GCToolbar2Row,.GCTopbarRow,.GCTopbar1Row,.GCTopbar2Row,.GCSpaceRow,.GCGroupRow,.GCSearchRow,.GCPagerRow {
+   font-size:1px; border-top:1px solid #ffffff; border-bottom:1px solid #e0e0ff; 
+   background-color:#efefef; overflow:hidden; padding-bottom:3px; padding-top:3px; 
+   background: url(Backgrounds.gif) 0 -250px repeat-x; 
+   }
+.GCTopbar2Row,.GCToolbar2Row { margin-top:5px; }
+ GCFillRow { background-color:#e8e9ea;  background: url(Backgrounds.gif) 0 -250px repeat-x;}
+.GCTabberRow { background: #e8e9ea; background: url(Backgrounds.gif) 0 -250px repeat-x; }
+.GCRowAbove,.GCRowBelow { border-left:1px solid #e0e0ff; border-right:1px solid #e0e0ff; background-color:#ccc; }
+.GCRowAbove { margin-top:3px; overflow:hidden;   border-bottom:2px solid #286ce9;  background: url(Backgrounds.gif) 0 -250px repeat-x; }
+.GCRowBelow { margin-bottom:3px; background:url(Backgrounds.gif) 0px -250px; overflow:hidden; }
+.GCNoDataRow { padding-left:5px; padding-top:5px; padding-bottom:5px; color:gray; font-style:italic; background:#FFFFFF; }
+
+/* ------------- Cell ------------- */
+
+.GCCell,.GCCellPanel,.GCCellFilter,.GCCellFilterPanel,.GCCellHeader,.GCCellHeaderPanel,.GCCellFilterPanel,
+.GCHeaderDrag,.GCHeaderGroup,.GCCellUser { 
+	border-top:1px solid #ffffff; border-bottom:1px solid #e0e0ff; border-left:1px solid #ffffff; border-right:1px solid #e0e0ff;
+	vertical-align:top; white-space:nowrap; overflow:hidden; overflow:auto!IE; height:auto;
+	}
+
+.GCCellSpace,.GCCellSpaceEdit,.GCCellSpaceSelect,.GCCellSpaceEditIcon,.GCCellSpaceEditButton,
+.GCCellSpaceButton,.GCCellSpaceButtonButton {
+   vertical-align:top; white-space:nowrap;
+   border-left:1px solid #ffffff; border-right:1px solid #e0e0ff;
+   padding-top:2px!important;
+   }
+
+.GCCellSpacePanel,.GCCellSpaceBool{ border-left:1px solid #ffffff; border-right:1px solid #e0e0ff; vertical-align:top; text-align:center; }
+.GCCellSpaceRadio { }
+.GCCellSpaceEdit,.GCCellSpaceSelect,.GCCellSpaceEditIcon,.GCCellSpaceEditButton { background-color:white; }     
+.GCCellSpaceEditIcon { padding-left:0px!important; }
+.GCCellSpaceSelect { white-space:nowrap!important; }
+.GCCellSpaceButtonButton { padding-top:0px!important; }
+.GCCellSpaceAbove {   }
+.GCCellSpaceBelow { border-bottom:1px solid #e0e0ff; }
+
+.GCCellFilterPanel { background-color:#e8e9ea; text-align:center; padding-top:0px; }
+.GCCellHeader { background-color:#e8e9ea; border-top:1px solid #ffffff; }
+.GCCellPanel,.GCCellHeaderPanel { background-color:#e8e9ea; white-space:nowrap; direction:ltr; }
+.GCCellFilterPanel { padding-left:1px; direction:ltr; }
+.GCCellUser { background-color:#e8e9ea; }
+.GCCellEmpty {  }
+.GCCellHeaderEmpty { }
+.GCCellHidden { background:transparent!important; border-top:none!important; border-bottom:none!important; }
+
+.GCHeaderButton { padding:0px; }
+.GCHeaderGroup { font:11px "Microsoft Sans Serif",Verdana,Arial; padding-left:3px; }
+.GCHeaderGroupFocus { background-color: #DEDFD8; }
+.GCHeaderGroupDelete { background-color: #e8e9ea; color: #e8e9ea; }
+.GCHeaderGroupCustom {
+   font:italic 11px "Microsoft Sans Serif",Verdana,Arial;
+   color:#BBB; padding-left:5px; cursor:default; white-space:nowrap;
+   }
+.GCHeaderDrag { background-color: #C0C0B0; cursor:default; overflow:hidden; }
+.GCHeaderFocus { background-color: #DEDFD8; }
+.GCPanel { padding-left:80px; }
+.GCNoTreeLines1 { text-align:right; }
+.GCNoTreeLines2 { text-align:right; vertical-align:middle; padding-top:0px; }
+.GCNoTreeLines3 { text-align:left; }
+.GCTree { padding-top:0px; white-space:nowrap; }
+.GCSpannedTree { vertical-align:top; }
+.GCCellBorderFF3 { border-left:0px none; border-top:0px none; }
+.GCCellClassInner { padding-top:0px; padding-bottom:0px; }
+
+/* ------------- Inside cell ------------- */
+
+.GCHtml,.GCText,.GCLines,.GCPass,.GCInt,.GCFloat,.GCDate,.GCLink,.GCImg,.GCRadio,.GCRadioText,.GCList,.GCEnum,.GCDropCols,.GCAbs,.GCPagerEdit,.GCUser,.GCChart {
+   font-size:11px; font-family:"Microsoft Sans Serif",Verdana,Arial; white-space:nowrap;
+   padding-left:3px; padding-right:3px; padding-top:2px; padding-bottom:2px;
+   }
+.GCInt,.GCFloat,.GCDate { text-align:right; }
+.GCLines,.GCRadio,.GCHtml,.GCList { white-space:normal; }	
+.GCChart { padding:5px; }
+.GCImg,.GCHtml { padding-top:0px; padding-bottom:0px; }
+.GCPass { font-size:14px; padding:0px; padding-left:3px; }
+.GCRadio,.GCRadioText { padding:0px; font-weight:normal!important; }
+.GCBool { text-align:center; }
+.GCIcon { background-repeat:no-repeat; }
+.GCHidden { }
+.GCHiddenSpace { display:none; }
+.GCHeaderText { font:13px "Times New Roman"; padding-left:3px; padding-right:3px; padding-bottom:1px; padding-top:1px; }
+.GCAbs { padding:0px; }
+.GCUser { padding:0px; }
+.GCPagerEdit {
+   vertical-align:top; text-align:center; background:white;
+   padding-top:2px; padding-bottom:1px; border:0px none;
+   }
+.GCRightButton { font:10px "Times New Roman"; padding:0px; height:17px; width:19px; margin:0px; }
+.GCRightHtml { font:12px "Times New Roman"; }
+.GCRightImg { font:12px "Times New Roman"; }
+.GCMergedCellH { padding:0px; padding-right:5px; }
+.GCMergedCellV { padding:0px; padding-bottom:1px; }
+
+.GCWrap0 { white-space:nowrap; }
+.GCWrap1 { white-space:normal; }
+.GCAlignLeft { text-align:left; }
+.GCAlignCenter { text-align:center; }
+.GClignJustify { text-align:center; }
+.GCAlignRight { text-align:right; }
+.GCNoSpaceLeft { border-left:0px none; padding-left:0px; }
+.GCNoSpaceRight { border-right:0px none; padding-right:0px; }
+.GCCellRotate1 { vertical-align:bottom; padding-top:1px; padding-bottom:1px; }
+.GCCellRotate2 { vertical-align:top; padding-top:1px; padding-bottom:1px; }
+.GCCellRotate3 { vertical-align:middle; padding-top:1px; padding-bottom:1px; }
+.GCRotate1 { filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+   -moz-transform:rotate(-90deg); -webkit-transform: rotate(-90deg); -o-transform: rotate(-90deg);  
+   }
+.GCRotate2 { writing-mode:tb-rl;
+   -moz-transform:rotate(-270deg); -webkit-transform: rotate(-270deg); -o-transform: rotate(-270deg);
+   }
+
+/*--------------- Pages type cell ----------------- */
+
+.GCPages { overflow:visible; padding-left:3px; padding-right:3px;}
+.GCPagesLink,.GCPagesLinkActive {
+   padding-left:2px; padding-right:1px; padding-top:2px; padding-bottom:2px; margin-top:2px; margin-bottom:2px;
+   display:inline-block; font:11px "Microsoft Sans Serif",Verdana,Arial; cursor:pointer; _cursor:hand; color:blue;
+   }
+.GCPagesLink:visited { color:blue; }
+.GCPagesLink:hover { color:red; }
+.GCPagesLinkActive { color:black; font-weight:bold; border:1px dotted black; margin-top:1px; margin-bottom:1px; }
+
+/*--------------- Gantt ----------------- */
+
+
+.GCGantt { border:0px none; padding:0px; border-right:1px solid #e0e0ff; cursor:default; background:transparent; -webkit-user-select:none; -moz-user-select:none; }
+.GCGantt0Out,.GCGantt10Out,.GCGantt90Out,.GCGantt100Out,.GCGanttNullOut {
+   border:1px solid black; margin-top:2px; padding:1px; background:white; overflow:hidden;
+   }  
+.GCGanttHoverOut { border:2px solid red; margin-top:1px; padding:1px; background:white; overflow:hidden; }
+.GCGantt10Out { padding-left:0px; border-left:0px none; }
+.GCGantt90Out { padding-right:0px; border-right:0px none; }
+.GCGantt0In,.GCGantt10In,.GCGantt90In,.GCGantt100In,.GCGanttNullIn,
+.GCGantt0InErr,.GCGantt10InErr,.GCGantt90InErr,.GCGantt100InErr,.GCGanttNullInErr,
+.GCGantt0InCrit,.GCGantt10InCrit,.GCGantt90InCrit,.GCGantt100InCrit,.GCGanttNullInCrit { height:9px; overflow:hidden; font-size:1px; background:url(Backgrounds.gif) }
+.GCGantt0In { background:#08F; }
+.GCGantt0InErr { background:#F00; }
+.GCGantt0InCrit { background:#FA0; }
+.GCGantt10In { background:#00F; }
+.GCGantt10InErr { background:#B00; }
+.GCGantt10InCrit { background:#D80; }
+.GCGantt90In,.GCGantt90InErr,.GCGantt90InCrit { background:#0B0; }
+.GCGantt100In,.GCGantt100InErr,.GCGantt100InCrit { background:#0F0; }
+.GCGanttNullIn { background:#777; }
+.GCGanttNullInErr { background:#F00; }
+.GCGanttNullInCrit { background:#FA0; }
+.GCGanttG0In { background:#FFF; }
+.GCGanttG0InCrit { background:#FD8; }
+.GCGanttG0InErr { background:#FCC; }
+.GCGanttG10In { background:#EEE; }
+.GCGanttG10InCrit { background:#FC6; }
+.GCGanttG10InErr { background:#FAA; }
+.GCGanttG90In,.GCGanttG90InErr,.GCGanttG90InCrit { background:#666; }
+.GCGanttG100In,.GCGanttG100InErr,.GCGanttG100InCrit { background:#000; }
+.GCGanttGNullIn { background:#FFF; }
+.GCGanttGNullInErr { background:#F88; }
+.GCGanttGNullInCrit { background:#FD8; }
+.GCGanttRed0In,.GCGanttRed10In { background:white; } .GCGanttRed90In,.GCGanttRed100In,.GCGanttRedNullIn { background:red; }
+.GCGanttBlue0In,.GCGanttBlue10In { background:white; } .GCGanttBlue90In,.GCGanttBlue100In,.GCGanttBlueNullIn { background:blue; }
+.GCGanttGreen0In,.GCGanttGreen10In { background:white; } .GCGanttGreen90In,.GCGanttGreen100In,.GCGanttGreenNullIn { background:green; }
+.GCGanttFuchsia0In,.GCGanttFuchsia10In { background:white; } .GCGanttFuchsia90In,.GCGanttFuchsia100In,.GCGanttFuchsiaNullIn { background:fuchsia; }
+.GCGanttAqua0In,.GCGanttAqua10In { background:white; } .GCGanttAqua90In,.GCGanttAqua100In,.GCGanttAquaNullIn { background:aqua; }
+.GCGanttLime0In,.GCGanttLime10In { background:white; } .GCGanttLime90In,.GCGanttLime100In,.GCGanttLimeNullIn { background:lime; }
+.GCGanttMaroon0In,.GCGanttMaroon10In { background:white; } .GCGanttMaroon90In,.GCGanttMaroon100In,.GCGanttMaroonNullIn { background:maroon; }
+.GCGanttNavy0In,.GCGanttNavy10In { background:white; } .GCGanttNavy90In,.GCGanttNavy100In,.GCGanttNavyNullIn { background:navy; }
+.GCGanttOlive0In,.GCGanttOlive10In { background:white; } .GCGanttOlive90In,.GCGanttOlive100In,.GCGanttOliveNullIn { background:olive; }
+.GCGanttOrange0In,.GCGanttOrange10In { background:white; } .GCGanttOrange90In,.GCGanttOrange100In,.GCGanttOrangeNullIn { background:orange; }
+.GCGanttPurple0In,.GCGanttPurple10In { background:white; } .GCGanttPurple90In,.GCGanttPurple100In,.GCGanttPurpleNullIn { background:purple; }
+.GCGanttSilver0In,.GCGanttSilver10In { background:white; } .GCGanttSilver90In,.GCGanttSilver100In,.GCGanttSilverNullIn { background:silver; }
+.GCGanttTeal0In,.GCGanttTeal10In { background:white; } .GCGanttTeal90In,.GCGanttTeal100In,.GCGanttTealNullIn { background:teal; }
+.GCGanttYellow0In,.GCGanttYellow10In { background:white; } .GCGanttYellow90In,.GCGanttYellow100In,.GCGanttYellowNullIn { background:yellow; }
+.GCGanttBlack0In,.GCGanttBlack10In { background:white; } .GCGanttBlack90In,.GCGanttBlack100In,.GCGanttBlackNullIn { background:black; }
+.GCGanttGray0In,.GCGanttGray10In { background:white; } .GCGanttGray90In,.GCGanttGray100In,.GCGanttGrayNullIn { background:gray; }
+.GCGanttWhite0In,.GCGanttWhite10In,.GCGanttWhite90In,.GCGanttWhite100In,.GCGanttWhiteNullIn { background:white; } 
+.GCGanttWhite90In { border-right:1px solid black; margin-right:1px; } .GCGanttWhite10In { border-left:1px solid black; }
+.GCGanttOutLeft,.GCGanttOutRight { background:url(Gantt.gif) no-repeat -293px 0px; width:13px; height:16px; overflow:hidden; }
+.GCGanttOutRight { background-position: -353px 0px; }
+
+.GCGanttFlowOut { margin-top:6px; border:1px solid black; overflow:hidden; }
+.GCGanttFlowHover { margin-top:5px; border:2px solid red; overflow:hidden; }  
+.GCGanttFlowIn,.GCGanttFlowInCrit { height:3px; overflow:hidden; background:yellow; font-size:1px; }
+.GCGanttGFlowIn { background:white; }
+.GCGanttFlowInErr { background:#F55; }
+.GCGanttFlowInCrit { background:#F00; }
+
+.GCFGanttBase { height:11px; margin:1px; border:1px solid; padding:1px; padding-left:2px; padding-right:2px; overflow:hidden; }
+.GCFGanttRunEmpty,.GCFGanttRunBox,.GCFGanttRunSolid,.GCFGanttRunLeft,.GCFGanttRunRight,.GCFGanttRunFixed,
+.GCFGanttRunBound,.GCFGanttRunBoundStart,.GCFGanttRunEnd,.GCFGanttRunEndStart,.GCFGanttRunNbsp,.GCFGanttRunComplete {
+   border:1px solid black; padding:1px; padding-left:2px; padding-right:2px; overflow:hidden; font:10px Arial; white-space:nowrap; color:white;
+   }
+.GCFGanttRunGroupHover { border:2px solid brown!important; padding:0px!important; padding-left:1px!important;padding-right:1px!important; overflow:hidden; }
+.GCFGanttRunHover { border:2px solid red!important; padding:0px!important; padding-left:1px!important;padding-right:1px!important; overflow:hidden; }
+.GCFGanttRunEmpty { border:none; padding:2px; padding-left:3px; padding-right:3px; }
+.GCFGanttRunNbsp { border:none; border-top:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; padding-left:3px; padding-right:3px; }
+.GCFGanttRunBox { background:url(Backgrounds.gif) left -1500px; }
+.GCFGanttRunSolid { background:url(Backgrounds.gif) left -1539px; color:black; }
+.GCFGanttRunFixed,.GCFGanttRunLeft,.GCFGanttRunBound,.GCFGanttRunBoundStart { border-left-style:solid!important; border-left-width:3px!important; border-left-color:blue; padding-left:0px!important;}
+.GCFGanttRunFixed,.GCFGanttRunRight,.GCFGanttRunBound,.GCFGanttRunBoundStart { border-right-style:solid!important; border-right-width:3px!important; border-right-color:blue; padding-right:0px!important; }
+.GCFGanttRunFixed,.GCFGanttRunLeft,.GCFGanttRunRight { background:url(Backgrounds.gif) left -1526px; color:black; }
+.GCFGanttRunBound,.GCFGanttRunEnd,.GCFGanttRunEndStart,.GCFGanttRunBoundStart { background:url(Backgrounds.gif) left -1513px; color:black; }
+.GBFGanttRunComplete { background:#080; }
+
+.GCGanttRunGroupHover { margin:0px!important; border:2px solid brown!important; padding:0px!important; padding-left:1px!important;padding-right:1px!important; overflow:hidden; }  
+.GCGanttRunHover { margin:0px!important; border:2px solid red!important; padding:0px!important; padding-left:1px!important;padding-right:1px!important; overflow:hidden; }  
+.GCGanttRunEmptyOut,.GCGanttRunBoxOut,.GCGanttRunSolidOut,.GCGanttRunLeftOut,.GCGanttRunRightOut,.GCGanttRunFixedOut,
+.GCGanttRunBoundOut,.GCGanttRunBoundStartOut,.GCGanttRunEndOut,.GCGanttRunEndStartOut,.GCGanttRunNbspOut,.GCGanttRunCompleteOut {
+   margin-top:1px; border:1px solid black; margin-left:1px; margin-right:1px; overflow:hidden; padding-left:1px; padding-right:1px;
+   }
+.GCGanttRunEmptyIn,.GCGanttRunBoxIn,.GCGanttRunSolidIn,.GCGanttRunLeftIn,.GCGanttRunRightIn,.GCGanttRunFixedIn,
+.GCGanttRunBoundIn,.GCGanttRunBoundStartIn,.GCGanttRunEndIn,.GCGanttRunEndStartIn,.GCGanttRunNbspIn,.GCGanttRunCompleteIn {
+   height:13px; overflow:hidden; font:10px Arial; padding-left:1px; width:100%!IE; white-space:nowrap; color:white;
+   }
+.GCGanttRunEmptyOut { border:none; }
+.GCGanttRunEmptyIn { }
+.GCGanttRunNbspOut { border:none; border-top:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; margin-left:0px; margin-right:0px; }
+.GCGanttRunNbspIn { }
+.GCGanttRunBoxOut { }
+.GCGanttRunBoxIn { background:url(Backgrounds.gif) left -1500px; }
+.GCGanttRunSolidOut { }
+.GCGanttRunSolidIn { background:url(Backgrounds.gif) left -1539px; color:black; }
+.GCGanttRunFixedOut,.GCGanttRunLeftOut,.GCGanttRunBoundOut,.GCGanttRunBoundStartOut { border-left-style:solid!important; border-left-width:3px!important; margin-left:0px;}
+.GCGanttRunFixedOut,.GCGanttRunRightOut,.GCGanttRunBoundOut,.GCGanttRunBoundStartOut { border-right-style:solid!important; border-right-width:3px!important; }
+.GCGanttRunFixedIn,.GCGanttRunLeftIn,.GCGanttRunRightIn { background:url(Backgrounds.gif) left -1526px; color:black; }
+.GCGanttRunBoundOut,.GCGanttRunBoundStartOut,.GCGanttRunEndOut,.GCGanttRunEndStartOut { }
+.GCGanttRunBoundIn,.GCGanttRunBoundStartIn,.GCGanttRunEndIn,.GCGanttRunEndStartIn { background:url(Backgrounds.gif) left -1513px; color:black; }
+.GCGanttRunCompleteIn { background:#080; }
+.GCGanttRunRedOut,.GCGanttRunBlueOut,.GCGanttRunGreenOut,.GCGanttRunFuchsiaOut,.GCGanttRunAquaOut,.GCGanttRunLimeOut,.GCGanttRunMaroonOut,
+.GCGanttRunNavyOut,.GCGanttRunOliveOut,.GCGanttRunOrangeOut,.GCGanttRunPurpleOut,.GCGanttRunSilverOut,.GCGanttRunTealOut,.GCGanttRunYellowOut,
+.GCGanttRunBlackOut,.GCGanttRunGrayOut,.GCGanttRunWhiteOut { padding:0px; }
+.GCGanttRunRedIn,.GCFGanttRunRed { background:red; }
+.GCGanttRunBlueIn,.GCFGanttRunBlue { background:blue; color:white; }
+.GCGanttRunGreenIn,.GCFGanttRunGreen { background:green; color:white; }
+.GCGanttRunFuchsiaIn,.GCFGanttRunFuchsia { background:fuchsia; }
+.GCGanttRunAquaIn,.GCFGanttRunAqua { background:aqua; }
+.GCGanttRunLimeIn,.GCFGanttRunLime { background:lime; }
+.GCGanttRunMaroonIn,.GCFGanttRunMaroon { background:maroon; color:white; }
+.GCGanttRunNavyIn,.GCFGanttRunNavy { background:navy; color:white; }
+.GCGanttRunOliveIn,.GCFGanttRunOlive { background:olive; color:white; }
+.GCGanttRunOrangeIn,.GCFGanttRunOrange { background:orange; }
+.GCGanttRunPurpleIn,.GCFGanttRunPurple { background:purple; color:white; }
+.GCGanttRunSilverIn,.GCFGanttRunSilver { background:silver; }
+.GCGanttRunTealIn,.GCFGanttRunTeal { background:teal; color:white; }
+.GCGanttRunYellowIn,.GCFGanttRunYellow { background:yellow; }
+.GCGanttRunBlackIn,.GCFGanttRunBlack { background:black; color:white; }
+.GCGanttRunGrayIn,.GCFGanttRunGray { background:gray; color:white; }
+.GCGanttRunWhiteIn,.GCFGanttRunWhite { background:white; }
+.GCGanttRunErrorIn,.GCFGanttRunError { background:url(Backgrounds.gif) left -1552px; opacity:0.7; filter:alpha(opacity=70); }
+.GCFGanttRunErrorIE { background:url(Backgrounds.gif) left -1552px; filter:alpha(opacity=70); }
+.GCGanttRunCritIn,.GCFGanttRunCrit { background:#D80; }
+.GCGanttRunErrIn,.GCFGanttRunErr { background:#F00; }
+.GCGanttRunJoinLeft,.GCFGanttRunJoinLeft { border-left-style:dotted; border-left-color:red; }
+.GCGanttRunJoinRight,.GCFGanttRunJoinRight { border-right-style:dotted; border-right-color:red; }
+.GCGanttRunMoveOut { border:2px solid #DDD; margin:0px; padding:0px; }
+.GCGanttRunMoveIn { background:#F0F0F0; color:black; }
+.GCGanttRunRemoveOut { border:2px solid #DDD; margin:0px; padding:0px; }
+.GCGanttRunRemoveIn { background:red; color:black; }
+.GCGanttRunCopyOut { border:2px solid blue; margin:0px; padding:0px; }
+.GCGanttRunCopyIn { }
+.GCGanttRunUnknownIn,.GCFGanttRunUnknown { background:black; color:White; font:bold 12px verdana;}
+
+.GCFGanttRunMove { border:2px solid #DDD; padding:0px; padding-left:1px; padding-right:1px; background:#F0F0F0; color:black; }
+.GCFGanttRunRemove { border:2px solid #DDD; padding:0px; padding-left:1px; padding-right:1px; background:red; color:black; }
+.GCFGanttRunCopy { border:2px solid blue; padding:0px; padding-left:1px; padding-right:1px; }
+
+.GCGanttMilestone,.GCGanttMilestone0,.GCGanttMilestone100,
+.GCGanttMilestoneCrit,.GCGanttMilestone0Crit,.GCGanttMilestone100Crit,
+.GCGanttMilestoneErr,.GCGanttMilestone0Err,.GCGanttMilestone100Err { 
+   background:url(Gantt.gif) no-repeat; width:18px; height:17px; overflow:hidden; 
+   }
+.GCGanttMilestone { background-position: -900px 0px; }
+.GCGanttMilestoneHover { background-position: -950px 0px; }
+.GCGanttMilestone0 { background-position: -1100px 0px; }
+.GCGanttMilestone0Hover { background-position: -1150px 0px; }
+.GCGanttMilestone100,.GCGanttMilestone100Crit,.GCGanttMilestone100Err { background-position: -1800px 0px; }
+.GCGanttMilestone100Hover,.GCGanttMilestone100CritHover,.GCGanttMilestone100CritHover { background-position: -1850px 0px; }
+.GCGanttMilestoneCrit,.GCGanttMilestone0Crit { background-position:-1700px 0px; }
+.GCGanttMilestoneCritHover,.GCGanttMilestone0CritHover { background-position: -1750px 0px; }
+.GCGanttMilestoneErr,.GCGanttMilestone0Err { background-position:-1000px 0px; }
+.GCGanttMilestoneErrHover,.GCGanttMilestone0ErrHover { background-position: -1050px 0px; }
+.GCGanttGMilestone,.GCGanttGMilestone100,.GCGanttGMilestone100Crit,.GCGanttGMilestone100Err { background-position: 0px 0px; }
+.GCGanttGMilestoneHover,.GCGanttGMilestone100Hover,.GCGanttGMilestone100CritHover,.GCGanttGMilestone100ErrHover { background-position: -50px 0px; }
+.GCGanttGMilestone0 { background-position: -1600px 0px; }
+.GCGanttGMilestone0Hover { background-position: -1650px 0px; }
+.GCGanttGMilestoneCrit,.GCGanttGMilestone0Crit { background-position:-1400px 0px; }
+.GCGanttGMilestoneCritHover,.GCGanttGMilestone0CritHover { background-position: -1450px 0px; }
+.GCGanttGMilestoneErr,.GCGanttGMilestone0Err { background-position:-1300px 0px; }
+.GCGanttGMilestoneErrHover,.GCGanttGMilestoneErr0Hover { background-position: -1350px 0px; }
+
+.GCGanttFlag { background:url(Gantt.gif) no-repeat -100px 0px; background-color:transparent!important; width:16px; height:15px; overflow:hidden; }
+.GCGanttFlagCustom { background-position:0px 0px!important; background-repeat:no-repeat; width:16px; height:15px; overflow:hidden; }
+.GCGanttFlagHover { background-position:-150px 0px; background-color:red; }
+.GCGanttFlagMenu { padding-right:16px; padding-bottom:256px; font:15px Arial; background-repeat:no-repeat; }
+
+.GCGanttPoint1,.GCGanttPoint2,.GCGanttPoint3,.GCGanttPoint4,.GCGanttPoint5,.GCGanttPoint6,.GCGanttPoint7,.GCGanttPoint8 {
+   background:url(Gantt.gif) no-repeat; width:17px; height:17px; overflow:hidden; 
+   }
+.GCGanttPointCustom { background-position:0px 0px!important; background-repeat:no-repeat; width:17px; height:17px; overflow:hidden; }  
+.GCGanttPointCustomHover { background-color:red; }
+.GCGanttPoint1 { background-position:-900px 0px; }
+.GCGanttPoint1Hover { background-position: -950px 0px; }
+.GCGanttPoint2 { background-position:-1000px 0px; }
+.GCGanttPoint2Hover { background-position:-1050px 0px; }
+.GCGanttPoint3 { background-position:-1100px 0px; }
+.GCGanttPoint3Hover { background-position:-1150px 0px; }
+.GCGanttPoint4 { background-position:-1200px 0px; }
+.GCGanttPoint4Hover { background-position:-1250px 0px; }
+.GCGanttPoint5 { background-position:-1300px 0px; }
+.GCGanttPoint5Hover { background-position:-1350px 0px; }
+.GCGanttPoint6 { background-position:-1400px 0px; }
+.GCGanttPoint6Hover { background-position:-1450px 0px; }
+.GCGanttPoint7 { background-position:-1500px 0px; }
+.GCGanttPoint7Hover { background-position:-1550px 0px; }
+.GCGanttPoint8 { background-position:-1600px 0px; }
+.GCGanttPoint8Hover { background-position:-1650px 0px; }
+
+.GCGanttMark,.GCGanttMark1,.GCGanttMark2,.GCGanttMark3,.GCGanttMark4,.GCGanttMark5 { height:500px; overflow:hidden; background:#880; }
+.GCGanttMark1 { background:red; }
+.GCGanttMark2 { background:green; }
+.GCGanttMark3 { background:yellow; }
+.GCGanttMark4 { background:black; }
+.GCGanttMark5 { background:silver; }
+.GCGanttMark6 { background:#F8F; margin-top:15px!important; height:2px!important; margin-bottom:-17px!important; }
+.GCGanttMark7 { background:#0F0; margin-top:13px!important; height:2px!important; margin-bottom:-15px!important; }
+.GCGanttMark8 { background:silver; margin-top:13px!important; height:2px!important; margin-bottom:-15px!important; }
+.GCGanttMark9 { background:#F8F; margin-top:4px!important; height:2px!important; margin-bottom:-6px!important; }
+.GCGanttMark10 { background:#0F0; margin-top:2px!important; height:2px!important; margin-bottom:-4px!important; }
+.GCGanttMark11 { background:silver; margin-top:2px!important; height:2px!important; margin-bottom:-4px!important; }
+.GCGanttMark12 { background:#F8F; margin-top:8px!important; height:1px!important; margin-bottom:-9px!important; }
+.GCGanttMark13 { background:#0F0; margin-top:8px!important; height:1px!important; margin-bottom:-9px!important; }
+.GCGanttMark14 { background:silver; margin-top:8px!important; height:1px!important; margin-bottom:-9px!important; }
+
+.GCGanttResource { font: 11px "Courier New", Courier; margin-top:1px; }
+.GCGanttResourceChar { width:6px; }
+
+.GCGanttChart { height:500px; background:#CCF; border:1px solid #88F; border-bottom:0px none; }
+.GCGanttChartErr { height:500px; background:#F99; border:1px solid #F00; border-bottom:0px none; }
+.GCGanttChartRes { height:500px; background:#EE5; border:1px solid #CC0; border-bottom:0px none; }
+.GCGanttChartText { color:black; text-align:center; font:bold 12px Arial; overflow:visible!important; }
+.GCGanttChartTextErr { color:red; text-align:center; font:bold 12px Arial; overflow:visible!important; }
+.GCGanttChartTextRes { color:#AA0; text-align:center; font:12px Arial; overflow:visible!important; }
+
+.GCGanttDepFirst { height:500px; overflow:hidden; }
+.GCGanttDepVert,.GCGanttDepVertBottom,.GCGanttDepVertTop,.GCGanttDepVertBottom2,.GCGanttDepVertTop2,.GCGanttDepVertBottom3 {
+   border-left:1px solid #DDF; border-right:1px solid #BBF; background:blue; width:1px; overflow:hidden;
+   }
+.GCGanttDepVert { margin-top:-500px; height:500px; }
+.GCGanttDepVertTop { margin-top:-500px; height:8px; margin-bottom:492px; }
+.GCGanttDepVertTop2 { margin-top:-499px; height:7px; margin-bottom:492px; }
+.GCGanttDepVertBottom { margin-top:-491px; height:491px; }
+.GCGanttDepVertBottom2 { margin-top:-491px; height:8px; margin-bottom:483px; }
+.GCGanttDepVertBottom3 { margin-top:-482px; height:482px; }
+.GCGanttDepHorzIn { border-top:1px solid #DDF; border-bottom:1px solid #BBF; background:blue; margin-top:7px; overflow:hidden; }
+.GCGanttDepHorzInLag { border-top:1px dotted blue; margin-top:8px; overflow:hidden; }
+.GCGanttDepHorzTop { border-bottom:1px solid #BBF; background:blue; overflow:hidden; }
+.GCGanttDepHorzBottom { border-top:1px solid #DDF; background:blue; margin-top:16px; overflow:hidden; }
+.GCGanttDepHorzOut { margin-top:-500px; height:18px; margin-bottom:482px; overflow:hidden; font-size:1px; line-height:1px; }
+.GCGanttDepErr { border-top-color:#FDD; border-bottom-color:#FBB; border-left-color:#FDD; border-right-color:#FBB; background:red; }
+.GCGanttDepLagErr { border-color:red; }
+.GCGanttDepIcon { margin-top:-500px; height:500px; overflow:hidden; }
+.GCGanttDepArrowLeft,.GCGanttDepArrowRight,.GCGanttDepArrowErrLeft,.GCGanttDepArrowErrRight,
+.GCGanttDepArrowLeftRtl,.GCGanttDepArrowRightRtl,.GCGanttDepArrowErrLeftRtl,.GCGanttDepArrowErrRightRtl {
+   height:500px; background:url(Gantt.gif) no-repeat; overflow:hidden; 
+   }
+.GCGanttDepArrowLeft { background-position:-200px 0px; width:12px; }
+.GCGanttDepArrowRight { background-position:-250px 0px; width:12px; }
+.GCGanttDepArrowErrLeft { background-position:-400px 0px; width:12px; }
+.GCGanttDepArrowErrRight { background-position:-450px 0px; width:12px; }
+.GCGanttDepArrowLeftRtl { background-position:-250px 0px; width:12px; }
+.GCGanttDepArrowRightRtl { background-position:-201px 0px; width:12px; }
+.GCGanttDepArrowErrLeftRtl { background-position:-450px 0px; width:12px; }
+.GCGanttDepArrowErrRightRtl { background-position:-401px 0px; width:12px; }
+
+.GCGanttDepStart { width:4px; overflow:hidden; }
+.GCGanttDepEnd { width:10px; overflow:hidden; }
+
+.GCGanttMinStart,.GCGanttMaxStart,.GCGanttMinEnd,.GCGanttMaxEnd { background:url(Gantt.gif) no-repeat; width:7px; height:17px; overflow:hidden; }
+.GCGanttMinStart { background-position:-500px 0px; }
+.GCGanttMaxStart { background-position:-550px 0px; }
+.GCGanttMinEnd { background-position:-600px 0px; }
+.GCGanttMaxEnd { background-position:-650px 0px; }
+.GCGanttMinStartHover { background-position:-700px 0px; }
+.GCGanttMaxStartHover { background-position:-750px 0px; }
+.GCGanttMinEndHover { background-position:-800px 0px; }
+.GCGanttMaxEndHover { background-position:-850px 0px; }
+
+.GCGanttBack { background:white; }
+.GCGanttBack0,.GCGanttBack1,.GCGanttBack2,.GCGanttBack3,.GCGanttBack4,.GCGanttBack5 {
+   height:500px; overflow:hidden; margin-left:auto; margin-right:auto;
+   }
+.GCGanttBack0 { background:#FFF; }
+.GCGanttBack1 { background:#E8E8E8; }
+.GCGanttBack2 { background:#DDD; }
+.GCGanttBack3 { background:#BBB; }
+.GCGanttBack4 { background:#C72; }
+.GCGanttBack5 { background:#27C; }
+
+.GCGanttExclude,.GCGanttExcludeHidden { height:500px; overflow:hidden; background:#F0F0E0; margin-left:auto; margin-right:auto; }
+.GCGanttExcludeHidden { }
+
+.GCGanttBase,.GCGanttBaseAuto,.GCGanttFinish,.GCGanttFinishAuto { height:500px; overflow:hidden; border-left:2px solid #FF9E0C; width:2px; margin-left:auto; margin-right:auto; }
+.GCGanttFinishAuto,.GCGanttBaseAuto { border-left:1px solid #FF9E0C; }
+
+
+.GCGanttHeader { margin-left:-2px; margin-right:-4px; }
+.GCGanttHeader1,.GCGanttHeader2,.GCGanttHeader3,.GCGanttHeader4,.GCGanttHeader5 {
+   font:12px "Trebuchet MS", Tahoma, Arial; color:#222;
+   border-right:1px solid white; text-align:center; padding-left:1px; padding-right:1px;
+   }
+
+/* ------------- Tree Img with lines ------------- */
+
+.GC000,.GC010,.GC001,.GC011,.GC100,.GC110,.GC101,.GC111, 
+.GC000T,.GC010T,.GC001T,.GC011T,.GC100T,.GC110T,.GC101T,.GC111T,
+.GC00,.GC01,.GC10,.GC11,
+.GC00T,.GC01T,.GC10T,.GC11T,
+.GC0T,.GC1T,.GC0TL,.GC1TL,.GC0C,.GC1C,.GC0CL,.GC1CL,.GC0E,.GC1E,.GC0EL,.GC1EL,
+.GC0,.GC1,
+.GCT,.GCTL,.GCC,.GCCL,.GCE,.GCEL,.GCD0,.GCD1,.GCD2,.GCD3,.GCD4,.GCD0L,.GCD1L,.GCD2L,.GCD3L,.GCD4L {   
+   font-size:10px; background-image:url(Tree.gif); vertical-align:top;
+   }
+
+u.GC000,u.GC010,u.GC001,u.GC011,u.GC100,u.GC110,u.GC101,u.GC111 { padding-left:63px; }
+u.GC000T,u.GC010T,u.GC001T,u.GC011T,u.GC100T,u.GC110T,u.GC101T,u.GC111T { padding-left:89px; }
+u.GC00,u.GC01,u.GC10,u.GC11 { padding-left:42px; }   
+u.GC00T,u.GC01T,u.GC10T,u.GC11T { padding-left:68px; }   
+u.GC0T,u.GC1T,u.GC0TL,u.GC1TL,u.GC0C,u.GC1C,u.GC0CL,u.GC1CL,u.GC0E,u.GC1E,u.GC0EL,u.GC1EL { padding-left:47px; }   
+u.GC0,u.GC1 { padding-left:21px; }
+u.GCT,u.GCTL,u.GCC,u.GCCL,u.GCE,u.GCEL,u.GCD0,u.GCD1,u.GCD2,u.GCD3,u.GCD4,u.GCD0L,u.GCD1L,u.GCD2L,u.GCD3L,u.GCD4L { padding-left:26px; }   
+
+.GC000,.GC000T { background-position:0px 0px;  }
+.GC010,.GC010T { background-position:-128px 0px; }
+.GC001,.GC001T { background-position:-256px 0px; }
+.GC011,.GC011T { background-position:-384px 0px; }
+.GC100,.GC100T { background-position:-512px 0px; }
+.GC110,.GC110T { background-position:-640px 0px; }
+.GC101,.GC101T { background-position:-768px 0px; }
+.GC111,.GC111T { background-position:-896px 0px;  }
+
+.GC00,.GC00T { background-position:-21px 0px; }
+.GC10,.GC10T { background-position:-149px 0px; }
+.GC01,.GC01T { background-position:-277px 0px; }
+.GC11,.GC11T { background-position:-405px 0px; }
+
+.GC0,.GC0T { background-position:-42px 0px; }
+.GC1,.GC1T { background-position:-298px 0px; }
+
+.GCT { background-position:-63px 0px; }
+
+.GC0TL { background-position:-1024px 0px; }
+.GC1TL { background-position:-1088px 0px; }
+.GC0C { background-position:-1152px 0px; }
+.GC1C { background-position:-1216px 0px; }
+.GC0CL { background-position:-1280px 0px; }
+.GC1CL { background-position:-1344px 0px; }
+.GC0E { background-position:-1408px 0px; }
+.GC1E { background-position:-1472px 0px; }
+.GC0EL { background-position:-1536px 0px; }
+.GC1EL { background-position:-1600px 0px; }
+
+.GCTL { background-position:-1045px 0px; }
+.GCC { background-position:-1173px 0px; }
+.GCCL { background-position:-1301px 0px; }
+.GCE { background-position:-1429px 0px; }
+.GCEL { background-position:-1557px 0px; }
+
+.GCD0 { background-position:-1664px 0px; }
+.GCD1 { background-position:-1696px 0px; }
+.GCD2 { background-position:-1728px 0px; }
+.GCD3 { background-position:-1760px 0px; }
+.GCD0L { background-position:-1792px 0px; }
+.GCD1L { background-position:-1824px 0px; }
+.GCD2L { background-position:-1856px 0px; }
+.GCD3L { background-position:-1888px 0px; }
+.GCD4 { background-position:-1920px 0px; }
+.GCD4L { background-position:-1952px 0px; }
+
+/* ------------- Tree Img without lines ------------- */
+
+.GCND0,.GCND1,.GCND2,.GCND3,.GCND4,.GCNC,.GCNE,.GCNCR,.GCNER { font-size:10px; background-image:url(TreeN.gif); background-repeat:no-repeat; vertical-align:top; }
+u.GCND0,u.GCND1,u.GCND2,u.GCND3,u.GCND4,u.GCNC,u.GCNE,u.GCNCR,u.GCNER { padding-left:20px; }
+.GCND0 { background-position: -6px 0px; }
+.GCND1 { background-position: -56px 0px; }
+.GCND2 { background-position: -106px 0px; }
+.GCND3 { background-position: -156px 0px; }
+.GCND4 { background-position: -206px 0px; }
+.GCNC { background-position:right -50px;}
+.GCNE { background-position:right -2000px;}
+.GCNCR { background-position:-255px -50px;}
+.GCNER { background-position:-255px -2000px;}
+u.GCNL { padding-left:21px; }
+
+/* ------------- Panel img ------------- */
+
+.GCPanelImage,.GCPanelMove,.GCPanelMoveOff,.GCPanelSelect,.GCPanelSelectOn,.GCPanelSelectOff,.GCPanelDelete,.GCPanelDeleteOff,.GCPanelCopy,.GCPanelCopyOff,.GCPanelEmpty {
+   font-size:10px; padding-left:13px; background-image:url(Panel.gif); background-repeat:no-repeat;
+   }
+.GCPanelEmpty { background:none; }   
+.GCPanelMove { background-position: 0px 0px; }
+.GCPanelMoveOff { background-position: -50px 0px; }
+.GCPanelSelect { background-position: -100px 0px; }
+.GCPanelSelectOn { background-position: -150px 0px; }
+.GCPanelSelectOff { background-position: -200px 0px; }
+.GCPanelDelete { background-position: -250px 0px; }
+.GCPanelDeleteOff { background-position: -300px 0px; }
+.GCPanelCopy { background-position: -350px 0px; }
+.GCPanelCopyOff { background-position: -400px 0px; }
+.GCPanelButton { font:10px "Microsoft Sans Serif",Verdana,Arial; padding:0px; height:17px; width:19px; margin:0px; cursor:pointer; _cursor:hand; }
+
+/* ------------- Fast Panel img ------------- */
+
+.GCP1111,.GCP1211,.GCP1011,.GCP1101,.GCP1201,.GCP1001,.GCP1110,.GCP1210,.GCP1010,.GCP1100,.GCP1200,.GCP1000,
+.GCP0111,.GCP0211,.GCP0011,.GCP0101,.GCP0201,.GCP0001,.GCP0110,.GCP0210,.GCP0010,.GCP0100,.GCP0200,.GCP0000, 
+.GCP111x,.GCP121x,.GCP101x,.GCP110x,.GCP120x,.GCP100x,.GCP011x,.GCP021x,.GCP001x,.GCP010x,.GCP020x,.GCP000x,
+.GCP11xx,.GCP12xx,.GCP10xx,.GCP01xx,.GCP02xx,.GCP00xx,
+.GCPx111,.GCPx211,.GCPx011,.GCPx101,.GCPx201,.GCPx001,.GCPx110,.GCPx210,.GCPx010,.GCPx100,.GCPx200,.GCPx000,
+.GCPx11x,.GCPx21x,.GCPx01x,.GCPx10x,.GCPx20x,.GCPx00x,
+.GCPxx11,.GCPxx10,.GCPxx01,.GCPxx00, 
+.GCPxxx1,.GCPxxx0,.GCPxx1x,.GCPxx0x,.GCPx2xx,.GCPx1xx,.GCPx0xx,.GCP1xxx,.GCP0xxx {
+   font-size:10px; background-image:url(FastPanel1.gif); background-repeat:no-repeat;
+   }
+.GCP1111,.GCP111x,.GCP11xx,.GCP1xxx { background-position:0px 0px; }
+.GCP1211,.GCP121x,.GCP12xx { background-position:-80px 0px; }
+.GCP1011,.GCP101x,.GCP10xx { background-position:-160px 0px; }
+.GCP1101,.GCP110x { background-position:-240px 0px; }
+.GCP1201,.GCP120x { background-position:-320px 0px; }
+.GCP1001,.GCP100x { background-position:-400px 0px; }
+.GCP1110 { background-position:-480px 0px; }
+.GCP1210 { background-position:-560px 0px; }
+.GCP1010 { background-position:-640px 0px; }
+.GCP1100 { background-position:-720px 0px; }
+.GCP1200 { background-position:-800px 0px; }
+.GCP1000 { background-position:-880px 0px; }
+.GCP0111,.GCP011x,.GCP01xx,.GCP0xxx { background-position:-960px 0px; }
+.GCP0211,.GCP021x,.GCP02xx { background-position:-1040px 0px; }
+.GCP0011,.GCP001x,.GCP00xx { background-position:-1120px 0px; }
+.GCP0101,.GCP010x { background-position:-1200px 0px; }
+.GCP0201,.GCP020x { background-position:-1280px 0px; }
+.GCP0001,.GCP000x { background-position:-1360px 0px; }
+.GCP0110 { background-position:-1440px 0px; }
+.GCP0210 { background-position:-1520px 0px; }
+.GCP0010 { background-position:-1600px 0px; }
+.GCP0100 { background-position:-1680px 0px; }
+.GCP0200 { background-position:-1760px 0px; }
+.GCP0000 { background-position:-1840px 0px; }
+
+.GCPx111,.GCPx11x,.GCPx1xx { background-position:-13px 0px; }
+.GCPx211,.GCPx21x,.GCPx2xx { background-position:-93px 0px; }
+.GCPx011,.GCPx01x,.GCPx0xx { background-position:-173px 0px; }
+.GCPx101,.GCPx10x { background-position:-253px 0px; }
+.GCPx201,.GCPx20x { background-position:-333px 0px; }
+.GCPx001,.GCPx00x { background-position:-413px 0px; }
+.GCPx110 { background-position:-493px 0px; }
+.GCPx210 { background-position:-573px 0px; }
+.GCPx010 { background-position:-653px 0px; }
+.GCPx100 { background-position:-733px 0px; }
+.GCPx200 { background-position:-813px 0px; }
+.GCPx000 { background-position:-893px 0px; }
+
+.GCPxx11,.GCPxx1x { background-position:-26px 0px; }
+.GCPxx01,.GCPxx0x { background-position:-266px 0px; }
+.GCPxx10{ background-position:-506px 0px; }
+.GCPxx00 { background-position:-746px 0px; }
+
+.GCPxxx1 { background-position:-39px 0px; }
+.GCPxxx0 { background-position:-519px 0px; }
+
+.GCP11x1,.GCP12x1,.GCP10x1,.GCP11x0,.GCP12x0,.GCP10x0,.GCP01x1,.GCP02x1,.GCP00x1,.GCP01x0,.GCP02x0,.GCP00x0,
+.GCPx1x1,.GCPx2x1,.GCPx0x1,.GCPx1x0,.GCPx2x0,.GCPx0x0,
+.GCP1x11,.GCP1x01,.GCP1x10,.GCP1x00,.GCP0x11,.GCP0x01,.GCP0x10,.GCP0x00,
+.GCP1x1x,.GCP1x0x,.GCP0x1x,.GCP0x0x,
+.GCP1xx1,.GCP1xx0,.GCP0xx1,.GCP0xx0 {
+   font-size:11px; background-image:url(FastPanel2.gif); background-repeat:no-repeat;
+   }
+.GCP11x1 { background-position:0px 0px; }
+.GCP12x1 { background-position:-80px 0px; }
+.GCP10x1 { background-position:-160px 0px; }
+.GCP11x0 { background-position:-240px 0px; }
+.GCP12x0 { background-position:-320px 0px; }
+.GCP10x0 { background-position:-400px 0px; }
+.GCP01x1 { background-position:-480px 0px; }
+.GCP02x1 { background-position:-560px 0px; }
+.GCP00x1 { background-position:-640px 0px; }
+.GCP01x0 { background-position:-720px 0px; }
+.GCP02x0 { background-position:-800px 0px; }
+.GCP00x0 { background-position:-880px 0px; }
+
+.GCPx1x1 { background-position:-13px 0px; }
+.GCPx2x1 { background-position:-93px 0px; }
+.GCPx0x1 { background-position:-173px 0px; }
+.GCPx1x0 { background-position:-253px 0px; }
+.GCPx2x0 { background-position:-333px 0px; }
+.GCPx0x0 { background-position:-413px 0px; }
+
+.GCP1x11,.GCP1x1x { background-position:-960px 0px; }
+.GCP1x01,.GCP1x0x { background-position:-1040px 0px; }
+.GCP1x10 { background-position:-1120px 0px; }
+.GCP1x00 { background-position:-1200px 0px; }
+.GCP0x11,.GCP0x1x { background-position:-1280px 0px; }
+.GCP0x01,.GCP0x0x { background-position:-1360px 0px; }
+.GCP0x10 { background-position:-1440px 0px; }
+.GCP0x00 { background-position:-1520px 0px; }
+
+.GCP1xx1 { background-position:-1600px 0px; }
+.GCP1xx0 { background-position:-1680px 0px; }
+.GCP0xx1 { background-position:-1760px 0px; }
+.GCP0xx0 { background-position:-1840px 0px; }
+
+.GCPSpace1 { padding-left:12px; }
+.GCPSpace2 { padding-left:25px; }
+.GCPSpace3 { padding-left:38px; }
+.GCPSpace4 { padding-left:51px; }
+u.GCPSpace1 { padding-left:13px; background-position-x:-1px; }
+u.GCPSpace2 { padding-left:23px; background-position-x:5px; }
+u.GCPSpace3 { padding-left:36px; background-position-x:11px; }
+u.GCPSpace4 { padding-left:49px; background-position-x:18px; }
+
+/* ------------- Button type ------------- */   
+
+.GCTabHtml,.GCTabHtml1 {
+	font:bold 11px "Microsoft Sans Serif",Verdana,Arial; white-space:nowrap;
+	padding-left:5px; padding-right:5px; text-align:center; border-left:none;
+   }
+.GCTabHtml1 { background:url(Backgrounds.gif) 0 -750px repeat-x; color:white;  }
+.GCTabSep,.GCTabSepLeft,.GCTabSepRight { padding-left:2px; background:white!important; cursor:default!important; border:none; border-right:1px solid #e0e0ff; }
+.GCTabSepRight,.GCTabSepLeft { padding-left:5px; }
+.GCTabSepLast { padding-left:1px; background:white!important; cursor:default!important; border:none; }
+.GCTabSepFirst { padding-left:1px; background:white!important; cursor:default!important; border:none; border-right:1px solid #e0e0ff; }
+
+.GCToolHtml,.GCToolHtml1 { font:11px "Microsoft Sans Serif",Verdana,Arial; padding-left:3px; padding-right:3px; border-right:1px solid #d0d0c0; }
+.GCToolHtml1 { font-weight:bold; color:blue; }
+.GCToolButton { text-align:center; padding-left:1px; padding-right:1px; }
+.GCToolButtonButton,.GCToolButtonButton1,.GCToolSpaceButton,.GCToolSpaceButton1 {
+ 	font:11px "Microsoft Sans Serif",Verdana,Arial; height:18px;
+ 	padding-left:0px; padding-right:0px; cursor:pointer; _cursor:hand; margin-top:-1px; margin-bottom:-1px;
+ 	border:none; background:transparent;
+   }
+.GCToolButtonButton1,.GCToolSpaceButton1 { color:blue; font-weight:bold; }
+
+.GCIconHtml { text-align:left; }
+.GCDisabledButton { opacity:0.3; filter:alpha(opacity=30); }
+
+.GCToolHeader { border:none!important; padding-bottom:100px; }
+.GCToolMenuHeader { }    
+.GCToolMenuItem { background:#e8e9ea!important; }
+.GCToolMenuOuter { background:#e8e9ea!important; }
+.GCToolMenuBody { background:#e8e9ea!important; border:1px solid #e0e0ff!important;}
+
+/* ------------- Special Toolbar buttons ------------- */   
+
+.GCResizeGrid,.GCResizeGridRtl,.GCToolSave,.GCToolReload,.GCToolRepaint,.GCToolRepaint1,.GCToolAdd,.GCToolAddChild,.GCToolJoin,.GCToolSplit,.GCToolSort1,.GCToolSort,.GCToolCalc1,.GCToolCalc,
+.GCToolExpandAll,.GCToolCollapseAll,.GCToolColumns,.GCToolCfg,.GCToolHelp,.GCToolPrint,.GCToolExport,.GCToolExportPDF,.GCToolDebug,.GCToolOutdent,.GCToolIndent,
+.GCToolUndo,.GCToolUndo1,.GCToolRedo,.GCToolRedo1,.GCToolCorrect,.GCToolCorrect1,.GCToolZoomIn,.GCToolZoomIn1,.GCToolZoomOut,.GCToolZoomOut1,.GCToolZoomFit,
+.GCToolPagerFirst,.GCToolPagerFirst1,.GCToolPagerPrev,.GCToolPagerPrev1,.GCToolPagerNext,.GCToolPagerNext1,.GCToolPagerLast,.GCToolPagerLast1 {
+   font-size:11px; background-image:url(Toolbar.gif); background-repeat:no-repeat;
+   padding-right:2px; border-right:1px solid #d0d0c0; padding-left:18px;
+   }
+.GCToolPagerFirst,.GCToolPagerFirst1,.GCToolPagerPrev,.GCToolPagerPrev1,.GCToolPagerNext,.GCToolPagerNext1,.GCToolPagerLast,.GCToolPagerLast1 {
+   border:0px none;
+   }   
+.GCToolSave { background-position:0px 0px; }
+.GCToolReload { background-position:-50px 0px; }
+.GCToolRepaint { background-position:-100px 0px; }
+.GCToolAdd { background-position:-150px 0px; }
+.GCToolAddChild { background-position:-200px 0px; }
+.GCToolSort1 { background-position:-250px 0px; }
+.GCToolSort { background-position:-300px 0px; }
+.GCToolCalc1 { background-position:-350px 0px; }
+.GCToolCalc { background-position:-400px 0px; }
+.GCToolExpandAll { background-position:-450px 0px; }
+.GCToolCollapseAll { background-position:-500px 0px; }
+.GCToolCfg { background-position:-550px 0px; }
+.GCToolHelp { background-position:-600px 0px; }
+.GCToolColumns { background-position:-650px 0px; }
+.GCToolPrint { background-position:-750px 0px; }
+.GCToolExport { background-position:-800px 0px; }
+.GCToolPagerFirst1 { background-position:-850px 0px; }
+.GCToolPagerFirst { background-position:-900px 0px; }
+.GCToolPagerPrev1 { background-position:-950px 0px; }
+.GCToolPagerPrev { background-position:-1000px 0px; }
+.GCToolPagerNext1 { background-position:-1050px 0px; }
+.GCToolPagerNext { background-position:-1100px 0px; }
+.GCToolPagerLast1 { background-position:-1150px 0px; }
+.GCToolPagerLast { background-position:-1200px 0px; }
+.GCToolDebug { background-position:-1250px 0px; }
+.GCToolUndo1 { background-position:-1350px 0px; }
+.GCToolUndo { background-position:-1400px 0px; }
+.GCToolRedo1 { background-position:-1450px 0px; }
+.GCToolRedo { background-position:-1500px 0px; }
+.GCToolCorrect1 { background-position:-1550px 0px; }
+.GCToolCorrect { background-position:-1600px 0px; }
+.GCToolZoomIn1 { background-position:-1800px 0px; }
+.GCToolZoomIn { background-position:-1850px 0px; }
+.GCToolZoomOut1 { background-position:-1700px 0px; }
+.GCToolZoomOut { background-position:-1750px 0px; }
+.GCToolZoomFit { background-position:-1900px 0px; }
+.GCToolExportPDF { background-position:-1950px 0px; }
+.GCToolJoin { background-position:-2000px 0px; }
+.GCToolSplit { background-position:-2050px 0px; }
+.GCToolRepaint1 { background-position:-2100px 0px; }
+.GCToolOutdent { background-position:-2150px 0px; }
+.GCToolIndent { background-position:-2200px 0px; }
+
+
+.GCResizeGrid  {
+   background-position:-703px -1px; border:none;
+   margin-left:auto; margin-right:0px; margin-top:-16px;
+   height:19px; width:17px; overflow:hidden; padding:0px; cursor:nw-resize; 
+   }
+
+.GCResizeGridRtl {
+   background-position:-1303px -1px; border:none;
+   margin-right:auto; margin-left:0px; margin-top:-16px;
+   height:19px; width:17px; overflow:hidden; padding:0px; cursor:ne-resize;
+   }
+
+/* ------------- Cell images ------------- */
+
+.GCIconLeft,.GCIconRight,.GCIconCenter { font-size:11px; background-repeat:no-repeat; }
+.GCIconLeft { background-position:left 0px; padding-left:20px!important; }
+.GCIconRight { background-position:right 0px; padding-right:20px!important; }
+.GCIconCenter { background-position:center 0px; }
+
+.GCDateLeft,.GCDatesLeft,.GCDefaultsLeft,.GCDefaultsSpaceLeft,.GCEnumLeft,.GCDateRight,.GCDatesRight,.GCDefaultsRight,.GCDefaultsSpaceRight,.GCEnumRight,
+.GCCollapseRight,.GCExpandRight,.GCCollapseLeft,.GCExpandLeft,.GCCollapseHeaderRight,.GCExpandHeaderRight,.GCCollapseHeaderLeft,.GCExpandHeaderLeft,
+.GCRadio0Left,.GCRadio0Right,.GCRadio1Left,.GCRadio1Right,.GCRadio2Left,.GCRadio2Right,.GCRadio3Left,.GCRadio3Right, 
+.GCBoolXSpace,.GCBoolXSpaceRO,.GCBool0Space,.GCBool1Space,.GCBool0SpaceRO,.GCBool1SpaceRO,
+.GCBoolX,.GCBoolXRO,.GCBool0,.GCBool1,.GCBool0RO,.GCBool1RO,.GCBool2,.GCBool3,.GCBool2RO,.GCBool3RO,
+.GCFilter0,.GCFilter1,.GCGroup0,.GCGroup1,.GCSearch0,.GCSearch1 {
+   font-size:11px; background-image:url(Button.gif); background-repeat:no-repeat; }
+.GCDateLeft,.GCDatesLeft,.GCDefaultsLeft,.GCDefaultsSpaceLeft,.GCExpandLeft,.GCCollapseLeft,.GCExpandHeaderLeft,.GCCollapseHeaderLeft { padding-left:20px!important; }
+.GCDateRight,.GCDatesRight,.GCDefaultsRight,.GCDefaultsSpaceRight,.GCExpandRight,.GCCollapseRight,.GCExpandHeaderRight,.GCCollapseHeaderRight { padding-right:20px!important; }
+u.GCDateRight,u.GCDatesRight,u.GCDefaultsRight,u.GCDefaultsSpaceRight,u.GCExpandRight,u.GCCollapseRight,u.GCExpandHeaderRight,u.GCCollapseHeaderRight { padding-right:0px!important; padding-left:17px; }
+.GCDateLeft,.GCDatesLeft { background-position:left -250px; }
+.GCDateRight,.GCDatesRight { background-position:right -250px; }
+.GCDefaultsLeft { background-position:left 0px; }
+.GCDefaultsRight { background-position:right 0px; }
+.GCDefaultsSpaceLeft { background-position:left 0px; }
+.GCDefaultsSpaceRight { background-position:right 0px; }
+.GCEnumLeft { background-position:left -500px; padding-left:17px; }
+.GCEnumRight { background-position:right -500px; padding-right:17px; }
+u.GCEnumRight { padding-right:0px; padding-left:17px; }
+.GCExpandLeft { background-position:left -2498px; }
+.GCExpandRight { background-position:right -2498px; }
+.GCExpandHeaderLeft { background-position:left -2499px; }
+.GCExpandHeaderRight { background-position:right -2499px; }
+.GCCollapseLeft { background-position:left -2248px;}
+.GCCollapseRight { background-position:right -2248px;}
+.GCCollapseHeaderLeft { background-position:left -2249px; }
+.GCCollapseHeaderRight { background-position:right -2249px; }
+
+.GCRadio0Left,.GCRadio1Left,.GCRadio2Left,.GCRadio3Left { padding-left:17px; padding-top:0px; padding-right:3px; line-height:17px; }
+.GCRadio0Right,.GCRadio1Right,.GCRadio2Right,.GCRadio3Right { padding-right:17px; padding-top:0px; padding-left:3px; line-height:17px; }
+.GCRadio0Left { background-position:left -1250px; } 
+.GCRadio1Left { background-position:left -1500px;} 
+.GCRadio2Left { background-position:left -750px; }
+.GCRadio3Left { background-position:left -1000px;}
+.GCRadio0Right { background-position:right -1250px; } 
+.GCRadio1Right { background-position:right -1500px;} 
+.GCRadio2Right { background-position:right -750px; }
+.GCRadio3Right { background-position:right -1000px;}
+.GCRadioInput { margin-top:0px; margin-bottom:0px; margin-top:-4px!IE; }
+nobr.GCRadio0Left,nobr.GCRadio1Left,nobr.GCRadio2Left,nobr.GCRadio3Left,
+nobr.GCRadio0Right,nobr.GCRadio1Right,nobr.GCRadio2Right,nobr.GCRadio3Right,
+span.GCRadio0Left,span.GCRadio1Left,span.GCRadio2Left,span.GCRadio3Left,
+span.GCRadio0Right,span.GCRadio1Right,span.GCRadio2Right,span.GCRadio3Right {
+   padding-top:2px; padding-bottom:2px;
+   }
+
+u.GCBoolXSpace,u.GCBoolXSpaceRO,u.GCBool0Space,u.GCBool1Space,u.GCBool0SpaceRO,u.GCBool1SpaceRO,
+u.GCBoolX,u.GCBoolXRO,u.GCBool0,u.GCBool1,u.GCBool0RO,u.GCBool1RO,u.GCBool2,u.GCBool3,u.GCBool2RO,u.GCBool3RO,
+u.GCFilter0,u.GCFilter1 { padding-left:18px; }
+.GCBoolXSpace { background-position:center -2000px; padding-left:18px; background-image:url(Filter.gif); }
+.GCBoolXSpaceRO { }
+.GCBool0Space { background-position:center -750px; padding-left:18px; }
+.GCBool1Space { background-position:center -1000px; padding-left:18px; }
+.GCBool0SpaceRO { background-position:center -1750px; padding-left:18px; }
+.GCBool1SpaceRO { background-position:center -2000px; padding-left:18px; }
+.GCBoolX { background-position:center -2000px; background-image:url(Filter.gif); }
+.GCBoolXRO { }
+.GCBool0 { background-position:center -750px; }
+.GCBool1 { background-position:center -1000px; }
+.GCBool0RO { background-position:center -1750px; }
+.GCBool1RO { background-position:center -2000px; }
+.GCBool2,.GCBool2RO { background-position:center -1250px; }
+.GCBool3,.GCBool3RO { background-position:center -1500px; }
+.GCFilter0 { background-position:center -750px; }
+.GCFilter1 { background-position:center -1000px; }
+.GCGroup0 { background-position:center -750px; }
+.GCGroup1 { background-position:center -1000px; }
+.GCSearch0 { background-position:center -750px; }
+.GCSearch1 { background-position:center -1000px; }
+.GCBoolInput { margin-top:2px; margin-bottom:0px; padding:0px; margin-top:-2px!IE;margin-bottom:-6px!IE; }
+
+.GCBoolChar0,.GCBoolChar1,.GCBoolChar2,.GCBoolChar0RO,.GCBoolChar1RO,.GCBoolChar2RO {
+   border:2px ridge white; color:blue; text-align:center;
+   height:10px; width:8px; overflow:hidden;
+   font:bold 9px Arial; margin:auto; margin-top:1px;
+   }
+.GCBoolChar2 { color:green; }
+.GCBoolChar0RO,.GCBoolChar1RO,.GCBoolChar2RO { color:gray; }
+.GCBoolCharIE { height:14px; width:12px; }
+
+.GCPopupLeft,.GCPopupRight { font-size:11px; background-image:url(Menu.gif); background-repeat:no-repeat; }
+.GCPopupLeft { background-position:-6px -250px; padding-left:14px;}
+.GCPopupRight { background-position:right -250px; padding-right:14px;}
+.GCPopupNone { padding-right:14px; }
+
+/* ------------- Filter images ------------- */
+.GCFilter0Left,.GCFilter1Left,.GCFilter2Left,.GCFilter3Left,.GCFilter4Left,.GCFilter5Left,.GCFilter6Left,.GCFilter7Left,.GCFilter8Left,.GCFilter9Left,.GCFilter10Left,.GCFilter11Left,.GCFilter12Left,
+.GCFilter0Right,.GCFilter1Right,.GCFilter2Right,.GCFilter3Right,.GCFilter4Right,.GCFilter5Right,.GCFilter6Right,.GCFilter7Right,.GCFilter8Right,.GCFilter9Right,.GCFilter10Right,.GCFilter11Right,.GCFilter12Right {
+   font-size:11px; background-image:url(Filter.gif); background-repeat:no-repeat;
+   }
+.GCFilter0Left,.GCFilter1Left,.GCFilter2Left,.GCFilter3Left,.GCFilter4Left,.GCFilter5Left,.GCFilter6Left,.GCFilter7Left,.GCFilter8Left,.GCFilter9Left,.GCFilter10Left,.GCFilter11Left,.GCFilter12Left {
+   padding-left:17px;
+   }
+.GCFilter0Right,.GCFilter1Right,.GCFilter2Right,.GCFilter3Right,.GCFilter4Right,.GCFilter5Right,.GCFilter6Right,.GCFilter7Right,.GCFilter8Right,.GCFilter9Right,.GCFilter10Right,.GCFilter11Right,.GCFilter12Right {
+   padding-right:17px;
+   }
+u.GCFilter0Right,u.GCFilter1Right,u.GCFilter2Right,u.GCFilter3Right,u.GCFilter4Right,u.GCFilter5Right,u.GCFilter6Right,u.GCFilter7Right,u.GCFilter8Right,u.GCFilter9Right,u.GCFilter10Right,u.GCFilter11Right,u.GCFilter12Right {  
+   padding-right:0px; padding-left:17px;
+   }
+.GCFilter0Left,.GCFilter0Menu { background-position:left 0px; }   
+.GCFilter1Left,.GCFilter1Menu { background-position:left -150px; }
+.GCFilter2Left,.GCFilter2Menu { background-position:left -300px; }
+.GCFilter3Left,.GCFilter3Menu { background-position:left -450px; }
+.GCFilter4Left,.GCFilter4Menu { background-position:left -600px; }
+.GCFilter5Left,.GCFilter5Menu { background-position:left -750px; }   
+.GCFilter6Left,.GCFilter6Menu { background-position:left -900px; }
+.GCFilter7Left,.GCFilter7Menu { background-position:left -1050px; }
+.GCFilter8Left,.GCFilter8Menu { background-position:left -1200px; }
+.GCFilter9Left,.GCFilter9Menu { background-position:left -1350px; }
+.GCFilter10Left,.GCFilter10Menu { background-position:left -1500px; }
+.GCFilter11Left,.GCFilter11Menu { background-position:left -1650px; }
+.GCFilter12Left,.GCFilter12Menu { background-position:left -1800px; }
+.GCFilter0Right { background-position:right 0px; }   
+.GCFilter1Right { background-position:right -150px; }
+.GCFilter2Right { background-position:right -300px; }
+.GCFilter3Right { background-position:right -450px; }
+.GCFilter4Right { background-position:right -600px; }
+.GCFilter5Right { background-position:right -750px; }   
+.GCFilter6Right { background-position:right -900px; }
+.GCFilter7Right { background-position:right -1050px; }
+.GCFilter8Right { background-position:right -1200px; }
+.GCFilter9Right { background-position:right -1350px; }
+.GCFilter10Right { background-position:right -1500px; }
+.GCFilter11Right { background-position:right -1650px; }
+.GCFilter12Right { background-position:right -1800px; }
+
+.GCFilter0Menu,.GCFilter1Menu,.GCFilter2Menu,.GCFilter3Menu,.GCFilter4Menu,.GCFilter5Menu,.GCFilter6Menu,.GCFilter7Menu,.GCFilter8Menu,.GCFilter9Menu,.GCFilter10Menu,.GCFilter11Menu,.GCFilter12Menu {
+   width:17px; height:17px; overflow:hidden; background-image:url(Filter.gif); background-repeat:no-repeat; margin-left:-1px;
+   }
+.GCFilterMenuHeader { padding-left:2px; border-bottom:0px none!important; }   
+
+/* ------------- Sort images ------------- */
+.GCSort0Left,.GCSort1Left,.GCSort2Left,.GCSort3Left,.GCSort4Left,.GCSort5Left,.GCSort6Left,
+.GCSort0Right,.GCSort1Right,.GCSort2Right,.GCSort3Right,.GCSort4Right,.GCSort5Right,.GCSort6Right {
+   font-size:11px; background-image:url(Sort.gif); background-repeat:no-repeat;  
+   }
+.GCSort0Left,.GCSort1Left,.GCSort2Left,.GCSort3Left,.GCSort4Left,.GCSort5Left,.GCSort6Left { padding-left:17px; }
+.GCSort0Right,.GCSort1Right,.GCSort2Right,.GCSort3Right,.GCSort4Right,.GCSort5Right,.GCSort6Right{ padding-right:17px; }
+u.GCSort0Right,u.GCSort1Right,u.GCSort2Right,u.GCSort3Right,u.GCSort4Right,u.GCSort5Right,u.GCSort6Right { padding-right:0px; padding-left:17px; }
+.GCSort0Left { background-position:left 0px; }   
+.GCSort1Left { background-position:left -250px; }
+.GCSort2Left { background-position:left -500px; }
+.GCSort3Left { background-position:left -750px; }
+.GCSort4Left { background-position:left -1000px; }
+.GCSort5Left { background-position:left -1250px; }
+.GCSort6Left { background-position:left -1500px; }
+.GCSort0Right { background-position:right 0px; }   
+.GCSort1Right { background-position:right -250px; }
+.GCSort2Right { background-position:right -500px; }
+.GCSort3Right { background-position:right -750px; }
+.GCSort4Right { background-position:right -1000px; }
+.GCSort5Right { background-position:right -1250px; }
+.GCSort6Right { background-position:right -1500px; }
+
+/* -------------- Pager ------------------ */
+.GCPagerMain { padding:5px; }
+.GCPagerBody {  }
+.GCPagerHeader {
+	border-left:1px solid #e0e0ff; border-top:1px solid #ffffff; border-bottom:1px solid #e0e0ff; border-right:1px solid #e0e0ff;
+	vertical-align:top; padding-bottom:1px; cursor:default; margin-bottom:10px;
+	}
+.GCPagerCaption { font:13px Times New Roman; padding-left:3px; padding-right:3px; white-space:nowrap; }
+.GCPagerItem {
+	font:11px "Microsoft Sans Serif",Verdana,Arial; cursor:pointer; _cursor:hand; overflow:hidden;
+	padding-left:3px; padding-right:3px;
+	border-bottom:1px solid #e0e0ff; border-top:1px solid #ffffff;	background:#f8f8f8;
+	height:14px; overflow:hidden; white-space:nowrap;
+	}
+.GCPagerFocus {
+   position:relative; cursor:pointer; _cursor:hand; overflow:hidden; background:#AFAF00;
+   border:1px solid black; border-left:none; border-right:none; opacity:0.3; filter:alpha(opacity=30); 
+   }
+.GCPagerHover {
+   position:relative; cursor:pointer; _cursor:hand; overflow:hidden;
+   opacity:0.1; filter:alpha(opacity=10); background:#00F;
+   }
+.GCPagerSort1 { color: #000066; }
+.GCPagerSort2 {	color: #00AE00; }
+.GCPagerSort3 {	color: #00FF00; }
+.GCPagerSortS {	color: black; }
+
+/* -------------- State classes ------------- */
+/* The colors must be set by numbers not by names */
+
+.GCColorDefault { background-color:#FAFAFA; }
+.GCColorNoFocus { background-color:#F6F6E6; }
+.GCColorReadOnly { background-color:#F4F4F4;}
+.GCColorPreview { background-color:#FFFFFF; }
+
+.GCColorAlternate { background-color:#97acc4; }
+
+.GCColorSelected { background-color:#9ca8fa; }
+
+.GCColorError { background-color:#ff9292; }
+.GCColorDeleted { background-color:#ff8585; }
+.GCClassDeleted { font-style:italic; }
+.GCColorAdded { background-color:#8dcd76; }
+.GCClassAdded { font-weight:bold; }
+.GCColorMoved1 { background-color:#FFFFFF; }
+.GCColorMoved2 { background-color:#d7e5eb; }
+.GCColorChanged { background-color:#fdee8c; }
+.GCColorChangedCell { background-color:#ffcc80; }
+.GCClassChangedCell { font-weight:bold; }
+
+.GCColorMaxChildren { background-color:#FFFFF0; }
+
+.GCColorDetail { background-color:#FFF0FF; }
+.GCColorDetailSelected { background-color:#FFF0E0; }
+
+.GCColorDragged { background-color:#E0E0C0; }
+
+.GCColorFound1 { background-color:#FF87FF; }
+.GCColorFound2 { background-color:#FFC387; }
+.GCColorFound3 { background-color:#87FF87; }
+
+.GCColorHovered { background-color:#F0F0FF; }
+.GCColorHoveredCell { background-color:#C0C0FF; }
+.GCColorHoveredCellReadOnly { background-color:#F0F0F0; }
+.GCColorHoveredCellNoFocus { background-color:#F8F8F8; }
+.GCColorHoveredCellHeader { background-color:#FFFFFE; }
+.GCColorHoveredCellPanel { background-color:#FFFFFE; }
+.GCColorHoveredCellFastPanel { background-color:#FFFFFE; }
+.GCColorHoveredCellSpace { background-color:#FFFFFF; }
+.GCColorHoveredCellSpaceEdit { background-color:#C0C0FF; }
+.GCColorHoveredCellSpaceBool { background-color:#FFFFFF; }
+.GCColorHoveredCellButton { background-color:#FFFFFE; }
+.GCColorHoveredCellButton1 { background-color:#FFFFFE; }
+.GCColorHoveredCellTab { background-color:#FFFFFE; }
+.GCColorHoveredCellTab1 { background-color:#CCCCCC; }
+.GCClassHoveredCellButton { color:green; }
+.GCClassHoveredCellButton1 { color:red; }
+.GCClassHoveredCellTab { background-position:0px -1751px; color:green; }
+.GCClassHoveredCellTab1 { background-image:none; }
+
+.GCColorFocused { background-color:#E6E6E6; }
+.GCColorFocusedCell { background-color:#FFFFFE; }
+.GBColorFocusedCellSafari { background-color:#B0A090; }
+.GCColorFocusedCellSpace { background-color:#FFFFFE; }
+.GCColorFocusedCellButton { background-color:#FFFFFE; }
+.GCColorFocusedCellHeader { background-color:#FFFFFE; }
+.GCColorFocusedCellPanel { background-color:#FFFFFE; }
+.GCColorEditedCell { background-color:#FFFFFF; }
+.GCColorViewedCell { background-color:#FFFFFF; }
+
+/* --------------- Hover, focus, edit cursors ----------------- */
+.GCHoverPanelBackground { }
+.GCHoverRowBackground { opacity:0.05; filter:alpha(opacity=5); background:#00F; }
+.GCHoverRowBorder { z-index:1; cursor:default; }
+.GCHoverCellBorder { z-index:3; padding:1px; border:1px solid #A0A0F0; background:white; }
+.GCFocusPanelBackground { }
+.GCFocusRowBackground { opacity:0.1; filter:alpha(opacity=10); background:#000; }
+.GCFocusRowBorder { z-index:2; border:1px solid #AAAAAA; background:white; padding:1px; padding-left:0px; }
+.GCFocusCellBorder,.GCEditCellBorder,.GCFocusCellSpaceBorder,.GCEditCellSpaceBorder { z-index:4; border:3px solid #286cea; }
+.GCEditCellBorder,.GCEditCellSpaceBorder { border-color:#286ce9; }
+.GCEditCellInput { position:relative; border:1px solid #BBB; overflow:hidden; z-index:2; }
+
+.GCCursorBackground { position:relative; border:none; padding:0px; overflow:hidden; }
+.GCCursorBorderLeft { position:relative; padding-right:0px; padding-top:0px; padding-bottom:0px; border-right:none; border-top:none; border-bottom:none; overflow:hidden; width:0px; height:0px; }
+.GCCursorBorderRight { position:relative; padding-left:0px; padding-top:0px; padding-bottom:0px; border-left:none; border-top:none; border-bottom:none; overflow:hidden; width:0px; height:0px; }
+.GCCursorBorderTop { position:relative; padding-bottom:0px; padding-left:0px; padding-right:0px; border-bottom:none; border-left:none; border-right:none; overflow:hidden; width:0px; height:0px; }
+.GCCursorBorderBottom { position:relative; padding-top:0px; padding-left:0px; padding-right:0px; border-top:none; border-left:none; border-right:none; overflow:hidden; width:0px; height:0px; }
+
+/*--------------- Cell edges ----------------- */
+.GCNoLeft { border-left:0px none; }
+.GCNoRight { border-right:0px none; }
+
+.GCEmpty { text-decoration:none; font-size:1px; line-height:1px;}
+
+/*--------------- Dragging ----------------- */
+.GCMouseObject { opacity:0.5; filter:alpha(opacity=50); z-index:300; overflow:hidden; }
+.GCDragObject {
+   z-index:300; margin-left:10px; margin-top:10px; 
+   font:11px "Microsoft Sans Serif",Arial;
+   background:#f4f4f4; border:1px solid #d0d0d0; padding:3px;
+   }
+.GCDragColInsideTop,.GCDragColInsideBottom,.GCDragColOutsideTop,.GCDragColOutsideBottom,.GCDragGanttRunTop,.GCDragGanttRunBottom {
+   position:absolute; background-image:url(Sort.gif); width:15px; height:11px; overflow:hidden; z-index:258;
+   }
+.GCDragColInsideTop  { background-position:0px -1750px;  }
+.GCDragColInsideBottom  { background-position:0px -1770px;  }
+.GCDragColOutsideTop  { background-position:0px -1790px;  }
+.GCDragColOutsideBottom  { background-position:0px -1810px;  }
+.GCDragGanttRunTop  { background-position:0px -1748px;  }
+.GCDragGanttRunBottom { background-position:0px -1768px;  }
+
+/*--------------- Messages ----------------- */
+.GCDisabled { position:absolute; z-index:264; background:white; opacity:0.5; filter:alpha(opacity=50); } 
+.GCMessage {
+	background:#e8e9ea; border:1px solid #d0d0d0; padding:10px; white-space:nowrap; text-align:center;
+	font:13px "Microsoft Sans Serif",Verdana,Arial;
+   position: absolute; left:0px; top:0px; visibility:hidden; z-index:266;
+	}
+.GCMessageShadow {
+   position:absolute; margin-left:3px; margin-top:3px; z-index:265;
+   background:#888; opacity:0.5; filter:alpha(opacity=50);
+   left:0px; top:0px; visibility:hidden;
+   }	
+.GCPageMessage { background:#FAFAFA; border:1px solid #f77; padding:10px; font:13px "Microsoft Sans Serif",Verdana,Arial; }
+
+.GCProgressMain { font:13px "Microsoft Sans Serif",Verdana,Arial; }
+.GCProgressCaption { font-weight:bold; margin-bottom:15px; }
+.GCProgressText { margin-bottom:15px; }
+.GCProgressOuter { text-align:left; width:200px; border:1px solid #d0d0d0; padding:2px; margin-bottom:15px; }
+.GCProgressInner { height:10px; background:green; }
+.GCProgressButton,.GCMessageButton { font:11px "Microsoft Sans Serif",Verdana,Arial; }
+.GCProgressButton { margin:2px; margin-top:5px; margin-bottom:0px; white-space:nowrap; padding-left:10px; padding-right:10px; }
+.GCMessageButton { margin-top:10px; width:50px; }
+   
+/*--------------- Other ----------------- */
+/* !!! No .GC style prefix here !!! */
+.GridTmpTag { position:absolute; left:5px; top:5px; visibility:hidden; }
+
+/*--------------- Debug print ----------------- */
+/* !!! No .GC style prefix here !!! */
+.GridDebugTag,.GridDebugTagMax { overflow:auto; overflow-y:scroll; border:1px solid black; background:#DDD; }
+.GridDebugTag,.GridDebugTagMax,.GridDebugButtons,.GridDebugButtonsMax {
+   position:fixed; z-index:256; left:5px; right:5px; bottom:5px; height:200px; padding:4px;
+   position:absolute!IE;
+   left:expression((5+(document.compatMode=="CSS1Compat"?document.documentElement.scrollLeft:document.body.scrollLeft))+"px")!IE;
+   width:expression((-10+(document.compatMode=="CSS1Compat"?document.documentElement.clientWidth-8:document.body.clientWidth))+"px")!IE;
+   top:expression((-205+(document.compatMode=="CSS1Compat"?document.documentElement.scrollTop+document.documentElement.clientHeight-8:document.body.scrollTop+document.body.clientHeight))+"px")!IE;
+   }
+.GridDebugTagMax,.GridDebugButtonsMax {
+   top:5px; height:auto; 
+   top:expression((5+(document.compatMode=="CSS1Compat"?document.documentElement.scrollTop:document.body.scrollTop))+"px")!IE;
+   height:expression((-10+(document.compatMode=="CSS1Compat"?document.documentElement.clientHeight-8:document.body.clientHeight))+"px")!IE;
+   }
+.GridDebugButtons,.GridDebugButtonsMax {
+   text-align:right; margin-right:25px; width:130px; left:auto;
+   left:expression((-155+(document.compatMode=="CSS1Compat"?document.documentElement.clientWidth-8:document.body.clientWidth))+"px")!IE;
+   }
+.GridDebugButton { font-size:10px; width:40px; padding:0px; }
+.GridDebugTitle { font-size:10px; color:blue; font-style:normal;font-weight:normal; }
+.GridDebugMark { font-weight:bold; }
+.GridDebugStop { font-size:18px; font-weight:bold; color:red; }
+.GridDebugError { font-size:12px; color:red; }
+.GridDebugWarning { font-size:12px; color:#A60;}
+.GridDebugList { font-size:10px; color:#888;}
+.GridDebugInfo { font-size:12px; }
+
+/* ------------------- Popup menus, TGLib ------------------- */
+
+.GCMenuMain { position:absolute; left:0px; top:0px; z-index:258; }
+.GCMenuStatic { }
+.GCMenuOuter { overflow:hidden; background:#efefef; }
+.GCMenuHeader {
+   overflow:hidden; position:absolute; z-index:258;
+   border:1px solid #aaaadd; background:#efefef; cursor:pointer; _cursor:hand;
+   }
+.GCMenuHead {
+   border:1px solid #aaaadd; border-bottom:none; text-align:center; padding-top:3px; padding-bottom:4px;
+   background:#E7F4FF url(Backgrounds.gif) 0px -500px repeat-x ; font:bold 12px Verdana,Arial; 
+   }
+.GCMenuClose {
+   float:right; width:14px; cursor:pointer; _cursor:hand; display:none;
+   background:url(Menu.gif) no-repeat right -352px;
+   }
+.GCMenuBody {
+   cursor:default; border:1px solid #aaaadd; background:#eeeeee; padding-top:1px; padding-bottom:1px;
+   }
+.GCMenuShadow {
+   position:absolute; margin-left:3px; margin-top:3px; z-index:257;
+   background:#888; opacity:0.5; filter:alpha(opacity=50);
+   }
+
+.GCMenuCheckedIconLeft { background:url(Menu.gif) no-repeat -2px -50px; padding-left:17px; }
+.GCMenuCheckedIconRight { background:url(Menu.gif) no-repeat right -50px; padding-right:17px; }
+.GCMenuUncheckedIconLeft { background:url(Menu.gif) no-repeat -2px 0px; padding-left:17px; }
+.GCMenuUncheckedIconRight { background:url(Menu.gif) no-repeat right 0px; padding-right:17px; }
+.GCMenuCheckedRadioLeft { background:url(Menu.gif) no-repeat -2px -748px; padding-left:17px; }
+.GCMenuCheckedRadioRight { background:url(Menu.gif) no-repeat right -748px; padding-right:17px; }
+.GCMenuUncheckedRadioLeft { background:url(Menu.gif) no-repeat -2px -698px; padding-left:17px; }
+.GCMenuUncheckedRadioRight { background:url(Menu.gif) no-repeat right -698px; padding-right:17px; }
+.GCMenuCursorIcon { background:url(Menu.gif) no-repeat -6px -150px; }
+.GCMenuHoverIcon { background:url(Menu.gif) no-repeat -6px -100px; }   
+.GCMenuCursorIconRtl { background:url(Menu.gif) no-repeat right -1000px; }
+.GCMenuHoverIconRtl { background:url(Menu.gif) no-repeat right -950px; }   
+.GCMenuExpandedIcon { background:url(Menu.gif) no-repeat -6px -200px; }
+.GCMenuCollapsedIcon { background:url(Menu.gif) no-repeat -6px -250px; }
+.GCMenuNextIcon { background:url(Menu.gif) no-repeat right -300px; padding-right:14px; }
+.GCMenuNextIconRtl { background:url(Menu.gif) no-repeat left -900px; padding-left:14px; }
+
+.GCMenuItemText,.GCMenuItemIcon,.GCMenuEnum,.GCMenuEnumHeader,.GCMenuEdit { font:12px "Microsoft Sans Serif",Arial; white-space:nowrap; overflow:hidden; }
+.GCMenuItemDisabled { opacity:0.50; filter:alpha(opacity=30); overflow:hidden; }
+.GCMenuLevel { color:blue; text-align:center; }  
+.GCMenuEnumParent,.GCMenuEditParent { padding-left:5px; padding-right:2px;}
+.GCMenuItemIcon { background-repeat:no-repeat; }
+.GCMenuEnum {
+   border:1px solid #DDD; border-top:1px solid #666; border-left:1px solid #666;
+   background:white url(Menu.gif) no-repeat left -800px; padding-left:15px; padding-bottom:1px;
+   }
+.GCMenuEnumHeader  {
+   padding-left:16px; padding-top:1px; cursor:default;
+   background:white url(Menu.gif) no-repeat 1px -799px; padding-bottom:2px;
+   }   
+.GCMenuEdit {
+   margin:0px; margin:-1px!IE; border:0px none; background:#FDD; 
+   padding:0px; padding-right:1px!IE; padding-left:1px!IE; font:12px "Microsoft Sans Serif",Arial;
+   }
+.GCMenuEditInput,.GCMenuEditTextarea {
+   margin:0px; margin:-1px!IE; border:0px none; background:#FDD; 
+   padding:0px; padding-right:1px!IE; padding-left:1px!IE; font:12px "Microsoft Sans Serif",Arial;
+   }   
+.GCMenuEditTextarea { line-height:13px;  }   
+.GCMenuEditInt,.GCMenuEditFloat,.GCMenuEditDate { text-align:right; } 
+.GCMenuEditText { }
+.GCMenuEditMulti { white-space:normal; }
+
+
+.GCMenuItem { padding-top:2px; padding-bottom:2px; padding-left:2px; padding-right:2px; background:#eeeeee; }   
+.GCMenuItemHover {
+   margin-left:1px; margin-right:1px; padding-top:1px; padding-bottom:1px; 
+   background:#7AF; border:1px solid #aaaadd;
+   }
+.GCMenuFocus {
+   margin-left:1px; margin-right:1px; padding-top:1px; padding-bottom:1px;
+   background:#fddc06; border:1px solid #aaaadd;
+   }
+.GCMenuFocusHover {
+   margin-left:1px; margin-right:1px; padding-top:1px; padding-bottom:1px;
+   background:#fff5e0; border:1px solid #aaaadd;
+   }   
+.GCMenuSeparator {
+   margin-top:1px; margin-right:3px; margin-left:3px; height:1px;   
+   border-top:1px solid #aaaadd; overflow:hidden;
+   }
+.GCMenuCaption { padding-top:2px; padding-bottom:2px; padding-left:2px; padding-right:2px; background:#ddd; color:blue; text-align:center; }
+.GCMenuVSeparator { border-right:1px solid #DDD; }
+.GCMenuSection  { }
+
+.GCMenuFoot { border:1px solid #aaaadd; border-top:none; text-align:center; background:white; white-space:nowrap; }  
+.GCMenuButton { font:11px "Microsoft Sans Serif",Arial; height:19px; width:48px; margin:2px; white-space:nowrap; padding-left:0px; padding-right:0px; } 
+
+/*--------------- Grid configuration menus ----------------- */
+
+.GCCfgMenuOuter,.GCColumnsMenuOuter { border:1px solid black; padding:6px; background:#e8e9ea; }
+.GCCfgMenuHead,.GCColumnsMenuHead { padding-left:4px; padding-top:4px;  }
+.GCCfgMenuBody,.GCColumnsMenuBody { padding-left:4px; padding-right:4px; }
+.GCCfgMenuFoot,.GCColumnsMenuFoot { padding-left:4px; padding-right:4px; padding-top:2px; padding-bottom:2px; }
+.GCCfgMenuButton { width:70px; } 
+.GCColumnsMenuButton { width:57px; } 
+.GCCfgMenuItemText,.GCColumnsMenuItemText { padding-left:3px; }
+.GCColumnsMenuItemText { white-space:nowrap; }
+.GCCfgMenuItem,.GCColumnsMenuItem { padding-top:3px; padding-bottom:3px; }
+.GCCfgMenuItemHover,.GCCfgMenuFocus,.GCCfgMenuFocusHover,
+.GCColumnsMenuItemHover,.GCColumnsMenuFocus,.GCColumnsMenuFocusHover { padding-top:2px; padding-bottom:2px; }
+
+/*--------------- Popup grid dialog ----------------- */
+
+.GCPopupGridOuter { border:0px none; overflow:visible; }
+.GCPopupGridHead { padding:0px; }
+.GCPopupGridBody { padding:0px; border:0px none; }
+.GCPopupGridFoot { padding:0px; }
+.GCPopupGridButton { width:50px; margin-top:-2px; margin-bottom:0px; } 
+
+/* ------------------- Date picker, TGLib ------------------- */
+
+.GCPickMain { position:absolute; left:0px; top:0px; z-index:258; }
+.GCPickOuter { overflow:hidden; border:1px solid black; background:#eeeeee; }
+.GCPickHeader {
+   overflow:hidden; position:absolute; z-index:258;
+   border:1px solid black; background:white; cursor:pointer; _cursor:hand;
+   }
+.GCPickHeaderBottom { border-bottom:0px none; padding-bottom:1px; }
+.GCPickHeaderTop { border-top:0px none; padding-bottom:1px; }
+.GCPickHead {
+   background:#E7F4FF; font:bold 11px "Microsoft Sans Serif",Arial; cursor:default;
+   padding-left:5px; padding-top:3px; padding-bottom:4px;
+   }
+.GCPickClose {
+   float:right; width:14px; cursor:pointer; _cursor:hand; display:none;
+   background:url(Menu.gif) no-repeat right -353px;
+   }
+.GCPickBody { cursor:default; border:none; }
+.GCPickShadow {
+   position:absolute; background:#888; z-index:257; margin-left:3px; margin-top:3px;
+   opacity:0.5; filter:alpha(opacity=50);
+   }   
+.GCPickFooter,.GCPick2Footer {
+   background:white; color:blue; cursor:default;
+   font:11px "Microsoft Sans Serif",Arial;
+   padding-top:2px; padding-bottom:2px;
+   text-align:center;
+   }
+.GCPickMY {
+   font:bold 11px "Microsoft Sans Serif",Arial;
+   background:white; color:black;
+   text-align:center; padding-top:4px; padding-bottom:4px;
+   background:url(Backgrounds.gif) 0px -750px repeat-x;
+   }   
+.GCPickMYDown { padding-right:13px; background:url(Menu.gif) no-repeat right -400px; cursor:pointer; _cursor:hand; }   
+.GCPickMYUp { padding-right:13px; background:url(Menu.gif) no-repeat right -450px; cursor:pointer; _cursor:hand; }
+.GCPickMYRtl { padding-right:0px; padding-left:13px; }
+.GCPickBL,.GCPickBR { margin-top:2px; padding-top:3px; cursor:pointer; _cursor:hand; width:24px; height:14px; }
+.GCPickBL { float:left; background:url(Menu.gif) no-repeat left -500px; display:none;}
+.GCPickBR { float:right; background:url(Menu.gif) no-repeat right -550px; display:none; }
+
+.GCPickTableParent { padding-bottom:3px; }
+.GCPickTable { table-layout:fixed; width:0px; }
+.GCPickRow { background:#EcEcEc; }
+.GCPickRowW { background:url(Backgrounds.gif) 0 -250px repeat-x;}   
+.GCPickCell { width:25px; }
+.GCPickWDN {
+   text-align:center; padding-bottom:5px; padding-top:5px;
+   font:bold 11px "Microsoft Sans Serif",Arial; cursor:default;
+   }
+.GCPickHover,.GCPickSelHover,.GCPickWD,.GCPickSa,.GCPickSu,.GCPickSel,.GCPickNow,.GCPickWDNE,.GCPickSaNE,.GCPickSuNE,.GCPickSelNE,.GCPickNowNE,.GCPickOM,.GCPickOMNE,.GCPickWN,.GCPickWNE {
+   text-align:center; font:12px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   margin-top:1px; margin-bottom:1px;
+   }
+.GCPickWN,.GCPickWNE { color:blue; }
+.GCPickWDNE,.GCPickSaNE,.GCPickSuNE,.GCPickSelNE,.GCPickNowNE,.GCPickWNE { cursor:default; }
+.GCPickWD { background-color:#ffffff; }
+.GCPickSa { background-color:#ddddff; }
+.GCPickSu { background-color:#7AF; }
+.GCPickSel { background-color:#ffff77; }
+.GCPickSelNE { background-color:#ffffdd;	}
+.GCPickNow { background-color:#dd44dd; }
+.GCPickNowNE { background-color:#ffe0ff; }
+.GCPickOM { background-color:inherit; color:black; }
+.GCPickOMNE { color:#aaaaaa; }
+.GCPickEmpty { background:url(Menu.gif) no-repeat center -1050px; cursor:pointer; _cursor:hand; }
+.GCPickHover { background-color:#DDD; border:0px none #AAA; }
+.GCPickSelHover { background-color:#eeee77; border:0px none #AAA; }
+
+.GCPickTimeCell { text-align:right; background-color:white; padding-bottom:4px; padding-top:6px; padding-right:5px; }
+.GCPickTime { font:12px Verdana,Arial; border:0px none; white-space:nowrap; text-align:right; }
+.GCPickButton { width:60px; font-size:11px; margin:2px; text-align:center; padding-left:0px; padding-right:0px; }
+
+.GCPick2TableParent { padding-left:0px; padding-right:0px; padding-bottom:2px; padding-top:2px; text-align:center; }
+.GCPick2Table { table-layout:fixed; width:0px; }
+.GCPick2CellM { height:21px; width:62px; }
+.GCPick2CellY { height:21px; width:33px; }
+.GCPick2CellSep { height:21px; width:5px; }
+.GCPick2M,.GCPick2Y,.GCPick2MSel,.GCPick2YSel,.GCPick2MHover,.GCPick2YHover,.GCPick2MSelHover,.GCPick2YSelHover {
+   font:12px "Microsoft Sans Serif",Arial; overflow:hidden;
+   border:1px solid #DDD; background-color:white; cursor:pointer; _cursor:hand; text-align:center;
+   padding-top:1px; padding-bottom:1px;
+   }
+.GCPick2MSel,.GCPick2YSel { background-color:#7AF; }
+.GCPick2MHover,.GCPick2YHover { background-color:#DDD; border:1px solid #AAA; }
+.GCPick2MSelHover,.GCPick2YSelHover { background-color:#f4d711; border:1px solid #AAA; }   
+.GCPick2SepH { display:none; width:1px; height:1px; overflow:hidden; }
+.GCPick2Sep {  }    
+.GCPick2BL,.GCPick2BR { width:33px; cursor:pointer; _cursor:hand; }
+.GCPick2BL { background:url(Menu.gif) no-repeat center -600px; }
+.GCPick2BR { background:url(Menu.gif) no-repeat center -650px; }
+
+/* ------------------- Edit controls, TGLib ------------------- */
+
+.GCEdit,.GCEditInline {
+   font:11px "Microsoft Sans Serif",Arial;
+   padding-left:4px; padding-right:4px; padding-top:2px; padding-bottom:2px;
+   overflow:hidden; border:1px solid #CCC; background:#EEE;
+   }
+.GCEditInline { display:inline-block; vertical-align:bottom; }
+.GCEditInput,.GCEditTextarea {
+   font:11px "Microsoft Sans Serif",Arial;
+   vertical-align:top; border:0px none; margin:0px; 
+   padding:0px; padding-left:1px!IE; padding-right:1px!IE;
+   }
+.GCEditTextarea { line-height:13px; }
+.GCEditNormalInput,.GCEditNormalTextarea,.GCEditSpaceInput,.GCEditSpaceTextarea { background-color:#d9e8ff; }
+.GCEditInt,.GCEditFloat,.GCEditDate { text-align:right; }
+.GCEditText { }
+.GCEditMulti { white-space:normal; }
+.GCEditReadOnly { background-color:#FFEEFF; }
+.GCEditParent { position:absolute; z-index:258; overflow:hidden;}
+
+/*.GCEnum,.GCEnumInline {
+   font:11px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   padding-left:15px; padding-right:4px; padding-top:2px; padding-bottom:2px;
+   border:1px solid #CCC; background:#EEE url(Menu.gif) no-repeat left -800px; overflow:hidden;
+   }
+.GCEnumInline { display:inline-block; vertical-align:bottom; }*/
+.GCEnumHeaderLeft,.GCEnumHeaderRight,.GCEnumHeaderNone {
+   background:white; font:11px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   padding-left:4px; padding-right:4px; padding-top:3px; padding-bottom:2px;
+   }
+.GCEnumHeaderLeft { background:white url(Menu.gif) no-repeat 1px -799px; padding-left:17px; }
+.GCEnumHeaderRight { background:white url(Menu.gif) no-repeat right -799px; padding-right:17px;}
+.GCEnumMenuHeader { background:white; }   
+
+.GCEnumControl,.GCEnumInline {
+   font:11px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   padding-left:15px; padding-right:4px; padding-top:2px; padding-bottom:2px;
+   border:1px solid #CCC; background:#EEE url(Menu.gif) no-repeat left -800px; overflow:hidden;   }
+.GCEnumInline { display:inline-block; vertical-align:bottom; }
+.GCEnumHeader {
+   background:white url(Menu.gif) no-repeat left -798px; 
+   font:11px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   padding-left:15px; padding-right:4px; padding-top:2px; padding-bottom:2px;
+   }
+
+/* ------------------- Line chart, TGLib ------------------- */
+
+.GCChartInner { background:white; width:100%; }
+.GCChartLayer { overflow:hidden; height:1000px; }
+.GCChartAxisY { background:black; height:1px; overflow:hidden; }
+.GCChartAxisYLabel { overflow:hidden; }
+.GCChartAxisYText { margin-right:5px; margin-top:12px; text-align:right; font:12px Arial; }
+.GCChartAxisX { width:1px; overflow:hidden; background:black; }
+.GCChartAxisXLabel { overflow:hidden; }
+.GCChartAxisXText { text-align:center; font:12px Arial; }
+.GCChartCaption { text-align:center; font:12px Arial; margin-top:3px; }
+
+.GCChartPoint1,.GCChartPoint2,.GCChartPoint3,.GCChartPoint4,.GCChartPoint5,.GCChartPoint6,.GCChartPoint7,.GCChartPoint8 {
+   background:url(Gantt.gif) no-repeat; width:32px; height:32px; overflow:hidden; 
+   }
+.GCChartPoint1 { background-position:-892px 7px; }
+.GCChartPoint1Hover { background-position: -942px 7px; }
+.GCChartPoint2 { background-position:-992px 7px; }
+.GCChartPoint2Hover { background-position:-1042px 7px; }
+.GCChartPoint3 { background-position:-1092px 7px; }
+.GCChartPoint3Hover { background-position:-1142px 7px; }
+.GCChartPoint4 { background-position:-1192px 7px; }
+.GCChartPoint4Hover { background-position:-1242px 7px; }
+.GCChartPoint5 { background-position:-1292px 7px; }
+.GCChartPoint5Hover { background-position:-1342px 7px; }
+.GCChartPoint6 { background-position:-1392px 7px; }
+.GCChartPoint6Hover { background-position:-1442px 7px; }
+.GCChartPoint7 { background-position:-1492px 7px; }
+.GCChartPoint7Hover { background-position:-1542px 7px; }
+.GCChartPoint8 { background-position:-1592px 7px; }
+.GCChartPoint8Hover { background-position:-1642px 7px; }
+
+/* -------------- Custom scrollbars ------------------ */
+
+.GCCustScroll1RightHidden { background:url(VScroll.gif) left -108px; height:18px; overflow:hidden; }
+.GCCustScroll1Right { padding-right:18px; background:url(VScroll.gif) right 0px; }
+.GCCustScroll1RightHover { padding-right:18px; background:url(VScroll.gif) right -18px; }
+.GCCustScroll1Left { padding-left:18px;  background:url(VScroll.gif) left 0px; }
+.GCCustScroll1LeftHover { padding-left:18px;  background:url(VScroll.gif) left -18px; }
+.GCCustScroll1SliderRight { padding-right:3px; background:url(VScroll.gif) right -36px; }
+.GCCustScroll1SliderLeft { padding-left:3px; background:url(VScroll.gif) left -36px; }
+.GCCustScroll1SliderHIn { height:18px; overflow:hidden; background:url(VScroll.gif) center -54px; }
+.GCCustScroll1SliderRightHover { padding-right:3px; background:url(VScroll.gif) right -72px; }
+.GCCustScroll1SliderLeftHover { padding-left:3px; background:url(VScroll.gif) left -72px; }
+.GCCustScroll1SliderHInHover { height:18px; overflow:hidden; background:url(VScroll.gif) center -90px; }
+.GCCustScroll1X { }
+
+.GCCustScroll2RightHidden { background:url(VScroll.gif) left -364px; height:36px; overflow:hidden; }
+.GCCustScroll2Right { padding-right:36px; background:url(VScroll.gif) right -148px; }
+.GCCustScroll2RightHover { padding-right:36px; background:url(VScroll.gif) right -184px; }
+.GCCustScroll2Left { padding-left:36px;  background:url(VScroll.gif) left -148px; }
+.GCCustScroll2LeftHover { padding-left:36px;  background:url(VScroll.gif) left -184px; }
+.GCCustScroll2SliderRight { padding-right:6px; background:url(VScroll.gif) right -220px; }
+.GCCustScroll2SliderLeft { padding-left:6px; background:url(VScroll.gif) left -220px; }
+.GCCustScroll2SliderHIn { height:36px; overflow:hidden; background:url(VScroll.gif) center -256px; }
+.GCCustScroll2SliderRightHover { padding-right:6px; background:url(VScroll.gif) right -292px; }
+.GCCustScroll2SliderLeftHover { padding-left:6px; background:url(VScroll.gif) left -292px; }
+.GCCustScroll2SliderHInHover { height:36px; overflow:hidden; background:url(VScroll.gif) center -328px; }
+.GCCustScroll2X { }
+
+.GCCustScroll3Right,.GCCustScroll3RightHidden { background:white; height:9px; overflow:hidden; }
+.GCCustScroll3SliderRight,.GCCustScroll3SliderRightHover { padding-right:3px; height:9px; background:url(VScroll.gif) right -126px; }
+.GCCustScroll3SliderLeft,.GCCustScroll3SliderLeftHover { height:9px; background:url(VScroll.gif) left -126px; }
+.GCCustScroll3SliderRightHover { background-position:right -135px; }
+.GCCustScroll3SliderLeftHover { background-position:left -135px; }
+.GCCustScroll3X { }
+
+.GCCustScroll4Right,.GCCustScroll4RightHidden,.GCCustScroll4SliderRight,.GCCustScroll4SliderRightHover { height:1px; overflow:hidden; }
+.GCCustScroll4X { }
+
+.GCCustScroll1DownHidden { background:url(HScroll.png) -108px top; width:18px; overflow:hidden; }
+.GCCustScroll1Down { padding-bottom:18px; background:url(HScroll.png) 0px bottom; cursor:default; width:18px; overflow:hidden; }
+.GCCustScroll1DownHover { padding-bottom:18px; background:url(HScroll.png) -18px bottom; width:18px; overflow:hidden; }
+.GCCustScroll1Up { padding-top:18px; background:url(HScroll.png) 0px top; width:18px; overflow:hidden; }
+.GCCustScroll1UpHover { padding-top:18px;  background:url(HScroll.png) -18px top; width:18px; overflow:hidden; }
+.GCCustScroll1SliderDown { padding-bottom:3px; background:url(HScroll.png) -36px bottom; width:18px; overflow:hidden; }
+.GCCustScroll1SliderUp { padding-top:3px; background:url(HScroll.png) -36px top; width:18px; overflow:hidden; }
+.GCCustScroll1SliderVIn { background:url(HScroll.png) -54px center; width:18px; overflow:hidden; }
+.GCCustScroll1SliderDownHover { padding-bottom:3px; background:url(HScroll.png) -72px bottom; width:18px; overflow:hidden; }
+.GCCustScroll1SliderUpHover { padding-top:3px; background:url(HScroll.png) -72px top; width:18px; overflow:hidden; }
+.GCCustScroll1SliderVInHover { background:url(HScroll.png) -90px center; width:18px; overflow:hidden; }
+
+.GCCustScroll2DownHidden { background:url(HScroll.png) -364px top; width:36px; overflow:hidden; }
+.GCCustScroll2Down { padding-bottom:36px; background:url(HScroll.png) -148px bottom; cursor:default; width:36px; overflow:hidden; }
+.GCCustScroll2DownHover { padding-bottom:36px; background:url(HScroll.png) -184px bottom; width:36px; overflow:hidden; }
+.GCCustScroll2Up { padding-top:36px; background:url(HScroll.png) -148px top; width:36px; overflow:hidden; }
+.GCCustScroll2UpHover { padding-top:36px;  background:url(HScroll.png) -184px top; width:36px; overflow:hidden; }
+.GCCustScroll2SliderDown { padding-bottom:6px; background:url(HScroll.png) -220px bottom; width:36px; overflow:hidden; }
+.GCCustScroll2SliderUp { padding-top:6px; background:url(HScroll.png) -220px top; width:36px; overflow:hidden; }
+.GCCustScroll2SliderVIn { background:url(HScroll.png) -256px center; width:36px; overflow:hidden; }
+.GCCustScroll2SliderDownHover { padding-bottom:6px; background:url(HScroll.png) -292px bottom; width:36px; overflow:hidden; }
+.GCCustScroll2SliderUpHover { padding-top:6px; background:url(HScroll.png) -292px top; width:36px; overflow:hidden; }
+.GCCustScroll2SliderVInHover { background:url(HScroll.png) -328px center; width:36px; overflow:hidden; }
+
+.GCCustScroll3Down,.GCCustScroll3DownHidden { background:white; width:9px; overflow:hidden; cursor:default; }
+.GCCustScroll3SliderDown,.GCCustScroll3SliderDownHover { padding-bottom:3px; width:9px; background:url(HScroll.png) -126px bottom; }
+.GCCustScroll3SliderUp,.GCCustScroll3SliderUpHover { width:9px; background:url(HScroll.png) -126px top; cursor:default; }
+.GCCustScroll3SliderDownHover { background-position:-135px bottom; }
+.GCCustScroll3SliderUpHover { background-position:-135px top; cursor:default; }
+
+.GCCustScroll4Down,.GCCustScroll4DownHidden,.GCCustScroll4SliderDown,.GCCustScroll4SliderDownHover { width:1px; overflow:hidden; }
+
+/* ------------------- Other messages, TGLib ------------------- */
+
+.GCHintMain { position:absolute; left:0px; top:0px; z-index:260; background:white; cursor:default; }
+.GCHintOuter { overflow:hidden; padding-bottom:2px; background:white; text-align:left; border:none; }
+.GCHintShadow {
+   position:absolute; margin-left:3px; margin-top:3px; z-index:259;
+   background:#888; opacity:0.5; filter:alpha(opacity=50);
+   }
+
+.GCTipMain { position:absolute; left:0px; top:0px; z-index:262; visibility:hidden; }
+.GCTipOuter  {
+   overflow:hidden; cursor:default; font:11px "Microsoft Sans Serif",Arial;
+   background:#f4f4f4; border:1px solid #d0d0d0; padding:3px;
+   }
+.GCTipBody { background:#f4f4f4; white-space:nowrap; }     
+.GCTipShadow {
+   position:absolute; margin-left:3px; margin-top:3px; z-index:261;
+   background:#888; opacity:0.5; filter:alpha(opacity=50);
+   visibility:hidden;
+   }
+
+.GCMouseOrig { background:yellow!important; opacity:0.5; filter:alpha(opacity=50); }
+.GCMouseDragObject { position:absolute; z-index:260; background:#888; opacity:0.5; filter:alpha(opacity=50); }
+
+.GCFocus { border:1px solid blue; background-color:white; }    
+
+.GridDisabled { position:absolute; z-index:256; background:white; opacity:0.5; filter:alpha(opacity=50); } 
+.GridMain { z-index:255; }
+
+/* ------------------- Style specials ------------------- */
+
+.GCCellHeader,.GCPagerHeader { background: url(Backgrounds.gif) 0px 0px repeat-x; }
+.GCToolbarRow{ background: url(Backgrounds.gif) 0 -250px repeat-x; }
+
+.GCTabHtml1 { background:url(Backgrounds.gif) 0 -750px repeat-x !important; color:white;  }
+
+
+/* Do not change, marks the style loaded */
+.GCLoaded { border:1px solid black!important; }

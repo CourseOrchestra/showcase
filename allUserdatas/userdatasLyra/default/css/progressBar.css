@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+
+.progress-bar
+{
+  	background: url(../resources/progressBar.gif) no-repeat;
+  	width: 331px; 
+  	height: 123px; 
+}

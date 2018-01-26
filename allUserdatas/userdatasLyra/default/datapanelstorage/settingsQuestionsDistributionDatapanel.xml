@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Настройка вопросов титульного листа">
+
+		<element id="gridQuestionsOrgTypes" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid"
+			proc="ssmmd.grids.settingsQuestionsOrgTypesGrid.getData.celesta">
+			<proc id="gridMetaQuestionsOrgTypes"
+				name="ssmmd.grids.settingsQuestionsOrgTypesGrid.getData.celesta" type="METADATA"/>
+		</element>
+
+		<element id="gridQuestionsFP" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.settingsQuestionsFPGrid.treeGrid.celesta" hideOnLoad="true">
+			<proc id="toolbarQuestions"
+				name="ssmmd.grids.settingsQuestionsFPGrid.gridToolBar.celesta" type="TOOLBAR"/>
+			<related id="gridQuestionsOrgTypes"/>
+		</element>
+
+		<element id="settingsQuestionsFPCard" type="xforms" template="settingsQuestionsFPCard.xml"
+			proc="ssmmd.xforms.settingsQuestionsFPCard.cardData.celesta" hideOnLoad="true">
+			<proc id="settingsDevelopmentsQuestionsSave"
+				name="ssmmd.xforms.settingsQuestionsFPCard.cardDataSave.celesta" type="SAVE"/>
+			<related id="gridQuestionsOrgTypes"/>
+			<related id="gridQuestionsFP"/>
+		</element>
+		
+		<element id="settingsQuestionsFPDelete" type="xforms" template="settingsQuestionsFPDelete.xml" 
+			proc="ssmmd.xforms.settingsQuestionsFPDelete.cardData.celesta" hideOnLoad="true">
+			<proc id="settingsQuestionsFPDeleteSave"
+				name="ssmmd.xforms.settingsQuestionsFPDelete.cardDataSave.celesta" type="SAVE"/>
+			<related id="gridQuestionsOrgTypes"/>
+			<related id="gridQuestionsFP"/>
+		</element>
+		
+		<element id="moveRight" type="xforms" template="settingsQuestionsFPRight.xml"
+			proc="ssmmd.xforms.settingsQuestionsFPRight.cardData.celesta" hideOnLoad="true">
+			<proc id="savemove"
+				name="ssmmd.xforms.settingsQuestionsFPRight.moveRight.celesta" type="SAVE"/>
+			<related id="gridQuestionsOrgTypes"/>
+			<related id="gridQuestionsFP"/>
+		</element>
+	</tab>
+	<tab id="2" name="Список вопросов">
+		<element id="questionsListGrid" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid"
+			proc="ssmmd.grids.settingsQuestionsList.getData.celesta">
+			<proc id="gridMetaQuestionsList"
+				name="ssmmd.grids.settingsQuestionsList.getData.celesta" type="METADATA"/>
+			<proc id="toolbarQuestions"
+				name="ssmmd.grids.settingsQuestionsList.gridToolBar.celesta" type="TOOLBAR"/>
+		</element>
+		<element id="questionsListCard" type="xforms" template="settingsQuestionsListCard.xml"
+			proc="ssmmd.xforms.settingsQuestionsListCard.cardData.celesta" hideOnLoad="true">
+			<proc id="settingsQuestionsSave"
+				name="ssmmd.xforms.settingsQuestionsListCard.cardDataSave.celesta" type="SAVE"/>
+			<related id="questionsListGrid"/>
+		</element>		
+		<element id="questionsListDelete" type="xforms" template="settingsQuestionsDelete.xml"
+			proc="ssmmd.xforms.settingsQuestionsListDelete.cardData.celesta" hideOnLoad="true">
+			<proc id="settingsQuestionsDelete"
+				name="ssmmd.xforms.settingsQuestionsListDelete.cardDataSave.celesta" type="SAVE"/>
+			<related id="questionsListGrid"/>
+		</element>		
+	</tab>
+</datapanel>

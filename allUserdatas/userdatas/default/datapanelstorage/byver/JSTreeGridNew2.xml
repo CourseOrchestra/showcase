@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+	
+	<tab id="3" name="Различные типы столбцов">
+		<element id="00102" type="grid" subtype="JS_TREE_GRID" proc="grid_new_data_column_types_geo"
+			plugin="treeDGrid" >
+			<proc id="p010201" name="grid_new_meta_column_types" type="METADATA"/>
+		</element>							
+	</tab>
+	
+	<tab id="2" name="Профайлы">
+		<element id="001022" type="grid" subtype="JS_TREE_GRID" proc="grid_new_data_column_types_geo"
+			plugin="treeDGrid" >
+			<proc id="p010201" name="grid_new_meta_column_types" type="METADATA"/>
+		</element>
+		<element id="001021" type="grid" subtype="JS_TREE_GRID" proc="grid_new_data_special_profile_geo"
+			plugin="treeDGrid" >
+			<proc id="p010201" name="grid_new_meta_special_profile" type="METADATA"/>
+		</element>
+	</tab>
+	
+	
+	<tab id="10" name="Выделение строки, Обновление по таймеру">
+ 		<element id="441" type="GRID"  subtype="JS_TREE_GRID" proc="grid_new_data_geo"
+ 		    refreshByTimer="true" refreshInterval="10"
+		    plugin="treeDGrid">
+			<proc id="442" name="grid_new_meta_geo" type="METADATA"/>
+			
+   			<proc id="020101" name="toolbar_grid_new" type="TOOLBAR"/>
+   			
+		    <proc id="11" name="jstreegrid_addrecord1" type="ADDRECORD" />
+		    <proc id="12" name="jstreegrid_save1" type="SAVE" />
+ 		    
+			<proc id="14" name="partial_grid_new_geo" type="PARTIALUPDATE" /> 
+   			
+		    
+		</element>
+		<element id="443" type="webtext" proc="webtext/selectedRowWriter.py" hideOnLoad="true" />		    
+		<element id="105" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+	</tab>
+	
+	
+	
+	<tab id="6" name="Выделение ячейки, Обновление по таймеру">
+		<element id ="541" type="grid" subtype="JS_TREE_GRID" proc="grid_new_data_cell_geo"
+		    refreshByTimer="true" refreshInterval="10"  
+		    plugin="treeDGrid">
+			<proc id="542" name="grid_new_meta_cell" type="METADATA"/>
+		</element>
+		
+		<element id="543" type="webtext" proc="webtext/selectedRowWriter.py" hideOnLoad="true" />		 
+		<element id="544" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+	</tab>
+			
+</datapanel>

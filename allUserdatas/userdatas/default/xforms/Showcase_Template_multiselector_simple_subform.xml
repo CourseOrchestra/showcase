@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance">
+				<schema xmlns="">
+					<info>
+						<city1>ярослав</city1>
+						<city2 />
+					</info>
+				</schema>
+			</xf:instance>
+			
+			
+            <xf:instance id="xformId_myInstance">
+                <schema xmlns="">
+				  <infos>                
+					<info id = "1">                
+                      <name>Атлантида1</name>
+                      <recordid>Шамбала1</recordid>
+					</info>
+					<info id = "2">
+                      <name>Атлантида2</name>
+                      <recordid>Шамбала2</recordid>
+					</info>
+					<info id = "3">
+                      <name>Атлантида3</name>
+                      <recordid>Шамбала3</recordid>
+					
+                      <name4 id="Атлантида4"></name4>
+                      <name4 id="Китеж-град4"></name4>
+					</info>
+				  </infos>					
+                </schema>
+           </xf:instance>
+           
+            <xf:instance id="xformId_myInstance1">
+                <schema xmlns="">
+					<info id = "101">                
+                      <name>Атлантида101</name>
+                      <recordid>Шамбала101</recordid>
+					</info>
+                </schema>
+           </xf:instance>
+           
+           
+			<xf:submission id="xformId_good_save" method="post" instance="xformId_myInstance"
+				replace="instance" ref="instance('xformId_myInstance')" action="secured/sqlTransform?proc=xforms_submission1">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Submission успешно выполнен</xf:message>
+				</xf:action>
+				<xf:action if="event('response-body')!='null'" ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при выполнении submission:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>
+			</xf:submission>
+
+			<xf:bind>
+			</xf:bind>
+		</xf:model>
+	</head>
+	<body>
+
+		<h1>Шаблон xformId</h1>
+
+<xf:repeat id="xformId_securityRealEstateRow" 
+nodeset="instance('xformId_mainInstance')/info">
+
+		<div style="font-size: 15px;"> Город из селектора: </div>
+		<div>
+			<xf:input ref="instance('xformId_mainInstance')/info/city1">
+				<xf:hint>Содержит город, выбранный в селекторе</xf:hint>
+			</xf:input>
+
+			<xf:trigger>
+				<xf:label>Old (JS), Selector, 1 процедура</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:showSelector({
+			           id : 'xformId',
+                       dataWidth           : '600px',
+                       dataHeight          : '450px', 
+                       visibleRecordCount  : '25',                     
+                       procListAndCount    : '[dbo].[regions_list_and_count]',
+                       generalFilters      : ['фильтры', 'XPath(instance(quot(xformId_myInstance))/infos/info/@id)'],
+                       currentValue        : 'XPath(instance(quot(xformId_mainInstance))/info[index(quot(xformId_securityRealEstateRow))]/city1)',
+                       windowCaption       : 'Выберите название',
+                       xpathMapping        : {
+                                              'XPath(instance(quot(xformId_mainInstance))/info[index(quot(xformId_securityRealEstateRow))]/city1)': 
+                                              'name', 
+                                              
+                                              'XPath(instance(quot(xformId_mainInstance))/info[index(quot(xformId_securityRealEstateRow))]/city2)': 
+                                              null
+                                             }
+                       });" />
+				</xf:action>
+			</xf:trigger>
+			
+			
+		    <xf:selector 
+		        buttonLabel        = "New (Tag), Selector, 1 процедура22"
+                dataWidth          = "'600px'"
+                dataHeight         = "'450px'"
+                visibleRecordCount = "'25'"
+                manualSearch       = "true"
+		        procListAndCount   = "'[dbo].[regions_list_and_count]'"  
+		        generalFilters     = "['XPath(instance(quot(xformId_myInstance))/infos/info/name)']"
+		        currentValue       = "'XPath(instance(quot(xformId_mainInstance))/info[index(quot(xformId_securityRealEstateRow))]/city1)'"
+		        startWith          = "false"		        
+		        windowCaption      = "'Выберите название'"
+		        xpathMapping       = "{'XPath(instance(quot(xformId_mainInstance))/info[index(quot(xformId_securityRealEstateRow))]/city1)' : 'name', 'XPath(instance(quot(xformId_mainInstance))/info[index(quot(xformId_securityRealEstateRow))]/city2)' : null}"
+		    />			
+			
+
+			<xf:trigger>
+				<xf:label>Old (JS), Selector, 2 процедуры</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:showSelector({
+			           id : 'xformId',
+                       procCount : '[dbo].[regionscount]',
+                       procList  : '[dbo].[regionslist]',
+                       generalFilters : [
+                                         'фильтры', 
+                                         'XPath(instance(quot(xformId_mainInstance))/info/name)'
+                                        ],
+                       currentValue        : '',
+                       windowCaption       : 'Выберите название',
+                       xpathMapping        : {
+                                              'XPath(instance(quot(xformId_mainInstance))/info[index(quot(xformId_securityRealEstateRow))]/city1)': 
+                                              'name', 
+                                              
+                                              'XPath(instance(quot(xformId_mainInstance))/info[index(quot(xformId_securityRealEstateRow))]/city2)': 
+                                              'XPath(instance(quot(xformId_mainInstance))/info[index(quot(xformId_securityRealEstateRow))]/city1)'
+                                             }
+					   });" />
+				</xf:action>
+			</xf:trigger>
+			
+			
+		    <xf:selector 
+		        buttonLabel       = "New (Tag), Selector, 2 процедуры"  
+		        procCount         = "'[dbo].[regionscount]'"  
+		        procList          = "'[dbo].[regionslist]'"
+                generalFilters    = " ['фильтры','XPath(instance(quot(xformId_mainInstance))/info/name)',]"
+		        windowCaption     = "'Выберите название'"
+		        xpathMapping      = "{
+		                              'XPath(instance(quot(xformId_mainInstance))/info[index(quot(xformId_securityRealEstateRow))]/city1)' : 
+		                              'name', 
+		                              
+		                              'XPath(instance(quot(xformId_mainInstance))/info[index(quot(xformId_securityRealEstateRow))]/city2)' : 
+		                              'XPath(instance(quot(xformId_mainInstance))/info[index(quot(xformId_securityRealEstateRow))]/city1)'
+		                             }"
+		    />			
+			
+			
+		</div>		
+		
+</xf:repeat>
+
+<hr/>
+		<div style="font-size: 15px;"> Город из мультиселектора: </div>
+		<div>
+			<xf:input ref="instance('xformId_myInstance1')/info/@id" >
+				<xf:hint>Содержит город, выбранный в мультиселекторе</xf:hint>
+			</xf:input>
+			<xf:input ref="instance('xformId_myInstance1')/info/name" >
+				<xf:hint>Содержит город, выбранный в мультиселекторе</xf:hint>
+			</xf:input>			
+
+        <xf:select1 ref="instance('xformId_mainInstance')/info/city2">
+            <xf:item>
+                <xf:label>-</xf:label>
+                <xf:value>-</xf:value>
+            </xf:item>
+            <xf:itemset nodeset="instance('xformId_myInstance')/infos/info/@id">
+                <xf:label ref="."/>
+                <xf:value ref="."/>
+            </xf:itemset>
+        </xf:select1>
+			
+        <xf:select1 ref="instance('xformId_mainInstance')/info/city2">
+            <xf:item>
+                <xf:label>-</xf:label>
+                <xf:value>-</xf:value>
+            </xf:item>
+            <xf:itemset nodeset="instance('xformId_myInstance')/infos/info/name">
+                <xf:label ref="."/>
+                <xf:value ref="."/>
+            </xf:itemset>
+        </xf:select1>
+         
+				
+			<xf:trigger>
+				<xf:label>Old (JS), MultiSelector, 1 процедура</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:showMultiSelector({
+			           id : 'xformId',
+                       dataWidth           : '600px',
+                       dataHeight          : '450px',
+                       selectedDataWidth   : '500px',
+                       visibleRecordCount  : '25',                       
+                       procListAndCount    : '[dbo].[regions_list_and_count]',
+                       generalFilters      : [ 
+                                              'XPath(instance(quot(xformId_myInstance))/infos/info[3]/name4)',  
+                                              'XPath(instance(quot(xformId_myInstance))/infos/info[3]/name4/@id)'
+                                             ],
+                       currentValue        : '',
+                       windowCaption       : 'Выберите значения',
+                       needClear           : true,
+                       needInitSelection   : true,
+                       xpathRoot		   : 'XPath(instance(quot(xformId_myInstance))/infos)',
+                       xpathMapping        : {
+                                              'XPath(instance(quot(xformId_myInstance1))/info)': 
+                                              {'id': '@id','name':'name'}
+                                             }
+                       });" />
+				</xf:action>
+			</xf:trigger>
+		
+		    <xf:multiselector 
+		        buttonLabel       = "New (Tag), MultiSelector, 1 процедура"
+                dataWidth         = "'600px'"
+                dataHeight        = "'450px'"
+                selectedDataWidth = "'500px'"
+                visibleRecordCount = "'25'" 
+                manualSearch       = "true"               
+		        procListAndCount  = "'[dbo].[regions_list_and_count]'"  
+		        generalFilters    = "['XPath(instance(quot(xformId_myInstance))/infos/info[3]/name4)', 'XPath(instance(quot(xformId_myInstance))/infos/info[3]/name4/@id)']"
+		        currentValue      = "''"
+		        startWith          = "false"		        
+		        windowCaption     = "'Выберите значения'"
+		        needClear         = "true"
+		        needInitSelection = "true"
+		        xpathRoot         = "'XPath(instance(quot(xformId_myInstance))/infos)'"
+		        xpathMapping      = "{'XPath(instance(quot(xformId_myInstance1))/info)':{'id': '@id','name':'name'}}"
+		        
+		        onSelectionComplete = "function(ok, selected){if (ok) {alert('Это_вызов_onSelectionComplete');}}"		        
+		        
+		    />			
+			
+				
+			<xf:trigger>
+				<xf:label>Old (JS), MultiSelector, 2 процедуры</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:showMultiSelector({
+			           id : 'xformId',
+                       procCount : '[dbo].[regionscount]',
+                       procList  : '[dbo].[regionslist]',
+                       generalFilters      : '',
+                       currentValue        : '',
+                       windowCaption       : 'Выберите значения',
+                       needClear           : false,  
+                       needInitSelection   : true,
+                       xpathRoot		   : 'XPath(instance(quot(xformId_myInstance))/infos)',
+                       xpathMapping        : {
+                                              'XPath(instance(quot(xformId_myInstance1))/info)': 
+                                              {'id': '@id','name':'name'}
+                                             }
+                       });" />
+				</xf:action>
+			</xf:trigger>	
+
+		    <xf:multiselector 
+		        buttonLabel       = "New (Tag), MultiSelector, 2 процедуры"  
+		        procCount         = "'[dbo].[regionscount]'"  
+		        procList          = "'[dbo].[regionslist]'"
+		        windowCaption     = "'Выберите значения'"
+		        needInitSelection = "true"
+		        xpathRoot         = "'XPath(instance(quot(xformId_myInstance))/infos)'"
+		        xpathMapping      = "{'XPath(instance(quot(xformId_myInstance1))/info)':{'id': '@id','name':'name'}}"
+		    />			
+					
+		</div>
+<hr/>
+		<div style="clear: both;">
+		
+		
+				
+			<xf:output value="'Город 1: '"/> 
+			<xf:output value="instance('xformId_mainInstance')/info/city1"/>
+ 			<xf:output value="' Город 2: '"/>
+			<xf:output value="instance('xformId_mainInstance')/info/city2"/>
+ 				
+		</div>
+		
+<hr/>		
+		<div>
+
+			<xf:trigger>
+				<xf:label>Вызов submission: sqlTransform</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="xformId_good_save" />
+				</xf:action>
+			</xf:trigger>
+
+		</div>
+		
+		
+		
+
+	</body>
+</html>
+
+
+
+
+
+

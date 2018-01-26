@@ -1,0 +1,111 @@
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<link rel="stylesheet" href="../dijit/themes/claro/claro.css"/>
+<link rel="stylesheet" href="chartinggui/resources/common.css"/>
+
+    <script type="text/javascript">
+        var djConfig = {
+            parseOnLoad: true,
+            isDebug: false,
+            modulePaths: {'course': '../course'}
+        };
+    </script>  
+<script src="../dojo/dojo.js"></script>
+<script src="chartinggui/Wrapper.js"></script>
+<script src="chartinggui/Theme.js"></script>
+<script src="chartinggui/Option.js"></script>
+<script src="chartinggui/PlotLines.js"></script>
+<script src="chartinggui/PlotPie.js"></script>
+<script src="chartinggui/Axis.js"></script>
+<script src="chartinggui/ExportDialog.js"></script>
+<script src="charting.js"></script>
+
+<script>
+
+var chartOptions = {
+    id: "courseChart",
+    plot: [
+		{type: "Columns", tension:"S", gap: 3, markers: true, areas: false/*, fill: "blue", stroke: {color: "red"}*/},
+		{
+			type: "Grid", name: "grid", renderOnAxis: false,
+			majorVLine: {color: { r:246, g:249, b:253, a:0.8 }, width: 1},
+			hMajorLines: false,
+			hFill: { r:246, g:249, b:253, a:0.8 },
+			hAlternateFill: { r:146, g:149, b:153, a:0.8 },
+			hStripes: true
+		}
+	],
+    /*
+    plot: [
+        {type: "StackedAreas", tension:"S"},
+        {name: "grid", type: "Grid", hAxis: "x", vAxis: "y", hMajorLines: true, hMinorLines: true, vMajorLines: true, vMinorLines: false },
+    ],
+    */
+    axis: [
+        {name: "x", options: {fixLower: "major", fixUpper: "major", minorLabels: false, microTicks: false, rotation: -90, minorTicks: false}},
+        {name: "y", options: {vertical: true, fixLower: "major", fixUpper: "major", min: 0}}
+    ],
+    axisX: {title: "Ось X", fixLower: "major", fixUpper: "major", minorLabels: false, microTicks: false, rotation: -90, minorTicks: false},
+    series: [
+        {name: "Series A", data: [ -2, 1.1, 1.2, 1.3, 1.4, 1.5, -1.6 ]/*, options: { stroke: {color: "red", width: 2}, fill: "lightpink" }*/ },
+        //{name: "Series A", data: [ 10000, 20000, 10000, 20000, 10000, 10000, 20000, 10000, 20000, 10000, ]/*, options: { stroke: {color: "red", width: 2}, fill: "lightpink" }*/ },
+        {name: "Series B", data: [ 1, 1.6, 1.3, 1.4, 1.1, 1.5, 1.1 ]/*, options: { stroke: {color: "blue", width: 2}, fill: "lightblue" }*/ },
+        {name: "Series C", data: [ 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6 ]/*, options: { stroke: {color: "green", width: 2}, fill: "lightgreen" }*/ }
+    ],
+    theme: "dojox.charting.themes.ThreeD",
+    //legend: {id: "chartLegend", options: {horizontal: false}},
+    action: [
+        {type: "dojox.charting.action2d.Shake", options: {duration: 500, easing: "dojo.fx.easing.bounceOut"}},
+        {type: "dojox.charting.action2d.Tooltip"}
+    ],
+    legend: {id: "courseLegend", options: {horizontal: true}}
+};
+
+
+dojo.require("dijit.layout.BorderContainer");
+dojo.require("dijit.layout.TabContainer");
+dojo.require("dijit.layout.ContentPane");
+dojo.require("dijit.Toolbar");
+dojo.require("dijit.form.Button");
+dojo.require("dijit.form.Select");
+
+dojo.require("course.chartinggui.Wrapper");
+dojo.require("course.chartinggui.exporting.CourseShowcase");
+
+dojo.addOnLoad(function(){
+
+    var wrapper = new course.chartinggui.Wrapper({
+        chartOptions: chartOptions,
+        chartDiv: dojo.byId("courseChart"),
+        chartContentPane: dijit.byId("chartContainer"),
+        tabContainer: dijit.byId("tabContainer"),
+        plotTypeSelect: dijit.byId("chartTypeSelect"),
+        exportButton: dijit.byId("exportButton")
+    });
+    wrapper.addExporter(new course.chartinggui.exporting.CourseShowcase(), true);
+
+});
+</script>
+
+</head>
+
+<body class="claro">
+
+<div dojoType="dijit.layout.BorderContainer" style="width:100%;height:100%;padding:0px;" gutters="true" liveSplitters="false">
+    <div dojoType="dijit.Toolbar" region="top">
+        <span>Chart type:</span>
+        <div id="chartTypeSelect" dojoType="dijit.form.Select"></div>
+        <div id="exportButton" dojoType="dijit.form.Button">Export</div>
+    </div>
+    <div id="tabContainer" dojoType="dijit.layout.TabContainer" region="center"></div>
+    <div id="chartContainer" dojoType="dijit.layout.ContentPane" region="bottom" splitter="true" style="height:200px">
+        <div id="courseChart" style="width:100%;height:60%;"></div>
+        <div id="courseLegend"></div>
+    </div>  
+</div>
+
+</body>
+</html>

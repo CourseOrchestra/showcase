@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel">
+
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns="">
+					<data/>
+				</schema>
+			</xf:instance>
+
+			<xf:instance id="xformId_choiceInstance">
+				<schema xmlns="">
+					<choice>
+						<id/>
+						<name/>
+					</choice>
+				</schema>
+			</xf:instance>
+
+			<xf:bind>
+				<!-- <xf:bind nodeset="instance('xformId_mainInstance')/questions/question/max" constraint=".&gt;../max"/> -->
+				<xf:bind nodeset="instance('xformId_mainInstance')//*" 
+					readonly="if(instance('xformId_mainInstance')/data/readonly=1, true(), false())"/>
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/answerTypeName"
+					readonly="true()"/>
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/system" type="boolean"/>
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/multipleChoice"
+					type="boolean"/>
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/required"
+					type="boolean"/>				
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/uploadPicture"
+					type="boolean"/>
+
+				<xf:bind readonly="if(../../system='true' or ../../tableChild='true',true(), false())"			
+					nodeset="instance('xformId_mainInstance')/data/question/name"/>
+
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')//questionName"/>
+				<xf:bind nodeset="instance('xformId_mainInstance')//catalogName" readonly="true()"/>
+
+				<xf:bind type="date"
+					nodeset="instance('xformId_mainInstance')/data[answerTypeId='date']/question/max"/>
+				<xf:bind type="nonNegativeInteger"
+					nodeset="instance('xformId_mainInstance')/data[answerTypeId='int']/question/max"/>
+				<xf:bind type="decimal"
+					nodeset="instance('xformId_mainInstance')/data[answerTypeId='float']/question/max"/>
+
+				<xf:bind type="date"
+					nodeset="instance('xformId_mainInstance')/data[answerTypeId='date']/question/min" 
+					constraint=". &lt; ../max or  .='' or  ../max=''"/>
+				<xf:bind type="nonNegativeInteger"
+					nodeset="instance('xformId_mainInstance')/data[answerTypeId='int']/question/min" 
+					constraint=". &lt; ../max or  .='' or  ../max=''"/>
+				<xf:bind type="decimal"
+					nodeset="instance('xformId_mainInstance')/data[answerTypeId='float']/question/min" 
+					constraint=". &lt; ../max or  .='' or  ../max=''"/>
+			</xf:bind>
+
+
+			<xf:submission id="xformId_htmlCopySubmission" method="post" replace="none"
+				ref="instance('xformId_mainInstance')/data/htmlBlock" mode="synchronous"
+				action="secured/submit?proc=ssmmd.xforms.settingsDevelopQuest.htmlCopySubmission.celesta"/>
+
+
+		</xf:model>
+	</head>
+
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance')/data)"/> -->
+		<xf:group ref="instance('xformId_mainInstance')/data[development!='']">
+			<div style="clear:both">
+				<div style="font-weight: bold; float: left; padding-right: 5px"> Разработка: </div>
+				<xf:output ref="development"/>
+			</div>
+		</xf:group>
+
+		<xf:group ref="instance('xformId_mainInstance')/data[research!='']">
+			<div style="clear:both">
+				<div style="font-weight: bold; float: left; padding-right: 5px"> Исследование: </div>
+				<xf:output ref="research"/>
+			</div>
+		</xf:group>
+
+		<xf:group ref="instance('xformId_mainInstance')/data[section!='']">
+			<div style="clear:both">
+				<div style="clear:both; font-weight: bold; float: left; padding-right: 5px"> Раздел: </div>
+				<xf:output ref="instance('xformId_mainInstance')/data/section"/>
+			</div>
+		</xf:group>
+
+		<div style="clear:both">
+			<div style="clear:both; font-weight: bold; float: left; padding-right: 5px">
+				Родительский вопрос: </div>
+			<xf:output ref="instance('xformId_mainInstance')/data/parentName"/>
+		</div>
+		<hr style="margin-top:21px; width: 100%;  float: left; clear: both;" />
+
+		<div style="clear: both">
+			<div style="float: left; font-weight: bold; padding-right: 5px; font-size: 11pt">Вопрос</div>
+			<div class="bigArrow">
+				<xf:trigger id="xformId_question" appearance="minimal">
+					<xf:label>
+						<xf:output
+							value="if(instance('xformId_mainInstance')/data/questionShow = 1, ' &lt;&lt;&lt;', ' &gt;&gt;&gt;')"/>
+					</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:setvalue ref="instance('xformId_mainInstance')/data/questionShow"
+							value="1 - instance('xformId_mainInstance')/data/questionShow"/>
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</div>
+
+		<!-- ПУНКТЫ САМОГО ВОПРОСА -->
+		<xf:group ref="instance('xformId_mainInstance')/data[questionShow = 1]">
+			<xf:group ref=".[(parentName='' or systemDad!='false' and @main='development') and @add='add']">
+				<div class="inputText">
+					<xf:input ref="system">
+						<xf:action ev:event="xforms-value-changed">
+							<xf:setvalue ref="../question/name" value=""/>
+							<xf:setvalue ref="../question/end" value=""/>
+							<xf:setvalue ref="../comment" value=""/>
+							<xf:setvalue ref="../answerTypeName" value=""/>
+							<xf:setvalue ref="../answerTypeId" value=""/>
+							<xf:setvalue ref="../catalogId" value=""/>
+							<xf:setvalue ref="../catalogName" value=""/>
+							<xf:setvalue ref="../byDefault_query" value=""/>
+							<xf:setvalue ref="../permits_query" value=""/>
+							<xf:setvalue ref="../restrictions_query" value=""/>
+							<xf:setvalue ref="../textRule_query" value=""/>
+							<xf:delete nodeset="../choice"/>
+						</xf:action>
+					</xf:input>
+					<xf:output value="'Системный вопрос'"/>
+				</div>
+			</xf:group>
+
+			<xf:group ref=".[system!='true' and answerTypeId!='table' and tableChild!='true']">
+				<div class="inputText">
+					<xf:input ref="required" />
+					<xf:output value="'Вопрос обязателен для заполнения'"/>
+				</div>
+			</xf:group>
+			<xf:group ref=".[readonly!='0' or system!='true']">
+				<div class="break xforms-required">
+					<xf:group ref=".[readonly=0]" class="selectorShort200">
+						<xf:input ref="answerTypeName">
+							<xf:label>Тип ответа:</xf:label>
+						</xf:input>
+						<!-- невидимый костыль -->
+						<xf:textarea style="display: none" ref="answerTypeId">
+							<xf:action ev:event="xforms-value-changed" if=".!=''">
+								<xf:setvalue ref="../question/max" value=""/>
+								<xf:setvalue ref="../question/min" value=""/>
+								<xf:delete nodeset="../choice"/>
+								<xf:send submission="xformId_choiceSubmission"/>
+							</xf:action>
+						</xf:textarea>
+
+						<xf:selector buttonLabel="..."
+								procListAndCount="'ssmmd.other.ruleSelector.answerTypeListAndCount.celesta'"
+								generalFilters="'settingsQuestions'" currentValue="''" windowCaption="'Выбор значения'"
+								xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/answerTypeName)' : 'name',
+								  'XPath(instance(quot(xformId_mainInstance))/data/answerTypeId)' : 'id'}"/>
+					</xf:group>
+					<xf:group ref=".[readonly!=0]" class="baseInput200">
+						<xf:input ref="answerTypeName">
+							<xf:label>Тип ответа:</xf:label>
+						</xf:input>
+					</xf:group>
+				</div>
+				<xf:group ref=".[answerTypeId!='table']">
+					<div class="break baseInput400 xforms-required">
+						<xf:textarea ref="question/name">
+							<xf:label>Текст вопроса:</xf:label>
+						</xf:textarea>
+					</div>
+				</xf:group>
+				<xf:group ref=".[answerTypeId='table']">
+					<div class="break baseInput400 xforms-required">
+						<xf:input ref="question/name">
+							<xf:label>Название таблицы:</xf:label>
+							<!-- под этим названием хранится вопрос-родитель (типа заголовок) для вопросов таблицы-->
+						</xf:input>
+					</div>
+
+					<div class="break button200">
+						<xf:trigger>
+							<xf:label>Редактор таблицы</xf:label>
+							<xf:action ev:event="DOMActivate">
+								<xf:setvalue ref="htmlBlock/htmlMode"
+							value="'htmlData'"/>
+								<xf:send submission="xformId_htmlCopySubmission"/>
+							</xf:action>
+							<xf:action ev:event="DOMActivate">
+								<xf:load
+							resource="javascript:gwtCreatePlugin({
+							id:'xformId',
+							plugin:'htmlEditorTinymce',
+							generalFilters: ['XPath(instance(quot(xformId_mainInstance))/data/htmlBlock/htmlContent)'],
+							proc:'ssmmd.xforms.settingsDevelopQuest.htmlEdit.celesta',
+							params:{
+							tinymce: {
+							plugins: ['code', 'image', 'table', 'link'],
+							width: '1000',
+							height: '500'
+									
+							}
+							},
+							options: {								
+							dataWidth: '1000px',
+							dataHeight: '500px',
+							windowCaption: 'Редактирование HTML',
+							onSelectionComplete: function(ok, plugin) {
+							if (ok) {
+							var elem = document.getElementById('questionEditor').getElementsByClassName('value')[0].getElementsByTagName('textarea')[0];
+							elem.value = plugin.getTinymceEditor().getContent();
+							elem.focus();
+									
+							}
+							}
+							}
+							});"
+						/>
+							</xf:action>
+						</xf:trigger>
+					</div>
+					<div class="break baseInput800 textareaHeight100">
+						<xf:textarea id="questionEditor" ref="htmlBlock/htmlContent">
+							<xf:label>Код HTML:</xf:label>
+						</xf:textarea>
+					</div>
+				</xf:group>
+			</xf:group>
+			<xf:group ref=".[readonly='0' and system!='true' and answerTypeId!='table' and tableChild!='true']">
+				<div class="break baseInput400">
+					<xf:upload id="xformId_question_picture_upload" singleFile="false"/>
+				</div>
+			</xf:group>
+
+
+			<xf:group ref=".[readonly='0' and system='true']">
+				<div class="break selectorShort400 xforms-required">
+					<xf:textarea  ref="question/name">
+						<xf:label>Текст вопроса:</xf:label>
+					</xf:textarea>
+					<xf:trigger>
+						<xf:label>...</xf:label>
+						<xf:action ev:event="DOMActivate">
+							<xf:load
+									resource="javascript:gwtCreatePlugin
+										  ({
+											id:'xformId',
+											plugin:'extJsTree',
+											getDataProcName:'ssmmd.other.ruleSelector.questionsListAndCount.celesta',
+											postProcessProc:'handleExtJsTree.py',
+											generalFilters: ['XPath(instance(quot(xformId_mainInstance))/filters/primary)',
+															 'questionsSystem',
+															 'XPath(instance(quot(xformId_mainInstance))/filters/researchId)',
+															 'XPath(instance(quot(xformId_mainInstance))/rules/rule[index(quot(specialFields))]/@type)'],
+											params:
+											{treePanel:
+												{title: 'Системные вопросы'},
+											  core:
+											   {Update:
+												{startsWith:true,
+												  delay:900}},
+											  dataModel:
+												  {fields:
+												   [{name: 'attr1', type: 'string'},
+													{name: 'attr2', type: 'string'},
+													{name: 'attr3', type: 'string'},
+								
+													{name: 'column1', type: 'string'},
+													{name: 'column2', type: 'string'}]},
+												  view:
+												  {columns:
+													[{header: 'id',menuDisabled: true, dataIndex: 'column1'},
+													{header: 'Раздел', menuDisabled: true, dataIndex: 'column2'}]}},
+											options: {								
+											  dataWidth: '600px',
+											  dataHeight: '450px',
+											  windowCaption: 'Выбор системного вопроса',
+											  onSelectionComplete: function(ok, plugin) {
+												if (ok) {
+												plugin.utils.singleXpathMapping({
+																	'XPath(instance(quot(xformId_mainInstance))/data/question/name)' : 'name',
+																	'XPath(instance(quot(xformId_mainInstance))/data/question/id)' : 'id'
+																  }, true);	}}}});"/>
+						</xf:action>
+					</xf:trigger>
+				</div>
+			</xf:group>
+			<xf:group ref=".[system='false']">
+				<xf:group ref=".[answerTypeId!='table' and tableChild!='true']">
+					<div class="break baseInput200">
+						<xf:input ref="question/end">
+							<xf:label>Окончание вопроса:</xf:label>
+						</xf:input>
+					</div>
+					<div class="break baseInput400" >
+						<xf:textarea ref="comment">
+							<xf:label>Комментарий к вопросу:</xf:label>
+						</xf:textarea>
+					</div>
+				</xf:group>
+
+
+				<xf:group ref=".[answerTypeId='date']/question">
+					<div class="break dateInput">
+						<xf:input ref="max">
+							<xf:label>Максимальное значение</xf:label>
+						</xf:input>
+					</div>
+					<div class="break dateInput">
+						<xf:input ref="min">
+							<xf:label>Минимальное значение</xf:label>
+						</xf:input>
+					</div>
+				</xf:group>
+				<xf:group ref=".[answerTypeId='int' or answerTypeId='float']/question">
+					<div class="break baseInput200">
+						<xf:input ref="max">
+							<xf:label>Максимальное значение</xf:label>
+						</xf:input>
+					</div>
+					<div class="break baseInput200">
+						<xf:input ref="min">
+							<xf:label>Минимальное значение</xf:label>
+						</xf:input>
+					</div>
+				</xf:group>
+				<xf:group ref=".[answerTypeId='choice' or answerTypeId='catalog']">
+					<div class="break">
+						<xf:input ref="multipleChoice"/>
+						<xf:output value="'Множественный выбор'"/>
+					</div>
+				</xf:group>
+				<xf:group ref=".[answerTypeId='choice']">
+					<xf:group ref=".[readonly=0]">
+						<div class="break">
+							<xf:trigger>
+								<xf:label>Добавить</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:insert nodeset="choice"
+										origin="instance('xformId_choiceInstance')/choice"
+										at="last()" position="after"/>
+									<xf:setvalue ref="./choice[last()]/id"
+										value="concat('var', count(//choice))"/>
+								</xf:action>
+							</xf:trigger>
+						</div>
+					</xf:group>
+					<xf:repeat id="xformId_actionRow" nodeset="choice">
+						<div class="break">
+							<div style="float: left; margin-top: 24px; margin-right: 5px; width: 20px">
+								<xf:output value="id"/>
+							</div>
+							<xf:group ref=".[../readonly=0]">
+								<div class="selectorShort200 xforms-required">
+									<xf:input ref="name">
+										<xf:label>Вариант ответа:</xf:label>
+									</xf:input>
+									<xf:trigger>
+										<xf:label>X</xf:label>
+										<xf:action ev:event="DOMActivate">
+											<xf:delete nodeset="current()"/>
+											<xf:setvalue iterate="instance('xformId_mainInstance')/data/choice" ref="id"
+												value="concat('var', count(../preceding-sibling::choice) + 1)"/>
+										</xf:action>
+									</xf:trigger>
+								</div>
+							</xf:group>
+							<xf:group ref=".[../readonly!=0]">
+								<div class="baseInput200 xforms-required">
+									<xf:input ref="name">
+										<xf:label>Вариант ответа:</xf:label>
+									</xf:input>
+								</div>
+							</xf:group>
+						</div>
+					</xf:repeat>
+				</xf:group>
+				<xf:group ref=".[answerTypeId='catalog']">
+					<xf:group ref=".[readonly=0]">
+						<div class="break selectorShort200 xforms-required">
+							<xf:input ref="catalogName">
+								<xf:label>Справочник:</xf:label>
+							</xf:input>
+							<xf:selector buttonLabel="..."
+								procListAndCount="'ssmmd.other.ruleSelector.catalogListAndCount.celesta'"
+								generalFilters="" currentValue="''"
+								windowCaption="'Выбор каталога'"
+								xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/catalogName)' : 'name',
+							  'XPath(instance(quot(xformId_mainInstance))/data/catalogId)' : 'id'}"
+							/>
+						</div>
+					</xf:group>
+					<xf:group ref=".[readonly!=0]">
+						<div class="break baseInput200 xforms-required">
+							<xf:input ref="catalogName">
+								<xf:label>Справочник:</xf:label>
+							</xf:input>
+						</div>
+					</xf:group>
+				</xf:group>
+				<xf:group ref=".[answerTypeId!='table' and tableChild!='true']">
+					<div class="inputText">
+						<xf:input ref="uploadPicture" />
+						<xf:output value="'Возможность загружать картинку'"/>
+					</div>		
+				</xf:group>				
+			</xf:group>
+		</xf:group>
+
+		<xf:group ref="instance('xformId_mainInstance')/rules[../data/system='false']">
+			<div class="rule"/>
+		</xf:group>
+
+		<xf:group ref="instance('xformId_mainInstance')/data[readonly=0]">
+			<div class="break" style="color:red"> Поля отмеченные символом * обязательны для заполнения </div>
+			<hr class="break" />
+			<div class="dirusing newbutton" style="float: left">
+				<xf:trigger class="blue">
+					<xf:label>Сохранить</xf:label>
+					<xf:action ev:event="DOMActivate"
+						if="(is-valid(instance('xformId_mainInstance'))=true())">
+						<xf:send submission="xformId_saveSubmission"/>
+					</xf:action>
+					<xf:action ev:event="DOMActivate"
+						if="(is-valid(instance('xformId_mainInstance'))=false())">
+						<xf:message>Заполнено с ошибкой!</xf:message>
+					</xf:action>
+				</xf:trigger>
+			</div>
+
+			<div class="dirusing newbutton" style="float: right">
+				<xf:trigger class="blue">
+					<xf:label>Закрыть</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</xf:group>
+	</body>
+</html>

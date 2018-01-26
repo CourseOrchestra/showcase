@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" 
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer" 
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns="">
+					<data id="" name=""/>
+				</schema>
+			</xf:instance>
+
+			<xf:bind>
+				<xf:bind required="true()" nodeset="instance('xformId_mainInstance')/data/@name"/>
+			</xf:bind>
+
+		</xf:model>
+	</head>
+
+	<body>
+			 <!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/> -->
+
+		<div class="control" style="width: 100%; padding: 2px; float: left;clear:both; ">
+			<table>
+				<tr>
+					<td>
+						<div class="req">
+							<div class="inputText">
+								<xf:input ref="instance('xformId_mainInstance')/data/@name">
+									<xf:label>Название:</xf:label>
+								</xf:input>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<xf:group ref="instance('xformId_mainInstance')/data[./@isForms='True']">
+		<div class="control" style="width: 100%; padding: 2px; float: left;clear:both; ">
+			<table>
+				<tr>
+					<td>
+						<div class="req">
+							<div class="inputText">
+								<xf:input ref="instance('xformId_mainInstance')/data/@code">
+									<xf:label>Код:</xf:label>
+								</xf:input>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		</xf:group>
+		<hr style="margin-top:21px; width: 100%;  float: left; clear: both;" />
+
+		<div class="author newbutton" style="margin-left:10px; padding: 2px;float: left;clear: both">
+			<xf:trigger class="blue" id="Tab10">
+				<xf:label>Сохранить и закрыть</xf:label>
+				<xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=false())">
+					<xf:message>Заполнено с ошибкой!</xf:message>
+				</xf:action>
+				<xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=true())">
+					<xf:load resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 
+				'xformId_mainInstance')))"/>
+					<xf:message>Данные сохранены</xf:message>
+				</xf:action>
+			</xf:trigger>
+		</div>
+
+		<div class="author newbutton" style="margin-right:10px; padding: 2px;float: right;">
+			<xf:trigger class="blue" id="Tab20">
+				<xf:label>Закрыть</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+				</xf:action>
+			</xf:trigger>
+		</div>
+
+	</body>
+</html>

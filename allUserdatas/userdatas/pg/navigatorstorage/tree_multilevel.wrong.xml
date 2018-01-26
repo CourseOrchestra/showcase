@@ -1,0 +1,10 @@
+﻿<navigator>
+	<group id="1" name="Балансы продовольственных ресурсов">
+		<level1 id="C6CC2BA4-A6ED-4630-8E58-CBBFA9C8C0A3" name="Вывоз, включая экспорт - Всего">
+			<action>
+				<main_context>Вывоз, включая экспорт - Всего</main_context>
+				<datapanel type="test.xml" tab="super_very_secret_tab_id"/>
+			</action>
+		</level1>				
+	</group>
+</navigator>

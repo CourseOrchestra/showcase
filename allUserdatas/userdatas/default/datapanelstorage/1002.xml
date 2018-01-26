@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="06" name="XForms. Селектор - доработки">
+		<element id="61" type="xforms" template="Showcase_Template_selector.xml"
+			proc="xforms_proc1">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+		</element>
+		<element id="62" type="webtext" proc="webtext_filter_and_add"
+			hideOnLoad="true" />		
+	</tab>			
+</datapanel>

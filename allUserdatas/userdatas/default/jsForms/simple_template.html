@@ -1,0 +1,70 @@
+﻿ <html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <script charset="utf-8">
+    
+  </script><script type="text/javascript" charset="utf-8">
+  
+  require(["dijit/registry", "dijit/form/Button", "dojo/dom", "dijit/form/TextBox", "dojo/domReady!"], function(registry, Button, dom){ 
+        var destroy = function(widget) {
+      if (widget) {      
+        widget.destroyRecursive(true);
+      }
+    }
+    destroy(registry.byId("SynchButton"));
+    destroy(registry.byId("ASynchButton"));
+    destroy(registry.byId("dojoinput"));
+    destroy(registry.byId("simpleinput"));
+    
+    function jsOnload() {
+    document.getElementById("simpleinput").value = "javascript_onload_function";
+    }      
+    jsOnload();
+  
+      var callback = function(resulData) {
+      if (resulData) {
+        if (resulData.isError) {
+          dom.byId("dojoinput").value = "Failure. Error message: '"+resulData.message+"'";
+        } else {
+          dom.byId("dojoinput").value = "Success! Received data: '"+resulData+"'";
+        }
+      } else {
+        dom.byId("dojoinput").value += "Data not received";
+      }    
+    }
+    
+    var ASynchButton = new Button({
+      label: "Asynch Submit",
+      onClick: function(){  
+          jsFormSubmitAsynch('13','mysubmit2', 'data', 
+            function(data) {
+              dom.byId("result").innerHTML += "Success! Received data: '"+data+"'";
+            }, function(err) {
+              dom.byId("result").innerHTML += "Failure. Error message: '"+err.message+"'";
+            }
+          );
+      }
+    }, "ASynchButton").startup();
+    
+    var SynchButton = new Button({
+      label: "Synch Submit",
+      onClick: function(){
+          var resulData = jsFormSubmitSynch('13','mysubmit1', 'data');
+          callback(resulData);
+      }
+    }, "SynchButton").startup();
+    
+  });
+</script>
+
+</head>
+
+<body>
+<input id="simpleinput" type="text" name="name1"><br><br>
+<input id="dojoinput" data-dojo-type="dijit/form/TextBox" type="text" value="dojo textbox default value"></input><br><br>
+<button id="ASynchButton" type="button"></button>
+<button id="SynchButton" type="button"></button>
+<div id="result"></div>
+</body>
+
+</html>

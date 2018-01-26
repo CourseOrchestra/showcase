@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema>
+					<fields>
+						<field></field>
+					</fields>
+				</schema>
+			</xf:instance>
+
+			<xf:instance id="xformId_filterInstance" xmlns="">
+				<schema>
+					<field value="" filter=""></field>
+				</schema>
+			</xf:instance>
+
+			<xf:bind>
+				<xf:bind nodeset="instance('xformId_mainInstance')/order/fields/field/enable"
+					type="boolean"/>
+			</xf:bind>
+
+		</xf:model>
+	</head>
+	<body>
+		<!--<xf:output value="serialize(instance('mainInstance'))"></xf:output>-->
+		<xf:group ref="instance('xformId_mainInstance')/filter">
+			<div class="bigArrow">
+				<xf:trigger appearance="minimal">
+					<xf:label>
+						<xf:output value="if(@permission = 1, ' &lt;&lt;&lt;', ' &gt;&gt;&gt;')"
+						></xf:output>
+					</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:setvalue ref="show" value="1-."></xf:setvalue>
+					</xf:action>
+				</xf:trigger>
+			</div>
+			<xf:group ref=".[@permission='1']" class="group-wide">
+				<div class="break">
+					<xf:trigger>
+						<xf:label>Добавить</xf:label>
+						<xf:action ev:event="DOMActivate">
+							<xf:insert nodeset="instance('xformId_mainInstance')/fields/field"
+								origin="instance('xformId_filterInstance')/field" at="last()"
+								position="after"></xf:insert>
+						</xf:action>
+					</xf:trigger>
+					<xf:repeat id="filter" nodeset="fields/field">
+						<xf:select1 ref="@value">
+							<xf:item>
+								<xf:label></xf:label>
+								<xf:value></xf:value>
+							</xf:item>
+							<xf:itemset nodeset="instance('xformId_mainInstance')/order/fields/field/value/*">
+								<xf:label ref="."></xf:label>
+								<xf:value ref="."></xf:value>
+							</xf:itemset>
+							<xf:label>Поле:</xf:label>
+						</xf:select1>
+						<xf:output value="is"></xf:output>
+						<xf:input ref="./@filter" />
+						<xf:trigger>
+							<xf:label>—</xf:label>
+							<xf:action ev:event="DOMActivate">
+								<xf:delete nodeset="current()"></xf:delete>
+							</xf:action>
+						</xf:trigger>
+					</xf:repeat>
+				</div>
+
+			</xf:group>
+		</xf:group>
+
+		<xf:group ref="instance('xformId_mainInstance')/order">
+			<div class="bigArrow">
+				<xf:trigger appearance="minimal">
+					<xf:label>
+						<xf:output value="if(@permission = 1, ' &lt;&lt;&lt;', ' &gt;&gt;&gt;')"
+						></xf:output>
+					</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:setvalue ref="show" value="1-."></xf:setvalue>
+					</xf:action>
+				</xf:trigger>
+			</div>
+			<xf:group ref=".[@permission='1']">
+				<div class="break">
+					<xf:repeat id="order" nodeset="fields/field">
+						<xf:input ref="" />
+						<xf:input ref="./@enable" />
+						<xf:select1 ref="./@sort">
+							<xf:item>
+								<xf:label>По возрастанию</xf:label>
+								<xf:value>asc</xf:value>
+							</xf:item>
+							<xf:item>
+								<xf:label>По убыванию</xf:label>
+								<xf:value>desc</xf:value>
+							</xf:item>
+							<xf:label>Сортировка:</xf:label>
+						</xf:select1>
+					</xf:repeat>
+				</div>
+			</xf:group>
+		</xf:group>
+
+		<xf:group ref="instance('xformId_mainInstance')/navigator/@permission='1'">
+			<div class="button30">
+				<!-- first record -->
+				<xf:trigger appearance="xf:image">
+					<xf:label>|&lt;</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:setvalue ref="instance('xformId_mainInstance')/navigator/button"
+							value="'first'"></xf:setvalue>
+						<xf:send submission="xformId_idMove"></xf:send>
+					</xf:action>
+				</xf:trigger>
+			</div>
+			<div class="button30">
+				<!-- previous record -->
+				<xf:trigger appearance="xf:image">
+					<!--<image src="./solutions/default/resources/key_2009.png"></image>-->
+					<xf:label>&lt;</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:setvalue ref="instance('xformId_mainInstance')/navigator/button"
+							value="'previous'"></xf:setvalue>
+						<xf:send submission="xformId_idMove"></xf:send>
+					</xf:action>
+				</xf:trigger>
+			</div>
+			<div class="button30">
+				<!-- next record -->
+				<xf:trigger appearance="xf:image">
+					<!--<image src="./solutions/default/resources/key_2009.png"></image>-->
+					<xf:label>&gt;</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:setvalue ref="instance('xformId_mainInstance')/navigator/button"
+							value="'next'"></xf:setvalue>
+						<xf:send submission="xformId_idMove"></xf:send>
+					</xf:action>
+				</xf:trigger>
+			</div>
+			<div class="button30">
+				<!-- last record -->
+				<xf:trigger appearance="xf:image">
+					<!--<image src="./solutions/default/resources/key_2009.png"></image>-->
+					<xf:label>|&gt;</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:setvalue ref="instance('xformId_mainInstance')/navigator/button"
+							value="'last'"></xf:setvalue>
+						<xf:send submission="xformId_idMove"></xf:send>
+					</xf:action>
+				</xf:trigger>
+			</div>
+			<div class="button30">
+				<!-- insert record -->
+				<xf:trigger appearance="xf:image">
+					<!--<image src="./solutions/default/resources/key_2009.png"></image>-->
+					<xf:label>*</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:setvalue ref="instance('xformId_mainInstance')/navigator/button"
+							value="'insert'"></xf:setvalue>
+						<xf:send submission="xformId_idMove"></xf:send>
+					</xf:action>
+				</xf:trigger>
+			</div>
+			<div class="button30">
+				<!-- delete record -->
+				<xf:trigger appearance="xf:image">
+					<!--<image src="./solutions/default/resources/key_2009.png"></image>-->
+					<xf:label>X</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:setvalue ref="instance('xformId_mainInstance')/navigator/button"
+							value="'delete'"></xf:setvalue>
+						<xf:send submission="xformId_idMove"></xf:send>
+					</xf:action>
+				</xf:trigger>
+			</div>
+
+		</xf:group>
+
+
+
+		<hr class="break" style="margin-top:21px; width: 100%;  float: left;" />
+		<div class="button100" style="float: left">
+			<xf:trigger>
+				<xf:label>Сохранить</xf:label>
+				<xf:action ev:event="DOMActivate" if="(is-valid(instance('mainInstance'))=false())">
+					<xf:message>Заполнено с ошибкой!</xf:message>
+				</xf:action>
+				<xf:action ev:event="DOMActivate"
+					if="(count(instance('mainInstance')/users/user)=0)">
+					<xf:message>Выберите пользователей!</xf:message>
+				</xf:action>
+				<xf:action ev:event="DOMActivate"
+					if="(is-valid(instance('mainInstance'))=true()">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'mainInstance')))"></xf:load>
+					<xf:message>Данные сохранены</xf:message>
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<div class="button100" style="float: right">
+			<xf:trigger>
+				<xf:label>Закрыть</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"></xf:load>
+				</xf:action>
+			</xf:trigger>
+		</div>
+	</body>
+</html>

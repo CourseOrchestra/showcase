@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="-01" name="Экспорт в JPG и PNG">
+		<element id="-0101" type="geomap" proc="geomap_bal" cacheData="false"/>	
+	</tab>
+	<tab id="00" name="Новый загрузчик файлов">
+		<element id="0001" type="xforms" template="Showcase_Template_all.xml"
+			proc="xforms_proc_all">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="03" name="xforms_download_by_userdata" type="DOWNLOAD" />
+			<proc id="04" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="041" name="xforms_upload_by_userdata" type="UPLOAD" />			
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+			<proc id="proc3" name="xforms_submission_ec" type="SUBMISSION" />
+			<proc id="proc4" name="xforms_submission_um" type="SUBMISSION" />
+			<proc id="proc5" name="xforms_submission_re" type="SUBMISSION" />
+		</element>	
+		<element id="62" type="webtext" proc="webtext_filter_and_add"
+			hideOnLoad="true" />		
+	</tab>
+	<tab id="01" name="Табличная раскладка" layout="TABLE" style="yyy" styleClass="css-class">
+		<tr id="r01" height="500px" style="border-width: medium" styleClass="css-class">
+			<td id="d0101" width="10%" style="border-width: medium" styleClass="css-class" >
+				<element id="0101" type="geomap" proc="geomap_bal"
+					cacheData="true" style="border-width: medium" styleClass="css-class" />					
+			</td>	
+			<td id="d0102" width="300px" style="border-width: medium" styleClass="css-class" rowspan="2" >
+				<element id="0102" type="geomap" proc="geomap_bal"
+					cacheData="false" />					
+			</td>							
+		</tr>	
+		<tr id="r02" height="200px" style="border-width: medium" styleClass="css-class">	
+			<td id="d0201" width="100px" style="border-width: medium" styleClass="css-class" colspan="2">
+				<element id="0103" type="grid" proc="grid_portals" />
+			</td>
+		</tr>			
+	</tab>
+	<tab id="06" name="XForms. Селектор" layout="VERTICAL">
+		<element id="61" type="xforms" template="Showcase_Template_multiselector.xml"
+			proc="xforms_proc_no_data">
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+		</element>					
+	</tab>
+</datapanel>

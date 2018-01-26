@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Ссылки в гриде">
+		<element id="11" type="grid" proc="grid_portals" />
+	</tab>
+	<tab id="2" name="Файлы в XForms">
+		<element id="21" type="xforms" template="Showcase_Template21.xml"
+			proc="xforms_proc21">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="03" name="xforms_download1" type="DOWNLOAD" />
+			<proc id="04" name="xforms_upload1" type="UPLOAD" />
+			<proc id="05" name="xforms_upload1" type="UPLOAD" />
+		</element>
+		<element id="22" type="webtext" proc="webtext_filter_and_add"
+			hideOnLoad="true" />		
+	</tab>	
+	<tab id="6" name="Раскраска по значению">
+		<element id="61" type="geomap" proc="geomap_func2"/>
+		<element id="06" type="webtext" proc="webtext_grid" hideOnLoad="true" />
+	</tab>	
+	<tab id="6_1" name="Раскраска стилями">
+		<element id="62" type="geomap" proc="geomap_bal"/>
+	</tab>				
+	<tab id="7" name="SelfRefresh">		
+		<element id="77" type="webtext" proc="webtext_self_refresh" />
+	</tab>	
+	<tab id="8" name="Карточка">		
+		<element id="81" type="xforms" template="Showcase_Template2.xml"
+			proc="xforms_proc2"/>
+		<element id="82" type="webtext" proc="webtext_3buttons" hideOnLoad="true"/>
+		<element id="83" type="grid" proc="grid_bal_articles"/>	
+		<element id="84" type="xforms" template="Showcase_Template3.xml"
+			proc="xforms_proc3" neverShowInPanel="true">
+			<proc id="proc1" name="xforms_saveproc3" type="SAVE"/>
+		</element>
+	</tab>			
+</datapanel>

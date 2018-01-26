@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="treeResearch" name="Дерево назначений">
+		<element id="treeResearchGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.treeResearchGrid.treeGrid.celesta">
+			<proc id="treeResearchGridToolbar" name="ssmmd.grids.treeResearchGrid.gridToolBar.celesta" type="TOOLBAR"
+			/>
+		</element>
+		
+ 		<element id="treeResearchAddCard" type="xforms" template="rulesTemplate.py"
+			proc="ssmmd.xforms.treeResearchCard.addCardData.celesta" neverShowInPanel="true">
+			<proc id="addCardSave" name="ssmmd.xforms.treeResearchCard.addCardSave.celesta" type="SAVE"/>
+			<related id="treeResearchGrid"/>
+		</element>
+		
+ 		<element id="treeResearchEditCard" type="xforms" template="rulesTemplate.py"
+			proc="ssmmd.xforms.treeResearchCard.editCardData.celesta" neverShowInPanel="true">
+			<proc id="editCardSave" name="ssmmd.xforms.treeResearchCard.editCardSave.celesta" type="SAVE"/>
+			<related id="treeResearchGrid"/>
+		</element>
+		
+		 <element id="treeResearchConnectElementsCard" type="xforms" template="rulesTemplate.py"
+			proc="ssmmd.xforms.treeResearchCard.addCardData.celesta" neverShowInPanel="true">
+			<proc id="connectElementsCardSave" name="ssmmd.xforms.treeResearchCard.connectElementsCardSave.celesta" type="SAVE"/>
+			<related id="treeResearchGrid"/>
+		</element>
+		
+		<element id="treeResearchDel" type="xforms" template="treeResearchDel.xml"
+			proc="ssmmd.xforms.treeResearchDel.cardData.celesta" neverShowInPanel="true">
+			<proc id="addCardSave" name="ssmmd.xforms.treeResearchDel.cardDataDel.celesta" type="SAVE"/>
+			<related id="treeResearchGrid"/>
+		</element>
+	</tab>
+</datapanel>

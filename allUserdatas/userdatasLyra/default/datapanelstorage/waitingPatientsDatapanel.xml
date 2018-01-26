@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Ожидающие пациенты">
+
+		<element id="waitingPatientsGrid" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid"
+			proc="ssmmd.grids.waitingPatientsGrid.getData.celesta">
+			<proc id="waitingPatientsGridMeta"
+				name="ssmmd.grids.waitingPatientsGrid.getData.celesta" type="METADATA"/>
+			<!--<proc id="toolbar"
+				name="ssmmd.grids.waitingPatientsGrid.gridToolBar.celesta" type="TOOLBAR"/>-->
+		</element>
+
+<!--		<element id="waitingPatients" type="xforms" template="waitingPatientsCard.xml"
+			proc="ssmmd.xforms.waitingPatientsCard.cardData.celesta" neverShowInPanel="false">
+			<proc id="cardSaveQuestions"
+				name="ssmmd.xforms.waitingPatientsCard.cardDataSave.celesta" type="SAVE"/>
+			<related id="waitingPatientsGrid"/>
+		</element>-->
+
+	</tab>
+</datapanel>

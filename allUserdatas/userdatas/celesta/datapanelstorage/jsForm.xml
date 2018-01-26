@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+  <tab id="1" name="dijit/form/Button">
+    <element id="1" type="jsForm" template="g1.jsform.template.celesta">
+      <proc id="submit01" name="g1.jsform.formSubmit.celesta" type="JSFORMSUBMIT" />
+    </element>
+  </tab>
+</datapanel>

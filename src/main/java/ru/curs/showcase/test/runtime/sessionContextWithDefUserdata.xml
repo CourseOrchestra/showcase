@@ -1,0 +1,11 @@
+<sessioncontext>
+   <username></username>
+   <sid>testSID</sid>
+   <sessionid>testSession</sessionid>
+   <email/>
+   <fullusername/>
+   <phone/>
+   <ip/>
+   <userdata>default</userdata>
+   <related/>
+</sessioncontext>

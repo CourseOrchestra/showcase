@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+
+		div.dirusingScrollPanel1{
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
+		body.dirusing {
+			    font-family: sans-serif;
+			}
+		div.dirusing  {
+			    margin: 0px 0px 0px 0px;
+			    padding: 0px;
+			}
+		td.dirusing {
+        vertical-align: top;
+		}
+		.dirusing button.TabButton {
+			    border: 0px;
+			    background-color: transparent;
+			    width: 100%;
+			    height: 100%;
+		}
+		.dirusing .sprav .xforms-label {
+        margin-top: 2px;      
+        padding-left: 5px;
+        font-size: 1em;
+        float: left;
+        width: 120px;
+		}
+		.dirusing .sprav .value {
+        float: right;
+        width: 260px;
+		}
+		.dirusing .sprav .xforms-value {
+        margin: 0px;
+        padding-left: 2px;
+		}
+		.dirusing .baseTableInput .xforms-value {
+          background-color: #ffffcc;
+          border-bottom: 1px solid rgb(90, 139, 195); /*rgb(255,192,128);*/
+          display: block;
+          min-height: 17px;
+          width: 100%;
+          padding: 1px 0px 2px 0px;
+		}
+		.dirusing .baseTableInput2 .xforms-value {
+          background-color: #E5F2FF;
+          border: 0 none;
+          display: block;
+          min-height: 17px;
+          width: 100%;
+          padding: 1px 0px 2px 2px;
+		}
+		.dirusing .date .value .xforms-value {
+         display: block !important;
+         float: left !important;
+         width: 369px !important;
+         margin-right: 3px;
+         padding: 0 !important;
+		}
+		.dirusing .date .value .aid-button {
+         width: 30px !important;
+         height: 20px !important;
+         display: block;
+         float: left;
+		}
+
+		.dirusing .aid-button, 
+		.dirusing .aid-button button {
+        width: 30px !important;
+        height: 22px !important;
+		}
+		.dirusing.newbutton button {
+        width: 160px !important;
+		margin-top: 10px !important;
+		}

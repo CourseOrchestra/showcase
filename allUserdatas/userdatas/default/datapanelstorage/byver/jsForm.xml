@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+  <tab id="1" name="dijit/form/Button">
+    <!--<element id="1" type="jsForm" template="jsFormTemplate">-->
+    <!--<element id="1" type="jsForm" template="jsForm.py">-->
+    <element id="1" type="jsForm" template="dijitFormButton.html" showLoadingMessage="true">
+      <proc id="submit01" name="jsFormSubmit" type="JSFORMSUBMIT" />
+      <proc id="submit02" name="jsForm.py" type="JSFORMSUBMIT" />
+    </element>
+    <element id="2" type="jsForm" template="closeModal.html" neverShowInPanel="true"/>
+  </tab>
+</datapanel>

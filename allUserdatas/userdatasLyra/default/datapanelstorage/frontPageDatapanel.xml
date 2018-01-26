@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+  <tab id="1" name="Титульный лист">
+	
+	<!--
+    <element id="12" type="webtext" proc="dirusing.webtext.dircontentbuttons.buttons.celesta">
+      <related id="13"/>
+    </element> -->
+	
+	<!--
+    <element id="13" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid" proc="dirusing.grids.dircontentgrid.getData.celesta">
+		<proc id="14" name="dirusing.grids.dircontentgrid.getSettings.celesta" type="METADATA"/>
+		<proc id="toolbar1" name="dirusing.grids.dircontentgrid.gridToolBar.celesta" type="TOOLBAR"/>
+		<proc id="download1" name="dirusing.commonfunctions.downloadFileFromGrid.celesta" type="DOWNLOAD"/>
+
+	</element>	-->
+	
+    <element id="frontPageCard" type="xforms" template="frontPageCard.xml" proc="ssmmd.xforms.frontpagecard.cardData.celesta" neverShowInPanel="false">
+      <proc id="frontPageProc" name="ssmmd.xforms.frontpagecard.cardDataSave.celesta" type="SAVE"/>
+    </element>
+
+    <element id="frontPageFilesCard" type="xforms" template="frontPageFilesCard.xml" proc="ssmmd.xforms.frontpageFilesCard.cardData.celesta" neverShowInPanel="true">
+      <proc id="frontPageFilesSave" name="ssmmd.xforms.frontpageFilesCard.cardDataSave.celesta" type="SAVE"/>
+      <proc id="frontPageFilesUpload" name="ssmmd.xforms.frontpageFilesCard.fileUpload.celesta" type="UPLOAD"/>
+      <related id="frontPageCard"/>
+    </element>
+  </tab>
+  
+  <!--<tab id="2" name="Файлы">
+    <element id="frontPageFilesGrid" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid" proc="ssmmd.grids.frontPageFilesGrid.getData.celesta">
+      <proc id="frontPageFilesMeta" name="ssmmd.grids.frontPageFilesGrid.getSettings.celesta" type="METADATA"/>
+      <proc id="frontPageFilesToolbar" name="ssmmd.grids.frontPageFilesGrid.gridToolBar.celesta" type="TOOLBAR"/>
+    </element>
+    <element id="frontPageFilesCard" type="xforms" template="frontPageFilesCard.xml" proc="ssmmd.xforms.frontpageFilesCard.cardData.celesta" neverShowInPanel="true">
+      <proc id="frontPageFilesSave" name="ssmmd.xforms.frontpageFilesCard.cardDataSave.celesta" type="SAVE"/>
+      <proc id="frontPageFilesUpload" name="ssmmd.xforms.frontpageFilesCard.fileUpload.celesta" type="UPLOAD"/>
+      <related id="frontPageCard"/>
+    </element>
+  </tab>-->
+</datapanel>

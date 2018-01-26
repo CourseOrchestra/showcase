@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xsd="http://www.w3.org/2001/XMLschema"
+      xmlns:fs="http://www.curs.ru/ns/FormServer"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <!-- Простейшие контролы ввода и вывода -->
+        <xf:model id="xformId_mainModel">
+            <xf:instance id="xformId_mainInstance">
+                <schema xmlns="">
+                    <info>
+                        <name/>
+                        <old_name/>
+                    </info>
+                </schema>
+            </xf:instance>  
+            
+            <xf:bind> </xf:bind>
+        </xf:model>
+    </head>
+    
+    <body>
+        <div style="font-size: 15px;"> Имя: </div>
+        <div>
+            <xf:input class="BaseInput" ref="instance('xformId_mainInstance')/info/name">
+                <xf:hint>Название "Статьи баланса первого уровня"</xf:hint>
+            </xf:input>				
+        </div>
+   
+
+        <div>  
+            <xf:trigger>
+                <xf:label>Сохранить и Закрыть2</xf:label>
+                <xf:action ev:event="DOMActivate">
+                <xf:load resource="javascript:gwtXFormSave('xformId', '1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"/>
+                </xf:action>
+            </xf:trigger>
+            
+            <xf:trigger>
+                <xf:label>Закрыть</xf:label>
+                <xf:action ev:event="DOMActivate">
+                <xf:load resource="javascript:gwtXFormFilter('xformId', '1.1',  null)"/>
+                </xf:action>
+            </xf:trigger>
+            
+            <xf:trigger>
+                <xf:label>Сохранить и создать новый</xf:label>
+                <xf:action ev:event="DOMActivate">
+                <xf:load resource="javascript:gwtXFormSave('xformId', '2',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"/>
+                </xf:action>
+            </xf:trigger>                        
+        </div>
+
+                   
+    </body>
+</html>
+
+
+
+
+
+

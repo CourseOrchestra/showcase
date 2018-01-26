@@ -1,0 +1,80 @@
+<div>
+    
+<div dojoType="dijit.form.CheckBox" dojoAttachPoint="showAxisCheckBox"></div> ${_showAxis}
+<p></p>
+
+<div style="display:none" dojoAttachPoint="optionsDiv">
+${_axisTitle} <div dojoType="dijit.form.TextBox" dojoAttachPoint="title"></div>
+<br/>
+<table class="optionValue">
+    <tr>
+        <td>${_fixLower}</td>
+        <td>
+            <select dojoAttachPoint="fixLower" dojoType="dijit.form.Select" maxHeight=200>
+                <option value="none">${_fixNoneLower}</option>
+                <option value="major">${_fixMajor}</option>
+                <option value="minor">${_fixMinor}</option>
+                <option value="micro">${_fixMicro}</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>${_fixUpper}</td>
+        <td>
+            <select dojoAttachPoint="fixUpper" dojoType="dijit.form.Select" maxHeight=200>
+                <option value="none">${_fixNoneUpper}</option>
+                <option value="major">${_fixMajor}</option>
+                <option value="minor">${_fixMinor}</option>
+                <option value="micro">${_fixMicro}</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>${_rotation}</td>
+        <td>
+            <div dojoType="dijit.form.NumberSpinner" constraints="{min:-90,max:90,places:0}" dojoAttachPoint="rotation"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>${_minorTicks}</td>
+        <td>
+            <div dojoType="dijit.form.CheckBox" dojoAttachPoint="minorTicks"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>${_microTicks}</td>
+        <td>
+            <div dojoType="dijit.form.CheckBox" dojoAttachPoint="microTicks"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>${_majorLabels}</td>
+        <td>
+            <div dojoType="dijit.form.CheckBox" dojoAttachPoint="majorLabels"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>${_minorLabels}</td>
+        <td>
+            <div dojoType="dijit.form.CheckBox" dojoAttachPoint="minorLabels"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>${_includeZero}</td>
+        <td>
+            <div dojoType="dijit.form.CheckBox" dojoAttachPoint="includeZero"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>${_leftBottom}</td>
+        <td>
+            <select dojoAttachPoint="leftBottom" dojoType="dijit.form.Select">
+                <option value="lb1">${_leftBottom1}</option>
+                <option value="lb2">${_leftBottom2}</option>
+            </select>
+        </td>
+    </tr>
+</table>
+</div>
+
+</div>

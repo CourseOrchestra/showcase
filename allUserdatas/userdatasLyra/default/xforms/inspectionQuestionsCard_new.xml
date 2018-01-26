@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel" xmlns="">
+			<xf:instance id="xformId_mainInstance" >
+				<schema xmlns="">
+
+				</schema>
+			</xf:instance>
+			<xf:instance id="xformId_mainInstance2" xmlns="">
+				<schema>
+					<hypothesis id="" name="" type="" realId=""/>
+				</schema>
+			</xf:instance>
+			<xf:submission id="xformId_changeSection" method="post" instance="xformId_mainInstance"
+				replace="instance" ref="instance('xformId_mainInstance')"
+				action="secured/submit?proc=ssmmd.xforms.inspectionQuestionsCard_new.submitChangeSection.celesta"
+				mode="synchronous">
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						<xf:output value="instance('xformId_mainInstance')/sections/@changeSection"/>
+					</xf:message>
+				</xf:action>
+			</xf:submission>
+			<xf:bind>
+				<xf:bind
+					readonly="if(../answerType='catalog' ,true(), false())"
+					nodeset="instance('xformId_mainInstance')/questions/question/@answer">
+				</xf:bind>
+				<xf:bind type="integer"
+					nodeset="instance('xformId_mainInstance')/questions/question[@answerType='int']/@answer"/>
+				<xf:bind type="date"
+					nodeset="instance('xformId_mainInstance')/questions/question[@answerType='date']/@answer"/>
+				<xf:bind type="decimal"
+					nodeset="instance('xformId_mainInstance')/questions/question[@answerType='float']/@answer"/>
+				<xf:bind type="boolean"
+					nodeset="instance('xformId_mainInstance')/questions/question/@additional"
+				/>
+
+			</xf:bind>
+		</xf:model>
+	</head>
+
+	<body>
+
+		<xf:output value="serialize(instance('xformId_mainInstance'))"/>
+		<!--<xf:output value="serialize(instance('xformId_srvdata'))"></xf:output>-->
+
+
+		<xf:repeat id="xformId_sections"
+				nodeset="instance('xformId_mainInstance')/sections/section">
+			<!-- разделы -->
+			<div class="group" style="float: left;clear: both;   border-radius: 15px; background: linear-gradient(to bottom, rgb(251, 252, 256), rgb(211, 222, 246));">
+				<div style="float: left; clear: both; margin-top: 3px; margin-left: {sum(@level)*30}px; font-weight: bold; font-size: 12pt;">
+					<xf:output value="@name"/>
+				</div>
+				<div style="float: right;  margin-top: 3px; margin-left: {sum(@level)*30}px; font-weight: bold; font-size: 12pt;">
+					<xf:output value="concat('solutions/default/resources/button/',if(@id=../@actual,'close','open'),'.png')" mediatype="image/jpeg">
+						<xf:action ev:event="DOMActivate">
+							<xf:setvalue ref="instance('xformId_mainInstance')/sections/@changeSection" value="if(../@actual=instance('xformId_mainInstance')/sections/section[index('xformId_sections')]/@id,'0',instance('xformId_mainInstance')/sections/section[index('xformId_sections')]/@id)"/>
+							<xf:send submission="xformId_changeSection"/>
+						</xf:action>
+					</xf:output>
+				</div>
+			</div>
+			<xf:repeat id="xformId_questions"
+				nodeset="instance('xformId_mainInstance')/questions[current()/@id=current()/parent::*/@actual]/question">
+				<!--Текст вопроса-->
+				<div style="padding-top: 10px; width: {if(@answerType='header',600,250) - (sum(./@level)*30) +20}px; margin-left: {(sum(./@level)*30) +20}px; font-style: italic; float: left; clear:both; {if(@answerType='header','font-weight: bold;','') }">
+					<xf:group id="xformId_NoCommentQ" ref=".[@commentQ!='']">
+						<xf:output value="./@questionBegin">
+							<xf:hint >
+								<xf:output ref="./@commentQ"/>
+							</xf:hint>
+						</xf:output>							
+					</xf:group>
+					<xf:group id="xformId_CommentQ" ref=".[@commentQ='']">
+						<xf:output value="./@questionBegin"/>						
+					</xf:group>
+				</div> 
+				<!--Место ввода ответа-->
+				<!--Типы date, int, float, text-->
+				<div class="{if(@answerType='date','dateInput','baseInput200')}">
+					<xf:group ref=".[@answerType='date' or @answerType='int' or @answerType='float' or @answerType='text']">					
+						<xf:input  ref="@answer"/>					
+					</xf:group>
+					<xf:group id="bool" ref=".[@answerType='bool']">
+						<xf:select1 ref="@answer">
+							<xf:item>
+								<xf:label/>
+								<xf:value/>
+							</xf:item>
+							<xf:item>
+								<xf:label>+</xf:label>
+								<xf:value>true</xf:value>
+							</xf:item>
+							<xf:item>
+								<xf:label>-</xf:label>
+								<xf:value>false</xf:value>
+							</xf:item>
+						</xf:select1>
+
+					</xf:group>
+					<xf:group ref=".[@answerType='choice' and @multipleChoice='false']">
+						<xf:select1 ref="@answerId">
+							<xf:item>
+								<xf:label/>
+								<xf:value/>
+							</xf:item>
+							<xf:itemset nodeset="../answerChoice/choice">
+								<xf:label ref="@name"/>
+								<xf:value ref="@id"/>
+							</xf:itemset>
+							<xf:action ev:event="xforms-value-changed">
+								<xf:setvalue ref="../@answer"
+										value="../answerChoice/choice[@id = ../../@answerId]/@name"
+									/>
+							</xf:action>
+						</xf:select1>
+					</xf:group>
+					<xf:group id="choiceMulti"
+						ref=".[@answerType='choice' and @multipleChoice='true']">
+						<xf:select ref="./@answerId" appearance="full">
+							<xf:itemset nodeset="../answerChoice/choice">
+								<xf:label ref="@name"/>
+								<xf:value ref="@id"/>
+							</xf:itemset>
+							<xf:action ev:event="xforms-value-changed">
+								<xf:setvalue ref="../@answer"
+										value="../answerChoice/choice[@id = ../../@answerId]/@name"
+									/>
+							</xf:action>
+						</xf:select>
+					</xf:group>
+				</div>
+				<div style=" padding-top: 10px; width: 50px;  float: left; font-style: italic;">
+					<xf:group id="questionTag" ref=".[ @answerType!='header']">
+						<xf:output ref="./@questionEnd"/>
+					</xf:group>
+				</div>
+				
+				<xf:group id="pictures" ref=".[@pictures!=0]">
+						<div class="author newbutton"
+							style="margin-left:1px; padding: 10px 0px 0px 0px;float: left;">
+							<xf:trigger class="blue">
+								<xf:label>Картинки</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<!--<xf:message>Неверный формат</xf:message>-->									
+									<xf:setvalue
+										ref="instance('xformId_mainInstance')/@currentQuestionId"
+										value="index('ActionRow')-1">
+									</xf:setvalue>
+									<xf:load
+										resource="javascript:gwtXFormUpdate('xformId','2',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"
+										>
+									</xf:load>
+								</xf:action>
+							</xf:trigger>
+						</div>
+					</xf:group>
+				
+				
+				<xf:group id="addInfo" ref=".[@answerType!='header']">
+					<div class="boolInput200" style="width:30px">
+						<xf:input ref="./@additional">
+							<xf:action ev:event="xforms-value-changed">
+								<xf:setvalue
+										ref="..[@additional = 'false']/@commentA"
+										value="">
+								</xf:setvalue>
+							</xf:action>
+						</xf:input>
+					</div>
+					<div style="padding-top: 10px;  float: left; ">					
+						Дополнительная информация
+					</div>
+				</xf:group>
+				<xf:group id="commentA" ref=".[@additional='true' and @answerType!='header']">
+					<div style="margin-left:290px; " class="baseInput400 textareaHeight60 break">
+						<xf:textarea  ref="./@commentA">
+							<xf:label>Дополнительная информация:</xf:label>
+						</xf:textarea>
+					</div>
+				</xf:group>				
+			</xf:repeat>
+		</xf:repeat>
+
+
+		<xf:group id="b_save" ref="instance('xformId_mainInstance')/button[.='save']">
+			<div class="author newbutton"
+					style="margin-top:21px; margin-left:10px; padding: 2px;float: left;clear: both">
+				<xf:trigger class="blue" id="Tab10">
+					<xf:label>Сохранить</xf:label>
+					<xf:action ev:event="DOMActivate"
+							if="(is-valid(instance('xformId_mainInstance'))=false())">
+						<xf:message>Заполнено с ошибкой!</xf:message>
+					</xf:action>
+					<xf:action ev:event="DOMActivate"
+							if="(is-valid(instance('xformId_mainInstance'))=true())">
+						<xf:load
+								resource="javascript:gwtXFormSave('xformId', '1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 
+            'xformId_mainInstance')))"
+							>
+						</xf:load>
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</xf:group>
+
+
+
+
+	</body>
+</html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+  <head>
+    <xf:model id="xformId_mainModel">
+
+      <xf:instance id="xformId_mainInstance" xmlns="">
+        <schema xmlns="">
+          <section new="" id="" name=""> </section>
+        </schema>
+      </xf:instance>
+
+      <xf:bind>
+        <xf:bind required="true()" readonly="instance('xformId_mainInstance')/section/@new!=true()" nodeset="instance('xformId_mainInstance')/section/@name"
+        ></xf:bind>
+        <xf:bind type="boolean" nodeset="instance('xformId_mainInstance')/section/@new"
+          ></xf:bind>
+      </xf:bind>
+    </xf:model>
+  </head>
+
+  <body>
+
+    <!--<xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>-->
+    
+    <div class="boolInput400 break">
+      <xf:input ref="instance('xformId_mainInstance')/section/@new">
+        <xf:label>Добавить новый раздел</xf:label>
+        <xf:action ev:event="xforms-value-changed">
+          <xf:setvalue ref="instance('xformId_mainInstance')/section/@name" value="''"/>
+          <xf:setvalue ref="instance('xformId_mainInstance')/section/@id" value=""/>
+        </xf:action>        
+      </xf:input>
+    </div>
+
+    <xf:group ref="instance('xformId_mainInstance')/section[@new='true']">
+      <div class="baseInput400">
+        <xf:input ref="@name">
+          <xf:label>Название раздела:</xf:label>
+        </xf:input>        
+      </div>
+    </xf:group>
+
+
+    <xf:group ref="instance('xformId_mainInstance')/section[@new!='true']">
+      <div class="selectorLong400">
+        <xf:input ref="@name">
+          <xf:label>Название раздела:</xf:label>
+        </xf:input>
+        <xf:selector buttonLabel="..."
+          procListAndCount="'ssmmd.xforms.sectionsByDevelopmentsCard.sectionsListAndCount.celesta'"
+          generalFilters="" currentValue="''"
+          windowCaption="'Выбор значения'"
+          xpathMapping="{
+          'XPath(instance(quot(xformId_mainInstance))/section/@name)' : 'name',
+          'XPath(instance(quot(xformId_mainInstance))/section/@id)' : 'id'}"/>
+        <xf:trigger>
+          <xf:label>X</xf:label>
+          <xf:action ev:event="DOMActivate">
+            <xf:setvalue ref="instance('xformId_mainInstance')/section/@name" value=""/>
+            <xf:setvalue ref="instance('xformId_mainInstance')/section/@id" value=""/>
+          </xf:action>          
+        </xf:trigger>
+      </div>
+    </xf:group>
+
+    <div class="required"> Поля отмеченные символом * обязательны для заполнения </div>
+
+    <hr style="margin-top:21px; width: 100%;  float: left; clear: both;" />
+
+    <div class="button100" style="float: left">
+      <xf:trigger>
+        <xf:label>Сохранить</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:load
+            resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"
+          ></xf:load>
+        </xf:action>
+      </xf:trigger>
+    </div>
+
+    <div class="button100" style="float: left">
+      <xf:trigger>
+        <xf:label>Закрыть</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"></xf:load>
+        </xf:action>
+      </xf:trigger>
+    </div>
+  </body>
+</html>

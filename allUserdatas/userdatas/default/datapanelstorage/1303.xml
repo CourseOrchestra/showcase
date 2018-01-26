@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>	
+	<tab id="01" name="Карта из Jython">
+		<element id="0101" type="geomap" proc="geomap/GeoMapSimple.py" showLoadingMessage="true"/>
+	</tab>
+	<tab id="02" name="Работа с iReport и Apache POI">
+		<element id="0201" type="webtext" proc="webtext/libtest.py"/>
+	</tab>
+	<tab id="03" name="Переопределение контекста в навигаторе">
+		<element id="0301" type="webtext" proc="webtext/actiontest.py"/>
+	</tab>		
+</datapanel>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>	
+	<tab id="01" name="Грид - различные типы столбцов">
+		<element id="0101" type="grid" proc="grid_col_types">
+		</element>	
+		<element id="0102" type="grid" proc="grid_col_types_data">
+			<proc id="p010201" name="grid_col_types_md" type="METADATA"/>
+		</element>							
+	</tab>
+	<tab id="02" name="Server Activity - releated">
+		<element id="0201" type="grid" proc="grid_col_types"/>
+		<element id="0202" type="webtext" proc="webtext_sa" showLoadingMessage="true">
+			<related id="0201"/>
+		</element>		
+		<element id="d1" type="webtext" transform="active_bal.xsl" showLoadingMessage="false" hideOnLoad="true"/>
+		<element id="d2" type="webtext" proc="webtext_show_debug_console" hideOnLoad="true"/>				
+	</tab>
+	<tab id="03" name="Графики">
+		<element id="0301" type="grid" proc="grid_bal_multiaction" />
+		<element id="d5" type="chart" proc="chart_StackedColumns" showLoadingMessage="true" hideOnLoad="true"/>
+		<element id="d6" type="chart" proc="chart_Columns" showLoadingMessage="true" hideOnLoad="true" />
+		<element id="d7" type="chart" proc="chart_ClusteredColumns" showLoadingMessage="true" hideOnLoad="true" />
+		<element id="d8" type="chart" proc="chart_Bars" showLoadingMessage="true" hideOnLoad="true" />
+		<element id="d9" type="chart" proc="chart_chart" showLoadingMessage="true" hideOnLoad="true"/>		
+	</tab>	
+	<tab id="04" name="График из Jython">
+		<element id="0402" type="chart" proc="chart/ChartSimple.py" showLoadingMessage="true"/>
+	</tab>
+</datapanel>

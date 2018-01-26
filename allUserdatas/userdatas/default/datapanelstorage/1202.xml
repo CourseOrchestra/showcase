@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>	
+	<tab id="01" name="Передача названий файлов в XForm">
+		<element id="0101" type="xforms" template="xforms_template_uploaders_simple"
+			proc="xforms_proc_all">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="04" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="041" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="05" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="051" name="xforms_upload_by_userdata" type="UPLOAD" />			
+		</element>			
+	</tab>
+	<tab id="02" name="Double Jython!">	
+		<element id="0202" type="xforms" proc="xform/GetJythonProc.py" template="template/Base.py"/>
+	</tab>
+	<tab id="03" name="Универсальные трансформации">
+		<element id="0301" type="webtext" proc="webtext/GetJythonProc.py" transform="pas.xsl"/>
+		<element id="0302" type="webtext" proc="webtext/GetJythonProc.py" transform="transform/pas.py"/>
+		<element id="0303" type="webtext" proc="webtext/GetJythonProc.py" transform="webtext_pas_tranform"/>
+	</tab>
+	<tab id="04" name="Универсальные схемы и трансформации">
+		<element id="0401" type="xforms" template="Showcase_Template_Universal.xml"
+			proc="xforms_proc21">
+			<proc id="06" name="xforms_download2" type="DOWNLOAD" schema="schema/TestGoodSmall.py" 
+			transform="xformTransformTestGood"/>
+			<proc id="07" name="xforms_upload1" type="UPLOAD" schema="xformSchemaTestGood" transform="transform/TestGood.py"/>					
+		</element>		
+	</tab>
+	<tab id="05" name="Мультиселектор. Передача начальных значений" layout="VERTICAL">
+		<element id="0501" type="xforms" template="Showcase_Template_multiselector.xml"
+			proc="xforms_proc_no_data">
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+		</element>					
+	</tab>
+	<tab id="06" name="InlineUploader. Обработка ошибок">
+		<element id="0001" type="xforms" template="Showcase_Template_uploaders_simple.xml"
+			proc="xforms_proc_all">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="04" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="041" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="05" name="xforms_upload_by_userdata_err" type="UPLOAD" />
+			<proc id="051" name="xforms_upload_by_userdata" type="UPLOAD" />			
+		</element>	
+	</tab>
+	<tab id="07" name="Упрощенное задание селекторов в XForms" layout="VERTICAL">
+		<element id="0502" type="xforms" template="Showcase_Template_multiselector_simple.xml"
+			proc="xforms_proc_no_data">
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+		</element>					
+	</tab>
+</datapanel>

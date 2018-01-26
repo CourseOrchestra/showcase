@@ -1,0 +1,1 @@
+select banner as Version from v$version where lower(banner) like lower('%oracle%')

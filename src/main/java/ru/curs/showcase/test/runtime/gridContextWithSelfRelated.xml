@@ -1,0 +1,24 @@
+<sessioncontext>
+   <username></username>
+   <sid>testSID</sid>
+   <sessionid>testSession</sessionid>
+   <email/>
+   <fullusername/>
+   <phone/>
+   <ip/>
+   <userdata>default</userdata>
+   <related>
+      <gridContext id="2">
+         <sortedColumn id="3кв. 2007г." sorting="ASC"/>
+         <sortedColumn id="3кв. 2006г." sorting="ASC"/>
+         <sortedColumn id="3кв. 2005г." sorting="ASC"/>
+         <pageInfo number="2" size="2"/>
+         <liveInfo limit="50" offset="0" totalCount="0"/>
+         <currentRecordId>1</currentRecordId>
+         <currentColumnId>3кв. 2005г.</currentColumnId>
+         <selectedRecordId>1</selectedRecordId>
+         <currentDatapanelWidth>0</currentDatapanelWidth>
+         <currentDatapanelHeight>0</currentDatapanelHeight>
+      </gridContext>
+   </related>
+</sessioncontext>

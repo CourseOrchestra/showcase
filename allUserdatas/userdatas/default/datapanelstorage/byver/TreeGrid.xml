@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+	<tab id="10" name="Геодерево">
+		<element id="102" type="GRID"  subtype="EXT_TREE_GRID" proc="exttreegrid_geo"/>
+<!--         refreshByTimer="true" refreshInterval="5" 		 -->
+		<element id="105" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+	</tab>
+	<tab id="15" name="Картинки на ноды">
+		<element id="152" type="GRID"  subtype="EXT_TREE_GRID" proc="exttreegrid_geo_icons"/>
+		<element id="155" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+	</tab>
+	<tab id="2" name="Начало">
+		<element id="2" type="GRID"  subtype="EXT_TREE_GRID" proc="exttreegrid_bal"/>  
+		<element id="5" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+		<element id="3" type="chart" proc="chart_bal_extgridlive" hideOnLoad="true" />
+	</tab>
+	<tab id="3" name="TreeGrid как зависимый элемент">
+		<element id="14" type="grid" subtype="EXT_TREE_GRID" proc="exttreegrid_exttreegrid" />
+		<element id="11" type="grid" subtype="EXT_TREE_GRID" proc="exttreegrid_exttreegrid1" hideOnLoad="true">
+		<related id="14"/>
+		</element>
+		<element id="10" type="webtext" proc="webtext_grid"
+			hideOnLoad="true" />
+	</tab>
+	<tab id="5" name="Ссылки в гриде">
+		<element id="511" type="grid" subtype="EXT_TREE_GRID" proc="exttreegrid_portals" />
+	</tab>
+	<tab id="6" name="задание css и id для строки грида">
+		<element id="0201" type="grid" subtype="EXT_TREE_GRID" proc="exttreegrid_portals_id_and_css" />
+		<element id="0203" type="webtext" proc="webtext_dep62">
+			<related id="0201" />
+		</element>
+	</tab>
+	<tab id="7" name="Скачивание файлов из грида">
+		<element id="0701" type="grid" subtype="EXT_TREE_GRID" proc="exttreegrid_download_load">
+			<proc id="11" name="grid_download1" type="DOWNLOAD" />
+			<proc id="12" name="grid_download2" type="DOWNLOAD" />
+		</element>		
+	</tab>
+</datapanel>

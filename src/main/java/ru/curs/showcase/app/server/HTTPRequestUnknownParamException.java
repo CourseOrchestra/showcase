@@ -1,0 +1,25 @@
+package ru.curs.showcase.app.server;
+
+import ru.curs.showcase.app.api.ExceptionType;
+import ru.curs.showcase.util.exception.BaseException;
+
+/**
+ * Исключение, возникающее при передаче в сервлет неизвестного параметра.
+ * 
+ * @author den
+ * 
+ */
+public class HTTPRequestUnknownParamException extends BaseException {
+
+	/**
+	 * Сообщение об ошибке.
+	 */
+	public static final String ERROR_MES = "Неизвестная команда: ";
+
+	private static final long serialVersionUID = -3430283606302382887L;
+
+	public HTTPRequestUnknownParamException(final String param) {
+		super(ExceptionType.SOLUTION, ERROR_MES + param);
+	}
+
+}

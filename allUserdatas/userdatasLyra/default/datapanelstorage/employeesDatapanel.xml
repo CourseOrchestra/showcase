@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Сотрудники">		
+		<element id="employeesGrid" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid"
+			proc="orgstructure.grid.employeesGrid.gridData.celesta">
+			<proc id="gridMetaEmployees" name="orgstructure.grid.employeesGrid.gridMeta.celesta"
+				type="METADATA"/>
+			<proc id="toolbarEmployees" name="orgstructure.grid.employeesGrid.gridToolBar.celesta" type="TOOLBAR"/>
+		</element>
+		
+		<element id="employeesXform" type="xforms" template="employees.xml"
+			proc="orgstructure.xform.employees.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardSaveCatalog" name="orgstructure.xform.employees.cardDataSave.celesta" type="SAVE"/>
+			<related id="employeesGrid"/>
+		</element>
+		
+		<element id="employeesXformDelete" type="xforms" template="employeesDelete.xml"
+			proc="orgstructure.xform.employeesDelete.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardDelete" name="orgstructure.xform.employeesDelete.cardDelete.celesta" type="SAVE"/>
+			<related id="employeesGrid"/>
+		</element>
+		
+		<element id="employeesSubjectsXform" type="xforms" template="employeesSubjects.xml"
+			proc="orgstructure.xform.employeesSubjects.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardSaveCatalog" name="orgstructure.xform.employeesSubjects.cardDataSave.celesta" type="SAVE"/>
+			<related id="employeesGrid"/>
+		</element>
+		
+	</tab>
+</datapanel>

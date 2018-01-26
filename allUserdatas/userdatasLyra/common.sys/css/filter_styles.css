@@ -1,0 +1,222 @@
+@CHARSET "UTF-8";
+
+.filterConditionsHd {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.filterConditionsTd {
+    width: 100%;
+    border-collapse: collapse;    
+}
+.tdCondition {
+    width: 100px;
+    padding: 4px 4px;
+}
+
+.tdFieldName .xforms-value {
+    word-break: break-word;
+    font-size: 0.9em;
+}
+
+.tdValue {
+    width: 400px;
+    padding: 4px 4px;    
+}
+
+.buttonDeleteCondition {
+    width: 30px;
+    padding: 4px 4px;       
+}
+
+.filterConditionsHd td {
+    height: 20px;
+    background-color: #8D0A0A;
+    color: white;
+    text-align: center;
+    border-right: 1px dotted white;
+}
+
+.filterConditionsTd td {
+    border-right: 1px dotted #8D0A0A;
+    border-bottom: 1px dotted #8D0A0A;
+}
+
+.filterConditionsTd td.buttonDeleteCondition {
+    border-right: none;
+}
+
+.filterConditionsHd td.buttonDeleteCondition {
+    border-right: none;
+}
+
+.tdCondition select {
+    width: 100%
+}
+
+.filterConditionsTd input {
+    padding: 4px;
+}
+
+.filterConditionsTd select.xforms-value {
+    padding: 2px 4px;
+    height: 24px;
+}
+
+.filterConditionsTd .buttonDeleteCondition button {
+    width: 100%;
+}
+
+.filterConditionsTd button {
+    width: 25px;
+}
+
+.filterConditionsTd button {
+	height: 24px;
+	font-weight: bold;
+}
+
+
+
+/* значения */
+
+
+.filterConditionsTd .tdValue .textCondition.single input {
+    width: calc(100% - 10px);
+}
+
+.filterConditionsTd .tdValue .selectorListCondtion.single input{
+    width: calc(100% - 65px); 
+}
+
+
+.filterConditionsTd .tdValue .selectorListCondtion.single button {
+     width: 25px;
+     margin-left: 2px;
+}
+
+.filterConditionsTd .tdValue .selectorListCondtion.single button .xforms-label {
+    margin-left: 0px;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.filterConditionsTd .listCondition.single select {
+	width: 372px;
+}
+
+.filterConditionsTd .listCondition.single {
+	float: left;
+}
+
+.filterConditionsTd .clearConditionValues   {
+	margin-left: 2px;
+}
+
+.filterConditionsTd .clearConditionValues button .xforms-label {
+    font-weight: bold;
+    width: 14px;
+    text-transform: lowercase;
+}
+
+.filterConditionsTd .dateCondition {
+	float: left;
+	margin-right: 4px
+}
+
+.filterConditionsTd .dateCondition button {
+	margin-left: 2px;
+}
+
+.filterConditionsTd .floatCondtion {
+	float: left;
+	margin-right: 4px
+}
+
+
+/* Кнопки */
+.defineFilterDisable, .defineFilterEnable {
+	float: left;
+	margin-top: 18px;
+}
+
+
+.defineFilterDisable button, .defineFilterEnable button {
+	min-width: 100px;
+}
+
+.defineFilterDisable button {
+	background-color: #DDD;
+}
+
+.defineFilterDisable button:hover {
+	background-color: #DDD;
+}
+
+.defineFilterDisable button:focus {
+	background-color: #DDD;
+	outline: 1px dotted grey !important;
+
+}
+
+
+
+.filterRightManageButton {
+	float: right;
+	margin-top: 18px;	
+}
+
+.filterRightManageButton>span {
+	margin-left: 2px;
+}
+
+.filterRightManageButton>span button {
+	margin-left: 2px;
+	min-width: 120px;
+}
+
+.filterConditionsTd .multiValueItems {
+	border: none;
+}
+
+.filterConditionsTd .multiValueItems td {
+	border: none;
+
+}
+
+.filterConditionsTd .multiValueItems .xforms-repeat-item {
+	float: left;
+}
+
+.filterConditionsTd .multiValueItems table {
+	border: 1px solid #D8CDAD;
+	margin-right: 3px;
+	margin-top: 3px;
+}
+.filterLeftManageButton {
+	float: left;
+	margin-top: 18px;
+}
+.filterLeftManageButton>span button {
+	margin-left: 4px;
+	min-width: 120px;
+}
+
+.filterConditionsTd .buttonMs button {
+	width: 130px;
+}
+.header-class {
+	font-height: 150%;
+}
+.header-clause {
+	font-weight: lighter;
+}
+.header-key {
+	font-weight: lighter;
+}
+.header-condition {
+	font-weight: lighter;
+}
+.header-value {
+	font-weight: lighter;
+}

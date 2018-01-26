@@ -1,0 +1,133 @@
+﻿<navigator xmlns:context="http://www.kurs-it.ru/Context">
+	<group id="1" name="Балансы продовольственных ресурсов">
+		<level1 id="3" name="Балансы зерна">
+			<level2 id="C6B886DB-A835-464B-BCF8-522419CD8770" name="Ввоз, включая импорт - Всего">
+				<action>
+                    <main_context>Ввоз, включая импорт - Всего</main_context>				
+					<datapanel type="a.xml"/>
+				</action>
+			</level2>
+			<level2 id="C6CC2BA4-A6ED-4630-8E58-CBBFA9C8C0A9" name="Вывоз, включая экспорт - Всего">
+				<action>
+                    <main_context>Вывоз, включая экспорт - Всего</main_context>				
+					<datapanel type="a.xml"/>
+				</action>
+				<level3 id="C6CC2BA4-A6ED-4630-8E58-CBBFA9C8C0A8" name="Вывоз, включая экспорт - Ноябрь">
+					<action>
+                        <main_context>Вывоз, включая экспорт - Ноябрь</main_context>					
+						<datapanel type="a.xml"/>
+					</action>
+				</level3>
+			</level2>
+			<level2 id="9CBCF924-B7EC-413F-BF49-F35F1E6A92DB" name="Запасы на конец отчетного периода - Всего">
+				<action>
+                    <main_context>Запасы на конец отчетного периода - Всего</main_context>				
+					<datapanel type="a.xml"/>
+				</action>
+			</level2>
+			<level2 id="9EF5F299-0AB3-486B-A810-5818D17047AC" name="Запасы на начало отчетного периода - Всего">
+				<action>
+                    <main_context>Запасы на начало отчетного периода - Всего</main_context>				
+					<datapanel type="a.xml"/>
+				</action>
+			</level2>
+			<level2 id="B873822B-C087-4F68-9C12-3E437488976A"
+				name="Личное потребление (фонд потребления) без продуктов переработки - Всего">
+				<action>
+                    <main_context>Личное потребление (фонд потребления) без продуктов переработки - Всего</main_context>				
+					<datapanel type="a.xml"/>
+				</action>
+			</level2>
+			<level2 id="E7C2E0F4-F18C-4906-8688-EDF7746A40CF" name="Межрегиональный обмен - Всего">
+				<action>
+                    <main_context>Межрегиональный обмен - Всего</main_context>				
+					<datapanel type="a.xml"/>
+				</action>
+			</level2>
+			<level2 id="939F3676-D4D6-4846-8FBE-CE2DC9AEB6DC"
+				name="Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения">
+				<action>
+                    <main_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения</main_context>				
+					<datapanel type="a.xml"/>
+				</action>
+			</level2>
+			<level2 id="A5785002-B677-4280-B0B3-EF3F7E951E75"
+				name="Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями">
+				<action>
+                    <main_context>Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями</main_context>				
+					<datapanel type="a.xml"/>
+				</action>
+			</level2>
+		</level1>
+		<level1 id="C6CC2BA4-A6ED-4630-8E58-CBBFA9C8C0A5" name="Вывоз, включая экспорт - Всего">
+			<action>
+				<main_context>Вывоз, включая экспорт - Всего</main_context>
+				<datapanel type="a.xml" />
+				<server>
+				<activity id="srv01" type="SP" name="exec_test">
+				<add_context>
+				<context:somexml someattr="value">
+				<other/>
+				test
+				</context:somexml>
+				</add_context>
+				</activity>
+				</server>
+				<client>
+				<activity id="cl01" name="show_moscow">
+				<add_context>				
+				01				
+				</add_context>
+				</activity>			
+				</client>				
+			</action>
+		</level1>
+		<level1 id="C6CC2BA4-A6ED-4630-8E58-CBBFA9C8C0A4" name="Вывоз, включая экспорт - Всего">
+			<action>
+				<main_context>Вывоз, включая экспорт - Всего</main_context>
+				<server>
+				<activity id="srv01" name="exec_by_userdata" type="SP" />
+				</server>					
+			</action>
+		</level1>				
+	</group>
+	
+	<group id="2" name="Регионы">
+		<level1 id="1C5670CE-BDA5-45A3-93EC-F460F8BD7B4B" name="Алтайский край">
+			<action>
+			    <main_context>Алтайский край</main_context>
+				<datapanel type="b.xml"/>
+			</action>
+		</level1>
+		<level1 id="1C5670CE-BDA5-45A3-93EC-F460F8BD7B4C" name="Алтайский край (alt)">
+			<action>
+   		        <main_context>Межрегиональный обмен - Всего</main_context>
+				<datapanel type="b.xml"/>
+			</action>
+		</level1>
+		<level1 id="E77A2B6F-7676-4FCE-88C1-57E557C3581F" name="Амурская обл.">
+			<action>
+			    <main_context>Амурская обл.</main_context>
+				<datapanel type="b.xml"/>
+			</action>
+		</level1>
+		<level1 id="BDE7FFAB-F2CB-4FE1-A6E5-49098AEF37E3" name="Архангельская обл.">
+			<action>
+			    <main_context>Архангельская обл.</main_context>			
+				<datapanel type="b.xml"/>
+			</action>
+		</level1>
+		<level1 id="5748D4A6-E9E7-41F0-A08B-AC302525F42E" name="Астраханская обл.">
+			<action>
+			    <main_context>Астраханская обл.</main_context>			
+				<datapanel type="b.xml"/>
+			</action>
+		</level1>
+		<level1 id="E4272435-98FE-46CA-BE40-5C54386F95DA" name="Белгородская обл.">
+			<action>
+			    <main_context>Белгородская обл.</main_context>			
+				<datapanel type="b.xml"/>
+			</action>
+		</level1>
+	</group>
+</navigator>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<!-- Простейшие контролы ввода и вывода -->
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance">
+				<schema xmlns="">
+					<info>
+						<name />
+						<growth />
+						<eyescolour />
+						<music />
+						<comment />
+					</info>
+				</schema>
+			</xf:instance>
+		
+
+			<xf:submission id="xformId_good_save" method="post" instance="xformId_srvdata"
+				replace="instance" ref="instance('xformId_srvdata')" action="secured/submit?proc=xforms_submission_by_userdata">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Submission успешно выполнен</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при выполнении submission:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>
+			</xf:submission>
+
+			<xf:bind>
+			</xf:bind>			
+						
+		</xf:model>
+	</head>
+	<body>
+		<div> Загрузка файла с навигатором с сервера </div>
+		<xf:trigger>
+			<xf:label>Скачать файл</xf:label>
+			<xf:action ev:event="DOMActivate">
+				<xf:load
+					resource="javascript:gwtXFormDownload('xformId', '03',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))" />
+			</xf:action>
+		</xf:trigger>
+		<hr/>
+
+		<div>
+			Загрузка файла на сервер: <xf:output ref="instance('xformId_mainInstance')/info/comment" />					
+		</div>
+		
+		<xf:trigger>
+			<xf:label>Выбрать файл</xf:label>
+			<xf:action ev:event="DOMActivate">
+				<xf:load
+					resource="javascript:gwtXFormUpload({
+				xformsId: 'xformId',
+                linkId: '04', 
+                onSelectionComplete : function(ok, fileName) {
+                if (ok) {
+					var a = getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance').getElementsByTagName('info')[0].getElementsByTagName('comment')[0];
+					setValue(a, fileName);
+		 
+					xforms.ready = false;
+					xforms.refresh();
+					xforms.ready = true;                
+                }
+                }});" />
+			</xf:action>
+		</xf:trigger>
+
+		<div>
+			<xf:trigger>
+				<xf:label>Запустить закачку на сервер</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId', null,  null)" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+		
+		<hr/>
+		<div>
+			Выполнение secured/submit с mainInstanse					
+		</div>
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов XFormsSubmissionServlet</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="xformId_good_save" />
+				</xf:action>
+			</xf:trigger>
+		</div>		
+	</body>
+</html>
+
+
+
+
+
+

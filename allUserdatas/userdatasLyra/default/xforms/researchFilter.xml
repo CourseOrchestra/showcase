@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+  <head>
+    <xf:model id="xformId_mainModel">
+      <xf:instance id="xformId_mainInstance">
+        <schema xmlns="">
+          <roleid></roleid>
+          <grainid></grainid>
+          <tablename></tablename>
+        </schema>
+      </xf:instance>
+      <xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/data/@employee" readonly="true()"></xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/data/@section" readonly="true()"></xf:bind>        
+      </xf:bind>
+    </xf:model>
+  </head>
+  <body>
+    <!--<xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>-->
+    <div class="baseInput400 break">
+      <xf:input ref="instance('xformId_mainInstance')/data/@name">
+        <xf:label>Название:</xf:label>
+      </xf:input>
+    </div>
+    <div class="selectorLong400 break">
+      <xf:input ref="instance('xformId_mainInstance')/data/@employee">
+        <xf:label>Создатель:</xf:label>
+      </xf:input>
+      <xf:selector buttonLabel="..." procCount="'ssmmd.xforms.researchFilter.employeesCount.celesta'"
+        procList="'ssmmd.xforms.researchFilter.employeesList.celesta'" generalFilters="" currentValue="''"
+        windowCaption="'Выбор значения'"
+        xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@employeeId)' : 'id',
+        'XPath(instance(quot(xformId_mainInstance))/data/@employee)' : 'name'}"></xf:selector>
+      <xf:trigger>
+        <xf:label>X</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:setvalue ref="instance('xformId_mainInstance')/data/@employeeId" value=""></xf:setvalue>
+          <xf:setvalue ref="instance('xformId_mainInstance')/data/@employee" value=""
+          ></xf:setvalue>
+        </xf:action>
+      </xf:trigger>
+    </div>
+    <div class="selectorLong400 break">
+      <xf:input ref="instance('xformId_mainInstance')/data/@section">
+        <xf:label>Раздел:</xf:label>
+      </xf:input>      
+      <xf:trigger>
+        <xf:label>...</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:load
+            resource="javascript:gwtCreatePlugin
+            ({
+            id:'xformId',
+            plugin:'extJsTree',
+            getDataProcName:'ssmmd.xforms.settingsResearchCard.sectionsListAndCount.celesta',
+            postProcessProc:'handleExtJsTree.py',
+            generalFilters: '',
+            params:
+            {core:
+            {Update:
+            {startsWith:true,
+            delay:900
+            }
+            },
+            dataModel:
+            {fields:
+            []},
+            view:
+            {columns:
+            []}
+            },
+            options: {
+            dataWidth: '600px',
+            dataHeight: '450px',
+            windowCaption: 'Выбор значения из справочника',
+            onSelectionComplete: function(ok, plugin) {
+            if (ok) {
+            plugin.utils.singleXpathMapping({
+            'XPath(instance(quot(xformId_mainInstance))/data/@sectionId)' : 'id',							
+            'XPath(instance(quot(xformId_mainInstance))/data/@section)' : 'name'}, true);	}}}});"
+          ></xf:load>
+        </xf:action>
+      </xf:trigger>
+      <xf:trigger>
+        <xf:label>X</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:setvalue ref="instance('xformId_mainInstance')/data/@sectionId" value=""></xf:setvalue>
+          <xf:setvalue ref="instance('xformId_mainInstance')/data/@section" value=""
+            ></xf:setvalue>
+        </xf:action>
+      </xf:trigger>
+    </div>
+    <div class="button100 break">
+      <xf:trigger>
+        <xf:label>Отобразить</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:load
+            resource="javascript:gwtXFormUpdate('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"
+          ></xf:load>
+        </xf:action>
+      </xf:trigger>
+    </div>
+  </body>
+</html>

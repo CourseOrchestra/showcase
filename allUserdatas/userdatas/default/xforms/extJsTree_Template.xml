@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+	
+        <style type="text/css">
+        
+            .dateInput
+            .xforms-value {
+                width: 270px !important;
+                border: 0px;
+                padding: 2px 0px 2px 0px;
+                background-color: #E5F2FF;
+                margin: 2px 0px 0px 0px;
+                min-height: 13px;
+            }
+            
+            
+		</style>
+	
+	
+	
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance">
+				<schema xmlns="">
+				</schema>
+			</xf:instance>
+			
+			<xf:instance id="xformId_myInstance">
+			  <schema xmlns="">
+				<items />
+			  </schema>
+			</xf:instance>
+			
+			<xf:instance id="xformId_myInstance1">
+			  <schema xmlns="">
+				<item id="">
+					<name></name>
+				</item>
+			  </schema>
+			</xf:instance>
+
+			
+			<xf:bind>
+			</xf:bind>
+		</xf:model>
+	</head>
+	<body>
+		<div style="font-size: 15px;"> Текстовое поле: </div>
+		<div>
+			<xf:input ref="instance('xformId_myInstance1')/item/@id">
+				<xf:hint>Содержит идентификатор выбранной записи (первой записи в случае множественного выбора)</xf:hint>
+			</xf:input>
+			<xf:input ref="instance('xformId_myInstance1')/item/name">
+				<xf:hint>Содержит название выбранной записи (первой записи в случае множественного выбора)</xf:hint>
+			</xf:input>
+
+
+	<!-- 
+	-->	
+			<xf:trigger>
+				<xf:label>Вызов ExtJsTree плагина</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtCreatePlugin({
+							id:'xformId',
+							plugin:'extJsTree',
+							proc:'plugin/extJsTree.py',
+							postProcessProc:'plugin/handleExtJsTree.py',
+							getDataProcName:'plugin/extJsTreeGetData.py',
+							generalFilters:['XPath(instance(quot(xformId_myInstance1))/item/name)'],							
+							params:{
+								treePanel: {
+									menuDisabled: false,
+								hideHeaders: false,
+									title: 'Элементы дерева',
+									listeners: {
+										checkchange: {
+											fn: function(node, checked, eOpts) {
+												if (checked) {
+													alert('CheckChange event. Select node '+node.get('name')+'(id:'+node.get('id')+', attr1:'+node.get('attr1')+')');
+												}
+											}
+										}
+									}
+								},
+								
+								core: {
+									checkParent:true,
+									filter:{
+										startsWith:true,
+										delay:900,
+										autofilter:true
+									}
+								},
+								
+								
+								dataModel:{
+									fields:[
+										{name: '', type: 'string'},
+										
+										{name: 'column1', type: 'string'},										
+										{name: 'column2', type: 'string'}										
+									]
+								},
+
+								view:{
+							
+									columns:[
+										{ header: 'Столбец1', dataIndex: 'column1', menuDisabled: true},
+										{ header: 'Столбец2', dataIndex: 'column2', menuDisabled: true}
+									]
+								}
+								
+								
+							},
+							options: {								
+								dataWidth: '500px',
+								dataHeight: '450px',
+								windowCaption: 'Выбор данных из дерева',
+								onSelectionComplete: function(ok, plugin) {
+									if (ok) {
+										plugin.utils.singleXpathMapping({
+											'XPath(instance(quot(xformId_myInstance1))/item/name)':'name',
+											'XPath(instance(quot(xformId_myInstance1))/item/@id)':'id'
+										});
+										plugin.utils.multiXpathMapping({
+											xpathRoot:'XPath(instance(quot(xformId_myInstance))/items)',
+											xpathMapping:{'XPath(instance(quot(xformId_myInstance1))/item)':{'id': '@id','name':'name'}}
+										}, true);
+									}
+								}
+							}
+						});" />
+				</xf:action>
+			</xf:trigger>
+
+
+
+			<xf:trigger>
+				<xf:label>Вызов ExtJsTree плагина с неавтоматическим поиском</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtCreatePlugin({
+							id:'xformId',
+							/*parentId:'pluginWraper',*/
+							plugin:'extJsTree',
+							/*proc:'pluginExtJsTree',*/
+							proc:'plugin/extJsTree.py',
+							postProcessProc:'plugin/handleExtJsTree.py',
+							getDataProcName:'extJsTree_getData',
+							/*getDataProcName:'plugin/extJsTreeGetData.py',*/
+							generalFilters:['XPath(instance(quot(xformId_myInstance1))/item/name)'],							
+							params:{
+								treePanel: {
+								
+								singleExpand : true,
+								
+									title: 'Элементы дерева',
+									listeners: {
+										checkchange: {
+											fn: function(node, checked, eOpts) {
+											
+											
+											
+												if (checked) {
+													alert('CheckChange event. Select node '+node.get('name')+'(id:'+node.get('id')+', attr1:'+node.get('attr1')+')');
+												}
+											}
+										}
+									}
+								},
+								core: {
+									checkParent:true,
+									filter:{
+										startsWith:true,
+										delay:900,
+										autofilter:false
+									}
+								},
+								dataModel:{
+									fields:[
+										{name: 'attr1', type: 'string'}
+									]
+								}
+							},
+							options: {								
+								dataWidth: '500px',
+								dataHeight: '450px',
+								windowCaption: 'Выбор данных из дерева',
+								manualSearch: true,
+								onSelectionComplete: function(ok, plugin) {
+									if (ok) {
+										plugin.utils.singleXpathMapping({
+											'XPath(instance(quot(xformId_myInstance1))/item/name)':'attr1',
+											'XPath(instance(quot(xformId_myInstance1))/item/@id)':'id'
+										});
+										plugin.utils.multiXpathMapping({
+											xpathRoot:'XPath(instance(quot(xformId_myInstance))/items)',
+											xpathMapping:{'XPath(instance(quot(xformId_myInstance1))/item)':{'id': '@id','attr1':'name'}}
+										}, true);
+										
+										/*var records = plugin.getValues();
+										names = [];
+										Ext.Array.each(records, function(rec){
+											names.push(rec.get('name'));
+										});
+ 					                    var a = getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance').getElementsByTagName('info')[0].getElementsByTagName('name')[0];
+										setValue(a, names.join('|'));
+										
+										xforms.ready = false;
+										xforms.refresh();
+										xforms.ready = true;*/
+									}
+								}
+							}
+						});" />
+				</xf:action>
+			</xf:trigger>
+
+		
+<hr/>		
+					
+			
+			<!-- 
+					{field: 'id', label: 'Код'},
+					
+					{label: '', selector: 'checkbox', width: '20', resizable: false},
+					{label: '', selector: 'radio', width: '20', resizable: false},					
+
+
+                xpathRoot         = "'XPath(instance(quot(xformId_myInstance))/items)'"
+   			    xpathMapping      = "{'XPath(instance(quot(xformId_myInstance1))/item)':{'id': '@id','name':'name'}}"
+								
+                xpathMapping = "{'XPath(instance(quot(xformId_myInstance1))/item/name)' : 'name', 'XPath(instance(quot(xformId_myInstance1))/item/@id)' : 'id'}"								
+								
+			-->
+			
+			
+			
+		    <xf:treeselector
+		        buttonLabel        = "Вызов нового триселектора"
+   		        windowCaption      = "'Выбор данных из дерева'"
+   		        
+   		        startWith          = "true"
+                hideStartWith      = "false"
+                manualSearch       = "false" 
+		               
+                dataWidth          = "'500px'"
+                dataHeight         = "'450px'"
+				hideHeaders        = "false"
+				
+				
+				checkParent = "true"
+				
+				
+				allowSelectAll = "true"
+				
+				columns =  "[
+								{label: '', selector: 'checkbox', width: '20', resizable: false},							      
+							    {field: 'name', label: 'Название', width: '200', renderExpando: true},								
+								
+								{field: 'column1', label: 'Столбец1', width: '100', horAlign: 'right'},										
+								{field: 'column2', label: 'Ст2', width: '50', type: 'image', horAlign: 'center'}										
+							]"
+							
+							
+							
+				
+		        getDataProcName   = "'plugin/extJsTreeGetData.py'"                
+		          
+		        generalFilters     = "['XPath(instance(quot(xformId_myInstance1))/item/name)']"
+		        
+				needClear = "true"
+				
+
+                xpathRoot         = "'XPath(instance(quot(xformId_myInstance))/items)'"
+   			    xpathMapping      = "{'XPath(instance(quot(xformId_myInstance1))/item)':{'id': '@id','name':'name'}}"
+		        
+		        
+		        
+   		        onSelectionComplete = "function(ok, selected){if (ok) {
+     			        alert('Это вызов onSelectionComplete для триселектора');
+		        }}"		        
+		        
+		        onSelectionCompleteAction =
+		        "
+					&lt;xf:action>
+		  				 &lt;xf:message>Это вызов onSelectionCompleteAction для триселектора&lt;/xf:message>
+					&lt;/xf:action>
+		        "
+		        
+		    />
+			
+
+
+		    <xf:treeselector
+		        buttonLabel        = "Вызов нового триселектора без картинок на ноды"
+   		        windowCaption      = "'Выбор данных из дерева'"
+   		        
+   		        startWith          = "true"
+                hideStartWith      = "false"
+                manualSearch       = "true" 
+		               
+                dataWidth          = "'500px'"
+                dataHeight         = "'450px'"
+				hideHeaders        = "false"
+				
+				
+				
+				checkParent = "true"
+				
+				
+				allowSelectAll = "false"
+				
+				columns =  "[
+								{label: '', selector: 'radio', width: '20', resizable: false},							      
+							    {field: 'name', label: 'Название', width: '200', renderExpando: true},								
+								
+								{field: 'column1', label: 'Столбец1', width: '100', horAlign: 'right'},										
+								{field: 'column2', label: 'Ст2', width: '50', type: 'image', horAlign: 'center'}										
+							]"
+				
+		        getDataProcName   = "'plugin/extJsTreeGetData2.py'"                
+		          
+		        generalFilters     = "['XPath(instance(quot(xformId_myInstance1))/item/name)']"
+		        
+				needClear = "true"
+				
+
+                xpathMapping = "{'XPath(instance(quot(xformId_myInstance1))/item/name)' : 'name', 'XPath(instance(quot(xformId_myInstance1))/item/@id)' : 'id'}"		        
+		        
+		        
+   		        onSelectionComplete = "function(ok, selected){if (ok) {
+     			        alert('Это вызов onSelectionComplete для триселектора');
+		        }}"		        
+		        
+		        onSelectionCompleteAction =
+		        "
+					&lt;xf:action>
+		  				 &lt;xf:message>Это вызов onSelectionCompleteAction для триселектора&lt;/xf:message>
+					&lt;/xf:action>
+		        "
+		        
+		    />
+
+
+			
+			
+			<xf:repeat id="itemRow" nodeset="instance('xformId_myInstance')/items">
+              <div>
+                <xf:output ref="."/>
+              </div>
+            </xf:repeat>
+			
+			<div id="pluginWraper"></div>
+		</div>
+		
+		
+		
+	</body>
+</html>

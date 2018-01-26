@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+	
+	<tab id="3" name="Различные типы столбцов">
+		<element id="00102" type="grid" subtype="JS_LIVE_GRID" proc="grid_new_data_column_types"
+			plugin="liveDGrid" >
+			<proc id="p010201" name="grid_new_meta_column_types" type="METADATA"/>
+		</element>							
+	</tab>
+	
+	<tab id="2" name="Профайлы">
+		<element id="001022" type="grid" subtype="JS_LIVE_GRID" proc="grid_new_data_column_types"
+			plugin="liveDGrid" >
+			<proc id="p010201" name="grid_new_meta_column_types" type="METADATA"/>
+		</element>
+		<element id="001021" type="grid" subtype="JS_LIVE_GRID" proc="grid_new_data_special_profile"
+			plugin="liveDGrid" >
+			<proc id="p010201" name="grid_new_meta_special_profile" type="METADATA"/>
+		</element>
+	</tab>
+	
+
+ 	
+	
+	<tab id="5" name="Выделение строки, Обновление по таймеру">
+		<element id ="441" type="grid" subtype="JS_LIVE_GRID" proc="grid_new_data"
+		    refreshByTimer="true" refreshInterval="10"  
+		    plugin="liveDGrid">
+			<proc id="442" name="grid_new_meta" type="METADATA"/>
+		</element>
+		
+		<element id="443" type="webtext" proc="webtext/selectedRowWriter.py" hideOnLoad="true" />		 
+		<element id="444" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+	</tab>
+	
+	
+	<tab id="6" name="Выделение ячейки, Обновление по таймеру">
+		<element id ="541" type="grid" subtype="JS_LIVE_GRID" proc="grid_new_data_cell"
+		    refreshByTimer="true" refreshInterval="10"  
+		    plugin="liveDGrid">
+			<proc id="542" name="grid_new_meta_cell" type="METADATA"/>
+		</element>
+		
+		<element id="543" type="webtext" proc="webtext/selectedRowWriter.py" hideOnLoad="true" />		 
+		<element id="544" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+	</tab>
+			
+</datapanel>

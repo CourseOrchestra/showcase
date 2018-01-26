@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel refreshMode="BY_TIMER" refreshInterval="120">  
+   <tab id="1" name="Характеристика">
+       <element id="1" type="webtext" transform="bal.xsl" styleClass="testStyle"/>
+   </tab>
+   <tab id="2" name="Балансы">  
+   <tab id="22" name="Балансы int"/> 
+       <element id="2" type="grid" proc="grid_bal" />
+       <element id="3" type="chart" proc="chart_bal" hideOnLoad="true"/>  
+       <element id="4" type="grid" proc="grid_bal1" hideOnLoad="true"/>
+       <element id="05" type="geomap" proc="geomap_func1"/>
+       <element id="06" type="chart" proc="chart_bal" hideOnLoad="true"/>                        
+   </tab>        
+   <tab id="3" name="Неправильная вкладка">
+       <element id="5" type="grid" proc="grid_bal_wrong" />
+       <element id="6" type="webtext" proc="webtext_wrong" />    
+   </tab>
+</datapanel>

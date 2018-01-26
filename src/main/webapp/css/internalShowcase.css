@@ -1,0 +1,249 @@
+.dataPanelElement-BorderCorners { 
+  border-style: solid; 
+  border-width:2px; 
+  border-color: #cdf;
+  padding: 10px;   
+  border-top: hidden;
+  border-left: hidden;
+  border-right: hidden;  
+} 
+
+.basicVerticalPanel-CellspacingForMainPanel { 
+  border-spacing: 0px;
+}
+
+.DockLayoutPanel-MainPanel { 
+  margin-left: 3px;
+  margin-right: 3px;
+} 
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelContent {
+  border-color: #92c1f0;
+  border-style: solid;
+  border-width: 3px 0px 0px 0px;
+  overflow: hidden;
+  padding: 0px 0px 0px 0px;
+}
+
+.linkStyle:hover {
+ text-decoration : underline;
+ cursor: pointer;
+}
+
+.linkStyle {
+ color: blue;
+}
+
+.showcaseHeaderContainerStyle {
+ margin: 5px 0px -15px 10px;
+
+}
+
+.aboutLink {
+padding: 0px 20px;
+}
+
+.currentUserWidget {
+padding: 0px 20px 0px 0px;
+}
+
+.sc-uploader-holder {
+	width: 500px; 
+	height: 50px; 
+}
+
+.sc-uploader-comp {
+	margin-left: 7px;
+	margin-top: 7px; 
+}
+
+	
+.ext-grid-header-wrap   {
+   white-space: normal !important; 
+}
+
+
+.message-popup-panel   {
+   background-color: yellow;
+   cursor: default;
+}
+
+.message-popup-label   {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+
+
+.plugin-navigator-grid {
+   	height: 99%  !important  ;
+}
+
+.plugin-navigator-grid-column {
+	  border: none !important ;
+}
+
+
+
+.claro .dojoxCalendarColumnView td {
+  border-top:1px dotted #ccc;
+}
+
+
+
+.extragwt-MenuItem-ImageStub {
+    float: left;
+    width: 16px;
+}
+
+
+/*.extragwt-DataGrid td.boolean span.gwt-CheckBox-disabled {*/
+    /*color: black;*/
+/*}*/
+
+.extragwt-MenuItem-disabled {
+    color: #888888;
+}
+
+/*
+ *  SelectorComponent styles
+ */
+.extragwt-SelectorComponent-ListWrapper {
+    border: 1px solid silver;
+}
+/* Clear yellow background on CellList in SelectorComponent */
+.GL0PBETBJ {
+    background-color: transparent !important;
+}
+
+.extragwt-SelectorComponent-SelectButtonImage {
+    margin-top	: 22px;
+}
+
+
+
+
+.exportToExcelCurrentPage {
+    background-image: url('../resources/internal/ExportToExcelCurrentPage.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+.exportToExcelAll {
+    background-image: url('../resources/internal/ExportToExcelAll.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+.copyToClipboard {
+    background-image: url('../resources/internal/CopyToClipboard.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+.filter {
+    background-image: url('../resources/internal/filter.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+.addRecord {
+    background-image: url('../resources/internal/AddRecord.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+.save {
+    background-image: url('../resources/internal/Save.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+.revert {
+    background-image: url('../resources/internal/Revert.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+
+
+
+.server-selector-clearbutton-image {
+    background: url('../resources/internal/clearImage.png') no-repeat center center;
+    width: 18px;
+    height: 18px;
+}
+.server-selector-manualsearchbutton-image {
+    background: url('../resources/internal/findImage.png') no-repeat center center;
+    width: 18px;
+    height: 18px;
+}
+
+
+.server-multiselector-clearbutton-image {
+    background: url('../resources/internal/clearImage.png') no-repeat center center;
+    width: 18px;
+    height: 18px;
+}
+.server-multiselector-manualsearchbutton-image {
+    background: url('../resources/internal/findImage.png') no-repeat center center;
+    width: 18px;
+    height: 18px;
+}
+.server-multiselector-findbutton-element-image {
+    background: url('../resources/internal/findImage.png') no-repeat center center;
+    width: 18px;
+    height: 18px;
+}
+
+.server-multiselector-selectionbutton-element  .dijitButtonNode{
+    width: 20px;
+    height: 60px;
+}
+
+.server-multiselector-selectbutton-element-image {
+    background: url('../resources/internal/selectImage.png') no-repeat center center;
+    width: 20px;
+    height: 60px;
+}
+.server-multiselector-selectallbutton-element-image {
+    background: url('../resources/internal/selectAllImage.png') no-repeat center center;
+    width: 20px;
+    height: 60px;
+}
+.server-multiselector-unselectbutton-element-image {
+    background: url('../resources/internal/unselectImage.png') no-repeat center center;
+    width: 20px;
+    height: 60px;
+}
+.server-multiselector-unselectallbutton-element-image {
+    background: url('../resources/internal/unselectAllImage.png') no-repeat center center;
+    width: 20px;
+    height: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xsd="http://www.w3.org/2001/XMLschema"
+      xmlns:fs="http://www.curs.ru/ns/FormServer"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <xf:model id="xformId_mainModel">
+            <xf:instance id="xformId_mainInstance">
+                <schema xmlns="">
+                    <info>
+                        <INN/>
+                        <date/>
+                        <bool/>
+                    </info>
+                </schema>
+            </xf:instance>  
+        </xf:model>
+    </head>
+    
+    <body>
+<!--          <xf:output value="serialize(instance('xformId_mainInstance'))"/> -->
+   
+   		<div style="font-size: 15px;">PartTemplate and BindTemplate from xml</div>
+   
+        <div>
+            <xf:input ref="instance('xformId_mainInstance')/info/INN">
+                 <xf:label>ИНН:</xf:label>
+                 <xf:hint>Ваш ИНН.</xf:hint>
+            </xf:input>				
+        </div>
+        
+		<div>
+            <xf:input ref="instance('xformId_mainInstance')/info/date">
+                 <xf:label>Дата рождения:</xf:label> 
+                 <xf:hint>Дата Вашего рождения.</xf:hint>
+            </xf:input>				
+        </div>
+		
+        <div>  
+            <xf:trigger>
+                <xf:label>Ok</xf:label>
+                <xf:action ev:event="DOMActivate">
+                        <xf:setvalue ref="instance('xformId_mainInstance')/info/bool">true</xf:setvalue>
+               </xf:action>
+            </xf:trigger>
+            
+            <xf:trigger>
+                <xf:label>Reset</xf:label>
+                <xf:action ev:event="DOMActivate">
+                       <xf:setvalue ref="instance('xformId_mainInstance')/info/bool">false</xf:setvalue>
+                </xf:action>
+            </xf:trigger>
+        </div>
+
+        <xf:group id="11" ref="instance('xformId_mainInstance')/info[bool = 'true']">
+            Ваш ИНН: <xf:output ref="instance('xformId_mainInstance')/info/INN"/><br/>
+	        Дата Вашего рождения: <xf:output ref="instance('xformId_mainInstance')/info/date"/><br/> 
+	    </xf:group>
+        
+        <xf:group id="12" ref="instance('xformId_mainInstance')/info[bool = 'false']">
+            Ваш ИНН:<br/>
+	        Дата Вашего рождения: 
+        </xf:group>
+         
+         <div insertTemplate="partTemplate.xml">
+         </div>
+         
+         <div insertBind="bindTemplate.xml">
+         </div>
+        
+    </body>
+</html>
+
+
+
+
+
+

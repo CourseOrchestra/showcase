@@ -1,0 +1,29 @@
+<sessioncontext>
+   <username></username>
+   <sid>testSID</sid>
+   <sessionid>testSession</sessionid>
+   <email/>
+   <fullusername/>
+   <phone/>
+   <ip/>
+   <userdata>default</userdata>
+   <related>
+      <xformsContext id="08">
+         <additional>current</additional>
+         <formData><model/></formData>
+      </xformsContext>
+      <gridContext id="01">
+         <additional><add>value</add></additional>
+         <filter><filter>filter_value</filter></filter>
+         <sortedColumn id="colId" sorting="ASC" width="10px"/>
+         <pageInfo number="1" size="2"/>
+         <liveInfo limit="50" offset="0" totalCount="0"/>
+         <currentRecordId>curRecordId</currentRecordId>
+         <currentColumnId>curColumnId</currentColumnId>
+         <selectedRecordId>r1</selectedRecordId>
+         <selectedRecordId>r2</selectedRecordId>
+         <currentDatapanelWidth>0</currentDatapanelWidth>
+         <currentDatapanelHeight>0</currentDatapanelHeight>         
+      </gridContext>
+   </related>
+</sessioncontext>

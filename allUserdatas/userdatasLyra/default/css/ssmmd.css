@@ -1,0 +1,117 @@
+@CHARSET "UTF-8";
+
+
+div.selector div.inputText span span.value{
+	float: left;
+	width: 345px;
+}
+
+div.req div.inputText span span.value{
+	float: left;
+	width: 370px;
+}
+
+div.short div.inputText span span.value{
+	float: left;
+	width: 130px;
+}
+
+.ssmmd.selectorText{
+	clear: both;
+	float: left;
+	width: 370px;
+}
+
+.ssmmd.selectorButton{
+	width: 30px;
+	float: left;
+	padding-top: 24px;
+	padding-left: 3px;
+}
+
+.ssmmd.selectorButtonNoLabel{
+	float: left;
+	padding-top: 10px
+}
+
+.ssmmd.delete{
+	width: 30px;
+	float: left;
+	padding-top: 20px
+}
+
+.xforms-output .xforms-value{
+	background-color: transparent !important;
+	border: #FFF !important;
+}
+
+.xforms-readonly input {
+background-color: #f8f8f8;
+border: #f8f8f8;
+color: #333333;
+}
+	
+.inputText{
+	clear: both;
+	width: 380px;
+	float: left;
+}
+
+.inputTextNoButton{
+	clear: both;
+	width: 356px;
+	float: left;
+}
+
+.dateInputFrontPage .xforms-value {
+    margin: 6px 0 0;
+    min-height: 13px;
+    margin-right: 2px;
+    padding: 2px ;
+    width: 170px !important;
+}
+
+button{
+	min-width: 25px !important;
+}
+
+.dateInputFrontPage span span button{
+	float: left;
+	margin-top: 5px;
+}
+
+.floatingButton span span button{
+	float:left;
+	width: 25px !important;
+	margin-left: 2px;
+}
+
+.floatingButton span span .xforms-value {
+	float: left;
+	width: 221px !important;
+}
+
+.dateInputFrontPage .aid-button {
+  width: 23px !important;
+}
+	
+
+.required{
+	color: red;
+	float: left;
+	clear: both;
+	padding-top: 20px;
+}
+
+.bigArrow span span a span {
+	font-size: 9pt;
+	font-weight: bold;
+	padding-top: 2px;
+}
+
+.bigButtonText tbody tr td span span button span{
+	font-size: 9pt;
+}
+
+.bigHint span span.xforms-hint span.xforms-hint-value {
+	width: 580px;

@@ -1,0 +1,1553 @@
+/* -----------------------------------------------------------------------*/
+/* ------------------ "Query" TreeGrid style definition ------------------*/
+/* -----------------------------------------------------------------------*/
+
+/* ------------- Base tags ------------- */
+
+.GQImage { padding-bottom:256px; }
+.GQNone { display:none; }
+.GQSection,.GQSectionFF3 { table-layout:fixed; width:0px; font-size:1px; }
+.GQSectionFF3 { border-collapse:collapse; }
+
+/* -------------- Sections ------------------ */
+
+.GQMainTable { border-left:1px solid #C5DBEC; border-right:1px solid #C5DBEC; border-collapse:separate; text-align:left; }
+.GQBodyLeft,.GQBodyMid,.GQBodyRight,.GQHeadLeft,.GQHeadMid,.GQHeadRight,.GQFootLeft,.GQFootMid,.GQFootRight { }
+.GQBodyLeft,.GQBodyMid,.GQBodyRight { border-top:1px solid #C5DBEC; }
+.GQHeadLeft,.GQHeadMid,.GQHeadRight { }
+.GQFootLeft,.GQFootMid,.GQFootRight { border-top:1px solid #C5DBEC; }
+.GQHeadLeft,.GQBodyLeft,.GQFootLeft,.GQHScrollLeft { border-right:1px solid #c0c0ff; }
+.GQHeadMid,.GQBodyMid,.GQFootMid {  }
+.GQHeadRight,.GQBodyRight,.GQFootRight,.GQHScrollRight { border-left:1px solid #c0c0ff; }
+.GQVScroll { padding-top:1px; padding-bottom:1px; } 
+.GQHScrollLeft,.GQHScrollMid,.GQHScrollRight,.GQHScrollLeftResize,.GQHScrollRightResize { padding-left:1px; padding-right:1px; cursor:default; }
+.GQHScrollLeftResize { border-right:2px solid #88c; padding-right:5px; background:#F4F4F4; }
+.GQHScrollRightResize { border-left:2px solid #88c; padding-left:5px; background:#F4F4F4; }
+.GQHScrollMidLeftResize { border-left:1px solid #88c; padding-left:5px; background:#F4F4F4; }
+.GQHScrollMidRightResize { border-right:1px solid #88c; padding-right:5px; background:#F4F4F4; }
+.GQHScrollLeftResizeTouch { border-right:2px solid #88c; padding-right:18px; background:#F4F4F4; }
+.GQHScrollRightResizeTouch { border-left:2px solid #88c; padding-left:18px; background:#F4F4F4; }
+.GQHScrollMidLeftResizeTouch { border-left:1px solid #88c; padding-left:19px; background:#F4F4F4; }
+.GQHScrollMidRightResizeTouch { border-right:1px solid #88c; padding-right:19px; background:#F4F4F4; }
+.GQHScrollWide { padding-right:1px; }
+.GQHScrollHidden { overflow:visible!important; background:#F4F4F4; cursor:default; }
+.GQXScroll { background:#F4F4F4; }
+.GQPageFirst { }
+.GQPage { border-top:1px solid #E0E0E0;}
+.GQPageOne { }
+.GQChildPart {  }
+
+/* ------------- Round corners ------------- */
+
+.GQTop { }
+.GQTop1 { margin-left:5px; margin-right:5px; height:1px; background:#6ca6d1; overflow:hidden; }
+.GQTop2 { margin-left:3px; margin-right:3px; border-left:2px solid #6ca6d1; border-right:2px solid #6ca6d1; background:#6ca6d1; height:1px; overflow:hidden; }
+.GQTop3 { margin-left:2px; margin-right:2px; border-left:1px solid #6ca6d1; border-right:1px solid #6ca6d1; background:#6ca6d1; height:1px; overflow:hidden; }
+.GQTop4 { margin-left:1px; margin-right:1px; border-left:1px solid #6ca6d1; border-right:1px solid #6ca6d1; background:#6ca6d1; height:5px; overflow:hidden; }
+.GQTop5 { display: none; }
+
+.GQTopSpace1 { margin-left:5px; margin-right:5px; height:1px; background:#C5DBEC; overflow:hidden; }
+.GQTopSpace2 { margin-left:3px; margin-right:3px; border-left:2px solid #C5DBEC; border-right:2px solid #C5DBEC; background:#c9e4ff; height:1px; overflow:hidden; }
+.GQTopSpace3 { margin-left:2px; margin-right:2px; border-left:1px solid #C5DBEC; border-right:1px solid #C5DBEC; background:#c9e4ff; height:1px; overflow:hidden; }
+.GQTopSpace4{ margin-left:1px; margin-right:1px; border-left:1px solid #C5DBEC; border-right:1px solid #C5DBEC; background:#c9e4ff; height:5px; overflow:hidden; }
+.GQTopSpace5 { display: none; }
+
+.GQBottom { }
+.GQBottom5 { margin-left:5px; margin-right:5px; height:1px; background:#C5DBEC; overflow:hidden; }
+.GQBottom4 { margin-left:3px; margin-right:3px; border-left:2px solid #C5DBEC; border-right:2px solid #C5DBEC; background:#c9e4ff; height:1px; overflow:hidden; }
+.GQBottom3 { margin-left:2px; margin-right:2px; border-left:1px solid #C5DBEC; border-right:1px solid #C5DBEC; background:#c9e4ff; height:1px; overflow:hidden; }
+.GQBottom2 { margin-left:1px; margin-right:1px; border-left:1px solid #C5DBEC; border-right:1px solid #C5DBEC; background:#c9e4ff; height:2px; overflow:hidden; }
+.GQBottom1 { display:none; }
+
+/* ------------- Rows ------------------ */
+
+.GQSpaceRowHeight { height:21px; }
+.GQRowHeight { height:18px; }
+.GQRowHeightTouch { height:22px; }
+.GQSpaceMargin { margin:0px; }
+.GQSpaceMarginTouch { margin:5px; }
+
+.GQSpaceRow { background:#d5e9fe; white-space:nowrap; font-size:1px; overflow:hidden; padding-top:2px; padding-bottom:2px; }
+.GQToolbarRow,.GQToolbar1Row,.GQToolbar2Row,.GQTopbarRow,.GQTopbar1Row,.GQTopbar2Row,.GQGroupRow,.GQSearchRow,.GQPagerRow {
+   background:url(Backgrounds.gif) repeat-x 0px -500px; white-space:nowrap;
+   font-size:1px; padding-top:5px; padding-bottom:5px; overflow:hidden;
+   }
+.GQGroupRow,.GQPagerRow,.GQTopbarRow,.GQTopbar1Row,.GQToolbar1Row { background-position:0px -1751px; }
+.GQTopbarRow {  padding-left:3px; }
+.GQToolbarRow { padding-left:3px; }
+.GQFillRow { background: #d5e9fe; }
+.GQTabberRow { background: #d5e9fe; }
+.GQRowAbove { margin:3px 20px 0px 33px; overflow:hidden; }
+.GQRowBelow {  margin:0px 20px 3px 33px; overflow:hidden; }
+.GQNoDataRow { padding-left:5px; padding-top:5px; padding-bottom:5px; color:gray; font-style:italic; background-color:#E8F4FF; }
+
+/* ------------- Cell ------------- */
+
+.GQCell,.GQCellPanel,.GQCellFilter,.GQCellFilterPanel,.GQHeaderDrag,.GQHeaderGroup,.GQCellUser { 
+	border-bottom:1px solid #e0e0ff; border-right:1px solid #e0e0ff; border-top:0px none; border-left:0px none;
+	vertical-align:top; overflow:hidden; overflow:auto!IE; height:auto;
+	}
+.GQCellHeader,.GQCellHeaderPanel,.GQCellHeaderEmpty {
+   vertical-align:top; overflow:hidden; overflow:auto!IE; height:auto; 
+   background:url(Backgrounds.gif) repeat-x 0px 0px;
+   border-right:1px solid #6ca6d1; border-top:1px solid #6ca6d1;
+   }
+.GQCellBorderFF3 { border-left:0px none; border-top:0px none; }
+.GQCellHeaderPanel { padding-top:4px; }
+.GQCellSpace { vertical-align:top; padding-top:5px!important; }
+.GQCellSpacePanel,.GQCellSpaceBool { vertical-align:top; }
+.GQCellSpaceRadio { padding-top:3px!important;}
+.GQCellSpaceEdit,.GQCellSpaceEditIcon  {
+   vertical-align:top; padding-top:5px!important;
+   background:white url(BackgroundsRight.gif) right 0px; border-bottom:1px solid #71A8D2; border-left:1px solid #71A8D2; border-top:none!important;
+   }
+.GQCellSpaceEditIcon  { padding-left:0px!important; }
+.GQCellSpaceSelect  {
+   vertical-align:top; padding-top:5px!important; white-space:nowrap!important;
+   background:url(BackgroundsRight.gif) right -250px!important; 
+   border-left:1px solid #71A8D2; border-bottom:1px solid transparent; border-bottom:1px none!IE; border-top:none!important;
+   }
+.GQCellSpaceEditButton { vertical-align:top; padding-top:4px!important; border:1px solid black!important; background-color:white!important; }
+.GQCellSpaceButtonButton { vertical-align:top; }
+.GQCellSpaceButton { vertical-align:top; padding-top:5px!important; white-space:nowrap; color: #4989d3; }
+
+.GQCellPanel { background:#D5EAFE url(Backgrounds.gif) no-repeat 0px -1000px; }
+.GQCellPanel,.GQCellHeaderPanel { white-space:nowrap; direction:ltr; }
+.GQCellFilterPanel { background:url(Backgrounds.gif) repeat-x 0px -505px; text-align:center; padding:0px; border-bottom:0px none; border-right:0px none; direction:ltr; }
+.GQCellUser { background-color:#F0F0E0; }
+.GQCellEmpty { background: white; border-right:1px solid #e0e0ff; }
+.GQCellHeaderEmpty { }
+.GQCellHidden { background:transparent!important; border-top:none!important; border-bottom:none!important; }
+
+.GQHeaderButton { padding:0px; }
+.GQHeaderGroup { font:13px "Microsoft Sans Serif",Verdana,Arial; background: #7FA9E6; color:White; padding-left:3px; }
+.GQHeaderGroupFocus { background-color: #C0C0A0; }
+.GQHeaderGroupDelete { background-color: #F0F0E0; color: #F0F0E0; }
+.GQHeaderGroupCustom {
+   font:italic 11px "Microsoft Sans Serif",Verdana,Arial;
+   color:#BBB; padding-left:5px; cursor:default; white-space:nowrap;
+   }
+.GQHeaderDrag { background: #9FB9E9; cursor:default; overflow:hidden; }
+.GQHeaderFocus { background: #9FB9E9; }
+.GQPanel { padding-left:80px; }
+.GQNoTreeLines1 { text-align:right; }
+.GQNoTreeLines2 { text-align:right; vertical-align:middle; padding-top:0px; }
+.GQNoTreeLines3 { text-align:left; }
+.GQTree { padding-top:0px; white-space:nowrap; }
+.GQSpannedTree { vertical-align:top; }
+.GQCellClassInner { padding-top:0px; padding-bottom:0px; }
+
+/* ------------- Inside cell ------------- */
+
+.GQHtml,.GQText,.GQLines,.GQPass,.GQInt,.GQFloat,.GQDate,.GQLink,.GQImg,.GQRadio,.GQRadioText,.GQList,.GQEnum,.GQDropCols,.GQAbs,.GQPagerEdit,.GQUser,.GQChart {
+   font-size:11px; font-family:"Microsoft Sans Serif",Verdana,Arial; white-space:nowrap;
+   padding-left:3px; padding-right:3px; padding-top:2px; padding-bottom:2px;
+   }  
+.GQInt,.GQFloat,.GQDate { text-align:right; }
+.GQLines,.GQRadio,.GQHtml,.GQList { white-space:normal; }	
+.GQImg,.GQHtml { padding-top:0px; padding-bottom:0px; }
+.GQChart { padding:5px!important; }
+.GQPass { font-size:14px; padding:0px; padding-left:3px; }
+.GQRadio,.GQRadioText { padding:0px; font-weight:normal!important; }
+.GQBool { text-align:center; }
+.GQIcon { background-repeat:no-repeat; }
+.GQHidden { }
+.GQHiddenSpace { display:none; }
+.GQDropCols { padding-top:2px!important; }
+.GQHeaderText { font:13px "Trebuchet MS", Tahoma, Arial; line-height:17px; color:#FFFFFF; padding-left:3px; padding-right:3px; padding-bottom:2px!important; padding-top:3px!important; }
+.GQAbs { padding:0px; }
+.GQUser { padding:0px; }
+.GQPagerEdit { text-align:center; padding-top:3px; }
+.GQRightButton { font:10px "Times New Roman"; padding:0px; height:17px; width:19px; margin:0px; }
+.GQRightHtml { font:12px "Times New Roman"; }
+.GQRightImg { font:12px "Times New Roman"; }
+.GQMergedCellH { padding:0px; padding-right:5px; }
+.GQMergedCellV { padding:0px; padding-bottom:1px; }
+
+.GQWrap0 { white-space:nowrap; }
+.GQWrap1 { white-space:normal; }
+.GQAlignLeft { text-align:left; }
+.GQAlignCenter { text-align:center; }
+.GQAlignJustify { text-align:center; }
+.GQAlignRight { text-align:right; }
+.GQNoSpaceLeft { border-left:0px none; }
+.GQNoSpaceRight { border-right:0px none; }
+.GQCellRotate1 { vertical-align:bottom; padding-top:1px; padding-bottom:1px; }
+.GQCellRotate2 { vertical-align:top; padding-top:1px; padding-bottom:1px; }
+.GQCellRotate3 { vertical-align:middle; padding-top:1px; padding-bottom:1px; }
+.GQRotate1 { filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+   -moz-transform:rotate(-90deg); -webkit-transform: rotate(-90deg); -o-transform: rotate(-90deg);  
+   }
+.GQRotate2 { writing-mode:tb-rl;
+   -moz-transform:rotate(-270deg); -webkit-transform: rotate(-270deg); -o-transform: rotate(-270deg);
+   }
+
+/*--------------- Pages type cell ----------------- */
+
+.GQPages { overflow:visible; padding-left:3px; padding-right:3px; padding:0px!important; }
+.GQPagesLink,.GQPagesLinkActive {
+   padding-left:2px; padding-right:1px; padding-top:2px; padding-bottom:2px; margin-top:2px; margin-bottom:2px;
+   display:inline-block; font:11px "Microsoft Sans Serif",Verdana,Arial; cursor:pointer; _cursor:hand; color:blue;
+   }
+.GQPagesLink:visited { color:blue; }
+.GQPagesLink:hover { color:red; }
+.GQPagesLinkActive { color:black; font-weight:bold; border:1px dotted black; margin-top:1px; margin-bottom:1px; }
+
+/*--------------- Gantt type cell ----------------- */
+
+.GQGantt { border:0px none; padding:0px; border-right:1px solid #e0e0ff; cursor:default; background:transparent; -webkit-user-select:none; -moz-user-select:none; }
+.GQGantt0Out,.GQGantt10Out,.GQGantt90Out,.GQGantt100Out,.GQGanttNullOut {
+   border:none; margin-top:2px; padding: 0px 0px 0px 0px; background:white; overflow:hidden;
+   }     
+   
+.GQGanttHoverOut { border:1px solid red; margin-top:0px; padding:1px; background:white; overflow:hidden; }
+.GQGantt10Out { padding-left:0px; border-left:0px none; }
+.GQGantt90Out { padding-right:0px; border-right:0px none; }
+.GQGantt0In,.GQGantt10In,.GQGantt90In,.GQGantt100In,.GQGanttNullIn, 
+.GQGantt0InErr,.GQGantt10InErr,.GQGantt90InErr,.GQGantt100InErr,.GQGanttNullInErr, 
+.GQGantt0InCrit,.GQGantt10InCrit,.GQGantt90InCrit,.GQGantt100InCrit,.GQGanttNullInCrit { height:13px; overflow:hidden; font-size:1px; background:url(Backgrounds.gif) }  
+    
+.GQGantt0In {  background-position: 0px -1708px; }
+.GQGantt0InErr {  background-position: 0px -1578px; }
+.GQGantt0InCrit {  background-position: 0px -1682px; }
+.GQGantt10In { background-position: 0px -1695px; }
+.GQGantt10InErr { background-position: 0px -1565px; }
+.GQGantt10InCrit { background-position: 0px -1669px; }
+.GQGantt90In,.GQGantt90InErr,.GQGantt90InCrit { background-position: 0px -1591px; }
+.GQGantt100In,.GQGantt100InErr,.GQGantt100InCrit { background-position: 0px -1604px; }
+.GQGanttNullIn { background-position: 0px -1643px; }
+.GQGanttNullInErr { background-position: 0px -1565px; }
+.GQGanttNullInCrit { background-position: 0px -1669px; }
+.GQGanttG0In { background-position: 0px -1656px; }
+.GQGanttG0InErr { background-position: 0px -1734px; }
+.GQGanttG0InCrit { background-position: 0px -1721px; }
+.GQGanttG10In { background-position: 0px -1617px; }
+.GQGanttG10InErr { background-position: 0px -1734px; }
+.GQGanttG10InCrit { background-position: 0px -1721px; }
+.GQGanttG90In,.GQGanttG90InErr,.GQGanttG90InCrit { background-position: 0px -1630px; }
+.GQGanttG100In,.GQGanttG100InErr,.GQGanttG100InCrit { background-position: 0px -1643px; }
+.GQGanttGNullIn { background-position: 0px -1643px; }
+.GQGanttGNullInErr { background-position: 0px -1734px; }
+.GQGanttGNullInCrit { background-position: 0px -1721px; }
+.GQGanttRed0In,.GQGanttRed10In { background:white; } .GQGanttRed90In,.GQGanttRed100In,.GQGanttRedNullIn { background:red; }
+.GQGanttBlue0In,.GQGanttBlue10In { background:white; } .GQGanttBlue90In,.GQGanttBlue100In,.GQGanttBlueNullIn { background:blue; }
+.GQGanttGreen0In,.GQGanttGreen10In { background:white; } .GQGanttGreen90In,.GQGanttGreen100In,.GQGanttGreenNullIn { background:green; }
+.GQGanttFuchsia0In,.GQGanttFuchsia10In { background:white; } .GQGanttFuchsia90In,.GQGanttFuchsia100In,.GQGanttFuchsiaNullIn { background:fuchsia; }
+.GQGanttAqua0In,.GQGanttAqua10In { background:white; } .GQGanttAqua90In,.GQGanttAqua100In,.GQGanttAquaNullIn { background:aqua; }
+.GQGanttLime0In,.GQGanttLime10In { background:white; } .GQGanttLime90In,.GQGanttLime100In,.GQGanttLimeNullIn { background:lime; }
+.GQGanttMaroon0In,.GQGanttMaroon10In { background:white; } .GQGanttMaroon90In,.GQGanttMaroon100In,.GQGanttMaroonNullIn { background:maroon; }
+.GQGanttNavy0In,.GQGanttNavy10In { background:white; } .GQGanttNavy90In,.GQGanttNavy100In,.GQGanttNavyNullIn { background:navy; }
+.GQGanttOlive0In,.GQGanttOlive10In { background:white; } .GQGanttOlive90In,.GQGanttOlive100In,.GQGanttOliveNullIn { background:olive; }
+.GQGanttOrange0In,.GQGanttOrange10In { background:white; } .GQGanttOrange90In,.GQGanttOrange100In,.GQGanttOrangeNullIn { background:orange; }
+.GQGanttPurple0In,.GQGanttPurple10In { background:white; } .GQGanttPurple90In,.GQGanttPurple100In,.GQGanttPurpleNullIn { background:purple; }
+.GQGanttSilver0In,.GQGanttSilver10In { background:white; } .GQGanttSilver90In,.GQGanttSilver100In,.GQGanttSilverNullIn { background:silver; }
+.GQGanttTeal0In,.GQGanttTeal10In { background:white; } .GQGanttTeal90In,.GQGanttTeal100In,.GQGanttTealNullIn { background:teal; }
+.GQGanttYellow0In,.GQGanttYellow10In { background:white; } .GQGanttYellow90In,.GQGanttYellow100In,.GQGanttYellowNullIn { background:yellow; }
+.GQGanttBlack0In,.GQGanttBlack10In { background:white; } .GQGanttBlack90In,.GQGanttBlack100In,.GQGanttBlackNullIn { background:black; }
+.GQGanttGray0In,.GQGanttGray10In { background:white; } .GQGanttGray90In,.GQGanttGray100In,.GQGanttGrayNullIn { background:gray; }
+.GQGanttWhite0In,.GQGanttWhite10In,.GQGanttWhite90In,.GQGanttWhite100In,.GQGanttWhiteNullIn { background:white; } 
+.GQGanttWhite90In { border-right:1px solid black; margin-right:1px; } .GQGanttWhite10In { border-left:1px solid black; }
+.GQGanttOutLeft,.GQGanttOutRight { background:url(Gantt.gif) no-repeat -293px 0px; width:13px; height:16px; overflow:hidden; }
+.GQGanttOutRight { background-position: -353px 0px; }
+
+.GQGanttFlowOut { margin-top:7px; border: none; overflow:hidden; }
+.GQGanttFlowHover { margin-top:6px; border:1px solid red; overflow:hidden; }  
+.GQGanttFlowIn,.GQGanttFlowInErr,.GQGanttFlowInCrit { height:3px; overflow:hidden; background:#0073B6; font-size:1px; }
+.GQGanttGFlowIn { background:#82b7e0; }
+.GQGanttFlowInErr { background:#F55; }
+.GQGanttFlowInCrit { background:#FA0; }
+
+.GQFGanttBase { height:11px; margin:1px; border:1px solid; padding:1px; padding-left:2px; padding-right:2px; overflow:hidden; }
+.GQFGanttRunEmpty,.GQFGanttRunBox,.GQFGanttRunSolid,.GQFGanttRunLeft,.GQFGanttRunRight,.GQFGanttRunFixed,
+.GQFGanttRunBound,.GQFGanttRunBoundStart,.GQFGanttRunEnd,.GQFGanttRunEndStart,.GQFGanttRunNbsp,.GQFGanttRunComplete {
+   border:1px solid #247ac4 ; padding:1px; padding-left:2px; padding-right:2px; overflow:hidden; font:10px Arial; white-space:nowrap;
+   }
+.GQFGanttRunGroupHover { border:1px solid #fa4 !important; padding:1px!important; padding-left:2px!important;padding-right:2px!important; overflow:hidden; }
+.GQFGanttRunHover { border:1px solid red!important; padding:1px!important; padding-left:2px!important;padding-right:2px!important; overflow:hidden; }
+.GQFGanttRunEmpty { border:none; padding:2px; padding-left:3px; padding-right:3px; }
+.GQFGanttRunNbsp { border:none; border-top:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; padding-left:3px; padding-right:3px; }
+.GQFGanttRunBox { background:url(Backgrounds.gif) left -1500px; }
+.GQFGanttRunSolid { background:url(Backgrounds.gif) left -1539px; }
+.GQFGanttRunFixed,.GQFGanttRunLeft,.GQFGanttRunBound,.GQFGanttRunBoundStart { border-left-style:solid!important; border-left-width:3px!important; padding-left:0px!important;}
+.GQFGanttRunFixed,.GQFGanttRunRight,.GQFGanttRunBound,.GQFGanttRunBoundStart { border-right-style:solid!important; border-right-width:3px!important; padding-right:0px!important; }
+.GQFGanttRunFixed,.GQFGanttRunLeft,.GQFGanttRunRight { background:url(Backgrounds.gif) left -1526px; }
+.GQFGanttRunBound,.GQFGanttRunBoundStart,.GQFGanttRunEnd,.GQFGanttRunEndStart { background:url(Backgrounds.gif) left -1513px; }
+.GQFGanttRunComplete {  background:#83C383; }
+
+.GQGanttRunGroupHover { margin:0px!important; border:1px solid #fa4!important; padding:1px!important; overflow:hidden; }  
+.GQGanttRunHover { margin:0px!important; border:1px solid red!important; padding:1px!important; overflow:hidden; }  
+.GQGanttRunEmptyOut,.GQGanttRunBoxOut,.GQGanttRunSolidOut,.GQGanttRunLeftOut,.GQGanttRunRightOut,.GQGanttRunFixedOut,
+.GQGanttRunBoundOut,.GQGanttRunBoundStartOut,.GQGanttRunEndOut,.GQGanttRunEndStartOut,.GQGanttRunNbspOut,.GQGanttRunCompleteOut {
+   margin-top:1px; border:1px solid #369; margin-left:1px; margin-right:1px; overflow:hidden;
+   }
+.GQGanttRunEmptyIn,.GQGanttRunBoxIn,.GQGanttRunSolidIn,.GQGanttRunLeftIn,.GQGanttRunRightIn,.GQGanttRunFixedIn,
+.GQGanttRunBoundIn,.GQGanttRunBoundStartIn,.GQGanttRunEndIn,.GQGanttRunEndStartIn,.GQGanttRunNbspIn,.GQGanttRunCompleteIn {
+   height:13px; overflow:hidden; font:10px Arial; padding-left:1px; width:100%!IE; white-space:nowrap;
+   }
+.GQGanttRunEmptyOut { border:none; }
+.GQGanttRunEmptyIn { }
+.GQGanttRunNbspOut { border:none; border-top:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; margin-left:0px; margin-right:0px; }
+.GQGanttRunNbspIn { }
+.GQGanttRunBoxOut { }
+.GQGanttRunBoxIn { background:url(Backgrounds.gif) left -1500px; }
+.GQGanttRunSolidOut { }
+.GQGanttRunSolidIn { background:url(Backgrounds.gif) left -1539px; color: white; }
+.GQGanttRunFixedOut,.GQGanttRunLeftOut,.GQGanttRunBoundOut,.GQGanttRunBoundStartOut { border-left-style:solid!important; border-left-width:3px!important; margin-left:0px;}
+.GQGanttRunFixedOut,.GQGanttRunRightOut,.GQGanttRunBoundOut,.GQGanttRunBoundStartOut { border-right-style:solid!important; border-right-width:3px!important; }
+.GQGanttRunFixedIn,.GQGanttRunLeftIn,.GQGanttRunRightIn { background:url(Backgrounds.gif) left -1526px; }
+.GQGanttRunBoundOut,.GQGanttRunBoundStartOut,.GQGanttRunEndOut,.GQGanttRunEndStartOut { }
+.GQGanttRunBoundIn,.GQGanttRunBoundStartIn,.GQGanttRunEndIn,.GQGanttRunEndStartIn { background:url(Backgrounds.gif) left -1513px; }
+.GQGanttRunRedIn,.GQGanttRunBlueIn,.GQGanttRunGreenIn,.GQGanttRunFuchsiaIn,.GQGanttRunAquaIn,.GQGanttRunLimeIn,.GQGanttRunMaroonIn,
+.GQGanttRunNavyIn,.GQGanttRunOliveIn,.GQGanttRunOrangeIn,.GQGanttRunPurpleIn,.GQGanttRunSilverIn,.GQGanttRunTealIn,.GQGanttRunYellowIn,
+.GQGanttRunBlackIn,.GQGanttRunGrayIn,.GQGanttRunWhiteIn { }
+.GQGanttRunCompleteIn {  background:#83C383; }
+.GQGanttRunRedIn,.GQFGanttRunRed { background:red; }   
+.GQGanttRunBlueIn,.GQFGanttRunBlue { background:blue; color:white; }
+.GQGanttRunGreenIn,.GQFGanttRunGreen { background:green; color:white; }
+.GQGanttRunFuchsiaIn,.GQFGanttRunFuchsia { background:fuchsia; }
+.GQGanttRunAquaIn,.GQFGanttRunAqua { background:aqua; }
+.GQGanttRunLimeIn,.GQFGanttRunLime { background:lime; }
+.GQGanttRunMaroonIn,.GQFGanttRunMaroon { background:maroon; color:white; }
+.GQGanttRunNavyIn,.GQFGanttRunNavy { background:navy; color:white; }
+.GQGanttRunOliveIn,.GQFGanttRunOlive { background:olive; color:white; }
+.GQGanttRunOrangeIn,.GQFGanttRunOrange { background:orange; }
+.GQGanttRunPurpleIn,.GQFGanttRunPurple { background:purple; color:white; }
+.GQGanttRunSilverIn,.GQFGanttRunSilver { background:silver; }
+.GQGanttRunTealIn,.GQFGanttRunTeal { background:teal; color:white; }
+.GQGanttRunYellowIn,.GQFGanttRunYellow { background:yellow; }
+.GQGanttRunBlackIn,.GQFGanttRunBlack { background:black; color:white; }
+.GQGanttRunGrayIn,.GQFGanttRunGray { background:gray; color:white; }
+.GQGanttRunWhiteIn,.GQFGanttRunWhite { background:white; }
+.GQGanttRunErrorIn,.GQFGanttRunError { background:url(Backgrounds.gif) left -1552px; opacity:0.7; filter:alpha(opacity=70); }
+.GQFGanttRunErrorIE { background:url(Backgrounds.gif) left -1552px; filter:alpha(opacity=70); }
+.GQGanttRunCritIn,.GQFGanttRunCrit { background:#FFDBAC;  }
+.GQGanttRunErrIn,.GQFGanttRunErr { background:url(Backgrounds.gif) left -1552px;  }
+.GQGanttRunJoinLeft,.GQFGanttRunJoinLeft { border-left-style:dotted; border-left-color:#247ac4; }
+.GQGanttRunJoinRight,.GQFGanttRunJoinRight { border-right-style:dotted; border-right-color:#247ac4; }
+.GQGanttRunMoveOut { border:2px solid #0DD; margin:0px; padding:0px; }
+.GQGanttRunMoveIn { background:#F0F0F0; color:black; }
+.GQGanttRunRemoveOut { border:2px solid #DDD; margin:0px; padding:0px; }
+.GQGanttRunRemoveIn { background:red; color:black; }
+.GQGanttRunCopyOut { border:2px solid red; margin:0px; padding:0px; }
+.GQGanttRunCopyIn { }
+.GQGanttRunUnknownIn,.GQFGanttRunUnknown { background:black; color:White; font:bold 12px verdana;}
+
+.GQFGanttRunMove { border:2px solid #DDD; padding:0px; padding-left:1px; padding-right:1px; background:#F0F0F0; color:black; }
+.GQFGanttRunRemove { border:2px solid #DDD; padding:0px; padding-left:1px; padding-right:1px; background:red; color:black; }
+.GQFGanttRunCopy { border:2px solid blue; padding:0px; padding-left:1px; padding-right:1px; }
+
+.GQGanttMilestone,.GQGanttMilestone0,.GQGanttMilestone100,
+.GQGanttMilestoneCrit,.GQGanttMilestone0Crit,.GQGanttMilestone100Crit,
+.GQGanttMilestoneErr,.GQGanttMilestone0Err,.GQGanttMilestone100Err { 
+   background:url(Gantt.gif) no-repeat; width:17px; height:17px; overflow:hidden; 
+   }
+.GQGanttMilestone { background-position: -900px 0px; }
+.GQGanttMilestoneHover { background-position: -950px 0px; }
+.GQGanttMilestone0 { background-position: -1100px 0px; }
+.GQGanttMilestone0Hover { background-position: -1150px 0px; }
+.GQGanttMilestone100,.GQGanttMilestone100Crit,.GQGanttMilestone100Err { background-position: -1800px 0px; }
+.GQGanttMilestone100Hover,.GQGanttMilestone100CritHover,.GQGanttMilestone100CritHover { background-position: -1850px 0px; }
+.GQGanttMilestoneCrit,.GQGanttMilestone0Crit { background-position:-1700px 0px; }
+.GQGanttMilestoneCritHover,.GQGanttMilestone0CritHover { background-position: -1750px 0px; }
+.GQGanttMilestoneErr,.GQGanttMilestone0Err { background-position:-1000px 0px; }
+.GQGanttMilestoneErrHover,.GQGanttMilestone0ErrHover { background-position: -1050px 0px; }
+.GQGanttGMilestone,.GQGanttGMilestone100,.GQGanttGMilestone100Crit,.GQGanttGMilestone100Err { background-position: 0px 0px; }
+.GQGanttGMilestoneHover,.GQGanttGMilestone100Hover,.GQGanttGMilestone100CritHover,.GQGanttGMilestone100ErrHover { background-position: -50px 0px; }
+.GQGanttGMilestone0 { background-position: -1600px 0px; }
+.GQGanttGMilestone0Hover { background-position: -1650px 0px; }
+.GQGanttGMilestoneCrit,.GQGanttGMilestone0Crit { background-position:-1400px 0px; }
+.GQGanttGMilestoneCritHover,.GQGanttGMilestone0CritHover { background-position: -1450px 0px; }
+.GQGanttGMilestoneErr,.GQGanttGMilestone0Err { background-position:-1300px 0px; }
+.GQGanttGMilestoneErrHover,.GQGanttGMilestoneErr0Hover { background-position: -1350px 0px; }
+
+.GQGanttFlag { background:url(Gantt.gif) no-repeat -100px 0px; background-color:transparent!important; width:16px; height:15px; overflow:hidden; }
+.GQGanttFlagCustom { background-position:0px 0px!important; background-repeat:no-repeat; width:16px; height:15px; overflow:hidden; }
+.GQGanttFlagHover { background-position:-150px 0px; background-color:red; }
+.GQGanttFlagMenu { padding-right:16px; padding-bottom:256px; font:15px Arial; background-repeat:no-repeat; }
+
+.GQGanttMark,.GQGanttMark1,.GQGanttMark2,.GQGanttMark3,.GQGanttMark4,.GQGanttMark5 { height:500px; overflow:hidden; background:#880; }
+.GQGanttMark1 { background:red; }
+.GQGanttMark2 { background:green; }
+.GQGanttMark3 { background:yellow; }
+.GQGanttMark4 { background:black; }
+.GQGanttMark5 { background:silver; }
+.GQGanttMark6 { background:#F8F; margin-top:10px!important; height:2px!important; margin-bottom:-12px!important; }
+.GQGanttMark7 { background:#0F0; margin-top:10px!important; height:2px!important; margin-bottom:-12px!important; }
+.GQGanttMark8 { background:silver; margin-top:10px!important; height:2px!important; margin-bottom:-12px!important; }
+.GQGanttMark9 { background:#F8F; margin-top:5px!important; height:2px!important; margin-bottom:-7px!important; }
+.GQGanttMark10 { background:#0F0; margin-top:5px!important; height:2px!important; margin-bottom:-7px!important; }
+.GQGanttMark11 { background:silver; margin-top:5px!important; height:2px!important; margin-bottom:-7px!important; }
+.GQGanttMark12 { background:#F8F; margin-top:8px!important; height:1px!important; margin-bottom:-9px!important; }
+.GQGanttMark13 { background:#0F0; margin-top:8px!important; height:1px!important; margin-bottom:-9px!important; }
+.GQGanttMark14 { background:silver; margin-top:8px!important; height:1px!important; margin-bottom:-9px!important; }
+
+.GQGanttPoint1,.GQGanttPoint2,.GQGanttPoint3,.GQGanttPoint4,.GQGanttPoint5,.GQGanttPoint6,.GQGanttPoint7,.GQGanttPoint8 {
+   background:url(Gantt.gif) no-repeat; width:17px; height:17px; overflow:hidden; 
+   }
+.GQGanttPointCustom { background-position:0px 0px!important; background-repeat:no-repeat; width:17px; height:17px; overflow:hidden; }  
+.GQGanttPointCustomHover { background-color:red; }
+.GQGanttPoint1 { background-position:-900px 0px; }
+.GQGanttPoint1Hover { background-position: -950px 0px; }
+.GQGanttPoint2 { background-position:-1000px 0px; }
+.GQGanttPoint2Hover { background-position:-1050px 0px; }
+.GQGanttPoint3 { background-position:-1100px 0px; }
+.GQGanttPoint3Hover { background-position:-1150px 0px; }
+.GQGanttPoint4 { background-position:-1200px 0px; }
+.GQGanttPoint4Hover { background-position:-1250px 0px; }
+.GQGanttPoint5 { background-position:-1300px 0px; }
+.GQGanttPoint5Hover { background-position:-1350px 0px; }
+.GQGanttPoint6 { background-position:-1400px 0px; }
+.GQGanttPoint6Hover { background-position:-1450px 0px; }
+.GQGanttPoint7 { background-position:-1500px 0px; }
+.GQGanttPoint7Hover { background-position:-1550px 0px; }
+.GQGanttPoint8 { background-position:-1600px 0px; }
+.GQGanttPoint8Hover { background-position:-1650px 0px; }
+
+.GQGanttResource { font:normal 10px "Arial"; margin-top:1px; }
+.GQGanttResourceChar { width:6px; }
+
+.GQGanttChart { height:500px; background:#BDE ; border-top:1px solid #27C; }
+.GQGanttChartErr { height:500px; background:#FAA; border-top:1px solid #F00; }
+.GQGanttChartRes { height:500px; background:#EE9; border-top:1px solid #CC0; }
+.GQGanttChartText { color:black; text-align:center; font:normal 10px Arial; overflow:visible!important; }
+.GQGanttChartTextErr { color:red; text-align:center; font:normal 10px Arial; overflow:visible!important; }
+.GQGanttChartTextRes { color:#AA0; text-align:center; font:normal 10px Arial; overflow:visible!important; }
+
+.GQGanttDepFirst { height:500px; overflow:hidden; }
+.GQGanttDepVert,.GQGanttDepVertBottom,.GQGanttDepVertTop,.GQGanttDepVertBottom2,.GQGanttDepVertTop2,.GQGanttDepVertBottom3 {
+   border-left:1px solid #DDF; border-right:1px solid #BBF; background:blue; width:1px; overflow:hidden;
+   }
+.GQGanttDepVert { margin-top:-500px; height:500px; }
+.GQGanttDepVertTop { margin-top:-500px; height:8px; margin-bottom:492px; }
+.GQGanttDepVertTop2 { margin-top:-499px; height:7px; margin-bottom:492px; }
+.GQGanttDepVertBottom { margin-top:-491px; height:491px; }
+.GQGanttDepVertBottom2 { margin-top:-491px; height:8px; margin-bottom:483px; }
+.GQGanttDepVertBottom3 { margin-top:-482px; height:482px; }
+.GQGanttDepHorzIn { border-top:1px solid #DDF; border-bottom:1px solid #BBF; background:blue; margin-top:7px; overflow:hidden; }
+.GQGanttDepHorzInLag { border-top:1px dotted blue; margin-top:8px; overflow:hidden; }
+.GQGanttDepHorzTop { border-bottom:1px solid #BBF; background:blue; overflow:hidden; }
+.GQGanttDepHorzBottom { border-top:1px solid #DDF; background:blue; margin-top:16px; overflow:hidden; }
+.GQGanttDepHorzOut { margin-top:-500px; height:18px; margin-bottom:482px; overflow:hidden; font-size:1px; line-height:1px; }
+.GQGanttDepErr { border-top-color:#FDD; border-bottom-color:#FBB; border-left-color:#FDD; border-right-color:#FBB; background:red; }
+.GQGanttDepLagErr { border-color:red; }
+.GQGanttDepIcon { margin-top:-500px; height:500px; overflow:hidden; }
+.GQGanttDepArrowLeft,.GQGanttDepArrowRight,.GQGanttDepArrowErrLeft,.GQGanttDepArrowErrRight,
+.GQGanttDepArrowLeftRtl,.GQGanttDepArrowRightRtl,.GQGanttDepArrowErrLeftRtl,.GQGanttDepArrowErrRightRtl {
+   height:500px; background:url(Gantt.gif) no-repeat; overflow:hidden; 
+   }
+.GQGanttDepArrowLeft { background-position:-200px 0px; width:12px; }
+.GQGanttDepArrowRight { background-position:-250px 0px; width:12px; }
+.GQGanttDepArrowErrLeft { background-position:-400px 0px; width:12px; }
+.GQGanttDepArrowErrRight { background-position:-450px 0px; width:12px; }
+.GQGanttDepArrowLeftRtl { background-position:-250px 0px; width:12px; }
+.GQGanttDepArrowRightRtl { background-position:-201px 0px; width:12px; }
+.GQGanttDepArrowErrLeftRtl { background-position:-450px 0px; width:12px; }
+.GQGanttDepArrowErrRightRtl { background-position:-401px 0px; width:12px; }
+
+.GQGanttDepStart { width:6px; overflow:hidden; }
+.GQGanttDepEnd { width:10px; overflow:hidden; }
+
+.GQGanttMinStart,.GQGanttMaxStart,.GQGanttMinEnd,.GQGanttMaxEnd { background:url(Gantt.gif) no-repeat; width:7px; height:17px; overflow:hidden; }
+.GQGanttMinStart { background-position:-500px 0px; }
+.GQGanttMaxStart { background-position:-550px 0px; }
+.GQGanttMinEnd { background-position:-600px 0px; }
+.GQGanttMaxEnd { background-position:-650px 0px; }
+.GQGanttMinStartHover { background-position:-700px 0px; }
+.GQGanttMaxStartHover { background-position:-750px 0px; }
+.GQGanttMinEndHover { background-position:-800px 0px; }
+.GQGanttMaxEndHover { background-position:-850px 0px; }
+
+.GQGanttBack { }
+.GQGanttBack0,.GQGanttBack1,.GQGanttBack2,.GQGanttBack3,.GQGanttBack4,.GQGanttBack5 {
+   height:500px; overflow:hidden; margin-left:auto; margin-right:auto;
+   }
+.GQGanttBack0 { background:#FFF; }
+.GQGanttBack1 { background:#E8E8E8; }
+.GQGanttBack2 { background:#DDD; }
+.GQGanttBack3 { background:#BBB; }
+.GQGanttBack4 { background:#C72; }
+.GQGanttBack5 { background:#27C; }
+
+
+.GQGanttExclude,.GQGanttExcludeHidden { height:500px; overflow:hidden; background:#D4E7EE; margin-left:auto; margin-right:auto; }
+.GQGanttExcludeHidden { background:#D8F8D8; }
+
+.GQGanttBase,.GQGanttBaseAuto,.GQGanttFinish,.GQGanttFinishAuto { height:500px; overflow:hidden; border-left:2px solid #FF9E0C; width:2px; margin-left:auto; margin-right:auto; }
+.GQGanttFinishAuto,.GQGanttBaseAuto { border-left:1px solid #FF9E0C; }
+
+.GQGanttHeader { margin-left:-2px; margin-right:-4px; }
+.GQGanttHeader1,.GQGanttHeader2,.GQGanttHeader3,.GQGanttHeader4,.GQGanttHeader5 {
+   font:12px "Trebuchet MS", Tahoma, Arial; color:#FFFFFF; white-space:nowrap;
+   border-right:1px solid white; text-align:center; padding-left:1px; padding-right:1px;
+   }   
+
+/* ------------- Tree Img with lines ------------- */
+
+.GQ000,.GQ010,.GQ001,.GQ011,.GQ100,.GQ110,.GQ101,.GQ111, 
+.GQ000T,.GQ010T,.GQ001T,.GQ011T,.GQ100T,.GQ110T,.GQ101T,.GQ111T,
+.GQ00,.GQ01,.GQ10,.GQ11,
+.GQ00T,.GQ01T,.GQ10T,.GQ11T,
+.GQ0T,.GQ1T,.GQ0TL,.GQ1TL,.GQ0C,.GQ1C,.GQ0CL,.GQ1CL,.GQ0E,.GQ1E,.GQ0EL,.GQ1EL,
+.GQ0,.GQ1,
+.GQT,.GQTL,.GQC,.GQCL,.GQE,.GQEL,.GQD0,.GQD1,.GQD2,.GQD3,.GQD4,.GQD0L,.GQD1L,.GQD2L,.GQD3L,.GQD4L {   
+   font-size:10px; background-image:url(Tree.gif); vertical-align:top;
+   }
+
+u.GQ000,u.GQ010,u.GQ001,u.GQ011,u.GQ100,u.GQ110,u.GQ101,u.GQ111 { padding-left:63px; }
+u.GQ000T,u.GQ010T,u.GQ001T,u.GQ011T,u.GQ100T,u.GQ110T,u.GQ101T,u.GQ111T { padding-left:89px; }
+u.GQ00,u.GQ01,u.GQ10,u.GQ11 { padding-left:42px; }   
+u.GQ00T,u.GQ01T,u.GQ10T,u.GQ11T { padding-left:68px; }   
+u.GQ0T,u.GQ1T,u.GQ0TL,u.GQ1TL,u.GQ0C,u.GQ1C,u.GQ0CL,u.GQ1CL,u.GQ0E,u.GQ1E,u.GQ0EL,u.GQ1EL { padding-left:47px; }   
+u.GQ0,u.GQ1 { padding-left:21px; }
+u.GQT,u.GQTL,u.GQC,u.GQCL,u.GQE,u.GQEL,u.GQD0,u.GQD1,u.GQD2,u.GQD3,u.GQD4,u.GQD0L,u.GQD1L,u.GQD2L,u.GQD3L,u.GQD4L { padding-left:26px; }   
+
+.GQ000,.GQ000T { background-position:0px 0px; }
+.GQ010,.GQ010T { background-position:-128px 0px; }
+.GQ001,.GQ001T { background-position:-256px 0px; }
+.GQ011,.GQ011T { background-position:-384px 0px; }
+.GQ100,.GQ100T { background-position:-512px 0px; }
+.GQ110,.GQ110T { background-position:-640px 0px; }
+.GQ101,.GQ101T { background-position:-768px 0px; }
+.GQ111,.GQ111T { background-position:-896px 0px; }
+
+.GQ00,.GQ00T { background-position:-21px 0px; }
+.GQ10,.GQ10T { background-position:-149px 0px; }
+.GQ01,.GQ01T { background-position:-277px 0px; }
+.GQ11,.GQ11T { background-position:-405px 0px; }
+
+.GQ0,.GQ0T { background-position:-42px 0px; }
+.GQ1,.GQ1T { background-position:-298px 0px; }
+
+.GQT { background-position:-63px 0px; }
+
+.GQ0TL { background-position:-1024px 0px; }
+.GQ1TL { background-position:-1088px 0px; }
+.GQ0C { background-position:-1152px 0px; }
+.GQ1C { background-position:-1216px 0px; }
+.GQ0CL { background-position:-1280px 0px; }
+.GQ1CL { background-position:-1344px 0px; }
+.GQ0E { background-position:-1408px 0px; }
+.GQ1E { background-position:-1472px 0px; }
+.GQ0EL { background-position:-1536px 0px; }
+.GQ1EL { background-position:-1600px 0px; }
+
+.GQTL { background-position:-1045px 0px; }
+.GQC { background-position:-1173px 0px; }
+.GQCL { background-position:-1301px 0px; }
+.GQE { background-position:-1429px 0px; }
+.GQEL { background-position:-1557px 0px; }
+
+.GQD0 { background-position:-1664px 0px; }
+.GQD1 { background-position:-1696px 0px; }
+.GQD2 { background-position:-1728px 0px; }
+.GQD3 { background-position:-1760px 0px; }
+.GQD0L { background-position:-1792px 0px; }
+.GQD1L { background-position:-1824px 0px; }
+.GQD2L { background-position:-1856px 0px; }
+.GQD3L { background-position:-1888px 0px; }
+.GQD4 { background-position:-1920px 0px; }
+.GQD4L { background-position:-1952px 0px; }
+
+/* ------------- Tree Img without lines ------------- */
+
+.GQND0,.GQND1,.GQND2,.GQND3,.GQND4,.GQNC,.GQNE,.GQNCR,.GQNER { font-size:10px; background-image:url(TreeN.gif); background-repeat:no-repeat; vertical-align:top; }
+u.GQND0,u.GQND1,u.GQND2,u.GQND3,u.GQND4,u.GQNC,u.GQNE,u.GQNCR,u.GQNER { padding-left:20px; }
+.GQND0 { background-position: -6px 0px; }
+.GQND1 { background-position: -56px 0px; }
+.GQND2 { background-position: -106px 0px; }
+.GQND3 { background-position: -156px 0px; }
+.GQND4 { background-position: -206px 0px; }
+.GQNC { background-position:right -50px;}
+.GQNE { background-position:right -2000px;}
+.GQNCR { background-position:-255px -50px;}
+.GQNER { background-position:-255px -2000px;}
+u.GQNL { padding-left:21px; }
+
+/* ------------- Panel img ------------- */
+
+.GQPanelImage,.GQPanelMove,.GQPanelMoveOff,.GQPanelSelect,.GQPanelSelectOn,.GQPanelSelectOff,.GQPanelDelete,.GQPanelDeleteOff,.GQPanelCopy,.GQPanelCopyOff,.GQPanelEmpty {
+   font-size:10px; padding-left:16px; background-image:url(Panel.gif); background-repeat:no-repeat;
+   }
+.GQPanelEmpty { background:none; }   
+.GQPanelMove { background-position: 0px 0px; }
+.GQPanelMoveOff { background-position: -50px 0px; }
+.GQPanelSelect { background-position: -100px 0px; }
+.GQPanelSelectOn { background-position: -150px 0px; }
+.GQPanelSelectOff { background-position: -200px 0px; }
+.GQPanelDelete { background-position: -250px 0px; }
+.GQPanelDeleteOff { background-position: -300px 0px; }
+.GQPanelCopy { background-position: -350px 0px; }
+.GQPanelCopyOff { background-position: -400px 0px; }
+.GQPanelButton { font:10px "Microsoft Sans Serif",Verdana,Arial; padding:0px; height:17px; width:19px; margin:0px; cursor:pointer; _cursor:hand; }
+
+/* ------------- Fast Panel img ------------- */
+
+.GQP1111,.GQP1211,.GQP1011,.GQP1101,.GQP1201,.GQP1001,.GQP1110,.GQP1210,.GQP1010,.GQP1100,.GQP1200,.GQP1000,
+.GQP0111,.GQP0211,.GQP0011,.GQP0101,.GQP0201,.GQP0001,.GQP0110,.GQP0210,.GQP0010,.GQP0100,.GQP0200,.GQP0000, 
+.GQP111x,.GQP121x,.GQP101x,.GQP110x,.GQP120x,.GQP100x,.GQP011x,.GQP021x,.GQP001x,.GQP010x,.GQP020x,.GQP000x,
+.GQP11xx,.GQP12xx,.GQP10xx,.GQP01xx,.GQP02xx,.GQP00xx,
+.GQPx111,.GQPx211,.GQPx011,.GQPx101,.GQPx201,.GQPx001,.GQPx110,.GQPx210,.GQPx010,.GQPx100,.GQPx200,.GQPx000,
+.GQPx11x,.GQPx21x,.GQPx01x,.GQPx10x,.GQPx20x,.GQPx00x,
+.GQPxx11,.GQPxx10,.GQPxx01,.GQPxx00, 
+.GQPxxx1,.GQPxxx0,.GQPxx1x,.GQPxx0x,.GQPx2xx,.GQPx1xx,.GQPx0xx,.GQP1xxx,.GQP0xxx {
+   font-size:10px; background-image:url(FastPanel1.gif); background-repeat:no-repeat;
+   }
+.GQP1111,.GQP111x,.GQP11xx,.GQP1xxx { background-position:0px 0px; }
+.GQP1211,.GQP121x,.GQP12xx { background-position:-80px 0px; }
+.GQP1011,.GQP101x,.GQP10xx { background-position:-160px 0px; }
+.GQP1101,.GQP110x { background-position:-240px 0px; }
+.GQP1201,.GQP120x { background-position:-320px 0px; }
+.GQP1001,.GQP100x { background-position:-400px 0px; }
+.GQP1110 { background-position:-480px 0px; }
+.GQP1210 { background-position:-560px 0px; }
+.GQP1010 { background-position:-640px 0px; }
+.GQP1100 { background-position:-720px 0px; }
+.GQP1200 { background-position:-800px 0px; }
+.GQP1000 { background-position:-880px 0px; }
+.GQP0111,.GQP011x,.GQP01xx,.GQP0xxx { background-position:-960px 0px; }
+.GQP0211,.GQP021x,.GQP02xx { background-position:-1040px 0px; }
+.GQP0011,.GQP001x,.GQP00xx { background-position:-1120px 0px; }
+.GQP0101,.GQP010x { background-position:-1200px 0px; }
+.GQP0201,.GQP020x { background-position:-1280px 0px; }
+.GQP0001,.GQP000x { background-position:-1360px 0px; }
+.GQP0110 { background-position:-1440px 0px; }
+.GQP0210 { background-position:-1520px 0px; }
+.GQP0010 { background-position:-1600px 0px; }
+.GQP0100 { background-position:-1680px 0px; }
+.GQP0200 { background-position:-1760px 0px; }
+.GQP0000 { background-position:-1840px 0px; }
+
+.GQPx111,.GQPx11x,.GQPx1xx { background-position:-15px 0px; }
+.GQPx211,.GQPx21x,.GQPx2xx { background-position:-95px 0px; }
+.GQPx011,.GQPx01x,.GQPx0xx { background-position:-175px 0px; }
+.GQPx101,.GQPx10x { background-position:-255px 0px; }
+.GQPx201,.GQPx20x { background-position:-335px 0px; }
+.GQPx001,.GQPx00x { background-position:-415px 0px; }
+.GQPx110 { background-position:-495px 0px; }
+.GQPx210 { background-position:-575px 0px; }
+.GQPx010 { background-position:-655px 0px; }
+.GQPx100 { background-position:-735px 0px; }
+.GQPx200 { background-position:-815px 0px; }
+.GQPx000 { background-position:-895px 0px; }
+
+.GQPxx11,.GQPxx1x { background-position:-31px 0px; }
+.GQPxx01,.GQPxx0x { background-position:-271px 0px; }
+.GQPxx10{ background-position:-511px 0px; }
+.GQPxx00 { background-position:-751px 0px; }
+
+.GQPxxx1 { background-position:-48px 0px; }
+.GQPxxx0 { background-position:-528px 0px; }
+
+.GQP11x1,.GQP12x1,.GQP10x1,.GQP11x0,.GQP12x0,.GQP10x0,.GQP01x1,.GQP02x1,.GQP00x1,.GQP01x0,.GQP02x0,.GQP00x0,
+.GQPx1x1,.GQPx2x1,.GQPx0x1,.GQPx1x0,.GQPx2x0,.GQPx0x0,
+.GQP1x11,.GQP1x01,.GQP1x10,.GQP1x00,.GQP0x11,.GQP0x01,.GQP0x10,.GQP0x00,
+.GQP1x1x,.GQP1x0x,.GQP0x1x,.GQP0x0x,
+.GQP1xx1,.GQP1xx0,.GQP0xx1,.GQP0xx0 {
+   font-size:11px; background-image:url(FastPanel2.gif); background-repeat:no-repeat;
+   }
+.GQP11x1 { background-position:0px 0px; }
+.GQP12x1 { background-position:-80px 0px; }
+.GQP10x1 { background-position:-160px 0px; }
+.GQP11x0 { background-position:-240px 0px; }
+.GQP12x0 { background-position:-320px 0px; }
+.GQP10x0 { background-position:-400px 0px; }
+.GQP01x1 { background-position:-480px 0px; }
+.GQP02x1 { background-position:-560px 0px; }
+.GQP00x1 { background-position:-640px 0px; }
+.GQP01x0 { background-position:-720px 0px; }
+.GQP02x0 { background-position:-800px 0px; }
+.GQP00x0 { background-position:-880px 0px; }
+
+.GQPx1x1 { background-position:-15px 0px; }
+.GQPx2x1 { background-position:-95px 0px; }
+.GQPx0x1 { background-position:-175px 0px; }
+.GQPx1x0 { background-position:-255px 0px; }
+.GQPx2x0 { background-position:-335px 0px; }
+.GQPx0x0 { background-position:-415px 0px; }
+
+.GQP1x11,.GQP1x1x { background-position:-960px 0px; }
+.GQP1x01,.GQP1x0x { background-position:-1040px 0px; }
+.GQP1x10 { background-position:-1120px 0px; }
+.GQP1x00 { background-position:-1200px 0px; }
+.GQP0x11,.GQP0x1x { background-position:-1280px 0px; }
+.GQP0x01,.GQP0x0x { background-position:-1360px 0px; }
+.GQP0x10 { background-position:-1440px 0px; }
+.GQP0x00 { background-position:-1520px 0px; }
+
+.GQP1xx1 { background-position:-1600px 0px; }
+.GQP1xx0 { background-position:-1680px 0px; }
+.GQP0xx1 { background-position:-1760px 0px; }
+.GQP0xx0 { background-position:-1840px 0px; }
+
+.GQPSpace1 { padding-left:15px; }
+.GQPSpace2 { padding-left:31px; }
+.GQPSpace3 { padding-left:47px; }
+.GQPSpace4 { padding-left:63px; }
+u.GQPSpace1 { padding-left:16px; }
+u.GQPSpace2 { padding-left:30px; }
+u.GQPSpace3 { padding-left:46px; }
+u.GQPSpace4 { padding-left:62px; }
+
+/* ------------- Button type ------------- */   
+
+.GQTabHtml,.GQTabHtml1 {
+	font:normal 11px "Microsoft Sans Serif",Verdana,Arial; white-space:nowrap;
+	padding-left:5px; padding-right:5px; text-align:center;
+	background:url(Backgrounds.gif) repeat-x left -1400px;  
+   }
+.GQTabHtml1 { background-position:left -1450px; color:black; font-weight:bold; }
+.GQTabSep,.GQTabSepLeft,.GQTabSepRight {
+   padding-left:1px; /*background:white!important;*/ border: medium none; 
+   /*border-left:1px solid #9cb6c8; border-right:1px solid #9cb6c8;*/ 
+   cursor:default!important;          
+   }
+.GQTabSepRight,.GQTabSepLeft { padding-left:5px; }
+.GQTabSepLast { padding-left:1px; background:white!important; border:none; border-left:1px solid #9cb6c8; cursor:default!important; }
+.GQTabSepFirst { padding-left:1px; background:white!important; border:none; border-right:1px solid #9cb6c8; cursor:default!important; }
+
+.GQToolHtml,.GQToolHtml1 {  
+   font:11px "Microsoft Sans Serif",Verdana,Arial; 
+   padding-left:3px; padding-right:3px; text-align:center; padding-top:2px;
+   }
+.GQToolHtml1 { font-weight:normal; color:navy; }
+.GQToolButton { text-align:center; padding-left:1px; padding-right:1px;}
+.GQToolButtonButton,.GQToolButtonButton1,.GQToolSpaceButton,.GQToolSpaceButton1 {
+ 	font:11px "Microsoft Sans Serif",Verdana,Arial; height:19px; 
+   border: 1px solid #4989d3; background: #ffffff; white-space:nowrap;
+ 	padding-left:0px; padding-right:0px; cursor:pointer; _cursor:hand;  
+   }
+.GQToolSpaceButton,.GQToolSpaceButton1 { height:21px; color: #247ac4; }
+.GQToolButtonButton1,.GQToolSpaceButton1 { color:blue; background: #d5e9fe; }
+
+.GQIconHtml { text-align:left;}
+.GQDisabledButton { opacity:0.3; filter:alpha(opacity=30); }
+
+.GQToolHeader { border:none!important; padding-bottom:100px;}
+.GQToolMenuHeader { border:1px solid #e0e0ff!important; }    
+.GQToolMenuItem { background:#E8F4FF!important; }
+.GQToolMenuOuter { border:1px solid #e0e0ff!important; background:#E8F4FF!important; }
+.GQToolMenuBody { background:#E8F4FF!important; }
+
+/* ------------- Special Toolbar buttons ------------- */   
+
+.GQResizeGrid,.GQResizeGridRtl,.GQToolSave,.GQToolReload,.GQToolRepaint,.GQToolRepaint1,.GQToolAdd,.GQToolAddChild,.GQToolJoin,.GQToolSplit,.GQToolSort1,.GQToolSort,.GQToolCalc1,.GQToolCalc,
+.GQToolExpandAll,.GQToolCollapseAll,.GQToolColumns,.GQToolCfg,.GQToolHelp,.GQToolPrint,.GQToolExport,.GQToolExportPDF,.GQToolDebug,.GQToolOutdent,.GQToolIndent, 
+.GQToolUndo,.GQToolUndo1,.GQToolRedo,.GQToolRedo1,.GQToolCorrect,.GQToolCorrect1,.GQToolZoomIn,.GQToolZoomIn1,.GQToolZoomOut,.GQToolZoomOut1,.GQToolZoomFit,
+.GQToolPagerFirst,.GQToolPagerFirst1,.GQToolPagerPrev,.GQToolPagerPrev1,.GQToolPagerNext,.GQToolPagerNext1,.GQToolPagerLast,.GQToolPagerLast1 {
+   font-size:11px; background-image:url(Toolbar.png); -background-image:url(Toolbar.gif); background-repeat:no-repeat;
+   padding-right:3px; padding-left:21px;
+   }
+.GQToolPagerFirst,.GQToolPagerFirst1,.GQToolPagerPrev,.GQToolPagerPrev1,.GQToolPagerNext,.GQToolPagerNext1,.GQToolPagerLast,.GQToolPagerLast1 {
+   border:0px none;
+   }   
+.GQToolSave { background-position:0px 0px; }
+.GQToolReload { background-position:-50px 0px; }
+.GQToolRepaint1 { background-position:-100px 0px; }
+.GQToolAdd { background-position:-150px 0px; }
+.GQToolAddChild { background-position:-200px 0px; }
+.GQToolSort1 { background-position:-250px 0px; }
+.GQToolSort { background-position:-300px 0px; }
+.GQToolCalc1 { background-position:-350px 0px; }
+.GQToolCalc { background-position:-400px 0px; }
+.GQToolExpandAll { background-position:-450px 0px; }
+.GQToolCollapseAll { background-position:-500px 0px; }
+.GQToolCfg { background-position:-550px 0px; }
+.GQToolHelp { background-position:-600px 0px; }
+.GQToolColumns { background-position:-650px 0px; }
+.GQToolPrint { background-position:-750px 0px; }
+.GQToolExport { background-position:-800px 0px; }
+.GQToolPagerFirst1 { background-position:-850px 0px; }
+.GQToolPagerFirst { background-position:-900px 0px; }
+.GQToolPagerPrev1 { background-position:-950px 0px; }
+.GQToolPagerPrev { background-position:-1000px 0px; }
+.GQToolPagerNext1 { background-position:-1050px 0px; }
+.GQToolPagerNext { background-position:-1100px 0px; }
+.GQToolPagerLast1 { background-position:-1150px 0px; }
+.GQToolPagerLast { background-position:-1200px 0px; }
+.GQToolDebug { background-position:-1250px 0px; }
+.GQToolUndo1 { background-position:-1350px 0px; }
+.GQToolUndo { background-position:-1400px 0px; }
+.GQToolRedo1 { background-position:-1450px 0px; }
+.GQToolRedo { background-position:-1500px 0px; }
+.GQToolCorrect1 { background-position:-1550px 0px; }
+.GQToolCorrect { background-position:-1600px 0px; }
+.GQToolZoomIn1 { background-position:-1800px 0px; }
+.GQToolZoomIn { background-position:-1850px 0px; }
+.GQToolZoomOut1 { background-position:-1700px 0px; }
+.GQToolZoomOut { background-position:-1750px 0px; }
+.GQToolZoomFit { background-position:-1900px 0px; }
+.GQToolExportPDF { background-position:-1950px 0px; }
+.GQToolJoin { background-position:-2000px 0px; }
+.GQToolSplit { background-position:-2050px 0px; }
+.GQToolRepaint { background-position:-2100px 0px; }
+.GQToolOutdent { background-position:-2150px 0px; }
+.GQToolIndent { background-position:-2200px 0px; }
+
+.GQResizeGrid  {
+   background-position:-704px -2px; 
+   margin-left:auto; margin-right:0px; margin-top:-19px;
+   height:19px; width:19px; overflow:hidden; padding:0px; cursor:nw-resize; 
+   }
+.GQResizeGridRtl {
+   background-position:-1304px -2px; 
+   margin-right:auto; margin-left:0px; margin-top:-19px;
+   height:19px; width:19px; overflow:hidden; padding:0px; cursor:ne-resize;
+   }
+
+/* ------------- Cell images ------------- */
+
+.GQIconLink { text-decoration:none; width:1000px; display:inline-block; }
+.GQIconLeft,.GQIconRight,.GQIconCenter { font-size:11px; background-repeat:no-repeat; }
+.GQIconLeft { background-position:left 0px; padding-left:20px!important; }
+.GQIconRight { background-position:right 0px; padding-right:20px!important; }
+.GQIconCenter { background-position:center 0px; }
+
+.GQDateLeft,.GQDatesLeft,.GQDefaultsLeft,.GQEnumLeft,.GQDateRight,.GQDatesRight,.GQDefaultsRight,.GQEnumRight,
+.GQCollapseRight,.GQExpandRight,.GQCollapseLeft,.GQExpandLeft,.GQCollapseHeaderRight,.GQExpandHeaderRight,.GQCollapseHeaderLeft,.GQExpandHeaderLeft,
+.GQRadio0Left,.GQRadio0Right,.GQRadio1Left,.GQRadio1Right,.GQRadio2Left,.GQRadio2Right,.GQRadio3Left,.GQRadio3Right, 
+.GQBoolX,.GQBoolXRO,.GQBool0,.GQBool1,.GQBool0RO,.GQBool1RO,.GQBool2,.GQBool3,.GQBool2RO,.GQBool3RO {
+   font-size:11px; background-image:url(Button.gif); background-repeat:no-repeat; }
+.GQDefaultsSpaceLeft,.GQDefaultsSpaceRight,.GQFilter0,.GQFilter1,.GQGroup0,.GQGroup1,.GQSearch0,.GQSearch1,
+.GQBoolXSpace,.GQBoolXSpaceRO,.GQBool0Space,.GQBool1Space,.GQBool0SpaceRO,.GQBool1SpaceRO { 
+   font-size:11px; background-image:url(ButtonSpace.gif); background-repeat:no-repeat; }
+   
+.GQDateLeft,.GQDatesLeft,.GQDefaultsLeft,.GQDefaultsSpaceLeft,.GQExpandLeft,.GQCollapseLeft,.GQExpandHeaderLeft,.GQCollapseHeaderLeft { padding-left:20px!important; }
+.GQDateRight,.GQDatesRight,.GQDefaultsRight,.GQDefaultsSpaceRight,.GQExpandRight,.GQCollapseRight,.GQExpandHeaderRight,.GQCollapseHeaderRight { padding-right:20px!important; }
+u.GQDateRight,u.GQDatesRight,u.GQDefaultsRight,u.GQDefaultsSpaceRight,u.GQExpandRight,u.GQCollapseRight,u.GQExpandHeaderRight,u.GQCollapseHeaderRight { padding-right:0px!important; padding-left:17px; }
+.GQDateLeft,.GQDatesLeft { background-position:left -250px; }
+.GQDateRight,.GQDatesRight { background-position:right -250px; }
+.GQDefaultsLeft { background-position:left 0px; }
+.GQDefaultsRight { background-position:right 0px; }
+.GQDefaultsSpaceLeft { background-position:left -250px; }
+.GQDefaultsSpaceRight { background-position:right 0px; }
+.GQEnumLeft { background-position:left -500px; padding-left:17px; }
+.GQEnumRight { background-position:right -500px; padding-right:17px; }
+u.GQEnumRight { padding-right:0px; padding-left:17px; }
+.GQExpandLeft { background-position:left -2501px; }
+.GQExpandRight { background-position:right -2501px; }
+.GQExpandHeaderLeft { background-position:left -2498px; }
+.GQExpandHeaderRight { background-position:right -2498px; }
+.GQCollapseLeft { background-position:left -2251px;}
+.GQCollapseRight { background-position:right -2251px;}
+.GQCollapseHeaderLeft { background-position:left -2248px; }
+.GQCollapseHeaderRight { background-position:right -2248px; }
+
+.GQRadio0Left,.GQRadio1Left,.GQRadio2Left,.GQRadio3Left { padding-left:17px; padding-top:2px; padding-right:3px; line-height:17px; }
+.GQRadio0Right,.GQRadio1Right,.GQRadio2Right,.GQRadio3Right { padding-right:17px; padding-top:2px; padding-left:3px; line-height:17px;}
+.GQRadio0Left { background-position:left -1250px; } 
+.GQRadio1Left { background-position:left -1500px;} 
+.GQRadio2Left { background-position:left -750px; }
+.GQRadio3Left { background-position:left -1000px;}
+.GQRadio0Right { background-position:right -1250px; } 
+.GQRadio1Right { background-position:right -1500px;} 
+.GQRadio2Right { background-position:right -750px; }
+.GQRadio3Right { background-position:right -1000px;}
+.GQRadioInput { margin-top:0px; margin-bottom:0px; margin-top:-4px!IE; }
+nobr.GQRadio0Left,nobr.GQRadio1Left,nobr.GQRadio2Left,nobr.GQRadio3Left,
+nobr.GQRadio0Right,nobr.GQRadio1Right,nobr.GQRadio2Right,nobr.GQRadio3Right,
+span.GQRadio0Left,span.GQRadio1Left,span.GQRadio2Left,span.GQRadio3Left,
+span.GQRadio0Right,span.GQRadio1Right,span.GQRadio2Right,span.GQRadio3Right {
+   padding-top:2px; padding-bottom:2px;
+   }
+
+u.GQBoolX,u.GQBoolXRO,u.GQBool0,u.GQBool1,u.GQBool0RO,u.GQBool1RO,u.GQBool2,u.GQBool3,u.GQBool2RO,u.GQBool3RO { padding-left:13px; }
+u.GQBoolXSpace,u.GQBool0Space,u.GQBool1Space,u.GQBoolXSpaceRO,u.GQBool0SpaceRO,u.GQBool1SpaceRO { padding-left:18px; }
+u.GQFilter0,u.GQFilter1 { padding-left:18px; }
+.GQBoolXSpace { background-position:center -2000px; padding-left:18px; }
+.GQBoolXSpaceRO { }
+.GQBool0Space { background-position:center -750px; padding-left:18px; }
+.GQBool1Space { background-position:center -1000px; padding-left:18px; }
+.GQBool0SpaceRO { background-position:center -1250px; padding-left:18px; }
+.GQBool1SpaceRO { background-position:center -1500px; padding-left:18px; }
+.GQBoolX { background-position:center -1750px; background-image:url(ButtonSpace.gif); }
+.GQBoolXRO { }
+.GQBool0 { background-position:center -750px; }
+.GQBool1 { background-position:center -1000px; }
+.GQBool2,.GQBool2RO { background-position:center -1250px; }
+.GQBool3,.GQBool3RO { background-position:center -1500px; }
+.GQBool0RO { background-position:center -1750px; }
+.GQBool1RO { background-position:center -2000px; }
+.GQFilter0 { background-position:right -752px; }
+.GQFilter1 { background-position:right -1002px; }
+.GQGroup0 { background-position:center -750px; }
+.GQGroup1 { background-position:center -1000px; }
+.GQSearch0 { background-position:center -750px; }
+.GQSearch1 { background-position:center -1000px; }
+.GQBoolInput { margin-top:2px; margin-bottom:0px; padding:0px; margin-top:-2px!IE;margin-bottom:-6px!IE; }
+
+.GQBoolChar0,.GQBoolChar1,.GQBoolChar2,.GQBoolChar0RO,.GQBoolChar1RO,.GQBoolChar2RO {
+   border:2px ridge white; color:blue; text-align:center;
+   height:10px; width:8px; overflow:hidden;
+   font:bold 9px Arial; margin:auto; margin-top:1px;
+   }
+.GQBoolChar2 { color:green; }
+.GQBoolChar0RO,.GQBoolChar1RO,.GQBoolChar2RO { color:gray; }
+.GQBoolCharIE { height:14px; width:12px; }
+
+.GQPopupLeft,.GQPopupRight { font-size:11px; background-image:url(Menu.gif); background-repeat:no-repeat; }
+.GQPopupLeft { background-position:-6px -250px; padding-left:14px;}
+.GQPopupRight { background-position:right -250px; padding-right:14px;}
+.GQPopupNone { padding-right:14px; }
+
+/* ------------- Filter images ------------- */
+.GQFilter0Left,.GQFilter1Left,.GQFilter2Left,.GQFilter3Left,.GQFilter4Left,.GQFilter5Left,.GQFilter6Left,.GQFilter7Left,.GQFilter8Left,.GQFilter9Left,.GQFilter10Left,.GQFilter11Left,.GQFilter12Left,
+.GQFilter0Right,.GQFilter1Right,.GQFilter2Right,.GQFilter3Right,.GQFilter4Right,.GQFilter5Right,.GQFilter6Right,.GQFilter7Right,.GQFilter8Right,.GQFilter9Right,.GQFilter10Right,.GQFilter11Right,.GQFilter12Right {
+   font-size:11px; background-image:url(Filter.gif); background-repeat:no-repeat;
+   }
+.GQFilter0Left,.GQFilter1Left,.GQFilter2Left,.GQFilter3Left,.GQFilter4Left,.GQFilter5Left,.GQFilter6Left,.GQFilter7Left,.GQFilter8Left,.GQFilter9Left,.GQFilter10Left,.GQFilter11Left,.GQFilter12Left {
+   padding-left:17px;
+   }
+.GQFilter0Right,.GQFilter1Right,.GQFilter2Right,.GQFilter3Right,.GQFilter4Right,.GQFilter5Right,.GQFilter6Right,.GQFilter7Right,.GQFilter8Right,.GQFilter9Right,.GQFilter10Right,.GQFilter11Right,.GQFilter12Right {
+   padding-right:17px;
+   }
+u.GQFilter0Right,u.GQFilter1Right,u.GQFilter2Right,u.GQFilter3Right,u.GQFilter4Right,u.GQFilter5Right,u.GQFilter6Right,u.GQFilter7Right,u.GQFilter8Right,u.GQFilter9Right,u.GQFilter10Right,u.GQFilter11Right,u.GQFilter12Right {  
+   padding-right:0px; padding-left:17px;
+   }
+.GQFilter0Left,.GQFilter0Menu { background-position:left 0px; }   
+.GQFilter1Left,.GQFilter1Menu { background-position:left -150px; }
+.GQFilter2Left,.GQFilter2Menu { background-position:left -300px; }
+.GQFilter3Left,.GQFilter3Menu { background-position:left -450px; }
+.GQFilter4Left,.GQFilter4Menu { background-position:left -600px; }
+.GQFilter5Left,.GQFilter5Menu { background-position:left -750px; }   
+.GQFilter6Left,.GQFilter6Menu { background-position:left -900px; }
+.GQFilter7Left,.GQFilter7Menu { background-position:left -1050px; }
+.GQFilter8Left,.GQFilter8Menu { background-position:left -1200px; }
+.GQFilter9Left,.GQFilter9Menu { background-position:left -1350px; }
+.GQFilter10Left,.GQFilter10Menu { background-position:left -1500px; }
+.GQFilter11Left,.GQFilter11Menu { background-position:left -1650px; }
+.GQFilter12Left,.GQFilter12Menu { background-position:left -1800px; }
+.GQFilter0Right { background-position:right 0px; }   
+.GQFilter1Right { background-position:right -150px; }
+.GQFilter2Right { background-position:right -300px; }
+.GQFilter3Right { background-position:right -450px; }
+.GQFilter4Right { background-position:right -600px; }
+.GQFilter5Right { background-position:right -750px; }   
+.GQFilter6Right { background-position:right -900px; }
+.GQFilter7Right { background-position:right -1050px; }
+.GQFilter8Right { background-position:right -1200px; }
+.GQFilter9Right { background-position:right -1350px; }
+.GQFilter10Right { background-position:right -1500px; }
+.GQFilter11Right { background-position:right -1650px; }
+.GQFilter12Right { background-position:right -1800px; }
+
+.GQFilter0Menu,.GQFilter1Menu,.GQFilter2Menu,.GQFilter3Menu,.GQFilter4Menu,.GQFilter5Menu,.GQFilter6Menu,.GQFilter7Menu,.GQFilter8Menu,.GQFilter9Menu,.GQFilter10Menu,.GQFilter11Menu,.GQFilter12Menu {
+   width:17px; height:17px; overflow:hidden; background-image:url(Filter.gif); background-repeat:no-repeat; margin-left:-1px;
+   }
+.GQFilterMenuHeader { padding-left:2px; border-bottom:0px none!important; }   
+
+/* ------------- Sort images ------------- */
+.GQSort0Left,.GQSort1Left,.GQSort2Left,.GQSort3Left,.GQSort4Left,.GQSort5Left,.GQSort6Left,
+.GQSort0Right,.GQSort1Right,.GQSort2Right,.GQSort3Right,.GQSort4Right,.GQSort5Right,.GQSort6Right {
+   font-size:11px; background-image:url(Sort.gif); background-repeat:no-repeat;  
+   }
+.GQSort0Left,.GQSort1Left,.GQSort2Left,.GQSort3Left,.GQSort4Left,.GQSort5Left,.GQSort6Left { padding-left:17px; }
+.GQSort0Right,.GQSort1Right,.GQSort2Right,.GQSort3Right,.GQSort4Right,.GQSort5Right,.GQSort6Right{ padding-right:17px; }
+u.GQSort0Right,u.GQSort1Right,u.GQSort2Right,u.GQSort3Right,u.GQSort4Right,u.GQSort5Right,u.GQSort6Right { padding-right:0px; padding-left:17px; }
+.GQSort0Left { background-position:left 0px; }   
+.GQSort1Left { background-position:left -250px; }
+.GQSort2Left { background-position:left -500px; }
+.GQSort3Left { background-position:left -750px; }
+.GQSort4Left { background-position:left -1000px; }
+.GQSort5Left { background-position:left -1250px; }
+.GQSort6Left { background-position:left -1500px; }
+.GQSort0Right { background-position:right 0px; }   
+.GQSort1Right { background-position:right -250px; }
+.GQSort2Right { background-position:right -500px; }
+.GQSort3Right { background-position:right -750px; }
+.GQSort4Right { background-position:right -1000px; }
+.GQSort5Right { background-position:right -1250px; }
+.GQSort6Right { background-position:right -1500px; }
+
+/* -------------- Pager ------------------ */
+.GQPagerMain {  }
+.GQPagerBody { border-left:1px solid #CCC; background: #d5e9fe; }
+.GQPagerHeader {
+   background:url(Backgrounds.gif) repeat-x; padding-bottom:2px; padding-top:3px;
+   cursor:default;
+   }
+.GQPagerCaption {   
+   font:12px "Trebuchet MS", Tahoma, Arial; color:#FFFFFF;
+   padding-left:3px; padding-right:3px; white-space:nowrap; height:17px;
+   }
+.GQPagerItem {
+   font:11px "Microsoft Sans Serif",Verdana,Arial; cursor:pointer; _cursor:hand; overflow:hidden;
+   border-bottom:1px solid #bbdcff; padding-left:3px; padding-right:3px;
+   height:13px; overflow:hidden; white-space:nowrap;
+   }
+.GQPagerFocus {
+   position:relative; cursor:pointer; _cursor:hand; overflow:hidden;
+   overflow:hidden; background:#6ca6d1; opacity:0.3; filter:alpha(opacity=30); 
+   }
+.GQPagerHover {
+   position:relative; cursor:pointer; _cursor:hand; overflow:hidden;
+   background:#fff; opacity:0.3; filter:alpha(opacity=30); 
+   }
+.GQPagerSort1 { color: #006600; }
+.GQPagerSort2 { color: #00AE00; }
+.GQPagerSort3 { color: #00FF00; }
+.GQPagerSortS { color: black; }
+
+/* -------------- State classes ------------- */
+/* The colors must be set by numbers not by names */
+
+.GQColorDefault { background-color:#FCFCFC; }
+
+.GQColorNoFocus { background-color:#E8F4FF; }
+.GQColorReadOnly { background-color:#F6F6F6;}
+.GQColorPreview { background-color:#FFFFFF; }
+
+.GQColorAlternate { background-color:#EBFFFF; }
+
+.GQColorSelected { background-color:#FFF190; }
+/*.GQClassSelected { color:red; }*/
+
+.GQColorError { background-color:#FF6969; }
+.GQColorDeleted { background-color:#FFF0E7; }
+.GQClassDeleted { font-style:italic; }
+.GQColorAdded { background-color:#EDF8FF; }
+.GQClassAdded { font-weight:bold; }
+.GQColorMoved1 { background-color:#FFFFFF; }
+.GQColorMoved2 { background-color:#EDF8FF; }
+.GQColorChanged { background-color:#EEF0FF; }
+.GQColorChangedCell { background-color:#F0EEFF; }
+.GQClassChangedCell { font-weight:bold; }
+
+.GQColorMaxChildren { background-color:#FFFFF0; }
+
+.GQColorDetail { background-color:#FFF0FF; }
+.GQColorDetailSelected { background-color:#FFF0E0; }
+
+.GQColorDragged { background-color:#E0E0C0; }
+
+.GQColorFound1 { background-color:#CDDBFF; }
+.GQColorFound2 { background-color:#FFC387; }
+.GQColorFound3 { background-color:#87FF87; }
+
+.GQColorHovered { background-color:#F0F0FF; }
+.GQColorHoveredCell { background-color:#C8E3FF; }
+.GQColorHoveredCellReadOnly { background-color:#F0F0F0; }
+.GQColorHoveredCellNoFocus { background-color:#F8F8F8; }
+.GQClassHoveredCellHeader { background-position:0px -250px; }
+.GQClassHoveredCellPanel { background-position:0px -1751px; background-repeat:repeat-x; }
+.GQColorHoveredCellFastPanel { }
+.GQColorHoveredCellSpace { background-color:#FFFFFF; }
+.GQColorHoveredCellSpaceEdit { background-color:#C0C0FF; }
+.GQColorHoveredCellSpaceBool { background-color:#FFFFFF; }
+.GQColorHoveredCellButton { background-color:#E0EEFF; }
+.GQClassHoveredCellButton { color:green; }
+.GQColorHoveredCellButton1 { background-color:#E0EEFF; }
+.GQClassHoveredCellButton1 { color:red; }
+.GQColorHoveredCellTab { background-color:#FFFFFE; }
+.GQClassHoveredCellTab { background-position:0px -1751px; color:green; }
+.GQColorHoveredCellTab1 { background-color:#99bbcc; }
+.GQClassHoveredCellTab1 { background-image:none; }
+
+.GQColorFocused { background-color:#E6E6E6; }
+.GQColorFocusedCell { background-color:#FFFFFE; }
+.GQColorFocusedCellSafari { background-color:#A0A0FF; }
+.GQColorFocusedCellSpace { background-color:#E6E6E6; }
+.GQColorFocusedCellButton { background-color:#BCD; }
+.GQColorFocusedCellHeader { background-color:#FFFFFE; }
+.GQColorFocusedCellPanel { background-color:#FFFFFE; }
+.GQColorEditedCell { background-color:#FFFFFF; }
+.GQColorViewedCell { background-color:#FFFFFF; }
+
+/* --------------- Hover, focus, edit cursors ----------------- */
+.GQHoverPanelBackground { }
+.GQHoverRowBackground { opacity:0.1; filter:alpha(opacity=10); background:#0CF; }
+.GQHoverRowBorder { z-index:1; border-top:1px solid #BBF; border-bottom:1px solid #BBF; cursor:default; }
+.GQHoverCellBorder { z-index:3; padding:1px; border:1px solid #A0A0F0; background:white; }
+.GQFocusPanelBackground { }
+.GQFocusRowBackground { opacity:0.1; filter:alpha(opacity=10); background:#000; }
+.GQFocusRowBorder { z-index:2; border:1px solid black; }
+.GQFocusCellBorder,.GQEditCellBorder { z-index:4; border:1px solid #6666FF; }
+.GQFocusCellSpaceBorder,.GQEditCellSpaceBorder { z-index:4; }
+.GQEditCellBorder { border-color:#FF6666; }
+.GQEditCellInput { position:relative; border:1px solid #BBB; overflow:hidden; z-index:2; }
+
+.GQCursorBackground { position:relative; border:none; padding:0px; overflow:hidden; }
+.GQCursorBorderLeft { position:relative; padding-right:0px; padding-top:0px; padding-bottom:0px; border-right:none; border-top:none; border-bottom:none; overflow:hidden; width:0px; height:0px; }
+.GQCursorBorderRight { position:relative; padding-left:0px; padding-top:0px; padding-bottom:0px; border-left:none; border-top:none; border-bottom:none; overflow:hidden; width:0px; height:0px; }
+.GQCursorBorderTop { position:relative; padding-bottom:0px; padding-left:0px; padding-right:0px; border-bottom:none; border-left:none; border-right:none; overflow:hidden; width:0px; height:0px; }
+.GQCursorBorderBottom { position:relative; padding-top:0px; padding-left:0px; padding-right:0px; border-top:none; border-left:none; border-right:none; overflow:hidden; width:0px; height:0px; }
+
+/*--------------- Cell edges ----------------- */
+/*.GQNoLeft { border-left:0px none; }*/
+.GQNoRight { border-right:0px none; }
+
+.GQEmpty { text-decoration:none; font-size:1px; line-height:1px;}
+
+/*--------------- Dragging ----------------- */
+.GQMouseObject { opacity:0.5; filter:alpha(opacity=50); z-index:300; overflow:hidden; }
+.GQDragObject {
+   z-index:300; margin-left:10px; margin-top:10px; 
+   font:12px Arial; padding-left:3px; padding-right:3px;
+   background:#E4E5F0 url(Backgrounds.gif) repeat-x 0px -750px; border:1px solid #777; 
+   }
+.GQDragColInsideTop,.GQDragColInsideBottom,.GQDragColOutsideTop,.GQDragColOutsideBottom,.GQDragGanttRunTop,.GQDragGanttRunBottom {
+   position:absolute; background-image:url(Sort.gif); width:10px; height:11px; overflow:hidden; z-index:258;
+   }
+.GQDragColInsideTop  { background-position:0px -1750px;  }
+.GQDragColInsideBottom  { background-position:0px -1770px;  }
+.GQDragColOutsideTop  { background-position:0px -1790px;  }
+.GQDragColOutsideBottom  { background-position:0px -1810px;  }
+.GQDragGanttRunTop  { background-position:0px -1752px;  }
+.GQDragGanttRunBottom  { background-position:0px -1772px;  }
+
+/*--------------- Messages ----------------- */
+.GQDisabled { position:absolute; z-index:264; background:white; opacity:0.5; filter:alpha(opacity=50); } 
+.GQMessage {
+	background:#E2F0FF; border:1px solid black; padding:10px; white-space:nowrap; text-align:center;
+	font:13px "Microsoft Sans Serif",Verdana,Arial;
+   position: absolute; left:0px; top:0px; visibility:hidden; z-index:266;
+	}
+.GQMessageShadow {
+   position:absolute; margin-left:3px; margin-top:3px; z-index:265;
+   background:#888; opacity:0.5; filter:alpha(opacity=50);
+   left:0px; top:0px; visibility:hidden;
+   }	
+.GQPageMessage { background:#FAFAFA; border:1px solid black; padding:10px; font:13px "Microsoft Sans Serif",Verdana,Arial; }
+.GridErrorMessage { font-weight:bold; color:red; background:yellow; }
+.GridDisabled { position:absolute; z-index:256; background:white; opacity:0.5; filter:alpha(opacity=50); } 
+
+.GQProgressMain { font:13px "Microsoft Sans Serif",Verdana,Arial; }
+.GQProgressCaption { font-weight:bold; margin-bottom:15px; }
+.GQProgressText { margin-bottom:15px; }
+.GQProgressOuter { text-align:left; width:200px; border:1px solid black; padding:2px; margin-bottom:15px; }
+.GQProgressInner { height:10px;background:green; }
+.GQProgressButton,.GQMessageButton { font-size:11px; background:#EEE; text-align:center; border:1px solid #8a8fb5; }
+.GQProgressButton { margin:2px; margin-top:5px; margin-bottom:0px; white-space:nowrap; padding-left:10px; padding-right:10px; }
+.GQMessageButton { margin-top:10px; width:50px; }
+.GQMessageButtonHover,.GQProgressButtonHover { background:#ffeeaa; border:1px solid #aaaadd; }
+      
+/*--------------- Other ----------------- */
+/* !!! No .GQ style prefix here !!! */
+.GridTmpTag { position:absolute; left:5px; top:5px; visibility:hidden; }
+
+/*--------------- Debug print ----------------- */
+/* !!! No .GQ style prefix here !!! */
+.GridDebugTag,.GridDebugTagMax { overflow:auto; overflow-y:scroll; border:1px solid black; background:#DDD; }
+.GridDebugTag,.GridDebugTagMax,.GridDebugButtons,.GridDebugButtonsMax {
+   position:fixed; z-index:256; left:5px; right:5px; bottom:5px; height:200px; padding:4px;
+   position:absolute!IE;
+   left:expression((5+(document.compatMode=="CSS1Compat"?document.documentElement.scrollLeft:document.body.scrollLeft))+"px")!IE;
+   width:expression((-10+(document.compatMode=="CSS1Compat"?document.documentElement.clientWidth-8:document.body.clientWidth))+"px")!IE;
+   top:expression((-205+(document.compatMode=="CSS1Compat"?document.documentElement.scrollTop+document.documentElement.clientHeight-8:document.body.scrollTop+document.body.clientHeight))+"px")!IE;
+   }
+.GridDebugTagMax,.GridDebugButtonsMax {
+   top:5px; height:auto; 
+   top:expression((5+(document.compatMode=="CSS1Compat"?document.documentElement.scrollTop:document.body.scrollTop))+"px")!IE;
+   height:expression((-10+(document.compatMode=="CSS1Compat"?document.documentElement.clientHeight-8:document.body.clientHeight))+"px")!IE;
+   }
+.GridDebugButtons,.GridDebugButtonsMax {
+   text-align:right; margin-right:25px; width:130px; left:auto;
+   left:expression((-155+(document.compatMode=="CSS1Compat"?document.documentElement.clientWidth-8:document.body.clientWidth))+"px")!IE;
+   }
+.GridDebugButton { font-size:10px; width:40px; padding:0px; }
+.GridDebugTitle { font-size:10px; color:blue; font-style:normal;font-weight:normal; }
+.GridDebugMark { font-weight:bold; }
+.GridDebugStop { font-size:18px; font-weight:bold; color:red; }
+.GridDebugError { font-size:12px; color:red; }
+.GridDebugWarning { font-size:12px; color:#A60;}
+.GridDebugList { font-size:10px; color:#888;}
+.GridDebugInfo { font-size:12px; }
+
+/* ------------------- Popup menus, TGLib ------------------- */
+
+.GQMenuMain { position:absolute; left:0px; top:0px; z-index:258; }
+.GQMenuStatic { }
+.GQMenuOuter { overflow:hidden; border:1px solid black; padding:1px; background:white; }
+.GQMenuHeader {
+   overflow:hidden; position:absolute; z-index:258;
+   border:1px solid #b0b0c0; background:white; cursor:pointer; _cursor:hand;
+   }
+.GQMenuHead {
+   background:#183873 url(Backgrounds.gif) repeat-x 0px -2px;
+   font:10px Verdana,Arial; color:white; cursor:default;
+   text-align:center; padding-top:5px; padding-bottom:4px;
+   }
+.GQMenuClose {
+   float:right; width:14px; cursor:pointer; _cursor:hand; display:none;
+   background:url(Menu.gif) no-repeat right -354px;
+   }
+.GQMenuBody { cursor:default; background:white; padding-top:1px; padding-bottom:1px; }
+.GQMenuShadow {
+   position:absolute; margin-left:3px; margin-top:3px; z-index:257;
+   background:#888; opacity:0.5; filter:alpha(opacity=50);
+   }
+
+.GQMenuCheckedIconLeft { background:url(Menu.gif) no-repeat -2px -51px; padding-left:17px; }
+.GQMenuCheckedIconRight { background:url(Menu.gif) no-repeat right -51px; padding-right:17px; }
+.GQMenuUncheckedIconLeft { background:url(Menu.gif) no-repeat -2px -1px; padding-left:17px; }
+.GQMenuUncheckedIconRight { background:url(Menu.gif) no-repeat right -1px; padding-right:17px; }
+.GQMenuCheckedRadioLeft { background:url(Menu.gif) no-repeat -2px -751px; padding-left:17px; }
+.GQMenuCheckedRadioRight { background:url(Menu.gif) no-repeat right -751px; padding-right:17px; }
+.GQMenuUncheckedRadioLeft { background:url(Menu.gif) no-repeat -2px -701px; padding-left:17px; }
+.GQMenuUncheckedRadioRight { background:url(Menu.gif) no-repeat right -701px; padding-right:17px; }
+.GQMenuCursorIcon { background:url(Menu.gif) no-repeat -6px -150px; }
+.GQMenuHoverIcon { background:url(Menu.gif) no-repeat -6px -100px; }   
+.GQMenuCursorIconRtl { background:url(Menu.gif) no-repeat right -1000px; }
+.GQMenuHoverIconRtl { background:url(Menu.gif) no-repeat right -950px; }   
+.GQMenuExpandedIcon { background:url(Menu.gif) no-repeat -6px -200px; }
+.GQMenuCollapsedIcon { background:url(Menu.gif) no-repeat -6px -250px; }
+.GQMenuNextIcon { background:url(Menu.gif) no-repeat right -300px; padding-right:10px; }
+.GQMenuNextIconRtl { background:url(Menu.gif) no-repeat left -900px; padding-left:10px; }
+
+.GQMenuItemText,.GQMenuItemIcon,.GQMenuEnum,.GQMenuEnumHeader,.GQMenuEdit { font:11px "Microsoft Sans Serif",Arial; white-space:nowrap; overflow:hidden; }
+.GQMenuItemDisabled { opacity:0.50; filter:alpha(opacity=30); overflow:hidden; }
+.GQMenuLevel { color:blue; text-align:center; }  
+.GQMenuEnumParent,.GQMenuEditParent { padding-left:5px; padding-right:2px;}
+.GQMenuItemIcon { background-repeat:no-repeat; }
+.GQMenuEnum {
+   border:1px solid #DDD; border-top:1px solid #666; border-left:1px solid #666;
+   background:url(Menu.gif) no-repeat left -800px; padding-left:15px; overflow:hidden;
+   }
+.GQMenuEnumHeader  {
+   padding-left:16px; padding-top:1px; cursor:default; padding-bottom:2px;
+   background:url(Menu.gif) no-repeat 1px -799px;
+   }   
+.GQMenuEdit {
+   border:1px solid #DDD; border-top:1px solid #666; border-left:1px solid #666;
+   background:white; padding-left:2px; padding-right:2px; overflow:hidden; 
+   white-space:nowrap;
+   }
+.GQMenuEditInput,.GQMenuEditTextarea {
+   margin:0px; margin:-1px!IE; border:0px none; background:#FDD; 
+   padding:0px; padding-right:1px!IE; padding-left:1px!IE; font:11px "Microsoft Sans Serif",Arial;
+   }   
+.GQMenuEditTextarea { line-height:13px;  }   
+.GQMenuEditInt,.GQMenuEditFloat,.GQMenuEditDate { text-align:right; } 
+.GQMenuEditText { }
+.GQMenuEditMulti { white-space:normal; }
+.GQMenuItem { padding-top:2px; padding-bottom:2px; padding-left:2px; padding-right:2px; background:white; }   
+.GQMenuItemHover {
+   margin-left:0px; margin-right:0px; padding: 2px; 
+   background:#D5E9FE; border:none;
+   }      
+.GQMenuFocus {
+   margin-left:0px; margin-right:0px; padding-top:2px; padding-bottom:2px; padding-left:2px; padding-right:2px;
+   border:none;   
+   background:#CAE1F3 url(Backgrounds.gif) repeat-x 0px -1250px;
+   }
+.GQMenuFocusHover {
+   margin-left:0px; margin-right:0px; padding:2px;
+   background:#CAE1F3; border:none;
+   }
+.GQMenuSeparator {
+   margin-top:1px; margin-right:3px; margin-left:3px; height:1px;   
+   border-top:1px solid #aaaadd; overflow:hidden;
+   }
+.GQMenuCaption { padding-top:2px; padding-bottom:2px; padding-left:2px; padding-right:2px; background:white; color:blue; text-align:center; }
+.GQMenuVSeparator { border-right:1px solid #DDD; }
+.GQMenuSection  { }
+
+.GQMenuFoot { border-top:none; text-align:center; background:url(Backgrounds.gif) repeat-x 0px -1367px; white-space:nowrap; }  
+.GQMenuButton {
+   font-size:11px;background:#dcecf8; text-align:center; border:1px solid #8a8fb5; 
+   width:48px; margin:2px; margin-top:5px; margin-bottom:4px; white-space:nowrap; padding-left:0px; padding-right:0px;
+   }
+.GQMenuButtonHover { background:#ffeeaa; border:1px solid #aaaadd; }
+
+/*--------------- Grid configuration menus ----------------- */
+
+.GQCfgMenuOuter,.GQColumnsMenuOuter { border:1px solid black; }
+.GQCfgMenuHead,.GQColumnsMenuHead { padding-left:3px; }
+.GQCfgMenuBody,.GQColumnsMenuBody { padding-left:4px; padding-right:4px; }
+.GQCfgMenuFoot,.GQColumnsMenuFoot { padding-right:3px; padding-left:3px; }
+.GQCfgMenuButton { width:70px; } 
+.GQCfgMenuItemText,.GQColumnsMenuItemText { padding-left:3px; }
+.GQColumnsMenuItemText { white-space:nowrap; }
+.GQCfgMenuItem,.GQColumnsMenuItem { padding-top:3px; padding-bottom:3px; }
+.GQCfgMenuItemHover,.GQCfgMenuFocus,.GQCfgMenuFocusHover,
+.GQColumnsMenuItemHover,.GQColumnsMenuFocus,.GQColumnsMenuFocusHover { padding-top:3px; padding-bottom:3px; }
+/*--------------- Popup grid dialog ----------------- */
+
+.GQPopupGridOuter { border:0px none; background:none; overflow:visible; }
+.GQPopupGridHead { padding:0px; }
+.GQPopupGridBody { padding:0px; background:none; }
+.GQPopupGridFoot { padding:0px; }
+.GQPopupGridButton { width:50px; margin-top:-2px; margin-bottom:3px; } 
+
+/* ------------------- Calendar, TGLib ------------------- */
+
+.GQPickMain { position:absolute; left:0px; top:0px; z-index:258; }
+.GQPickOuter { overflow:hidden; background:white; padding:1px; border:1px solid #426b8c; }
+.GQPickHeader {
+   overflow:hidden; position:absolute; z-index:258;
+   border:1px solid black; background:white; cursor:pointer; _cursor:hand;
+   }
+.GQPickHeaderBottom { border-bottom:0px none; padding-bottom:1px; }
+.GQPickHeaderTop { border-top:0px none; padding-bottom:1px; }
+
+.GQPickHead {
+   background:#5c8397; font:10px Verdana,Arial; color:white; cursor:default;
+   padding-left:5px; padding-top:1px; padding-bottom:1px;
+   border-bottom:1px solid white;
+   }
+.GQPickClose {
+   float:right; width:14px; cursor:pointer; _cursor:hand; display:none;
+   background:url(Menu.gif) no-repeat right -354px;
+   }
+.GQPickBody { cursor:default; padding:0px; }
+.GQPickShadow {
+   position:absolute; background:#888; z-index:257; margin-left:3px; margin-top:3px;
+   opacity:0.5; filter:alpha(opacity=50);
+   }   
+.GQPickFooter,.GQPick2Footer {
+   text-align:center; padding-top:1px; cursor:default;
+   background:url(Backgrounds.gif) repeat-x 0px -1367px;
+   }
+.GQPickMY {
+   background:#183873 url(Backgrounds.gif) repeat-x 0px -2px;
+   font:10px Verdana,Arial; color:white; cursor:default;
+   text-align:center; padding-top:2px; padding-bottom:4px;
+   }   
+.GQPickMYDown { padding-right:13px; background:url(Menu.gif) no-repeat right -400px; cursor:pointer; _cursor:hand; }
+.GQPickMYUp { padding-right:13px; background:url(Menu.gif) no-repeat right -450px; cursor:pointer; _cursor:hand; }
+.GQPickMYRtl { padding-right:0px; padding-left:13px; }
+.GQPickBL,.GQPickBR { padding-top:3px; cursor:pointer; _cursor:hand; width:16px; height:14px; overflow:hidden; }
+.GQPickBL { float:left; background:url(Menu.gif) no-repeat left -500px; display:none; }
+.GQPickBR { float:right; background:url(Menu.gif) no-repeat right -550px; display:none; }
+
+.GQPickTable { table-layout:fixed; width:0px; }
+.GQPickRow { background:white; }
+.GQPickRowW { background:url(Backgrounds.gif) repeat-x 0px -1350px; }
+.GQPickCell { width:22px; }
+.GQPickWDN {
+   background:transparent; color:#333333;
+   padding:1px; font:10px Arial; text-align:center; cursor:default;
+   margin-left:3px; margin-right:3px; margin-top:2px; margin-bottom:2px;
+   }
+.GQPickHover,.GQPickSelHover,.GQPickWD,.GQPickSa,.GQPickSu,.GQPickSel,.GQPickNow,.GQPickWDNE,.GQPickSaNE,.GQPickSuNE,.GQPickSelNE,.GQPickNowNE,.GQPickOM,.GQPickOMNE {
+   text-align:center; border:1px solid white;
+   font:10px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   margin-left:3px; margin-right:3px; margin-top:2px; margin-bottom:2px;
+   }
+.GQPickWN,.GQPickWNE { 
+   text-align:center; font:10px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   padding-left:4px; padding-right:4px; padding-top:3px; padding-bottom:3px;
+   border-right:1px solid #8CA9E1; background:url(Backgrounds.gif) no-repeat -25px -1000px;
+   }
+.GQPickWDNE,.GQPickSaNE,.GQPickSuNE,.GQPickSelNE,.GQPickNowNE,.GQPickWNE { cursor:default; }
+.GQPickWD { background-color:#ffffff;   }
+.GQPickSa { background-color:#ffffff;   }
+.GQPickSu { background-color:#ffffff;   }
+.GQPickSel { background-color:#fbea54; border:1px solid #dad1d1;}
+.GQPickSelNE { background-color:#fbea54; border:1px solid #dad1d1;}
+.GQPickNow { background-color:#c0f3ff; border:1px solid #dad1d1;}
+.GQPickNowNE { background-color:#c0f3ff; border:1px solid #dad1d1;}
+.GQPickHover { background-color:#ddd; border:1px solid #ddd; }
+.GQPickSelHover { background-color:#eeeeaa; border:1px solid #ddd;}
+.GQPickOM { background-color:white; color:#aaaaaa; }
+.GQPickOMNE { color:#aaaaaa; }
+.GQPickEmpty { background:url(Menu.gif) no-repeat center -1050px; cursor:pointer; _cursor:hand; }
+
+.GQPickTimeCell {
+   text-align:right; padding-bottom:4px; padding-top:6px; padding-right:5px; 
+   border-top:1px solid #adf; background:#f0f6ff;
+   }
+.GQPickTime {
+   font:11px "Microsoft Sans Serif",Arial;
+   border:0px none; white-space:nowrap; text-align:right; background:#f0f6ff;
+   }
+.GQPickButton {
+   font-size:11px; background:#dcecf8; text-align:center; border:1px solid #8a8fb5; 
+   width:53px; margin:2px; margin-top:5px; margin-bottom:4px; padding-left:0px; padding-right:0px;
+   }
+.GQPickButtonHover { background:#ffeeaa; border:1px solid #aaaadd; }
+
+.GQPick2Table { table-layout:fixed; width:0px; }
+.GQPick2CellM { height:22px; width:55px; }
+.GQPick2CellY { height:22px; width:30px; }
+.GQPick2CellSep { height:22px; width:5px; }
+.GQPick2M,.GQPick2Y,.GQPick2MSel,.GQPick2YSel,.GQPick2MHover,.GQPick2YHover,.GQPick2MSelHover,.GQPick2YSelHover {
+   font:11px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand; text-align:center;
+   margin-left:1px; margin-right:1px; padding-left:1px; padding-right:1px; overflow:hidden;
+   }
+.GQPick2MSel,.GQPick2YSel { background:#c0f3ff; border:1px solid #dad1d1; margin-left:0px; margin-right:0px; }
+.GQPick2MHover,.GQPick2YHover { background:#DDD; border:1px solid white; margin-left:0px; margin-right:0px; }
+.GQPick2MSelHover,.GQPick2YSelHover { background:#80e0f0; border:1px solid white; margin-left:0px; margin-right:0px; }   
+.GQPick2SepH { width:1px; height:1px; overflow:hidden; }
+.GQPick2Sep { width:1px; background:#777; overflow:hidden; margin-left:2px; margin-right:3px; height:22px; }
+
+.GQPick2BL,.GQPick2BR { width:30px; cursor:pointer; _cursor:hand; }
+.GQPick2BL { background:url(Menu.gif) no-repeat center -598px; }
+.GQPick2BR { background:url(Menu.gif) no-repeat center -648px; }
+
+/* ------------------- Edit controls, TGLib ------------------- */
+.GQEdit,.GQEditInline {
+   font:11px "Microsoft Sans Serif",Arial;
+   padding-left:4px; padding-right:4px; padding-top:2px; padding-bottom:2px;
+   border:1px solid #DDD; border-top:1px solid #666; border-left:1px solid #666;
+   background:white; white-space:nowrap; overflow:hidden;
+   }
+.GQEditInline { display:inline-block; vertical-align:bottom; }
+.GQEditInput,.GQEditTextarea {
+   font:11px "Microsoft Sans Serif",Arial;
+   border:0px none; margin:0px; margin-top:-1px!IE;
+   padding:0px; padding-left:1px!IE; padding-right:1px!IE; vertical-align:top;
+   }
+.GQEditTextarea { line-height:13px; }
+.GQEditSpaceInput { vertical-align:middle; }
+.GQEditNormalInput,.GQEditNormalTextarea,.GQEditSpaceTextarea { background-color:#FFDCFF; }
+.GQEditInt,.GQEditFloat,.GQEditDate { text-align:right; }
+.GQEditText { }
+.GQEditMulti { white-space:normal; }
+.GQEditReadOnly { background-color:#FFEEFF; }   
+.GQEditParent { position:absolute; z-index:258; overflow:hidden; }
+
+.GQEnumHeaderLeft,.GQEnumHeaderRight,.GQEnumHeaderNone {
+   background:white; font:11px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   padding-left:2px; padding-right:4px; padding-top:2px; padding-bottom:2px;
+   }
+.GQEnumHeaderLeft { background:white url(Menu.gif) no-repeat 1px -798px; padding-left:17px; }
+.GQEnumHeaderRight { background:white url(Menu.gif) no-repeat right -798px; padding-right:17px;}
+.GQEnumMenuHeader { background:white; }
+
+.GQEnumControl,.GQEnumInline {
+   font:11px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   padding-left:15px; padding-right:4px; padding-top:2px; padding-bottom:2px;
+   border:1px solid #DDD; border-top:1px solid #666; border-left:1px solid #666;
+   background:white url(Menu.gif) no-repeat left -797px; overflow:hidden;
+   }
+.GQEnumInline { display:inline-block; vertical-align:bottom; }
+.GQEnumHeader {
+   background:white url(Menu.gif) no-repeat left -798px; 
+   font:11px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   padding-left:15px; padding-right:4px; padding-top:2px; padding-bottom:2px;
+   }
+
+/* ------------------- Line chart, TGLib ------------------- */
+
+.GQChartInner { background:white; width:100%; }
+.GQChartLayer { overflow:hidden; height:1000px; }
+.GQChartAxisY { background:black; height:1px; overflow:hidden; }
+.GQChartAxisYLabel { overflow:hidden; }
+.GQChartAxisYText { margin-right:5px; margin-top:12px; text-align:right; font:12px Arial; }
+.GQChartAxisX { width:1px; overflow:hidden; background:black; }
+.GQChartAxisXLabel { overflow:hidden; }
+.GQChartAxisXText { text-align:center; font:12px Arial; }
+.GQChartCaption { text-align:center; font:12px Arial; margin-top:3px; }
+
+.GQChartPoint1,.GQChartPoint2,.GQChartPoint3,.GQChartPoint4,.GQChartPoint5,.GQChartPoint6,.GQChartPoint7,.GQChartPoint8 {
+   background:url(Gantt.gif) no-repeat; width:32px; height:32px; overflow:hidden; 
+   }
+.GQChartPoint1 { background-position:-892px 7px; }
+.GQChartPoint1Hover { background-position: -942px 7px; }
+.GQChartPoint2 { background-position:-992px 7px; }
+.GQChartPoint2Hover { background-position:-1042px 7px; }
+.GQChartPoint3 { background-position:-1092px 7px; }
+.GQChartPoint3Hover { background-position:-1142px 7px; }
+.GQChartPoint4 { background-position:-1192px 7px; }
+.GQChartPoint4Hover { background-position:-1242px 7px; }
+.GQChartPoint5 { background-position:-1292px 7px; }
+.GQChartPoint5Hover { background-position:-1342px 7px; }
+.GQChartPoint6 { background-position:-1392px 7px; }
+.GQChartPoint6Hover { background-position:-1442px 7px; }
+.GQChartPoint7 { background-position:-1492px 7px; }
+.GQChartPoint7Hover { background-position:-1542px 7px; }
+.GQChartPoint8 { background-position:-1592px 7px; }
+.GQChartPoint8Hover { background-position:-1642px 7px; }
+
+/* -------------- Custom scrollbars ------------------ */
+
+.GQCustScroll1RightHidden { background:url(VScroll.gif) left -108px; height:18px; overflow:hidden; }
+.GQCustScroll1Right { padding-right:18px; background:url(VScroll.gif) right 0px; }
+.GQCustScroll1RightHover { padding-right:18px; background:url(VScroll.gif) right -18px; }
+.GQCustScroll1Left { padding-left:18px;  background:url(VScroll.gif) left 0px; }
+.GQCustScroll1LeftHover { padding-left:18px;  background:url(VScroll.gif) left -18px; }
+.GQCustScroll1SliderRight { padding-right:3px; background:url(VScroll.gif) right -36px; }
+.GQCustScroll1SliderLeft { padding-left:3px; background:url(VScroll.gif) left -36px; }
+.GQCustScroll1SliderHIn { height:18px; overflow:hidden; background:url(VScroll.gif) center -54px; }
+.GQCustScroll1SliderRightHover { padding-right:3px; background:url(VScroll.gif) right -72px; }
+.GQCustScroll1SliderLeftHover { padding-left:3px; background:url(VScroll.gif) left -72px; }
+.GQCustScroll1SliderHInHover { height:18px; overflow:hidden; background:url(VScroll.gif) center -90px; }
+.GQCustScroll1X { background:#c9e4ff; }
+
+.GQCustScroll2RightHidden { background:url(VScroll.gif) left -364px; height:36px; overflow:hidden; }
+.GQCustScroll2Right { padding-right:36px; background:url(VScroll.gif) right -148px; }
+.GQCustScroll2RightHover { padding-right:36px; background:url(VScroll.gif) right -184px; }
+.GQCustScroll2Left { padding-left:36px;  background:url(VScroll.gif) left -148px; }
+.GQCustScroll2LeftHover { padding-left:36px;  background:url(VScroll.gif) left -184px; }
+.GQCustScroll2SliderRight { padding-right:6px; background:url(VScroll.gif) right -220px; }
+.GQCustScroll2SliderLeft { padding-left:6px; background:url(VScroll.gif) left -220px; }
+.GQCustScroll2SliderHIn { height:36px; overflow:hidden; background:url(VScroll.gif) center -256px; }
+.GQCustScroll2SliderRightHover { padding-right:6px; background:url(VScroll.gif) right -292px; }
+.GQCustScroll2SliderLeftHover { padding-left:6px; background:url(VScroll.gif) left -292px; }
+.GQCustScroll2SliderHInHover { height:36px; overflow:hidden; background:url(VScroll.gif) center -328px; }
+.GQCustScroll2X { background:#c9e4ff; }
+
+.GQCustScroll3Right,.GQCustScroll3RightHidden { background:white; height:9px; overflow:hidden; }
+.GQCustScroll3SliderRight,.GQCustScroll3SliderRightHover { padding-right:3px; height:9px; background:url(VScroll.gif) right -126px; }
+.GQCustScroll3SliderLeft,.GQCustScroll3SliderLeftHover { height:9px; background:url(VScroll.gif) left -126px; }
+.GQCustScroll3SliderRightHover { background-position:right -135px; }
+.GQCustScroll3SliderLeftHover { background-position:left -135px; }
+.GQCustScroll3X { background:white; }
+
+.GQCustScroll4Right,.GQCustScroll4RightHidden,.GQCustScroll4SliderRight,.GQCustScroll4SliderRightHover { height:1px; overflow:hidden; }
+.GQCustScroll4X { }
+
+.GQCustScroll1DownHidden { background:url(HScroll.png) -108px top; width:18px; overflow:hidden; }
+.GQCustScroll1Down { padding-bottom:18px; background:url(HScroll.png) 0px bottom; cursor:default; width:18px; overflow:hidden; }
+.GQCustScroll1DownHover { padding-bottom:18px; background:url(HScroll.png) -18px bottom; width:18px; overflow:hidden; }
+.GQCustScroll1Up { padding-top:18px; background:url(HScroll.png) 0px top; width:18px; overflow:hidden; }
+.GQCustScroll1UpHover { padding-top:18px;  background:url(HScroll.png) -18px top; width:18px; overflow:hidden; }
+.GQCustScroll1SliderDown { padding-bottom:3px; background:url(HScroll.png) -36px bottom; width:18px; overflow:hidden; }
+.GQCustScroll1SliderUp { padding-top:3px; background:url(HScroll.png) -36px top; width:18px; overflow:hidden; }
+.GQCustScroll1SliderVIn { background:url(HScroll.png) -54px center; width:18px; overflow:hidden; }
+.GQCustScroll1SliderDownHover { padding-bottom:3px; background:url(HScroll.png) -72px bottom; width:18px; overflow:hidden; }
+.GQCustScroll1SliderUpHover { padding-top:3px; background:url(HScroll.png) -72px top; width:18px; overflow:hidden; }
+.GQCustScroll1SliderVInHover { background:url(HScroll.png) -90px center; width:18px; overflow:hidden; }
+
+.GQCustScroll2DownHidden { background:url(HScroll.png) -364px top; width:36px; overflow:hidden; }
+.GQCustScroll2Down { padding-bottom:36px; background:url(HScroll.png) -148px bottom; cursor:default; width:36px; overflow:hidden; }
+.GQCustScroll2DownHover { padding-bottom:36px; background:url(HScroll.png) -184px bottom; width:36px; overflow:hidden; }
+.GQCustScroll2Up { padding-top:36px; background:url(HScroll.png) -148px top; width:36px; overflow:hidden; }
+.GQCustScroll2UpHover { padding-top:36px;  background:url(HScroll.png) -184px top; width:36px; overflow:hidden; }
+.GQCustScroll2SliderDown { padding-bottom:6px; background:url(HScroll.png) -220px bottom; width:36px; overflow:hidden; }
+.GQCustScroll2SliderUp { padding-top:6px; background:url(HScroll.png) -220px top; width:36px; overflow:hidden; }
+.GQCustScroll2SliderVIn { background:url(HScroll.png) -256px center; width:36px; overflow:hidden; }
+.GQCustScroll2SliderDownHover { padding-bottom:6px; background:url(HScroll.png) -292px bottom; width:36px; overflow:hidden; }
+.GQCustScroll2SliderUpHover { padding-top:6px; background:url(HScroll.png) -292px top; width:36px; overflow:hidden; }
+.GQCustScroll2SliderVInHover { background:url(HScroll.png) -328px center; width:36px; overflow:hidden; }
+
+.GQCustScroll3Down,.GQCustScroll3DownHidden { background:white; width:9px; overflow:hidden; cursor:default; }
+.GQCustScroll3SliderDown,.GQCustScroll3SliderDownHover { padding-bottom:3px; width:9px; background:url(HScroll.png) -126px bottom; }
+.GQCustScroll3SliderUp,.GQCustScroll3SliderUpHover { width:9px; background:url(HScroll.png) -126px top; cursor:default; }
+.GQCustScroll3SliderDownHover { background-position:-135px bottom; }
+.GQCustScroll3SliderUpHover { background-position:-135px top; cursor:default; }
+
+.GQCustScroll4Down,.GQCustScroll4DownHidden,.GQCustScroll4SliderDown,.GQCustScroll4SliderDownHover { width:1px; overflow:hidden; }
+
+/* ------------------- Other messages, TGLib ------------------- */
+
+.GQHintMain { position:absolute; margin-left:-1px; margin-top:-1px; left:0px; top:0px; z-index:260; background:white; cursor:default; }
+.GQHintOuter { overflow:hidden; border:1px solid black; background:white!important; color:black; text-align:left; }
+.GQHintHeaderOuter { background:url(Backgrounds.gif) repeat-x 0px 0px!important; color:white; border: 1px solid white; }
+.GQHintShadow {
+   position:absolute; margin-left:2px; margin-top:2px; z-index:259;
+   background:#888; opacity:0.3; filter:alpha(opacity=30);
+   }
+
+.GQTipMain { position:absolute; left:0px; top:0px; z-index:262; visibility:hidden; }
+.GQTipOuter  {
+   overflow:hidden; cursor:default; font:12px Arial; padding-left:3px; padding-right:3px;
+   background:#E4E5F0 url(Backgrounds.gif) repeat-x 0px -750px; border:1px solid #777; 
+   }
+.GQTipBody { background:#E4E5F0 url(Backgrounds.gif) repeat-x 0px -750px; white-space:nowrap; }   
+.GQTipShadow {
+   position:absolute; margin-left:3px; margin-top:3px; z-index:261;
+   background:#888; opacity:0.3; filter:alpha(opacity=30);
+   visibility:hidden;
+   }
+
+.GQMouseOrig { background:yellow!important; opacity:0.5; filter:alpha(opacity=50); }
+.GQMouseDragObject { position:absolute; z-index:260; background:#888; opacity:0.5; filter:alpha(opacity=50); }
+
+.GQFocus { border:1px solid #AAF; border-top:1px solid #00F; border-left:1px solid #00F; background-color:#EEE; } 
+
+.GridDisabled { position:absolute; z-index:256; background:white; opacity:0.5; filter:alpha(opacity=50); } 
+.GridMain { z-index:255; }
+
+/* Do not change, marks the style loaded */
+.GQLoaded { border:1px solid black!important; }

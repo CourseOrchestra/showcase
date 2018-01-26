@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">	
+	
+	
+	
+	<head>
+		<title>Writers (Subforms)</title>
+		<xf:model  id="mainModel">
+			<xf:instance  id="mainInstance">
+				<writers xmlns="">
+					<writer firstname="Albert" lastname="Camus" selected="false">
+						<book year="1938" title="Caligula"/>
+						<book year="1942" title="L'étranger"/>
+						<book year="1947" title="La peste"/>
+						<book year="1951" title="L'homme révolté"/>
+					</writer>
+					<writer firstname="Blaise" lastname="Cendrars" selected="false">
+						<book year="1925" title="L'or"/>
+						<book year="1948" title="Bourlinguer"/>
+					</writer>
+					<writer firstname="Victor" lastname="Hugo" selected="false">
+						<book year="1831" title="Notre-Dame de Paris"/>
+						<book year="1838" title="Ruy Blas"/>
+						<book year="1856" title="Les contemplations"/>
+						<book year="1862" title="Les misérables"/>
+					</writer>
+					<writer firstname="Edmond" lastname="Rostand" selected="false">
+						<book year="1897" title="Cyrano de Bergerac"/>
+						<book year="1904" title="Chantecler"/>
+					</writer>
+					<writer firstname="Antoine" lastname="de Saint-Exupery" selected="false">
+						<book year="1931" title="Vol de nuit"/>
+						<book year="1942" title="Pilote de guerre"/>
+						<book year="1943" title="Le petit prince"/>
+					</writer>
+				</writers>
+			</xf:instance>
+		</xf:model>
+	</head>
+	<body>
+		<h3>Writers (Subforms)</h3>
+		<xf:repeat nodeset="writer" appearance="compact">
+			<p>
+				<xf:output ref="@firstname"/>&#160;<xf:output ref="@lastname"/>&#160;
+				<button onclick="XsltForms_load.subform('solutions/default/xforms/books5.xml','subform',this);" type="button">Show Books</button>
+				<button onclick="XsltForms_unload.subform('subform',this);" type="button">Hide Books</button>
+				<div id="subform"/>
+			</p>
+			
+		</xf:repeat>
+		
+			<button onclick="XsltForms_load.subform('solutions/default/xforms/books2.xml','subform2');" type="button">Show Books</button>
+            <div>			
+   		    <div id="subform2"/>
+   		    </div>
+   		    
+			<button onclick="XsltForms_load.subform('solutions/default/xforms/books3.xml','subform3');" type="button">Show Books</button>
+			<div>
+   		    <div id="subform3"/>
+            </div>
+   		    
+			<button onclick="XsltForms_load.subform('solutions/default/xforms/books4.xml','subform4');" type="button">Show Books</button>
+			<div>
+   		    <div id="subform4"/>
+   		    </div>
+			
+			<button onclick="XsltForms_load.subform('solutions/default/xforms/books5.xml','subform5');" type="button">Show Books</button>
+			<div>
+   		    <div id="subform5"/>
+   		    </div>
+			
+			<button onclick="XsltForms_load.subform('solutions/default/xforms/books6.xml','subform6');" type="button">Show Books</button>
+			<div>
+   		    <div id="subform6"/>
+   		    </div>
+			
+			
+			
+			<button onclick="
+			XsltForms_load.subform('solutions/default/xforms/dateButton_card_template.xml','subform2');
+			XsltForms_load.subform('solutions/default/xforms/books3.xml','subform3');
+			XsltForms_load.subform('solutions/default/xforms/books4.xml','subform4');
+			XsltForms_load.subform('solutions/default/xforms/books5.xml','subform5');
+			XsltForms_load.subform('solutions/default/xforms/books6.xml','subform6');
+						
+			" type="button">BIG Show Books</button>
+  
+		
+		
+		
+	</body>
+</html>

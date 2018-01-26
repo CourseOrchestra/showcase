@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+	<event name="single_click" linkId="1">
+		<action>
+			<main_context>current</main_context>
+			<navigator refresh="true"/>
+		</action>
+	</event>
+</properties>

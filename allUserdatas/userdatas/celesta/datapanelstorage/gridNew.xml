@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+	
+	<tab id="12_1" name="jsLiveGridNew">
+ 		<element id="102_1" type="GRID"  subtype="JS_LIVE_GRID" proc="g1.jsLiveGridNew.getData.celesta" 
+		    plugin="liveDGrid">
+            <proc id="442" name="g1.jsLiveGridNew.getSetting.celesta" type="METADATA"/>		    
+		    
+			<proc id="toolBar" name="g1.jsLiveGridNew.gridToolBar.celesta" type="TOOLBAR"/>		    
+		    <proc id="11_1" name="g1.jsLiveGridNew.gridAddRecord.celesta" type="ADDRECORD" />
+		    <proc id="12_1" name="g1.jsLiveGridNew.gridSaveData.celesta" type="SAVE" />
+		    
+   			<proc id="14_1" name="g1.jsLiveGridNew.gridPartialUpdate.celesta" type="PARTIALUPDATE" />
+		    		    
+		</element>
+	</tab>
+	
+	
+	<tab id="12_2" name="jsPageGridNew">
+ 		<element id="102_2" type="GRID"  subtype="JS_PAGE_GRID" proc="g1.jsLiveGridNew.getData.celesta" 
+		    plugin="pageDGrid">
+            <proc id="442" name="g1.jsLiveGridNew.getSetting.celesta" type="METADATA"/>		    
+		    
+			<proc id="toolBar" name="g1.jsLiveGridNew.gridToolBar.celesta" type="TOOLBAR"/>		    
+		    <proc id="11_2" name="g1.jsLiveGridNew.gridAddRecord.celesta" type="ADDRECORD" />
+		    <proc id="12_2" name="g1.jsLiveGridNew.gridSaveData.celesta" type="SAVE" />
+		    
+   			<proc id="14_2" name="g1.jsLiveGridNew.gridPartialUpdate.celesta" type="PARTIALUPDATE" />
+		    		    
+		</element>
+ 	</tab>
+ 	
+ 	
+	<tab id="12_3" name="jsTreeGridNew">
+ 		<element id="102_3" type="GRID"  subtype="JS_TREE_GRID" proc="g1.jsTreeGridNew.getData.celesta" 
+		    plugin="treeDGrid">
+            <proc id="442" name="g1.jsTreeGridNew.getSetting.celesta" type="METADATA"/>		    
+		    
+			<proc id="toolBar" name="g1.jsLiveGridNew.gridToolBar.celesta" type="TOOLBAR"/>		    
+		    <proc id="11_3" name="g1.jsLiveGridNew.gridAddRecord.celesta" type="ADDRECORD" />
+		    <proc id="12_3" name="g1.jsLiveGridNew.gridSaveData.celesta" type="SAVE" />
+		    
+   			<proc id="14_3" name="g1.jsLiveGridNew.gridPartialUpdate.celesta" type="PARTIALUPDATE" />
+		    		    
+		</element>
+	</tab>
+ 	
+	
+
+	
+<!--	
+	<tab id="12" name="jsTreeGridEditor">
+ 		<element id="102" type="GRID"  subtype="JS_TREE_GRID" proc="g1.jsTreeGridEditor.getDataAndSetting.celesta" 
+		    plugin="treeDGrid">
+			<proc id="toolBar" name="g1.jsTreeGridEditor.gridToolBar.celesta" type="TOOLBAR"/>		    
+		    <proc id="11" name="g1.jsTreeGridEditor.gridAddRecord.celesta" type="ADDRECORD" />
+		    <proc id="12" name="g1.jsTreeGridEditor.gridSaveData.celesta" type="SAVE" />
+		    
+   			<proc id="14" name="g1.jsTreeGridEditor.gridPartialUpdate.celesta" type="PARTIALUPDATE" />
+		    		    
+		</element>
+	</tab>
+ -->	
+	
+	
+	
+	
+	
+	
+</datapanel>

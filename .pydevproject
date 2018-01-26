@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse-pydev version="1.0"?><pydev_project>
+<pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">Default</pydev_property>
+<pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">jython 2.7</pydev_property>
+<pydev_pathproperty name="org.python.pydev.PROJECT_SOURCE_PATH">
+<path>/Showcase_maven/runtime/lib/bcmail-jdk14-1.38.jar</path>
+<path>/Showcase_maven/runtime/lib/bcmail-jdk14-138.jar</path>
+<path>/Showcase_maven/runtime/lib/bcprov-jdk14-1.38.jar</path>
+<path>/Showcase_maven/runtime/lib/bcprov-jdk14-138.jar</path>
+<path>/Showcase_maven/runtime/lib/bctsp-jdk14-1.38.jar</path>
+<path>/Showcase_maven/runtime/lib/castor-1.2.jar</path>
+<path>/Showcase_maven/runtime/lib/commons-beanutils-1.8.0.jar</path>
+<path>/Showcase_maven/runtime/lib/commons-codec-1.5.jar</path>
+<path>/Showcase_maven/runtime/lib/commons-collections-2.1.jar</path>
+<path>/Showcase_maven/runtime/lib/commons-digester-1.7.jar</path>
+<path>/Showcase_maven/runtime/lib/dom4j-1.6.1.jar</path>
+<path>/Showcase_maven/runtime/lib/geronimo-stax-api_1.0_spec-1.0.jar</path>
+<path>/Showcase_maven/runtime/lib/groovy-all-1.8.4.jar</path>
+<path>/Showcase_maven/runtime/lib/itext-2.1.7.jar</path>
+<path>/Showcase_maven/runtime/lib/jackson-core-lgpl-1.7.4.jar</path>
+<path>/Showcase_maven/runtime/lib/jackson-mapper-lgpl-1.7.4.jar</path>
+<path>/Showcase_maven/runtime/lib/jasperreports-4.5.0.jar</path>
+<path>/Showcase_maven/runtime/lib/jcommon-1.0.15.jar</path>
+<path>/Showcase_maven/runtime/lib/jdtcore-3.1.0.jar</path>
+<path>/Showcase_maven/runtime/lib/jfreechart-1.0.12.jar</path>
+<path>/Showcase_maven/runtime/lib/poi-3.8-beta5-20111217.jar</path>
+<path>/Showcase_maven/runtime/lib/poi-ooxml-3.8-beta5-20111217.jar</path>
+<path>/Showcase_maven/runtime/lib/poi-ooxml-schemas-3.8-beta5-20111217.jar</path>
+<path>/Showcase_maven/runtime/lib/poi-scratchpad-3.8-beta5-20111217.jar</path>
+<path>/Showcase_maven/runtime/lib/stax-api-1.0.1.jar</path>
+<path>/Showcase_maven/runtime/lib/xmlbeans-2.3.0.jar</path>
+<path>/Showcase_maven/userdatas/default/scripts/jython</path>
+<path>/Showcase_maven/src/scripts/init</path>
+</pydev_pathproperty>
+
+
+</pydev_project>

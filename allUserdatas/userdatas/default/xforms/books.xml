@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?xsltforms-options debug="yes"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+      xmlns:ev="http://www.w3.org/2001/xml-events" 
+      xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <title>Books</title>
+        <model xmlns="http://www.w3.org/2002/xforms">
+            <instance>
+                <data xmlns="">
+                    <book year="Не отображается1" title="Не отображается2"/>
+                </data>
+            </instance>
+			
+			<xf:instance id="myInstance">
+				<schema xmlns="">
+                <data>
+                    <book year="2012" title="XForms with XSLTForms 2012"/>
+                    <book year="2013" title="XForms with XSLTForms 2013"/>
+                    <book year="2014" title="XForms with XSLTForms 2014"/>
+                </data>
+				</schema>
+			</xf:instance>
+			
+			<xf:instance id="myInstance2">
+				<schema xmlns="">
+                <data>
+                    <book const1="WWWWWWWW2"/>
+                    <book const2="qq4"/>                    
+                </data>
+				</schema>
+			</xf:instance>			
+        </model>
+    </head>
+    <body>
+
+<!--
+		<xf:repeat nodeset="book">
+		    <xf:output value="@year"/>
+		  - <xf:output value="@title"/>
+		  - <xf:output value="instance('myInstance2')/data/book/@const2"/>
+		</xf:repeat>
+-->		
+	
+		<xf:repeat nodeset="instance('myInstance')/data/book/">
+			<xf:output value="@year"/> 
+          - <xf:output value="@title"/>
+          - <xf:output value="instance('myInstance2')/data/book/@const1"/>
+          - <xf:output value="instance('myInstance2')/data/book/@const2"/>          
+		</xf:repeat>
+		
+    </body>
+</html>
+
+
+
+
+

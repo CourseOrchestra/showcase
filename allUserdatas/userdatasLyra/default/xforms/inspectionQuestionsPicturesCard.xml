@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns="">
+					<picture>
+						<question></question>
+						<direction></direction>
+						<content></content>
+					</picture>
+				</schema>
+			</xf:instance>
+
+			<xf:submission id="xformId_submit" method="post" instance="xformId_mainInstance"
+				replace="instance" ref="instance('xformId_mainInstance')"
+				action="secured/submit?proc=ssmmd.xforms.inspectionQuestionsPicturesCard.submitChangePicture.celesta">
+				<!-- mode="synchronous" -->
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>Ошибка</xf:message>
+				</xf:action>
+			</xf:submission>
+
+			<!--<xf:bind>
+				<xf:bind
+					readonly="if(../accepted='true' or ../answerType='catalog' ,true(), false())"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question/answer"></xf:bind>
+				<xf:bind readonly="if(../accepted='true',true(), false())"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question/answerId"></xf:bind>
+				<xf:bind readonly="if(../accepted='true',true(), false())"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question/commentA"></xf:bind>
+				<xf:bind type="nonNegativeInteger"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question[answerType='int']/answer"></xf:bind>
+				<xf:bind type="date"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question[answerType='date']/answer"></xf:bind>
+				<xf:bind readonly="true()"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question/hypotheses/hypothesis/@name"></xf:bind>
+				<xf:bind type="decimal"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question[answerType='float']/answer"></xf:bind>
+				<xf:bind type="boolean"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question/additional"
+				></xf:bind>
+			</xf:bind>-->
+
+		</xf:model>
+	</head>
+
+	<body>
+		<!--<xf:output value="serialize(instance('xformId_mainInstance')/picture/index)"></xf:output>
+		<xf:output value="serialize(instance('xformId_mainInstance')/picture/direction)"></xf:output>-->
+		<!--<xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>-->
+		<div class="break">
+			<div class="author newbutton" style="float: left;">
+				<xf:trigger class="blue">
+					<xf:label>
+						<xf:output value="' &lt;&lt;&lt;'"></xf:output>
+					</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:setvalue ref="instance('xformId_mainInstance')/picture/direction"
+							value="'prev'"></xf:setvalue>
+						<xf:send submission="xformId_submit"></xf:send>
+					</xf:action>
+				</xf:trigger>
+			</div>
+			<div style="text-align: center;">
+				<xf:output value="concat('Картинка: ', instance('xformId_mainInstance')/picture/index+1, '/', instance('xformId_mainInstance')/picture/number)"
+				></xf:output>
+			</div>
+			<div class="author newbutton" style="float: right;">
+				<xf:trigger class="blue">
+					<xf:label>
+						<xf:output value="' &gt;&gt;&gt;'"></xf:output>
+					</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:setvalue ref="instance('xformId_mainInstance')/picture/direction"
+							value="'next'"></xf:setvalue>
+						<xf:send submission="xformId_submit"></xf:send>
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</div>
+
+
+		<div style="width: 58%;">
+			<xf:output
+				value="concat('data:image/gif;base64,', instance('xformId_mainInstance')/picture/content)"
+				mediatype="image/*"></xf:output>
+		</div>
+		<!--<div class="author newbutton" style="margin-top:21px; padding: 2px;float: left;">
+			<xf:trigger class="blue" id="Tab20">
+				<xf:label>Закрыть</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"></xf:load>
+				</xf:action>
+			</xf:trigger>
+		</div>-->
+
+	</body>
+</html>

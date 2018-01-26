@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<!-- Простейшие контролы ввода и вывода -->
+		<xf:model id="mainModel">
+			<xf:instance id="mainInstance">
+				<schema xmlns="">
+					<info>
+						<name />
+						<growth />
+						<eyescolour />
+						<music />
+						<comment />
+					</info>
+				</schema>
+			</xf:instance>
+
+			<xf:bind>
+			</xf:bind>
+		</xf:model>
+	</head>
+	<body>
+
+		<div style="font-size: 15px;"> Имя: </div>
+		<div>
+			<xf:input ref="/schema/info/name">
+				<xf:help>Справка</xf:help>
+				<xf:hint>Дополнительная информация</xf:hint>
+			</xf:input>
+
+
+			<xf:trigger>
+				<xf:label>Selector</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:showSelector({
+			           id : 'xformId',
+                       procCount : '[dbo].[companycount]',
+                       procList  : '[dbo].[companylist]',                       
+                       generalFilters      : '',
+                       currentValue        : '',
+                       windowCaption       : 'Выберите название',
+                       onSelectionComplete : function(ok, selected){
+					if (ok) {
+					var a = xforms.defaultModel.defaultInstance.doc.getElementsByTagName('info')[0].getElementsByTagName('name')[0];
+					setValue(a, selected.name);
+		 
+					xforms.ready = false;
+					xforms.refresh();
+					xforms.ready = true;
+							}
+								   }});;" />
+				</xf:action>
+			</xf:trigger>
+
+		</div>
+		<div style="font-size: 15px;"> Цвет глаз (1): </div>
+		<div>
+			<xf:select1 appearance="full" ref="/schema/info/eyescolour">
+				<xf:item>
+					<xf:label>Голубой</xf:label>
+					<xf:value>Голубой</xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label>Карий</xf:label>
+					<xf:value>Карий</xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label>Зеленый</xf:label>
+					<xf:value>Зеленый</xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label>Серый</xf:label>
+					<xf:value>Серый</xf:value>
+				</xf:item>
+			</xf:select1>
+		</div>
+		<div style="font-size: 15px;"> Цвет глаз (2): </div>
+		<div>
+			<xf:select1 ref="/schema/info/eyescolour">
+				<xf:item>
+					<xf:label>Голубой</xf:label>
+					<xf:value>Голубой</xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label>Карий</xf:label>
+					<xf:value>Карий</xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label>Зеленый</xf:label>
+					<xf:value>Зеленый</xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label>Серый</xf:label>
+					<xf:value>Серый</xf:value>
+				</xf:item>
+			</xf:select1>
+		</div>
+		<div style="font-size: 15px;"> Любимая музыка (1): </div>
+		<div>
+			<xf:select appearance="full" ref="/schema/info/music">
+				<xf:item>
+					<xf:label>Классическая</xf:label>
+					<xf:value>Классическая</xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label>Инструментальная</xf:label>
+					<xf:value>Инструментальная</xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label>Эстрадная</xf:label>
+					<xf:value>Эстрадная</xf:value>
+				</xf:item>
+			</xf:select>
+		</div>
+		<div style="font-size: 15px;"> Любимая музыка (2): </div>
+		<div>
+			<xf:select ref="/schema/info/music">
+				<xf:item>
+					<xf:label>Классическая</xf:label>
+					<xf:value>Классическая</xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label>Инструментальная</xf:label>
+					<xf:value>Инструментальная</xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label>Эстрадная</xf:label>
+					<xf:value>Эстрадная</xf:value>
+				</xf:item>
+			</xf:select>
+		</div>
+		<div style="font-size: 15px;"> Комментарии: </div>
+		<div>
+			<xf:textarea ref="/schema/info/comment" />
+		</div>
+		<div style="clear: both;">
+			<xf:output
+				ref="'Выбраны значения: регион ' + /schema/info/name                              +  ', цвет глаз:' + /schema/info/eyescolour                             + ',  музыкальные предпочения:' + /schema/info/music" />
+		</div>
+		<div>
+<h1>userdata.dir=${userdata.dir}</h1>
+<h1>images.in.grid.dir=${images.in.grid.dir}</h1>
+<h2>elementId=${elementId}</h2>
+<img src="${images.in.grid.dir}/header.jpg"/>
+
+
+		</div>
+
+
+	</body>
+</html>
+
+
+
+
+
+

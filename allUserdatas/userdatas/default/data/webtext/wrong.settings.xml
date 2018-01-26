@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+	<event name="single_click" linkId="1">
+		<action show_in="MODAL_WINDOW">
+			<main_context>current</main_context>
+			<datapanel type="current" tab="current">
+				<element id="card1">
+					<add_context>
+						<name></name>
+						<table>geo3</table>
+						<name_field>Name</name_field>
+					</add_context>
+				</element>					
+				<element id="CARD1" >				
+				</element>
+			</datapanel>
+		</action>
+	</event>
+</properties>

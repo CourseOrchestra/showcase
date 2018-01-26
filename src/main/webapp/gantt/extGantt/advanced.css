@@ -1,0 +1,79 @@
+.taskTip
+{
+	font-size:11px;
+}
+
+.taskTip td
+{
+	width:70px;
+}
+
+.parent .x-grid-cell-inner
+{
+	font-weight:bold;
+	padding-left:21px;
+	background: url(images/puzzle.png) no-repeat 1px 1px;
+}
+
+.task .x-grid-cell-inner
+{
+	padding-left:21px;
+	background: url(images/cog.png) no-repeat 1px 1px;
+}
+
+@-webkit-keyframes glow {
+	0% {
+		-webkit-box-shadow: 0 0 8px rgba(255, 0, 0, 1);
+	}
+	100% {
+		-webkit-box-shadow: 0;
+	}
+}
+
+.sch-gantt-critical-chain .x-grid-row-selected .sch-gantt-item,
+.sch-dependency-selected
+{
+	-webkit-animation-name: glow;
+    -webkit-animation-iteration-count : infinite;
+    -webkit-animation-duration: 0.8s;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: ease-in-out;	
+	-moz-box-shadow: 0 0 8px rgba(255, 0, 0, 1);
+}
+
+
+.togglebutton
+{
+	background: url(images/checkbox.gif) no-repeat 0 0 !important;
+}
+
+
+.x-btn-pressed .togglebutton
+{
+	background-position:0 -16px !important;
+}
+
+.action
+{
+	background: url(images/play.png) no-repeat 0 0 !important;
+}
+
+.sch-ganttpanel .x-table-layout-cell
+{
+	text-align:left;
+}
+
+.zoomfit
+{
+	background:url(images/zoom-fit.png) no-repeat left center !important;
+}
+
+.icon-collapseall
+{
+	background:url(images/up.png) no-repeat left center !important;
+}
+
+.icon-expandall
+{
+	background:url(images/down.png) no-repeat left center !important;
+}

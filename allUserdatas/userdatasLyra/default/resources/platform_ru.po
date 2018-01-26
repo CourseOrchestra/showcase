@@ -1,0 +1,249 @@
+#
+"Project-Id-Version: Showcase\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-26 15:54+0300\n"
+"PO-Revision-Date: 2016-07-26 17:04+0300\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"Last-Translator: Anna Shaynurova\n"
+"Language-Team: curs-it\n"
+
+msgid "Send12"
+msgstr "Тестовый текст на кнопке"
+
+msgid "Cancel"
+msgstr "Отменить"
+
+msgid "Starts with (Ctrl+B)"
+msgstr "Начинается с (Ctrl+B)"
+
+msgid "Not found"
+msgstr "Строка не найдена"
+
+msgid "when retrieving table data from server"
+msgstr "при получении данных таблицы с сервера"
+
+msgid "Export to Excel"
+msgstr "Экспорт в Excel"
+
+msgid "The table is empty. Export to Excel will not run."
+msgstr "Таблица пуста. Экспорт в Excel выполнен не будет."
+
+msgid "Show at most"
+msgstr "Показывать не более"
+
+msgid "Loading data"
+msgstr "Загрузка данных"
+
+msgid "Downloaded entry with ID"
+msgstr "Загружаемая запись с идентификатором"
+
+msgid "is already present in the grid. Entries will not be loaded."
+msgstr "уже присутствует в гриде. Записи загружены не будут."
+
+msgid "when retrieving data from the server XForm"
+msgstr "при получении данных XForm с сервера"
+
+msgid "when retrieving data from server to the main XForm"
+msgstr "при получении данных главной XForm с сервера"
+
+msgid "An error occurred during downloading files"
+msgstr "При загрузке файлов произошла ошибка"
+
+msgid "Error during serialization parameters for Http-request plug."
+msgstr "Ошибка при сериализации параметров для Http-запроса плагина."
+
+msgid "An error occurred while deserializing an object"
+msgstr "Ошибка при десериализации объекта"
+
+msgid "Loading..."
+msgstr "Загрузка..."
+
+msgid "No records"
+msgstr "Нет записей"
+
+msgid "Export to Excel descendants of the current record"
+msgstr "Экспорт в Excel потомков текущей записи"
+
+msgid "Export to Excel records 0-level"
+msgstr "Экспорт в Excel записей нулевого уровня"
+
+msgid "To perform a partial update, you must select a sorting grid"
+msgstr "Для выполнения частичного обновления, необходимо задать сортировку грида"
+
+msgid "list of values"
+msgstr "список значений"
+
+msgid "equal"
+msgstr "равно"
+
+msgid "does not equal"
+msgstr "не равно"
+
+msgid "is less than"
+msgstr "меньше чем"
+
+msgid "less than or equal"
+msgstr "меньше или равно"
+
+msgid "is greater than"
+msgstr "больше чем"
+
+msgid "greater than or equal"
+msgstr "больше или равно"
+
+msgid "contains"
+msgstr "содержит"
+
+msgid "starts with"
+msgstr "начинается с"
+
+msgid "ends with"
+msgstr "заканчивается на"
+
+msgid "does not contain"
+msgstr "не содержит"
+
+msgid "does not start with"
+msgstr "не начинается с"
+
+msgid "does not end with"
+msgstr "не оканчивается на"
+
+msgid "is empty"
+msgstr "пусто"
+
+msgid "Mapping"
+msgstr "Соответствие"
+
+msgid "Column"
+msgstr "Столбец"
+
+msgid "Condition"
+msgstr "Условие"
+
+msgid "Value"
+msgstr "Значение"
+
+msgid "Select values"
+msgstr "Выбрать значения"
+
+msgid "Update filter condition"
+msgstr "Обновить условие фильтра"
+
+msgid "Add"
+msgstr "Добавить"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Clear"
+msgstr "Очистить"
+
+msgid "Cancel"
+msgstr "Отменить"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Please wait...Data is loading"
+msgstr "Пожалуйста, подождите...Идет загрузка данных"
+
+msgid "Welcome"
+msgstr "Добро пожаловать"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Empty"
+msgstr "Пусто"
+
+msgid "when retrieving graph data from server"
+msgstr "при получении данных графика с сервера"
+
+msgid "when retrieving navigator data from server"
+msgstr "при получении данных навигатора с сервера"
+
+msgid "when retrieving map data from server"
+msgstr "при получении данных карты с сервера"
+
+msgid "when retrieving external plugin data from server"
+msgstr "при получении данных внешнего плагина с сервера"
+
+msgid "when retrieving text data from server"
+msgstr "при получении текстовых данных с сервера"
+
+msgid "when retrieving current application state data"
+msgstr "при получении данных о текущем состоянии приложения"
+
+msgid "when retrieving main application page"
+msgstr "при получении данных о главной странице приложения"
+
+msgid "Error when exporting to Excel"
+msgstr "Ошибка при экспорте в Excel"
+
+msgid "Error when downloading file"
+msgstr "Ошибка при скачивании файла"
+
+msgid "Map drawing error"
+msgstr "Ошибка при построении карты"
+
+msgid "External plugin constructing error"
+msgstr "Ошибка при построении внешнего плагина"
+
+msgid "Error when retrieving data for external plugin"
+msgstr "Ошибка при получение данных плагина"
+
+msgid "Graph construction error"
+msgstr "Ошибка при построении графика"
+
+msgid "Export current page to Excel"
+msgstr "Экспорт в Excel текущей страницы"
+
+msgid "Export entire table to Excel"
+msgstr "Экспорт в Excel всей таблицы"
+
+msgid "Copy to clipboard"
+msgstr "Копировать в буфер обмена"
+
+msgid "Filter"
+msgstr "Фильтр"
+
+msgid "Add Record"
+msgstr "Добавить запись"
+
+msgid "Save"
+msgstr "Сохранить изменения"
+
+msgid "Undo"
+msgstr "Отменить изменения"
+
+msgid "Export to Excel is running. It may take a few minutes. Click here to hide the message."
+msgstr "Начат экспорт в Excel. Это может занять несколько минут. Кликните сюда, чтобы скрыть сообщение"
+
+msgid "File downloading"
+msgstr "Загрузка файла"
+
+msgid "Error when XForms data saving on server"
+msgstr "Ошибка при сохранении данных XForms на сервере"
+
+msgid "File downloading error"
+msgstr "Ошибка при скачивании файла"
+
+msgid "PNG file downloading error"
+msgstr "Ошибка при PNG скачивании файла"
+
+msgid "File uploading error"
+msgstr "Ошибка при загрузке файла(ов) на сервер"
+
+msgid "Converting navigator width error"
+msgstr "Ошибка конвертации ширины навигатора"
+
+msgid "Error when converting height of the header or footer"
+msgstr "Ошибка преобразования значения высоты верхнего или нижнего колонтитула"
+
+msgid "when execution of server action"
+msgstr "при выполнении действия на сервере"

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance">
+				<schema xmlns="">
+					<info>
+						<name />
+						<growth />
+						<eyescolour />
+						<music />
+						<comment />
+					</info>
+				</schema>
+			</xf:instance>
+			<xf:bind>
+			</xf:bind>
+		</xf:model>
+	</head>
+	<body>
+		<h1>Скачать файл</h1>
+		<div>Загрузка файла с навигатором с сервера </div>
+		<xf:trigger>
+			<xf:label>Скачать файл</xf:label>
+			<xf:action ev:event="DOMActivate">
+				<xf:load
+					resource="javascript:gwtXFormDownload('xformId', 'xformId_050101',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))" />
+			</xf:action>
+		</xf:trigger>	
+		
+		<hr/>
+		
+		<h1>Загрузить файл</h1>
+		<xf:upload id="xformId_050102"  submit="true" />
+		<div>
+			<xf:trigger>
+				<xf:label>Запустить закачку на сервер (через gwtXFormSave)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId', 'xformId_050102', Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+

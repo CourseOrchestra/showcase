@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="action.xsd"/>
+
+    <xs:element name="properties">
+        <xs:complexType>
+            <xs:sequence>
+				<xs:element ref="readonly" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="styleClass" minOccurs="0" maxOccurs="unbounded"/>            
+                <xs:element ref="event" minOccurs="0" maxOccurs="unbounded"/>                
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="readonly">
+        <xs:complexType>
+            <xs:attribute name="value" type="xs:boolean" use="required"/>
+            <xs:attribute name="column" type="notNullType"/>            
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="styleClass">
+        <xs:complexType>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="event">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:restriction base="xs:anyType">
+                    <xs:sequence>
+                        <xs:element ref="action" minOccurs="1" maxOccurs="1"/>
+                    </xs:sequence>
+                    <xs:attribute name="name" type="eventType" use="required"/>
+                    <xs:attribute name="column" type="notNullType"/>
+                    <xs:assert test="((@name='cell_double_click' or @name='cell_single_click') and count(@column)=1) or not(@name='cell_double_click' or @name='cell_single_click')"/>
+                </xs:restriction>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="eventType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="row_single_click"/>
+            <xs:enumeration value="cell_single_click"/>
+            <xs:enumeration value="row_double_click"/>
+            <xs:enumeration value="cell_double_click"/>
+            <xs:enumeration value="row_selection"/>
+            <xs:enumeration value="row_save_data"/>
+            <xs:enumeration value="row_add_record"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

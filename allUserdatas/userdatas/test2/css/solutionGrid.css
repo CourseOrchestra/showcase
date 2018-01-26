@@ -1,0 +1,259 @@
+/*
+    Custom styles.
+*/
+
+.webmain-DataGrid {
+    border: 1px solid white;  
+/*    border: 3px solid black;    */
+    
+    /*width: 800px;*/
+    /*width: 95%;*/
+    overflow: hidden !important;
+}
+
+.webmain-DataGrid .selectedRow td {
+    background-color: #87cefa;
+    border-color: #87cefa;
+}
+
+.webmain-DataGrid .selectedRowOnClick td {
+    background-color: #ffa07a;
+    border-color: #ffa07a;
+}
+
+.webmain-DataGrid .headerRow {
+    background-color: silver;
+}
+
+.webmain-DataGrid .headerCheck {
+    vertical-align: middle;
+    padding: 3px;
+}
+.webmain-DataGrid .headerCell {
+    padding: 3px 19px 3px 3px; /* 21px for sorting img */
+    vertical-align: middle;
+    text-align: center;
+    background: #DDD;
+}
+.webmain-SmartGrid .headerGap {
+    width: 3px; /* это значение считывается при старте Showcase */
+    min-width: 0px; /* обязательно */
+    background-color: #8AF;
+}
+
+.webmain-DataGrid .dataRow0 {
+    background-color: #f0f8ff;
+}
+.webmain-DataGrid .dataRow1 {
+    background-color: #fffacd;
+}
+
+.webmain-DataGrid .dataCheck {
+    vertical-align: top;
+    padding: 3px;
+}
+.webmain-DataGrid .dataCell {
+    padding: 2px;
+    border-left: 1px solid white;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    border-right: 0 none;
+    vertical-align: top;
+}
+.webmain-DataGrid .dataGap {
+    border-right: 1px solid white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-left: 0 none;
+    text-decoration: none;
+}
+
+.webmain-DataGrid .selectedCell {
+    border-left: 1px solid #4897c7 !important;
+    border-top: 1px solid #4897c7 !important;
+    border-bottom: 1px solid #4897c7 !important;
+    border-right: 0 none;
+
+    background-color: #ffa07a !important;
+}
+.webmain-DataGrid .selectedCell td {
+    background-color: #ffa07a !important;
+}
+.webmain-DataGrid .selectedGap {
+    border-right: 1px solid #4897c7 !important;
+    border-top: 1px solid #4897c7 !important;
+    border-bottom: 1px solid #4897c7 !important;
+    border-left: 0 none;
+    
+    background-color: #c8e7fa !important;
+}
+
+.webmain-DataGrid .sortingAsc {
+    background-repeat: no-repeat;
+    background-position: right;
+    background-image: url("../../../resources/internal/tablesorter-asc.gif");
+
+}
+.webmain-DataGrid .sortingDesc {
+    background-repeat: no-repeat;
+    background-position: right;
+    background-image: url("../../../resources/internal/tablesorter-desc.gif");
+
+}
+
+/*
+    DataGridPager styles
+*/
+
+.webmain-DataGridPager {
+    /*border: 1px solid silver;*/
+    padding-right: 30px;
+}
+
+.webmain-DataGridPager-NavigationPanel {
+    padding-left: 20px;
+}
+.webmain-DataGridPager-NavigationPanel td {
+    width: 24px;
+    text-align: center;
+}
+.webmain-DataGridPager-NavigationPanel a {
+    text-decoration: none;
+    cursor: pointer;
+}
+.webmain-DataGridPager-NavigationPanel a.currentPage {
+    font-weight: bold;
+    cursor: default;
+    color: black;
+    background-color: silver;
+}
+.webmain-DataGridPager-NavigationPanel a.disabled {
+    color: silver;
+    cursor: default;
+}
+
+.webmain-DataGridPager-PageSizePanel {
+    padding-left: 20px;
+}
+
+.webmain-DataGridPager-PageSizePanel .gwt-TextBox {
+    margin-left: 4px;
+    width: 30px;
+}
+
+.webmain-DataGrid-ToolPanel {
+    border-bottom: 1px solid white;
+    max-width: 1000px;
+}
+
+.webmain-DataGrid-ColumnsPanel {
+    padding: 10px;
+}
+.webmain-DataGrid-ColumnsPanel-ColumnsList {
+    border: 1px solid silver;
+    background-color: white;
+    width: 200px;
+    height: 300px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+.webmain-DataGrid-ColumnsPanel-ColumnsList .columnListItem .gwt-Label {
+    cursor: default;
+} 
+.webmain-DataGrid-ColumnsPanel-ColumnsList .columnListItem-selected {
+    background-color: #4897c7; 
+}
+.webmain-DataGrid-ColumnsPanel-ColumnsList .columnListItem-indent {
+    padding-left: 15px;
+}
+.webmain-DataGrid-ColumnsPanel-Actions {
+    border-spacing: 0 5px;
+    /*border-collapse: collapse;*/
+}
+.webmain-DataGrid-ColumnsPanel-Buttons {
+    border-spacing: 10px 0;
+    /*border-collapse: collapse;*/
+}
+
+
+.webmain-DataGrid-ColumnGroupsPanel {
+    padding: 10px;
+}
+.webmain-DataGrid-ColumnGroupsPanel-Buttons
+{
+    border-spacing: 10px 0;
+    padding-top: 13px;
+}
+
+.webmain-DataGrid-ColumnGroupPanelButton {
+    width: 80px;
+    margin-top: 8px !important;
+}
+
+.webmain-DataGrid-ColumnGroupItemList .gwtQuery-draggable {
+    padding: 1px;
+    display: inline-block;
+}
+.webmain-DataGrid-ColumnGroupItemList .gwtQuery-draggable-dragging {
+    background-color: silver;
+    border: 1px solid gray;
+    cursor: move;
+    padding: 0;
+    opacity: 0.5;
+}
+.webmain-DataGrid-ColumnGroupItemList .acceptDraggable {
+    background-color: #adff2f;
+}
+
+/*.webmain-DataGrid-SmartGridWrapper {*/
+    /*width: 900px;*/
+/*}*/
+
+/*
+ this isi not working
+*/
+.webmain-DataGrid-ScrollableBody {
+    height: 150px;
+    width: 100%;
+}
+.webmain-DataGrid-ScrollableBody tr td:last-child {
+    padding-left: 10px;
+}
+
+.headerCheckGap {
+    width: 5px;
+    min-width: 5px;
+    max-width: 5px;
+}
+.dataCheck {
+    width: 26px;
+    min-width: 26px;
+    max-width: 26px;
+}
+
+/*
+    test min column width
+*/
+
+/*.webmain-DataGrid .headerCell {*/
+    /*min-width: 50px !important;*/
+/*}*/
+    /*overflow-x: hidden;*/
+    /*white-space: nowrap !important;*/
+    /*white-space: pre !important;*/
+/*}*/
+
+/*.webmain-DataGrid .singleline td {*/
+	/*white-space: normal !important;*/
+/*}*/
+
+.webmain-SmartGrid {
+    table-layout: fixed;
+    empty-cells: show;
+}
+
+
+/*.webmain-DataGrid .columnGap {*/
+    /*width: 5px !important;*/
+/*}*/
+

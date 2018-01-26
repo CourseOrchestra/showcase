@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="action.xsd"/>
+
+    <xs:element name="properties">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="color" minOccurs="0"/>
+                <xs:element ref="event" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="color">
+        <xs:complexType>
+            <xs:attribute name="value" type="colorType" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="event">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:restriction base="xs:anyType">
+            <xs:sequence>
+                <xs:element ref="action"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="eventType" use="required"/>
+            <xs:attribute name="x" type="xs:unsignedByte"/>
+                    <xs:assert test="((@name='value_single_click') and count(@x)=1) or not(@name='value_single_click')"/>
+                </xs:restriction>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="eventType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="value_single_click"/>
+            <xs:enumeration value="series_single_click"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

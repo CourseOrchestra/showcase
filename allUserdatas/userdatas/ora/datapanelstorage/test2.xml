@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>  
+    <tab id="1" name="Паспорт">
+        <element id="1" type="webtext" proc="webtext_pas" transform="pas.xsl" />
+		<element id="2" type="webtext" proc="webtext_pas" />
+		<element id="3" type="webtext" proc="webtext_pas_with_events" />
+		<element id="4" type="webtext" proc="webtext_pas" />
+    </tab>
+    <tab id="2" name="Балансы ресурсов"> 
+        <element id="22" type="chart" proc="chart_pas"/>
+        <element id="23" type="chart" proc="chart_pas"/>
+        <element id="24" type="chart" proc="chart_pas"/>
+        <element id="25" type="chart" proc="chart_pas"/>
+        <element id="26" type="chart" proc="chart_pas"/>
+        <element id="27" type="chart" proc="chart_pas"/>
+        <element id="28" type="chart" proc="chart_pas"/>
+        <element id="29" type="chart" proc="chart_pas"/>
+        <element id="210" type="chart" proc="chart_pas_fliped"/>
+    </tab>  
+    <tab id="3" name="Плохие элементы">
+        <element id="31" type="chart" proc="chart_pas_phantom"/>        
+        <element id="32" type="chart" proc="chart_pas_no_res"/>
+        <element id="33" type="chart" proc="chart_pas_wrong_param"/>  
+    </tab>      
+</datapanel>

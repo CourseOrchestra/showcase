@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+  <head>
+    <xf:model id="xformId_mainModel">
+      <xf:instance id="xformId_mainInstance" xmlns="">
+        <schema>
+          <users> </users>
+        </schema>
+      </xf:instance>
+      <!--<xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/users/user/@username" readonly="true()"/>
+      </xf:bind>-->
+    </xf:model>
+  </head>
+  <body>
+    <!--<xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>-->
+    <xf:group ref="instance('xformId_mainInstance')/users[count(./user)!=0]">
+      <div style="float: left, clear: both, width: 350px">К данному сотруднику привязан следующий
+        пользователь:</div>
+      <div class="ScrollPanel1" style="width: 370px; padding: 2px; float: left;">
+        <xf:repeat id="id_tables" nodeset="instance('xformId_mainInstance')/users/user">
+          <div style="width: 250px; padding: 0px; float: left;">
+            <xf:input class="baseInput" ref="@username"></xf:input>
+          </div>
+        </xf:repeat>
+      </div>
+    </xf:group>    
+    <xf:group ref="instance('xformId_mainInstance')/users[count(./user)=0]">
+      <div style="float: left, clear: both, width: 350px">К данному сотруднику не привязано
+        пользователей</div>
+    </xf:group>
+    <div class="dirusing newbutton" style="float: left">
+      <xf:trigger class="blue">
+        <xf:label>Закрыть</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"></xf:load>
+        </xf:action>
+      </xf:trigger>
+    </div>
+  </body>
+</html>

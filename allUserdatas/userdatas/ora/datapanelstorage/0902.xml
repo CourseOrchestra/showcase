@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>	
+	<tab id="04" name="2 процедуры для грида">
+		<element id ="0401" type="grid" proc="grid_cities_data">
+			<proc id="040101" name="grid_cities_metadata" type="METADATA"/>
+		</element>
+		<element id="0402" type="grid" proc="grid_cities_one"/>
+	</tab>
+	<tab id="05" name="2 процедуры - код возврата">
+		<element id ="0501" type="grid" proc="grid_cities_data_ec">
+			<proc id="050101" name="grid_cities_metadata_ec" type="METADATA"/>
+		</element>
+		<element id ="0502" type="grid" proc="grid_cities_data_ec">
+			<proc id="050301" name="grid_cities_metadata" type="METADATA"/>
+		</element>		
+		<element id="0503" type="grid" proc="grid_cities_one_ec"/>
+	</tab>	
+	<tab id="01" name="вызов JS из действия">
+		<element id ="0101" type="grid" proc="grid_cities_data_js">
+			<proc id="010101" name="grid_cities_metadata" type="METADATA"/>
+		</element>	
+	</tab>	
+	<tab id="02" name="autosize для карты">
+		<element id="0201" type="geomap" proc="geomap_func2_autosize"/>
+	</tab>
+	<tab id="03" name="Переменные в HTML">
+		<element id="0301" type="webtext" proc="webtext_variables" />
+		<element id="0302" type="xforms" proc="xforms_variables" template="Showcase_Template_Variables.xml"/>
+		<element id="0303" type="grid" proc="grid_variables"/>
+		<element id="d1" type="chart" proc="chart_variables" hideOnLoad="true"/>			
+		<element id="0304" type="geomap" proc="geomap_variables"/>	
+	</tab>				
+</datapanel>

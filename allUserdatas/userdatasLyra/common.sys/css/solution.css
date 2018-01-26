@@ -1,0 +1,589 @@
+@CHARSET "UTF-8";
+
+@import "security.css";
+@import "udStyle.css";
+@import "filter_styles.css";
+
+/*Общие стили*/
+body, table td, select {
+    font-family: sans-serif;
+    font-size: small;
+}
+.dataRow td {
+    font-family: sans-serif;
+    font-size: x-small;
+}
+.headerRow td {
+    font-family: sans-serif;
+    font-size: x-small;
+}
+div {
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+}
+
+.break{
+	clear: both;
+}
+
+.dataPanelElement-BorderCorners {
+    border-color: #477DB3;
+    border-style: hidden hidden dashed;
+    border-width: medium medium 0px;
+    padding: 8px;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab-selected {
+    background: none repeat scroll 0 0 #477DB3;
+    color: white;
+    cursor: default;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelContent {
+    border-color: #477DB3;
+    border-style: solid;
+    border-width: 3px 0 0;
+    overflow: hidden;
+    padding: 6px;
+}
+.gwt-TabLayoutPanelContentContainer
+{
+    border-width: 0;
+}
+td.Tab,
+td.Current {
+    height: 20px;
+}
+td.Tab {
+    background-color: #C2DAF2;
+}
+td.Hide {
+    display:
+    none;
+}
+button.TabButton {
+    border:
+    0px;
+    background-color:
+    transparent;
+    width:
+    100%;
+    height: 100%;
+    font-weight: bold;
+    font-size: x-small;
+}
+div.Hide {
+    display:
+    none;
+}
+div.Show {
+    display:
+    inline;
+}
+.identedElements {
+    margin-left: 30px;
+}
+
+div.group {
+    padding: 0px 8px 8px 8px;
+    margin: 0px 2px 2px 2px;
+    border: 1px solid #959DA6;
+    width: 800px;
+    float: left;
+}
+div.cell {
+    margin: 0px 0px 0px 2px;
+    padding: 2px;
+    min-height: 25px;
+    border-bottom: 1px dashed grey;
+}
+div.cellbutton {
+    margin: 0px 0px 0px 2px;
+    padding: 2px;
+    min-height: 25px;
+    border-bottom: 1px dashed grey;
+}
+div.cellHeader {
+    margin: 0px 0px 0px 2px;
+    padding: 2px;
+    min-height: 14px;
+    border-bottom: 1px dashed grey;
+    background-color: #5A8BC3;
+    color: white;
+    font-size: x-small;
+    font-weight: bold;
+    text-align: center;
+}
+
+a[href], 
+input[type='submit'], 
+input[type='image'], 
+label[for], 
+select, 
+button {
+	cursor: pointer;
+}
+
+.xforms-input .xforms-value, .xforms-textarea .xforms-value, .xforms-select1 .xforms-value{
+    background-image: url("../../../solutions/default/resources/style/edit_bcg_210.jpg");
+    background-position: center bottom;
+    background-repeat: repeat;
+    border: 1px solid #B8C2CC;
+	background-color: inherit;
+}
+
+.xforms-input input:hover, .xforms-textarea textarea:hover, .xforms-select1 select:hover{
+    border: 1px solid #959DA6;
+}
+
+.xforms-input.xforms-invalid .xforms-value, .xforms-textarea.xforms-invalid .xforms-value, .xforms-select1.xforms-invalid .xforms-value{
+    background-image: url("../../../solutions/default/resources/style/edit_err_bcg_210.jpg");
+    background-position: center bottom;
+    background-repeat: repeat;
+    border: 1px solid #CCB8B8;
+	background-color: inherit;
+}
+
+.xforms-input.xforms-invalid input:hover, .xforms-textarea.xforms-invalid textarea:hover, .xforms-select1.xforms-invalid select:hover{
+    border: 1px solid #A69595;
+}
+
+.xforms-input.xforms-readonly .xforms-value, .xforms-textarea.xforms-readonly .xforms-value, .xforms-select1.xforms-readonly .xforms-value{
+    background-image: url("../../../solutions/default/resources/style/edit_ro_bcg_210.jpg");
+    background-position: center bottom;
+    background-repeat: repeat;
+    border: 1px solid #B8C2CC;
+}
+
+
+select.xforms-value{
+	height:20px;
+}
+
+/*Стили для label*/
+.xforms-label .xforms-value {
+    background-color: #FFFFFF;
+    border-width: 0px 0px 0px 0px;
+    border-style: solid;
+    border-color: #FFFFFF;
+    width: 100%;
+}
+.xforms-label {
+    display: block;
+    font-size: x-small;
+    width: 100%;
+    padding: 0px;
+    font-weight: bold;
+    margin: 4px 2px 4px 2px;
+    white-space: nowrap;
+}
+.xforms-trigger .xforms-label,
+.aid-button  {
+	font-size: small;
+    margin: 0px;
+    font-weight: normal;
+	height:16px;
+}
+
+/*Стили для биндов*/
+.xforms-required label:after{ 
+    content: "*";
+    color: red;
+    font-weight: bold;
+}
+.xforms-invalid
+.xforms-value{
+    background-color:#F6CECE !important;  
+            }
+.xforms-required
+.xforms-required-icon
+{ 
+    display:none !important;
+}
+.xforms-invalid 
+.xforms-alert{
+    display:none !important;
+}
+
+
+/*Стили для input и textarea*/
+.baseInput200{
+    width: 200px;
+}
+.baseInput400{
+    width: 400px;
+}
+.baseInput600{
+    width: 600px;
+}
+.baseInput800{
+    width: 800px;
+}
+.baseInput200,
+.baseInput400, 
+.baseInput600, 
+.baseInput800  {
+	margin: 2px 0px 2px 0px;
+	float: left;
+}
+.baseInput200 .xforms-value,
+.baseInput400 .xforms-value,
+.baseInput600 .xforms-value,
+.baseInput800 .xforms-value{
+    width: calc(100% - 4px);
+    padding: 2px 0px 2px 0px;
+    margin: 2px 0px 0px 0px;
+    min-height: 16px;
+	display: inline-block;
+}
+.baseInput200 select,
+.baseInput400 select,
+.baseInput600 select,
+.baseInput800 select {
+	height: 22px;
+}
+.baseInput200 .xforms-output .xforms-value,
+.baseInput400 .xforms-output .xforms-value,
+.baseInput600 .xforms-output .xforms-value,
+.baseInput800 .xforms-output .xforms-value {
+	height: 18px;
+}
+.baseInput200 input[type=checkbox],
+.baseInput400 input[type=checkbox],
+.baseInput600 input[type=checkbox],
+.baseInput800 input[type=checkbox],
+.boolInput200 input[type=checkbox],
+.boolInput400 input[type=checkbox],
+.boolInput600 input[type=checkbox],
+.boolInput800 input[type=checkbox]
+{
+	height: 15px;
+}
+
+.boolInput200{
+    width: 200px;
+}
+.boolInput400{
+    width: 400px;
+}
+.boolInput600{
+    width: 600px;
+}
+.boolInput800{
+    width: 800px;
+}
+.boolInput200,
+.boolInput400, 
+.boolInput600, 
+.boolInput800  {
+	margin: 2px 0px 2px 0px;
+	float: left;
+}
+.boolInput200 .value,
+.boolInput400 .value,
+.boolInput600 .value,
+.boolInput800 .value {
+    width: calc(100% - 4px);
+    padding: 2px 0px 0px 0px;
+    margin: 2px 0px 0px 0px;
+    min-height: 16px;
+	display: inline-block;
+	float: left;
+}
+
+.boolInput200 .xforms-label,
+.boolInput400 .xforms-label,
+.boolInput600 .xforms-label,
+.boolInput800 .xforms-label{
+	display: inline;
+	float: left;
+	position: relative;
+	margin: 0px 0px 0px 22px;
+	top: 22px;
+	font-family: sans-serif;
+	font-size: small;
+	font-weight: bold;
+	width: calc(100% - 22px);
+}
+
+
+.textareaHeight20 textarea
+{
+	height: 16px;
+	max-width: calc(100% - 2px);
+	min-width: calc(100% - 2px);
+}
+
+.textareaHeight60 textarea
+{
+	height: 57px;
+	max-width: calc(100% - 2px);
+	min-width: calc(100% - 2px);
+}
+
+.textareaHeight100 textarea
+{
+	height: 98px;
+	max-width: calc(100% - 2px);
+	min-width: calc(100% - 2px);
+}
+
+.textareaHeight140 textarea
+{
+	height: 139px;
+	max-width: calc(100% - 2px);
+	min-width: calc(100% - 2px);
+}
+
+/*Стили для selectors*/
+.selectorShort200,.selectorLong200{
+    width: 200px;
+}
+.selectorShort400,.selectorLong400{
+    width: 400px;
+}
+.selectorShort600,.selectorLong600{
+    width: 600px;
+}
+.selectorShort800,.selectorLong800{
+    width: 800px;
+}
+.selectorShort200,.selectorLong200,
+.selectorShort400,.selectorLong400, 
+.selectorShort600,.selectorLong600, 
+.selectorShort800,.selectorLong800  {
+	margin: 2px 0px 2px 0px;
+	float: left;
+}
+.selectorShort200 .xforms-value,
+.selectorShort400 .xforms-value,
+.selectorShort600 .xforms-value,
+.selectorShort800 .xforms-value{
+	width:calc(100% - 30px - 4px) !important;
+	padding:2px 0px 2px 0px;
+	background-color:#E5F2FF;
+	margin:2px 0px 0px 0px;
+	min-height:16px;
+	display: inline-block;
+ } 
+.selectorLong200 .xforms-value,
+.selectorLong400 .xforms-value,
+.selectorLong600 .xforms-value,
+.selectorLong800 .xforms-value{
+	width:calc(100% - 60px - 4px) !important;
+	padding:2px 0px 2px 0px;
+	background-color:#E5F2FF;
+	margin:2px 0px 0px 0px;
+	min-height:16px;
+	display: inline-block;
+}		
+.selectorLong200 button,
+.selectorLong400 button,
+.selectorLong600 button,
+.selectorLong800 button,
+.selectorShort200 button,
+.selectorShort400 button,
+.selectorShort600 button,
+.selectorShort800 button{
+	width:28px !important;
+	margin:0px 0px 0px 2px;
+	padding: 0px 6px 0px 6px;
+	height:20px;
+	font-size: small;
+}				
+
+/*Стили для date*/
+.dateInput{
+    width: 200px;
+	margin: 2px 0px 2px 0px;
+	float: left;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.dateInput
+.xforms-value{
+	width:calc(100% - 30px - 4px) !important;
+	padding:2px 0px 2px 0px;
+	background-color:#E5F2FF;
+	margin:2px 0px 0px 0px;
+	min-height:22px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.dateInput button{
+	width:28px !important;
+	margin:0px 0px 0px 2px;
+	padding: 0px 6px 0px 6px;
+	min-height:20px;	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+}	
+
+	
+
+/*Стили для кнопок*/
+span button {
+display:inline-block;
+height:22px;
+border:1px solid #333;
+outline:0;			   
+padding-left:5px;
+padding-right:5px;
+font:13px Helvetica,Arial,sans-serif;
+text-align:center;
+cursor:pointer;
+-moz-border-radius:5px;
+border-radius:5px;
+-moz-box-shadow:inset 1px 1px 1px rgba(255,255,255,0.2),0 0 1px rgba(255,255,255,0.5);
+-webkit-box-shadow:inset 1px 1px 1px rgba(255,255,255,0.2),0 0 1px rgba(255,255,255,0.5);
+box-shadow:inset 1px 1px 1px rgba(255,255,255,0.2),0 0 4px rgba(255,255,255,0.5);
+-moz-background-clip:padding;
+-webkit-background-clip:padding-box;
+background-clip:padding-box;
+border-color:#003b80;
+background-color:#004ca3;
+background-image:url(images/gradient.png);
+background-image:-webkit-linear-gradient(top,#61AAF2,#477DB3);
+background-image:-moz-linear-gradient(top,#61AAF2,#477DB3);
+background-image:-ms-linear-gradient(top,#61AAF2,#477DB3);
+background-image:-o-linear-gradient(top,#61AAF2,#477DB3);
+background-image:linear-gradient(top,#61AAF2,#477DB3);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#61AAF2',EndColorStr='#477DB3');
+color:#FFF;
+font-weight:bold;
+text-shadow:0 1px 1px rgba(0,0,0,0.6);
+}
+
+
+ span button:hover, span button:focus {
+background-color:#61AAF2;
+background-image:-webkit-linear-gradient(top,#61AAF2,#2E5073);
+background-image:-moz-linear-gradient(top,#61AAF2,#2E5073);
+background-image:-ms-linear-gradient(top,#61AAF2,#2E5073);
+background-image:-o-linear-gradient(top,#61AAF2,#2E5073);
+background-image:linear-gradient(top,#61AAF2,#2E5073);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#61AAF2',EndColorStr='#2E5073');
+}
+
+.button30
+{
+float:left;
+width:30px;
+margin-top:23px;
+}
+.button100
+{
+float:left;
+width:100px;
+margin-top:23px;
+}
+.button200
+{
+float:left;
+width:200px;
+margin-top:23px;
+}
+
+.button30 button,
+.button100 button,
+.button200 button
+{
+	width:calc(100% - 2px)!important;
+	margin:0px 0px 0px 2px;
+	padding: 0px 6px 0px 6px;
+	height:20px;
+	font-size: small;
+	}
+
+.disabled span  button{
+border-color:#CCC;
+background:#e0e0e0;
+color:#CCC;
+cursor:default;
+-moz-box-shadow:none;
+-webkit-box-shadow:none;
+box-shadow:none;
+opacity:.7;
+-ms-filter:"alpha(opacity=70)";
+filter:alpha(opacity=70);
+font-color: #000;
+}
+.disabled span  button:hover,.disabled span  button:active,.disabled span  button:focus {
+top:0;
+background:#e0e0e0;
+-moz-box-shadow:none;
+-webkit-box-shadow:none;
+box-shadow:none
+}
+.disabled span .xforms-label {
+display: block;
+font-size: 	small;
+width: 100%;		
+color: #aaa;
+}	
+	
+input[type="checkbox"] {
+margin: 5px 3px 4px 4px;
+}
+
+.filterButton{
+	margin: 2px 0px 2px 0px;
+	float: left;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.filterButton .xforms-value{
+	padding:2px 0px 2px 0px;
+	margin:2px 0px 0px 0px;
+	font-weight: bold;
+	min-height:22px;
+	background-color: transparent;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}	
+
+ .xforms-select1.xforms-appearance-full .xforms-value{
+	background-image: none;
+	border: none;
+}
+
+.baseOutput .xforms-value{
+	width: calc(100% - 4px);
+	padding:2px 0px 2px 0px;
+	margin:2px 0px 0px 0px;
+	min-height:22px;
+	background-color: transparent;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: none;
+	display: inline-block;
+}
+.baseOutput{
+    margin: 2px 0px 2px 0px;
+	float: left;
+}
+
+
+
+.baseOutput .xforms-output .xforms-value {
+	height: 18px;
+}
+
+.baseOutput input[type=checkbox]
+{
+	height: 15px;
+}
+
+#xforms-dialog-surround {
+    background-color: #AAA !important;
+    height: 100% !important;
+    width: 100% !important;
+}

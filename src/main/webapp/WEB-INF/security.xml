@@ -1,0 +1,112 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+  xmlns:beans="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http pattern="/login.jsp*" security="none"/>
+	<http pattern="/sestimeout.jsp*" security="none"/>
+	<http pattern="/js/dojo/dojo.js" security="none"/>
+	<http pattern="/js/dojo/_firebug/firebug.js" security="none"/>
+	<http pattern="/js/dojo/selector/acme.js" security="none"/>
+	<http pattern="/js/course/geo/ge/resources/icons/*" security="none"/>
+	<http pattern="/getImage*" security="none"/>
+	<http pattern="/solutions/default/resources/favicon.ico*" security="none"/>
+	<http pattern="/favicon.ico*" security="none"/>
+	<http pattern="/auth/isAuthenticatedServlet*" security="none"/>
+	<http pattern="/resources/**" security="none"/>
+	<http pattern="/forall/*" security="none"/>
+	<http pattern="/auth/logoutServlet**" security="none"/>
+	<http pattern="/sessionTimeoutCheckForClientJS**" security="none"/>
+	<http pattern="/api/**" security="none"/>
+	
+	<http auto-config="true" use-expressions="true">
+	
+	    <custom-filter ref="esiaFilter" before="CAS_FILTER" />
+
+<!--	
+-->
+ 		<custom-filter ref="oauth2Filter" position="CAS_FILTER" /> 
+		<custom-filter ref="requestHeaderFilter" before="FORM_LOGIN_FILTER"/>
+		<custom-filter ref="spnegoFilter" before="BASIC_AUTH_FILTER"/>
+		<custom-filter ref="rememberMeFilter" before="REMEMBER_ME_FILTER"/>		
+	
+	    <intercept-url pattern="/log/*" access="hasRole('ROLE_ADMIN')"  />
+	    <intercept-url pattern="/control/*" access="hasRole('ROLE_ADMIN')" />    
+	
+		<session-management session-authentication-strategy-ref="sas"/>
+		<session-management session-fixation-protection="none"/>	
+		
+		<intercept-url pattern="/**" access="#{@customAccessProvider.returnStringMethod}" />
+		
+	    <form-login login-page="/login.jsp" 
+	                authentication-failure-url="/login.jsp?error=true" 
+	                authentication-success-handler-ref="customAuthenticationSuccessHandler" /> 
+	    <logout logout-url="/logout" invalidate-session="true" 
+	    		logout-success-url="/login.jsp?exited=true" />
+	    <remember-me key="remembermekeysecurity" services-ref="ipTokenBasedRememberMeServicesBean"/>
+	    <anonymous username="guest" granted-authority="ROLE_GUEST" />
+	</http>
+
+<beans:bean class="ru.curs.showcase.security.IPTokenBasedRememberMeServices" 
+	id="ipTokenBasedRememberMeServicesBean">
+<beans:property name="key" value="remembermekeysecurity" />
+<beans:property name="userDetailsService" ref="userService"/>
+ <beans:property name="cookieName" value="remembermecookie" />
+  <beans:property name="tokenValiditySeconds" value="1209600" />
+</beans:bean>
+
+<beans:bean id="userService" class="ru.curs.showcase.security.ShowcaseUserDetailsService"/>
+
+<beans:bean id="rememberMeFilter"
+		class="org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter">
+	<beans:property name="rememberMeServices" ref="ipTokenBasedRememberMeServicesBean" />
+	<beans:property name="authenticationManager" ref="authenticationManager" />
+</beans:bean>
+	
+	<beans:bean id="customAccessProvider"
+    class="ru.curs.showcase.security.CustomAccessProvider" />
+
+<beans:bean id="customAuthenticationSuccessHandler" class="ru.curs.showcase.security.ShowcaseAuthenticationSuccessHandler">
+<beans:property name="defaultTargetUrl" value="/index.jsp" />
+</beans:bean>
+
+	<!--Установка стратегии аутентикации, при которой не изменяется sessionId в процессе работы сессии-->
+ 	<beans:bean id="sas" class="org.springframework.security.web.authentication.session.NullAuthenticatedSessionStrategy" />
+   
+ 	<authentication-manager alias="authenticationManager">
+ 	
+ 	
+ 	    <!--Провайдер, реализующий аутентификацию через ESIA-->    
+	    <authentication-provider ref="esiaAuthenticationProvider"/>	
+ 
+	    <!--Провайдер, реализующий аутентификацию через файл, в котором хранятся пользователи и пароли-->
+		<authentication-provider>
+	       <password-encoder hash="md5" />	  	
+	       <user-service properties="/WEB-INF/user.properties" />	       
+		</authentication-provider>
+	
+	    <!--Провайдер, реализующий аутентификацию через AuthServer-->    
+	    <authentication-provider ref="signedRequestAuthenticationProvider"/>	
+	
+		<!--Провайдер, реализующий oauth2 аутентификацию-->    
+	    <authentication-provider ref="oauth2AuthenticationProvider"/>
+	    
+	<!-- коннект к базе sql где хранятся данные-->
+	<!--	<authentication-provider>-->
+	<!---->
+	<!--    <password-encoder hash="md5" />	-->
+	<!--	<jdbc-user-service data-source-ref="dataSource"-->
+	<!--		users-by-username-query=-->
+	<!--			"SELECT username, password, 'true' as enabled FROM Member WHERE username = ?"-->
+	<!--		authorities-by-username-query=-->
+	<!--			"SELECT member.username, member_role.role as authorities FROM member, member_role -->
+	<!--			WHERE member.username = ? AND member.id = member_role.member_id" />		-->
+	<!--		-->
+	<!--	</authentication-provider>-->
+
+ 	</authentication-manager>
+		
+</beans:beans>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns=""/>
+			</xf:instance>
+
+			<xf:instance id="xformId_addInstance">
+				<schema xmlns="">				
+					<question id="" name=""/>
+				</schema>
+			</xf:instance>
+		</xf:model>
+	</head>
+
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/> -->
+		<div class="break selectorShort400">
+			<xf:select1 class="baseInput" ref="instance('xformId_mainInstance')/data/status">
+				<xf:label>Статус:</xf:label>
+				<xf:item>
+					<xf:label>Годен</xf:label>
+					<xf:value>fit</xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label>Не годен</xf:label>
+					<xf:value>unfit</xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label>Требуются дополнительные сведения</xf:label>
+					<xf:value>additional</xf:value>
+				</xf:item>
+			</xf:select1>
+		</div>	
+		<xf:group id="addButton" ref="instance('xformId_mainInstance')/data[status='additional']">
+			<div class="break button200">
+				<xf:trigger>
+					<xf:label>Добавить</xf:label>
+					<xf:action ev:event="DOMActivate"> 
+						<xf:insert nodeset="question"
+										origin="instance('xformId_addInstance')/question"
+										at="last()" position="after"/>	
+						<xf:load
+								resource="javascript:
+								xforms.ready = false;
+								getSubformModel('xformId_mainModel').recalculate();
+								getSubformModel('xformId_mainModel').revalidate();
+								xforms.refresh();
+								xforms.ready = true;"/>										
+					</xf:action>
+				</xf:trigger>
+			</div>	
+			<xf:repeat id="xformId_actionRow" nodeset="./question">								
+
+				<div class="break selectorLong400">
+					<xf:textarea ref="@name">
+						<xf:label>Доп. вопрос:</xf:label>
+					</xf:textarea>
+
+					<xf:trigger>
+						<xf:label>X</xf:label>
+						<xf:action ev:event="DOMActivate">
+							<xf:delete nodeset="current()"/>
+							<xf:load
+								resource="javascript:
+								xforms.ready = false;
+								getSubformModel('xformId_mainModel').recalculate();
+								getSubformModel('xformId_mainModel').revalidate();
+								xforms.refresh();
+								xforms.ready = true;"/>																
+						</xf:action>
+					</xf:trigger>
+				</div>
+			</xf:repeat>
+		</xf:group>	
+		<div class="break button200">
+			<xf:trigger>
+				<xf:label>Сохранить</xf:label>
+				<xf:action ev:event="DOMActivate"
+						if="(is-valid(instance('xformId_mainInstance'))=true())">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))">
+					</xf:load>
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<div class="button200">
+			<xf:trigger>
+				<xf:label>Закрыть</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+				</xf:action>
+			</xf:trigger>
+		</div>
+
+	</body>
+</html>

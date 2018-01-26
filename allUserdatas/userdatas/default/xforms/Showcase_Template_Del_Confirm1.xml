@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xsd="http://www.w3.org/2001/XMLschema"
+      xmlns:fs="http://www.curs.ru/ns/FormServer"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>	
+        <!-- Простейшие контролы ввода и вывода -->
+        <xf:model id="xformId_mainModel">
+            <xf:instance id="xformId_mainInstance">
+                <schema xmlns="">
+                    <info>
+                        <name/>
+                        <table/>
+                    </info>
+                </schema>
+            </xf:instance>  
+            
+            <xf:bind> </xf:bind>
+        </xf:model>
+    </head>
+    
+    <body>
+        <div>
+<!--
+            <xf:output ref="'Удалить запись ' + /schema/info/name 
+                            + ' из журнала ' + /schema/info/table"/>        			 
+-->
+			<xf:output value="'Удалить запись '"/> 
+			<xf:output value="instance('xformId_mainInstance')/info/name"/>  
+ 			<xf:output value="' из журнала '"/>
+ 			<xf:output value="instance('xformId_mainInstance')/info/table"/>
+        
+        
+        
+        </div>   
+
+        <div>  
+            <xf:trigger>
+                <xf:label>Удалить</xf:label>
+                <xf:action ev:event="DOMActivate">
+                <xf:load resource="javascript:gwtXFormSave('xformId', '1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))" />
+                </xf:action>
+            </xf:trigger>
+            
+            <xf:trigger>
+                <xf:label>Отмена</xf:label>
+                <xf:action ev:event="DOMActivate">
+                <xf:load resource="javascript:gwtXFormFilter('xformId', '2',  null)"/>
+                </xf:action>
+            </xf:trigger>                      
+        </div>
+
+                   
+    </body>
+</html>
+
+
+
+
+
+

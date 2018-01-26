@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="schema">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="info">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="growth">
+                <xs:complexType/>
+              </xs:element>
+              <xs:element name="eyescolour" type="xs:string"/>
+              <xs:element name="music" type="xs:string"/>
+              <xs:element name="comment" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="new" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType/>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

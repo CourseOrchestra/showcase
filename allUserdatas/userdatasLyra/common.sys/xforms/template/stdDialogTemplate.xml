@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<partOfXFormTemplate xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xf="http://www.w3.org/2002/xforms">
+
+	<xf:dialog id="xformId_errorDialog">
+		<div class="break">
+			<b>Ошибка:
+				<br/>
+				<xf:output value = "instance('xformId_errorInstance')/message"/>
+			</b>
+		</div>
+
+		<!-- <xf:output> Не заполнено обязательное поле</xf:output> -->
+		<div class="break button100">
+			<xf:trigger>
+				<xf:label>Закрыть</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:hide dialog="xformId_errorDialog"/>
+				</xf:action>
+			</xf:trigger>
+		</div>
+	</xf:dialog>
+
+</partOfXFormTemplate>

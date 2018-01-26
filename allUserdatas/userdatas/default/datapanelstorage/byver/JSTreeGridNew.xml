@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+
+
+	<tab id="10" name="Основной функционал">
+ 		<element id="441" type="GRID"  subtype="JS_TREE_GRID" proc="grid_new_data_geo">
+			<proc id="442" name="grid_new_meta_geo" type="METADATA"/>
+			
+   			<proc id="020101" name="toolbar_grid_new" type="TOOLBAR"/>
+   			
+		    <proc id="11" name="jstreegrid_addrecord1" type="ADDRECORD" />
+		    <proc id="12" name="jstreegrid_save1" type="SAVE" />
+ 		    
+			<proc id="14" name="partial_grid_new_geo" type="PARTIALUPDATE" /> 
+			
+<!-- 			 
+-->
+   			
+   			<proc id="15" name="parents_grid_new_geo" type="UPDATEPARENTS" />
+   			
+		    
+		</element>
+		<element id="443" type="webtext" proc="webtext/selectedRowWriter.py" hideOnLoad="true" />		    
+		<element id="105" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+	</tab>
+	
+	<tab id="15" name="Картинки на ноды">
+		<element id="152" type="GRID"  subtype="JS_TREE_GRID" proc="grid_new_data_geo_icons"
+		    plugin="treeDGrid">
+   			<proc id="4421" name="grid_new_meta_geo_icons" type="METADATA"/>
+   			
+     	    <proc id="020101" name="toolbar_grid_new" type="TOOLBAR"/>
+     	    
+		    <proc id="11" name="jstreegrid_addrecord1" type="ADDRECORD" />		    
+		    <proc id="12" name="jstreegrid_save1" type="SAVE" />		    
+		</element>	    
+		    		
+		<element id="155" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+	</tab>
+	
+	
+	<tab id="3" name="Ссылки в гриде">
+		<element id ="301" type="grid" subtype="JS_TREE_GRID" proc="grid_new_data_links_geo"  
+		    plugin="treeDGrid">
+			<proc id="30101" name="grid_new_meta_links" type="METADATA"/>
+		</element>
+	</tab>
+	
+	<tab id="4" name="Скачивание файлов из грида">
+		<element id="0401" type="grid" subtype="JS_TREE_GRID" proc="grid_new_data_download_load_geo"
+			plugin="treeDGrid" >
+			<proc id="40101" name="grid_new_meta_download_load" type="METADATA"/>
+			
+			<proc id="020101" name="toolbar_grid_new_download_file" type="TOOLBAR"/>
+						
+			<proc id="11" name="grid_download1" type="DOWNLOAD" />
+			<proc id="12" name="grid_download2" type="DOWNLOAD" />
+		</element>		
+	</tab>		
+	
+
+	<tab id="6" name="Задание css для строки грида">
+		<element id ="342" type="grid" subtype="JS_TREE_GRID" proc="grid_new_data_css_geo"  
+		    plugin="treeDGrid">
+			<proc id="0201" name="grid_new_meta_css" type="METADATA"/>
+		</element>
+	</tab>
+
+
+
+	<tab id="101_" name="Табличная раскладка" layout="TABLE" style="width: 600px; background: yellow;" styleClass="css-class">
+		<tr id="r01_" height="100px" style="border-width: medium" styleClass="css-class">
+			<td id="d0101_" width="100%" style="border-width: medium; background: green;" styleClass="css-class" colspan="2" >
+				<element id="0101___" type="webtext" proc="webtext_3buttons"
+					style="border-width: medium" styleClass="css-class" />					
+			</td>						
+		</tr>	
+		<tr id="r02_" height="700px" style="border-width: medium;" styleClass="css-class">	
+<!-- 			<td id="d0201_" width="400px"   style="border-width: medium; height: 700px; " styleClass="css-class"> -->
+			<td id="d0201_" width="400px"   style=" vertical-align: top;  border-width: medium; " styleClass="css-class">			
+
+			
+				<element id ="511_" type="grid" subtype="JS_TREE_GRID" proc="grid_new_data_table_layout_geo"  
+		    		plugin="treeDGrid">
+					<proc id="442" name="grid_new_meta_table_layout" type="METADATA"/>
+			
+					<proc id="020101" name="toolbar_grid_new" type="TOOLBAR"/>
+				</element>
+			
+				
+			</td>
+			<td id="d0102_" width="200px" style="border-width: medium; background: blue;" styleClass="css-class" > 
+				<element id="0102_" type="webtext" proc="webtext_3buttons"/>					
+			</td>
+		</tr>			
+	</tab>
+
+
+
+<!-- Частичное обновление для Jython -->
+<!-- 
+	
+	<tab id="10" name="Геодерево">
+ 		<element   id="102" type="GRID"  subtype="JS_TREE_GRID" proc="grid/jsTreeGridJython.py" 
+		    plugin="treeDGrid">
+			<proc id="020101" name="gridToolBar" type="TOOLBAR"/>		    
+		    <proc id="11" name="grid/jsTreeGrid_AddRecord1.py" type="ADDRECORD" />		    
+		    <proc id="12" name="grid/jsTreeGrid_Save1.py" type="SAVE" />		   
+			<proc id="14" name="grid/jsTreeGridPartialUpdate.py" type="PARTIALUPDATE" />
+		</element>
+	</tab>
+-->	
+
+	<tab id="12" name="Jython">
+ 		<element id="1022" type="GRID"  subtype="JS_TREE_GRID" proc="grid/jsNewGridDataTree.py" 
+		    plugin="treeDGrid">
+			<proc id="4421" name="grid/jsNewGridMetaTree.py" type="METADATA"/>		    
+		    
+			<proc id="020101" name="toolbar_grid_new" type="TOOLBAR"/>
+					    
+		    <proc id="11" name="grid/jsNewGrid_AddRecord1.py" type="ADDRECORD" />		    
+		    <proc id="12" name="grid/jsNewGrid_Save1.py" type="SAVE" />
+		    		    
+		</element>
+	</tab>
+	
+	
+	
+</datapanel>

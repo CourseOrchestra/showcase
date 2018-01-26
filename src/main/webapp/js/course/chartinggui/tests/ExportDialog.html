@@ -1,0 +1,23 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="../../../dijit/themes/claro/claro.css"/>
+
+<script src="../../../dojo/dojo.js" djConfig="isDebug: false, parseOnLoad: true, modulePaths: {course: '../course', app: '../../'}"></script>
+<script src="../ExportDialog.js"></script>
+
+<script>
+var dialog;
+dojo.require("course.chartinggui.ExportDialog");
+
+dojo.addOnLoad(function(){
+    dialog = new course.chartinggui.ExportDialog();
+});
+</script>
+
+</head>
+
+<body class="claro">
+    <button onclick="dialog.show()">show dialog</button>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Мерцание прокрутки">
+		<element id="11" type="grid" proc="grid_bal" />
+		<element id="5" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+	</tab>	
+	<tab id="031" name="Мерцание прокрутки 2">
+		<element id="0301" type="grid" proc="grid_bal_multiaction" />
+		<element id="d1" type="chart" proc="chart_StackedColumns" hideOnLoad="true"/>
+		<element id="d2" type="chart" proc="chart_Columns" hideOnLoad="true" />
+		<element id="d3" type="chart" proc="chart_ClusteredColumns" hideOnLoad="true" />
+		<element id="d4" type="chart" proc="chart_Bars" hideOnLoad="true" />
+		<element id="d10" type="chart" proc="chart_chart" hideOnLoad="true"/>
+		
+	</tab>	
+	<tab id="01" name="Обновление элементов">
+		<element id="112" type="grid" proc="grid_bal2" />
+		<element id="52" type="webtext" proc="webtext_filter_and_add1" hideOnLoad="true" />
+	</tab>	
+	<tab id="02" name="Обновление элементов по таймеру">
+		
+		<element id="520" type="webtext" proc="webtext_filter_and_add2" refreshByTimer="true" refreshInterval="3"/>
+	</tab>			
+			
+</datapanel>

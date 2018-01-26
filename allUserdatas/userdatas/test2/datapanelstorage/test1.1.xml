@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Характеристика">
+		<element id="1" type="webtext" transform="bal.xsl" />
+	</tab>
+	<tab id="2" name="Балансы">
+		<element id="2" type="grid" proc="grid_bal" />
+		<element id="3" type="chart" proc="chart_bal" hideOnLoad="true" />
+		<element id="4" type="chart" proc="chart_bal" hideOnLoad="true" />
+		<element id="5" type="grid" proc="grid_bal" hideOnLoad="true" />
+		<element id="07" type="xforms" template="Showcase_Template.xml"
+			proc="Showcase_Data" />
+		<element id="08" type="xforms" template="Showcase_Template.xml"
+			proc="xforms_proc1">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+		</element>
+		<element id="09" type="xforms" template="Showcase_Template.xml"
+			proc="xforms_proc1"  neverShowInPanel="true">
+			<proc id="proc3" name="xforms_save_error_proc1" type="SAVE" />
+			<proc id="proc4" name="xforms_download1" type="DOWNLOAD"/>
+			<proc id="proc5" name="xforms_upload1" type="UPLOAD"/>
+			<proc id="proc6" name="xforms_download2" type="DOWNLOAD" schema="test_good_small.xsd" transform="test_good.xsl"/>
+			<proc id="proc7" name="xforms_upload1" type="UPLOAD" schema="test_good.xsd" transform="test_good.xsl"/>			
+			<proc id="proc8" name="xforms_upload1" type="UPLOAD" schema="test_bad.xsd"/>
+			<proc id="proc9" name="xforms_upload1" type="UPLOAD" transform="test_good.xsl"/>			
+			<proc id="proc10" name="xforms_download3_wrong" type="DOWNLOAD" schema="test_good_small.xsd"/>
+		</element>			
+	</tab>
+</datapanel>

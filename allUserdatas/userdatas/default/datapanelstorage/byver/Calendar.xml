@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+
+
+	<tab id="04" name="Календарь">
+		<element id="0101" type="plugin" proc="pluginCalendarInfo"  
+			plugin="calendar">
+			<proc id="010101" name="plugin/handleCalendar.py" type="POSTPROCESS" />
+		</element>
+		<element id="5" type="webtext" proc="webtext_filter_and_add" />
+		
+    	<element id="51" type="webtext" proc="webtext_calendar"/>
+	</tab>
+	
+	
+	
+	<tab id="05" name="Навигатор">
+	
+		<element id="82" type="webtext" proc="webtext_3buttons" />
+	
+		<element id="051" type="plugin" proc="pluginNavigatorInfo"
+			plugin="navigator">
+			<proc id="052" name="plugin/handleNavigator.py" type="POSTPROCESS" />
+		</element>
+		<element id="053" type="webtext" proc="webtext_filter_and_add" />		
+	</tab>
+	
+	
+<!--	
+-->	
+	<tab id="101__" name="Табличная раскладка офисного ToolBar'a" layout="TABLE" style="width: 620px; background: yellow;" styleClass="css-class">
+		<tr id="r01__" height="100px" style="border-width: medium" styleClass="css-class">
+			<td id="d0101__" width="100%" style="border-width: medium; background: green;" styleClass="css-class" colspan="2" >
+				<element id="0101____" type="webtext" proc="webtext_3buttons"
+					style="border-width: medium" styleClass="css-class" />					
+			</td>						
+		</tr>	
+		
+		
+		<tr id="r02__" height="200px" style="border-width: medium;    " styleClass="css-class">
+			
+			<td id="d0201__" width="600px"   style="border-width: medium; height: 200px;   " styleClass="css-class">
+
+		<element id="0301__" type="plugin" proc="pluginToolBarInfo"
+			plugin="toolbar">
+			<proc id="030101__" name="plugin/handleToolBar.py" type="POSTPROCESS" />
+		</element>
+				
+			</td>
+			
+			
+			<td id="d0102__" width="200px" style="border-width: medium; background: blue;" styleClass="css-class" > 
+				<element id="0102__" type="webtext" proc="webtext_3buttons"/>					
+			</td>
+		</tr>			
+	</tab>	
+
+	
+	<tab id="03_" name="Офисный ToolBar">
+		<element id="0301_" type="plugin" proc="pluginToolBarInfo"
+			plugin="toolbar">
+			<proc id="030101_" name="plugin/handleToolBar.py" type="POSTPROCESS" />
+		</element>
+		<element id="053_" type="webtext" proc="webtext_filter_and_add" />		
+	</tab>
+	
+
+	
+
+	<tab id="101_" name="Табличная раскладка" layout="TABLE" style="width: 600px; background: yellow;" styleClass="css-class">
+		<tr id="r01_" height="100px" style="border-width: medium" styleClass="css-class">
+			<td id="d0101_" width="100%" style="border-width: medium; background: green;" styleClass="css-class" colspan="2" >
+				<element id="0101___" type="webtext" proc="webtext_3buttons"
+					style="border-width: medium" styleClass="css-class" />					
+			</td>						
+		</tr>	
+		
+		
+		<tr id="r02_" height="700px" style="border-width: medium" styleClass="css-class">	
+			<td id="d0201_" width="400px"   style="border-width: medium; height: 400px; " styleClass="css-class">
+
+				
+				<element id="051___" type="plugin" proc="pluginNavigatorInfo"
+					plugin="navigator">
+					<proc id="052___" name="plugin/handleNavigator.py" type="POSTPROCESS" />
+				</element>
+				
+				
+<!-- 		<element id="0101_____" type="plugin" proc="pluginCalendarInfo" -->
+<!-- 			plugin="calendar"> -->
+<!-- 			<proc id="010101_" name="plugin/handleCalendar.py" type="POSTPROCESS" /> -->
+<!-- 		</element> -->
+		
+		
+<!-- 		<element id="0301__" type="plugin" proc="pluginRadarInfo" -->
+<!-- 			plugin="flashD"> -->
+<!-- 			<proc id="030101__" name="plugin/handleFlashD.py" type="POSTPROCESS" /> -->
+<!-- 		</element> -->
+		
+				
+<!-- 		<element id="0101______" type="plugin" proc="pluginRadarInfo" -->
+<!-- 			plugin="radar"> -->
+<!-- 			<proc id="010101_______" name="plugin/handleRadar.py" type="POSTPROCESS" /> -->
+<!-- 		</element> -->
+				
+				
+			</td>
+			<td id="d0102_" width="200px" style="border-width: medium; background: blue;" styleClass="css-class" > 
+				<element id="0102_" type="webtext" proc="webtext_3buttons"/>					
+			</td>
+		</tr>			
+	</tab>
+
+
+
+	
+	<tab id="101" name="Табличная раскладка2" layout="TABLE" style="width: 600px; background: yellow;" styleClass="css-class">
+		<tr id="r01" height="100px" style="border-width: medium" styleClass="css-class">
+			<td id="d0101" width="100%" style="border-width: medium; background: green;" styleClass="css-class" colspan="2" >
+				<element id="0101__" type="webtext" proc="webtext_3buttons"
+					style="border-width: medium" styleClass="css-class" />					
+			</td>						
+		</tr>	
+		<tr id="r02" height="100%" style="border-width: medium" styleClass="css-class">	
+			<td id="d0201" width="100px" style="border-width: medium" styleClass="css-class">
+
+				
+				<element id="051__" type="plugin" proc="pluginNavigatorInfo"
+					plugin="navigator">
+					<proc id="052__" name="plugin/handleNavigator.py" type="POSTPROCESS" />
+				</element>
+				
+				
+			</td>
+			<td id="d0102" width="100%" style="border-width: medium; background: blue;" styleClass="css-class" > 
+				<element id="0102" type="webtext" proc="webtext_3buttons"/>					
+			</td>
+		</tr>			
+	</tab>
+	
+	
+	
+	<tab id="05_" name="preserve_hidden">
+	
+		<element id="82_" type="webtext" proc="webtext_3buttons_preserve_hidden" />
+	
+		<element id="051_" type="plugin" proc="pluginNavigatorInfo" hideOnLoad="true"
+			plugin="navigator">
+			<proc id="052_" name="plugin/handleNavigator.py" type="POSTPROCESS" />
+		</element>
+	</tab>
+	
+	
+	
+	
+	
+	
+	
+	<tab id="01" name="Плагин ExtJS radar chart">
+		<element id="0101_" type="plugin" proc="pluginRadarInfo"
+			plugin="radar">
+			<proc id="010101_" name="plugin/handleRadar.py" type="POSTPROCESS" />
+		</element>
+	</tab>
+	<tab id="03" name="Плагин FlashD">
+		<element id="0301" type="plugin" proc="pluginRadarInfo"
+			plugin="flashD">
+			<proc id="030101" name="plugin/handleFlashD.py" type="POSTPROCESS" />
+		</element>
+	</tab>
+	
+
+
+
+	
+	
+	
+</datapanel>
+
+

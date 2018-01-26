@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+  <head>
+    <xf:model id="xformId_mainModel">
+      <xf:instance id="xformId_mainInstance" xmlns="">
+        <schema>
+          <employee orgId="" orgName="">
+            <name></name>
+            <surname></surname>
+            <patronymic></patronymic>
+            <orgId></orgId>
+            <orgName></orgName>
+          </employee>
+        </schema>
+      </xf:instance>
+      <xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/employee/@orgName" readonly="true()"
+          required="true()"></xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/employee/name" required="true()"></xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/employee/surname" required="true()"
+        ></xf:bind>
+      </xf:bind>
+    </xf:model>
+  </head>
+  <body>
+    <!--<xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>-->
+    <div class="baseInput400 break">
+      <xf:input ref="instance('xformId_mainInstance')/employee/surname">
+        <xf:label>Фамилия:</xf:label>
+      </xf:input>
+    </div>
+    <div class="baseInput400 break">
+      <xf:input ref="instance('xformId_mainInstance')/employee/name">
+        <xf:label>Имя:</xf:label>
+      </xf:input>
+    </div>
+    <div class="baseInput400 break">
+      <xf:input ref="instance('xformId_mainInstance')/employee/patronymic">
+        <xf:label>Отчество:</xf:label>
+      </xf:input>
+    </div>
+    <div class="selectorShort400">
+      <xf:input ref="instance('xformId_mainInstance')/employee/@orgName">
+        <xf:label>Организация:</xf:label>
+      </xf:input>
+      <xf:selector buttonLabel="..."
+        procCount="'orgstructure.xform.employees.organizationsCount.celesta'"
+        procList="'orgstructure.xform.employees.organizationsList.celesta'" generalFilters=""
+        currentValue="''" windowCaption="'Выбор значения'"
+        xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/employee/@orgName)' : 'name',
+          'XPath(instance(quot(xformId_mainInstance))/employee/@orgId)' : 'id'}"
+      ></xf:selector>
+    </div>
+    <hr class="break" style="margin-top:21px; width: 100%;  float: left;"/>
+    <div class="button100" style="float: left">
+      <xf:trigger>
+        <xf:label>Сохранить</xf:label>
+        <xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=false())">
+          <xf:message>Заполнено с ошибкой!</xf:message>
+        </xf:action>
+        <xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=true())">
+          <xf:load
+            resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"></xf:load>
+          <xf:message>Данные сохранены</xf:message>
+        </xf:action>
+      </xf:trigger>
+    </div>
+    <div class="button100" style="float: right">
+      <xf:trigger>
+        <xf:label>Закрыть</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"></xf:load>
+        </xf:action>
+      </xf:trigger>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+	SET @outputdata=@inputdata

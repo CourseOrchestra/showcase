@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+  <head>
+
+    <xf:model id="xformId_mainModel">
+      <xf:instance id="xformId_mainInstance">
+        <schema xmlns="">
+          <developments block="0"></developments>
+
+
+        </schema>
+      </xf:instance>
+
+      <xf:instance id="xformId_mainInstance2">
+        <schema xmlns="">
+
+          <development id="" name=""></development>
+
+        </schema>
+      </xf:instance>
+      <xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/hypotheses/hypothesis/@name"
+          readonly="true"></xf:bind>
+      </xf:bind>
+    </xf:model>
+  </head>
+
+  <body>
+ <!--  <xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output> -->
+    <xf:group ref="instance('xformId_mainInstance')/developments[@block=0]">
+      <div class="dirusing newbutton">
+        <div class="blue">
+				<xf:multiselector 
+					buttonLabel="Выбрать разработки"
+					procCount="'ssmmd.xforms.settingsSystemQuestionsDevelopments.developmentsCount.celesta'"
+					procList="'ssmmd.xforms.settingsSystemQuestionsDevelopments.developmentsList.celesta'"
+					generalFilters=""
+					currentValue="''"
+					needClear         = "true"
+					needInitSelection = "true"
+					windowCaption="'Выбор разработок'"
+					xpathRoot         = "'XPath(instance(quot(xformId_mainInstance))/developments)'"
+					xpathMapping="{
+											'XPath(instance(quot(xformId_mainInstance2))/development)': 
+										{'id': '@id','name':'@name'}}"
+				></xf:multiselector>
+
+        </div>
+      </div>
+    </xf:group>
+    
+    <div class="control"
+      style="width: 500px; padding: 0px 0px 0px 10px; float: left; clear:both">
+      <xf:output class="control" ref="instance('xformId_mainInstance')/message"> </xf:output>
+    </div>
+
+    <div class="ScrollPanell">
+      <xf:group ref="instance('xformId_mainInstance')/developments[@block=0 or @block=1]" style="float:left;">
+      <div>Разработки:</div>
+      </xf:group>
+      <xf:repeat id="nod"
+        nodeset="instance('xformId_mainInstance')/developments/development[not(@id=preceding-sibling::development/@id)]">
+		<table>
+		<tr>
+		<td>
+        <div class="inputText"  style="float:left; width: 200px">
+          <xf:input ref="@name" />
+        </div>
+		</td>
+		<td>
+        <xf:group ref="instance('xformId_mainInstance')/developments[@block=0]" style="float:left;">
+          <div style="float:left;">
+            <xf:trigger>
+              <xf:label>X</xf:label>
+              <xf:action ev:event="DOMActivate">
+                <xf:delete 
+					nodeset="instance('xformId_mainInstance')/developments/development[@id=instance('xformId_mainInstance')/developments/development[index('nod')]/@id]"
+      
+                ></xf:delete>
+			
+              </xf:action>
+            </xf:trigger>
+          </div>
+		 
+        </xf:group>
+		</td>
+		</tr>
+		</table>
+      </xf:repeat>
+    </div>
+    <xf:group ref="instance('xformId_mainInstance')/developments[@block=0]/development[@name>'']">
+      <div class="dirusing newbutton" style="clear: both">
+        <xf:trigger class="blue">
+          <xf:label>Начать опрос</xf:label>
+          <xf:action ev:event="DOMActivate">
+            <xf:load
+              resource="javascript:gwtXFormUpdate('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"></xf:load>
+            <xf:setvalue ref="instance('xformId_mainInstance')/developments/@block" value="1"
+            ></xf:setvalue>
+          </xf:action>
+        </xf:trigger>
+      </div>
+    </xf:group>
+    <xf:group ref="instance('xformId_mainInstance')/developments[@block=1]">
+      <div class="dirusing newbutton" style="clear: both">
+        <xf:trigger class="blue">
+          <xf:label>Сброс</xf:label>
+          <xf:action ev:event="DOMActivate">
+            <xf:load
+              resource="javascript:gwtXFormUpdate('xformId','2', 'hide')"></xf:load>
+            <xf:setvalue ref="instance('xformId_mainInstance')/developments/@block" value="0"
+            ></xf:setvalue>
+          </xf:action>
+        </xf:trigger>
+      </div>
+    </xf:group>
+    
+  </body>
+</html>

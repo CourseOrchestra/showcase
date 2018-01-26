@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<xf:model id="mainModel">
+			<xf:instance id="mainInstance">
+				<schema xmlns="">
+					<info>
+						<name />
+						<growth />
+						<eyescolour />
+						<music />
+						<comment />
+					</info>
+				</schema>
+			</xf:instance>
+
+			<xf:submission id="good_save" method="post" instance="mainInstance"
+				replace="instance" ref="instance('mainInstance')" action="secured/submit?proc=xforms_submission1">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Submission успешно выполнен</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при выполнении submission:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>
+			</xf:submission>
+
+
+			<xf:submission id="xslttransformation" method="post"
+				instance="mainInstance" replace="instance" ref="instance('mainInstance')"
+				action="secured/xslttransformer?xsltfile=xformsxslttransformation_test.xsl">
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при выполнении submission:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>				
+			</xf:submission>
+
+			<xf:bind>
+			</xf:bind>
+		</xf:model>
+	</head>
+	<body>
+
+		<h1>Примеры возможных действий для XFroms</h1>
+
+		<div style="font-size: 15px;"> Текстовое поле: </div>
+		<div>
+			<xf:input ref="/schema/info/name">
+				<xf:help>Справка</xf:help>
+				<xf:hint>Дополнительная информация</xf:hint>
+			</xf:input>
+
+
+			<xf:trigger>
+				<xf:label>Вызов Selector</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:showSelector({
+			           id : 'xformId',
+                       procCount : '[dbo].[companycount]',
+                       procList  : '[dbo].[companylist]',                       
+                       generalFilters      : '',
+                       currentValue        : '',
+                       windowCaption       : 'Выберите название',
+                       onSelectionComplete : function(ok, selected){
+					if (ok) {
+					var a = xforms.defaultModel.defaultInstance.doc.getElementsByTagName('info')[0].getElementsByTagName('name')[0];
+					setValue(a, selected.name);
+		 
+					xforms.ready = false;
+					xforms.refresh();
+					xforms.ready = true;
+							}
+								   }});;" />
+				</xf:action>
+			</xf:trigger>
+
+		</div>
+		
+		<hr/>
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов XFormsSubmissionServlet</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="good_save" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+
+		<hr/>
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов XFormsTransformationServlet</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="xslttransformation" />
+				</xf:action>
+			</xf:trigger>
+
+		</div>
+
+		<hr/>
+		<div>
+			<xf:trigger>
+				<xf:label>Сохранить с обновлением зависимых (gwtXFormSave)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId', '1',  Writer.toString(xforms.defaultModel.getInstanceDocument('mainInstance')))" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+
+		<hr/>
+		<div>		
+			<xf:trigger>
+				<xf:label>Сохранить без обновления зависимых (gwtXFormSave, 2-й параметр = null)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId', null,  Writer.toString(xforms.defaultModel.getInstanceDocument('mainInstance')))" />
+				</xf:action>
+			</xf:trigger>		
+		</div>
+
+		<hr/>		
+		<div>
+			<xf:trigger>
+				<xf:label>Отфильтровать (gwtXFormFilter)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormFilter('xformId', '2',  Writer.toString(xforms.defaultModel.getInstanceDocument('mainInstance')))" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+
+		<hr/>
+		<div>			
+			<xf:trigger>
+				<xf:label>Обновить зависимые элементы (gwtXFormUpdate)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormUpdate('xformId', '3', null)" />
+				</xf:action>
+			</xf:trigger>
+
+		</div>
+		<hr/>
+		<div> Загрузка файла с навигатором с сервера </div>
+		<xf:trigger>
+			<xf:label>Скачать файл</xf:label>
+			<xf:action ev:event="DOMActivate">
+				<xf:load
+					resource="javascript:gwtXFormDownload('xformId', '03',  Writer.toString(xforms.defaultModel.getInstanceDocument('mainInstance')))" />
+			</xf:action>
+		</xf:trigger>
+		<hr/>
+
+		<div>
+			Загрузка файла на сервер: <xf:output ref="/schema/info/comment" />					
+		</div>
+		
+		<xf:trigger>
+			<xf:label>Выбрать файл</xf:label>
+			<xf:action ev:event="DOMActivate">
+				<xf:load
+					resource="javascript:gwtXFormUpload({
+				xformsId: 'xformId',
+                linkId: '04', 
+                onSelectionComplete : function(ok, fileName) {
+                if (ok) {
+					var a = xforms.defaultModel.defaultInstance.doc.getElementsByTagName('info')[0].getElementsByTagName('comment')[0];
+					setValue(a, fileName);
+		 
+					xforms.ready = false;
+					xforms.refresh();
+					xforms.ready = true;                
+                }
+                }});" />
+			</xf:action>
+		</xf:trigger>
+
+		<div>
+			<xf:trigger>
+				<xf:label>Запустить закачку на сервер (через gwtXFormSave)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId', null,  null)" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<hr/>
+
+		<div>
+			<xf:trigger>
+				<xf:label>Обновить себя (refreshElementFromBaseFeedbackJSNIFunction)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:refreshElementFromBaseFeedbackJSNIFunction('xformId')" />
+				</xf:action>
+			</xf:trigger>		
+		</div>		
+	</body>
+</html>
+
+
+
+
+
+

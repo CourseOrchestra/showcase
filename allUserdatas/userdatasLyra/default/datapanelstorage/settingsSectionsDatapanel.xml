@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Разделы">
+
+		<element id="treeSGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.settingsSectionsGrid.treeGrid.celesta">
+			<proc id="toolbarNosologyDev" name="ssmmd.grids.settingsSectionsGrid.gridToolBar.celesta" type="TOOLBAR"
+			/>
+			<related id="settingsDevelopmentsFilter"/>
+		</element>
+
+		<element id="settingsSectionsChange" type="xforms" template="settingsSectionsCard.xml"
+      proc="ssmmd.xforms.settingsSectionsCard.cardData.celesta" hideOnLoad="true">
+			<proc id="settingsSectionsChangeSave"
+        name="ssmmd.xforms.settingsSectionsCard.cardDataSave.celesta" type="SAVE"/>
+			<related id="treeSGrid"/>
+		</element>
+
+		<element id="settingsSectionsDelete" type="xforms" template="settingsSectionsDelete.xml" proc="ssmmd.xforms.settingsSectionsDelete.cardData.celesta" hideOnLoad="true">
+			<proc id="settingsSectionsDeleteSave"
+        name="ssmmd.xforms.settingsSectionsDelete.sectionDelete.celesta" type="SAVE"/>
+			<related id="treeSGrid"/>
+		</element>
+
+		<element id="moveRight" type="xforms" template="settingsSectionRight.xml"
+      proc="ssmmd.xforms.settingsSectionRight.cardData.celesta" hideOnLoad="true">
+			<proc id="savemove"
+        name="ssmmd.xforms.settingsSectionRight.moveRight.celesta" type="SAVE"/>
+			<related id="treeSGrid"/>
+		</element>
+
+	</tab>
+</datapanel>

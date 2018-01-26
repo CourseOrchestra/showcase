@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+  <head>
+    <xf:model id="xformId_mainModel">
+      <xf:instance id="mainInstance" xmlns="">
+        <schema>
+          <users></users>
+        </schema>
+      </xf:instance>
+
+      <xf:instance id="xformId_userInstance" xmlns="">
+        <schema>
+          <user sid="" userName=""></user>
+        </schema>
+      </xf:instance>
+
+      <xf:bind>
+        <xf:bind></xf:bind>
+      </xf:bind>
+
+    </xf:model>
+  </head>
+  <body>
+    <!--<xf:output value="serialize(instance('mainInstance'))"></xf:output>-->
+    <div class="break" style="float: left, clear: both, width: 350px">
+      <div class="button200 break">
+        <xf:multiselector buttonLabel="Выбор пользователей" dataWidth="'600px'" dataHeight="'450px'"
+          selectedDataWidth="'500px'" visibleRecordCount="'25'"
+          procCount="'security.xform.rolesUsers.usersCount.celesta'"
+          procList="'security.xform.rolesUsers.usersList.celesta'" generalFilters="''"
+          currentValue="''" windowCaption="'Выберите пользователей'" needClear="true"
+          needInitSelection="true" xpathRoot="'XPath(instance(quot(mainInstance))/users)'"
+          xpathMapping="{'XPath(instance(quot(xformId_userInstance))/user)':{'id': '@sid','name':'@userName'}}"
+        ></xf:multiselector>
+      </div>
+      <div class="break" style="float: left; margin-top: 5px;"> Выбранные пользователи: </div>
+      <div class="break">
+        <xf:repeat id="id_users" nodeset="instance('mainInstance')/users/user">
+          <table>
+            <tr>
+              <td width="100"><xf:output class="baseInput" ref="@userName"></xf:output></td>
+              <td>
+                <xf:trigger>
+                  <xf:label>—</xf:label>
+                  <xf:action ev:event="DOMActivate">
+                    <xf:delete nodeset="/schema/users/user[index('id_users')]"></xf:delete>
+                  </xf:action>
+                </xf:trigger>
+              </td>
+            </tr>
+          </table>
+        </xf:repeat>
+      </div>
+    </div>
+    <hr class="break" style="margin-top:21px; width: 100%;  float: left;" />
+    <div class="button100" style="float: left">
+      <xf:trigger>
+        <xf:label>Сохранить</xf:label>
+        <xf:action ev:event="DOMActivate" if="(is-valid(instance('mainInstance'))=false())">
+          <xf:message>Заполнено с ошибкой!</xf:message>
+        </xf:action>
+        <!--<xf:action ev:event="DOMActivate" if="(count(instance('mainInstance')/users/user)=0)">
+          <xf:message>Выберите пользователей!</xf:message>
+        </xf:action>-->
+        <xf:action ev:event="DOMActivate"
+          if="(is-valid(instance('mainInstance'))=true())">
+          <!--  and count(instance('mainInstance')/users/user)!=0) -->
+          <xf:load
+            resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'mainInstance')))"></xf:load>
+          <xf:message>Данные сохранены</xf:message>
+        </xf:action>
+      </xf:trigger>
+    </div>
+    <div class="button100" style="float: right">
+      <xf:trigger>
+        <xf:label>Закрыть</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"></xf:load>
+        </xf:action>
+      </xf:trigger>
+    </div>
+  </body>
+</html>

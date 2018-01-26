@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel">
+
+			<xf:instance id="xformId_mainInstance">
+				<schema xmlns="">
+					<questions/>
+				</schema>
+			</xf:instance>
+
+			<xf:instance id="xformId_questionsInstance">
+				<schema xmlns="">
+					<question>
+						<id/>
+						<name/>
+					</question>
+				</schema>
+			</xf:instance>
+
+			<xf:instance id="xformId_choiceInstance">
+				<schema xmlns="">
+					<choice>
+						<id/>
+						<name/>
+					</choice>
+				</schema>
+			</xf:instance>
+
+			<xf:bind>
+				<!--				<xf:bind nodeset="instance('xformId_mainInstance')//*"
+					readonly="if(instance('xformId_mainInstance')/questions/readonly=1, true(), false())"></xf:bind>-->
+
+				<xf:bind nodeset="instance('xformId_mainInstance')/questions/answerTypeName"
+					required="true()" readonly="true()"/>
+				<xf:bind nodeset="instance('xformId_mainInstance')/questions/multipleChoice"
+					type="boolean"/>
+				<xf:bind nodeset="instance('xformId_mainInstance')/questions/required"
+					type="boolean"/>
+				<xf:bind required="true()"					
+					nodeset="instance('xformId_mainInstance')/questions/question/name"/>
+				<xf:bind readonly="true()"
+					nodeset="instance('xformId_mainInstance')/questions/catalogName"/>
+
+				<!--				<xf:bind type="boolean" readonly="if(.='true', true(), false())"
+					nodeset="instance('xformId_mainInstance')/questions/specialMode"></xf:bind>
+-->
+				<xf:bind type="date"
+					nodeset="instance('xformId_mainInstance')//*[answerType='date']/answer"/>
+				<xf:bind type="nonNegativeInteger"
+					nodeset="instance('xformId_mainInstance')//*[answerType='int']/answer"/>
+				<xf:bind type="decimal"
+					nodeset="instance('xformId_mainInstance')//*[answerType='float']/answer"/>
+				<xf:bind readonly="true()"
+					nodeset="instance('xformId_mainInstance')//*[answerType='catalog']/answer"/>
+			</xf:bind>
+
+			<xf:submission id="xformId_saveSubmission" method="post" instance="xformId_mainInstance"
+				replace="instance" ref="instance('xformId_mainInstance')"
+				action="secured/submit?proc=ssmmd.xforms.settingsQuestionsListCard.editCatalogSubmission.celesta">
+				<xf:action ev:event="xforms-submit-error">
+					<xf:load
+						resource="javascript:if(confirm('На этот вопрос получены ответы пациентов. Изменение повлечет удаление всех ответов на этот вопрос. Продолжить?')){
+													gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))
+													}
+													else {xforms.ready = false; getSubformModel('xformId_mainModel').recalculate(); getSubformModel('xformId_mainModel').revalidate(); xforms.refresh(); xforms.ready = true;}"/>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-done">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"/>
+				</xf:action>
+			</xf:submission>
+		</xf:model>
+	</head>
+
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/> -->
+		<xf:group ref="instance('xformId_mainInstance')/questions">
+			<div class="break baseInput400 xforms-required">
+				<xf:textarea class="author baseInput" ref="question/name">
+					<xf:label>Текст вопроса:</xf:label>
+				</xf:textarea>
+			</div>
+
+			<div class="break baseInput200">
+				<xf:input class="author baseInput" ref="question/end">
+					<xf:label>Окончание вопроса:</xf:label>
+				</xf:input>
+			</div>
+			<div class="break baseInput400" >
+				<xf:textarea class="author baseInput" ref="comment">
+					<xf:label>Комментарий к вопросу:</xf:label>
+				</xf:textarea>
+			</div>
+			<div class="break xforms-required selectorShort200">
+				<xf:input ref="answerTypeName">
+					<xf:label>Тип ответа:</xf:label>
+				</xf:input>
+
+				<xf:selector buttonLabel="..."
+				procListAndCount="'ssmmd.other.ruleSelector.answerTypeListAndCount.celesta'"
+				generalFilters="" currentValue="''" windowCaption="'Выбор значения'"
+				xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/questions/answerTypeName)' : 'name',
+				  'XPath(instance(quot(xformId_mainInstance))/questions/answerTypeId)' : 'id'}"/>
+			</div>
+			<xf:group ref=".[answerTypeId='choice' or answerTypeId='catalog']">
+				<div class="break">
+					<xf:input ref="multipleChoice"/>
+					<xf:output value="'Множественный выбор'"/>
+				</div>
+			</xf:group>
+
+			<xf:group ref=".[answerTypeId='catalog']">
+				<div class="break selectorShort200 xforms-required">
+					<xf:input ref="catalogName">
+						<xf:label>Справочник:</xf:label>
+					</xf:input>
+					<xf:selector buttonLabel="..."
+						procListAndCount="'ssmmd.other.ruleSelector.catalogListAndCount.celesta'"
+						generalFilters="" currentValue="''"
+						windowCaption="'Выбор каталога'"
+						xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/questions/catalogName)' : 'name',
+					  'XPath(instance(quot(xformId_mainInstance))/questions/catalogId)' : 'id'}"/>
+				</div>
+			</xf:group>
+
+			<xf:group ref=".[answerTypeId='choice']">
+				<xf:group ref=".[readonly=0]">
+					<div class="break">
+						<xf:trigger>
+							<xf:label>Добавить</xf:label>
+							<xf:action ev:event="DOMActivate">
+								<xf:insert nodeset="choice"
+										origin="instance('xformId_choiceInstance')/choice"
+										at="last()" position="after"/>
+								<xf:setvalue ref="./choice[last()]/id"
+										value="concat('var', count(//choice))"/>
+							</xf:action>
+						</xf:trigger>
+					</div>
+				</xf:group>
+				<xf:repeat id="xformId_actionRow" nodeset="choice">
+					<div class="break">
+						<div style="float: left; margin-top: 24px; margin-right: 5px; width: 20px">
+							<xf:output value="id"/>
+						</div>
+						<xf:group ref=".[../readonly=0]">
+							<div class="selectorShort200 xforms-required">
+								<xf:input ref="name">
+									<xf:label>Вариант ответа:</xf:label>
+								</xf:input>
+								<xf:trigger>
+									<xf:label>X</xf:label>
+									<xf:action ev:event="DOMActivate">
+										<xf:delete nodeset="current()"/>
+										<xf:setvalue iterate="instance('xformId_mainInstance')/questions/choice" ref="id"
+												value="concat('var', count(../preceding-sibling::choice) + 1)"/>
+									</xf:action>
+								</xf:trigger>
+							</div>
+						</xf:group>
+						<xf:group ref=".[../readonly!=0]">
+							<div class="baseInput200 xforms-required">
+								<xf:input ref="name">
+									<xf:label>Вариант ответа:</xf:label>
+								</xf:input>
+							</div>
+						</xf:group>
+					</div>
+				</xf:repeat>
+			</xf:group>
+
+		</xf:group>
+		<xf:group ref="instance('xformId_mainInstance')/questions[readonly=0]">
+			<div class="dirusing newbutton" style="float: left; clear:both">
+				<xf:trigger class="blue">
+					<xf:label>Сохранить</xf:label>
+					<xf:action ev:event="DOMActivate"
+						if="(is-valid(instance('xformId_mainInstance'))=false())">
+						<xf:message>Заполнено с ошибкой!</xf:message>
+					</xf:action>
+					
+					<xf:action ev:event="DOMActivate"
+						if="(is-valid(instance('xformId_mainInstance'))=true())">
+						<xf:send submission="xformId_saveSubmission"/>
+					</xf:action>
+				</xf:trigger>
+			</div>
+
+			<div class="dirusing newbutton" style="float: right">
+				<xf:trigger class="blue">
+					<xf:label>Закрыть</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"
+						/>
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</xf:group>
+	</body>
+</html>

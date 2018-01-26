@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>  
+    <tab id="1" name="111111111111">
+        <element id="1" type="webtext" transform="bal.xsl"/>
+    </tab>
+    <tab id="2" name="2222222222222222"> 
+        <element id="2" type="webtext" transform="bal.xsl"/>
+    </tab> 
+     <tab id="3" name="333333333333333">
+        <element id="3" type="webtext" transform="bal.xsl"/>
+    </tab>
+    <tab id="4" name="4444444444444444444444"> 
+        <element id="4" type="chart" proc="chart_pas"/>
+    </tab> 
+     <tab id="5" name="55555555555555">
+        <element id="5" type="webtext" transform="bal.xsl"/>
+    </tab>
+    <tab id="6" name="6666666666666666666"> 
+        <element id="6" type="chart" proc="chart_pas"/>
+    </tab> 
+     <tab id="7" name="7777777777777777">
+        <element id="7" type="webtext" transform="bal.xsl"/>
+    </tab>
+    <tab id="8" name="888888888888888888"> 
+        <element id="8" type="chart" proc="chart_pas"/>
+    </tab> 
+     <tab id="9" name="999999999999999">
+        <element id="9" type="webtext" transform="bal.xsl"/>
+    </tab>
+    <tab id="10" name="1010101010101010101"> 
+        <element id="10" type="chart" proc="chart_pas"/>
+    </tab> 
+        <tab id="11" name="11111111111111111111111111111111111"> 
+        <element id="11" type="chart" proc="chart_pas"/>
+    </tab> 
+     <tab id="12" name="12121212121212121212121212121212">
+        <element id="12" type="webtext" transform="bal.xsl"/>
+    </tab>
+    <tab id="13" name="131313133131313131313131313131"> 
+        <element id="13" type="chart" proc="chart_pas"/>
+    </tab> 
+     <tab id="14" name="141414141414141414141414141414">
+        <element id="14" type="webtext" transform="bal.xsl"/>
+    </tab>
+    <tab id="15" name="151515151515151515151515151"> 
+        <element id="15" type="chart" proc="chart_pas"/>
+    </tab>         
+</datapanel>

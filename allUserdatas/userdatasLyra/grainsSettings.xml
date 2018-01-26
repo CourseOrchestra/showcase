@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><grainSettings>
+	<!--Общие настройки для гранул-->
+	<generalSettings>
+	</generalSettings>
+	<!--Отдельные настройки для гранул-->
+	<grains>
+		<grain name="common">
+			<!--Указание необходимых групп навигатора для каждой userdata-->
+			<navigator>
+				<userdata name="default">
+					<!--<group>0</group>-->
+					<!--<group>1</group>-->
+					<group>55</group>
+				</userdata> 
+			</navigator>
+			<mailsender>
+				<templatespath>C:/data/templates/</templatespath>
+				<mailfrom>openiformer@rambler.ru</mailfrom>
+				<smtphost>81.19.70.48</smtphost>
+				<port></port>
+				<login>openiformer</login>
+				<isauth>True</isauth>
+				<password>a!2P9^1</password>
+			</mailsender>
+		</grain>
+		<grain name="security">
+			<securitySettings>
+				<parameter name="employeesGrain" value=""></parameter>
+				<parameter name="employeesTable" value=""></parameter>
+				<parameter name="employeesId" value=""></parameter>
+				<parameter name="employeesName" value=""></parameter>				
+				<parameter name="isSystemInitialised" value="true"></parameter>
+				<parameter name="useAuthServer" value="false"></parameter>
+				<parameter name="loginEqualSubject" value="true"></parameter>
+			</securitySettings>			
+		</grain>
+		<!--Настройки гранулы workflow-->
+		<grain name="workflow">
+			<!--Настройка обработчиков событий activiti-->
+			<activitiEvents>
+				<!--Параметр name - название события activiti, script - скрипт для обработки данного события-->
+				<event name="PROCESS_COMPLETED" script="processCompleteHandler.py"></event>
+				<event name="TASK_COMPLETED" script="workflow.eventHandler.taskCompleteHandler.cl"></event>
+			</activitiEvents>
+		</grain>
+	</grains>
+</grainSettings>

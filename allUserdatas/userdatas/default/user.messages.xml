@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages>
+<message id="test1" type="ERROR">
+Ошибка
+</message>
+<message id="test2" type="WARNING">
+Предупреждение
+</message>
+<message id="test3" type="INFO">
+Информация
+</message>
+
+<message id="556" type="INFO">
+Составное сообщение + 
+</message>
+
+
+
+<message id="555" type="WARNING"  
+caption="Отладочный заголовок"   subtype="solutions/default/resources/group_icon_default.png"  >
+Отформатированное2 сообщение: %s. Спасибо!
+</message>
+
+
+
+
+</messages>
+
+
+

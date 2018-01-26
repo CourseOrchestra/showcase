@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<style type="text/css">
+		</style>
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance">
+				<schema xmlns="">
+					<answers>
+						<answer/>
+					</answers>
+				</schema>
+			</xf:instance>
+
+		</xf:model>
+	</head>
+
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>    -->
+
+		<!--<div class="control"
+			style="width: 300px; padding: 30px 0px 0px 10px; float: left; clear:both">
+			<xf:output class="control" ref="instance('xformId_mainInstance')/message"> </xf:output>
+		</div>-->
+		<h2> Результаты осмотра </h2>
+		<xf:repeat id="xformId_section"
+			nodeset="instance('xformId_mainInstance')/inspection/sections">
+			<div class="break">
+				<h3>
+					<xf:output ref="./@name"/>
+				</h3>
+				<xf:repeat id="xformId_par" nodeset="./par">
+					<p>
+						<xf:output ref="@report"/>
+					</p>
+				</xf:repeat>
+			</div>
+		</xf:repeat>
+
+		<xf:group ref="instance('xformId_mainInstance')/additional">
+			<div class="break">
+				<h3>
+					Дополнительно:
+				</h3>
+				<xf:repeat id="xformId_add" nodeset="./lines">
+					<p>
+						<xf:output ref="@report"/>
+					</p>
+				</xf:repeat>
+			</div>
+		</xf:group>
+
+		<xf:group ref="instance('xformId_mainInstance')/appointedResearch[./@isEmpty='False']">
+			<h2> Назначены исследования </h2>
+			<xf:repeat id="xformId_appointedResearch"
+				nodeset="instance('xformId_mainInstance')/appointedResearch/sections">
+				<div class="break">
+					<h3>
+						<xf:output ref="./@name"/>
+					</h3>
+					<xf:repeat id="xformId_appointedResearchpar" nodeset="./par">
+						<p>
+							<xf:output ref="@report"/>
+						</p>
+					</xf:repeat>
+				</div>
+			</xf:repeat>
+		</xf:group>
+		<!--<xf:group ref="instance('xformId_mainInstance')/appointedResearch[./@isEmpty='True']">
+			<h4> При проведении данного осмотра не было назначено исследований </h4>
+		</xf:group>-->		
+		<xf:group ref="instance('xformId_mainInstance')/researchResults[./@isEmpty='False']/">
+			<h2> Результаты исследований</h2>
+		</xf:group>
+		<xf:repeat id="xformId_researchResults"
+			nodeset="instance('xformId_mainInstance')/researchResults[./@isEmpty='False']/sections">
+			<div class="break">
+				<h3>
+					<xf:output ref="./@name"/>
+				</h3>
+				<xf:repeat id="xformId_researchResultsParagraph" nodeset="./par">
+					<p>
+						<xf:output ref="@report"/>
+					</p>
+				</xf:repeat>
+			</div>
+		</xf:repeat>
+		<!-- </xf:group> -->
+		<!--<xf:group ref="instance('xformId_mainInstance')/researchResults[./@isEmpty='True']">
+			<h4> С момента последнего осмотра исследования не проводились </h4>
+		</xf:group>-->		
+		<xf:group ref="instance('xformId_mainInstance')/diagnoses[./@isEmpty='False']/">
+			<h2> Поставлены диагнозы</h2>
+		</xf:group>
+		<xf:repeat id="xformId_diagnoses"
+			nodeset="instance('xformId_mainInstance')/diagnoses[./@isEmpty='False']/sections">
+			<div class="break">
+				<h3>
+					<xf:output ref="./@name"/>
+				</h3>
+				<xf:repeat id="xformId_diagnosesParagraph" nodeset="./par">
+					<p>
+						<xf:output ref="@report"/>
+					</p>
+				</xf:repeat>
+			</div>
+		</xf:repeat>
+		<!-- </xf:group> -->
+		<!--<xf:group ref="instance('xformId_mainInstance')/diagnoses[./@isEmpty='True']">
+			<h4> В данном осмотре не поставлено диагнозов </h4>
+		</xf:group>-->
+	</body>
+</html>
+<!-- 			<div style=" clear:both;">
+				<xf:group ref=".[@answerType='bool']">
+					<div style="width: 250px; padding: 0px; float: left;">
+						<xf:output class="baseInput" ref="@question"></xf:output>
+					</div>
+					<xf:group ref=".[@answer='True']">
+						<div style="width: 250px; padding: 10px 0px 0px 0px; float: left;"> Да
+						</div>
+					</xf:group>
+					<xf:group ref=".[@answer!='True']">
+						<div style="width: 250px; padding: 10px 0px 0px 0px; float: left;"> Нет
+						</div>
+					</xf:group>
+					<div style="width: 250px; padding: 0px; float: left;">
+						<xf:output class="baseInput" ref="@questionEnd"></xf:output>
+					</div>
+				</xf:group>
+				<xf:group ref=".[@answerType='choice']">
+					<div style="width: 250px; padding: 0px; float: left; clear:both;">
+						<xf:output class="baseInput" ref="@question"></xf:output>
+					</div>
+					<xf:repeat id="xformId_answer_choice"
+						nodeset="instance('xformId_mainInstance')/answers/answer/answer">
+						<div style="width: 250px; padding: 0px 0px 0px 250px; float: left; clear:both;">
+							<xf:output class="baseInput" ref="."></xf:output>
+						</div>
+					</xf:repeat>
+					<div style="width: 250px; padding: 0px; float: left; clear:both;">
+						<xf:output class="baseInput" ref="@questionEnd"></xf:output>
+					</div>
+				</xf:group>
+				<xf:group ref=".[@answerType!='bool' and @answerType!='choice']">
+					<div style="width: 250px; padding: 0px; float: left;">
+						<xf:output class="baseInput" ref="@question"></xf:output>
+					</div>
+					<div style="width: 250px; padding: 0px; float: left;">
+						<xf:output class="baseInput" ref="@answer"></xf:output>
+					</div>
+					<div style="width: 250px; padding: 0px; float: left;">
+						<xf:output class="baseInput" ref="@questionEnd"></xf:output>
+					</div>
+				</xf:group>
+			</div> -->

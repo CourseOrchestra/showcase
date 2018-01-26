@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="01" name="Профайлы грида">
+		<element id="0101" type="grid" proc="grid_default_profile"/>
+		<element id="0102" type="grid" proc="grid_special_profile"/>
+	</tab>			
+	<tab id="02" name="Submit и Transform сервлеты в XForms">
+		<element id="61" type="xforms" template="Showcase_Template_servlets.xml"
+			proc="xforms_proc1">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+		</element>
+	</tab>	
+	<tab id="03" name="Пользовательские ошибки из БД">
+		<element id="0301" type="webtext" proc="webtext_user_mes_activator" />
+		<element id="0302" type="webtext" proc="webtext_user_mes" hideOnLoad="true"/>
+	</tab>		
+	<tab id="04" name="Графики">
+		<element id="0401" type="grid" proc="grid_bal_multiaction" />
+		<element id="d1" type="chart" proc="chart_ylabelsfunc" hideOnLoad="true"/>
+	</tab>				
+</datapanel>

@@ -1,0 +1,10 @@
+﻿<navigator>
+	<group id="1" name="Балансы продовольственных ресурсов">
+		<level1 id="C6CC2BA4-A6ED-4630-8E58-CBBFA9C8C0A1" name="SQL DP test dynamic">
+			<action>
+				<main_context>Неправильный контекст</main_context>
+				<datapanel type="dp0903dynMain" />				
+			</action>
+		</level1>			
+	</group>
+</navigator>

@@ -1,0 +1,1 @@
+7|0|6|http://localhost:8080/Showcase/secured/|B47384DB23F70300784CDC8F9D89A623|ru.curs.showcase.app.api.event.CompositeContext/2468847584|Запасы на конец отчетного периода - Всего|java.util.HashMap/1797211028|java.util.TreeMap/1493889780|1|2|3|0|0|4|5|0|0|6|0|0|

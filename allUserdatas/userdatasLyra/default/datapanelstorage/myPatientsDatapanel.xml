@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Пациенты">
+
+		<element id="gridPatients" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid"
+			proc="ssmmd.grids.patientgrid.getData.cl">
+			<proc id="gridMetaPatients" name="ssmmd.grids.patientgrid.getSettings.cl"
+				type="METADATA"/>
+			<proc id="toolbarPatients" name="ssmmd.grids.patientgrid.gridToolBar.cl" type="TOOLBAR"
+			/>
+		</element>
+
+		<element id="xformPatients" type="xforms" template="patientCard.xml"
+			proc="ssmmd.xforms.patientcard.cardData.cl" neverShowInPanel="true">
+			<proc id="cardSavePatients" name="ssmmd.xforms.patientcard.cardDataSave.cl" type="SAVE"/>
+			<related id="gridPatients"/>
+		</element>
+
+		<element id="xformPatientsDelete" type="xforms" template="patientDelete.xml"
+			proc="ssmmd.xforms.patientDelete.cardData.cl" neverShowInPanel="true">
+			<proc id="patientDelete" name="ssmmd.xforms.patientDelete.cardDelete.cl" type="SAVE"/>
+			<related id="gridPatients"/>
+		</element>
+
+		<!--
+    <element id="12" type="webtext" proc="dirusing.webtext.dircontentbuttons.buttons.celesta">
+      <related id="13"/>
+    </element> -->
+
+		<!--
+    <element id="13" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid" proc="dirusing.grids.dircontentgrid.getData.celesta">
+		<proc id="14" name="dirusing.grids.dircontentgrid.getSettings.celesta" type="METADATA"/>
+		<proc id="toolbar1" name="dirusing.grids.dircontentgrid.gridToolBar.celesta" type="TOOLBAR"/>
+		<proc id="download1" name="dirusing.commonfunctions.downloadFileFromGrid.celesta" type="DOWNLOAD"/>
+
+	</element>
+	
+    <element id="15" type="xforms" template="directory_data_card.xml" proc="dirusing.xforms.dircontentcard.cardData.celesta" neverShowInPanel="true">
+      <proc id="proc1" name="dirusing.xforms.dircontentcard.cardDataSave.celesta" type="SAVE"/>
+	  <proc id="download2" name="dirusing.commonfunctions.downloadFileFromXform.celesta" type="DOWNLOAD"/>
+	  <proc id="upload2" name="dirusing.commonfunctions.uploadFileToXform.celesta" type="UPLOAD"/>
+	  <related id="13"/>
+    </element>
+	-->
+	</tab>
+</datapanel>

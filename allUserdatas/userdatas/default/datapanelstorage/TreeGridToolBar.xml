@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="01" name="Tree grid">
+	
+	    <element id="0201" type="GRID" subtype="EXT_LIVE_GRID" proc="extlivegrid_bal">
+		</element>
+		<element id="0202" type="webtext" proc="webtext/selectedRowWriter.py" hideOnLoad="true" />
+	
+	
+		<element id="0101" type="GRID" subtype="EXT_TREE_GRID" proc="exttreegrid_geo_icons">
+			<proc id="010101" name="gridToolBar" type="TOOLBAR"/>
+			
+		    <related id="0201"/>
+					
+		</element>
+		<element id="0102" type="webtext" proc="webtext/selectedRowWriter.py" hideOnLoad="true" />
+		
+		
+		
+		
+	</tab>	
+	<tab id="02" name="Live grid">
+	</tab>
+	<tab id="03" name="Page grid">
+		<element id="0301" type="GRID" subtype="EXT_PAGE_GRID" proc="extlivegrid_bal">
+			<proc id="030101" name="gridToolBar" type="TOOLBAR"/>
+		</element>
+		<element id="0302" type="webtext" proc="webtext/selectedRowWriter.py" hideOnLoad="true" />
+	</tab>
+	<tab id="04" name="Jython source">
+		<element id="0401" type="GRID" subtype="EXT_TREE_GRID" proc="exttreegrid_geo_icons">
+			<proc id="040101" name="gridToolBar.py" type="TOOLBAR"/>
+		</element>
+		<element id="0402" type="webtext" proc="webtext/selectedRowWriter.py" hideOnLoad="true" />
+	</tab>
+</datapanel>

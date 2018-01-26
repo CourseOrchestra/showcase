@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="01" name="Карта 1">
+		<element id="0101" type="geomap" proc="geomap_bal" cacheData="true"/>
+		<element id="0102" type="grid" proc="grid_fewcols" cacheData="true"/>
+	</tab>			
+	<tab id="02" name="Карта 2">
+		<element id="0201" type="geomap" proc="geomap_func2" cacheData="true"/>
+	</tab>	
+	<tab id="03" name="Графики">
+		<element id="0301" type="grid" proc="grid_bal_multiaction" />
+		<element id="d1" type="chart" proc="chart_StackedColumns" hideOnLoad="true"/>
+		<element id="d2" type="chart" proc="chart_Columns" hideOnLoad="true" />
+		<element id="d3" type="chart" proc="chart_ClusteredColumns" hideOnLoad="true" />
+		<element id="d4" type="chart" proc="chart_Bars" hideOnLoad="true" />
+		<element id="d10" type="chart" proc="chart_chart" hideOnLoad="true"/>
+		
+	</tab>				
+</datapanel>

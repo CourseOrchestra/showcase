@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="action.xsd"/>
+    <xs:element name="geomapsettings">
+        <xs:complexType>
+            <xs:all>                        
+                <xs:element ref="labels" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="action" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="exportSettings" minOccurs="0"/>  
+                <xs:element ref="properties"/>                                   
+                <xs:element name="template" type="notNullType"/>            
+            </xs:all>                       
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="labels">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="header" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="footer" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element> 
+    
+    <xs:element name="exportSettings">
+        <xs:complexType>
+            <xs:attribute name="width" type="xs:unsignedShort"/>
+            <xs:attribute name="height" type="xs:unsignedShort"/>
+            <xs:attribute name="backgroundColor" type="colorType"/>
+            <xs:attribute name="jpegQuality" type="PercentRange"/>
+            <xs:attribute name="filename" type="xs:string"/>
+        </xs:complexType>
+    </xs:element> 
+    
+    <xs:element name="properties">
+        <xs:complexType>
+            <xs:attribute name="legend" type="childPosition" />
+            <xs:attribute name="width" type="HtmlPxSizeType"/>
+            <xs:attribute name="height" type="HtmlPxSizeType"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

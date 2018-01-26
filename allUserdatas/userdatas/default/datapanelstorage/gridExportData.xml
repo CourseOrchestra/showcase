@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="tabLiveGrid" name="LiveGrid">
+		<element id="elementLiveGrid" type="GRID" subtype="EXT_LIVE_GRID" proc="extlivegrid_bal">
+			<proc id="procLiveGridExportData" name="extLiveGrid_exportData" type="EXPORTDATA" />
+		</element>
+	</tab>		
+</datapanel>

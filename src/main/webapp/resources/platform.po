@@ -1,0 +1,255 @@
+#
+"Project-Id-Version: Showcase\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-26 15:54+0300\n"
+"PO-Revision-Date: 2016-07-26 17:04+0300\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"Last-Translator: Anna Shaynurova\n"
+"Language-Team: curs-it\n"
+
+msgid "Send12"
+msgstr "Send12"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Starts with (Ctrl+B)"
+msgstr "Starts with (Ctrl+B)"
+
+msgid "Not found"
+msgstr "Not found"
+
+msgid "when retrieving table data from server"
+msgstr "when retrieving table data from server"
+
+msgid "Export to Excel"
+msgstr "Export to Excel"
+
+msgid "The table is empty. Export to Excel will not run."
+msgstr "The table is empty. Export to Excel will not run."
+
+msgid "Show at most"
+msgstr "Show at most"
+
+msgid "Loading data"
+msgstr "Loading data"
+
+msgid "Downloaded entry with ID"
+msgstr "Downloaded entry with ID"
+
+msgid "is already present in the grid. Entries will not be loaded."
+msgstr "is already present in the grid. Entries will not be loaded."
+
+msgid "when retrieving data from the server XForm"
+msgstr "when retrieving data from the server XForm"
+
+msgid "when retrieving data from server to the main XForm"
+msgstr "when retrieving data from server to the main XForm"
+
+msgid "An error occurred during downloading files"
+msgstr "An error occurred during downloading files"
+
+msgid "Error during serialization parameters for Http-request plug."
+msgstr "Error during serialization parameters for Http-request plug."
+
+msgid "An error occurred while deserializing an object"
+msgstr "An error occurred while deserializing an object"
+
+msgid "Loading..."
+msgstr "Loading..."
+
+msgid "No records"
+msgstr "No records"
+
+msgid "Export to Excel descendants of the current record"
+msgstr "Export to Excel descendants of the current record"
+
+msgid "Export to Excel records 0-level"
+msgstr "Export to Excel records 0-level"
+
+msgid "To perform a partial update, you must select a sorting grid"
+msgstr "To perform a partial update, you must select a sorting grid"
+
+msgid "list of values"
+msgstr "list of values"
+
+msgid "equal"
+msgstr "equal"
+
+msgid "does not equal"
+msgstr "does not equal"
+
+msgid "is less than"
+msgstr "is less than"
+
+msgid "less than or equal"
+msgstr "less than or equal"
+
+msgid "is greater than"
+msgstr "is greater than"
+
+msgid "greater than or equal"
+msgstr "greater than or equal"
+
+msgid "contains"
+msgstr "contains"
+
+msgid "starts with"
+msgstr "starts with"
+
+msgid "ends with"
+msgstr "ends with"
+
+msgid "does not contain"
+msgstr "does not contain"
+
+msgid "does not start with"
+msgstr "does not start with"
+
+msgid "does not end with"
+msgstr "does not end with"
+
+msgid "is empty"
+msgstr "is empty"
+
+msgid "Mapping"
+msgstr "Mapping"
+
+msgid "Column"
+msgstr "Column"
+
+msgid "Condition"
+msgstr "Condition"
+
+msgid "Value"
+msgstr "Value"
+
+msgid "Select values"
+msgstr "Select values"
+
+msgid "Update filter condition"
+msgstr "Update filter condition"
+
+msgid "Add"
+msgstr "Add"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Clear"
+msgstr "Clear"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Please wait...Data is loading"
+msgstr "Please wait...Data is loading"
+
+msgid "Welcome"
+msgstr "Welcome"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Empty"
+msgstr "Empty"
+
+msgid "when retrieving graph data from server"
+msgstr "when retrieving graph data from server"
+
+msgid "when retrieving navigator data from server"
+msgstr "when retrieving navigator data from server"
+
+msgid "when retrieving map data from server"
+msgstr "when retrieving map data from server"
+
+msgid "when retrieving external plugin data from server"
+msgstr "when retrieving external plugin data from server"
+
+msgid "when retrieving text data from server"
+msgstr "when retrieving text data from server"
+
+msgid "when retrieving current application state data"
+msgstr "when retrieving current application state data"
+
+msgid "when retrieving main application page"
+msgstr "when retrieving main application page"
+
+msgid "Error when exporting to Excel"
+msgstr "Error when exporting to Excel"
+
+msgid "Error when downloading file"
+msgstr "Error when downloading file"
+
+msgid "Map drawing error"
+msgstr "Map drawing error"
+
+msgid "External plugin constructing error"
+msgstr "External plugin constructing error"
+
+msgid "Error when retrieving data for external plugin"
+msgstr "Error when retrieving data for external plugin"
+
+msgid "Graph construction error"
+msgstr "Graph construction error"
+
+msgid "JSForm construction error"
+msgstr "JSForm construction error"
+
+msgid "Export current page to Excel"
+msgstr "Export current page to Excel"
+
+msgid "Export entire table to Excel"
+msgstr "Export entire table to Excel"
+
+msgid "Copy to clipboard"
+msgstr "Copy to clipboard"
+
+msgid "Copy"
+msgstr "Copy"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Add Record"
+msgstr "Add Record"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "Undo"
+msgstr "Undo"
+
+msgid "Export to Excel is running. It may take a few minutes. Click here to hide the message."
+msgstr "Export to Excel is running. It may take a few minutes. Click here to hide the message."
+
+msgid "File downloading"
+msgstr "File downloading"
+
+msgid "Error when XForms data saving on server"
+msgstr "Error when XForms data saving on server"
+
+msgid "File downloading error"
+msgstr "File downloading error"
+
+msgid "PNG file downloading error"
+msgstr "PNG file downloading error"
+
+msgid "File uploading error"
+msgstr "File uploading error"
+
+msgid "Converting navigator width error"
+msgstr "Converting navigator width error"
+
+msgid "Error when converting height of the header or footer"
+msgstr "Error when converting height of the header or footer"
+
+msgid "when execution of server action"
+msgstr "when execution of server action"

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+	<tab id="3" name="Вебтекст">		
+		<element id="77" type="webtext" proc="webtext_self_refresh" />
+	</tab>
+	<tab id="6" name="XForms как фильтр">
+		<element id="61" type="xforms" template="Showcase_Template.xml"
+			proc="xforms_proc1">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+		</element>
+		<element id="62" type="webtext" proc="webtext_filter_and_add"
+			hideOnLoad="true" />		
+	</tab>
+	<tab id="2" name="Файлы в XForms">
+		<element id="21" type="xforms" template="Showcase_Template21.xml"
+			proc="xforms_proc21">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="03" name="xforms_download1" type="DOWNLOAD" />
+			<proc id="04" name="xforms_upload1" type="UPLOAD" />
+			<proc id="05" name="xforms_upload1" type="UPLOAD" />
+			<proc id="06" name="xforms_download2" type="DOWNLOAD" schema="test_good_small.xsd" transform="test_good.xsl"/>
+			<proc id="07" name="xforms_upload1" type="UPLOAD" schema="test_good.xsd" transform="test_good.xsl"/>					
+		</element>
+		<element id="22" type="webtext" proc="webtext_filter_and_add"
+			hideOnLoad="true" />		
+	</tab>
+	<tab id="4" name="Грид">
+		<element id ="0401" type="grid" proc="grid_cities_data">
+			<proc id="040101" name="grid_cities_metadata" type="METADATA"/>
+		</element>
+  	    <element id="0402" type="grid" proc="grid_cities_one"/>
+	</tab>
+	<tab id="5" name="График">
+        <element id="501" type="webtext" proc="webtext_pas" transform="pas.xsl"/>	
+        <element id="502" type="chart" proc="chart_pas"/>
+	</tab>	
+	<tab id="7" name="Карта">
+		<element id="72" type="geomap" proc="geomap_func2"/>
+	</tab>			
+</datapanel>

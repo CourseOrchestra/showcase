@@ -1,0 +1,1 @@
+select @@VERSION AS [Version]

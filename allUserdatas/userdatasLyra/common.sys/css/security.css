@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+.imageButton button .xforms-value {
+    /*background-image: url(../resources/key_2009.png);*/
+    /*background-repeat: no-repeat;*/
+    background: none;
+    width: 16px !important;
+    margin: 0 0 -4px 0;
+    padding: 0;
+}

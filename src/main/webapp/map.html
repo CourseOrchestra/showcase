@@ -1,0 +1,115 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<link rel="stylesheet" href="js/dijit/themes/claro/claro.css"/>
+
+    <script type="text/javascript">
+        var djConfig = {
+            parseOnLoad: false,
+            isDebug: false,
+            modulePaths: {'course': '../course', 'courseApp': '../..'},
+            gfxRenderer: 'svg,silverlight,vml'
+        };
+    </script>  
+<script src="js/dojo/dojo.js"></script>
+<script src="js/course/geo.js"></script>
+<script src="js/course/geo/Map.js"></script>
+<script src="js/course/geo/Feature.js"></script>
+<script src="js/course/geo/FeatureCollection.js"></script>
+<script src="js/course/geo/feature/Placemark.js"></script>
+<script src="js/course/geo/Style.js"></script>
+<script src="js/internalShowcase.js"></script>
+
+<script>
+dojo.require("dijit.form.Button");
+dojo.require("dojo.data.ItemFileReadStore");
+dojo.require("dojox.geo.charting.widget.Legend");
+
+
+function onMapFeatureClick(mapDivId, feature) {
+    console.debug(mapDivId, feature.id);
+}
+
+var style = {
+	id: "populationDensity",
+	stroke: {color:"white", width: .5},
+	rules: [
+		{
+			name: "Очень низкая плотность",
+			filter: ["c", 0, "<=", "indicator1", "<", 2],
+			fill: "#FFFFB2"
+		},
+		{
+			name: "Низкая плотность",
+			filter: ["c", 2, "<=", "indicator1", "<", 10],
+			fill: "#FECC5C"
+		},
+		{
+			name: "Средняя плотность",
+			filter: ["c", 10, "<=", "indicator1", "<", 50],
+			fill: "#FD8D3C"
+		},
+		{
+			name: "Высокая плотность",
+			filter: ["c", 50, "<=", "indicator1", "<", 150],
+			fill: "#F03B20"
+		},
+		{
+			name: "Очень высокая плотность",
+			filter: ["c", 150, "<=", "indicator1"],
+			fill: "#BD0026"
+		},
+		{
+			name: "Другое",
+			elseFilter: true,
+			fill: "#BD0026"
+		}
+	]
+}
+
+var optionSet2 = {
+	geometries: ["courseApp.data.geo.russia_geometries","courseApp.data.geo.russiaGeometries"],
+	eventHandler: "onMapFeatureClick",
+	styles: style
+}
+
+dojo.addOnLoad(function(){
+	dojo.xhrGet({
+		url: "utils/data.json",
+		handleAs: "json",
+		sync:true,
+		handle: function(optionSet1) {
+			addOnLoad(optionSet1);
+		}
+	});
+});
+
+
+addOnLoad = function(optionSet1) {
+	console.debug(dojo.toJson(optionSet1));
+	console.debug("*************************************");
+	console.debug(dojo.toJson(optionSet2));
+	var copyOfOptionSet1 = dojo.clone(optionSet1);
+	var copyOfOptionSet2 = dojo.clone(optionSet2);
+    new dijit.form.Button({onClick: function(){
+		copyOfOptionSet1.width = 1200;
+		copyOfOptionSet1.height = 600;
+		course.geo.makeMap("map", copyOfOptionSet1, copyOfOptionSet2, mapConvertorFunc);
+    }}, "dojoButton");
+
+    var map = course.geo.makeMap("map", optionSet1, optionSet2, mapConvertorFunc);
+    //var legend = new dojox.geo.charting.widget.Legend({map: map, horizontal: false});
+}
+</script>
+
+</head>
+
+<body class="claro">
+
+<div id="dojoButton">Test button</div>
+<div id="map" style="width:800px;height:400px;"></div>
+<div id="chartLegend"></div>
+
+</body>
+</html>

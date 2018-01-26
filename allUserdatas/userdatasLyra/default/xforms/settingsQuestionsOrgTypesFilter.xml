@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+  <head>
+    <xf:model id="xformId_mainModel">
+      <xf:instance id="xformId_mainInstance">
+        <schema xmlns="">
+          <info id="" name=""></info>
+        </schema>
+      </xf:instance>
+      <xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/info/@name" required="true()"
+          readonly="true()"></xf:bind>
+      </xf:bind>
+    </xf:model>
+  </head>
+  <body>
+    <div class="selector">
+      <div class="inputText" style="width: 355px">
+        <xf:input class="author baseInput" ref="instance('xformId_mainInstance')/info/@name">
+          <xf:label>тип организации:</xf:label>
+        </xf:input>
+      </div>
+      <div class="ssmmd selectorButton">
+        <xf:selector buttonLabel="..."
+          procListAndCount="'ssmmd.xforms.settingsQuestionsOrgTypesFilter.orgTypesListAndCount.celesta'"
+          generalFilters="" currentValue="''" windowCaption="'Выберите тип организации'"
+          xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/info/@name)' : 'name',
+          'XPath(instance(quot(xformId_mainInstance))/info/@id)' : 'id'}"
+        > </xf:selector>
+      </div>
+    </div>
+    
+    <xf:group ref="instance('xformId_mainInstance')/info[@name='']">
+      <div style="clear:both; padding-top: 10px; font-size: 13pt">
+        Для редактирования вопросов выберите тип организации
+      </div>
+    </xf:group>
+    
+    <xf:group ref="instance('xformId_mainInstance')/info[@name>'']">
+      <div class="dirusing newbutton" style="clear:both">
+        <xf:trigger class="blue">
+          <xf:label>Отобразить</xf:label>
+          <xf:action ev:event="DOMActivate">
+            <xf:load
+              resource="javascript:gwtXFormUpdate('xformId','11',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"
+            ></xf:load>
+          </xf:action>
+        </xf:trigger>
+      </div>
+    </xf:group>
+  </body>
+</html>

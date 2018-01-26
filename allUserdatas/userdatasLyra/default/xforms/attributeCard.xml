@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" 
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer" 
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns="">
+					<data id="" name=""/>
+				</schema>
+			</xf:instance>
+			<xf:instance id="xformId_fromInstance">
+				<schema xmlns="">
+					<itemset type="question">
+						<item label="Титульный лист" value="title"/>
+						<item label="Вопросник" value="visit"/>
+						<item label="Бланк исследования" value="research"/>
+						<item label="Дневник исследования" value="journal"/>
+					</itemset>
+					<itemset type="answer">
+						<item label="Титульный лист" value="title"/>
+						<item label="Вопросник" value="visit"/>
+						<item label="Бланк исследования" value="research"/>
+						<item label="Дневник исследования" value="journal"/>
+					</itemset>
+				</schema>
+			</xf:instance>
+
+			<xf:bind>
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@typeName"/>
+	
+				<xf:bind required="true()" nodeset="instance('xformId_mainInstance')/data/@name" />
+	
+				<xf:bind readonly="instance('xformId_mainInstance')/data/@type = 'edit' and instance('xformId_mainInstance')/data/@isSystem = 'true'"
+				nodeset="instance('xformId_mainInstance')/data/@name" />
+				
+
+				<xf:bind readonly="true()"
+					nodeset="instance('xformId_mainInstance')/data/rules/rule/operator/condition/answerTypeName"/>
+
+				<xf:bind type="date"
+					nodeset="instance('xformId_mainInstance')/data/rules/rule/operator/condition[answerType='date']/answer"/>
+				<xf:bind type="nonNegativeInteger"
+					nodeset="instance('xformId_mainInstance')/data/rules/rule/operator/condition[answerType='int']/answer"/>
+				<xf:bind type="decimal"
+					nodeset="instance('xformId_mainInstance')/data/rules/rule/operator[type='visit']/condition/from"/>
+				<xf:bind type="decimal"
+					nodeset="instance('xformId_mainInstance')/data/rules/rule/operator/condition[answerType='float']/answer"/>
+				<xf:bind readonly="true()"
+					nodeset="instance('xformId_mainInstance')/data/rules/rule/operator/condition[answerType='catalog']/answer"/>
+
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/@branching" type="boolean"/>
+			</xf:bind>
+			<xf:submission id="xformId_choiceSubmission" method="post"
+				instance="xformId_mainInstance" replace="instance"
+				ref="instance('xformId_mainInstance')" mode="synchronous"
+				action="secured/submit?proc=ssmmd.xforms.treeResearchCard.choiceSendSubmission.celesta">
+				<xf:load resource="javascript: xforms.ready = false; getSubformModel('xformId_mainModel').recalculate(); getSubformModel('xformId_mainModel').revalidate(); xforms.refresh(); xforms.ready = true;"/>
+			</xf:submission>
+
+			<xf:submission id="xformId_textSubmission" method="post" instance="xformId_mainInstance"
+				replace="instance" ref="instance('xformId_mainInstance')" mode="synchronous"
+				action="secured/submit?proc=ssmmd.xforms.textTranslator.textSubmission.celesta">
+			</xf:submission>
+
+			<xf:submission id="xformId_saveSubmission" method="post" instance="xformId_mainInstance"
+				replace="instance" ref="instance('xformId_mainInstance')"
+				action="secured/submit?proc=ssmmd.xforms.treeResearchCard.saveSubmission.celesta">
+				<xf:action ev:event="xforms-submit-error">
+					<xf:load
+						resource="javascript:if(confirm('Разбор формул завершился неудачно, продолжить сохранение?')){
+													gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))
+													}
+													else {xforms.ready = false; getSubformModel('xformId_mainModel').recalculate(); getSubformModel('xformId_mainModel').revalidate(); xforms.refresh(); xforms.ready = true;}"/>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-done">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"/>
+				</xf:action>
+			</xf:submission>
+
+		</xf:model>
+	</head>
+
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/>  -->
+		<xf:group>
+			<xf:group ref="instance('xformId_mainInstance')/data[@type='add']">
+			<div class="selector">
+				<table>
+					<tr>
+						<td>
+							<div style="padding: 4px 0px 0px 3px; width: 350px; float: left;">
+								<xf:output ref="instance('xformId_mainInstance')/data/@parentName">
+									<xf:label>Родительский элемент:</xf:label>
+								</xf:output>
+							</div>
+						</td> 
+					</tr>
+				</table>
+			</div>
+			</xf:group>
+			<xf:group ref="instance('xformId_mainInstance')/data[@type='add' or (@type='edit' and @isSystem='false')]">
+			<xf:group ref="instance('xformId_mainInstance')/data[@isSystem='false']">
+					<div style="width: 350px; float: left;">
+						<xf:input class="author baseInput" ref="@typeName">
+							<xf:label>Тип:</xf:label>
+					<!-- 		<xf:action ev:event="xforms-value-changed">
+								<xf:setvalue ref="../@name" value=""/>
+								<xf:setvalue ref="../@id" value=""/>
+							</xf:action> -->
+						</xf:input>
+					</div>
+					<div style="color:red; float: left; padding-top: 20px; padding-left: 3px">*</div>
+					<div style="float:left; padding-top: 20px">
+						<xf:selector buttonLabel="..."
+						procListAndCount="'ssmmd.xforms.attributeCard.typeListAndCount.celesta'"
+						generalFilters="['XPath(instance(quot(xformId_mainInstance))/data/@parentId)']"
+						currentValue="''" windowCaption="'Выбор исследования'"
+						xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@typeId)' : 'id',
+						'XPath(instance(quot(xformId_mainInstance))/data/@typeName)' : 'name'}"/>
+					</div>
+					<div style="float:left; padding-top: 20px">
+						<xf:trigger >
+							<xf:label>X</xf:label>
+							<xf:action ev:event="DOMActivate">
+								<xf:setvalue ref="instance('xformId_mainInstance')/data/@typeName" value=""/>
+								<xf:setvalue ref="instance('xformId_mainInstance')/data/@typeId" value=""/>
+							</xf:action>
+						</xf:trigger>
+					</div>				
+					<div class="control" style="width: 100%; float: left;clear:both; ">
+						<table>
+							<tr>
+								<td>
+									<div style="width: 415px; ">
+										<xf:input class="author baseInput" ref="instance('xformId_mainInstance')/data/@name">
+											<xf:label>Наименование:</xf:label>
+										</xf:input>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				
+				
+			</xf:group>		
+			</xf:group>
+			<xf:group ref="instance('xformId_mainInstance')/data[@type='edit' and @isSystem='true']">
+				<div style="padding: 4px 0px 0px 0px; width: 350px; float: left;">
+					<xf:input ref="instance('xformId_mainInstance')/data/@typeName">
+						<xf:label>Тип значения:</xf:label>
+					</xf:input>
+				</div>			
+				<div style="padding: 4px 0px 0px 0px; width: 350px; float: left;clear:both;">
+					<xf:input ref="instance('xformId_mainInstance')/data/@name">
+						<xf:label>Наименование:</xf:label>
+					</xf:input>
+				</div>
+			</xf:group>
+		</xf:group>
+
+<hr style="margin-top:21px; width: 100%;  float: left; clear: both;"/>
+
+<div class="author newbutton" style="margin-left:10px; padding: 2px;float: left;clear: both">
+	<xf:trigger class="blue" id="Tab10">
+		<xf:label>Сохранить и закрыть</xf:label>
+		<xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=true())">
+			<xf:load resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 
+				'xformId_mainInstance')))"/>
+		</xf:action>
+	</xf:trigger>
+</div>
+
+<div class="author newbutton" style="margin-right:10px; padding: 2px;float: right;">
+	<xf:trigger class="blue" id="Tab20">
+		<xf:label>Закрыть</xf:label>
+		<xf:action ev:event="DOMActivate">
+			<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+		</xf:action>
+	</xf:trigger>
+</div>
+
+</body>
+</html>

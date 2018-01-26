@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div>
+<button type="button" onclick="gwtWebTextFunc('${elementId}','1');">Добавить</button>
+<button type="button" onclick="gwtWebTextFunc('${elementId}','2');">Редактировать</button>
+<button type="button" onclick="gwtWebTextFunc('${elementId}','3');">Удалить</button>
+</div>

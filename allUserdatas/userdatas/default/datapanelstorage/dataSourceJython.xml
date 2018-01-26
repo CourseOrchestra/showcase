@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>		
+	<tab id="simpleGridJython" name="grid">
+		<element id="0101" type="grid" proc="testGridJython.py">
+		</element>
+	</tab>
+	<tab id="liveGridJython" name="Live grid">
+		<element id="0102" type="grid" subtype="JS_LIVE_GRID" proc="testLiveGridJython.py"
+		plugin="liveDGrid"
+		>
+			<proc id="010201" name="testLiveGridJythonSettings.py" type="METADATA"/>
+		</element>
+	</tab>
+	<tab id="liveGridJythonDownload" name="Скачивание файлов из грида">
+		<element id="0301" type="grid" subtype="EXT_LIVE_GRID" proc="gridDownloadLoad.py">
+			<proc id="11" name="gridDownload1.py" type="DOWNLOAD" />
+			<proc id="12" name="gridDownload2.py" type="DOWNLOAD" />
+		</element>		
+	</tab>
+	<tab id="04" name="XForms - селектор">
+		<element id="0401" type="xforms" template="SelectorJython_Template.xml" proc="xforms_proc_all">
+		</element>
+	</tab>
+	<tab id="05" name="XForms - скачать/загрузить файл">
+		<element id="0501" type="xforms" template="DownloadUpload_Jython_Template.xml" proc="xforms_proc_all">
+			<proc id="050101" name="xform/XFormsDownloadByUserdata.py" type="DOWNLOAD" />
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="050102" name="xform/XFormsUploadByUserdata.py" type="UPLOAD" />
+		</element>
+	</tab>	
+	
+</datapanel>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+
+  
+	
+	<tab id="4" name="ColumnSets (фиксация столбцов)">
+		<element id ="741" type="grid" subtype="JS_TREE_GRID" proc="grid_new_data_columnsets_geo"  
+		    plugin="treeDGrid">
+			<proc id="742" name="grid_new_meta_columnsets" type="METADATA"/>
+		</element>
+	</tab>
+
+
+	<tab id="7" name="Сложные заголовки">
+		<element id ="841" type="grid" subtype="JS_TREE_GRID" proc="grid_new_data_compound_columns_geo"  
+		    plugin="treeDGrid">
+			<proc id="842" name="grid_new_meta_compound_columns" type="METADATA"/>
+		</element>
+	</tab>		
+	
+	
+	<tab id="10" name="Раскрытие всех уровней">
+ 		<element id="441" type="GRID"  subtype="JS_TREE_GRID" proc="grid_new_data_geo_expandall"
+		    plugin="treeDGrid">
+			<proc id="442" name="grid_new_meta_geo_expandall" type="METADATA"/>
+			
+   			<proc id="020101" name="toolbar_grid_new" type="TOOLBAR"/>
+   			
+		    <proc id="11" name="jstreegrid_addrecord1" type="ADDRECORD" />
+		    <proc id="12" name="jstreegrid_save1" type="SAVE" />
+ 		    
+			<proc id="14" name="partial_grid_new_geo" type="PARTIALUPDATE" /> 
+   			
+		    
+		</element>
+		<element id="443" type="webtext" proc="webtext/selectedRowWriter.py" hideOnLoad="true" />		    
+		<element id="105" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+	</tab>
+	
+
+	
+	
+</datapanel>

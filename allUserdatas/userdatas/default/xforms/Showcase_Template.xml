@@ -1,0 +1,242 @@
+﻿<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer" xmlns:xf="http://www.w3.org/2002/xforms">
+   	
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      		
+      <xf:model id="gridPropertyCard_mainModel">
+         			
+         <xf:instance xmlns="" id="gridPropertyCard_mainInstance">
+            <schema>
+               <unused>
+                  <field>
+                     <code>site</code>
+                     <name>Site</name>
+                  </field>
+                  <field>
+                     <code>status</code>
+                     <name>Status</name>
+                  </field>
+                  <field>
+                     <code>isSubcompanySign</code>
+                     <name>Subcompany</name>
+                  </field>
+               </unused>
+               <used>
+                  <field>
+                     <code>country</code>
+                     <name>Country</name>
+                  </field>
+                  <field>
+                     <code>city</code>
+                     <name>City</name>
+                  </field>
+                  <field>
+                     <code>state</code>
+                     <name>State</name>
+                  </field>
+               </used>
+            </schema>
+         </xf:instance>
+         
+         			
+         <xf:bind>
+            				
+            <!-- <xf:bind nideset="instance('gridPropertyCard_mainInstance')/fields/field/@name" readonly="true()"/> -->
+            			
+         </xf:bind>
+         		
+         <instance xmlns="" id="gridPropertyCard_srvdata">
+            <schema>
+               <xformsContext>
+                  <main>current</main>
+                  <additional>client</additional>
+                  <session>&lt;sessioncontext&gt;
+                     &lt;username&gt;admin&lt;/username&gt;
+                     &lt;sid&gt;admin&lt;/sid&gt;
+                     &lt;login&gt;admin&lt;/login&gt;
+                     &lt;sessionid&gt;EC9B0A60F810322F53F0DF1ED803F27C&lt;/sessionid&gt;
+                     &lt;email/&gt;
+                     &lt;fullusername&gt;Administrator&lt;/fullusername&gt;
+                     &lt;phone/&gt;
+                     &lt;ip&gt;0:0:0:0:0:0:0:1&lt;/ip&gt;
+                     &lt;urlparams&gt;
+                     &lt;urlparam name="qq1" value="[ww1]"/&gt;
+                     &lt;urlparam name="qq2" value="[ww2]"/&gt;
+                     &lt;/urlparams&gt;
+                     &lt;userdata&gt;default&lt;/userdata&gt;
+                     &lt;related&gt;
+                     &lt;gridContext id="clientGrid"&gt;
+                     &lt;partialUpdate&gt;false&lt;/partialUpdate&gt;
+                     &lt;pageInfo number="1" size="20"/&gt;
+                     &lt;liveInfo limit="50" offset="0" pageNumber="1" totalCount="1889"/&gt;
+                     &lt;gridFilterInfo/&gt;
+                     &lt;currentDatapanelWidth&gt;1276&lt;/currentDatapanelWidth&gt;
+                     &lt;currentDatapanelHeight&gt;1007&lt;/currentDatapanelHeight&gt;
+                     &lt;/gridContext&gt;
+                     &lt;/related&gt;
+                     &lt;/sessioncontext&gt;
+                     
+                  </session>
+                  <partialUpdate>false</partialUpdate>
+               </xformsContext>
+               <element>
+                  <id>
+                     <string>gridPropertyCard</string>
+                  </id>
+                  <position>2</position>
+                  <type>XFORMS</type>
+                  <editable>false</editable>
+                  <procName>dbo.xforms.gridPropertyCard.cardData.celesta</procName>
+                  <templateName>gridPropertyCard.xml</templateName>
+                  <hideOnLoad>false</hideOnLoad>
+                  <neverShowInPanel>true</neverShowInPanel>
+                  <htmlAttrs></htmlAttrs>
+                  <cacheData>false</cacheData>
+                  <refreshByTimer>false</refreshByTimer>
+                  <refreshInterval>600</refreshInterval>
+                  <procs>
+                     <entry>
+                        <key>
+                           <string>clientGridPropertyCardSave</string>
+                        </key>
+                        <value>
+                           <id>
+                              <string>clientGridPropertyCardSave</string>
+                           </id>
+                           <name>dbo.xforms.gridPropertyCard.cardDataSave.celesta</name>
+                           <type>SAVE</type>
+                        </value>
+                     </entry>
+                  </procs>
+                  <related>
+                     <string>clientGrid</string>
+                  </related>
+                  <showLoadingMessage>false</showLoadingMessage>
+                  <showLoadingMessageForFirstTime>true</showLoadingMessageForFirstTime>
+                  <buildTemplate>true</buildTemplate>
+                  <needReload>true</needReload>
+               </element>
+            </schema>
+         </instance>
+      </xf:model>
+      	
+   </head>
+   
+   	
+   <body>
+      		
+      <xf:output value="serialize(instance('gridPropertyCard_mainInstance'))"/> 
+      		
+
+         			
+         <table border="1" width="100%">
+            				
+            <tr>
+               					
+               <td width="50%">Unused fields</td>
+               					
+               <td width="50%">Used fields</td>
+               				
+            </tr>
+            				
+            <tr>
+               					
+               <td style="vertical-align: top">
+                  
+                  						
+                  <xf:repeat id="unusedField" nodeset="instance('gridPropertyCard_mainInstance')/unused/field">
+                     							
+                     <!-- <xf:group ref="."> -->
+                     							
+                     <div class="break button30" style="margin-top: 5px; float: right">
+                        
+                        								
+                        <xf:trigger>
+                           									
+                           <xf:label>R</xf:label>
+                           									
+                           <xf:action ev:event="DOMActivate">
+                              										
+                              <xf:insert context="instance('gridPropertyCard_mainInstance')/used"  nodeset="instance('gridPropertyCard_mainInstance')/used/field" origin="instance('gridPropertyCard_mainInstance')/unused/field[index('unusedField')]" position="after"></xf:insert>
+                              										
+                              <xf:delete nodeset="."></xf:delete>
+                              									
+                           </xf:action>
+                           								
+                        </xf:trigger>
+                        
+                        							
+                     </div>
+                     							
+                     <!-- </xf:group> -->
+                     							
+                     <div class="baseInput200">
+                        								
+                        <xf:output ref="name"></xf:output>
+                        							
+                     </div>
+                     
+                     						
+                  </xf:repeat>
+                  
+                  					
+               </td>
+               
+               					
+               <td style="vertical-align: top">
+                  
+                  <xf:repeat id="usedField" nodeset="instance('gridPropertyCard_mainInstance')/used/field">                  						
+                     
+                     							
+                     <div class="break baseInput200">
+                        								
+                        <xf:output ref="name"></xf:output>
+                        							
+                     </div>
+                     
+                     							
+                     <div style="float: right">
+                        								
+                        <div class="button30" style="margin-top: 5px">
+                           									
+                           <xf:trigger>
+                              										
+                              <xf:label>L</xf:label>
+                              										
+                              <!-- > -->
+                              										
+                              <xf:action ev:event="DOMActivate">
+                                 											
+
+                                 <xf:insert context="instance('gridPropertyCard_mainInstance')/unused"  nodeset="instance('gridPropertyCard_mainInstance')/unused/field" origin="instance('gridPropertyCard_mainInstance')/used/field[index('usedField')]" position="after"></xf:insert>                                 
+                                 											
+                                 <xf:delete nodeset="."></xf:delete>
+                                 										
+                              </xf:action>
+                              									
+                           </xf:trigger>
+                           								
+                        </div>
+                        								
+                        								
+                        							
+                     </div>
+                     
+                     						
+                  </xf:repeat>
+                  
+                  					
+               </td>
+               
+               				
+            </tr>
+            			
+         </table>
+         		
+
+      
+      		
+      	
+   </body>
+   
+</html>

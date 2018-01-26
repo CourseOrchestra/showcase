@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema>
+					<data id="" name=""/>
+				</schema>
+			</xf:instance>
+			<xf:instance id="xformId_contrInstance" xmlns="">
+				<schema>
+					<data contraindication=""/>
+				</schema>
+			</xf:instance>
+			<xf:instance id="xformId_messageInstance" xmlns="">
+				<schema>
+					<data message="Атрибуты исследования должны вводиться последовательно!"/>
+				</schema>
+			</xf:instance>
+			<xf:instance id="xformId_flagInstance" xmlns="">
+				<schema>
+					<data flag="0"/>
+				</schema>
+			</xf:instance>
+			<xf:bind>
+				<xf:bind required="true()" readonly="true()"
+					nodeset="instance('xformId_mainInstance')/data/@researchName"/>
+				<xf:bind required="instance('xformId_mainInstance')/data/@laboratoryVisible = 'true'" readonly="true()"
+					nodeset="instance('xformId_mainInstance')/data/@laboratoryName"/>
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@researchMethodName"/>
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@substrateName"/>
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@samplingMethodName"/>
+				
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@prepProcedureName"/>	
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@researchConditionName"/> 
+			</xf:bind>
+			<xf:submission id="xformId_CalculateContraindication" method="post"
+				instance="xformId_contrInstance" replace="instance"
+				ref="instance('xformId_mainInstance')"
+				action="secured/submit?proc=ssmmd.xforms.appointResearchCard.submissionCalculateContraindication.celesta"
+				mode="synchronous">				
+			</xf:submission>
+
+		</xf:model>
+	</head>
+	<body>
+		<!-- 		<xf:output value="serialize(instance('xformId_flagInstance'))"></xf:output> 
+		<xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>  -->
+		<xf:output value="serialize(instance('xformId_messageInstance')/data/@message)"/> 
+		<div class="break selectorLong400">
+			<xf:input ref="instance('xformId_mainInstance')/data/@researchName">
+				<xf:label>Название:</xf:label>
+				<xf:action ev:event="xforms-value-changed">
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@laboratoryName"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@laboratoryId"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@prepProcedureName"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@prepProcedureId"
+						value="'default'">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@researchConditionName"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@researchConditionId"
+						value="'default'">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@researchMethodName"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@researchMethodId"
+						value="'default'">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@samplingMethodName"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@samplingMethodId"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@substrateName"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@substrateId"
+						value="'default'">
+					</xf:setvalue>
+					<!--<xf:send submission="xformId_CalculateContraindication"/>-->
+				</xf:action>
+			</xf:input>
+
+			<xf:selector buttonLabel="..."
+							procListAndCount="'ssmmd.xforms.appointResearchCard.researchListAndCount.celesta'"
+							generalFilters="''" currentValue="''"
+							windowCaption="'Выбор исследования'"
+							xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@researchId)' : 'id',
+								'XPath(instance(quot(xformId_mainInstance))/data/@researchName)' : 'name',	
+								'XPath(instance(quot(xformId_mainInstance))/data/@prepProcedureVisible)' : 'prepProcedureVisible',
+								'XPath(instance(quot(xformId_mainInstance))/data/@researchMethodVisible)' : 'researchMethodVisible',
+								'XPath(instance(quot(xformId_mainInstance))/data/@researchConditionVisible)' : 'researchConditionVisible',
+								'XPath(instance(quot(xformId_mainInstance))/data/@substrateVisible)' : 'substrateVisible',
+								'XPath(instance(quot(xformId_mainInstance))/data/@laboratoryVisible)' : 'laboratoryVisible'}"/>
+
+			<xf:trigger>
+				<xf:label>X</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@researchName"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@researchId"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@laboratoryName"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@laboratoryId"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@prepProcedureName"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@prepProcedureId"
+						value="'default'">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@researchConditionName"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@researchConditionId"
+						value="'default'">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@researchMethodName"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@researchMethodId"
+						value="'default'">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@samplingMethodName"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@samplingMethodId"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@substrateName"
+						value="">
+					</xf:setvalue>
+					<xf:setvalue
+						ref="instance('xformId_mainInstance')/data/@substrateId"
+						value="'default'">
+					</xf:setvalue>
+					<!--<xf:setvalue
+		ref="instance('xformId_mainInstance')/data/@absoluteContraindication"
+		value="'false'"></xf:setvalue>
+						<xf:setvalue
+		ref="instance('xformId_mainInstance')/data/@relativeContraindication"
+		value="'false'"></xf:setvalue>-->
+				</xf:action>
+			</xf:trigger>
+
+
+		</div>
+		<xf:group ref="instance('xformId_mainInstance')/data[./@researchId!='']">
+			<xf:group ref="instance('xformId_mainInstance')/data[./@researchMethodVisible='true']">
+				<div class="break selectorLong400">
+					<xf:input ref="instance('xformId_mainInstance')/data/@researchMethodName">
+						<xf:label>Метод исследования:</xf:label>
+						<!--<xf:action ev:event="xforms-value-changed">
+							<xf:send
+							submission="xformId_CalculateContraindication"
+							></xf:send>
+						</xf:action>-->
+					</xf:input>
+
+					<xf:selector buttonLabel="..."
+							procListAndCount="'ssmmd.xforms.appointResearchCard.researchMethodListAndCount.celesta'"
+							generalFilters="['XPath(instance(quot(xformId_mainInstance))/data/@researchId)']"
+							currentValue="''"
+							windowCaption="'Выбор метода исследования'"
+							xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@researchMethodId)' : 'id',
+						'XPath(instance(quot(xformId_mainInstance))/data/@researchMethodName)' : 'name'}"/>
+
+					<xf:trigger>
+						<xf:label>X</xf:label>
+						<xf:action ev:event="DOMActivate">
+							<xf:setvalue
+								ref="instance('xformId_mainInstance')/data/@researchMethodName"
+								value="">
+							</xf:setvalue>
+							<xf:setvalue
+								ref="instance('xformId_mainInstance')/data/@researchMethodId"
+								value="'default'">
+							</xf:setvalue>
+							<!--<xf:setvalue
+			ref="instance('xformId_mainInstance')/data/@absoluteContraindication"
+			value="'false'"></xf:setvalue>
+								<xf:setvalue
+			ref="instance('xformId_mainInstance')/data/@relativeContraindication"
+			value="'false'"></xf:setvalue>-->
+						</xf:action>
+					</xf:trigger>
+
+				</div>
+			</xf:group>
+			<xf:group ref="instance('xformId_mainInstance')/data[./@prepProcedureVisible='true']">
+				<div class="break selectorLong400">
+					<xf:input ref="instance('xformId_mainInstance')/data/@prepProcedureName">
+						<xf:label>Подготовительные процедуры:</xf:label>
+						<!--<xf:action ev:event="xforms-value-changed">
+								<xf:send
+								submission="xformId_CalculateContraindication"
+								></xf:send>
+							</xf:action>-->
+					</xf:input>
+					<xf:selector buttonLabel="..."
+						procListAndCount="'ssmmd.xforms.appointResearchCard.prepProcedureListAndCount.celesta'"
+						generalFilters="['XPath(instance(quot(xformId_mainInstance))/data)']"
+						currentValue="''"
+						windowCaption="'Выбор подготовительной процедуры'"
+						xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@prepProcedureId)' : 'id',
+					'XPath(instance(quot(xformId_mainInstance))/data/@prepProcedureName)' : 'name'}"/>
+
+					<xf:trigger>
+						<xf:label>X</xf:label>
+						<xf:action ev:event="DOMActivate">
+							<xf:setvalue
+								ref="instance('xformId_mainInstance')/data/@prepProcedureName"
+								value="">
+							</xf:setvalue>
+							<xf:setvalue
+								ref="instance('xformId_mainInstance')/data/@prepProcedureId"
+								value="'default'">
+							</xf:setvalue>
+							<!--<xf:setvalue
+				ref="instance('xformId_mainInstance')/data/@absoluteContraindication"
+				value="'false'"></xf:setvalue>
+								<xf:setvalue
+				ref="instance('xformId_mainInstance')/data/@relativeContraindication"
+				value="'false'"></xf:setvalue>-->
+						</xf:action>
+					</xf:trigger>
+
+				</div>
+			</xf:group>
+			<xf:group
+				ref="instance('xformId_mainInstance')/data[./@researchConditionVisible='true']">
+				<div class="break selectorLong400">
+					<xf:input ref="instance('xformId_mainInstance')/data/@researchConditionName">
+						<xf:label>Условия проведения исследования:</xf:label>
+						<!--<xf:action ev:event="xforms-value-changed">
+												<xf:send
+												submission="xformId_CalculateContraindication"
+												></xf:send>
+											</xf:action>-->
+					</xf:input>
+
+					<xf:selector buttonLabel="..."
+							procListAndCount="'ssmmd.xforms.appointResearchCard.researchConditionListAndCount.celesta'"
+							generalFilters="['XPath(instance(quot(xformId_mainInstance))/data)']"
+							currentValue="''"
+							windowCaption="'Выбор условий проведения исследований'"
+							xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@researchConditionId)' : 'id',
+						'XPath(instance(quot(xformId_mainInstance))/data/@researchConditionName)' : 'name'}"/>
+
+					<xf:trigger>
+						<xf:label>X</xf:label>
+						<xf:action ev:event="DOMActivate">
+							<xf:setvalue
+								ref="instance('xformId_mainInstance')/data/@researchConditionName"
+								value="">
+							</xf:setvalue>
+							<xf:setvalue
+								ref="instance('xformId_mainInstance')/data/@researchConditionId"
+								value="'default'">
+							</xf:setvalue>
+							<!--<xf:setvalue
+			ref="instance('xformId_mainInstance')/data/@absoluteContraindication"
+			value="'false'"></xf:setvalue>
+							<xf:setvalue
+			ref="instance('xformId_mainInstance')/data/@relativeContraindication"
+			value="'false'"></xf:setvalue>-->
+						</xf:action>
+					</xf:trigger>
+
+				</div>
+			</xf:group>
+			<xf:group ref="instance('xformId_mainInstance')/data[./@substrateVisible='true']">
+				<div class="break selectorLong400">
+					<xf:input
+						ref="instance('xformId_mainInstance')/data/@substrateName">
+						<xf:label>Субстрат:</xf:label>
+						<xf:action ev:event="xforms-value-changed">
+							<xf:setvalue
+							ref="instance('xformId_mainInstance')/data/@samplingMethodName"
+							value="">
+							</xf:setvalue>
+							<xf:setvalue
+							ref="instance('xformId_mainInstance')/data/@samplingMethodId"
+							value="">
+							</xf:setvalue>
+							<!--<xf:send
+								submission="xformId_CalculateContraindication"
+								></xf:send>-->
+						</xf:action>
+					</xf:input>				
+					<xf:selector buttonLabel="..."
+							procListAndCount="'ssmmd.xforms.appointResearchCard.substrateListAndCount.celesta'"
+							generalFilters="['XPath(instance(quot(xformId_mainInstance))/data)']"
+							currentValue="''" windowCaption="'Выбор субстрата'"
+							xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@substrateId)' : 'id',
+						'XPath(instance(quot(xformId_mainInstance))/data/@substrateName)' : 'name',
+						'XPath(instance(quot(xformId_mainInstance))/data/@samplingMethodVisible)' : 'samplingMethodVisible'}"
+						/>				
+					<xf:trigger>
+						<xf:label>X</xf:label>
+						<xf:action ev:event="DOMActivate">
+							<xf:setvalue
+								ref="instance('xformId_mainInstance')/data/@substrateName"
+								value="">
+							</xf:setvalue>
+							<xf:setvalue
+								ref="instance('xformId_mainInstance')/data/@substrateId"
+								value="'default'">
+							</xf:setvalue>
+							<xf:setvalue
+								ref="instance('xformId_mainInstance')/data/@samplingMethodName"
+								value="">
+							</xf:setvalue>
+							<xf:setvalue
+								ref="instance('xformId_mainInstance')/data/@samplingMethodId"
+								value="">
+							</xf:setvalue>
+							<!--<xf:setvalue
+								ref="instance('xformId_mainInstance')/data/@absoluteContraindication"
+								value="'false'"></xf:setvalue>
+												<xf:setvalue
+								ref="instance('xformId_mainInstance')/data/@relativeContraindication"
+								value="'false'"></xf:setvalue>-->
+						</xf:action>
+					</xf:trigger>
+				</div>
+			</xf:group>
+			<xf:group ref="instance('xformId_mainInstance')/data[./@substrateId!='']">
+				<xf:group ref="instance('xformId_mainInstance')/data[./@samplingMethodVisible='true']">
+					<div class="break selectorLong400">
+
+						<xf:input
+							ref="instance('xformId_mainInstance')/data/@samplingMethodName">
+							<xf:label>Способ забора:</xf:label>
+							<!--<xf:action ev:event="xforms-value-changed">
+												<xf:send
+												submission="xformId_CalculateContraindication"
+												></xf:send>
+												</xf:action>-->
+						</xf:input>
+
+						<xf:selector buttonLabel="..."
+							procListAndCount="'ssmmd.xforms.appointResearchCard.samplingMethodListAndCount.celesta'"
+							generalFilters="['XPath(instance(quot(xformId_mainInstance))/data)']"
+							currentValue="''"
+							windowCaption="'Выбор метода забора'"
+							xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@samplingMethodId)' : 'id',
+											'XPath(instance(quot(xformId_mainInstance))/data/@samplingMethodName)' : 'name'}"/>
+						<xf:trigger>
+							<xf:label>X</xf:label>
+							<xf:action ev:event="DOMActivate">
+								<xf:setvalue
+							ref="instance('xformId_mainInstance')/data/@samplingMethodName"
+							value="">
+								</xf:setvalue>
+								<xf:setvalue
+							ref="instance('xformId_mainInstance')/data/@samplingMethodId"
+							value="">
+								</xf:setvalue>
+							</xf:action>
+						</xf:trigger>
+					</div>
+				</xf:group>
+			</xf:group>
+			<xf:group ref="instance('xformId_mainInstance')/data[./@laboratoryVisible='true']">
+				<div class="break selectorLong400">
+
+					<xf:input
+						ref="instance('xformId_mainInstance')/data/@laboratoryName">
+						<xf:label>Лаборатория:</xf:label>
+					</xf:input>
+
+					<xf:selector buttonLabel="..."
+							procListAndCount="'ssmmd.xforms.appointResearchCard.laboratoryListAndCount.celesta'"
+							generalFilters="['XPath(instance(quot(xformId_mainInstance))/data/@researchId)']"
+							currentValue="''" windowCaption="'Выбор лаборатории'"
+							xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/@laboratoryId)' : 'id',
+							'XPath(instance(quot(xformId_mainInstance))/data/@laboratoryName)' : 'name'}"
+						/>
+
+					<xf:trigger>
+						<xf:label>X</xf:label>
+						<xf:action ev:event="DOMActivate">
+							<xf:setvalue
+								ref="instance('xformId_mainInstance')/data/@laboratoryName"
+								value="">
+							</xf:setvalue>
+							<xf:setvalue
+								ref="instance('xformId_mainInstance')/data/@laboratoryId"
+								value="">
+							</xf:setvalue>
+						</xf:action>
+					</xf:trigger>
+				</div>
+			</xf:group>
+		</xf:group>
+		<!--<xf:group ref="instance('xformId_mainInstance')/data[@absoluteContraindication='true']">
+			<div style="margin-left:10px; width: 5%; padding: 2px;float: left;clear: both">
+				<xf:output mediatype="image/*" value="'resources/internal/message_error.png'"
+				></xf:output>
+			</div>
+		</xf:group>
+		<xf:group ref="instance('xformId_mainInstance')/data[@relativeContraindication='true']">
+			<div style="margin-left:10px; width: 5%; padding: 2px;float: left;clear: both">
+				<xf:output mediatype="image/*" value="'resources/internal/message_alert.png'"
+				></xf:output>
+			</div>
+		</xf:group>-->
+		<hr class="break" />
+		<!--<xf:group ref="instance('xformId_mainInstance')/data[@absoluteContraindication!='true']">-->
+		<xf:group ref="instance('xformId_flagInstance')/data[@id!='0']">		
+			<div class="author newbutton" style="margin-left:10px; padding: 2px;float: left;clear: both">
+				<xf:trigger class="blue" id="Tab10">
+					<xf:label>Сохранить и закрыть</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:action if="(is-valid(instance('xformId_mainInstance'))=false())">
+							<xf:message>Заполнено с ошибкой!</xf:message>
+						</xf:action>
+						<xf:action if="(is-valid(instance('xformId_mainInstance'))=true())">
+							<xf:send submission="xformId_CalculateContraindication"/>					
+							<xf:action
+								if="(instance('xformId_contrInstance')/data/@contraindication = '1')">
+								<xf:message>Для данного набора атрибутов имеются абсолютные
+									противопоказания. Создание исследования невозможно.</xf:message>
+							</xf:action>
+							<xf:action
+								if="(instance('xformId_contrInstance')/data/@contraindication = '2')">
+								<xf:load
+				resource="javascript:if(confirm('Для данного набора атрибутов имеются относительные противопоказания. Продолжить?')){gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel',  'xformId_mainInstance')))}"
+								>
+								</xf:load>
+							</xf:action>
+							<xf:action>
+								<xf:setvalue
+				ref="instance('xformId_flagInstance')/data/@flag"
+				value="1">
+								</xf:setvalue>
+							</xf:action>
+							<xf:action
+								if="(instance('xformId_contrInstance')/data/@contraindication = '0')">
+								<xf:load
+				resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel',  'xformId_mainInstance')))"
+								>
+								</xf:load>
+							</xf:action>
+						</xf:action> 
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</xf:group>
+		<div class="author newbutton" style="margin-right:10px; padding: 2px;float: right;">
+			<xf:trigger class="blue" id="Tab20">
+				<xf:label>Закрыть</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+				</xf:action>
+			</xf:trigger>
+		</div>
+	</body>
+</html>

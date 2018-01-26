@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns="">
+					<group>
+						<number/>
+						<question/>
+						<answerType/>
+						<commentQ/>
+						<answer/>
+						<answerId/>
+						<additional/>
+						<commentA/>
+						<answerChoice/>
+					</group>
+				</schema>
+			</xf:instance>
+
+			<xf:instance id="xformId_questionInstance" xmlns="">
+				<schema xmlns="">
+					<group>
+						<number/>
+						<question/>
+						<answerType/>
+						<commentQ/>
+						<answer/>
+						<answerId/>
+						<additional/>
+						<commentA/>
+						<answerChoice/>
+					</group>
+				</schema>
+			</xf:instance>
+			<xf:instance id="xformId_addInstance">
+				<schema xmlns="">				
+					<question 
+					id="" 
+					question="" 
+					answer="" 
+					addAccepted="false"/>
+				</schema>
+			</xf:instance>
+			<xf:instance id="xformId_mainInstance2" xmlns="">
+				<schema>
+					<hypothesis id="" name="" type="" realId=""/>
+				</schema>
+			</xf:instance>
+
+
+			<xf:submission id="submit" method="post" instance="xformId_mainInstance"
+				replace="instance" ref="instance('xformId_mainInstance')"
+				action="secured/submit?proc=ssmmd.other.createQuestionnaire.submitAddQuestion.celesta"
+				mode="synchronous">
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>Ошибка</xf:message>
+				</xf:action>
+			</xf:submission>
+
+			<xf:bind>
+				<xf:bind
+					readonly="if(../accepted='true' or ../answerType='catalog' ,true(), false())"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question/answer">
+				</xf:bind>
+				<xf:bind readonly="if(../accepted='true',true(), false())"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question/answerId"/>
+				<xf:bind readonly="if(../accepted='true',true(), false())"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question/commentA"/>
+				<xf:bind type="nonNegativeInteger"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question[answerType='int']/answer"/>
+				<xf:bind type="date"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question[answerType='date']/answer"/>
+				<xf:bind readonly="true()"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question/hypotheses/hypothesis/@name"/>
+				<xf:bind type="decimal"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question[answerType='float']/answer"/>
+				<!--        <xf:bind readonly="if(instance('xformId_mainInstance')/data/new = 'false', true(), false())" required="true()" nodeset="instance('xformId_mainInstance')/data/name"></xf:bind>
+        <xf:bind readonly="if(instance('xformId_mainInstance')/data/new = 'false', true(), false())" required="true()" nodeset="instance('xformId_mainInstance')/data/surname"></xf:bind>
+        <xf:bind readonly="if(instance('xformId_mainInstance')/data/new = 'false', true(), false())"  nodeset="instance('xformId_mainInstance')/data/patronymic"></xf:bind>-->
+				<xf:bind type="boolean"
+					nodeset="instance('xformId_mainInstance')/sections/section/questions/question/additional"
+				/>
+
+			</xf:bind>
+		</xf:model>
+	</head>
+
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/> -->
+		<!--<xf:output value="serialize(instance('xformId_srvdata'))"></xf:output>-->
+		<xf:group ref="instance('xformId_mainInstance')/visible[./='false']">
+
+			<h4>
+				<center> Разработка, к которой привязано исследование была отправлена на доработку.
+					Продолжение заполнения исследования невозможно. Перейдите на вкладку 'Результаты
+					исследований'</center>
+			</h4>
+		</xf:group>
+		<xf:group ref="instance('xformId_mainInstance')/visible[./='true']">
+			<div class="control"
+				style="width: 600px; padding: 30px 0px 0px 10px; float: left; clear:both">
+				<xf:output class="control" ref="instance('xformId_mainInstance')/message"
+				/>
+			</div>
+
+			<xf:repeat id="xformId_section"
+				nodeset="instance('xformId_mainInstance')/sections/section">
+				<!-- разделы -->
+				<div
+					style="float: left; clear: both; margin-top: 3px; margin-left: {sum(@level)*30}px; font-weight: bold; font-size: 12pt;">
+					<xf:output value="@name"/>
+				</div>
+
+
+				<xf:repeat id="ActionRow" nodeset="questions/question[visible = 'true']">
+
+					<div
+						style="padding-top: 10px; width: {250 - (sum(./level)*30)- (sum(../../@level)*30) +20}px; margin-left: {(sum(./level)*30)+ (sum(../../@level)*30) +20}px; font-style: italic; float: left; clear:both;">
+						<xf:group id="commentQ" ref=".[commentQ!='' and answerType!='header']">
+							<xf:output value="./question">
+								<xf:hint>
+									<xf:output ref="./commentQ"/>
+								</xf:hint>
+							</xf:output>
+							<xf:group
+								ref=".[commentQ!='' and answerType!='header' and required = 'True']">
+								<div style="color:red;">
+									<xf:output value="'*'"/>
+								</div>
+							</xf:group>
+						</xf:group>
+						<xf:group id="NoCommentQ" ref=".[commentQ='' and answerType!='header']">
+							<xf:output value="./question"/>
+							<xf:group
+								ref=".[commentQ='' and answerType!='header' and required = 'True']">
+								<div style="color:red;">
+									<xf:output value="'*'"/>
+								</div>
+							</xf:group>
+						</xf:group>
+					</div>
+					<xf:group id="commentQnoAnswer" ref=".[commentQ='' and answerType='header']">
+						<div
+							style="padding-top: 10px; width: {600 - (sum(./level)*30)- (sum(../../@level)*30) +20}px; margin-left: {(sum(./level)*30)+ (sum(../../@level)*30) +20}px; font-style: italic; font-weight: bold; float: left; clear:both;">
+							<xf:output ref="./question"/>
+						</div>
+					</xf:group>
+					<xf:group id="NoCommentQnoAnswer" ref=".[commentQ!='' and answerType='header']">
+						<div
+							style="padding-top: 10px; width: {600 - (sum(./level)*30)- (sum(../../@level)*30) +20}px; margin-left: {(sum(./level)*30)+ (sum(../../@level)*30) +20}px; font-style: italic; font-weight: bold; float: left; clear:both;">
+							<xf:output ref="./question">
+								<xf:hint>
+									<xf:output ref="../commentQ"/>
+								</xf:hint>
+							</xf:output>
+						</div>
+					</xf:group>
+
+					<xf:group id="date" ref=".[answerType='date' and  accepted!='true']">
+						<div style="padding-top: 10px; float: left;  width: 200px">
+							<xf:input class="ssmmd dateInputFrontPage" ref="./answer"/>
+						</div>
+					</xf:group>
+					<xf:group id="dateNoButton" ref=".[answerType='date' and  accepted='true']">
+						<div style="padding-top: 10px; float: left;  width: 200px">
+							<xf:input ref="./answer"/>
+						</div>
+					</xf:group>
+					<xf:group id="notDate"
+						ref=".[answerType='int' or answerType='float' or answerType='text']">
+						<div style="padding-top: 10px; float: left; width: 200px">
+							<xf:input ref="./answer"/>
+						</div>
+					</xf:group>
+
+					<xf:group id="bool" ref=".[answerType='bool']">
+						<div style="padding-top: 10px; float: left;  width: 200px">
+							<xf:select1 ref="./answer">
+								<xf:item>
+									<xf:label/>
+									<xf:value/>
+								</xf:item>
+								<xf:item>
+									<xf:label>+</xf:label>
+									<xf:value>true</xf:value>
+								</xf:item>
+								<xf:item>
+									<xf:label>-</xf:label>
+									<xf:value>false</xf:value>
+								</xf:item>
+							</xf:select1>
+						</div>
+					</xf:group>
+
+					<xf:group id="choice" ref=".[answerType='choice' and multipleChoice='false']">
+						<div style="width: 200px;	padding-top: 10px; float: left;">
+							<xf:select1 ref="./answerId">
+								<xf:item>
+									<xf:label/>
+									<xf:value/>
+								</xf:item>
+								<xf:itemset nodeset="../answerChoice/choice">
+									<xf:label ref="name"/>
+									<xf:value ref="id"/>
+								</xf:itemset>
+								<xf:action ev:event="xforms-value-changed">
+									<xf:setvalue ref="../answer"
+										value="../answerChoice/choice[id = ../../answerId]/name"
+									/>
+								</xf:action>
+							</xf:select1>
+						</div>
+					</xf:group>
+
+					<xf:group id="choiceMulti"
+						ref=".[answerType='choice' and multipleChoice='true']">
+						<div style="width: 200px;	padding-top: 10px; float: left;">
+							<xf:select ref="./answerId" appearance="full">
+								<xf:itemset nodeset="../answerChoice/choice">
+									<xf:label ref="name"/>
+									<xf:value ref="id"/>
+								</xf:itemset>
+								<xf:action ev:event="xforms-value-changed">
+									<xf:setvalue ref="../answer"
+										value="../answerChoice/choice[id = ../../answerId]/name"
+									/>
+								</xf:action>
+							</xf:select>
+						</div>
+					</xf:group>
+
+					<xf:group id="catalog" ref=".[answerType='catalog' and multipleChoice='false']">
+						<div class="selector">
+							<div style="width: 174px;	padding-top: 10px; float: left;">
+								<xf:input ref="./answer"/>
+							</div>
+							<xf:group id="catalogButton"
+								ref=".[answerType='catalog'  and accepted != 'true' and multipleChoice='false']">
+								<div style="float: left; padding-top: 10px">
+									<xf:trigger>
+										<xf:label>...</xf:label>
+										<xf:action ev:event="DOMActivate">
+											<xf:load
+												resource="javascript:gwtCreatePlugin
+											({
+											id:'xformId',
+											plugin:'extJsTree',
+											getDataProcName:'ssmmd.xforms.inspectionQuestionsCard.catalogSelectListAndCount.celesta',
+											postProcessProc:'handleExtJsTree.py',
+											generalFilters: ['XPath(instance(quot(xformId_mainInstance))/sections/section[index(quot(xformId_section))]/questions/question[index(quot(ActionRow))]/catalogId)'],
+											params:
+											{core:
+											{Update:
+											{startsWith:true,
+											delay:900
+											}
+											},
+											dataModel:
+											{fields:
+											[]},
+											view:
+											{columns:
+											[]}
+											},
+											options: {
+											dataWidth: '600px',
+											dataHeight: '450px',
+											windowCaption: 'Выбор значения из справочника',
+											onSelectionComplete: function(ok, plugin) {
+											if (ok) {
+											plugin.utils.singleXpathMapping({			
+											'XPath(instance(quot(xformId_mainInstance))/sections/section[index(quot(xformId_section))]/questions/question[index(quot(ActionRow))]/answerId)' : 'id',
+											'XPath(instance(quot(xformId_mainInstance))/sections/section[index(quot(xformId_section))]/questions/question[index(quot(ActionRow))]/answer)' : 'name'}, true);	}}}});"
+											>
+											</xf:load>
+										</xf:action>
+									</xf:trigger>
+								</div>
+							</xf:group>
+						</div>
+					</xf:group>
+
+					<xf:group id="catalogMulti"
+						ref=".[answerType='catalog' and accepted != 'true' and multipleChoice='true']">
+						<div class="selector">
+							<div style="float: left; padding-right: 39px; padding-top: 10px">
+								<xf:trigger>
+									<xf:label>Выбрать из справочника</xf:label>
+									<xf:action ev:event="DOMActivate">
+										<xf:load
+											resource="javascript:gwtCreatePlugin
+										({
+										id:'xformId',
+										plugin:'extJsTree',
+										getDataProcName:'ssmmd.xforms.inspectionQuestionsCard.catalogSelectListAndCount.celesta',
+										postProcessProc:'handleExtJsTree.py',
+										generalFilters: ['XPath(instance(quot(xformId_mainInstance))/sections/section[index(quot(xformId_section))]/questions/question[index(quot(ActionRow))]/catalogId)'],
+										params:
+										{core:
+										{Update:
+										{startsWith:true,
+										delay:900
+										}
+										},
+										dataModel:
+										{fields:
+										[]},
+										view:
+										{columns:
+										[]}
+										},
+										options: {
+										dataWidth: '600px',
+										dataHeight: '450px',
+										windowCaption: 'Выбор значения из справочника',
+										onSelectionComplete: function(ok, plugin) {
+										if (ok) {
+										plugin.utils.multiXpathMapping({			
+										xpathRoot:'XPath(instance(quot(xformId_mainInstance))/sections/section[index(quot(xformId_section))]/questions/question[index(quot(ActionRow))]/hypotheses)',
+										xpathMapping:{'XPath(instance(quot(xformId_mainInstance2))/hypothesis)':{'id': '@id','name': '@name'}}}
+										, true);	}}}});"
+										>
+										</xf:load>
+									</xf:action>
+								</xf:trigger>
+							</div>
+						</div>
+					</xf:group>
+
+
+					<div style=" padding-top: 10px; width: 50px;  float: left; font-style: italic;">
+						<xf:group id="questionTag" ref=".[ answerType!='header']">
+							<xf:output ref="./questionEnd"/>
+						</xf:group>
+					</div>
+
+
+					<xf:group ref=".[accepted!='true' and answerType!='header']">
+						<div style="float:left; padding: 10px 0px 0px 0px;width:120px">
+							<xf:trigger>
+								<xf:label>
+									<div style="color:lightgreen ; ">Принять</div>
+								</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:action
+										if="(required!='True' or (required='True' and (answer!='' or answerId!=''))) and is-valid(instance('xformId_mainInstance'))=true() and 
+									(((((answer &lt; max or answer=max) and (answer &gt; min or answer = min) and max!='' and min!='')or(max!='' and min='' and (answer &lt; max or answer = max))or(max='' and min!='' and (answer &gt; min or answer = min))
+										or(max='' and min='')) and (answerType='int' or answerType='float' or answerType='date')) or (answerType!='int' and answerType!='float' and answerType!='date'))">
+										<xf:setvalue
+											ref="instance('xformId_mainInstance')/sections/section[index('xformId_section')]/questions/question[visible = 'true'][index('ActionRow')]/accepted"
+											value="'true'">
+										</xf:setvalue>
+										<!--								<xf:message>
+									<xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>
+								</xf:message>-->
+										<xf:send submission="submit"/>
+										<xf:load
+											resource="javascript: xforms.ready = false; getSubformModel('xformId_mainModel').recalculate();
+													   getSubformModel('xformId_mainModel').revalidate(); xforms.refresh(); xforms.ready = true;"
+										>
+										</xf:load>
+									</xf:action>
+									<xf:action if="required='True' and answer='' and answerId='' ">
+										<xf:message>
+											<xf:output
+												value="'Не заполнено обязательное для заполнения поле'"
+											>
+											</xf:output>
+										</xf:message>
+									</xf:action>
+									<xf:action
+										if="max!='' and min='' and (answerType='int' or answerType='float' or answerType='date') and answer &gt; max">
+										<xf:message>
+											<xf:output value="'Значение не должно превышать ' + max"
+											/>
+										</xf:message>
+									</xf:action>
+									<xf:action
+										if="min!='' and max='' and (answerType='int' or answerType='float' or answerType='date') and answer &lt; min">
+										<xf:message>
+											<xf:output
+												value="'Значение не должно быть меньше ' + min"
+											>
+											</xf:output>
+										</xf:message>
+									</xf:action>
+									<xf:action
+										if="min!='' and max!='' and (answerType='int' or answerType='float' or answerType='date') and (answer &lt; min or answer &gt; max)">
+										<xf:message>
+											<xf:output
+												value="'Значение должно находиться в границах от ' + min + ' до ' + max"
+											>
+											</xf:output>
+										</xf:message>
+									</xf:action>
+									<xf:action
+										if="is-valid(instance('xformId_mainInstance'))=false()">
+										<xf:message>
+											<xf:output value="'Заполнено с ошибкой'"/>
+										</xf:message>
+									</xf:action>
+								</xf:action>
+							</xf:trigger>
+						</div>
+					</xf:group>
+					<xf:group ref=".[accepted='true' and answerType!='header']">
+						<div style="float:left; padding: 10px 0px 0px 0px; width:120px">
+							<xf:trigger>
+								<xf:label>
+									<div>Редактировать</div>
+								</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:setvalue
+										ref="instance('xformId_mainInstance')/sections/section[index('xformId_section')]/questions/question[visible = 'true'][index('ActionRow')]/answer"
+										value="">
+									</xf:setvalue>
+									<xf:setvalue
+										ref="instance('xformId_mainInstance')/sections/section[index('xformId_section')]/questions/question[visible = 'true'][index('ActionRow')]/commentA"
+										value="">
+									</xf:setvalue>
+									<xf:setvalue
+										ref="instance('xformId_mainInstance')/sections/section[index('xformId_section')]/questions/question[visible = 'true'][index('ActionRow')]/accepted"
+										value="'false'">
+									</xf:setvalue>
+									<xf:setvalue
+										ref="instance('xformId_mainInstance')/sections/section[index('xformId_section')]/questions/question[visible = 'true'][index('ActionRow')]/additional"
+										value="'false'">
+									</xf:setvalue>
+									<xf:setvalue
+										ref="instance('xformId_mainInstance')/sections/section[index('xformId_section')]/questions/question[visible = 'true'][index('ActionRow')]/visible"
+										value="'true'">
+									</xf:setvalue>
+									<!--       <xf:setvalue ref="instance('xformId_mainInstance')/message" value=""></xf:setvalue>-->
+									<xf:send submission="submit"/>
+									<xf:load
+										resource="javascript: xforms.ready = false; getSubformModel('xformId_mainModel').recalculate(); getSubformModel('xformId_mainModel').revalidate(); xforms.refresh(); xforms.ready = true;"
+									>
+									</xf:load>
+								</xf:action>
+							</xf:trigger>
+						</div>
+					</xf:group>
+
+
+					<xf:group id="pictures" ref=".[pictures!=0]">
+						<div class="author newbutton"
+							style="margin-left:1px; padding: 10px 0px 0px 0px;float: left;">
+							<xf:trigger class="blue">
+								<xf:label>Картинки</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<!--<xf:message>Неверный формат</xf:message>-->
+									<xf:setvalue
+										ref="instance('xformId_mainInstance')/currentSectionsIndex"
+										value="index('xformId_section')-1">
+									</xf:setvalue>
+									<xf:setvalue
+										ref="instance('xformId_mainInstance')/currentQuestionIndex"
+										value="index('ActionRow')-1">
+									</xf:setvalue>
+									<xf:load
+										resource="javascript:gwtXFormUpdate('xformId','2',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"
+										>
+									</xf:load>
+								</xf:action>
+							</xf:trigger>
+						</div>
+					</xf:group>
+
+
+					<xf:group id="addInfo" ref=".[accepted!='true' and answerType!='header']">
+						<div style="float:left; padding-top: 10px;">
+							<xf:input ref="./additional">
+								<xf:action ev:event="xforms-value-changed">
+									<xf:setvalue
+										ref="instance('xformId_mainInstance')/sections/section[index('xformId_section')]/questions/question[visible = 'true'][index('ActionRow')]/commentA"
+										value="">
+									</xf:setvalue>
+								</xf:action>
+							</xf:input>Дополнительная информация</div>
+					</xf:group>
+					<xf:group id="commentA" ref=".[additional='true' and answerType!='header']">
+						<div class="control"
+							style="width: 370px; margin-left:290px; float: left; clear:both;">
+							<xf:textarea class="control" ref="./commentA">
+								<xf:label>Дополнительная информация</xf:label>
+							</xf:textarea>
+						</div>
+					</xf:group>
+					<xf:group id="uploadGroup" ref=".[uploadPicture='1' and answerType!='header']">
+						<div class="baseInput400 break" style="float: left; margin-left:290px;">
+							<div>Загрузить картинку?</div>
+							<xf:upload class="button30" id="xformId_uploadPictureProc"
+								singleFile="true" submit="true" needClearFilenames="true"
+								filenamesMapping="XPath(instance(quot(xformId_mainInstance))/sections/section[index('xformId_section')]/questions/question[index('ActionRow')]/filename)">
+								<xf:action ev:event="DOMActivate">
+									<xf:message>Неверный формат</xf:message>
+									<xf:setvalue ref="filename" value="'11111111111'"/>
+								</xf:action>
+							</xf:upload>
+						</div>
+					</xf:group>
+					<xf:repeat id="hypRow" nodeset="./hypotheses/hypothesis">
+						<div class="inputText" style="float:left; width: 180px; margin-left:290px;">
+							<xf:input ref="@name" />
+						</div>
+						<xf:group ref="../..[accepted!='true']" style="float:left;">
+							<div style="float:left;">
+								<xf:trigger>
+									<xf:label>X</xf:label>
+									<xf:action ev:event="DOMActivate">
+										<xf:delete
+											nodeset="instance('xformId_mainInstance')/sections/section[index('xformId_section')]/questions/question[visible = 'true'][index('ActionRow')]/hypotheses/hypothesis[index('hypRow')]"
+										>
+										</xf:delete>
+									</xf:action>
+								</xf:trigger>
+							</div>
+						</xf:group>
+					</xf:repeat>
+
+				</xf:repeat>
+			</xf:repeat>
+
+
+			<xf:group id="addButton" ref="instance('xformId_mainInstance')/addData">
+				<div class="break button200">
+					<xf:trigger>
+						<xf:label>Добавить доп.вопрос</xf:label>
+						<xf:action ev:event="DOMActivate"> 
+							<xf:insert nodeset="question"
+										origin="instance('xformId_addInstance')/question"
+										at="last()" position="after"/>	
+							<xf:load
+								resource="javascript:
+								xforms.ready = false;
+								getSubformModel('xformId_mainModel').recalculate();
+								getSubformModel('xformId_mainModel').revalidate();
+								xforms.refresh();
+								xforms.ready = true;"/>										
+						</xf:action>
+					</xf:trigger>
+				</div>	
+				<xf:repeat id="xformId_actionRow" nodeset="./question">								
+					<xf:group ref=".[@addAccepted!='true']">
+						<div class="break baseInput400 textareaHeight60">
+							<xf:textarea ref="@question">
+								<xf:label>Вопрос:</xf:label>
+							</xf:textarea>
+						</div>
+
+						<div class="baseInput400 textareaHeight60">
+							<xf:textarea ref="@answer">
+								<xf:label>Ответ:</xf:label>
+							</xf:textarea>
+						</div>
+						<div style="float:left; padding: 10px 0px 0px 0px;width:120px">
+							<xf:trigger>
+								<xf:label>
+									<div style="color:lightgreen ; ">Принять</div>
+								</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:action>
+										<xf:setvalue
+											ref="@addAccepted"
+											value="'true'">
+										</xf:setvalue>
+										<xf:load
+											resource="javascript: xforms.ready = false; getSubformModel('xformId_mainModel').recalculate();
+													   getSubformModel('xformId_mainModel').revalidate(); xforms.refresh(); xforms.ready = true;">
+										</xf:load>
+									</xf:action>
+								</xf:action>
+							</xf:trigger>
+						</div>	
+					</xf:group>
+
+					<xf:group ref=".[@addAccepted='true']">
+						<div class="break baseInput400 textareaHeight60">
+							<xf:output ref="@question">
+								<xf:label>Вопрос:</xf:label>
+							</xf:output>
+						</div>
+
+						<div class="baseInput400 textareaHeight60">
+							<xf:output ref="@answer">
+								<xf:label>Ответ:</xf:label>
+							</xf:output>
+						</div>
+						<div style="float:left; padding: 10px 0px 0px 0px; width:120px">
+							<xf:trigger>
+								<xf:label>Редактировать</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:setvalue
+											ref="@addAccepted"
+											value="'false'">
+									</xf:setvalue>
+									<!--       <xf:setvalue ref="instance('xformId_mainInstance')/message" value=""></xf:setvalue>-->
+									<xf:load
+										resource="javascript: xforms.ready = false; getSubformModel('xformId_mainModel').recalculate(); getSubformModel('xformId_mainModel').revalidate(); xforms.refresh(); xforms.ready = true;"
+									>
+									</xf:load>
+								</xf:action>
+							</xf:trigger>
+						</div>	
+					</xf:group>
+					<div style="float:left; padding: 10px 0px 0px 0px; width:120px">
+						<xf:trigger>
+							<xf:label>Удалить</xf:label>
+							<xf:action ev:event="DOMActivate">
+								<xf:delete nodeset="current()"/>
+								<xf:load
+								resource="javascript:
+								xforms.ready = false;
+								getSubformModel('xformId_mainModel').recalculate();
+								getSubformModel('xformId_mainModel').revalidate();
+								xforms.refresh();
+								xforms.ready = true;"/>																
+							</xf:action>
+						</xf:trigger>
+					</div>
+				</xf:repeat>
+
+				<div class="break button200">
+					<xf:trigger>
+						<xf:label>Загрузить файлы</xf:label>						
+						<xf:action ev:event="DOMActivate">									
+							<xf:load
+								resource="javascript:gwtXFormUpdate('xformId','3',  null)">
+							</xf:load>
+						</xf:action>
+					</xf:trigger>
+				</div>	
+
+			</xf:group>	
+
+			<!--<div class="author newbutton" style="margin-top:21px; margin-left:10px; padding: 2px;float: left;clear: both">
+				<xf:trigger class="blue">
+					<xf:label>Картинки</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:load
+							resource="javascript:gwtXFormUpdate('xformId','2',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"></xf:load>					
+					</xf:action>
+				</xf:trigger>
+			</div>-->
+
+			<xf:group id="b_save" ref="instance('xformId_mainInstance')/button[.='save']">
+				<div class="author newbutton"
+					style="margin-top:21px; margin-left:10px; padding: 2px;float: left;clear: both">
+					<xf:trigger class="blue" id="Tab10">
+						<xf:label>Сохранить</xf:label>
+						<xf:action ev:event="DOMActivate"
+							if="(is-valid(instance('xformId_mainInstance'))=false())">
+							<xf:message>Заполнено с ошибкой!</xf:message>
+						</xf:action>
+						<xf:action ev:event="DOMActivate"
+							if="(is-valid(instance('xformId_mainInstance'))=true())">
+							<xf:load
+								resource="javascript:gwtXFormSave('xformId', '1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 
+            'xformId_mainInstance')))"
+							>
+							</xf:load>
+						</xf:action>
+					</xf:trigger>
+				</div>
+			</xf:group>
+		</xf:group>
+
+
+		<!--<div class="author newbutton" style="margin-top:21px; padding: 2px;float: left;">
+      <xf:trigger class="blue" id="Tab20">
+        <xf:label>Закрыть</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"></xf:load>
+        </xf:action>
+      </xf:trigger>
+    </div>-->
+
+	</body>
+</html>

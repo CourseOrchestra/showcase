@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="action.xsd"/>
+    <xs:element name="chartsettings">
+        <xs:complexType>
+            <xs:all>                        
+                <xs:element ref="labels" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="labelsY" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="action" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="properties"/>                                   
+                <xs:element name="template" type="notNullType"/>            
+            </xs:all>                       
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="labels">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="header" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="footer" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>   
+    
+    <xs:element name="labelsY">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="labelY" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:attribute name="value" type="xs:double" use="required"/>
+                        <xs:attribute name="text" type="xs:string" use="required"/>                        
+                    </xs:complexType>
+                </xs:element>               
+            </xs:sequence>
+        </xs:complexType>        
+        <xs:unique name="labelYValue">
+            <xs:selector xpath="labelY"/>
+            <xs:field xpath="@value"/>
+        </xs:unique>
+    </xs:element> 
+    
+    <xs:element name="properties">
+        <xs:complexType>
+            <xs:attribute name="flip" type="xs:boolean" use="required"/>
+            <xs:attribute name="legend" type="childPosition" use="required"/>
+            <xs:attribute name="width" type="HtmlPxSizeType" use="required"/>
+            <xs:attribute name="height" type="HtmlPxSizeType" use="required"/>
+            <xs:attribute name="selectorColumn" type="notNullType" use="required"/>
+            <xs:attribute name="hintFormat" type="notNullType"/>
+            <xs:attribute name="fireGeneralAndConcreteEvents" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

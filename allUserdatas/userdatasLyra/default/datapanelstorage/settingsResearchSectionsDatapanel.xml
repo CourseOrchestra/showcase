@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="0" name="Разделы исследований">
+		<element id="researchGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.settingsResearchSectionsGrid.treeGrid.celesta">
+			<proc id="toolbarSections"
+				name="ssmmd.grids.settingsResearchSectionsGrid.gridToolBar.celesta" type="TOOLBAR"/>
+		</element>
+		<element id="settingsResearchSectionsChange" type="xforms" template="settingsResearchSectionsCard.xml"
+			proc="ssmmd.xforms.settingsResearchSectionsCard.cardData.celesta" hideOnLoad="true">
+			<proc id="settingsResearchSectionsChangeSave"
+				name="ssmmd.xforms.settingsResearchSectionsCard.cardDataSave.celesta" type="SAVE"/>
+			<related id="researchGrid"/>
+		</element>
+
+		<element id="settingsResearchSectionsDelete" type="xforms" template="settingsResearchSectionsDelete.xml" proc="ssmmd.xforms.settingsResearchSectionsDelete.cardData.celesta" hideOnLoad="true">
+			<proc id="settingsResearchSectionsDeleteSave"
+				name="ssmmd.xforms.settingsResearchSectionsDelete.sectionDelete.celesta" type="SAVE"/>
+			<related id="researchGrid"/>
+		</element>
+
+		<element id="moveRight" type="xforms" template="settingsResearchSectionRight.xml"
+			proc="ssmmd.xforms.settingsResearchSectionRight.cardData.celesta" hideOnLoad="true">
+			<proc id="savemove"
+				name="ssmmd.xforms.settingsResearchSectionRight.moveRight.celesta" type="SAVE"/>
+			<related id="researchGrid"/>
+		</element>
+	</tab>
+</datapanel>

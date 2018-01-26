@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+  <tab id="directoryFlat" name="Редактирование данных">
+	
+
+    <element id="directoryGrid" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid" proc="ssmmd.grids.directoryFlatGrid.getData.celesta">
+		<proc id="directoryGridMeta" name="ssmmd.grids.directoryFlatGrid.getSettings.celesta" type="METADATA"/>
+		<proc id="directoryGridToolbar" name="ssmmd.grids.directoryFlatGrid.gridToolBar.celesta" type="TOOLBAR"/>
+	</element>
+	
+	<element id="directoryFlatAddAndEditCard" type="xforms" template="directoryFlatAddAndEditCard.xml" proc="ssmmd.xforms.directoryFlatAddAndEditCard.cardData.celesta" neverShowInPanel="true">
+      <proc id="proc16" name="ssmmd.xforms.directoryFlatAddAndEditCard.cardDataSave.celesta" type="SAVE"/>
+	  <related id="directoryGrid"/>
+    </element>
+	
+	<element id="directoryFlatDel" type="xforms" template="deleteRecCard.xml"
+		proc="ssmmd.xforms.deleteRecCard.cardData.celesta" neverShowInPanel="true">
+		<proc id="directoryFlatDel" name="ssmmd.grids.directoryFlatGrid.deleteSelectedItems.celesta" type="SAVE"/>
+		<related id="directoryGrid"/>
+	</element> 
+
+  </tab>
+
+</datapanel>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[2.6.0.201104111100-PATCH]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[true]]></enableImports>
+	<configs>
+		<config>src/logic.xml</config>
+		<config>WebContent/WEB-INF/security.xml</config>
+		<config>WebContent/WEB-INF/service.xml</config>
+	</configs>
+	<configSets>
+		<configSet>
+			<name><![CDATA[secutrity]]></name>
+			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
+			<incomplete>false</incomplete>
+			<configs>
+				<config>WebContent/WEB-INF/security.xml</config>
+				<config>WebContent/WEB-INF/service.xml</config>
+			</configs>
+		</configSet>
+	</configSets>
+</beansProjectDescription>

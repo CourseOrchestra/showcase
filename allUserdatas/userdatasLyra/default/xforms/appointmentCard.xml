@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns=""/>
+			</xf:instance>
+			<xf:bind>
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/date" type="date" required="true()" />
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/timeHours" type="nonNegativeInteger" required="true()"
+						constraint="instance('xformId_mainInstance')/data/timeHours&lt;24"/>		
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/timeMinutes" type="nonNegativeInteger" required="true()"
+						constraint="instance('xformId_mainInstance')/data/timeMinutes&lt;60"/>
+			</xf:bind>
+		</xf:model>
+	</head>
+
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/> -->
+		<xf:group ref="instance('xformId_mainInstance')/data">
+			<div class="baseInput400">
+				<xf:output ref="name">
+					<xf:label>Имя пациента:</xf:label>	
+				</xf:output>
+			</div>
+			<div class="break dateInput">
+				<xf:input ref="date">
+					<xf:label>Дата приема:</xf:label>
+				</xf:input>
+			</div>
+
+			<div class="baseOutput break" >
+				<label>Время приема:</label>
+			</div>
+			<div class="break baseInput30">
+				<xf:input ref="timeHours">
+				</xf:input>
+
+			</div>
+			<div class="baseOutput" >
+				<xf:output value="':'"/>
+			</div>
+			<div class="baseInput30">
+				<xf:input ref="timeMinutes">
+				</xf:input>
+			</div>
+			<div class="break button200">
+				<xf:trigger>
+					<xf:label>Сохранить</xf:label>
+					<xf:action ev:event="DOMActivate" >
+						<xf:action if="is-valid(instance('xformId_mainInstance'))='true'">
+							<xf:load resource="javascript:gwtXFormSave('xformId','1', 
+																	Writer.toString(getSubformInstanceDocument('xformId_mainModel',
+																											   'xformId_mainInstance')))"/>
+						</xf:action>
+						<xf:action if="is-valid(instance('xformId_mainInstance'))='false'">
+							<xf:message>Ошибка: неверный формат данных</xf:message>
+						</xf:action>
+					</xf:action>
+				</xf:trigger>
+			</div>
+			<div class="button200">
+				<xf:trigger>
+					<xf:label>Закрыть</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</xf:group>
+	</body>
+</html>

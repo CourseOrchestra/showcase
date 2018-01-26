@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<xf:model id="Showcase_Template_all_subform_mainModel">
+			<xf:instance id="Showcase_Template_all_subform_mainInstance">
+				<schema xmlns="">
+					<info>
+						<name />
+						<growth />
+						<eyescolour />
+						<music />
+						<comment />
+					</info>
+				</schema>
+			</xf:instance>
+
+			<xf:submission id="Showcase_Template_all_subform_good_save" method="post" instance="Showcase_Template_all_subform_mainInstance"
+				replace="instance" ref="instance('Showcase_Template_all_subform_mainInstance')" action="secured/sqlTransform?proc=xforms_submission1">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Submission успешно выполнен</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при выполнении submission:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>
+			</xf:submission>
+			
+			<xf:submission id="Showcase_Template_all_subform_submit_ec" method="post" instance="Showcase_Template_all_subform_mainInstance"
+				replace="instance" ref="instance('Showcase_Template_all_subform_mainInstance')" action="secured/submit?proc=xforms_submission_ec">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Submission успешно выполнен</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при выполнении submission:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>
+			</xf:submission>	
+			
+			<xf:submission id="Showcase_Template_all_subform_submit_um" method="post" instance="Showcase_Template_all_subform_mainInstance"
+				replace="instance" ref="instance('Showcase_Template_all_subform_mainInstance')" action="secured/submit?proc=xforms_submission_um">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Submission успешно выполнен</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при выполнении submission:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>
+			</xf:submission>						
+
+			<xf:submission id="Showcase_Template_all_subform_submit_re" method="post" instance="Showcase_Template_all_subform_mainInstance"
+				replace="instance" ref="instance('Showcase_Template_all_subform_mainInstance')" action="secured/submit?proc=xforms_submission_re">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Submission успешно выполнен</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при выполнении submission:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>
+			</xf:submission>
+
+			<xf:submission id="Showcase_Template_all_subform_xslttransformation" method="post"
+				instance="Showcase_Template_all_subform_mainInstance" replace="instance" ref="instance('Showcase_Template_all_subform_mainInstance')"
+				action="secured/xslTransform?xsltfile=xformsxslttransformation_test.xsl">
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при выполнении submission:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>				
+			</xf:submission>
+
+			<xf:bind>
+			</xf:bind>
+		</xf:model>
+	</head>
+	<body>
+
+		<h1>Шаблон Showcase_Template_all_subform. Примеры возможных действий для XFroms</h1>
+
+		<div style="font-size: 15px;">Текстовое поле: </div>
+		<div>
+			<xf:input ref="instance('Showcase_Template_all_subform_mainInstance')/info/name">
+				<xf:help>Справка</xf:help>
+				<xf:hint>Дополнительная информация</xf:hint>
+			</xf:input>
+
+
+			<xf:trigger>
+				<xf:label>Вызов Selector</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:showSelector({
+			           id : 'xformId',
+                       procCount : '[dbo].[regionscount]',
+                       procList  : '[dbo].[regionslist]',                       
+                       generalFilters      : '',
+                       currentValue        : '',
+                       windowCaption       : 'Выберите_название',
+                       onSelectionComplete : function(ok, selected){
+					if (ok) {
+					var a = getSubformInstanceDocument('Showcase_Template_all_subform_mainModel', 'Showcase_Template_all_subform_mainInstance').getElementsByTagName('info')[0].getElementsByTagName('name')[0];
+					setValue(a, selected.name);
+		 
+					xforms.ready = false;
+					xforms.refresh();
+					xforms.ready = true;
+							}
+								   }});;" />
+				</xf:action>
+			</xf:trigger>
+
+		</div>
+		
+		<hr/>
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов XFormsSubmissionServlet</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="Showcase_Template_all_subform_good_save" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<hr/>
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов XFormsSubmissionServlet с ошибкой через EC</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="Showcase_Template_all_subform_submit_ec" />
+				</xf:action>
+			</xf:trigger>
+		</div>		
+		<hr/>
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов XFormsSubmissionServlet с ошибкой через UM</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="Showcase_Template_all_subform_submit_um" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<hr/>
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов XFormsSubmissionServlet с ошибкой через RE</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="Showcase_Template_all_subform_submit_re" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+				
+		<hr/>
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов XFormsTransformationServlet</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="Showcase_Template_all_subform_xslttransformation" />
+				</xf:action>
+			</xf:trigger>
+
+		</div>
+
+		<hr/>
+		<div>
+			<xf:trigger>
+				<xf:label>Сохранить с обновлением зависимых (gwtXFormSave)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId', '1',  Writer.toString(getSubformInstanceDocument('Showcase_Template_all_subform_mainModel', 'Showcase_Template_all_subform_mainInstance')))" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+
+		<hr/>
+		<div>		
+			<xf:trigger>
+				<xf:label>Сохранить без обновления зависимых (gwtXFormSave, 2-й параметр = null)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId', null,  Writer.toString(getSubformInstanceDocument('Showcase_Template_all_subform_mainModel', 'Showcase_Template_all_subform_mainInstance')))" />
+				</xf:action>
+			</xf:trigger>		
+		</div>
+
+		<hr/>		
+		<div>
+			<xf:trigger>
+				<xf:label>Отфильтровать (gwtXFormFilter)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormFilter('xformId', '2',  Writer.toString(getSubformInstanceDocument('Showcase_Template_all_subform_mainModel', 'Showcase_Template_all_subform_mainInstance')))" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+
+		<hr/>
+		<div>			
+			<xf:trigger>
+				<xf:label>Обновить зависимые элементы (gwtXFormUpdate)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormUpdate('xformId', '3', null)" />
+				</xf:action>
+			</xf:trigger>
+
+		</div>
+		<hr/>
+		<div> Загрузка файла с навигатором с сервера </div>
+		<xf:trigger>
+			<xf:label>Скачать файл</xf:label>
+			<xf:action ev:event="DOMActivate">
+				<xf:load
+					resource="javascript:gwtXFormDownload('xformId', '03',  Writer.toString(getSubformInstanceDocument('Showcase_Template_all_subform_mainModel', 'Showcase_Template_all_subform_mainInstance')))" />
+			</xf:action>
+		</xf:trigger>
+		<hr/>
+		<div>
+			Загрузка файла по новому - 1-й					
+		</div>		
+			<xf:upload id="04" />
+		<div>
+			Загрузка файла по новому - 2-й			
+		</div>
+			<xf:upload id="041"/>
+		
+		<div>
+			<xf:trigger>
+				<xf:label>Запустить закачку на сервер (через gwtXFormSave)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId', '1', Writer.toString(getSubformInstanceDocument('Showcase_Template_all_subform_mainModel', 'Showcase_Template_all_subform_mainInstance')))" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<hr/>
+		<div>
+			Загрузка файла по старому: <xf:output ref="instance('Showcase_Template_all_subform_mainInstance')/info/comment" />					
+		</div>						
+		<xf:trigger>
+			<xf:label>Выбрать файл</xf:label>
+			<xf:action ev:event="DOMActivate">
+				<xf:load
+					resource="javascript:gwtXFormUpload({
+				xformsId: 'xformId',
+                linkId: '04', 
+                onSelectionComplete : function(ok, fileName) {
+                if (ok) {
+					var a = getSubformInstanceDocument('Showcase_Template_all_subform_mainModel', 'Showcase_Template_all_subform_mainInstance').getElementsByTagName('info')[0].getElementsByTagName('comment')[0];
+					setValue(a, fileName);
+		 
+					xforms.ready = false;
+					xforms.refresh();
+					xforms.ready = true;                
+                }
+                }});" />
+			</xf:action>
+		</xf:trigger>
+
+		<div>
+			<xf:trigger>
+				<xf:label>Запустить закачку на сервер (через gwtXFormSave)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId', null, Writer.toString(getSubformInstanceDocument('Showcase_Template_all_subform_mainModel', 'Showcase_Template_all_subform_mainInstance')))" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<hr/>
+
+		<div>
+			<xf:trigger>
+				<xf:label>Обновить себя (refreshElementFromBaseFeedbackJSNIFunction)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:refreshElementFromBaseFeedbackJSNIFunction('xformId')" />
+				</xf:action>
+			</xf:trigger>		
+		</div>		
+	</body>
+</html>
+
+
+
+
+
+

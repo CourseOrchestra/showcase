@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="01" name="XForm - jython submission">
+		<element id="0101" type="xforms" template="Showcase_Template_Submissions.xml"
+			proc="xforms_proc_dep">
+			<proc id="proc1" name="xform/simple_submission.py" type="SUBMISSION" />
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+			
+			<related id="1022" />			
+		</element>
+		
+		
+ 		<element id="1022" type="GRID"  subtype="JS_LIVE_GRID" proc="grid/jsTreeGridJython.py" 
+		    plugin="liveDGrid">
+		</element>
+		
+	</tab>
+	<tab id="02" name="Case Sensivity ID">
+		<element id="0201" type="webtext" proc="webtext/webtext_ci.py"/>		
+	</tab>
+	<tab id="03" name="Карта Яндекс без экспорта">
+		<element id="0301" type="geomap" proc="geomap/GeoMapSimple.py" showLoadingMessage="true"/>
+	</tab>
+</datapanel>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance">
+				<schema xmlns="">
+					<data>
+						<id/>
+						<name/>
+						<isOld/>
+						<parentNosId/>
+						<parentNos/>
+						<displayingNumber/>
+						<oldNos/>
+						<oldNosId/>
+					</data>
+				</schema>
+			</xf:instance>
+
+			<xf:bind>
+				<xf:bind required="if(../isOld='false',true(), false())"
+					nodeset="instance('xformId_mainInstance')/data/name"/>
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/displayingNumber" required="true()"/>	
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/isOld" type="boolean"/>
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/oldNos"
+					required="if(../isOld='true',true(), false())" readonly="true()"/>
+			</xf:bind>
+
+		</xf:model>
+	</head>
+
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output> -->
+
+		<div class="break">
+			<xf:output class="baseInput"
+				ref="instance('xformId_mainInstance')/data/parentNos">
+				<xf:label>Название классификатора-родителя:</xf:label>
+			</xf:output>
+		</div>
+
+
+		<div class="break baseInput200">
+			<xf:input class="baseInput"
+					ref="instance('xformId_mainInstance')/data/isOld">
+				<xf:label>Выбрать из списка классификаторов:</xf:label>
+			</xf:input>
+		</div>
+
+
+		<xf:group ref="instance('xformId_mainInstance')/data[isOld='false']">
+			<div class="break baseInput200">
+				<div class="inputText">
+					<xf:input ref="instance('xformId_mainInstance')/data/name">
+						<xf:label>Название осмотра-потомка:</xf:label>
+					</xf:input>
+				</div>
+			</div>
+		</xf:group>
+
+		<xf:group ref="instance('xformId_mainInstance')/data[isOld='true']">
+			<div class="break selectorLong400">
+				<xf:input ref="./oldNos">
+					<xf:label>Выберите из списка осмотров:</xf:label>
+				</xf:input>
+				<xf:selector buttonLabel="..."
+						procList="'ssmmd.xforms.developCard.nosologyList.celesta'"
+						procCount="'ssmmd.xforms.developCard.nosologyCount.celesta'"
+						generalFilters="['XPath(instance(quot(xformId_mainInstance))/data/id)']"
+						currentValue="''" windowCaption="'Выбор значения'"
+						xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/data/oldNos)' : 'name',
+                        'XPath(instance(quot(xformId_mainInstance))/data/oldNosId)' : 'id'}"/>
+			</div>
+		</xf:group>
+		
+		<div class="break baseInput200">
+			<xf:input ref="instance('xformId_mainInstance')/data/displayingNumber">
+				<xf:label>Код:</xf:label>
+			</xf:input>
+		</div>
+
+		<hr class="break"/>
+
+		<div class="newbutton" style="margin-left:10px; float: left;clear: both">
+			<xf:trigger class="blue" id="Tab10">
+				<xf:label>Сохранить и закрыть</xf:label>
+				<xf:action ev:event="DOMActivate"
+					if="(is-valid(instance('xformId_mainInstance'))=false())">
+					<xf:message>Заполнено с ошибкой!</xf:message>
+				</xf:action>
+				<xf:action ev:event="DOMActivate"
+					if="(is-valid(instance('xformId_mainInstance'))=true())">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 
+				'xformId_mainInstance')))">
+					</xf:load>
+					<xf:message>Данные сохранены</xf:message>
+				</xf:action>
+			</xf:trigger>
+		</div>
+
+		<div class="newbutton" style="float: right; margin-right:10px;">
+			<xf:trigger class="blue">
+				<xf:label>Закрыть</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+				</xf:action>
+			</xf:trigger>
+		</div>
+
+	</body>
+</html>

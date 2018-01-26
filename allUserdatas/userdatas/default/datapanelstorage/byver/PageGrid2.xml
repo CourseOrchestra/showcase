@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+	<tab id="2" name="PageGrid. Профайлы">
+		<element id="0101" type="grid" subtype="EXT_PAGE_GRID" proc="extlivegrid_default_profile"/>
+		<element id="0102" type="grid" subtype="EXT_PAGE_GRID" proc="extlivegrid_special_profile"/>
+	</tab>
+	<tab id="3" name="Грид - различные типы столбцов">
+		<element id="00101" type="grid" subtype="EXT_PAGE_GRID" proc="extlivegrid_col_types">
+		</element>	
+		<element id="00102" type="grid" subtype="EXT_PAGE_GRID" proc="grid_col_types_data">
+			<proc id="p010201" name="extlivegrid_col_types_md" type="METADATA"/>
+		</element>							
+	</tab>
+	<tab id="4" name="XML-датасет">
+		<element id="xmlDS0101" type="grid" subtype="EXT_PAGE_GRID" proc="grid_col_types_xmlds">
+		</element>	
+	</tab>
+	<tab id="5" name="Выделение строки">
+		<element id="2" type="GRID"  subtype="EXT_PAGE_GRID" proc="extlivegrid_bal"/>  
+		<element id="5" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+		<element id="3" type="chart" proc="chart_bal_extgridlive" hideOnLoad="true" />
+	</tab>
+	<tab id="6" name="Выделение ячейки">
+		<element id="62" type="GRID"  subtype="EXT_PAGE_GRID" proc="extlivegrid_bal2"/>  
+		<element id="65" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+		<element id="63" type="chart" proc="chart_bal_extgridlive" hideOnLoad="true" />
+	</tab>
+</datapanel>

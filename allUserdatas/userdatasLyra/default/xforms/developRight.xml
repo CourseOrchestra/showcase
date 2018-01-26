@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns="">
+					<info questionId="" questionName=""/>
+				</schema>
+			</xf:instance>
+			<xf:bind>
+				<xf:bind nodeset="instance('xformId_mainInstance')/info/@questionName" readonly="true()" />
+			</xf:bind>
+		</xf:model>
+	</head>
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/> -->
+			<div class="break selectorShort400 xforms-required">
+				<xf:input class="author baseInput" ref="instance('xformId_mainInstance')/info/@questionName">
+					<xf:label>Выберите новый родительский вопрос:</xf:label>
+				</xf:input>
+				<xf:selector buttonLabel="..."
+					  procListAndCount="'ssmmd.grids.inspectionsTypesGrid.nosologyListAndCount.celesta'" generalFilters=""
+					  currentValue="''" windowCaption="'Выбор значения'"
+					  xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/info/@questionName)' : 'name',
+					  'XPath(instance(quot(xformId_mainInstance))/info/@questionId)' : 'id'}"/>
+			</div>
+			
+		<div style="color:red">Поля отмеченные символом * обязательны для заполнения</div>
+		<hr class="break"/>
+		<div class="dirusing newbutton" style="float: left">
+			<xf:trigger class="blue">
+				<xf:label>Сохранить</xf:label>
+				<xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=false())">
+					<xf:message>Заполнено с ошибкой!</xf:message>
+				</xf:action>
+				<xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=true())">
+					<xf:load
+            resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))">
+					</xf:load>
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<div class="dirusing newbutton" style="float: right">
+			<xf:trigger class="blue">
+				<xf:label>Закрыть</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+				</xf:action>
+			</xf:trigger>
+		</div>
+	</body>
+</html>

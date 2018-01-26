@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="01" name="userdata">
+		<element id="0101" type="webtext" proc="webtext_context_info"/>
+		<element id="0102" type="xforms" template="Showcase_Template22.xml"
+			proc="xforms_proc21">
+			<proc id="proc1" name="xforms_saveproc_by_userdata" type="SAVE" />
+			<proc id="03" name="xforms_download_by_userdata" type="DOWNLOAD" />
+			<proc id="04" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="proc2" name="xforms_submission_by_userdata" type="SUBMISSION" />					
+		</element>		
+		<element id="0103" type="grid" proc="grid_by_userdata"/>		
+	</tab>	
+	<tab id="02" name="Вызов SP">
+		<element id="0201" type="webtext" proc="webtext_call_sp"/>
+		<element id="0202" type="webtext" proc="webtext_show_debug_console" hideOnLoad="true"/>	
+	</tab>				
+	<tab id="03" name="Пользовательские ошибки из БД">
+		<element id="0301" type="webtext" proc="webtext_user_mes_activator" />
+		<element id="0302" type="webtext" proc="webtext_user_mes" hideOnLoad="true"/>
+	</tab>	
+	<tab id="04" name="gwtXFormUpdate">
+		<element id="0401" type="xforms" template="Showcase_Template_all.xml"
+			proc="xforms_proc_all">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="03" name="xforms_download_by_userdata" type="DOWNLOAD" />
+			<proc id="04" name="xforms_upload_by_userdata" type="UPLOAD" />			
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+		</element>
+		<element id="62" type="webtext" proc="webtext_filter_and_add"
+			hideOnLoad="true" />	
+	</tab>	
+	<tab id="05" name="Выделенные ошибки">
+		<element id="0501" type="webtext" proc="webtext_non_exists_proc"/>
+		<element id="0502" type="webtext" proc="webtext_wrong_userdata"/>
+	</tab>	
+	<tab id="8" name="Выполнение 2 действий в гриде">		
+		<element id="81" type="xforms" template="Showcase_Template2.xml"
+			proc="xforms_proc2"/>
+		<element id="82" type="webtext" proc="webtext_3buttons" hideOnLoad="true"/>
+		<element id="83" type="grid" proc="grid_bal_articles_dbl"/>	
+		<element id="84" type="xforms" template="Showcase_Template3.xml"
+			proc="xforms_proc3" neverShowInPanel="true">
+			<proc id="proc1" name="xforms_saveproc3" type="SAVE"/>
+		</element>
+	</tab>			
+</datapanel>

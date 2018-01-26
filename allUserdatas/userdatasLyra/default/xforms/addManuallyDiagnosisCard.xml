@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<style type="text/css">
+            </style>
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns="">
+					<answers>
+						<answer></answer>
+					</answers>
+				</schema>
+			</xf:instance>
+
+		</xf:model>
+	</head>
+
+	<body>
+  		 <!--    <xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>     -->
+		
+		<div style="width: 98%; clear:both">
+			<xf:textarea class="baseInput" style="clear:both; float: left; min-height:100px; margin: 2px" ref="instance('xformId_mainInstance')/data/@text">
+				<xf:label> Диагностическое заключение </xf:label>
+			</xf:textarea>
+		</div>
+		<div class="author newbutton" style="margin-left:10px; padding: 2px;float: left;clear: both">
+	<xf:trigger class="blue" id="Tab10">
+		<xf:label>Сохранить и закрыть</xf:label>
+		<xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=true())">
+			<xf:load resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 
+				'xformId_mainInstance')))"/>
+		</xf:action>
+	</xf:trigger>
+	</div>
+
+	<div class="author newbutton" style="margin-right:10px; padding: 2px;float: right;">
+		<xf:trigger class="blue" id="Tab20">
+			<xf:label>Закрыть</xf:label>
+			<xf:action ev:event="DOMActivate">
+				<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+			</xf:action>
+		</xf:trigger>
+	</div>
+	</body>
+</html>
+
+

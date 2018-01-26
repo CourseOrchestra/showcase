@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="course/|internalShowcase.js" kind="src" path="WebContent/js"/>
+	<classpathentry kind="src" path="userdatas/default/plugins"/>
+	<classpathentry kind="src" path="userdatas/test2/js"/>
+	<classpathentry kind="src" path="userdatas/pg/js"/>
+	<classpathentry kind="src" path="userdatas/ora/js"/>
+	<classpathentry kind="src" path="userdatas/test1/js"/>
+	<classpathentry kind="src" path="userdatas/default/js"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.WebProject">
+		<attributes> 
+			<attribute name="hide" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.baseBrowserLibrary"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

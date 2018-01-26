@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+	<action>
+		<main_context>current</main_context>
+		<datapanel type="current" tab="current">
+			<element id="d2">
+				<add_context>я оригинальный</add_context>
+			</element>
+		</datapanel>
+		<server>
+			<activity id="srv01" name="sc_init_debug_console_adapter" />
+		</server>
+	</action>
+	<event name="single_click" linkId="1">
+		<action>
+			<main_context>current</main_context>
+			<datapanel type="current" tab="current">
+				<element id="d2">
+					<add_context>я оригинальный</add_context>
+				</element>
+			</datapanel>
+			<server>
+				<activity id="srv01" name="sc_init_debug_console_adapter" />
+			</server>
+		</action>
+	</event>
+</properties>

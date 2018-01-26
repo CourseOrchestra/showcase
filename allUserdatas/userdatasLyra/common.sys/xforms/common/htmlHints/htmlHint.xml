@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ev="http://www.w3.org/2001/xml-events"
+        xmlns:xf="http://www.w3.org/2002/xforms"
+>
+    <head>
+        <style type="text/css">
+            .htmlOutput {
+            display: block;
+            width: 96%;
+            background: rgba(210, 227, 243, 0.25);
+            padding: 2%;
+            margin-left: 2px;
+            overflow: auto;
+            clear: both;
+            }
+            .htmlOutput .xforms-value {
+            white-space: normal;
+            }
+
+            #hint_button {
+            width: 100px;
+            margin-top: 2px;
+            float: left;
+            }
+
+            #hint_hideButton {
+            width: 100px;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            float: left;
+            }
+
+            #hint_prefsButton {
+            width: 100px;
+            margin-top: 2px;
+            float: right;
+            }
+
+            #hint_hideEditButton {
+            width: 100px;
+            margin-top: 2px;
+            float: right;
+            }
+
+            #hint_editButton {
+            width: 200px;
+            margin-top: 2px;
+            float: right;
+            clear: both;
+            }
+
+            #hint_showFullSize {
+            width: 200px;
+            margin-right: 15px;
+            float: right;
+            }
+
+            #hint_showOnLoad {
+            width: 200px;
+            margin-right: 15px;
+            float: right;
+            }
+
+            #hint_htmlEditor {
+            visibility: visible;
+            padding: 5px;
+            margin-top: 2px;
+            margin-left: 2px;
+            overflow: scroll;
+            width: 50%;
+            height: 20vh;
+            }
+        </style>
+        <xf:model id="xformId_mainModel">
+            <xf:instance id="xformId_mainInstance">
+                <schema xmlns=""/>
+            </xf:instance>
+
+            <xf:bind>
+                <xf:bind nodeset="instance('xformId_mainInstance')/htmlText" readonly="false()"/>
+                <xf:bind nodeset="instance('xformId_mainInstance')/fullScreen" type="boolean"/>
+                <xf:bind nodeset="instance('xformId_mainInstance')/showOnLoad" type="boolean"/>
+            </xf:bind>
+
+
+            <xf:submission id="xformId_showOnLoadSave" method="post"
+                           instance="xformId_mainInstance" replace="none"
+                           ref="instance('xformId_mainInstance')"
+                           action="secured/submit?proc=common.htmlhints.htmlHint.showOnLoadSave.celesta">
+
+            </xf:submission>
+        </xf:model>
+
+    </head>
+    <body>
+        <!--<xf:output value="serialize(instance('xformId_mainInstance'))"/>-->
+        <xf:group ref="instance('xformId_mainInstance')/.[hideHint=0]">
+
+            <xf:group ref=".[showHideHint = 'false']">
+                <div class="break button100" id="hint_button">
+                    <xf:trigger>
+                        <xf:label>Справка</xf:label>
+                        <xf:action ev:event="DOMActivate">
+                            <xf:setvalue ref="showHideHint" value="'true'"/>
+                            <xf:send submission="xformId_showOnLoadSave"/>
+                        </xf:action>
+                    </xf:trigger>
+                </div>
+            </xf:group>
+
+            <xf:group ref=".[showHideHint = 'true']">
+                <div class="break button100" id="hint_hideButton">
+                    <xf:trigger>
+                        <xf:label>Свернуть</xf:label>
+                        <xf:action ev:event="DOMActivate">
+                            <xf:setvalue ref="showHideHint" value="'false'"/>
+                            <xf:send submission="xformId_showOnLoadSave"/>
+                        </xf:action>
+                    </xf:trigger>
+                </div>
+            </xf:group>
+
+            <xf:group ref=".[showHideHint = 'true']">
+                <xf:output class="htmlOutput" style="max-height: {height};" value="htmlText"
+                           mediatype="application/xhtml+xml"/>
+
+                <xf:group ref=".[userPerm = 1]">
+                    <xf:group ref=".[showHideEdit = 0]">
+                        <div class="break button100" id="hint_prefsButton">
+                            <xf:trigger>
+                                <xf:label>Настройки</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:setvalue ref="showHideEdit" value="1-."/>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                    </xf:group>
+
+                    <xf:group ref=".[showHideEdit = 1]">
+                        <div class="break button100" id="hint_hideEditButton">
+                            <xf:trigger>
+                                <xf:label>Свернуть</xf:label>
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:setvalue ref="showHideEdit" value="1-."/>
+                                </xf:action>
+                            </xf:trigger>
+                        </div>
+                    </xf:group>
+                </xf:group>
+
+                <xf:group ref=".[showHideEdit = 1]">
+                    <div class="button200" id="hint_editButton">
+                        <xf:trigger>
+                            <xf:label>Редактировать подсказку</xf:label>
+                            <xf:action ev:event="DOMActivate">
+                                <xf:load
+                                        resource="javascript:gwtCreatePlugin({
+        id:'xformId',
+        plugin:'htmlEditorTinymce',
+        generalFilters: ['XPath(instance(quot(xformId_mainInstance))/htmlText)'],
+        proc:'common.htmlhints.htmlHint.htmlEdit.celesta',
+        params:{
+            tinymce: {
+                plugins: ['textcolor', 'code', 'image', 'table', 'link', 'fullscreen', 'media',
+                          'paste', 'wordcount', 'visualblocks', 'preview', 'colorpicker'],
+                width: '1000',
+                height: '480'
+            }
+        },
+        options: {
+            dataWidth: '1000px',
+            dataHeight: '600px',
+            windowCaption: 'Редактирование HTML',
+            onSelectionComplete: function(ok, plugin) {
+                if (ok) {
+                    var elem = document.getElementById('hint_htmlEditor').getElementsByTagName('textarea')[0];
+                    elem.value = plugin.getTinymceEditor().getContent();
+                    elem.style.visibility = 'visible';
+                    elem.focus();
+                    elem.blur();
+                    elem.style.visibility = 'visible';
+                }
+            }
+        }
+    });">
+                                </xf:load>
+                            </xf:action>
+                        </xf:trigger>
+                    </div>
+
+                    <div class="boolInput200 break" id="hint_showFullSize">
+                        <xf:input ref="fullScreen">
+                            <xf:label>Показывать на весь экран</xf:label>
+                            <xf:action ev:event="xforms-value-changed">
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load resource="javascript:
+                                        gwtXFormSave('xformId', '1',
+                                                     Writer.toString(
+                                                        getSubformInstanceDocument('xformId_mainModel',
+                                                                                   'xformId_mainInstance')))"/>
+                                </xf:action>
+                            </xf:action>
+                        </xf:input>
+                    </div>
+
+                    <div class="boolInput200 break" id="hint_showOnLoad">
+                        <xf:input ref="showOnLoad">
+                            <xf:label>Показывать при загрузке</xf:label>
+                            <xf:action ev:event="xforms-value-changed">
+                                <xf:action ev:event="DOMActivate">
+                                    <xf:load resource="javascript:
+                                        gwtXFormSave('xformId', '1',
+                                                     Writer.toString(
+                                                        getSubformInstanceDocument('xformId_mainModel',
+                                                                                   'xformId_mainInstance')))"/>
+                                </xf:action>
+                            </xf:action>
+                        </xf:input>
+                    </div>
+
+                    <xf:textarea id="hint_htmlEditor" ref="htmlText">
+                        <xf:action ev:event="xforms-value-changed">
+                            <xf:action ev:event="DOMActivate">
+                                <xf:load resource="javascript:
+                                    gwtXFormSave('xformId', '1',
+                                                 Writer.toString(
+                                                    getSubformInstanceDocument('xformId_mainModel',
+                                                                               'xformId_mainInstance')))"/>
+                            </xf:action>
+                        </xf:action>
+                    </xf:textarea>
+                </xf:group>
+            </xf:group>
+        </xf:group>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Справочник">
+		
+		<element id="10" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid"
+			proc="ssmmd.grids.settingsListDevelopmentsGrid.getData.celesta">
+			<proc id="gridMetasettingsListDevelopments" name="ssmmd.grids.settingsListDevelopmentsGrid.getData.celesta"
+				type="METADATA"/>
+			<proc id="toolbarsettingsListDevelopments" name="ssmmd.grids.settingsListDevelopmentsGrid.gridToolBar.celesta" type="TOOLBAR"
+			/>
+		</element>
+		
+		<element id="20" type="xforms" template="settingsListDevelopmentsCard.xml"
+			proc="ssmmd.xforms.settingsListDevelopmentsCard.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardSaveCatalog" name="ssmmd.xforms.settingsListDevelopmentsCard.cardDataSave.celesta" type="SAVE"/>
+			<related id="10"/>
+		</element>
+		
+		<element id="30" type="xforms" template="settingsListDevelopmentsDelete.xml"
+			proc="ssmmd.xforms.settingsListDevelopmentsDelete.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardDelete" name="ssmmd.xforms.settingsListDevelopmentsDelete.gridDelete.celesta" type="SAVE"/>
+			<related id="10"/>
+		</element>
+	</tab>
+</datapanel>

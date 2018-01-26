@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>	
+	<tab id="01" name="Другие варианты задания header, footer, welcome">
+		<element id="0101" type="webtext" proc="webtext_context_info"/>
+	</tab>
+	<tab id="02" name="Вызов SP c add_context">
+		<element id="0200" type="webtext" proc="webtext_buttons_uco"/>
+		<element id="0201" type="webtext" proc="webtext_call_sp"/>
+		<element id="0202" type="webtext" proc="webtext_show_debug_console" hideOnLoad="true"/>	
+	</tab>				
+</datapanel>

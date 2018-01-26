@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Обследования">
+
+		<element id="surveysResultsGrid" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid"
+			proc="ssmmd.grids.surveysResultsGrid.getData.celesta">
+			<proc id="surveysResultsGridMetadata"
+				name="ssmmd.grids.surveysResultsGrid.getSettings.celesta" type="METADATA"/>
+			<proc id="surveysResutsGridToolbar"
+				name="ssmmd.grids.surveysResultsGrid.gridToolBar.celesta" type="TOOLBAR"/>
+		</element>
+	</tab>
+</datapanel>

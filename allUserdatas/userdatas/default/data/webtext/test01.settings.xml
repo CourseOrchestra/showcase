@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+	<event name="single_click" linkId="1">
+		<action>
+			<main_context>current</main_context>
+			<datapanel type="a.xml" tab="2">
+				<element id="2">
+					<add_context>
+					test
+					</add_context>
+				</element>
+
+			</datapanel>
+		</action>
+	</event>
+</properties>

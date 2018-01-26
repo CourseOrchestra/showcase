@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Системные диагностические заключения">
+
+		<element id="systemDiagnosesTreeGrid" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid"
+			proc="ssmmd.grids.systemDiagnosesTreeGrid.getData.celesta">
+			<proc id="systemDiagnosesTreeGridMetadata"
+				name="ssmmd.grids.systemDiagnosesTreeGrid.getSettings.celesta" type="METADATA"/>
+			<proc id="systemDiagnosesTreeGridToolbar"
+				name="ssmmd.grids.systemDiagnosesTreeGrid.gridToolBar.celesta" type="TOOLBAR"/>
+		</element>
+
+ 		<element id="systemDiagnosesTreeCard" type="xforms" template="systemDiagnosesTreeCard.xml"
+			proc="ssmmd.xforms.systemDiagnosesTreeCard.addCardData.celesta" neverShowInPanel="true">
+			<proc id="systemDiagnosesTreeCardSave" name="ssmmd.xforms.systemDiagnosesTreeCard.addCardSave.celesta" type="SAVE"/>
+			<related id="systemDiagnosesTreeGrid"/>
+		</element>
+		
+		<element id="systemDiagnosesTreeDel" type="xforms" template="systemDiagnosesTreeDel.xml"
+			proc="ssmmd.xforms.systemDiagnosesTreeCard.delCardData.celesta" neverShowInPanel="true">
+			<proc id="systemDiagnosesTreeDelSave" name="ssmmd.xforms.systemDiagnosesTreeCard.delCardSave.celesta" type="SAVE"/>
+			<related id="systemDiagnosesTreeGrid"/>
+		</element>
+	</tab>
+</datapanel>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Кандидаты">
+		<element id="filter" type="xforms" template="candidatesFilter.xml"
+			proc="ssmmd.xforms.candidatesFilter.cardData.cl">
+		</element>
+		<element id="candidatesGrid" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid"
+			proc="ssmmd.grids.candidatesGrid.getData.cl">
+			<proc id="gridMetaCandidates" name="ssmmd.grids.candidatesGrid.getSettings.cl"
+				type="METADATA"/>
+			<related id="filter"/>
+			<proc id="toolbarCandidates" name="ssmmd.grids.candidatesGrid.gridToolBar.cl" type="TOOLBAR"
+			/>
+		</element>		
+		<element id="statusChange" type="xforms"
+			template="statusChange.xml"
+			proc="ssmmd.xforms.statusChange.cardData.celesta"
+			hideOnLoad="true">
+			<proc id="settingsDevelopQuestDeleteSave"
+				name="ssmmd.xforms.statusChange.cardDataSave.celesta" type="SAVE"/>
+			<related id="candidatesGrid"/>
+		</element>		
+
+		<element id="download" type="xforms" neverShowInPanel="true"
+			template="frontPageDownloadCard.xml"
+			proc="ssmmd.xforms.frontPageDownloadCard.cardData.celesta">
+
+			<related id="candidatesGrid"/>
+			<proc id="download"
+				name="ssmmd.xforms.frontPageDownloadCard.cardDataSave.celesta" type="DOWNLOAD"/>
+		</element>
+		<element id="appointment" type="xforms"
+			template="appointmentCard.xml"
+			proc="ssmmd.xforms.appointmentCard.cardData.celesta"
+			hideOnLoad="true">
+			<proc id="appointmentCardSave"
+				name="ssmmd.xforms.appointmentCard.cardDataSave.celesta" type="SAVE"/>
+			<related id="candidatesGrid"/>
+		</element>	
+		<element id="downloadAll" type="xforms" neverShowInPanel="true"
+			template="frontPageDownloadCard.xml"
+			proc="ssmmd.xforms.frontPageDownloadCard.cardData.celesta">			
+			<related id="candidatesGrid"/>
+			<proc id="downloadAll"
+				name="ssmmd.xforms.frontPageDownloadCard.patientInformationDownload.cl" type="DOWNLOAD"/>
+		</element>
+		
+		<element id="downloadAdditional" type="xforms" neverShowInPanel="true"
+			template="frontPageDownloadCard.xml"
+			proc="ssmmd.xforms.frontPageDownloadCard.cardData.celesta">			
+			<related id="candidatesGrid"/>
+			<proc id="downloadAdditional"
+				name="ssmmd.xforms.frontPageDownloadCard.patientAdditionalInformationDownload.cl" type="DOWNLOAD"/>
+		</element>
+		
+	</tab>
+</datapanel>

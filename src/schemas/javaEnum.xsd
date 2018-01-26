@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:fn="http://www.w3.org/2005/xpath-functions"
+           version="1.0">
+   <xs:simpleType name="dataPanelElementProcType">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="POSTPROCESS"/>
+         <xs:enumeration value="postprocess"/>
+         <xs:enumeration value="METADATA"/>
+         <xs:enumeration value="metadata"/>
+         <xs:enumeration value="UPLOAD"/>
+         <xs:enumeration value="upload"/>
+         <xs:enumeration value="DOWNLOAD"/>
+         <xs:enumeration value="download"/>
+         <xs:enumeration value="SUBMISSION"/>
+         <xs:enumeration value="submission"/>
+         <xs:enumeration value="SAVE"/>
+         <xs:enumeration value="save"/>
+         <xs:enumeration value="TOOLBAR"/>
+         <xs:enumeration value="toolbar"/>
+         <xs:enumeration value="EXPORTDATA"/>
+         <xs:enumeration value="exportdata"/>
+         <xs:enumeration value="ADDRECORD"/>
+         <xs:enumeration value="addrecord"/>
+         <xs:enumeration value="PARTIALUPDATE"/>
+         <xs:enumeration value="partialupdate"/>
+         <xs:enumeration value="UPDATEPARENTS"/>
+         <xs:enumeration value="updateparents"/>
+         <xs:enumeration value="JSFORMSUBMIT"/>
+         <xs:enumeration value="jsformsubmit"/>
+      </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="dataPanelElementSubType">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="JS_LIVE_GRID"/>
+         <xs:enumeration value="js_live_grid"/>
+         <xs:enumeration value="JS_PAGE_GRID"/>
+         <xs:enumeration value="js_page_grid"/>
+         <xs:enumeration value="JS_TREE_GRID"/>
+         <xs:enumeration value="js_tree_grid"/>
+         <xs:enumeration value="JS_LYRA_GRID"/>
+         <xs:enumeration value="js_lyra_grid"/>
+      </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="dataPanelElementType">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="PLUGIN"/>
+         <xs:enumeration value="plugin"/>
+         <xs:enumeration value="XFORMS"/>
+         <xs:enumeration value="xforms"/>
+         <xs:enumeration value="GEOMAP"/>
+         <xs:enumeration value="geomap"/>
+         <xs:enumeration value="WEBTEXT"/>
+         <xs:enumeration value="webtext"/>
+         <xs:enumeration value="CHART"/>
+         <xs:enumeration value="chart"/>
+         <xs:enumeration value="GRID"/>
+         <xs:enumeration value="grid"/>
+         <xs:enumeration value="JSFORM"/>
+         <xs:enumeration value="jsForm"/>
+      </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="dataPanelTabLayout">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="TABLE"/>
+         <xs:enumeration value="table"/>
+         <xs:enumeration value="VERTICAL"/>
+         <xs:enumeration value="vertical"/>
+      </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="childPosition">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="BOTTOM"/>
+         <xs:enumeration value="bottom"/>
+         <xs:enumeration value="TOP"/>
+         <xs:enumeration value="top"/>
+         <xs:enumeration value="RIGHT"/>
+         <xs:enumeration value="right"/>
+         <xs:enumeration value="LEFT"/>
+         <xs:enumeration value="left"/>
+      </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="showInMode">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="MODAL_WINDOW"/>
+         <xs:enumeration value="modal_window"/>
+         <xs:enumeration value="PANEL"/>
+         <xs:enumeration value="panel"/>
+      </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="gridValueType">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="DOWNLOAD"/>
+         <xs:enumeration value="download"/>
+         <xs:enumeration value="LINK"/>
+         <xs:enumeration value="link"/>
+         <xs:enumeration value="IMAGE"/>
+         <xs:enumeration value="image"/>
+         <xs:enumeration value="DATETIME"/>
+         <xs:enumeration value="datetime"/>
+         <xs:enumeration value="TIME"/>
+         <xs:enumeration value="time"/>
+         <xs:enumeration value="DATE"/>
+         <xs:enumeration value="date"/>
+         <xs:enumeration value="FLOAT"/>
+         <xs:enumeration value="float"/>
+         <xs:enumeration value="INT"/>
+         <xs:enumeration value="int"/>
+         <xs:enumeration value="STRING"/>
+         <xs:enumeration value="string"/>
+      </xs:restriction>
+   </xs:simpleType>
+
+</xs:schema>

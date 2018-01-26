@@ -1,0 +1,11 @@
+table.optionValue {
+    border-collapse: collapse;
+}
+
+tr.defaultValue {
+    background-color: silver;
+}
+
+td.useDefault {
+    padding-left: 20px;
+}

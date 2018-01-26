@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+
+<!--
+	
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+-->	
+
+	
+	<tab id="6" name="Подформы">
+
+<!--
+ refreshByTimer="true" refreshInterval="10"
+showLoadingMessage="false" 
+-->
+	
+<!--
+-->		
+
+		<element id="711" type="xforms"    template="books2.xml"
+			proc="xforms_proc_no_data">
+		</element>
+		
+
+		<element id="712" type="webtext" proc="webtext_3buttons"/>
+
+		<element id="721" type="xforms"     template="books3.xml"
+			proc="xforms_proc_no_data">
+		</element>
+
+    	<element id="713" type="webtext" proc="webtext_variables" />
+    	
+		<element id="722" type="xforms"     template="books4.xml"
+			proc="xforms_proc_no_data">
+		</element>
+		
+		<element id="611" type="xforms"   template="books5.xml"
+			proc="xforms_proc1">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+		</element>
+
+		<element id="612" type="xforms"   template="books6.xml"
+			proc="xforms_proc1">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+			<proc id="051" name="xforms_upload_by_userdata" type="UPLOAD" />			
+		</element>
+		
+		<element id="62" type="webtext" proc="webtext_filter_and_add"
+			hideOnLoad="true" />
+			
+		<element id="82" type="webtext" proc="webtext_3buttons" hideOnLoad="true"/>
+		<element id="83" type="grid" proc="grid_bal_articles"/>
+		
+		<element id="84" type="xforms"    template="books3.xml" 
+			proc="xforms_proc_no_data" neverShowInPanel="true">
+		</element>			
+		
+        <element id="0502" type="xforms"   template="Showcase_Template_multiselector_simple_subform.xml"
+            proc="xforms_proc_no_data">
+            <proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+        </element>
+		
+		<element id="0101" type="xforms"   template="Showcase_Template_uploaders_simple_subform.xml"
+			proc="xforms_proc_all">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="04" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="041" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="05" name="xforms_upload_by_userdata_err" type="UPLOAD" />
+			<proc id="051" name="xforms_upload_by_userdata" type="UPLOAD" />			
+		</element>
+		
+
+		<element id="61" type="xforms"   template="dateButton_card_template_subform.xml"
+			proc="xforms_date">
+			<proc id="proc1" name="xforms_date_save" type="SAVE" />
+		</element>		
+		<element id="dateCard" type="xforms"      template="dateButton_card_template_subform.xml"
+			proc="xforms_date" neverShowInPanel="true">
+			<proc id="proc1" name="xforms_date_save" type="SAVE" />
+		</element>	
+		<element id="_62" type="webtext" proc="webtext_for_date"/>						
+
+
+
+		<element id="0401" type="xforms"   template="Showcase_Template_all_subform.xml"
+			proc="xforms_proc_all">
+			<proc id="proc1" name="xforms_saveproc1" type="SAVE" />
+			<proc id="03" name="xforms_download_by_userdata" type="DOWNLOAD" />
+			<proc id="04" name="xforms_upload_by_userdata" type="UPLOAD" />
+			<proc id="proc2" name="xforms_submission1" type="SUBMISSION" />
+			<proc id="proc3" name="xforms_submission_ec" type="SUBMISSION" />
+			<proc id="proc4" name="xforms_submission_um" type="SUBMISSION" />
+			<proc id="proc5" name="xforms_submission_re" type="SUBMISSION" />
+		</element>
+
+		
+	</tab>	
+	
+	
+</datapanel>

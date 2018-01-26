@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" 
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns="">
+					<data id="" name=""/>
+				</schema>
+			</xf:instance>
+
+			<xf:instance id="xformId_choiceInstance">
+				<schema xmlns="">
+					<choice>
+						<id/>
+						<name/>
+					</choice>
+				</schema>
+			</xf:instance>
+			
+			<xf:instance id="xformId_mainInstance2" xmlns="">
+				<schema>
+					<hypothesis id="" name="" type="" realId=""></hypothesis>
+				</schema>
+			</xf:instance>
+			
+			<xf:bind>
+			
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@name"/>
+				
+				<xf:bind readonly="instance('xformId_mainInstance')/data/@mainAdd = 'true'" nodeset="instance('xformId_mainInstance')/data/@isMain"/>
+
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/choice/name"
+					readonly="instance('xformId_mainInstance')/data/@isSystem='true'"/>
+				
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/@multipleChoice"
+					type="boolean" readonly="instance('xformId_mainInstance')/data/@isSystem='true'"/>
+
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@catalogName" />
+				
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/catalogAnswerId/hypothesis/@name" />
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/catalogAnswer" />
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@extName"/>
+	
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@attrTypeName"/>				
+
+				<xf:bind readonly="true()" nodeset="instance('xformId_mainInstance')/data/@typeName"/>
+
+				<xf:bind nodeset="instance('xformId_mainInstance')/data/@dateType" type="date"/>
+				
+				
+				<xf:bind type="integer" nodeset="instance('xformId_mainInstance')/data[@attrTypeId='int']/@numberType"/>
+				<xf:bind type="float" nodeset="instance('xformId_mainInstance')/data[@attrTypeId='float']/@numberType"/>
+			</xf:bind>
+		</xf:model>
+	</head>
+
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/> -->
+		
+		<div class="control" style="width: 100%; float: left;clear:both; ">
+			<table>
+				<tr>
+					<td>
+						<div style="width: 415px; ">
+							<xf:input class="author baseInput" ref="instance('xformId_mainInstance')/data/@name">
+								<xf:label>Наименование:</xf:label>
+							</xf:input>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="control" style="width: 100%; float: left;clear:both; ">
+			<table>
+				<tr>
+					<td>
+						<div style="width: 415px; ">
+							<xf:input class="author baseInput" ref="instance('xformId_mainInstance')/data/@typeName">
+								<xf:label>Тип:</xf:label>
+							</xf:input>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<xf:group ref="instance('xformId_mainInstance')/data[@isAttribute='false']">
+			<xf:group ref="instance('xformId_mainInstance')/data[@isNumerical='false']">
+				<div class="selector" style="clear: both">
+					<table>
+						<tr>
+							<td>
+								<xf:select1 ref="instance('xformId_mainInstance')/data/@degreeAssuranceId" appearance="minimal">
+									<xf:label> Степень уверенности </xf:label>
+									<xf:item>
+										<xf:label>
+											<div>Установлен точно</div>
+										</xf:label>
+										<xf:value>diag1</xf:value>
+									</xf:item>
+									<xf:item>
+										<xf:label>
+											<div>Исключается</div>
+										</xf:label>
+										<xf:value>diag2</xf:value>
+									</xf:item>
+									<xf:item>
+										<xf:label>
+											<div>Нельзя исключить</div>
+										</xf:label>
+										<xf:value>diag3</xf:value>
+									</xf:item>
+									<xf:item>
+										<xf:label>
+											<div>Маловероятен</div>
+										</xf:label>
+										<xf:value>diag4</xf:value>
+									</xf:item>
+									<xf:item>
+										<xf:label>
+											<div>Можно заподозрить</div>
+										</xf:label>
+										<xf:value>diag5</xf:value>
+									</xf:item>									
+								</xf:select1>
+							</td> 
+						</tr>
+					</table>
+				</div>
+			</xf:group>
+			<xf:group ref="instance('xformId_mainInstance')/data[@isNumerical='true']">
+				<div class="control" style="width: 100%; float: left;clear:both; ">
+					<table>
+						<tr>
+							<td>
+								<div style="width: 415px; ">
+									<xf:input class="author baseInput" ref="instance('xformId_mainInstance')/data/@numericalAnswer">
+										<xf:label>Численное значение:</xf:label>
+									</xf:input>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>				
+			</xf:group>
+		</xf:group>
+		<xf:group ref="instance('xformId_mainInstance')/data[@isAttribute='true']">
+			<div class="control" style="width: 100%; float: left;clear:both; ">
+				<table>
+					<tr>
+						<td>
+							<div style="width: 415px; ">
+								<xf:input class="author baseInput" ref="instance('xformId_mainInstance')/data/@attrTypeName">
+									<xf:label>Тип атрибута:</xf:label>
+								</xf:input>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>	
+			<xf:group id="date" ref=".[@attrTypeId='date']">
+				<div style="padding-top: 10px; float: left;  width: 200px">
+					<xf:input class="ssmmd dateInputFrontPage" ref="@dateType"> </xf:input>
+				</div>
+			</xf:group>
+			<xf:group id="notDate"
+				ref=".[@attrTypeId='int' or @attrTypeId='float']">
+				<div style="padding-top: 10px; float: left; width: 200px">
+					<xf:input ref="@numberType"> </xf:input>
+				</div>
+			</xf:group>
+			<xf:group id="text"
+				ref=".[@attrTypeId='text']">
+				<div style="padding-top: 10px; float: left; width: 200px">
+					<xf:input ref="@textType"> </xf:input>
+				</div>
+			</xf:group>
+			<xf:group id="bool" ref=".[@attrTypeId='bool']">
+				<div style="padding-top: 10px; float: left;  width: 200px">
+					<xf:select1 ref="@boolType">
+						<xf:item>
+							<xf:label>+</xf:label>
+							<xf:value>true</xf:value>
+						</xf:item>
+						<xf:item>
+							<xf:label>-</xf:label>
+							<xf:value>false</xf:value>
+						</xf:item>
+					</xf:select1>
+				</div>
+			</xf:group>
+			<xf:group id="choice" ref=".[@attrTypeId='choice' and @multipleChoice='false']">
+				<div style="width: 200px;	padding-top: 10px; float: left;">
+					<xf:select1 ref="./answerChoiceId">
+<!-- 						<xf:item>
+							<xf:label></xf:label>
+							<xf:value></xf:value>
+						</xf:item> -->
+						<xf:itemset nodeset="../answerChoice/choice">
+							<xf:label ref="name"></xf:label>
+							<xf:value ref="id"></xf:value>
+						</xf:itemset>
+						<xf:action ev:event="xforms-value-changed">
+							<xf:setvalue ref="../@answer"
+								value="../answerChoice/choice[id = ../../answerChoiceId]/name"
+							></xf:setvalue>
+						</xf:action>
+					</xf:select1>
+				</div>
+			</xf:group>
+			<xf:group id="choiceMulti" ref=".[@attrTypeId='choice' and @multipleChoice='true']">
+				<div style="width: 200px;	padding-top: 10px; float: left;">
+					<xf:select ref="./answerChoiceId" appearance="full">
+						<xf:itemset nodeset="../answerChoice/choice">
+							<xf:label ref="name"></xf:label>
+							<xf:value ref="id"></xf:value>
+						</xf:itemset>
+						<xf:action ev:event="xforms-value-changed">
+							<xf:setvalue ref="../@answer"
+								value="../answerChoice/choice[id = ../../answerChoiceId]/name"
+							></xf:setvalue>
+						</xf:action>
+					</xf:select>
+				</div>
+			</xf:group>
+
+			<xf:group id="catalog" ref=".[@attrTypeId='catalog' and @multipleChoice='false']">
+				<div class="control" style="width: 100%; float: left;clear:both; ">
+					<table>
+						<tr>
+							<td>
+								<div style="width: 415px; ">
+									<xf:input class="author baseInput" ref="instance('xformId_mainInstance')/data/@catalogName">
+										<xf:label>Название справочника:</xf:label>
+									</xf:input>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>	
+				<div class="selector">
+					<div style="width: 174px;	padding-top: 10px; float: left;">
+						<xf:input ref="./catalogAnswer"> </xf:input>
+					</div>
+					<xf:group id="catalogButton"
+						ref=".[@attrTypeId='catalog' and @multipleChoice='false']">
+						<div style="float: left; padding-top: 10px">
+							<xf:trigger>
+								<xf:label>...</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:load
+										resource="javascript:gwtCreatePlugin
+										({
+										id:'xformId',
+										plugin:'extJsTree',
+										getDataProcName:'ssmmd.xforms.inspectionQuestionsCard.catalogSelectListAndCount.celesta',
+										postProcessProc:'handleExtJsTree.py',
+										generalFilters: ['XPath(instance(quot(xformId_mainInstance))/data/catalogId)'],
+										params:
+										{core:
+										{Update:
+										{startsWith:true,
+										delay:900
+										}
+										},
+										dataModel:
+										{fields:
+										[]},
+										view:
+										{columns:
+										[]}
+										},
+										options: {
+										dataWidth: '600px',
+										dataHeight: '450px',
+										windowCaption: 'Выбор значения из справочника',
+										onSelectionComplete: function(ok, plugin) {
+										if (ok) {
+										plugin.utils.singleXpathMapping({			
+										'XPath(instance(quot(xformId_mainInstance))/data/catalogAnswerId)' : 'id',
+										'XPath(instance(quot(xformId_mainInstance))/data/catalogAnswer)' : 'name'}, true);	}}}});"
+									></xf:load>
+								</xf:action>
+							</xf:trigger>
+						</div>
+					</xf:group>
+				</div>
+			</xf:group>
+
+			<xf:group id="catalogMulti"
+				ref=".[@attrTypeId='catalog' and @multipleChoice='true']">
+				<div class="selector">
+					<div style="float: left; padding-right: 60px; padding-top: 10px">
+						<xf:trigger>
+							<xf:label>Выбрать из справочника</xf:label>
+							<xf:action ev:event="DOMActivate">
+								<xf:load
+									resource="javascript:gwtCreatePlugin
+									({
+									id:'xformId',
+									plugin:'extJsTree',
+									getDataProcName:'ssmmd.xforms.inspectionQuestionsCard.catalogSelectListAndCount.celesta',
+									postProcessProc:'handleExtJsTree.py',
+									generalFilters: ['XPath(instance(quot(xformId_mainInstance))/data/catalogId)'],
+									params:
+									{core:
+									{Update:
+									{startsWith:true,
+									delay:900
+									}
+									},
+									dataModel:
+									{fields:
+									[]},
+									view:
+									{columns:
+									[]}
+									},
+									options: {
+									dataWidth: '600px',
+									dataHeight: '450px',
+									windowCaption: 'Выбор значения из справочника',
+									onSelectionComplete: function(ok, plugin) {
+									if (ok) {
+									plugin.utils.multiXpathMapping({			
+									xpathRoot:'XPath(instance(quot(xformId_mainInstance))/data/catalogAnswerId)',
+									xpathMapping:{'XPath(instance(quot(xformId_mainInstance2))/hypothesis)':{'id': '@id','name': '@name'}}}
+									, true);	}}}});"
+								></xf:load>
+							</xf:action>
+						</xf:trigger>
+					</div>	
+				</div>
+				<xf:repeat id="hypRow" nodeset="./catalogAnswerId/hypothesis">
+					<div class="baseInput200 break">
+						<xf:input ref="@name" />
+					</div>
+				<!-- 	<xf:group ref="../.." style="float:left;">
+						<div style="float:left;">
+							<xf:trigger>
+								<xf:label>X</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:delete
+										nodeset="instance('xformId_mainInstance')/catalogAnswerId/hypothesis[index('hypRow')]"
+									></xf:delete>
+								</xf:action>
+							</xf:trigger>
+						</div>
+					</xf:group> -->
+				</xf:repeat>
+			</xf:group>
+
+		</xf:group>
+		
+		<hr style="margin-top:21px; width: 100%;  float: left; clear: both;"/>
+
+		<div class="author newbutton" style="margin-left:10px; padding: 2px;float: left;clear: both">
+			<xf:trigger class="blue" id="Tab10">
+				<xf:label>Сохранить и закрыть</xf:label>
+					<xf:action ev:event="DOMActivate"
+            if="(is-valid(instance('xformId_mainInstance'))=false())">
+						<xf:message>Заполнено с ошибкой!</xf:message>
+					</xf:action>
+				<xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=true())">
+					<xf:load resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 
+				'xformId_mainInstance')))"/>
+				</xf:action>
+			</xf:trigger>
+		</div>
+
+		<div class="author newbutton" style="margin-right:10px; padding: 2px;float: right;">
+			<xf:trigger class="blue" id="Tab20">
+				<xf:label>Закрыть</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"/>
+				</xf:action>
+			</xf:trigger>
+		</div>
+
+	</body>
+</html>

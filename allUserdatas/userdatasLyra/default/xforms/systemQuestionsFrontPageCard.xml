@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+  <head>
+
+    <xf:model id="xformId_mainModel">
+      <xf:instance id="xformId_mainInstance">
+        <schema xmlns="">
+          <group>
+            <number></number>
+            <question></question>
+            <answerType></answerType>
+            <commentQ></commentQ>
+            <answer></answer>
+            <answerId></answerId>
+            <additional></additional>
+            <commentA></commentA>
+            <answerChoice></answerChoice>
+          </group>
+        </schema>
+      </xf:instance>
+
+      <xf:instance id="xformId_questionInstance">
+        <schema xmlns="">
+          <group>
+            <number></number>
+            <question></question>
+            <answerType></answerType>
+            <commentQ></commentQ>
+            <answer></answer>
+            <answerId></answerId>
+            <additional></additional>
+            <commentA></commentA>
+            <answerChoice></answerChoice>
+          </group>
+        </schema>
+      </xf:instance>
+
+      <xf:submission id="submit" method="post" instance="xformId_mainInstance" replace="instance"
+        ref="instance('xformId_mainInstance')"
+        action="secured/submit?proc=ssmmd.xforms.frontpagecard.submitAddQuestion.celesta">
+        <xf:action ev:event="xforms-submit-error">
+          <xf:message>Ошибка</xf:message>
+        </xf:action>
+      </xf:submission>
+
+      <xf:bind>
+        <xf:bind readonly="if(../accepted='true',true(), false())"
+          nodeset="instance('xformId_mainInstance')/group/answer"></xf:bind>
+        <xf:bind readonly="if(../accepted='true',true(), false())"
+          nodeset="instance('xformId_mainInstance')/group/commentA"></xf:bind>
+        <xf:bind type="nonNegativeInteger"
+          nodeset="instance('xformId_mainInstance')/group[answerType='int']/answer"></xf:bind>
+        <xf:bind type="date"
+          nodeset="instance('xformId_mainInstance')/group[answerType='date']/answer"></xf:bind>
+        <xf:bind type="decimal"
+          nodeset="instance('xformId_mainInstance')/group[answerType='float']/answer"></xf:bind>
+        <xf:bind type="boolean" nodeset="instance('xformId_mainInstance')/group/additional"
+        ></xf:bind>
+      </xf:bind>
+
+    </xf:model>
+  </head>
+
+  <body>
+  <!--  <xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>
+-->
+    
+    <xf:repeat id="ActionRow" nodeset="instance('xformId_mainInstance')/group">
+
+      <!--  <xf:group ref="../data[new = 'true']">-->
+<!--      <div style=" padding: 7px 0px 0px 0px; float:left; clear:both;">
+        <xf:group ref=".[../data[new = 'true'] and accepted='true']">
+          <xf:trigger>
+            <xf:label>
+              <div style="color:red ; font-weight: bold;">Ø</div></xf:label>
+            <xf:action ev:event="DOMActivate">
+              <xf:setvalue ref="instance('xformId_mainInstance')/group[index('ActionRow')]/answer"
+                value=""></xf:setvalue>
+              <xf:setvalue ref="instance('xformId_mainInstance')/group[index('ActionRow')]/commentA"
+                value=""></xf:setvalue>
+              <xf:setvalue ref="instance('xformId_mainInstance')/group[index('ActionRow')]/accepted"
+                value="'false'"></xf:setvalue>
+              <xf:setvalue
+                ref="instance('xformId_mainInstance')/group[index('ActionRow')]/additional"
+                value="'false'"></xf:setvalue>
+              <xf:setvalue ref="instance('xformId_mainInstance')/message" value=""></xf:setvalue>
+              <xf:delete nodeset="context()/following-sibling::group"></xf:delete>
+            </xf:action>
+          </xf:trigger>
+        </xf:group>
+      </div>-->
+      <!--      </xf:group>-->
+
+      <div
+        style="padding-top: 10px; width: {250 - (sum(./level)*30)+20}px; margin-left: {(sum(./level)*30)+20}px; font-style: italic; float: left; clear:both;">
+        <xf:group id="commentQ" ref=".[commentQ!='']">
+          <xf:output ref="./question">
+            <xf:hint><xf:output ref="../commentQ"></xf:output></xf:hint>
+          </xf:output>
+        </xf:group>
+        <xf:group id="NoCommentQ" ref=".[commentQ='']">
+          <xf:output ref="./question"> </xf:output>
+        </xf:group>
+      </div>
+      <xf:group id="date" ref=".[answerType='date' and  accepted!='true']">
+        <div style="padding-top: 10px; float: left;  width: 200px">
+          <xf:input class="ssmmd dateInputFrontPage" ref="./answer"> </xf:input>
+        </div>
+      </xf:group>
+      <xf:group id="dateNoButton" ref=".[answerType='date' and  accepted='true']">
+        <div style="padding-top: 10px; float: left;  width: 200px">
+          <xf:input ref="./answer"> </xf:input>
+        </div>
+      </xf:group>
+      <xf:group id="notDate" ref=".[answerType='int' or answerType='float' or answerType='text']">
+        <div style="padding-top: 10px; float: left; width: 200px">
+          <xf:input ref="./answer"> </xf:input>
+        </div>
+      </xf:group>
+      
+      <xf:group id="choice"
+        ref=".[answerType='choice' and accepted!='true']">
+        <!--<div class="selector">
+          <div style="width: 174px;	padding-top: 10px; float: left;">
+            <xf:input  ref="./answer"> </xf:input>
+          </div>
+          <!-\-<xf:group id="choice" ref=".[../data[new = 'true'] and accepted!='true']"> -\->
+          <div class="ssmmd selectorButtonNoLabel">
+            <xf:selector buttonLabel="..."
+              procListAndCount="'ssmmd.xforms.frontpagecard.answersListAndCount.celesta'"
+              generalFilters="['XPath(instance(quot(xformId_mainInstance))/group[index(quot(ActionRow))]/questionId)']"
+              currentValue="''" windowCaption="'Выбор значения'"
+              xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/group[index(quot(ActionRow))]/answer)' : 'name',
+              'XPath(instance(quot(xformId_mainInstance))/group[index(quot(ActionRow))]/answerId)' : 'id'}"
+            > </xf:selector>
+          </div>
+          <!-\-  </xf:group>-\->
+        </div>       -->
+        <div style="width: 200px;	padding-top: 10px; float: left;">
+          <xf:select1 ref="./answer">
+            <xf:itemset nodeset="../answerChoice/choice">
+              <xf:label ref="@name"/>
+              <xf:value ref="@name"/>
+            </xf:itemset>
+          </xf:select1>
+        </div>
+      </xf:group>
+      <xf:group id="choiceNoButton" ref=".[answerType='choice' and accepted='true']">
+        <div style="width: 200px;		padding-top: 10px; float: left;">
+          <xf:input  style="	width:200px" ref="./answer"> </xf:input>
+        </div>      
+      </xf:group>
+      
+      <xf:group id="catalog"
+        ref=".[answerType='catalog' and accepted!='true']">
+        <div class="selector">
+          <div style="width: 174px;	padding-top: 10px; float: left;">
+            <xf:input  ref="./answer"> </xf:input>
+          </div>
+          <!--<xf:group id="choice" ref=".[../data[new = 'true'] and accepted!='true']"> -->
+          <div class="ssmmd selectorButtonNoLabel">
+            <xf:selector buttonLabel="..."
+              procListAndCount="'ssmmd.xforms.settingsDevelopmentsCheck.catalogSelectListAndCount.celesta'"
+              generalFilters="['XPath(instance(quot(xformId_mainInstance))/group[index(quot(ActionRow))]/catalogId)']"
+              currentValue="''" windowCaption="'Выбор значения из каталога'"
+              xpathMapping="{'XPath(instance(quot(xformId_mainInstance))/group[index(quot(ActionRow))]/answer)' : 'name',
+              'XPath(instance(quot(xformId_mainInstance))/group[index(quot(ActionRow))]/answerId)' : 'id'}"
+              > </xf:selector>
+          </div>
+          <!--  </xf:group>-->
+        </div>
+      </xf:group>
+      
+
+
+
+
+      <xf:group id="addInfo" ref=".[accepted!='true']">
+        <div style="float:left; padding-top: 10px;">
+          <xf:input ref="./additional">
+            <xf:action ev:event="xforms-value-changed">
+              <xf:setvalue ref="instance('xformId_mainInstance')/group[index('ActionRow')]/commentA"
+                value=""></xf:setvalue>
+            </xf:action>
+          </xf:input> Комментировать ответ </div>
+      </xf:group>
+      <xf:group id="commentA" ref=".[additional='true']">
+        <div class="control" style="width: 370px; margin-left:290px; float: left; clear:both;">
+          <xf:textarea class="control" ref="./commentA">
+            <xf:label>Дополнительная информация</xf:label>
+          </xf:textarea>
+        </div>
+      </xf:group>
+    </xf:repeat>
+
+<!--    <xf:group
+      ref="instance('xformId_mainInstance')/group[../data[new = 'true'] and accepted='false']">
+      <div style="float:left; padding: 0px 0px 0px 0px; clear:both">
+        <xf:trigger>
+          <xf:label><div style="color:green ; font-weight: bold">✓</div></xf:label>
+          <xf:action ev:event="DOMActivate">
+            <xf:setvalue ref="instance('xformId_mainInstance')/group[index('ActionRow')]/accepted"
+              value="'true'"></xf:setvalue>
+            <xf:send submission="submit"></xf:send>
+          </xf:action>
+        </xf:trigger>
+      </div>
+    </xf:group>-->
+
+    <div class="control" style="width: 300px; padding: 30px 0px 0px 10px; float: left; clear:both">
+      <xf:output class="control" ref="instance('xformId_mainInstance')/message"> </xf:output>
+    </div>
+
+ 
+      <div class="author newbutton"
+        style="margin-top:21px; margin-left:10px; padding: 2px;float: left;clear: both">
+        <xf:trigger class="blue" id="Tab10">
+          <xf:label>Сохранить</xf:label>
+          <xf:action ev:event="DOMActivate"
+            if="(is-valid(instance('xformId_mainInstance'))=false())">
+            <xf:message>Заполнено с ошибкой!</xf:message>
+          </xf:action>
+          <xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=true())">
+            <xf:load
+              resource="javascript:gwtXFormSave('xformId', '1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 
+				'xformId_mainInstance')))"></xf:load>
+            <xf:message>Данные сохранены</xf:message>
+          </xf:action>
+        </xf:trigger>
+      </div>
+    
+
+    <!--<div class="author newbutton" style="margin-top:21px; padding: 2px;float: left;">
+      <xf:trigger class="blue" id="Tab20">
+        <xf:label>Закрыть</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"></xf:load>
+        </xf:action>
+      </xf:trigger>
+    </div>-->
+
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="action.xsd" />
+
+	<xs:element name="gridtoolbar" type="toolBarElement" />
+
+	<xs:complexType name="baseToolBarItem">
+		<xs:attribute name="text" type="xs:string" />
+		<xs:attribute name="img" type="xs:string" />
+		<xs:attribute name="hint" type="xs:string" />
+		<xs:attribute name="popupText" type="xs:string" />
+		<xs:attribute name="style" type="xs:string" />
+		<xs:attribute name="className" type="xs:string" />
+ 		<xs:attribute name="iconClassName" type="xs:string" />
+		<xs:attribute name="id" type="xs:string" />
+		<xs:attribute name="visible" type="xs:boolean" default="true" />
+		<xs:attribute name="disable" type="xs:boolean" default="false" />
+		<xs:attribute name="downloadLinkId" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="toolBarItem">
+		<xs:complexContent>
+			<xs:extension base="baseToolBarItem">
+				<xs:sequence>
+					<xs:element ref="action" minOccurs="0" maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="toolBarElement">
+		<xs:complexContent>
+			<xs:extension base="baseToolBarItem">
+				<xs:choice minOccurs="1" maxOccurs="unbounded">
+					<xs:element name="item" type="toolBarItem" />
+					<xs:element name="group" type="toolBarElementNew" />
+					<xs:element name="separator" />
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="toolBarElementNew">
+		<xs:complexContent>
+			<xs:extension base="baseToolBarItem">
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="item" type="toolBarItem" />
+					<xs:element name="group" type="toolBarElementNew" />
+					<xs:element name="separator" />
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+</xs:schema>

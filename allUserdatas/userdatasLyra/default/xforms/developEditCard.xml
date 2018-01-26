@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+  <head>
+
+    <xf:model id="xformId_mainModel">
+      <xf:instance id="xformId_mainInstance">
+        <schema xmlns="">
+          <data>
+            <id></id>
+            <name></name>
+            <displayingNumber></displayingNumber>
+          </data>
+        </schema>
+      </xf:instance>
+
+      <xf:instance id="xformId_childInstance">
+        <schema xmlns="">
+          <child>
+            <childName></childName>
+            <childId></childId>
+          </child>
+        </schema>
+      </xf:instance>
+
+      <xf:bind>
+        <xf:bind required="if(../@isOld='false',true(), false())"
+          nodeset="instance('xformId_mainInstance')/data/name"></xf:bind>
+        <xf:bind nodeset="instance('xformId_mainInstance')/data/child/childName" required="true()"
+          readonly="true()"></xf:bind>
+		<xf:bind nodeset="instance('xformId_mainInstance')/data/displayingNumber" required="true()"> </xf:bind>	
+      </xf:bind>
+
+    </xf:model>
+  </head>
+
+  <body>
+    <!-- <xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output> -->
+
+    <table>
+      <tr>
+        <td width="300px">
+          <div>
+            <xf:input class="baseInput" ref="instance('xformId_mainInstance')/data/name">
+              <xf:label>Название осмотра:</xf:label>
+            </xf:input>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td width="300px">
+          <div class="inputText">
+            <xf:input ref="instance('xformId_mainInstance')/data/displayingNumber">
+              <xf:label>Код:</xf:label>
+            </xf:input>
+          </div>          
+          
+        </td>
+      </tr>
+    </table>
+
+    <div class="newbutton" style=" margin-left:10px; padding: 2px;float: left;clear: both">
+      <xf:trigger class="blue" id="Tab10">
+        <xf:label>Сохранить и закрыть</xf:label>
+        <xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=false())">
+          <xf:message>Заполнено с ошибкой!</xf:message>
+        </xf:action>
+        <xf:action ev:event="DOMActivate" if="(is-valid(instance('xformId_mainInstance'))=true())">
+          <xf:load
+            resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 
+				'xformId_mainInstance')))"></xf:load>
+          <xf:message>Данные сохранены</xf:message>
+        </xf:action>
+      </xf:trigger>
+    </div>
+
+    <div class="newbutton" style="float: right">
+      <xf:trigger class="blue">
+        <xf:label>Закрыть</xf:label>
+        <xf:action ev:event="DOMActivate">
+          <xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"></xf:load>
+        </xf:action>
+      </xf:trigger>
+    </div>
+
+  </body>
+</html>

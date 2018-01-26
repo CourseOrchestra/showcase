@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns=""> </schema>
+			</xf:instance>
+			<xf:bind>
+				<xf:bind required="true()"  readonly="true()" nodeset="instance('xformId_mainInstance')/development/@name"
+					></xf:bind>				
+			</xf:bind>
+		</xf:model>
+	</head>
+	<body>
+		<!--    <xf:output value="serialize(instance('xformId_mainInstance'))"></xf:output>-->
+		<xf:group ref="instance('xformId_mainInstance')/development">
+			<div class="xformId_nameInput" style="float: left, clear: both, width: 350px">
+				<div style="float: left, clear: both, width: 350px">Скопировать разделы из другой
+					разработки? </div>
+			</div>
+			<div class="selectorLong400">
+				<xf:input ref="@name">
+					<xf:label>Выберите разработку:</xf:label>
+				</xf:input>
+				<xf:selector buttonLabel="..."
+					procListAndCount="'ssmmd.xforms.sectionsByDevelopmentsCopy.developmentsListAndCount.celesta'"
+					generalFilters="" currentValue="''" windowCaption="'Выбор значения'"
+					xpathMapping="{
+				'XPath(instance(quot(xformId_mainInstance))/development/@name)' : 'name',
+				'XPath(instance(quot(xformId_mainInstance))/development/@id)' : 'id'}"></xf:selector>
+				<xf:trigger>
+					<xf:label>X</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:setvalue ref="@name" value=""></xf:setvalue>
+						<xf:setvalue ref="@id" value=""></xf:setvalue>
+					</xf:action>
+				</xf:trigger>
+			</div>
+
+			<hr style="margin-top:21px; width: 100%;  float: left; clear: both;" />
+			<div class="button100" style="width: 40%; float: left">
+				<xf:trigger>
+					<xf:label>Скопировать</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:load
+							resource="javascript:gwtXFormSave('xformId','1',  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))"
+						> </xf:load>
+					</xf:action>
+				</xf:trigger>
+			</div>
+			<div class="button100" style="width: 40%; float: left">
+				<xf:trigger>
+					<xf:label>Отмена</xf:label>
+					<xf:action ev:event="DOMActivate">
+						<xf:load resource="javascript:gwtXFormUpdate('xformId','1', null)"
+						></xf:load>
+					</xf:action>
+				</xf:trigger>
+			</div>
+		</xf:group>
+
+	</body>
+</html>

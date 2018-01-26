@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" -->
+<!-- 	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true" -->
+<!-- 	monitoring="autodetect" dynamicConfig="true"> -->
+<!--  	if you want use overflowToDisk or diskPersistent - setup different diskStorePath for every showcase instance on PC!  -->
+<!-- 	<cache name="gridStateCache" maxElementsInMemory="10000" -->
+<!-- 		maxElementsOnDisk="1000" eternal="false" overflowToDisk="false" -->
+<!-- 		diskSpoolBufferSizeMB="20" timeToIdleSeconds="300" timeToLiveSeconds="3600" -->
+<!-- 		memoryStoreEvictionPolicy="LFU" transactionalMode="off" diskPersistent="false" statistics="true"/> -->
+<!-- </ehcache> -->
+ 
+ <ehcache:config
+    xmlns:ehcache="http://www.ehcache.org/v3">
+ 
+ <!--
+    OPTIONAL
+      A <cache> element defines a cache, identified by the mandatory 'alias' attribute, to be managed by the CacheManager
+  -->
+  <ehcache:cache alias="gridStateCache">
+       
+    <!--
+      OPTIONAL, defaults to no expiry
+        Entries to the Cache can be made to expire after a given time
+    -->
+    <ehcache:expiry>
+      <!--
+        time to idle, the maximum time for an entry to remain untouched
+          Entries to the Cache can be made to expire after a given time
+          other options are:
+             * <ttl>, time to live;
+             * <class>, for a custom Expiry implementation; or
+             * <none>, for no expiry
+      -->
+<!--       <ehcache:tti unit="seconds">2</ehcache:tti> -->
+    <ehcache:ttl unit="minutes">10</ehcache:ttl>
+      </ehcache:expiry>
+
+	
+    <!--
+      OPTIONAL, defaults to no prioritization
+        An eviction prioritizer, which will be used to order the random sample picked for eviction
+        FQCN of a org.ehcache.config.EvictionPrioritizer implementation or either values
+        from the enum org.ehcache.config.Eviction.Prioritizer:
+          LRU, LFU or FIFO
+    -->
+    <ehcache:eviction-prioritizer>LFU</ehcache:eviction-prioritizer>
+
+    <!--
+        The maximal number of entries to be held in the Cache, prior to eviction starting
+    -->
+    <ehcache:heap size="10000" unit="entries"/>
+
+    <!--
+       OPTIONAL
+        Any further elements in another namespace
+    -->
+  </ehcache:cache>
+  
+  
+  
+  <ehcache:cache alias="lyraGridStateCache">
+       
+    <!--
+      OPTIONAL, defaults to no expiry
+        Entries to the Cache can be made to expire after a given time
+    -->
+    <ehcache:expiry>
+      <!--
+        time to idle, the maximum time for an entry to remain untouched
+          Entries to the Cache can be made to expire after a given time
+          other options are:
+             * <ttl>, time to live;
+             * <class>, for a custom Expiry implementation; or
+             * <none>, for no expiry
+      -->
+<!--       <ehcache:tti unit="seconds">2</ehcache:tti> -->
+    <ehcache:ttl unit="minutes">30</ehcache:ttl>
+      </ehcache:expiry>
+
+	
+    <!--
+      OPTIONAL, defaults to no prioritization
+        An eviction prioritizer, which will be used to order the random sample picked for eviction
+        FQCN of a org.ehcache.config.EvictionPrioritizer implementation or either values
+        from the enum org.ehcache.config.Eviction.Prioritizer:
+          LRU, LFU or FIFO
+    -->
+    <ehcache:eviction-prioritizer>LFU</ehcache:eviction-prioritizer>
+
+    <!--
+        The maximal number of entries to be held in the Cache, prior to eviction starting
+    -->
+    <ehcache:heap size="10000" unit="entries"/>
+
+    <!--
+       OPTIONAL
+        Any further elements in another namespace
+    -->
+  </ehcache:cache>
+  
+  
+  
+
+<ehcache:cache alias="dataPanelCache">
+    
+    <ehcache:key-type copier="org.ehcache.internal.copy.SerializingCopier">java.lang.String</ehcache:key-type> 
+
+    <ehcache:value-type copier="org.ehcache.internal.copy.SerializingCopier">ru.curs.showcase.app.api.datapanel.DataPanel</ehcache:value-type> 
+    
+    
+    <ehcache:expiry>
+    	<ehcache:ttl unit="seconds">3600</ehcache:ttl>
+    </ehcache:expiry>
+	
+    <ehcache:eviction-prioritizer>LFU</ehcache:eviction-prioritizer>
+
+    <ehcache:heap size="10000" unit="entries"/>
+
+  </ehcache:cache>
+  
+  
+  <ehcache:cache alias="localizationCache">
+    
+    <ehcache:key-type copier="org.ehcache.internal.copy.SerializingCopier">java.lang.String</ehcache:key-type> 
+
+    <ehcache:value-type copier="org.ehcache.internal.copy.SerializingCopier">java.lang.String</ehcache:value-type> 
+    
+    <ehcache:expiry>
+    	<ehcache:ttl unit="seconds">3600</ehcache:ttl>
+    </ehcache:expiry>
+	
+     <ehcache:eviction-prioritizer>LFU</ehcache:eviction-prioritizer> 
+
+    <ehcache:heap size="10000" unit="entries"/>
+
+  </ehcache:cache>
+  
+  <ehcache:cache alias="localizedBundleCache">
+    
+    <ehcache:expiry>
+    	<ehcache:ttl unit="seconds">3600</ehcache:ttl>
+    </ehcache:expiry>
+	
+     <ehcache:eviction-prioritizer>LFU</ehcache:eviction-prioritizer>
+
+    <ehcache:heap size="10000" unit="entries"/>
+  </ehcache:cache>
+  
+ </ehcache:config>

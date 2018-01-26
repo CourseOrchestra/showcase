@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Справочник">
+		
+		<!-- <element id="10" type="grid" subtype="JS_PAGE_GRID" plugin="pageDGrid"
+			proc="orgstructure.grid.catalogDivisionsGrid.getData.celesta">
+			<proc id="gridMetaCatalogDivisions" name="orgstructure.grid.catalogDivisionsGrid.getSettings.celesta"
+				type="METADATA"/>
+			<proc id="toolbarCatalogDivisions" name="orgstructure.grid.catalogDivisionsGrid.gridToolBar.celesta" type="TOOLBAR"
+			/>
+		</element> -->
+		<element id="10" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="orgstructure.grid.catalogDivisionsGrid.treeGrid.celesta">
+			<proc id="toolbarCatalogDivisions"
+				name="orgstructure.grid.catalogDivisionsGrid.gridToolBar.celesta" type="TOOLBAR"/>
+		</element>
+		
+		<element id="20" type="xforms" template="catalogDivisions.xml"
+			proc="orgstructure.xform.catalogDivisions.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardSaveCatalog" name="orgstructure.xform.catalogDivisions.cardDataSave.celesta" type="SAVE"/>
+			<related id="10"/>
+		</element>
+		
+		<element id="30" type="xforms" template="catalogDivisionsDelete.xml"
+			proc="orgstructure.xform.catalogDivisionsDelete.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardDelete" name="orgstructure.xform.catalogDivisionsDelete.gridDelete.celesta" type="SAVE"/>
+			<related id="10"/>
+		</element>
+	</tab>
+</datapanel>

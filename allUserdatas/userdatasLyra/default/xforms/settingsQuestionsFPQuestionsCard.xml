@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?xml-stylesheet href="xsltforms/q.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+  xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+
+		<xf:model id="xformId_mainModel">
+
+			<xf:instance id="xformId_mainInstance" xmlns="">
+				<schema xmlns="">
+
+				</schema>
+			</xf:instance>
+
+			<xf:bind/>
+		</xf:model>
+	</head>
+
+	<body>
+		<!-- <xf:output value="serialize(instance('xformId_mainInstance'))"/> -->
+
+		<div class="ScrollPanell" style="width: 100%">
+			<div>Вопросы для выбранного типа организации:</div>
+			<div
+          style="float: left; clear: both; margin-top: 5px; margin-left: 10px; margin-right: 10px; font-weight: bold; font-size: 10pt;"
+          > Вопросы: </div>
+
+			<div style="float: left;">
+				<!--новый вопрос-->
+				<xf:group ref="instance('xformId_mainInstance')/currentQuestion" class="newbutton">
+					<xf:trigger>
+						<xf:label>
+							<div style="margin-top:2px">
+								<img src="solutions/default/resources/button/add.png" />
+							</div>
+						</xf:label>
+						<xf:action ev:event="DOMActivate">
+							<xf:setvalue ref="instance('xformId_mainInstance')/currentQuestion/questionId" value=""/>
+							<xf:setvalue ref="instance('xformId_mainInstance')/currentQuestion/mode" value="'add'"/>
+							<xf:load
+			  resource="javascript:gwtXFormUpdate('xformId','1', Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance').getElementsByTagName('schema')[0].getElementsByTagName('currentQuestion')[0]))"/>
+						</xf:action>
+					</xf:trigger>
+				</xf:group>
+			</div>
+
+			<xf:repeat id="section" nodeset="instance('xformId_mainInstance')/questions">
+				<!--текст вопросов-->
+				<div class="inputText"
+              style=" width: {250 - (sum(../level)*30)+20}px; clear: both;  margin-left: {(sum(level)*30)+20}px; min-height: 50px">
+					<xf:output class="author baseInput" ref="question"/>
+				</div>
+				<!--кнопки вопросов-->
+				<xf:group ref=".[question!='']">
+					<div style="float: right">
+						<div class="newbutton" style="float:left; margin-top: 8px;">
+							<xf:trigger>
+								<xf:label>
+									<div style="margin-top:2px">
+										<img src="solutions/default/resources/button/add.png" />
+									</div>
+								</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:setvalue ref="instance('xformId_mainInstance')/currentQuestion/questionId" value="current()/id"/>
+									<xf:setvalue ref="instance('xformId_mainInstance')/currentQuestion/mode" value="'add'"/>
+									<xf:load
+											resource="javascript:gwtXFormUpdate('xformId','1', Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance').getElementsByTagName('schema')[0].getElementsByTagName('currentQuestion')[0]))"/>
+								</xf:action>
+							</xf:trigger>
+						</div>
+						<!--редактирование-->
+						<div class="newbutton" style="float:left; margin-top: 8px;">
+							<xf:trigger>
+								<xf:label>
+									<div style="margin-top:2px">
+										<img src="solutions/default/resources/button/edit.png" />
+									</div>
+								</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:setvalue ref="instance('xformId_mainInstance')/currentQuestion/questionId"
+                    value="current()/id"/>
+									<xf:setvalue ref="instance('xformId_mainInstance')/currentQuestion/mode" value="'edit'"/>
+									<xf:load
+                    resource="javascript:gwtXFormUpdate('xformId','1', Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance').getElementsByTagName('schema')[0].getElementsByTagName('currentQuestion')[0]))"
+                  />
+								</xf:action>
+							</xf:trigger>
+						</div>
+						<!--удаление-->
+						<div class="newbutton" style="float:left; margin-top: 8px">
+							<xf:trigger>
+								<xf:label>
+									<div style="margin-top:2px">
+										<img src="solutions/default/resources/button/delete.png" />
+									</div>
+								</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:setvalue ref="instance('xformId_mainInstance')/currentQuestion/questionId"
+                    value="current()/id"/>
+									<xf:load
+                    resource="javascript:gwtXFormUpdate('xformId','666', Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance').getElementsByTagName('schema')[0].getElementsByTagName('currentQuestion')[0]))"
+                    />
+								</xf:action>
+							</xf:trigger>
+						</div>
+						<!--поднять вопрос-->
+						<div class="newbutton" style="float:left; margin-top: 8px">
+							<xf:trigger>
+								<xf:label>
+									<div style="margin-top:2px">
+										<img src="solutions/default/resources/button/arrowUp.png" />
+									</div>
+								</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:setvalue ref="instance('xformId_mainInstance')/currentQuestion/questionId" value="current()/id"/>
+									<xf:setvalue ref="instance('xformId_mainInstance')/currentQuestion/number" value="'up'"/>
+									<xf:load
+                    resource="javascript:gwtXFormUpdate('xformId','2', Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance').getElementsByTagName('schema')[0].getElementsByTagName('currentQuestion')[0]))"/>
+								</xf:action>
+							</xf:trigger>
+						</div>
+						<!--опустить вопрос-->
+						<div class="newbutton" style="float:left; margin-top: 8px">
+							<xf:trigger>
+								<xf:label>
+									<div style="margin-top:2px">
+										<img src="solutions/default/resources/button/arrowDown.png" />
+									</div>
+								</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:setvalue ref="instance('xformId_mainInstance')/currentQuestion/questionId" value="current()/id"/>
+									<xf:setvalue ref="instance('xformId_mainInstance')/currentQuestion/number" value="'down'"/>
+									<xf:load
+                    resource="javascript:gwtXFormUpdate('xformId','3', Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance').getElementsByTagName('schema')[0].getElementsByTagName('currentQuestion')[0]))"/>
+								</xf:action>
+							</xf:trigger>
+						</div>
+					</div>
+				</xf:group>
+			</xf:repeat>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="1">
+		<element id="1" type="webtext" transform="bal.xsl" />
+		<element id="6" type="webtext" transform="bal.xsl" />
+	</tab>
+	
+	<tab id="2" name="ColumnSets (фиксация столбцов)">
+		<element id="2" type="GRID"  subtype="JS_PAGE_GRID" proc="jsgrid_columnsets" 
+		    plugin="pageDGrid" >
+			    <proc id="020101" name="gridToolBar" type="TOOLBAR"/>
+		</element>
+		 <!-- 		 refreshByTimer="true" refreshInterval="10"  -->
+		<element id="0202" type="webtext" proc="webtext/selectedRowWriter.py" hideOnLoad="true" />		 
+		<element id="5" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+		<element id="3" type="chart" proc="chart_bal_extgridlive" hideOnLoad="true" />
+	</tab>
+
+	<tab id="6" name="Сложные заголовки">
+		<element id="62" type="GRID"  subtype="JS_PAGE_GRID" proc="jsgrid_compound_columns" 
+		    plugin="pageDGrid" >
+	    </element>
+		<element id="65" type="webtext" proc="webtext_filter_and_add" hideOnLoad="true" />
+		<element id="63" type="chart" proc="chart_bal_extgridlive" hideOnLoad="true" />
+	</tab>	
+	
+	<tab id="7" name="Сложные заголовки2">
+		<element id="0701" type="grid" subtype="JS_PAGE_GRID" proc="jsgrid_compound_columns2"
+			plugin="pageDGrid" >
+			<proc id="11" name="grid_download1" type="DOWNLOAD" />
+			<proc id="12" name="grid_download2" type="DOWNLOAD" />
+		</element>		
+	</tab>		
+	
+</datapanel>

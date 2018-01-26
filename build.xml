@@ -1,0 +1,684 @@
+<project name="Showcase" basedir="." default="build" 
+	xmlns:doxygen="antlib:org.doxygen.tools" xmlns:cs="antlib:com.puppycrawl.tools.checkstyle" xmlns:jacoco="antlib:org.jacoco.ant" xmlns:sonar="antlib:org.sonar.ant">
+	<property name="appname" value="${ant.project.name}" />
+
+	<property environment="os" />
+	
+	<import file="./build.tomcat.xml"/>	 
+
+	<property name="sc.build.dir" value="build" />
+	<property name="sc.src.dir" value="src" />
+	<property name="celesta.src.dir" value="celesta" />
+	<property name="celestajavacc.src.dir" value="celestajavacc" />
+	<property name="celestaresources.src.dir" value="celestaresources" />
+	<property name="sc.tmp.dir" value="tmp" />
+	<property name="sc.runtime.dir" value="runtime" />
+	<property name="sc.webapp.dir" value="WebContent" />
+	<property name="sc.images.dir" value="${sc.webapp.dir}/resources" />
+	<property name="sc.webinf.dir" value="${sc.webapp.dir}/WEB-INF" />
+	<property name="sc.js.dir" value="${sc.webapp.dir}/js" />
+	<property name="sc.class.dir" value="${sc.webinf.dir}/classes" />
+	<property name="sc.lib.dir" value="${sc.webinf.dir}/lib" />
+	<property name="sc.gwt.compiled.dir" value="${sc.webapp.dir}/secured" />
+	<property name="sc.userdata.dir" value="userdatas" />
+	<property name="sc.gwt.src.root.dir" value="${sc.src.dir}/ru/curs/showcase/app" />
+	<property name="sc.general.props.file" value="general.properties" />
+	<property name="sc.war.file" value="" />
+	<property name="sc.version" value="" />
+	<property name="sc.db.backup.prefix" value="showcase-test" />
+	<property name="sc.gwt.dir" value="devtime/gwt" />
+	<property name="sc.junit.dir" value="devtime/junit" />
+	<property name="celesta.javacc.dir" value="devtime/javacc" />
+	
+	<property name="sc.env.props" value="local.properties" />
+	<property file="${sc.env.props}" />
+	
+	<path id="master-classpath" description="Master CLASSPATH for this script">
+		<fileset dir="${sc.lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${sc.servlet.cont.dir}/lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${sc.gwt.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${sc.junit.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<pathelement location="${sc.class.dir}" />
+	</path>	
+
+	<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" />
+	
+<!-- 	<taskdef name="javancss" classname="javancss.JavancssAntTask" />	 -->
+	
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties" />
+	
+	<taskdef resource="cargo.tasks"/>
+	
+<!-- 	<taskdef name="schemagen" classname="com.sun.tools.jxc.SchemaGenTask"/> -->
+	
+<!-- 	<taskdef resource="testngtasks" classpathref="master-classpath"/> -->
+	
+	<taskdef resource="org/aspectj/tools/ant/taskdefs/aspectjTaskdefs.properties"/>	
+	
+<!-- 	<svnSetting javahl="false" svnkit="true" id="svn.settings" certreject="false" /> -->
+	
+	<taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties"  
+		classpath="D:\JenkinsComponents\ant\lib\checkstyle-8.0-all.jar"/>
+
+	<path id="test-classpath" description="CLASSPATH for unittests">
+		<fileset dir="${sc.runtime.dir}/lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${sc.servlet.cont.dir}/bin">
+			<include name="*.jar" />
+		</fileset>
+		<path refid="master-classpath" />		
+	</path>
+	
+	<path id="gwt-classpath" description="CLASSPATH for GWT">
+		<!--  порядок важен! -->
+		<pathelement path="${sc.src.dir}" />
+		<pathelement path="${sc.gwt.dir}/gwt-dev.jar" />
+		<pathelement path="${sc.gwt.dir}/gwt-user.jar" />
+	</path>	
+
+	<svnSetting javahl="false" svnkit="true" id="svn.settings" certreject="false" />
+
+	<target name="svn.info" description="Read svn revision">
+		<if>
+			<isset property="os.SVN_REVISION"/>
+			 <then>
+			   <echo>Reading revision version from environment var SVN_REVISION</echo>
+			   <property name="sc.last.rev" value="${os.SVN_REVISION}"/>
+			 </then>
+			 <else>			 	
+				<echo>Reading revision version from svn repository</echo>			 	
+				<svn refid="svn.settings">
+					<wcVersion path= "." prefix="svn." />
+				</svn>
+			 	<property name="sc.last.rev" value="${svn.revision.max}"/>
+			 </else>			
+		</if>
+		<echo>Last revision of code is ${sc.last.rev}</echo>
+	</target>	
+	
+	<target name="write.app.version" depends="svn.info" description="Write current app version to file">
+		<echo>Reading major version from ${sc.src.dir}/version.properties</echo>
+		<property prefix="sc.major." file="${sc.src.dir}/version.properties"  />
+		<var name="sc.version" unset="true" />
+		<property name="sc.version" value="${sc.major.version}.${sc.last.rev}" />
+		<echo>Showcase version ${sc.version}</echo>
+		<var name="sc.war.file" unset="true" />
+		<property name="sc.war.file" value="${sc.build.dir}/artifacts/${appname}-${sc.version}" />
+		<echo>Updating build number file</echo>
+		<echo file="${sc.build.dir}\war\WEB-INF\classes\build" message="${sc.last.rev}" />	
+	</target>	
+	
+	<target name="checkProperties" description="Check required environment varianbles: JAVA_HOME">
+		<echo>Checking for JAVA_HOME...</echo>
+		<fail unless="os.JAVA_HOME">JAVA_HOME must be set</fail>
+		<echo>OK</echo>
+		<echo>Checking for python...</echo>
+		<exec executable="python.exe" />
+		<echo>OK</echo>
+		<echo>Checking for sqlcmd...</echo>
+		<exec executable="sqlcmd.exe" outputproperty="sc.temp">
+			<arg line="-?"/>
+		</exec>
+		<var name="sc.temp" unset="true" />
+		<echo>OK</echo>
+	</target>
+
+	<target name="info" description="Show wise configuration info">
+		<echo>Connect to SQL Server "${sc.rdbms.name}" and deploy on "${sc.servlet.cont.dir}"</echo>
+	</target>
+
+	<target name="init.local.files" description="Create local settings files from templates"> 
+		<copy verbose="true" overwrite="true" file="local.template.properties" tofile="local.properties" />
+		<copy verbose="true" overwrite="true" file="template.classpath" tofile=".classpath" />
+		<copy verbose="true" overwrite="true" file="${sc.src.dir}/general.template.properties" tofile="${sc.src.dir}/${sc.general.props.file}" />
+		<copy verbose="true" overwrite="true" file="${sc.userdata.dir}/default/app.template.properties" tofile="${sc.userdata.dir}/default/app.properties" />
+		<copy verbose="true" overwrite="true" file="${sc.userdata.dir}/test1/app.template.properties" tofile="${sc.userdata.dir}/test1/app.properties" />
+		<copy verbose="true" overwrite="true" file="${sc.userdata.dir}/test2/app.template.properties" tofile="${sc.userdata.dir}/test2/app.properties" />
+		<copy verbose="true" overwrite="true" file="${sc.userdata.dir}/pg/app.template.properties" tofile="${sc.userdata.dir}/pg/app.properties" />
+		<copy verbose="true" overwrite="true" file="${sc.userdata.dir}/ora/app.template.properties" tofile="${sc.userdata.dir}/ora/app.properties" />		
+		<copy verbose="true" overwrite="true" file="${sc.userdata.dir}/default/gridproperties/default.template.properties" tofile="${sc.userdata.dir}/default/gridproperties/default.properties" />
+		<copy verbose="true" overwrite="true" file="${sc.userdata.dir}/test1/gridproperties/default.template.properties" tofile="${sc.userdata.dir}/test1/gridproperties/default.properties" />
+		<copy verbose="true" overwrite="true" file="${sc.userdata.dir}/test2/gridproperties/default.template.properties" tofile="${sc.userdata.dir}/test2/gridproperties/default.properties" />
+		<copy verbose="true" overwrite="true" file="${sc.userdata.dir}/pg/gridproperties/default.template.properties" tofile="${sc.userdata.dir}/pg/gridproperties/default.properties" />
+		<copy verbose="true" overwrite="true" file="${sc.userdata.dir}/ora/gridproperties/default.template.properties" tofile="${sc.userdata.dir}/ora/gridproperties/default.properties" />			
+		<copy verbose="true" overwrite="true" file="${sc.userdata.dir}/logback.template.xml" tofile="${sc.userdata.dir}/logback.xml" />
+<!-- 		<copy verbose="true" overwrite="true" file="${sc.userdata.dir}/general/generalapp.template.properties" tofile="${sc.userdata.dir}/general/generalapp.properties" /> -->
+		<copy verbose="true" overwrite="true" file="${sc.userdata.dir}/generalapp.template.properties" tofile="${sc.userdata.dir}/generalapp.properties" />
+		<copy verbose="true" overwrite="true" file="${sc.gwt.src.root.dir}/template.App.gwt.xml" tofile="${sc.gwt.src.root.dir}/App.gwt.xml" />
+		<echo>Don't forget setup correct settings in local.properties, ${sc.general.props.file} и app.properties and setup classpath (Build path) in Eclipse</echo>
+	</target>
+	
+	<target name="init.dirs" depends="info" description="Create some base dirs">
+		<echo>Check and create required dirs</echo>
+		<mkdir dir="${sc.class.dir}" />
+		<mkdir dir="${sc.tmp.dir}" />
+		<mkdir dir="${sc.build.dir}/junit" />
+		<mkdir dir="${sc.build.dir}/war" />
+		<mkdir dir="${sc.build.dir}/checkstyle" />
+		<mkdir dir="${sc.build.dir}/artifacts" />
+		<mkdir dir="${sc.build.dir}/coverage" />
+		<mkdir dir="${sc.build.dir}/jdepend" />
+		<mkdir dir="${sc.build.dir}/javadoc" />
+		<mkdir dir="${sc.build.dir}/metrics" />
+		<mkdir dir="${sc.build.dir}/tomcat/testconf" />
+	</target>
+
+	<target name="compile" depends="init.dirs" description="Compiles .java files to WAR directory">
+		<!--После полной адаптации AspectJ к java 7 перейдем на iajc-->
+		<!--Сейчас компилируем обычным javac-->
+<!-- 		<javac source="1.7" target="1.7" includeantruntime="false" encoding="UTF-8" srcdir="${sc.src.dir};" destdir="${sc.class.dir}" debug="true" failonerror="true" classpathref="master-classpath" excludes="*/*Test.java" > -->
+<!--  		</javac> -->
+		<iajc source="1.8" target="1.8" encoding="UTF-8" destdir="${sc.class.dir}" debug="true" failonerror="true" classpathref="master-classpath" excludes="*/*Test.java">
+			<sourceroots>
+				<pathelement location="${sc.src.dir}" />
+				<pathelement location="celesta" />
+			</sourceroots>
+		</iajc>
+	</target>
+
+	<target name="compile.junit" depends="init.dirs" description="Compiles .java files to WAR directory">
+		<!--После полной адаптации AspectJ к java 7 перейдем на iajc-->
+		<!--Сейчас компилируем обычным javac-->
+		<javac source="1.8" target="1.8" includeantruntime="false" encoding="UTF-8" srcdir="${sc.src.dir}; ${celesta.src.dir};" destdir="${sc.class.dir}" debug="true" failonerror="true" classpathref="master-classpath" >
+ 		</javac>
+<!-- 		<iajc source="1.7" target="1.7" encoding="UTF-8" destdir="${sc.class.dir}" debug="true" failonerror="true" classpathref="master-classpath" excludes="*/*Test.java"> -->
+<!-- 			<sourceroots> -->
+<!-- 				<pathelement location="${sc.src.dir}" /> -->
+<!-- 				<pathelement location="celesta" /> -->
+<!-- 			</sourceroots> -->
+<!-- 		</iajc> -->
+	</target>
+	
+	
+	<target name="build" depends="compile" description="Compile Java sources and copy config files to build dir"> 
+		<echo>Compiling Java sources and coping config files to build dir</echo>
+		<copy todir="${sc.class.dir}">
+			<fileset dir="${sc.src.dir}">
+				<include name="**/*" />
+				<exclude name="**/*.java" />
+				<exclude name="**/*.template" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build.junit" depends="compile.junit" description="Compile Java sources and copy config files to build dir"> 
+		<echo>Compiling Java sources and coping config files to build dir</echo>
+		<copy todir="${sc.class.dir}">
+			<fileset dir="${sc.src.dir}">
+				<include name="**/*" />
+				<exclude name="**/*.java" />
+				<exclude name="**/*.template" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="build.gwt" depends="init.dirs" description="Build GWT code for all browsers">
+		<echo>Prepare for GWT build for all browsers</echo>
+		<copy file="${sc.gwt.src.root.dir}\App.gwt.xml" tofile="${sc.tmp.dir}\App.gwt.xml.re" overwrite="true" />
+		<copy file="${sc.gwt.src.root.dir}\template.App.gwt.xml" tofile="${sc.gwt.src.root.dir}\App.gwt.xml" overwrite="true" />		
+		<echo>Compiling GWT Javascript</echo>
+		<java classname="com.google.gwt.dev.Compiler" fork="true" failonerror="true">
+			<classpath refid="gwt-classpath" />
+			<classpath refid="master-classpath" />
+			<arg line="-war ${sc.webapp.dir}" />
+			<arg line="-optimize 9" />
+			<arg line="ru.curs.showcase.app.App" />
+			<jvmarg line="-Dgwt.persistentunitcachedir=tmp" />
+			<jvmarg line="-Xmx500m" />
+			<jvmarg value="-XX:MaxPermSize=384m"/>
+		</java>
+		<copy tofile="${sc.gwt.src.root.dir}\App.gwt.xml" file="${sc.tmp.dir}\App.gwt.xml.re" overwrite="true" />		
+	</target>
+	
+	<target name="test.gwt" depends="build" description="Check GWT build">	
+		<java classname="com.google.gwt.dev.Compiler" fork="true" failonerror="true">
+			<classpath refid="gwt-classpath" />
+			<classpath refid="master-classpath" />
+			<arg line="-validateOnly" />
+			<arg line="ru.curs.showcase.app.App" />
+			<jvmarg line="-Dgwt.persistentunitcachedir=tmp" />			
+		</java>	
+		<echo>Test GWT successfully completed!</echo>
+	</target>	
+
+	<target name="clean" description="Deletes files from war, tmp and dist directories">
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${sc.gwt.compiled.dir}">
+			</fileset>
+		</delete>
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${sc.webinf.dir}/deploy">
+			</fileset>
+		</delete>		
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${sc.build.dir}">
+			</fileset>
+		</delete>
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${sc.tmp.dir}">
+			</fileset>
+		</delete>
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${sc.class.dir}">
+			</fileset>
+		</delete>
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${sc.webapp.dir}/solutions">
+			</fileset>
+		</delete>		
+	</target>
+	
+	<target name="celesta.javacc">
+	  <echo>Compiling Celesta parser with javacc...</echo>
+	  <javacc target="${celestajavacc.src.dir}/CelestaParser.jj" outputdirectory="${celesta.src.dir}/ru/curs/celesta/score/" javacchome="${celesta.javacc.dir}" />
+	
+	  <echo>Compiling complex filter parser</echo>
+	  <javacc target="${celestajavacc.src.dir}/FilterParser.jj" outputdirectory="${celesta.src.dir}/ru/curs/celesta/dbutils/filter" javacchome="${celesta.javacc.dir}" />	
+	</target>	
+
+	<target name="rebuild" depends="clean, build" description="clean + build" />
+	
+
+	<!-- checkstyle встатить эту задачу в ci.build после задачи build-->
+	<target name="ci.build" depends="checkProperties, info.env, clean,  
+		init.dirs, init.dojo, init.jython, init.patches, 
+		celesta.javacc, build, init.db, build.gwt, jdepend,
+		dist, javadoc, backup.userdata, backup.sql.scripts, tomcat.prepare.war" 
+		description="Target for CI build"/>
+	
+	<target name="ci.smoke.test" depends="init.dirs, tomcat.stop, tomcat.start.for.test, 
+		tomcat.check.main.page, tomcat.stop.for.test, tomcat.copy.war, tomcat.start" 
+		description="Check app deploying to Tomcat"> 
+	</target>	
+	
+	<target name="tomcat.prepare.war" depends="write.app.version">
+		<unzip src="${sc.war.file}.war" dest="${sc.build.dir}/tomcat/showcase"/>			
+	</target>	
+	
+	<target name="ci.sonar.analyzer" depends="checkProperties, info.env, clean,  
+		init.dirs, init.dojo, init.jython, build, test.coverage, sonar" 
+		description="Target for Sonar"/>	
+	
+	<target name="dist" depends="write.app.version, write.gwt.version" description="Assembles WAR file">
+		
+		
+		<echo>Copy celesta.sql file to war</echo>
+		<copy tofile="${sc.class.dir}/ru/curs/celesta/score/celesta.sql" file="${celestaresources.src.dir}/ru/curs/celesta/score/celesta.sql" />
+		
+		
+		
+		<echo>Copy compiled data</echo>
+		<copy todir="${sc.build.dir}/war" overwrite="no">
+			<fileset dir="${sc.webapp.dir}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+
+		<echo>Making war not love</echo>
+		<war destfile="${sc.war.file}.war">
+			<fileset dir="${sc.build.dir}/war">
+				<include name="**/*" />
+				<exclude name="**/*mock*.jar" />
+				<exclude name="**/*.template" />
+				<exclude name="debug.jsp" />
+			</fileset>
+		</war>
+		
+		<echo>Copy sources to war</echo>
+		<copy todir="${sc.build.dir}/war/WEB-INF/src/core">
+			<fileset dir="${sc.src.dir}">
+				<include name="**/*.java" />
+			</fileset>
+		</copy>		
+
+		<copy todir="${sc.build.dir}/war/WEB-INF/src/${celesta.src.dir}">
+			<fileset dir="${celesta.src.dir}">
+				<include name="**/*.java" />
+			</fileset>
+		</copy>				
+		
+
+		<echo>Copy runtime libs</echo>
+		<copy todir="${sc.build.dir}/war/WEB-INF/lib">
+			<fileset dir="${sc.runtime.dir}/lib">
+				<include name="**/*.jar" />
+			</fileset>
+		</copy>
+		
+
+		<echo>Making mega war</echo>
+		<war destfile="${sc.war.file}-ext.war">
+			<fileset dir="${sc.build.dir}/war">
+				<include name="**/*" />
+				<exclude name="**/*mock*.jar" />
+				<exclude name="**/*.template" />
+				<exclude name="debug.jsp" />
+			</fileset>
+		</war>
+
+		<echo>Clearing after make war</echo>
+		<delete dir="${sc.build.dir}/war" failonerror="false" />
+	</target>
+
+	<target name="deploy.runtime.tomcat" description="Copy runtime libs to Tomcat">
+		<copy todir="${sc.deploy.dir}/${ant.project.name}/WEB-INF/lib" failonerror="false">
+			<fileset dir="${sc.runtime.dir}/lib">
+				<include name="**/*.jar" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="test" depends="build.junit" description="Unit and component tests run">
+		<junit printsummary="true" showoutput="false" filtertrace="true" haltonerror="true" haltonfailure="true" fork="true">
+			<classpath refid="test-classpath"/>
+			<formatter type="xml" usefile="false" />
+			
+			<batchtest todir="${sc.build.dir}/junit" >				
+				<fileset dir="${sc.class.dir}">
+					<include name="**/suite/*Tests.class"/>
+					<exclude name="**/suite/PostgreSQLTests.class" />
+				</fileset>
+			</batchtest>	
+			
+			<jvmarg value="-XX:MaxPermSize=384m"/>
+		</junit>
+	</target>
+
+	<target name="init.dojo" depends="info" description="Copy dojo source files to webapp folder">
+		<echo>Deleting old dojo files</echo>
+		<delete failonerror="false" dir="${sc.js.dir}/dojo" />
+		<delete failonerror="false" dir="${sc.js.dir}/dijit" />
+		<delete failonerror="false" dir="${sc.js.dir}/dojox" />
+		
+		<echo>Deleting old js files for pluging (dgrid and etc)</echo>
+		<delete failonerror="false" dir="${sc.js.dir}/dgrid" />
+		<delete failonerror="false" dir="${sc.js.dir}/put-selector" />
+		<delete failonerror="false" dir="${sc.js.dir}/xstyle" />
+		<delete failonerror="false" dir="${sc.js.dir}/dstore" />
+		
+		<echo>Unpack new dojo files and js-files for dgrid</echo>
+		<unzip src="dist/js/dojo.zip" dest="${sc.js.dir}">
+		</unzip>
+		<unzip src="dist/js/dijit.zip" dest="${sc.js.dir}">
+		</unzip>
+		<unzip src="dist/js/dojox.zip" dest="${sc.js.dir}">
+		</unzip>
+	</target>
+
+	<target name="init.jython" depends="info" description="Copy jython source files to webapp folder">
+		<echo>Deleting old jython files</echo>
+		<delete failonerror="false" dir="${sc.webinf.dir}/libJython" />
+		<echo>Unpack new jython files</echo>
+		<unzip src="dist/jython/libJython.zip" dest="${sc.webinf.dir}" />
+	</target>
+
+	<target name="init.patches" depends="info" description="Apply patches to external source packages: dojo, jython...">
+		<copy todir="${sc.webapp.dir}" overwrite="true">
+			<fileset dir="dist/patches">
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="backup.userdata" depends="init.dirs, write.app.version" description="Makes archive with all test userdatas">
+		<echo>Makes archive with all test userdatas</echo>		
+		<zip destfile="${sc.build.dir}/artifacts/userdata-${sc.version}.zip">
+			<zipfileset dir="." includes="userdata*/**" />
+		</zip>		
+	</target>
+	
+	<target name="backup.sql.scripts" depends="init.dirs, write.app.version" description="Makes archive with all test init db scripts">
+		<echo>Making archive with all test init db scripts</echo>		
+		<zip destfile="${sc.build.dir}/artifacts/sql-scripts-${sc.version}.zip">
+			<zipfileset dir="${sc.src.dir}/scripts/init" includes="*.*" />
+		</zip>		
+	</target>	
+
+	<target name="write.gwt.version" depends="init.dirs" description="Write gwt version to file">
+		<echo>Update gwt version</echo>
+		<exec resolveexecutable="true" executable="java" output="${sc.build.dir}\war\WEB-INF\classes\gwtversion" dir="${sc.gwt.dir}">
+			<arg value="-jar" />
+			<arg value="gwt-dev.jar" />
+		</exec>
+	</target>
+	
+	<target name="init.ws.tests" description="Write JAX-WS client Java files for tests">
+		<echo>Updating WS test files from ${sc.webapp}/forall/webservices?wsdl</echo>
+		<exec resolveexecutable="true" executable="cmd" dir="." failonerror="true">
+			<arg value="/c" />
+			<arg value="wsimport" />
+			<arg line="-s src" />
+			<arg value="-Xnocompile" />
+			<arg line="-p ru.curs.showcase.test.ws" />
+			<arg value="${sc.webapp}/forall/webservices?wsdl" />
+		</exec>
+	</target>
+
+	<target name="info.env" description="Write to output current environment variables">
+		<echo>System properties</echo>
+		<echoproperties>
+			<propertyset>
+				<propertyref builtin="system" />
+				<propertyref builtin="commandline"/>
+			</propertyset>
+		</echoproperties>
+		<echo>Local properties</echo>
+		<echoproperties>
+			<propertyset>
+				<propertyref prefix="sc." />
+			</propertyset>
+		</echoproperties>
+	</target>
+
+	<target name="svn.update" description="Update all project files from svn">
+		<svn refid="svn.settings">
+			<update dir="." recurse="true" />
+		</svn>
+	</target>
+
+	<target name="test.unit.and.gwt" depends="test.gwt, test" description="Check gwt compilation and unit and module tests">
+	</target>
+	
+	<target name="checkstyle" depends="init.dirs, compile" description="Runs Checkstyle checks">
+		  <cs:checkstyle config="global.conf/Curs.Def.CheckStyle.config"
+		              failureProperty="checkstyle.failure"
+		              failOnViolation="true" 
+		  	          classpathref="master-classpath">
+		    	<formatter type="xml" tofile="${sc.build.dir}/checkstyle/report.xml"/>
+		  	    <formatter type="plain"/>
+		    	<fileset dir="src">
+					<include name="**/*.java" />
+					<exclude name="ru/curs/showcase/app/jre/**" />
+					<exclude name="ru/curs/showcase/test/ws/**" />
+					<exclude name="ru/curs/showcase/core/grid/LyraGridDataFactory.java" />
+		    	</fileset>
+		  </cs:checkstyle>		
+	</target>
+
+	<target name="test.coverage" depends="init.dirs, build" description="Runs coverage tests">		
+		<delete file="${sc.build.dir}/coverage/jacoco.xml" quiet="true" /> 
+		<jacoco:coverage destfile="${sc.build.dir}/coverage/jacoco.exec" append="true" includes="ru/curs/showcase/*"
+			excludes="ru/curs/showcase/app/jre/*" >		
+			<!--ru/curs/showcase/test/*:ru/curs/showcase/app/client/*:ru/curs/showcase/app/test/*-->
+			<junit printsummary="true" showoutput="false" filtertrace="true" haltonerror="true" haltonfailure="true" fork="true" >
+				<classpath refid="test-classpath"/>
+				<formatter type="xml" usefile="true" />
+				<batchtest todir="${sc.build.dir}/junit">
+					<fileset dir="${sc.class.dir}">
+						<include name="**/suite/*Tests.class"/>
+						<exclude name="**/suite/PostgreSQLTests.class" />						
+					</fileset>
+				</batchtest>
+				<jvmarg value="-XX:MaxPermSize=384m"/>
+			</junit>
+		</jacoco:coverage>
+		<jacoco:report>		                     
+		    <executiondata>
+		        <file file="${sc.build.dir}/coverage/jacoco.exec"/>
+		    </executiondata>
+		                        
+		    <structure name="Showcase">
+		        <classfiles>
+		            <fileset dir="${sc.class.dir}">
+		            	<include name="ru/curs/showcase/**"/> 
+						<exclude name="ru/curs/showcase/app/jre/**" />
+						<exclude name="ru/curs/showcase/app/client/**" />
+						<exclude name="ru/curs/showcase/app/test/**" />
+						<exclude name="ru/curs/showcase/test/**" />		            	
+		            </fileset>
+		        </classfiles>
+		        <sourcefiles encoding="UTF-8">
+		            <fileset dir="${sc.src.dir}">
+		            	<include name="ru/curs/showcase/**"/>
+						<exclude name="ru/curs/showcase/app/jre/**" />
+						<exclude name="ru/curs/showcase/app/client/**" />
+						<exclude name="ru/curs/showcase/app/test/**" />
+						<exclude name="ru/curs/showcase/test/**" />			            	
+		            </fileset>
+		        </sourcefiles>
+		    </structure>
+		                        
+		    <xml destfile="${sc.build.dir}/coverage/jacoco.xml" encoding="UTF-8"/>		                       
+		</jacoco:report>
+		
+		<copy verbose="true" file="conf/report.dtd" todir="${sc.build.dir}/coverage" />
+		<xslt in="${sc.build.dir}/coverage/jacoco.xml" out="${sc.build.dir}/coverage/coverage.xml" style="conf/jacoco_to_emma.xslt" >
+			  <classpath refid="master-classpath"/>		
+		</xslt>		
+	</target>
+	
+	<target name="jdepend" depends="init.dirs, build" description="Calc package circular dependencies and packages couplings metrics">
+	  <jdepend format="xml" outputfile="${sc.build.dir}/jdepend/jdepend-report.xml">
+	      <exclude name="java.*"/>
+	      <exclude name="javax.*"/>
+	  	  <exclude name="com.*"/>
+	  	  <exclude name="org.*"/>
+	  	  <exclude name="net.*"/>
+	  	  <exclude name="gwtquery.*"/>
+	  	  <exclude name="ch.qos.*"/>
+	  	  <exclude name="jdepend.*"/>
+	  	  <exclude name="ru.curs.showcase.test.ws"/>
+	      <classespath>
+	      	<pathelement location="${sc.webinf.dir}/classes/" />	      	
+	      </classespath>	  	
+	  </jdepend>
+	</target>	
+	
+	<target name="javadoc" depends="init.dirs" 
+		description="Generates JavaDoc for app and test sources (no ext. lib includes)">
+		  <javadoc classpathref="master-classpath"
+		           destdir="${sc.build.dir}/javadoc"
+		           author="true"
+		           version="true"
+		           use="true"
+		           windowtitle="Showcase JavaDoc"
+		  		   encoding="UTF-8"
+		  		   docencoding="UTF-8"		  	
+		  		   linksource="true">
+
+		    <packageset dir="${sc.src.dir}" defaultexcludes="yes">
+            	<include name="ru/curs/showcase/**"/>
+				<exclude name="ru/curs/showcase/app/jre/**" />
+				<exclude name="ru/curs/showcase/test/ws/**" />	
+		    </packageset>
+
+		    <doctitle><![CDATA[<h1>Showcase</h1>]]></doctitle>
+		    <bottom><![CDATA[<i>Copyright &#169; 2010-2012 Course IT Ltd. All Rights Reserved.</i>]]></bottom>	    
+		    <group title="API Packages" packages="ru.curs.showcase.app.api*"/>
+		  	<group title="Core Packages" packages="ru.curs.showcase.core*"/>
+		  	<group title="Server Packages" packages="ru.curs.showcase.app.server*"/>
+			<group title="Client Packages" packages="ru.curs.showcase.app.client*"/>
+		  	<group title="Util Packages" packages="ru.curs.showcase.util*"/>		  	
+		  	<group title="Test Packages" packages="ru.curs.showcase.test*:ru.curs.showcase.app.test*"/>
+		  </javadoc>		
+	</target>
+	
+	<target name="doxygen" depends="init.dirs" description="Generates Doxygen documentation">
+		<doxygen:doxygen>
+			<property name="INPUT" value="${sc.src.dir}" />
+			<property name="RECURSIVE" value="yes" />
+			<property name="GENERATE_LATEX" value="false" />
+			<property name="PROJECT_NAME" value="Showcase" />
+			<property name="OUTPUT_DIRECTORY" value="${sc.build.dir}/doxygen" />
+		</doxygen:doxygen>		
+	</target>
+	
+	
+	<taskdef name="javancss" classname="javancss.JavancssAntTask" />
+	
+	<target name="calc.javancss.metrics" depends="init.dirs" description="Calc Java code metrics">
+		<javancss srcdir="${sc.src.dir}" defaultexcludes="yes"
+		            generateReport="true"
+		            outputfile="${sc.build.dir}/metrics/javancss_metrics.xml"
+		            format="xml" abortOnFail="false">
+        	<include name="ru/curs/showcase/**/*.java"/>
+			<exclude name="ru/curs/showcase/app/jre/**" />
+			<exclude name="ru/curs/showcase/test/ws/**" />			   	
+		</javancss>
+	</target>
+	
+	
+
+	<target name="sonar" depends="init.dirs, build, write.app.version" description="Run analysis for Sonar">
+		<property name="sonar.java.source" value="1.8" />
+		<property name="sonar.sourceEncoding" value="UTF-8" />
+		<property name="sonar.host.url" value="http://localhost:9000" />
+		<property name="sonar.dynamicAnalysis" value="reuseReports" />
+		<property name="sonar.jacoco.reportPath" value="${sc.build.dir}/coverage/jacoco.exec" />
+		<property name="sonar.exclusions" value="ru/curs/showcase/app/jre/**,ru/curs/showcase/test/ws/**" />
+
+		<property name="sonar.sources" value="${sc.src.dir}" />
+	    <pathconvert property='sonar.libraries' refid='test-classpath' pathsep=','/>
+		<property name='sonar.binaries' value='${sc.class.dir}'/>
+		
+	    <sonar:sonar key="ru.curs.showcase:showcase" version="${sc.version}"/>
+	</target>	
+	
+	<target name="init.db" depends="init.dirs" description="Initialized DB by running sql scripts">
+		<exec resolveexecutable="true" executable="python.exe" dir="${sc.src.dir}/scripts/init">
+			<arg line="initDB.py" />
+			<arg line="-U ${sc.db.user}" />
+			<arg line="-P ${sc.db.pass}" />
+			<arg line="-S ${sc.rdbms.name}" />			
+		</exec>	
+	</target>
+	
+	<!--
+	<taskdef name="schemagen" classname="com.sun.tools.jxc.SchemaGenTask"/>
+	
+	<target name="xsd.generate" description="Generate XSD schemas by java Enum classes">
+		<schemagen destdir="${sc.tmp.dir}" includeantruntime="false" >
+			<src path="${sc.src.dir}/ru/curs/showcase/app/api" />	
+		  	<schema namespace="" file="javaEnumRaw.xsd" />				
+		  	<include name="**/DataPanelElementType.java"/>
+		  	<include name="**/DataPanelElementProcType.java"/>
+		  	<include name="**/DataPanelElementSubType.java"/>
+		  	<include name="**/ShowInMode.java"/>
+		  	<include name="**/ChildPosition.java"/>
+		  	<include name="**/DataPanelTabLayout.java"/>
+			<include name="**/GridValueType.java"/>
+		</schemagen>
+		<xslt in="${sc.tmp.dir}/javaEnumRaw.xsd" out="${sc.src.dir}/schemas/javaEnum.xsd" style="conf/enumCaseInsensivity.xsl" >
+			  <classpath refid="master-classpath"/>		
+		</xslt>			
+	</target>
+	-->
+	
+	<target name="test.stress" description="Run stress test with TestNG">
+		<testng classpathref="test-classpath"
+		        outputDir="${sc.build.dir}/stresstest"
+		        haltOnFailure="true" verbose="2">
+		    <classfileset dir="${sc.class.dir}/ru/curs/showcase/test/stress" includes="**/*.class" />
+		</testng>		
+	</target>
+	
+</project> 
+

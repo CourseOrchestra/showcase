@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xsd="http://www.w3.org/2001/XMLschema"
+      xmlns:fs="http://www.curs.ru/ns/FormServer"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <!-- Простейшие контролы ввода и вывода -->
+        <xf:model id="myModel">
+            <xf:instance id="xformId_mainInstance">
+                <schema xmlns=""/>
+            </xf:instance>
+            <xf:instance id="xformId_myInstance1">
+                  <schema xmlns="" />
+             </xf:instance>
+        </xf:model>
+    </head>
+    
+    <body>
+<!--            <xf:output value="serialize(instance('xformId_myInstance1'))"/>   -->
+          
+          <div style="font-size: 15px;">PartTemplate from python</div>
+              	
+        	<div insertTemplate="partTemplate.py">
+         	</div>
+        	
+    </body>
+</html>
+
+
+
+
+
+

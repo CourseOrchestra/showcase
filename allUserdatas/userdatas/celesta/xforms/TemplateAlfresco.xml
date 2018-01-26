@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xsd="http://www.w3.org/2001/XMLschema" xmlns:fs="http://www.curs.ru/ns/FormServer"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<xf:model id="xformId_mainModel">
+			<xf:instance id="xformId_mainInstance">
+				<schema xmlns="">
+					<info>
+						<name />
+						<growth />
+						<eyescolour />
+						<music />
+						<comment />
+					</info>
+				</schema>
+			</xf:instance>
+
+			
+			<xf:submission id="alfresco_submitDeleteFile" method="post"
+				instance="xformId_mainInstance" replace="instance" ref="instance('xformId_mainInstance')"
+				action="secured/submit?proc=g1.xformAlfresco.submitDeleteFile.celesta">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Файл из Alfresco успешно удален</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при удалении файла из Alfresco:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>				
+			</xf:submission>
+			
+			<xf:submission id="alfresco_submitGetFileMetaData" method="post"
+				instance="xformId_mainInstance" replace="instance" ref="instance('xformId_mainInstance')"
+				action="secured/submit?proc=g1.xformAlfresco.submitGetFileMetaData.celesta">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Метаданные файла из Alfresco успешно получены</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Сообщение при получении метаданных файла из Alfresco:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>				
+			</xf:submission>
+			
+			
+			<xf:submission id="alfresco_submitSetFileMetaData" method="post"
+				instance="xformId_mainInstance" replace="instance" ref="instance('xformId_mainInstance')"
+				action="secured/submit?proc=g1.xformAlfresco.submitSetFileMetaData.celesta">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Метаданные файла из Alfresco успешно заданы</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Ошибка при задании метаданных файла из Alfresco:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>				
+			</xf:submission>
+			
+			
+			<xf:submission id="alfresco_submitGetFileVersions" method="post"
+				instance="xformId_mainInstance" replace="instance" ref="instance('xformId_mainInstance')"
+				action="secured/submit?proc=g1.xformAlfresco.submitGetFileVersions.celesta">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Версии файла из Alfresco успешно получены</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Сообщение при получении версий файла из Alfresco:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>				
+			</xf:submission>
+
+			
+			<xf:submission id="alfresco_submitCreateFolder" method="post"
+				instance="xformId_mainInstance" replace="instance" ref="instance('xformId_mainInstance')"
+				action="secured/submit?proc=g1.xformAlfresco.submitCreateFolder.celesta">
+				<xf:action ev:event="xforms-submit-done">
+					<xf:message>Директория в Alfresco успешно создана</xf:message>
+				</xf:action>
+				<xf:action ev:event="xforms-submit-error">
+					<xf:message>
+						Сообщение при создании директории в Alfresco:
+						<xf:output value="event('response-body')" />
+					</xf:message>
+				</xf:action>				
+			</xf:submission>
+			
+			
+			
+			
+			<xf:bind>
+			</xf:bind>
+		</xf:model>
+	</head>
+	<body>
+		<div style="font-size: 15px;"> Текстовое поле: </div>
+		<div>
+			<xf:input ref="instance('xformId_mainInstance')/info/name">
+				<xf:help>Справка</xf:help>
+				<xf:hint>Дополнительная информация</xf:hint>
+			</xf:input>
+		</div>
+		<hr/>
+		<div>		
+			<xf:trigger>
+				<xf:label>Сохранить данные (gwtXFormSave)</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:gwtXFormSave('xformId', null,  Writer.toString(getSubformInstanceDocument('xformId_mainModel', 'xformId_mainInstance')))" />
+				</xf:action>
+			</xf:trigger>		
+		</div>		
+		<hr/>
+		<div>
+			<xf:trigger>
+				<xf:label>Вызов Selector</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:load
+						resource="javascript:showSelector({
+			           id : 'xformId',
+                       procCount : 'g1.selector.procCount.celesta',
+                       procList  : 'g1.selector.procList.celesta',
+					   /*procListAndCount    : 'g1.selector.procListAndCount.celesta',*/
+                       generalFilters      : '',
+                       currentValue        : '',
+                       windowCaption       : 'Выберите_название',
+                       });" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<hr/>
+		<div>Загрузка файлов</div>		
+		<xf:upload id="10101_upload" submit="true" submitLabel="Загрузить файлы в Alfresco" singleFile="false"/>
+		<hr/>
+		<div>
+			<xf:trigger>
+				<xf:label>Удаление файла из Alfresco</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="alfresco_submitDeleteFile" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<hr/>		
+		<div>
+			<xf:trigger>
+				<xf:label>Получение метаданных файла из Alfresco</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="alfresco_submitGetFileMetaData" />
+				</xf:action>
+			</xf:trigger>
+			<xf:trigger>
+				<xf:label>Задание метаданных файла из Alfresco</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="alfresco_submitSetFileMetaData" />
+				</xf:action>
+			</xf:trigger>
+			<xf:trigger>
+				<xf:label>Получение версий файла из Alfresco</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="alfresco_submitGetFileVersions" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+		<hr/>		
+		<div>
+			<xf:trigger>
+				<xf:label>Создание директории в Alfresco</xf:label>
+				<xf:action ev:event="DOMActivate">
+					<xf:send submission="alfresco_submitCreateFolder" />
+				</xf:action>
+			</xf:trigger>
+		</div>
+		
+	</body>
+</html>
+
+
+
+
+
+

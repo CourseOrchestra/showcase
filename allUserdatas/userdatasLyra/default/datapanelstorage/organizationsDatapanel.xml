@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Справочник">		
+		<element id="10" type="grid" subtype="JS_LIVE_GRID" plugin="liveDGrid"
+			proc="orgstructure.grid.catalogOrganizationsGrid.getData.celesta">
+			<proc id="gridMetaCatalogOrganizations" name="orgstructure.grid.catalogOrganizationsGrid.getSettings.celesta"
+				type="METADATA"/>
+			<proc id="toolbarCatalogOrganizations" name="orgstructure.grid.catalogOrganizationsGrid.gridToolBar.celesta" type="TOOLBAR"/>
+		</element>
+		
+		<element id="20" type="xforms" template="catalogOrganizations.xml"
+			proc="orgstructure.xform.catalogOrganizations.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardSaveCatalog" name="orgstructure.xform.catalogOrganizations.cardDataSave.celesta" type="SAVE"/>
+			<related id="10"/>
+		</element>
+		
+		<element id="30" type="xforms" template="catalogOrganizationsDelete.xml"
+			proc="orgstructure.xform.catalogOrganizationsDelete.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardDelete" name="orgstructure.xform.catalogOrganizationsDelete.gridDelete.celesta" type="SAVE"/>
+			<related id="10"/>
+		</element>
+	</tab>
+</datapanel>

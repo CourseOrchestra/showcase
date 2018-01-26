@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="1" name="Характеристика">
+		<element id="1" type="webtext" transform="bal.xsl" styleClass="testStyle" />
+	</tab>
+	<tab id="2" name="Балансы">
+		<element id="2" type="grid" proc="grid_bal" />
+		<element id="3" type="chart" proc="chart_bal" hideOnLoad="true" />
+		<element id="4" type="grid" proc="grid_bal1" hideOnLoad="true" />
+		<element id="05" type="geomap" proc="geomap_func1" cacheData="true"
+			refreshByTimer="true" refreshInterval="120" />
+		<element id="06" type="chart" proc="chart_bal" hideOnLoad="true" />
+	</tab>
+	<tab id="3" name="Неправильная вкладка">
+		<element id="5" type="grid" proc="grid_bal_wrong" />
+		<element id="6" type="webtext" proc="webtext_wrong" />
+	</tab>
+	<tab id="4" name="Грид">
+		<element id="401" type="grid" subtype="EXT_TREE_GRID"
+			editable="true" proc="grid_bal" />
+	</tab>
+	<tab id="5" name="Грид" layout="TABLE">
+		<tr id="r501" height="200px" style="border-width: medium"
+			styleClass="css-class">
+			<td id="d501" width="600px" style="border-width: medium; background: green;" styleClass="css-class" colspan="2" >
+				<element id="e501" type="grid" proc="grid_bal" />	
+			</td>				
+			<td id="d502" width="100px" style="border-width: medium"
+				styleClass="css-class">
+				<element id="e502" type="xforms" template="Showcase_Template_multiselector.xml"
+					proc="xforms_proc_no_data">
+					<proc id="p501" name="xforms_submission1" type="SUBMISSION" />
+					<related id="e501"/>
+				</element>
+			</td>
+		</tr>
+	</tab>
+	<tab id="6" name="LiveGrid1">
+		<element id="61" type="GRID"  subtype="EXT_LIVE_GRID" proc="extlivegrid_bal"/>
+		<element id ="62" type="grid" subtype="EXT_LIVE_GRID" proc="grid_cities_data">
+			<proc id="040101" name="extlivegrid_cities_metadata" type="METADATA"/>
+		</element>
+	</tab>
+	<tab id="7" name="TreeGrid1">
+		<element id="71" type="GRID"  subtype="EXT_TREE_GRID" proc="exttreegrid_bal"/>	
+		<element id="72" type="GRID"  subtype="EXT_TREE_GRID" proc="exttreegrid_geo"/>
+	</tab>
+	<tab id="8" name="PageGrid1">
+		<element id="81" type="GRID"  subtype="EXT_PAGE_GRID" proc="extpagegrid_bal"/>
+		<element id ="82" type="grid" subtype="EXT_PAGE_GRID" proc="grid_cities_data">
+			<proc id="040101" name="extlivegrid_cities_metadata" type="METADATA"/>
+		</element>
+	</tab>
+</datapanel>

@@ -1,0 +1,557 @@
+﻿<navigator>
+	<group id="1" name="Балансы продовольственных ресурсов">
+		<level1 id="3" name="Балансы зерна">
+			<level2 id="C6B886DB-A835-464B-BCF8-522419CD8770" name="Ввоз, включая импорт - Всего">
+				<action>
+					<datapanel user="" type="a.xml" main_context="Ввоз, включая импорт - Всего" />
+				</action>
+			</level2>
+			<level2 id="C6CC2BA4-A6ED-4630-8E58-CBBFA9C8C0A9" name="Вывоз, включая экспорт - Всего">
+				<action>
+					<datapanel user="" type="a.xml" main_context="Вывоз, включая экспорт - Всего"/>
+				</action>
+				<level3 id="C6CC2BA4-A6ED-4630-8E58-CBBFA9C8C0A8" name="Вывоз, включая экспорт - Ноябрь">
+					<action>
+						<datapanel user="" type="a.xml" main_context="Вывоз, включая экспорт - Ноябрь" />
+					</action>
+				</level3>
+			</level2>
+			<level2 id="9CBCF924-B7EC-413F-BF49-F35F1E6A92DB" name="Запасы на конец отчетного периода - Всего">
+				<action>
+					<datapanel user="" type="a.xml"
+						main_context="Запасы на конец отчетного периода - Всего" />
+				</action>
+			</level2>
+			<level2 id="9EF5F299-0AB3-486B-A810-5818D17047AC" name="Запасы на начало отчетного периода - Всего">
+				<action>
+					<datapanel user="" type="a.xml"
+						main_context="Запасы на начало отчетного периода - Всего" />
+				</action>
+			</level2>
+			<level2 id="B873822B-C087-4F68-9C12-3E437488976A"
+				name="Личное потребление (фонд потребления) без продуктов переработки - Всего">
+				<action>
+					<datapanel user="" type="a.xml"
+						main_context="Личное потребление (фонд потребления) без продуктов переработки - Всего" />
+				</action>
+			</level2>
+			<level2 id="E7C2E0F4-F18C-4906-8688-EDF7746A40CF" name="Межрегиональный обмен - Всего">
+				<action>
+					<datapanel user="" type="a.xml" main_context="Межрегиональный обмен - Всего" />
+				</action>
+			</level2>
+			<level2 id="939F3676-D4D6-4846-8FBE-CE2DC9AEB6DC"
+				name="Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения">
+				<action>
+					<datapanel user="" type="a.xml"
+						main_context="Переработано на муку, крупу, комбикорма и др.цели - Переработано в сельхозорганизациях и у населения" />
+				</action>
+			</level2>
+			<level2 id="A5785002-B677-4280-B0B3-EF3F7E951E75"
+				name="Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями">
+				<action>
+					<datapanel user="" type="a.xml"
+						main_context="Переработано на муку, крупу, комбикорма и др.цели - Переработано промышленными организациями" />
+				</action>
+			</level2>
+			<level2 id="68683FB2-1B52-4DF1-92CA-3E63F5FD660D" name="Потери - Всего">
+				<action>
+					<datapanel user="" type="a.xml" main_context="Потери - Всего" />
+				</action>
+			</level2>
+			<level2 id="699D3D2F-CC12-42B1-A193-922EA0E2C392"
+				name="Производственное потребление в сельхозорганизациях и у населения - На корм скоту">
+				<action>
+					<datapanel user="" type="a.xml"
+						main_context="Производственное потребление в сельхозорганизациях и у населения - На корм скоту" />
+				</action>
+			</level2>
+			<level2 id="E1142B95-3EB1-4F95-BEE1-7BECFC8F4FF0"
+				name="Производственное потребление в сельхозорганизациях и у населения - На семена">
+				<action>
+					<datapanel user="" type="a.xml"
+						main_context="Производственное потребление в сельхозорганизациях и у населения - На семена" />
+				</action>
+			</level2>
+			<level2 id="C45F603C-6B00-4B76-AB1B-A58213A26FD7"
+				name="Производство (валовый сбор в весе после доработки) - Всего">
+				<action>
+					<datapanel user="" type="a.xml"
+						main_context="Производство (валовый сбор в весе после доработки) - Всего" />
+				</action>
+			</level2>
+			<level2 id="B594F503-FF90-4518-9100-F60534218B84" name="Расходы на производство - Всего">
+				<action>
+					<datapanel user="" type="a.xml" main_context="Расходы на производство - Всего" />
+				</action>
+			</level2>
+		</level1>
+	</group>
+	<group id="2" name="Регионы">
+		<level1 id="1C5670CE-BDA5-45A3-93EC-F460F8BD7B4B" name="Алтайский край">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Алтайский край" />
+			</action>
+		</level1>
+		<level1 id="1C5670CE-BDA5-45A3-93EC-F460F8BD7B4C" name="Алтайский край (alt)">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Межрегиональный обмен - Всего"/>
+			</action>
+		</level1>
+		<level1 id="E77A2B6F-7676-4FCE-88C1-57E557C3581F" name="Амурская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Амурская обл." />
+			</action>
+		</level1>
+		<level1 id="BDE7FFAB-F2CB-4FE1-A6E5-49098AEF37E3" name="Архангельская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Архангельская обл." />
+			</action>
+		</level1>
+		<level1 id="5748D4A6-E9E7-41F0-A08B-AC302525F42E" name="Астраханская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Астраханская обл." />
+			</action>
+		</level1>
+		<level1 id="E4272435-98FE-46CA-BE40-5C54386F95DA" name="Белгородская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Белгородская обл." />
+			</action>
+		</level1>
+		<level1 id="255F922B-68D6-4828-8F63-6E23EF2488C7" name="Брянская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Брянская обл." />
+			</action>
+		</level1>
+		<level1 id="C8118D09-D83E-4C96-8465-FB8369ADCFA8" name="Владимирская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Владимирская обл." />
+			</action>
+		</level1>
+		<level1 id="11EBC19F-1200-4C8B-AA1C-239BE7F08C40" name="Волгоградская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Волгоградская обл." />
+			</action>
+		</level1>
+		<level1 id="71236BA2-FBCF-48BB-BBC2-2180868976D5" name="Вологодская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Вологодская обл." />
+			</action>
+		</level1>
+		<level1 id="27AF596E-CF81-48D8-8892-CAF2A4370ADB" name="Воронежская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Воронежская обл." />
+			</action>
+		</level1>
+		<level1 id="F81F1827-DE49-4D6D-9894-DC024D911820" name="г. Москва">
+			<action>
+				<datapanel user="" type="b.xml" main_context="г. Москва" />
+			</action>
+		</level1>
+		<level1 id="BAE1C04A-A144-4644-82BF-298F28454DD2" name="г. Санкт-Петербург">
+			<action>
+				<datapanel user="" type="b.xml" main_context="г. Санкт-Петербург" />
+			</action>
+		</level1>
+		<level1 id="3F833893-F697-4420-918B-4464EC26FD4B" name="Дальневосточный ФО">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Дальневосточный ФО" />
+			</action>
+		</level1>
+		<level1 id="5ED27D67-54CB-49B8-B668-E904092FC681" name="Еврейская авт. обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Еврейская авт. обл." />
+			</action>
+		</level1>
+		<level1 id="13495B0D-2DF5-47CA-A875-9BA9854FA032" name="Забайкальский край (Читинская обл.)">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Забайкальский край (Читинская обл.)" />
+			</action>
+		</level1>
+		<level1 id="A7782013-6AA3-4BD3-A815-853C6355CCD0" name="Ивановская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Ивановская обл." />
+			</action>
+		</level1>
+		<level1 id="150C9B89-E0E8-4752-BD21-27A8BC4FCE14" name="Иркутская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Иркутская обл." />
+			</action>
+		</level1>
+		<level1 id="DA963AB9-52F1-4F50-B0DF-78893C46FAE8" name="Итого по России">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Итого по России" />
+			</action>
+		</level1>
+		<level1 id="A8DCA200-9E44-4A09-802C-3743DF3C7CD7" name="Кабардино-Балкарская Респ.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Кабардино-Балкарская Респ." />
+			</action>
+		</level1>
+		<level1 id="05CFB78F-6AA6-49F3-BDC0-6311A8E6498B" name="Калининградская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Калининградская обл." />
+			</action>
+		</level1>
+		<level1 id="0BFA3E00-0519-4CE1-A70E-9435C87655CF" name="Калужская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Калужская обл." />
+			</action>
+		</level1>
+		<level1 id="570B13AF-7440-4515-A1C7-B6C98CF0A01F" name="Камчатская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Камчатская обл." />
+			</action>
+		</level1>
+		<level1 id="23EC91F9-B3CA-452C-A2AF-82E01BE941DE" name="Камчатский край (Камчатская обл.)">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Камчатский край (Камчатская обл.)" />
+			</action>
+		</level1>
+		<level1 id="D13829D7-CCE2-44EC-9E7F-83DC25647C72" name="Карачаево-Черкесская Респ.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Карачаево-Черкесская Респ." />
+			</action>
+		</level1>
+		<level1 id="B897CE22-297C-4EEB-86A7-A02CE1076E9F" name="Кемеровская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Кемеровская обл." />
+			</action>
+		</level1>
+		<level1 id="90321F70-379E-4B22-A3A5-5FF8DDAE2527" name="Кировская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Кировская обл." />
+			</action>
+		</level1>
+		<level1 id="1BE8B4EB-EED9-4A87-818C-4B039DD0FC0E" name="Костромская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Костромская обл." />
+			</action>
+		</level1>
+		<level1 id="8631B21B-C6F8-42D9-92E9-C4C263DB102E" name="Краснодарский край">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Краснодарский край" />
+			</action>
+		</level1>
+		<level1 id="B5205303-11E5-433D-ABBA-9FC52FFCB40B" name="Красноярский край">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Красноярский край" />
+			</action>
+		</level1>
+		<level1 id="E658A03F-A7B2-44B5-AC81-0EB489F09E5D" name="Курганская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Курганская обл." />
+			</action>
+		</level1>
+		<level1 id="5D944913-4EC0-42F4-B880-65A2A5BC6C07" name="Курская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Курская обл." />
+			</action>
+		</level1>
+		<level1 id="009328C8-50C6-46B2-B4BC-85A1C7D2EA55" name="Ленинградская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Ленинградская обл." />
+			</action>
+		</level1>
+		<level1 id="EAAF5D5C-3503-487D-A873-EF3DD0980223" name="Липецкая обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Липецкая обл." />
+			</action>
+		</level1>
+		<level1 id="A3D5CA83-ED42-4A22-8917-AD046C05E03F" name="Магаданская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Магаданская обл." />
+			</action>
+		</level1>
+		<level1 id="D4A33C2F-6471-4B33-AC8C-5AFB140F53C8" name="Московская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Московская обл." />
+			</action>
+		</level1>
+		<level1 id="B26CB32F-D999-4CCB-8C11-1A7F7E0E620D" name="Мурманская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Мурманская обл." />
+			</action>
+		</level1>
+		<level1 id="F04FD2D8-61FC-46D7-A2DF-3F5803D361A5" name="Нижегородская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Нижегородская обл." />
+			</action>
+		</level1>
+		<level1 id="4F4EE5C3-194A-4446-BE10-07057902471C" name="Новгородская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Новгородская обл." />
+			</action>
+		</level1>
+		<level1 id="AD3600E9-30E7-4BCD-88E6-504F8D618C13" name="Новосибирская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Новосибирская обл." />
+			</action>
+		</level1>
+		<level1 id="E10B7086-D397-4DD2-86E5-6561ECE6CC45" name="Омская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Омская обл." />
+			</action>
+		</level1>
+		<level1 id="0254F639-41EC-4563-88FB-6B5D63EF247A" name="Оренбургская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Оренбургская обл." />
+			</action>
+		</level1>
+		<level1 id="8A1133E6-B97D-445F-9BC7-DC0B164ABDCA" name="Орловская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Орловская обл." />
+			</action>
+		</level1>
+		<level1 id="8F6B91B4-D054-4C5C-BFCA-7001798580AC" name="Пензенская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Пензенская обл." />
+			</action>
+		</level1>
+		<level1 id="5C2DF7C9-24DC-45A3-87BB-6B9A37C95AC0" name="Пермская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Пермская обл." />
+			</action>
+		</level1>
+		<level1 id="FBC85130-7530-4006-8A4A-3F841533C8EB" name="Пермский край (Пермская обл.)">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Пермский край (Пермская обл.)" />
+			</action>
+		</level1>
+		<level1 id="9423786E-BF5F-4932-AAA2-845BFD9FE1A8" name="Приволжский ФО">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Приволжский ФО" />
+			</action>
+		</level1>
+		<level1 id="D41D8F1C-A85A-4A78-9F0E-C458D092BC3F" name="Приморский край">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Приморский край" />
+			</action>
+		</level1>
+		<level1 id="412934A0-3496-498F-A194-CB567714F9BB" name="Псковская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Псковская обл." />
+			</action>
+		</level1>
+		<level1 id="395E31ED-932E-428C-A8C9-ED498B816EDE" name="Респ. Адыгея (Адыгея)">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Адыгея (Адыгея)" />
+			</action>
+		</level1>
+		<level1 id="40766BB5-BC2B-42E0-A482-2FFDBF562E43" name="Респ. Алтай">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Алтай" />
+			</action>
+		</level1>
+		<level1 id="938C2366-38CE-4F42-8200-0AD2805982C2" name="Респ. Башкортостан">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Башкортостан" />
+			</action>
+		</level1>
+		<level1 id="B01F9ACB-8B58-4D57-9D95-5A7AF042F660" name="Респ. Бурятия">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Бурятия" />
+			</action>
+		</level1>
+		<level1 id="6F61436C-11C6-4FC2-8272-40F77A284729" name="Респ. Дагестан">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Дагестан" />
+			</action>
+		</level1>
+		<level1 id="DFDA6007-14E9-49BD-8487-46731CDCF4D7" name="Респ. Ингушетия">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Ингушетия" />
+			</action>
+		</level1>
+		<level1 id="D6487D55-B537-4C29-8DE8-792E066B6A05" name="Респ. Калмыкия">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Калмыкия" />
+			</action>
+		</level1>
+		<level1 id="94B3FCB1-5EFC-4CE4-BE4A-316B5DADEA37" name="Респ. Карелия">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Карелия" />
+			</action>
+		</level1>
+		<level1 id="AD8C18E6-C877-4965-82AE-51CE293F5522" name="Респ. Коми">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Коми" />
+			</action>
+		</level1>
+		<level1 id="5FE57EEB-5112-4183-BFA8-33EA82D17FF9" name="Респ. Марий Эл">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Марий Эл" />
+			</action>
+		</level1>
+		<level1 id="9005BCCA-9FBF-416F-BE2F-F434B99E7406" name="Респ. Мордовия">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Мордовия" />
+			</action>
+		</level1>
+		<level1 id="F4887A36-FB88-4B7E-8B40-9E258AC44E1A" name="Респ. Саха (Якутия)">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Саха (Якутия)" />
+			</action>
+		</level1>
+		<level1 id="C0B3C9D6-1FA7-44A1-86CC-1812A17D0C08" name="Респ. Северная Осетия - Алания">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Северная Осетия - Алания" />
+			</action>
+		</level1>
+		<level1 id="73B76803-1CB8-45A1-8258-5A980D8C9C5E" name="Респ. Татарстан">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Татарстан" />
+			</action>
+		</level1>
+		<level1 id="08E0129C-33A1-4B03-9185-CE6975D596D3" name="Респ. Тыва">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Тыва" />
+			</action>
+		</level1>
+		<level1 id="9B9DF3C5-BAE8-4171-8C24-D02CEDF732D3" name="Респ. Хакасия">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Респ. Хакасия" />
+			</action>
+		</level1>
+		<level1 id="ADFC3722-E5B9-42C8-A7A4-B11A70E8C16F" name="Российская Федерация">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Российская Федерация" />
+			</action>
+		</level1>
+		<level1 id="FA73FFFD-8381-4704-9F90-B169C7A96CBD" name="Ростовская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Ростовская обл." />
+			</action>
+		</level1>
+		<level1 id="728998A6-9F79-4C67-8530-3D9269A57E7E" name="Рязанская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Рязанская обл." />
+			</action>
+		</level1>
+		<level1 id="A40012C8-8CBC-4B4E-B856-66F03DEFF041" name="Самарская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Самарская обл." />
+			</action>
+		</level1>
+		<level1 id="4766EEA0-5B02-46C0-A118-09ADD294DE44" name="Саратовская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Саратовская обл." />
+			</action>
+		</level1>
+		<level1 id="425BC9D0-8FAE-4311-B479-78EB2E543575" name="Сахалинская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Сахалинская обл." />
+			</action>
+		</level1>
+		<level1 id="B4A9E2DB-72E6-45B1-B884-41B130566685" name="Свердловская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Свердловская обл." />
+			</action>
+		</level1>
+		<level1 id="437A3253-F808-42FD-96E5-48A2DC01459D" name="Северо-Западный ФО">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Северо-Западный ФО" />
+			</action>
+		</level1>
+		<level1 id="C2457711-AFEB-4E70-9FEB-956509BB7C11" name="Сибирский ФО">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Сибирский ФО" />
+			</action>
+		</level1>
+		<level1 id="5393D78C-94E5-474E-A972-1E87E4615EDD" name="Смоленская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Смоленская обл." />
+			</action>
+		</level1>
+		<level1 id="423907CA-8AA7-451A-AA98-B570B779B712" name="Ставропольский край">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Ставропольский край" />
+			</action>
+		</level1>
+		<level1 id="7DF6F1F5-2D3A-43E8-B10E-FD8847EE70A7" name="Тамбовская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Тамбовская обл." />
+			</action>
+		</level1>
+		<level1 id="D1DE1972-9E78-4D25-85EA-4FCC5768CCA4" name="Тверская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Тверская обл." />
+			</action>
+		</level1>
+		<level1 id="2CD4DA3F-DDD9-4877-8154-2B26416EC62E" name="Томская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Томская обл." />
+			</action>
+		</level1>
+		<level1 id="60BF7E33-2A03-47EB-9F91-9D7F98323564" name="Тульская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Тульская обл." />
+			</action>
+		</level1>
+		<level1 id="D4D82865-D0B3-4384-9D15-2931482DD5A8" name="Тюменская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Тюменская обл." />
+			</action>
+		</level1>
+		<level1 id="0503D627-578C-4B61-8E55-8A94A50F70F8" name="Удмуртская Респ.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Удмуртская Респ." />
+			</action>
+		</level1>
+		<level1 id="5730BF29-48EF-4CD8-9036-1E4B9A838327" name="Ульяновская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Ульяновская обл." />
+			</action>
+		</level1>
+		<level1 id="C6317A75-AA8F-4B4E-A76A-6C178245DD74" name="Уральский ФО">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Уральский ФО" />
+			</action>
+		</level1>
+		<level1 id="D648B53B-8B6B-46F7-85E3-59DB8C368967" name="Хабаровский край">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Хабаровский край" />
+			</action>
+		</level1>
+		<level1 id="7396BA32-AE6E-4C00-BCC8-4B0F85B1F68C" name="Центральный ФО">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Центральный ФО" />
+			</action>
+		</level1>
+		<level1 id="56AD0F14-F945-4F91-A48D-67ADCD9BF502" name="Челябинская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Челябинская обл." />
+			</action>
+		</level1>
+		<level1 id="334233F6-462A-4E05-AFF2-6376361FB4F5" name="Чеченская Респ.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Чеченская Респ." />
+			</action>
+		</level1>
+		<level1 id="52A6EB9C-6A01-48DD-A1E6-E97264F25012" name="Читинская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Читинская обл." />
+			</action>
+		</level1>
+		<level1 id="5B8F6734-2DB7-492C-A3AC-C620132513F1" name="Чувашская Респ.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Чувашская Респ." />
+			</action>
+		</level1>
+		<level1 id="250EBD56-E975-47C4-8189-1933236B2675" name="Чукотский а.о.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Чукотский а.о." />
+			</action>
+		</level1>
+		<level1 id="5F9E4381-F87D-4AD8-B667-8EF41FD2FDD8" name="Южный ФО">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Южный ФО" />
+			</action>
+		</level1>
+		<level1 id="9ED41E1E-40FF-4720-8D8E-0943B918A554" name="Ярославская обл.">
+			<action>
+				<datapanel user="" type="b.xml" main_context="Ярославская обл." />
+			</action>
+		</level1>
+	</group>
+</navigator>

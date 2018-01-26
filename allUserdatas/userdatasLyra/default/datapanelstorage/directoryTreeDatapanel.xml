@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="directoryTree" name="Справочник">
+		
+		<element id="directoryTreeGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.directoryTreeGrid.treeGrid.celesta">
+			<proc id="directoryTreeGridToolbar" name="ssmmd.grids.directoryTreeGrid.gridToolBar.celesta" type="TOOLBAR"
+			/>
+		</element>
+		
+ 		<element id="directoryTreeAddCard" type="xforms" template="directoryTreeAddCard.xml"
+			proc="ssmmd.xforms.directoryTreeCard.addCardData.celesta" neverShowInPanel="true">
+			<proc id="addCardSave" name="ssmmd.xforms.directoryTreeCard.addCardSave.celesta" type="SAVE"/>
+			<related id="directoryTreeGrid"/>
+		</element>
+ 		<element id="directoryTreeEditCard" type="xforms" template="directoryTreeAddCard.xml"
+			proc="ssmmd.xforms.directoryTreeCard.editCardData.celesta" neverShowInPanel="true">
+			<proc id="editCardSave" name="ssmmd.xforms.directoryTreeCard.editCardSave.celesta" type="SAVE"/>
+			<related id="directoryTreeGrid"/>
+		</element>
+	
+		
+		<element id="treeCardDel" type="xforms" template="deleteRecCard.xml"
+			proc="ssmmd.xforms.deleteRecCard.cardData.celesta" neverShowInPanel="true">
+			<proc id="cardDelete" name="ssmmd.xforms.directoryTreeCard.deleteItem.celesta" type="SAVE"/>
+			<related id="directoryTreeGrid"/>
+		</element>
+		
+
+
+		
+	</tab>
+</datapanel>

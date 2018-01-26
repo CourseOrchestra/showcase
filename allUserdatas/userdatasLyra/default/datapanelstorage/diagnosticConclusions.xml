@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+	<tab id="diagnoses" name="Диагностические заключения">
+		<element id="diagnosesGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.diagnosesGrid.treeGrid.celesta">
+			<proc id="diagnosesGridToolbar" name="ssmmd.grids.diagnosesGrid.gridToolBar.celesta" type="TOOLBAR"
+			/>
+		</element>
+
+			
+ 		<element id="diagnosisAddCard" type="xforms" template="rulesTemplate.py"
+			proc="ssmmd.xforms.diagnosisCard.addCardData.celesta" neverShowInPanel="true">
+			<proc id="addDiagnosisCardSave" name="ssmmd.xforms.diagnosisCard.addCardSave.celesta" type="SAVE"/>
+			<related id="diagnosesGrid"/>
+		</element>
+	
+		<element id="diagnosisEditCard" type="xforms" template="rulesTemplate.py"
+			proc="ssmmd.xforms.diagnosisCard.editCardData.celesta" neverShowInPanel="true">
+			<proc id="editDiagnosisCardSave" name="ssmmd.xforms.diagnosisCard.editCardSave.celesta" type="SAVE"/>
+			<related id="diagnosesGrid"/>
+		</element>
+		
+		<element id="diagnosisDel" type="xforms" template="diagnosisDel.xml"
+			proc="ssmmd.xforms.diagnosisDel.cardData.celesta" neverShowInPanel="true">
+			<proc id="diagnosisDel" name="ssmmd.xforms.diagnosisDel.cardDataDel.celesta" type="SAVE"/>
+			<related id="diagnosesGrid"/>
+		</element> 
+		
+		<element id="diagnosesDependencyGrid" type="grid" subtype="JS_TREE_GRID" plugin="treeDGrid"
+			proc="ssmmd.grids.diagnosesDependencyGrid.treeGrid.celesta" hideOnLoad="true">
+			<proc id="diagnosesDependencyGridToolbar" name="ssmmd.grids.diagnosesDependencyGrid.gridToolBar.celesta" type="TOOLBAR"
+			/>
+			<related id="diagnosesGrid"/>
+		</element>		
+		
+		<element id="dependencyAddCard" type="xforms" template="dependencyCard.xml"
+			proc="ssmmd.xforms.dependencyCard.addCardData.celesta" neverShowInPanel="true">
+			<proc id="addDependencyCardSave" name="ssmmd.xforms.dependencyCard.addCardSave.celesta" type="SAVE"/>
+			<related id="diagnosesGrid"/>
+			<related id="diagnosesDependencyGrid" />
+		</element>
+
+		<element id="dependencyDel" type="xforms" template="dependencyDel.xml"
+			proc="ssmmd.xforms.dependencyDel.cardData.celesta" neverShowInPanel="true">
+			<proc id="dependencyDel" name="ssmmd.xforms.dependencyDel.cardDataDel.celesta" type="SAVE"/>
+			<related id="diagnosesGrid"/>
+			<related id="diagnosesDependencyGrid" />
+		</element>
+
+		<!--
+		<element id="attributeEditCard" type="xforms" template="attributeCard.xml"
+			proc="ssmmd.xforms.attributeCard.editCardData.celesta" neverShowInPanel="true">
+			<proc id="editAttributeCardSave" name="ssmmd.xforms.attributeCard.editCardSave.celesta" type="SAVE"/>
+			<related id="diagnosesGrid"/>
+			<related id="diagnosesAttributeGrid" />
+			
+		</element>
+		
+  -->
+	</tab>
+</datapanel>
