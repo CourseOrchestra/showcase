@@ -958,7 +958,6 @@
 
 </dependencies>
   <build>
-	<finalName>${project.artifactId}-${project.version}</finalName>
 	<sourceDirectory>src/main/java</sourceDirectory>
     <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
     <resources>
@@ -1047,7 +1046,6 @@
 							<goal>single</goal>
 						</goals>
 						<configuration>
-							<finalName>userdata-${project.version}</finalName>
 							<appendAssemblyId>false</appendAssemblyId>
 							<descriptors>
 								<descriptor>src/assembly/userdatas_zip.xml</descriptor>
@@ -1055,21 +1053,20 @@
 							<attach>true</attach>
 						</configuration>
 					</execution>
-					<execution>
+					<!--<execution>
 						<id>copy sql scripts</id>
 						<phase>package</phase>
 						<goals>
 							<goal>single</goal>
 						</goals>
 						<configuration>
-							<finalName>sql-scripts-${project.version}</finalName>
 							<appendAssemblyId>false</appendAssemblyId>
 							<descriptors>
 								<descriptor>src/assembly/sql_scripts_zip.xml</descriptor>
 							</descriptors>
 							<attach>true</attach>
 						</configuration>
-					</execution>
+					</execution>-->
 				</executions>
 			</plugin>
        <plugin>
