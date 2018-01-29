@@ -939,7 +939,7 @@
 
 </dependencies>
   <build>
-	<finalName>${project.artifactId}-${project.version}</finalName>
+	<finalName>${project.artifactId}-${project.version}.${revision.number}_build${build.number}</finalName>
 	<sourceDirectory>src/main/java</sourceDirectory>
     <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
     <resources>
@@ -1028,7 +1028,7 @@
 							<goal>single</goal>
 						</goals>
 						<configuration>
-							<finalName>userdata-${project.version}</finalName>
+							<finalName>userdata-${project.version}.${revision.number}_build${build.number}</finalName>
 							<appendAssemblyId>false</appendAssemblyId>
 							<descriptors>
 								<descriptor>src/assembly/userdatas_zip.xml</descriptor>
@@ -1043,7 +1043,7 @@
 							<goal>single</goal>
 						</goals>
 						<configuration>
-							<finalName>sql-scripts-${project.version}</finalName>
+							<finalName>sql-scripts-${project.version}.${revision.number}_build${build.number}</finalName>
 							<appendAssemblyId>false</appendAssemblyId>
 							<descriptors>
 								<descriptor>src/assembly/sql_scripts_zip.xml</descriptor>
