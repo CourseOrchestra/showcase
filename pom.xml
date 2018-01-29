@@ -1,11 +1,31 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>Showcase</groupId>
-  <artifactId>Showcase</artifactId>
+  <groupId>ru.curs</groupId>
+  <artifactId>showcase</artifactId>
   <version>6.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>Showcase</name>
-  <description>Showcase</description>
+  <name>showcase</name>
+  <description>Showcase - GPL platform for business logic development</description>
+  
+  <organization>
+        <name>CURS</name>
+        <url>https://corchestra.ru</url>
+  </organization>
+  
+  <licenses>
+        <license>
+            <name>GNU General Public License (GPL), Version 3</name>
+            <url>https://www.gnu.org/licenses/gpl.txt</url>
+            <distribution>repo</distribution>
+        </license>
+  </licenses>  
+  
+    <developers>
+        <developer>
+            <name>Andrey Lugovtsov</name>
+            <email>anlug@curs.ru</email>
+        </developer>
+    </developers>  
   
   <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -938,7 +958,7 @@
 
 </dependencies>
   <build>
-	<finalName>${project.artifactId}-${project.version}.${revision.number}_build${build.number}</finalName>
+	<finalName>${project.artifactId}-${project.version}</finalName>
 	<sourceDirectory>src/main/java</sourceDirectory>
     <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
     <resources>
@@ -1027,7 +1047,7 @@
 							<goal>single</goal>
 						</goals>
 						<configuration>
-							<finalName>userdata-${project.version}.${revision.number}_build${build.number}</finalName>
+							<finalName>userdata-${project.version}</finalName>
 							<appendAssemblyId>false</appendAssemblyId>
 							<descriptors>
 								<descriptor>src/assembly/userdatas_zip.xml</descriptor>
@@ -1042,7 +1062,7 @@
 							<goal>single</goal>
 						</goals>
 						<configuration>
-							<finalName>sql-scripts-${project.version}.${revision.number}_build${build.number}</finalName>
+							<finalName>sql-scripts-${project.version}</finalName>
 							<appendAssemblyId>false</appendAssemblyId>
 							<descriptors>
 								<descriptor>src/assembly/sql_scripts_zip.xml</descriptor>
