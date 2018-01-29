@@ -1052,7 +1052,7 @@
 							<descriptors>
 								<descriptor>src/assembly/userdatas_zip.xml</descriptor>
 							</descriptors>
-							<attach>false</attach>
+							<attach>true</attach>
 						</configuration>
 					</execution>
 					<execution>
@@ -1067,7 +1067,7 @@
 							<descriptors>
 								<descriptor>src/assembly/sql_scripts_zip.xml</descriptor>
 							</descriptors>
-							<attach>false</attach>
+							<attach>true</attach>
 						</configuration>
 					</execution>
 				</executions>
