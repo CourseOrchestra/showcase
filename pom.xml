@@ -993,8 +993,8 @@
 			<version>1.1.0</version>
 		</dependency>
 		<dependency>
-    <groupId>xerces</groupId>
-    <artifactId>xercesImpl</artifactId>
+    <groupId>xercesBeta</groupId>
+    <artifactId>xercesImplBeta</artifactId>
     <version>2.11.0.beta</version>
 </dependency>
 <!-- <dependency>
