@@ -982,21 +982,21 @@
 			<artifactId>xdb</artifactId>
 			<version>RELEASE</version>
 		</dependency>
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.apache.xerces</groupId>
 			<artifactId>xercesPatchedByKurs</artifactId>
 			<version>RELEASE</version>
-		</dependency> -->
+		</dependency>
 		<dependency>
 			<groupId>org.eclipse.wst</groupId>
 			<artifactId>xml-xpath2-processor</artifactId>
 			<version>1.1.0</version>
 		</dependency>
-		<dependency>
-    <groupId>xercesBeta</groupId>
+	<!--	<dependency>
+     <groupId>xercesBeta</groupId>
     <artifactId>xercesImplBeta</artifactId>
     <version>2.11.0.beta</version>
-</dependency>
+</dependency> -->
 <!-- <dependency>
     <groupId>javax.activation</groupId>
     <artifactId>activation</artifactId>
