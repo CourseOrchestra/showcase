@@ -31,7 +31,7 @@ interface Images extends ClientBundle {
 	 * 
 	 * @return - ImageResource.
 	 */
-	@Source("resources//Right_arrow_for_tablayoutpanel.png")
+	@Source("resources//right_arrow_for_tablayoutpanel.png")
 	ImageResource getLeftScrollArrow();
 }
 
@@ -205,10 +205,11 @@ public class CursScrolledTabLayoutPanel extends TabLayoutPanel {
 		scrollRightButton = new Image(rightArrowImage);
 		panel.insert(scrollRightButton, 0);
 
-		panel.setWidgetLeftWidth(scrollLeftButton,
-				getTabBarWidth() - (scrollLeftButton.getWidth() + scrollRightButton.getWidth()
-						+ IMAGE_PADDING_PIXELS) - n10,
-				Unit.PX, scrollLeftButton.getWidth(), Unit.PX);
+		panel.setWidgetLeftWidth(
+				scrollLeftButton,
+				getTabBarWidth()
+						- (scrollLeftButton.getWidth() + scrollRightButton.getWidth() + IMAGE_PADDING_PIXELS)
+						- n10, Unit.PX, scrollLeftButton.getWidth(), Unit.PX);
 		panel.setWidgetLeftWidth(scrollRightButton,
 				getTabBarWidth() - scrollRightButton.getWidth() - n10, Unit.PX,
 				scrollRightButton.getWidth(), Unit.PX);
@@ -246,10 +247,11 @@ public class CursScrolledTabLayoutPanel extends TabLayoutPanel {
 				scrollLeftButton.setVisible(isScrolling);
 				final int n10 = 10;
 				// if (isScrolling) {
-				panel.setWidgetLeftWidth(scrollLeftButton,
-						getTabBarWidth() - (scrollLeftButton.getWidth()
-								+ scrollRightButton.getWidth() + IMAGE_PADDING_PIXELS) - n10,
-						Unit.PX, scrollLeftButton.getWidth(), Unit.PX);
+				panel.setWidgetLeftWidth(
+						scrollLeftButton,
+						getTabBarWidth()
+								- (scrollLeftButton.getWidth() + scrollRightButton.getWidth() + IMAGE_PADDING_PIXELS)
+								- n10, Unit.PX, scrollLeftButton.getWidth(), Unit.PX);
 				panel.setWidgetLeftWidth(scrollRightButton,
 						getTabBarWidth() - scrollRightButton.getWidth() - n10, Unit.PX,
 						scrollRightButton.getWidth(), Unit.PX);
