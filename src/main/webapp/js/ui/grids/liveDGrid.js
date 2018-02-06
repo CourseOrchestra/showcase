@@ -1,5 +1,8 @@
 function createLiveDGrid(elementId, parentId, metadata) {
 	
+try {	
+
+	
 	var arrScripts = [
 	     			 "dojo/_base/lang",
 	    	         "dojo/has",			 
@@ -125,7 +128,32 @@ function createLiveDGrid(elementId, parentId, metadata) {
 								events = results[0]["events"];
 							}
 						}
-						gwtAfterLoadData(elementId, events, arrGrids[parentId]._total);
+						var wrongSelection = "";
+						if(results && grid && grid.needAdjustSelectionRecords){
+						    var i = 0;
+					        for(var id in grid.selection){
+					            if(grid.selection[id]){
+					            	var exist = null;
+					            	for (var j = 0; j < results.length; j++) {
+					            		if(id == results[j].id){
+					            			exist = true;
+					            			break;
+					            		}
+					            	}
+					            	if(!exist){
+						            	if(i > 0){
+						            		wrongSelection = wrongSelection+metadata["common"]["stringSelectedRecordIdsSeparator"];	
+						            	}
+						            	wrongSelection = wrongSelection+id;
+						            	i++;
+						            	
+						            	grid.deselect(id);
+					            	}
+					            }
+					        }
+							grid.needAdjustSelectionRecords = null;
+						}
+						gwtAfterLoadData(elementId, events, arrGrids[parentId]._total, wrongSelection);
 						
 						if(grid){
 							grid.dirty = {};
@@ -666,9 +694,18 @@ function createLiveDGrid(elementId, parentId, metadata) {
 		grid.resizeColumnWidth("col1", "5px");
 		
 	});
+	
+	
+} catch (err) {
+	console.log("При построении live-грида возникла следующая ошибка: "+err);
+	throw err;
+}	
+	
+	
 }
 
 function refreshLiveDGrid(parentId){
+	arrGrids[parentId].needAdjustSelectionRecords = true;	
 	arrGrids[parentId].refresh();
 }
 

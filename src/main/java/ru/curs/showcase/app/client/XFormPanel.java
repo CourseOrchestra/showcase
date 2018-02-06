@@ -3,15 +3,13 @@ package ru.curs.showcase.app.client;
 import java.util.List;
 
 import com.google.gwt.core.client.*;
-import com.google.gwt.user.client.*;
-import com.google.gwt.user.client.rpc.ServiceDefTarget;
+import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.ui.*;
 
 import ru.curs.showcase.app.api.datapanel.*;
 import ru.curs.showcase.app.api.element.DataPanelElement;
 import ru.curs.showcase.app.api.event.*;
 import ru.curs.showcase.app.api.html.*;
-import ru.curs.showcase.app.api.selector.*;
 import ru.curs.showcase.app.api.services.*;
 import ru.curs.showcase.app.client.api.*;
 import ru.curs.showcase.app.client.internationalization.CourseClientLocalization;
@@ -50,16 +48,6 @@ public class XFormPanel extends BasicElementPanelBasis {
 	private UploadWindow uw = null;
 
 	private DataServiceAsync dataService = null;
-
-	private final SelectorDataServiceAsync selSrv = GWT.create(SelectorDataService.class);
-	{
-		((ServiceDefTarget) selSrv).setServiceEntryPoint(
-				GWT.getModuleBaseURL() + "SelectorDataService" + Window.Location.getQueryString());
-	}
-
-	public SelectorDataServiceAsync getSelSrv() {
-		return selSrv;
-	}
 
 	/**
 	 * Ф-ция, возвращающая панель с XForm.

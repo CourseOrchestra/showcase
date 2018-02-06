@@ -22,6 +22,9 @@ public class ToolBarHelper {
 	// private static final String TOOLBAR_HEIGHT = "31px";
 	private static final String TOOLBAR_HEIGHT = "29px";
 
+	private static final String CLASS_NAME = "className";
+	private static final String STYLE = "style";
+
 	private Timer toolBarRefreshTimer = null;
 	private final DataServiceAsync dataService;
 	private final SimplePanel panel;
@@ -64,7 +67,7 @@ public class ToolBarHelper {
 				panel.addStyleName(toolbarClassName);
 			}
 			if (toolbarStyle != null) {
-				panel.getElement().setAttribute("style", toolbarStyle);
+				panel.getElement().setAttribute(STYLE, toolbarStyle);
 			}
 		}
 
@@ -287,6 +290,46 @@ public class ToolBarHelper {
 		}
 	}
 
+	public void fillToolBarImmediately() {
+
+		if (!panel.getParent().isVisible()) {
+			return;
+		}
+
+		String htmlForPlugin = "<div id='" + jsBaseGridPluginPanel.getDivIdToolBar() + "'></div>";
+
+		HTML pluginHTML = new HTML(htmlForPlugin);
+
+		panel.clear();
+		panel.add(pluginHTML);
+
+		String params = "'" + jsBaseGridPluginPanel.getElementInfo().getId().toString() + "'"
+				+ ", '" + jsBaseGridPluginPanel.getDivIdToolBar() + "'";
+
+		JSONObject metadata = new JSONObject();
+
+		JSONObject common = new JSONObject();
+
+		String toolbarClassName =
+			jsBaseGridPluginPanel.getGridMetadata().getUISettings().getToolbarClassName();
+		String toolbarStyle =
+			jsBaseGridPluginPanel.getGridMetadata().getUISettings().getToolbarStyle();
+
+		if (toolbarClassName != null) {
+			common.put(CLASS_NAME, new JSONString(toolbarClassName));
+		}
+		if (toolbarStyle != null) {
+			common.put(STYLE, new JSONString(toolbarStyle));
+		}
+
+		metadata.put("common", common);
+
+		params = params + ", " + metadata;
+
+		runToolBarImmediately(params);
+
+	}
+
 	// CHECKSTYLE:OFF
 	private void createJSToolBar(final GridToolBar gridToolBar) {
 
@@ -307,10 +350,10 @@ public class ToolBarHelper {
 		JSONObject common = new JSONObject();
 		if (gridToolBar != null) {
 			if (gridToolBar.getStyle() != null) {
-				common.put("style", new JSONString(gridToolBar.getStyle()));
+				common.put(STYLE, new JSONString(gridToolBar.getStyle()));
 			}
 			if (gridToolBar.getClassName() != null) {
-				common.put("className", new JSONString(gridToolBar.getClassName()));
+				common.put(CLASS_NAME, new JSONString(gridToolBar.getClassName()));
 			}
 		}
 		metadata.put("common", common);
@@ -409,8 +452,8 @@ public class ToolBarHelper {
 		jsonItem.put("disable", new JSONString(String.valueOf(item.isDisable())));
 		jsonItem.put("text", new JSONString(item.getText()));
 		jsonItem.put("hint", new JSONString(item.getHint()));
-		jsonItem.put("style", new JSONString(item.getStyle()));
-		jsonItem.put("className", new JSONString(item.getClassName()));
+		jsonItem.put(STYLE, new JSONString(item.getStyle()));
+		jsonItem.put(CLASS_NAME, new JSONString(item.getClassName()));
 		jsonItem.put("iconClassName", new JSONString(item.getIconClassName()));
 
 		if (item.getId() != null) {
@@ -453,6 +496,17 @@ public class ToolBarHelper {
 		} catch (e) {
 			$wnd.safeIncludeJS("js/ui/grids/toolbar.js");
 			$wnd.eval("createGridToolBar(" + params + ");");
+		}
+
+	}-*/;
+
+	private native void runToolBarImmediately(final String params) /*-{
+
+		try {
+			$wnd.eval("createGridToolBarImmediately(" + params + ");");
+		} catch (e) {
+			$wnd.safeIncludeJS("js/ui/grids/toolbar.js");
+			$wnd.eval("createGridToolBarImmediately(" + params + ");");
 		}
 
 	}-*/;

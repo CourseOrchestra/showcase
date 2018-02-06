@@ -1,3 +1,34 @@
+function createGridToolBarImmediately(elementId, parentId, metadata) {
+	require({async:true},
+			[
+             "dijit/registry",
+	         "dijit/Toolbar",
+             "dijit/popup"
+	     ], function(registry, Toolbar, popup){
+		
+    		 var w = registry.byId(parentId);
+    		 if(w){
+    		  	popup.close(w.popupWidget);
+    		  	w.destroy();
+    		 }
+		     
+    	
+		     var paramToolbar = {};
+		     
+    		 if(metadata["common"] && metadata["common"].style){
+    			 paramToolbar.style = metadata["common"].style;
+    		 }
+    		 if(metadata["common"] && metadata["common"].className){
+    			 paramToolbar.class = metadata["common"].className;
+    		 }
+		
+	         var toolbar = new Toolbar(paramToolbar, parentId);
+	         toolbar.startup();
+	     });	
+}
+
+
+
 function createGridToolBar(elementId, parentId, metadata) {
 	require({async:true},
 			[

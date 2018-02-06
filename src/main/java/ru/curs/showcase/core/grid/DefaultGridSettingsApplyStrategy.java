@@ -30,6 +30,7 @@ public final class DefaultGridSettingsApplyStrategy extends ProfileBasedSettings
 	private static final String URL_IMAGE_FILE_DOWNLOAD = "resources/internal/fileDownload.PNG";
 	private static final String DEF_TOOLBAR_CLASSNAME = "def.toolbar.classname";
 	private static final String DEF_TOOLBAR_STYLE = "def.toolbar.style";
+	private static final String DEF_TOOLBAR_CREATEIMMEDIATELY = "def.toolbar.createimmediately";
 
 	/**
 	 * Настройки грида.
@@ -81,6 +82,11 @@ public final class DefaultGridSettingsApplyStrategy extends ProfileBasedSettings
 		stringValue = reader().getStringValue(DEF_TOOLBAR_STYLE);
 		if (stringValue != null) {
 			settings.setToolbarStyle(stringValue);
+		}
+
+		boolValue = reader().getBoolValue(DEF_TOOLBAR_CREATEIMMEDIATELY);
+		if (boolValue != null) {
+			settings.setToolbarCreateImmediately(boolValue);
 		}
 
 		applyVisibilitySettings();

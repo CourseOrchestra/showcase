@@ -22,7 +22,7 @@ interface Images extends ClientBundle {
 	 * 
 	 * @return - ImageResource.
 	 */
-	@Source("resources/left_arrow_for_tablayoutpanel.png")
+	@Source("resources//left_arrow_for_tablayoutpanel.png")
 	ImageResource getRightScrollArrow();
 
 	/**
@@ -31,7 +31,7 @@ interface Images extends ClientBundle {
 	 * 
 	 * @return - ImageResource.
 	 */
-	@Source("resources/right_arrow_for_tablayoutpanel.png")
+	@Source("resources//Right_arrow_for_tablayoutpanel.png")
 	ImageResource getLeftScrollArrow();
 }
 

@@ -8,18 +8,13 @@ import com.google.gwt.event.dom.client.*;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.user.cellview.client.*;
-import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.rpc.ServiceDefTarget;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.datepicker.client.*;
 import com.google.gwt.view.client.*;
 
 import ru.curs.showcase.app.api.grid.*;
-import ru.curs.showcase.app.api.selector.*;
 import ru.curs.showcase.app.client.internationalization.CourseClientLocalization;
 import ru.curs.showcase.app.client.panels.DialogBoxWithCaptionButton;
-import ru.curs.showcase.app.client.selector.*;
-import ru.curs.showcase.app.client.selector.BaseSelectorComponent.Options;
 
 /**
  * Класс задания фильтра.
@@ -50,12 +45,6 @@ public class JSFilter extends DialogBoxWithCaptionButton {
 	private final DatePicker datePicker = new DatePicker();
 	private Button btnSelector = null;
 	private Button btnUpdate = null;
-
-	private final SelectorDataServiceAsync selSrv = GWT.create(SelectorDataService.class);
-	{
-		((ServiceDefTarget) selSrv).setServiceEntryPoint(
-				GWT.getModuleBaseURL() + "SelectorDataService" + Window.Location.getQueryString());
-	}
 
 	private int maxId = 0;
 	private final JSLiveGridPluginPanel jsLiveGridPluginPanel;
@@ -278,7 +267,7 @@ public class JSFilter extends DialogBoxWithCaptionButton {
 				new ClickHandler() {
 					@Override
 					public void onClick(final ClickEvent event) {
-						runSelector();
+						// runSelector();
 					}
 				});
 		vpEdit.add(btnSelector);
@@ -498,9 +487,9 @@ public class JSFilter extends DialogBoxWithCaptionButton {
 	}
 
 	private void conditionBoxChangeHandler() {
-		if ((conditionBox.getSelectedIndex() > -1) &&
-		// AppCurrContext.getInstance().getBundleMap().get("conditionListOfValues")
-				CourseClientLocalization
+		if ((conditionBox.getSelectedIndex() > -1)
+				// AppCurrContext.getInstance().getBundleMap().get("conditionListOfValues")
+				&& CourseClientLocalization
 						.gettext(AppCurrContext.getInstance().getDomain(), "list of values")
 						.equalsIgnoreCase(
 								conditionBox.getItemText(conditionBox.getSelectedIndex()))) {
@@ -644,94 +633,6 @@ public class JSFilter extends DialogBoxWithCaptionButton {
 		}
 	}
 
-	private void runSelector() {
-		FilterMultiselector fms = ((GridMetadata) (jsLiveGridPluginPanel.getElement())).getJSInfo()
-				.getFilterMultiselector();
-
-		Options options = new Options();
-		if (fms.getDataWidth() != null) {
-			options.dataWidth(fms.getDataWidth());
-		} else {
-			options.dataWidth(options.getSelectedDataWidth());
-		}
-		if (fms.getDataHeight() != null) {
-			options.dataHeight(fms.getDataHeight());
-		}
-		if (fms.getSelectedDataWidth() != null) {
-			options.selectedDataWidth(fms.getSelectedDataWidth());
-		}
-		if (fms.getVisibleRecordCount() != null) {
-			options.visibleRecordCount(Integer.valueOf(fms.getVisibleRecordCount()));
-		}
-		options.startsWithChecked(fms.isStartWith());
-		options.hideStartsWith(fms.isHideStartsWith());
-		options.manualSearch(fms.isManualSearch());
-
-		JavaScriptObject initSelection = null;
-		if (fms.isNeedInitSelection()) {
-			Filter filter = selectionModel.getSelectedObject();
-
-			JsArrayString listOfValues = (JsArrayString) JsArrayString.createArray();
-			JsArrayString listOfValuesId = (JsArrayString) JsArrayString.createArray();
-			for (int i = 0; i < filter.getListOfValues().size(); i++) {
-				listOfValues.push(filter.getListOfValues().get(i));
-				listOfValuesId.push(filter.getListOfValuesId().get(i));
-			}
-
-			initSelection = getInitSelection(listOfValues, listOfValuesId);
-		}
-
-		MultiSelectorComponent c =
-			new MultiSelectorComponent(selSrv, fms.getWindowCaption(), initSelection, options);
-		c.setSelectorListener(new BaseSelectorComponent.SelectorListener() {
-			@Override
-			public void onSelectionComplete(final BaseSelectorComponent selector) {
-				if (selector.isOK()) {
-					final ArrayJsDataRecord adr =
-						(ArrayJsDataRecord) ((MultiSelectorComponent) selector)
-								.getSelectedAsJsObject();
-
-					Filter filter = selectionModel.getSelectedObject();
-					filter.getListOfValues().clear();
-					filter.getListOfValuesId().clear();
-					filter.setValue("");
-					for (int i = 0; i < adr.getRecordCount(); i++) {
-						filter.getListOfValues().add(adr.getName(i));
-						filter.getListOfValuesId().add(adr.getId(i));
-					}
-					valueBox.setText(getStringValue(filter, false));
-					listDataProvider.refresh();
-
-				}
-			}
-		});
-		c.center();
-
-		String procName;
-		if ((fms.getProcListAndCount() == null) || fms.getProcListAndCount().isEmpty()) {
-			procName = fms.getProcCount() + "FDCF8ABB9B6540A89E350010424C2B80" + fms.getProcList();
-		} else {
-			procName = fms.getProcListAndCount();
-		}
-
-		Filter filter = selectionModel.getSelectedObject();
-		jsLiveGridPluginPanel.getLocalContext().getGridListOfValuesInfo().setMaxId(maxId);
-		jsLiveGridPluginPanel.getLocalContext().getGridListOfValuesInfo().getFilters().clear();
-		for (final Filter flt : listDataProvider.getList()) {
-			if (flt != filter) {
-				jsLiveGridPluginPanel.getLocalContext().getGridListOfValuesInfo().getFilters()
-						.add(new Filter(flt));
-			}
-		}
-
-		SelectorAdditionalData addData = new SelectorAdditionalData();
-		addData.setContext(jsLiveGridPluginPanel.getLocalContext());
-		addData.setElementInfo(jsLiveGridPluginPanel.getElementInfo());
-
-		c.initData("", procName, fms.getCurrentValue(), addData);
-
-	}
-
 	private static native JavaScriptObject getInitSelection(final JsArrayString listOfValues,
 			final JsArrayString listOfValuesId) /*-{
 		var arrayNames = [ "id", "name" ];
@@ -749,6 +650,7 @@ public class JSFilter extends DialogBoxWithCaptionButton {
 	/**
 	 * ArrayJsDataRecord.
 	 */
+	@SuppressWarnings("unused")
 	private static final class ArrayJsDataRecord extends JavaScriptObject {
 		protected ArrayJsDataRecord() {
 		};

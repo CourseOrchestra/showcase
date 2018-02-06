@@ -232,12 +232,39 @@ padding: 0px 20px 0px 0px;
 }
 
 
+.server-treeselector-clearbutton-image {
+    background: url('../resources/internal/clearImage.png') no-repeat center center;
+    width: 18px;
+    height: 18px;
+}
+.server-treeselector-manualsearchbutton-image {
+    background: url('../resources/internal/findImage.png') no-repeat center center;
+    width: 18px;
+    height: 18px;
+}
 
 
 
 
+/*
+.server-selector-popup .dijitDialogTitleBar {
+    background-color: red;
+    
+}
 
+.server-selector-popup .dijitDialogCloseIcon {
+    background: url('../resources/internal/unselectAllImage.png') no-repeat center center;
+}
+ 
 
+.server-multiselector-popup .dijitDialogTitleBar {
+    background-color: yellow;
+}
+
+.server-multiselector-popup .dijitDialogCloseIcon {
+    background: url('../resources/internal/selectAllImage.png') no-repeat center center;
+}
+*/
 
 
 

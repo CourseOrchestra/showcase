@@ -78,6 +78,7 @@ public class GridMetaFactory extends CompBasedElementFactory {
 	private static final String GRID_HEIGHT_TAG = "gridHeight";
 	private static final String GRID_TOOLBAR_CLASSNAME_TAG = "toolbarClassName";
 	private static final String GRID_TOOLBAR_STYLE_TAG = "toolbarStyle";
+	private static final String GRID_TOOLBAR_CREATEIMMEDIATELY_TAG = "toolbarCreateImmediately";
 	private static final String FORCE_LOAD_SETTINGS = "forceLoadSettings";
 	private static final String PRECISION_TAG = "precision";
 	private static final String PROFILE_TAG = "profile";
@@ -236,9 +237,9 @@ public class GridMetaFactory extends CompBasedElementFactory {
 			gridProps.init();
 		} catch (Exception e) {
 			if (e.getMessage() == null) {
-				throw new ValidateException(new UserMessage(String.format(
-						"Файл свойств грида \"%s\" не существует.", profile), MessageType.ERROR,
-						"Ошибка"));
+				throw new ValidateException(new UserMessage(
+						String.format("Файл свойств грида \"%s\" не существует.", profile),
+						MessageType.ERROR, "Ошибка"));
 			} else {
 				throw e;
 			}
@@ -408,12 +409,17 @@ public class GridMetaFactory extends CompBasedElementFactory {
 				result.getUISettings().setGridHeight(Integer.parseInt(value));
 			}
 			if (attrs.getIndex(GRID_TOOLBAR_CLASSNAME_TAG) > -1) {
-				result.getUISettings().setToolbarClassName(
-						attrs.getValue(GRID_TOOLBAR_CLASSNAME_TAG));
+				result.getUISettings()
+						.setToolbarClassName(attrs.getValue(GRID_TOOLBAR_CLASSNAME_TAG));
 			}
 			if (attrs.getIndex(GRID_TOOLBAR_STYLE_TAG) > -1) {
 				result.getUISettings().setToolbarStyle(attrs.getValue(GRID_TOOLBAR_STYLE_TAG));
 			}
+			if (attrs.getIndex(GRID_TOOLBAR_CREATEIMMEDIATELY_TAG) > -1) {
+				boolValue = Boolean.valueOf(attrs.getValue(GRID_TOOLBAR_CREATEIMMEDIATELY_TAG));
+				result.getUISettings().setToolbarCreateImmediately(boolValue);
+			}
+
 			if (attrs.getIndex(FORCE_LOAD_SETTINGS) > -1) {
 				value = attrs.getValue(FORCE_LOAD_SETTINGS);
 				state.setForceLoadSettings(Boolean.valueOf(value));
@@ -949,10 +955,10 @@ public class GridMetaFactory extends CompBasedElementFactory {
 		result.getJSInfo().setRevertProc("revert" + TextUtils.capitalizeWord(plugin));
 		result.getJSInfo().setClipboardProc("clipboard" + TextUtils.capitalizeWord(plugin));
 		result.getJSInfo().setPartialUpdate("partialUpdate" + TextUtils.capitalizeWord(plugin));
-		result.getJSInfo().setCurrentLevelUpdate(
-				"currentLevelUpdate" + TextUtils.capitalizeWord(plugin));
-		result.getJSInfo().setChildLevelUpdate(
-				"childLevelUpdate" + TextUtils.capitalizeWord(plugin));
+		result.getJSInfo()
+				.setCurrentLevelUpdate("currentLevelUpdate" + TextUtils.capitalizeWord(plugin));
+		result.getJSInfo()
+				.setChildLevelUpdate("childLevelUpdate" + TextUtils.capitalizeWord(plugin));
 
 	}
 

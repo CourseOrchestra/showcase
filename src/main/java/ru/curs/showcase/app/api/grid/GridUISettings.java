@@ -351,6 +351,7 @@ public class GridUISettings implements SerializableElement {
 
 	private String toolbarClassName = null;
 	private String toolbarStyle = null;
+	private boolean toolbarCreateImmediately = false;
 
 	/**
 	 * Горизонтальное выравнивание заголовков столбцов.
@@ -395,6 +396,14 @@ public class GridUISettings implements SerializableElement {
 
 	public void setToolbarStyle(final String aToolbarStyle) {
 		toolbarStyle = aToolbarStyle;
+	}
+
+	public boolean isToolbarCreateImmediately() {
+		return toolbarCreateImmediately;
+	}
+
+	public void setToolbarCreateImmediately(final boolean aToolbarCreateImmediately) {
+		toolbarCreateImmediately = aToolbarCreateImmediately;
 	}
 
 	public ColumnValueDisplayMode getDisplayMode() {

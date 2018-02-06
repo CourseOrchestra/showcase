@@ -194,6 +194,8 @@ function showSelector(selectorParam) {
 				} else {
 					selectorSearchStringValue = getCurrentValue();
 				}
+				selectorSearchStringValue = selectorSearchStringValue.replace(/&quot;/g, "\"");
+				
 				if(selectorStartsWith){
 					if(selectorStartsWith.get("checked")){
 						selectorStartsWithValue = "true";
@@ -213,11 +215,11 @@ function showSelector(selectorParam) {
 
 				results = Rest.prototype.fetchRange.call(this, kwArgs);
 				results.then(function(results){
-					if(getSelectedFirst() && results[0] && results[0]["id"]){
+					if(getSelectedFirst() && results && results[0] && results[0]["id"]){
 						selectorStore.selectedId = results[0]["id"];
 					}
 					
-					if(results[0] && results[0]["message_D13k82F9g7"]){
+					if(results && results[0] && results[0]["message_D13k82F9g7"]){
 						gwtSelectorShowMessage(results[0]["message_D13k82F9g7"]);
 					}
 					
@@ -308,7 +310,9 @@ function showSelector(selectorParam) {
 	    	return selectorParam.procListAndCount ? selectorParam.procListAndCount : selectorParam.procCount + "FDCF8ABB9B6540A89E350010424C2B80" + selectorParam.procList;
 	     }
 	     function getCurrentValue(){
-	    	 return selectorParam.currentValue ? getValueByXPath(selectorParam.currentValue) : "";
+	    	 var s = selectorParam.currentValue ? getValueByXPath(selectorParam.currentValue) : "";
+	    	 s = s.replace(/"/g, "&quot;");
+	    	 return s;
 	     }
 	     function getManualSearch(){
 	    	 return selectorParam.manualSearch ? selectorParam.manualSearch : false;

@@ -1,5 +1,9 @@
 function createTreeDGrid(elementId, parentId, metadata) {
 	
+
+try {
+	
+	
 	var arrScripts = [
 	     			 "dojo/_base/lang",
 	    	         "dojo/has",			 
@@ -129,7 +133,32 @@ function createTreeDGrid(elementId, parentId, metadata) {
 								events = results[0]["events"];
 							}
 						}
-						gwtAfterLoadDataTree(elementId, events);
+						var wrongSelection = "";
+						if(results && grid && grid.needAdjustSelectionRecords){
+						    var i = 0;
+					        for(var id in grid.selection){
+					            if(grid.selection[id]){
+					            	var exist = null;
+					            	for (var j = 0; j < results.length; j++) {
+					            		if(id == results[j].id){
+					            			exist = true;
+					            			break;
+					            		}
+					            	}
+					            	if(!exist){
+						            	if(i > 0){
+						            		wrongSelection = wrongSelection+metadata["common"]["stringSelectedRecordIdsSeparator"];	
+						            	}
+						            	wrongSelection = wrongSelection+id;
+						            	i++;
+						            	
+						            	grid.deselect(id);
+					            	}
+					            }
+					        }
+							grid.needAdjustSelectionRecords = null;
+						}
+						gwtAfterLoadDataTree(elementId, events, wrongSelection);
 						
 						if(grid && grid.expandAllRecords && metadata["common"]["selRecId"] && needActionExpandAllRecords){
 							for(var i = 0; i<results.length; i++){
@@ -744,9 +773,18 @@ function createTreeDGrid(elementId, parentId, metadata) {
 		grid.resizeColumnWidth("col1", "5px");		
 		
 	});
+	
+	
+} catch (err) {
+	console.log("При построении tree-грида возникла следующая ошибка: "+err);
+	throw err;
+}	
+	
+	
 }
 
 function refreshTreeDGrid(parentId){
+	arrGrids[parentId].needAdjustSelectionRecords = true;	
 	arrGrids[parentId].expandAllRecords = null;
 	arrGrids[parentId].refresh();
 }

@@ -1,5 +1,8 @@
 function createPageDGrid(elementId, parentId, metadata) {
 	
+try {
+	
+	
 	var arrScripts = [
 	     			 "dojo/_base/lang",
 	    	         "dojo/has",			 
@@ -128,7 +131,6 @@ function createPageDGrid(elementId, parentId, metadata) {
 						}
 						var wrongSelection = "";
 						if(results && grid && grid.needAdjustSelectionRecords){
-							
 						    var i = 0;
 					        for(var id in grid.selection){
 					            if(grid.selection[id]){
@@ -151,7 +153,6 @@ function createPageDGrid(elementId, parentId, metadata) {
 					            }
 					        }
 							grid.needAdjustSelectionRecords = null;
-							
 						}
 						gwtAfterLoadData(elementId, events, arrGrids[parentId]._total, wrongSelection);
 						
@@ -719,6 +720,14 @@ function createPageDGrid(elementId, parentId, metadata) {
 		grid.resizeColumnWidth("col1", "5px");
 		
 	});
+
+	
+} catch (err) {
+	console.log("При построении page-грида возникла следующая ошибка: "+err);
+	throw err;
+}	
+	
+	
 }
 
 function refreshPageDGrid(parentId){

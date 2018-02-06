@@ -127,7 +127,8 @@ function showMultiSelector(selectorParam) {
 		        '    </td>'+        
 		        '</tr>'+
 		        '<tr style="height: 100%;">'+
-		        '    <td> <div id="selectedGrid" style= "width: '+getSelectedDataWidth()+'; height: 100%;"></div> </td>'+
+//		        '    <td> <div id="selectedGrid" style= "width: '+getSelectedDataWidth()+'; height: 100%;"></div> </td>'+
+		        '    <td> <div id="selectedGrid" style= "width: '+getSelectedDataWidth()+'; height: '+getSelectedDataHeight()+'"></div> </td>'+		        
 		        '</tr>'+
 	            '</table>';
 			
@@ -346,11 +347,11 @@ function showMultiSelector(selectorParam) {
 
 				results = Rest.prototype.fetchRange.call(this, kwArgs);
 				results.then(function(results){
-					if(getSelectedFirst() && results[0] && results[0]["id"]){
+					if(getSelectedFirst() && results && results[0] && results[0]["id"]){
 						selectorStore.selectedId = results[0]["id"];
 					}
 					
-					if(results[0] && results[0]["message_D13k82F9g7"]){
+					if(results && results[0] && results[0]["message_D13k82F9g7"]){
 						gwtSelectorShowMessage(results[0]["message_D13k82F9g7"]);
 					}
 					
@@ -541,6 +542,20 @@ function showMultiSelector(selectorParam) {
 	     }
 	     function getSelectedDataWidth(){
 	    	 return (selectorParam.selectedDataWidth ? selectorParam.selectedDataWidth : "312px") + " !important";
+	     }
+	     function getSelectedDataHeight(){
+	    	 if ((navigator.userAgent.search("Chrome/63") >= 0) 
+	    			 || (navigator.userAgent.search("Chrome/64") >= 0)
+ 	    			 || (navigator.userAgent.search("Chrome/65") >= 0)
+	    			 || (navigator.userAgent.search("Chrome/66") >= 0)
+	    			 || (navigator.userAgent.search("Chrome/67") >= 0)
+	    			 || (navigator.userAgent.search("Chrome/68") >= 0)
+	    			 || (navigator.userAgent.search("Chrome/69") >= 0)
+	    			 ){
+	    		 return getDataHeight();
+	    	 } else {
+	    		 return "100%";
+	    	 }
 	     }
 	     function getNeedClear(){
 	    	 return selectorParam.needClear ? selectorParam.needClear : false;
