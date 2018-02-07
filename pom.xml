@@ -327,11 +327,11 @@
     <artifactId>activiti-modeler</artifactId>
     <version>5.16</version>
 </dependency>
-<dependency>
-    <groupId>org.activiti</groupId>
-    <artifactId>activiti-mule</artifactId>
-    <version>5.16</version>
-</dependency>
+<!-- <dependency> -->
+<!--     <groupId>org.activiti</groupId> -->
+<!--     <artifactId>activiti-mule</artifactId> -->
+<!--     <version>5.16</version> -->
+<!-- </dependency> -->
 <dependency>
     <groupId>org.activiti</groupId>
     <artifactId>activiti-osgi</artifactId>
