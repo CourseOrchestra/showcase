@@ -1212,7 +1212,7 @@
     <groupId>com.sun.xml.bind</groupId>
     <artifactId>jaxb-core</artifactId>
     <version>2.2.7</version>
-	<scope>provided</scope>
+	<!-- <scope>provided</scope> -->
 </dependency>
 <dependency>
     <groupId>org.jboss.logging</groupId>
