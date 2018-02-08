@@ -38,7 +38,7 @@
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-servlet</artifactId>
       <version>2.5.1</version>
-      <scope>provided</scope>
+      <scope>compile</scope>
     </dependency>
     
     <dependency>
@@ -1287,7 +1287,7 @@
     <scope>provided</scope>
 </dependency> 
  <dependency>
-    <groupId>org.restlet.jse</groupId>
+    <groupId>org.restlet.jee</groupId>
     <artifactId>org.restlet.ext.jackson</artifactId>
     <version>2.2.1</version>
     <scope>provided</scope>
@@ -1314,6 +1314,7 @@
     <groupId>org.mozilla</groupId>
     <artifactId>rhino</artifactId>
     <version>1.7.8</version>
+	<scope>provided</scope>
 </dependency>
 <dependency>
     <groupId>org.slf4j</groupId>
@@ -1343,6 +1344,7 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter</artifactId>
     <version>1.2.0.RELEASE</version>
+	<scope>provided</scope>
 </dependency>
 <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -1366,6 +1368,12 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-logging</artifactId>
     <version>1.0.2.RELEASE</version>
+    <scope>provided</scope>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-autoconfigure</artifactId>
+    <version>1.2.0.RELEASE</version>
     <scope>provided</scope>
 </dependency>
 <dependency>
@@ -1414,21 +1422,25 @@
     <groupId>wsdl4j</groupId>
     <artifactId>wsdl4j</artifactId>
     <version>1.6.3</version>
-</dependency>
+<scope>provided</scope>
+	</dependency>
 <dependency>
     <groupId>org.apache.xmlgraphics</groupId>
     <artifactId>xmlgraphics-commons</artifactId>
     <version>1.2</version>
+	<scope>provided</scope>
 </dependency>
 <dependency>
     <groupId>org.beanshell</groupId>
     <artifactId>bsh</artifactId>
     <version>2.0b4</version>
+	<scope>provided</scope>
 </dependency>
 <dependency>
     <groupId>org.python</groupId>
     <artifactId>jython-standalone</artifactId>
     <version>2.7.1b3</version>
+	<scope>provided</scope>
 </dependency>
 
 
