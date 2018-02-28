@@ -1538,22 +1538,25 @@
             </goals>
           </execution>
         </executions>
-        <configuration>
-		<scm>
-			<connection>scm:svn:http://127.0.0.1/dummy</connection>
-			<developerConnection>scm:svn:https://127.0.0.1/dummy</developerConnection>
-			<tag>HEAD</tag>
-			<url>http://127.0.0.1/dummy</url>
-		</scm>
-           <revisionOnScmFailure>true</revisionOnScmFailure>
-           <format>{0,number}</format>
-           <items>
-              <item>buildNumber</item>
-           </items>
-		   <buildNumberPropertiesFileLocation>src/build</buildNumberPropertiesFileLocation>
-        </configuration>
       </plugin>
       
+	  <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <configuration>
+              <tasks>
+				<copy file="${basedir}/buildNumber.properties" tofile="src/build"/>
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+	  
 	  <plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<executions>
