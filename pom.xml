@@ -33,10 +33,10 @@
 	</properties>
 
 	<scm>
-        <connection>scm:svn:http://127.0.0.1/dummy</connection>
-        <developerConnection>scm:svn:https://127.0.0.1/dummy</developerConnection>
+        <connection>scm:svn:https://share.curs.ru/svn/showcase_maven/trunk</connection>
+        <developerConnection>scm:svn:https://share.curs.ru/svn/showcase_maven/trunk</developerConnection>
         <tag>HEAD</tag>
-        <url>http://127.0.0.1/dummy</url>
+        <url>https://share.curs.ru/svn/showcase_maven/trunk</url>
     </scm>
 	
 <dependencies>
