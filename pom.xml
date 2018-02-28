@@ -32,12 +32,12 @@
 <!-- 		<project.version>${proj.version}</project.version> -->
 	</properties>
 
-  <scm>
+  <!-- <scm>
     <connection>scm:svn:http://127.0.0.1/dummy</connection>
     <developerConnection>scm:svn:https://127.0.0.1/dummy</developerConnection>
     <tag>HEAD</tag>
     <url>http://127.0.0.1/dummy</url>
-  </scm>
+  </scm> -->
 	
 <dependencies>
 
@@ -1533,7 +1533,7 @@
 		</configuration>
       </plugin>
 	  
-	  <plugin>
+	  <!-- <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>buildnumber-maven-plugin</artifactId>
         <version>1.1</version>
@@ -1553,24 +1553,25 @@
            </items>
 		   <buildNumberPropertiesFileLocation>src/build</buildNumberPropertiesFileLocation>
         </configuration>
-      </plugin>
+      </plugin> -->
       
-	  <!-- <plugin>
+	  <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
         <executions>
           <execution>
             <phase>package</phase>
             <configuration>
-              <tasks>
-				<copy file="${basedir}/buildNumber.properties" tofile="src/build"/>
-              </tasks>
+              <target>
+			  <property environment="env" />
+			  <echo file="src/build" message="${env.BUILD_NUMBER}" />
+			  </target>
             </configuration>
             <goals>
               <goal>run</goal>
             </goals>
           </execution>
         </executions>
-      </plugin> -->
+      </plugin>
 	  
 	  <plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
