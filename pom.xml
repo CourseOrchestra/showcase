@@ -32,6 +32,13 @@
 <!-- 		<project.version>${proj.version}</project.version> -->
 	</properties>
 
+	<scm>
+        <connection>scm:svn:http://127.0.0.1/dummy</connection>
+        <developerConnection>scm:svn:https://127.0.0.1/dummy</developerConnection>
+        <tag>HEAD</tag>
+        <url>http://127.0.0.1/dummy</url>
+    </scm>
+	
 <dependencies>
 
 <dependency>
@@ -1530,10 +1537,6 @@
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>buildnumber-maven-plugin</artifactId>
             <version>1.4</version>
-            <configuration>
-             <revisionOnScmFailure>no.scm.config.in.pom
-                 </revisionOnScmFailure>
-            </configuration>
             <executions>
                 <execution>
                     <id>buildnumber</id>
