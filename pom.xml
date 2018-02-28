@@ -1539,7 +1539,7 @@
           </execution>
         </executions>
         <configuration>
-           <revisionOnScmFailure>true</revisionOnScmFailure>
+           <!-- <revisionOnScmFailure>true</revisionOnScmFailure> -->
            <format>{0,number}</format>
            <items>
               <item>buildNumber</item>
