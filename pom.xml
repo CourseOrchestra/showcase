@@ -1547,9 +1547,9 @@
         </executions>
         <configuration>
            <revisionOnScmFailure>true</revisionOnScmFailure>
-           <format>{0,number}</format>
+           <format>{0}</format>
            <items>
-              <item>buildInfo</item>
+              <item>scmVersion</item>
            </items>
 		   <buildNumberPropertiesFileLocation>src/build</buildNumberPropertiesFileLocation>
         </configuration>
