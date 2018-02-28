@@ -1549,7 +1549,7 @@
            <revisionOnScmFailure>true</revisionOnScmFailure>
            <format>{0,number}</format>
            <items>
-              <item>buildNumber</item>
+              <item>svnRevision</item>
            </items>
 		   <buildNumberPropertiesFileLocation>src/build</buildNumberPropertiesFileLocation>
         </configuration>
