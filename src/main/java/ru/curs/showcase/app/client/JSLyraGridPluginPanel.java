@@ -829,7 +829,7 @@ public class JSLyraGridPluginPanel extends JSBaseGridPluginPanel {
 
 		if (stringAddData != null) {
 			try {
-				LyraGridAddData addData = (LyraGridAddData) getAddObjectSerializer()
+				GridAddData addData = (GridAddData) getAddObjectSerializer()
 						.createStreamReader(stringAddData).readObject();
 
 				if ((hpHeader.getWidgetCount() > 0) && (!((HTML) (hpHeader.getWidget(0))).getHTML()

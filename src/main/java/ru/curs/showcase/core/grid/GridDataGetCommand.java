@@ -55,9 +55,8 @@ public class GridDataGetCommand extends DataPanelElementCommand<GridData> {
 		GridGateway gateway = selector.getGateway();
 		RecordSetElementRawData rawData = gateway.getRawData(getContext(), getElementInfo());
 
-		GridServerState state =
-			(GridServerState) AppInfoSingleton.getAppInfo().getGridCacheState(getSessionId(),
-					getElementInfo(), getContext());
+		GridServerState state = (GridServerState) AppInfoSingleton.getAppInfo()
+				.getGridCacheState(getSessionId(), getElementInfo(), getContext());
 
 		if (applyLocalFormatting) {
 			if (state == null) {
@@ -69,7 +68,9 @@ public class GridDataGetCommand extends DataPanelElementCommand<GridData> {
 				if (state.isForceLoadSettings()) {
 					GridMetadataGetCommand command =
 						new GridMetadataGetCommand(getContext(), getElementInfo());
-					state.setTotalCount(command.getTotalCount());
+					state.setTotalCount(command.getPartialMetadata().getTotalCount());
+					state.setHeader(command.getPartialMetadata().getHeader());
+					state.setFooter(command.getPartialMetadata().getFooter());
 				}
 			}
 		} else {

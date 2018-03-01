@@ -7,7 +7,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import ru.curs.showcase.app.api.UserMessage;
 import ru.curs.showcase.app.api.event.Event;
 import ru.curs.showcase.app.api.geomap.GeoMapExportSettings;
-import ru.curs.showcase.app.api.grid.LyraGridAddData;
+import ru.curs.showcase.app.api.grid.GridAddData;
 import ru.curs.showcase.app.api.selector.DataRequest;
 
 /**
@@ -27,7 +27,7 @@ public interface FakeServiceAsync {
 
 	void serializeThrowable(AsyncCallback<Throwable> callback);
 
-	void serializeLyraGridAddData(AsyncCallback<LyraGridAddData> callback);
+	void serializeGridAddData(AsyncCallback<GridAddData> callback);
 
 	void serializeDataRequest(DataRequest req, AsyncCallback<Void> callback);
 

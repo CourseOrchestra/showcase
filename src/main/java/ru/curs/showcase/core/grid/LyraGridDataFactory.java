@@ -12,6 +12,7 @@ import org.xml.sax.*;
 import com.google.gwt.user.client.rpc.SerializationException;
 
 import ru.curs.celesta.CelestaException;
+import ru.curs.celesta.dbutils.Cursor;
 import ru.curs.celesta.score.Table;
 import ru.curs.fastxl.*;
 import ru.curs.lyra.*;
@@ -332,18 +333,24 @@ public class LyraGridDataFactory {
 			d = (d / basicGridForm.getApproxTotalCount())
 					* lyraGridAddInfo.getDgridOldTotalCount();
 			int dgridNewPosition = (int) d;
-
 			((JSONObject) data.get(0)).put("dgridNewPosition", dgridNewPosition);
+
+			basicGridForm.externalAction(c -> {
+				Object[] keyValues = ((Cursor) c).getCurrentKeyValues();
+				String recId = getIdByKeyValues(keyValues);
+				((JSONObject) data.get(0)).put("dgridNewPositionId", recId);
+				return null;
+			}, null);
 
 		}
 
 		JSONObject objAddData = null;
-		LyraGridAddData addData = new LyraGridAddData();
+		GridAddData addData = new GridAddData();
 		addData.setHeader(basicGridForm.getFormProperties().getHeader());
 		addData.setFooter(basicGridForm.getFormProperties().getFooter());
 		try {
 			String stringAddData = com.google.gwt.user.server.rpc.RPC.encodeResponseForSuccess(
-					FakeService.class.getMethod("serializeLyraGridAddData"), addData);
+					FakeService.class.getMethod("serializeGridAddData"), addData);
 			if (data.size() > 0) {
 				((JSONObject) data.get(0)).put(ADDDATA_COLUMN, stringAddData);
 			} else {

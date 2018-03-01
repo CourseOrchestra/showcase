@@ -962,10 +962,13 @@ public class GridMetaFactory extends CompBasedElementFactory {
 
 	}
 
-	public int buildTotalCount() {
+	public GridPartialMetadata buildPartialMetadata() {
+
+		GridPartialMetadata gpm = new GridPartialMetadata();
+
 		prepareSettings();
 
-		TotalCountReader handler = new TotalCountReader();
+		PartialMetadataReader handler = new PartialMetadataReader();
 		SimpleSAX sax = new SimpleSAX(getSource().getSettings(), handler, getSettingsErrorMes());
 		sax.parse();
 
@@ -976,19 +979,38 @@ public class GridMetaFactory extends CompBasedElementFactory {
 			throw new SAXError(e);
 		}
 
-		return handler.getTotalCount();
+		gpm.setTotalCount(handler.getTotalCount());
+
+		gpm.setHeader(handler.getHeader());
+		gpm.setFooter(handler.getFooter());
+
+		return gpm;
 	}
 
 	/**
 	 * Класс считывателя totalCount.
 	 * 
 	 */
-	private class TotalCountReader extends DefaultHandler {
+	private class PartialMetadataReader extends DefaultHandler {
 		private int totalCount = 0;
+
+		private String header = null;
+		private String footer = null;
 
 		public int getTotalCount() {
 			return totalCount;
 		}
+
+		public String getHeader() {
+			return header;
+		}
+
+		public String getFooter() {
+			return footer;
+		}
+
+		private boolean readingHeader = false;
+		private boolean readingFooter = false;
 
 		@Override
 		public void startElement(final String uri, final String localName, final String name,
@@ -1001,7 +1023,63 @@ public class GridMetaFactory extends CompBasedElementFactory {
 					totalCount = 0;
 				}
 			}
+
+			if (localName.equalsIgnoreCase(HEADER_TAG)) {
+				readingHeader = true;
+				header = "";
+				return;
+			}
+			if (localName.equalsIgnoreCase(FOOTER_TAG)) {
+				readingFooter = true;
+				footer = "";
+				return;
+			}
+			if (readingHeader) {
+				header = header + XMLUtils.saxTagWithAttrsToString(localName, atts);
+				return;
+			}
+			if (readingFooter) {
+				footer = footer + XMLUtils.saxTagWithAttrsToString(localName, atts);
+				return;
+			}
+
 		}
+
+		@Override
+		public void endElement(final String namespaceURI, final String lname, final String qname) {
+			if (qname.equalsIgnoreCase(HEADER_TAG)) {
+				readingHeader = false;
+				header = header.trim();
+				return;
+			}
+			if (qname.equalsIgnoreCase(FOOTER_TAG)) {
+				readingFooter = false;
+				footer = footer.trim();
+				return;
+			}
+
+			if (readingHeader) {
+				header = header + "</" + qname + ">";
+				return;
+			}
+			if (readingFooter) {
+				footer = footer + "</" + qname + ">";
+				return;
+			}
+		}
+
+		@Override
+		public void characters(final char[] arg0, final int arg1, final int arg2) {
+			if (readingHeader) {
+				header = header + String.copyValueOf(arg0, arg1, arg2);
+				return;
+			}
+			if (readingFooter) {
+				footer = footer + String.copyValueOf(arg0, arg1, arg2);
+				return;
+			}
+		}
+
 	}
 
 }

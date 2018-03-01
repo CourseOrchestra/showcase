@@ -15,6 +15,8 @@ public class GridServerState implements SerializableElement {
 	private HashMap<String, GridServerColumnConfig> columns = null;
 
 	private Integer totalCount;
+	private String header = null;
+	private String footer = null;
 	private boolean forceLoadSettings = false;
 
 	private String decimalSeparator = null;
@@ -68,4 +70,21 @@ public class GridServerState implements SerializableElement {
 	public void setTotalCount(final Integer aTotalCount) {
 		totalCount = aTotalCount;
 	}
+
+	public String getHeader() {
+		return header;
+	}
+
+	public void setHeader(final String aHeader) {
+		header = aHeader;
+	}
+
+	public String getFooter() {
+		return footer;
+	}
+
+	public void setFooter(final String aFooter) {
+		footer = aFooter;
+	}
+
 }

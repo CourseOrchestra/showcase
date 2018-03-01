@@ -85,7 +85,9 @@ public class GridMetadata extends DataPanelCompBasedElement implements SizeEstim
 	 */
 	@Override
 	public Action getActionForDependentElements() {
-		if (autoSelectRecordId != null) {
+		if (autoSelectRecordId == null) {
+			return getDefaultAction();
+		} else {
 			String columnId = null;
 
 			if (autoSelectColumnId != null) {
@@ -99,14 +101,13 @@ public class GridMetadata extends DataPanelCompBasedElement implements SizeEstim
 				return res.getAction();
 			}
 
-			events = getEventManager().getEventForCell(autoSelectRecordId, columnId,
-					InteractionType.DOUBLE_CLICK);
-			res = getConcreteEvent(events);
-			if (res != null) {
-				return res.getAction();
-			}
-		} else {
-			return getDefaultAction();
+			// events = getEventManager().getEventForCell(autoSelectRecordId,
+			// columnId,
+			// InteractionType.DOUBLE_CLICK);
+			// res = getConcreteEvent(events);
+			// if (res != null) {
+			// return res.getAction();
+			// }
 		}
 
 		return null;

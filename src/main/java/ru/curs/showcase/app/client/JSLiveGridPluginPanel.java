@@ -29,9 +29,10 @@ public class JSLiveGridPluginPanel extends JSBaseGridPluginPanel {
 	private static final String STRING_SELECTED_RECORD_IDS_SEPARATOR = "D13&82#9g7";
 
 	private static final String JSGRID_DESERIALIZATION_ERROR =
-		// "jsGridDeserializationError";
 		CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
 				"An error occurred while deserializing an object");
+
+	private static final String AFTER_HTTP_POST_FROM_PLUGIN = "afterHttpPostFromPlugin";
 
 	private static final String ERROR_WHEN_DOWNLOADING_FILE = "Error when downloading file";
 
@@ -50,6 +51,11 @@ public class JSLiveGridPluginPanel extends JSBaseGridPluginPanel {
 	 * Основная фабрика для GWT сериализации.
 	 */
 	private SerializationStreamFactory ssf = null;
+	/**
+	 * Вспомогательная фабрика для GWT сериализации.
+	 */
+	private SerializationStreamFactory addSSF = null;
+
 	private Timer selectionTimer = null;
 	private Timer clickTimer = null;
 	private boolean doubleClick = false;
@@ -116,6 +122,13 @@ public class JSLiveGridPluginPanel extends JSBaseGridPluginPanel {
 		return ssf;
 	}
 
+	private SerializationStreamFactory getAddObjectSerializer() {
+		if (addSSF == null) {
+			addSSF = WebUtils.createAddGWTSerializer();
+		}
+		return addSSF;
+	}
+
 	/**
 	 * Установка процедур обратного вызова.
 	 */
@@ -123,7 +136,7 @@ public class JSLiveGridPluginPanel extends JSBaseGridPluginPanel {
 	private static native void setCallbackJSNIFunction() /*-{
 															$wnd.gwtGetHttpParams = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginGetHttpParams(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);
 															$wnd.gwtEditorGetHttpParams = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginEditorGetHttpParams(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);															
-															$wnd.gwtAfterLoadData = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginAfterLoadData(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);
+															$wnd.gwtAfterLoadData = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginAfterLoadData(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);
 															$wnd.gwtAfterPartialUpdate = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginAfterPartialUpdate(Ljava/lang/String;Ljava/lang/String;);
 															$wnd.gwtAfterClick = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginAfterClick(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);															
 															$wnd.gwtAfterDoubleClick = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginAfterDoubleClick(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);
@@ -734,8 +747,8 @@ public class JSLiveGridPluginPanel extends JSBaseGridPluginPanel {
 		return params;
 	}
 
-	public void pluginAfterLoadData(final String stringEvents, final String totalCount,
-			final String wrongSelection) {
+	public void pluginAfterLoadData(final String stringEvents, final String stringAddData,
+			final String totalCount, final String wrongSelection) {
 
 		if (stringEvents != null) {
 			try {
@@ -768,9 +781,28 @@ public class JSLiveGridPluginPanel extends JSBaseGridPluginPanel {
 				gridMetadata.getEventManager().getEvents().addAll(eventsAdd);
 
 			} catch (SerializationException e) {
-				MessageBox.showSimpleMessage("afterHttpPostFromPlugin",
-						// AppCurrContext.getInstance().getBundleMap().get(JSGRID_DESERIALIZATION_ERROR)
+				MessageBox.showSimpleMessage(AFTER_HTTP_POST_FROM_PLUGIN,
 						JSGRID_DESERIALIZATION_ERROR + " Events: " + e.getMessage());
+			}
+		}
+
+		if (stringAddData != null) {
+			try {
+				GridAddData addData = (GridAddData) getAddObjectSerializer()
+						.createStreamReader(stringAddData).readObject();
+
+				if ((hpHeader.getWidgetCount() > 0) && (!((HTML) (hpHeader.getWidget(0))).getHTML()
+						.equals(addData.getHeader()))) {
+					((HTML) (hpHeader.getWidget(0))).setHTML(addData.getHeader());
+				}
+
+				if ((hpFooter.getWidgetCount() > 0) && (!((HTML) (hpFooter.getWidget(0))).getHTML()
+						.equals(addData.getFooter()))) {
+					((HTML) (hpFooter.getWidget(0))).setHTML(addData.getFooter());
+				}
+			} catch (SerializationException e) {
+				MessageBox.showSimpleMessage(AFTER_HTTP_POST_FROM_PLUGIN,
+						JSGRID_DESERIALIZATION_ERROR + " GridAddData: " + e.getMessage());
 			}
 		}
 
@@ -809,8 +841,7 @@ public class JSLiveGridPluginPanel extends JSBaseGridPluginPanel {
 				}
 
 			} catch (SerializationException e) {
-				MessageBox.showSimpleMessage("afterHttpPostFromPlugin",
-						// AppCurrContext.getInstance().getBundleMap().get(JSGRID_DESERIALIZATION_ERROR)
+				MessageBox.showSimpleMessage(AFTER_HTTP_POST_FROM_PLUGIN,
 						JSGRID_DESERIALIZATION_ERROR + " Events: " + e.getMessage());
 			}
 		}

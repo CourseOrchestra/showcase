@@ -34,16 +34,16 @@ public class GridMetadataGetCommand extends DataPanelElementCommand<GridMetadata
 		return (GridContext) super.getContext();
 	}
 
-	public int getTotalCount() {
+	public GridPartialMetadata getPartialMetadata() {
 		SourceSelector<ElementSettingsGateway> sselector =
 			new GridSettingsSelector(getElementInfo());
 		ElementSettingsGateway sgateway = sselector.getGateway();
 		RecordSetElementRawData rawSettings = sgateway.getRawData(getContext(), getElementInfo());
 
 		GridMetaFactory factory = new GridMetaFactory(rawSettings, null);
-		int totalCount = factory.buildTotalCount();
+		GridPartialMetadata gpm = factory.buildPartialMetadata();
 
-		return totalCount;
+		return gpm;
 	}
 
 	/**
@@ -76,9 +76,8 @@ public class GridMetadataGetCommand extends DataPanelElementCommand<GridMetadata
 		if (context.isFirstLoad()) {
 			state = prepareInitGridServerState(context, elementInfo);
 		} else {
-			state =
-				(GridServerState) AppInfoSingleton.getAppInfo().getGridCacheState(getSessionId(),
-						elementInfo, context);
+			state = (GridServerState) AppInfoSingleton.getAppInfo()
+					.getGridCacheState(getSessionId(), elementInfo, context);
 			if (state == null) {
 				// состояние устарело или память была очищена
 				state = prepareInitGridServerState(context, elementInfo);

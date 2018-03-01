@@ -29,9 +29,10 @@ public class JSTreeGridPluginPanel extends JSBaseGridPluginPanel {
 	private static final String STRING_SELECTED_RECORD_IDS_SEPARATOR = "D13&82#9g7";
 
 	private static final String JSGRID_DESERIALIZATION_ERROR =
-		// "jsGridDeserializationError";
 		CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
 				"An error occurred while deserializing an object");
+
+	private static final String AFTER_HTTP_POST_FROM_PLUGIN = "afterHttpPostFromPlugin";
 
 	private static final String ERROR_WHEN_DOWNLOADING_FILE = "Error when downloading file";
 
@@ -55,6 +56,11 @@ public class JSTreeGridPluginPanel extends JSBaseGridPluginPanel {
 	 * Основная фабрика для GWT сериализации.
 	 */
 	private SerializationStreamFactory ssf = null;
+	/**
+	 * Вспомогательная фабрика для GWT сериализации.
+	 */
+	private SerializationStreamFactory addSSF = null;
+
 	private Timer selectionTimer = null;
 	private Timer clickTimer = null;
 	private boolean doubleClick = false;
@@ -121,6 +127,13 @@ public class JSTreeGridPluginPanel extends JSBaseGridPluginPanel {
 		return ssf;
 	}
 
+	private SerializationStreamFactory getAddObjectSerializer() {
+		if (addSSF == null) {
+			addSSF = WebUtils.createAddGWTSerializer();
+		}
+		return addSSF;
+	}
+
 	/**
 	 * Установка процедур обратного вызова.
 	 */
@@ -128,7 +141,7 @@ public class JSTreeGridPluginPanel extends JSBaseGridPluginPanel {
 	private static native void setCallbackJSNIFunction() /*-{
 															$wnd.gwtGetHttpParamsTree = @ru.curs.showcase.app.client.api.JSTreeGridPluginPanelCallbacksEvents::pluginGetHttpParams(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);
 															$wnd.gwtEditorGetHttpParamsTree = @ru.curs.showcase.app.client.api.JSTreeGridPluginPanelCallbacksEvents::pluginEditorGetHttpParams(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);
-															$wnd.gwtAfterLoadDataTree = @ru.curs.showcase.app.client.api.JSTreeGridPluginPanelCallbacksEvents::pluginAfterLoadData(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);
+															$wnd.gwtAfterLoadDataTree = @ru.curs.showcase.app.client.api.JSTreeGridPluginPanelCallbacksEvents::pluginAfterLoadData(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);
 															$wnd.gwtAfterPartialUpdateTree = @ru.curs.showcase.app.client.api.JSTreeGridPluginPanelCallbacksEvents::pluginAfterPartialUpdate(Ljava/lang/String;Ljava/lang/String;);																														$wnd.gwtAfterPartialUpdate = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginAfterPartialUpdate(Ljava/lang/String;Ljava/lang/String;);
 															$wnd.gwtAfterClickTree = @ru.curs.showcase.app.client.api.JSTreeGridPluginPanelCallbacksEvents::pluginAfterClick(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);															
 															$wnd.gwtAfterDoubleClickTree = @ru.curs.showcase.app.client.api.JSTreeGridPluginPanelCallbacksEvents::pluginAfterDoubleClick(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);
@@ -782,7 +795,8 @@ public class JSTreeGridPluginPanel extends JSBaseGridPluginPanel {
 		return params;
 	}
 
-	public void pluginAfterLoadData(final String stringEvents, final String wrongSelection) {
+	public void pluginAfterLoadData(final String stringEvents, final String stringAddData,
+			final String wrongSelection) {
 
 		if (stringEvents != null) {
 			try {
@@ -815,9 +829,28 @@ public class JSTreeGridPluginPanel extends JSBaseGridPluginPanel {
 				gridMetadata.getEventManager().getEvents().addAll(eventsAdd);
 
 			} catch (SerializationException e) {
-				MessageBox.showSimpleMessage("afterHttpPostFromPlugin",
-						// AppCurrContext.getInstance().getBundleMap().get(JSGRID_DESERIALIZATION_ERROR)
+				MessageBox.showSimpleMessage(AFTER_HTTP_POST_FROM_PLUGIN,
 						JSGRID_DESERIALIZATION_ERROR + " Events: " + e.getMessage());
+			}
+		}
+
+		if (stringAddData != null) {
+			try {
+				GridAddData addData = (GridAddData) getAddObjectSerializer()
+						.createStreamReader(stringAddData).readObject();
+
+				if ((hpHeader.getWidgetCount() > 0) && (!((HTML) (hpHeader.getWidget(0))).getHTML()
+						.equals(addData.getHeader()))) {
+					((HTML) (hpHeader.getWidget(0))).setHTML(addData.getHeader());
+				}
+
+				if ((hpFooter.getWidgetCount() > 0) && (!((HTML) (hpFooter.getWidget(0))).getHTML()
+						.equals(addData.getFooter()))) {
+					((HTML) (hpFooter.getWidget(0))).setHTML(addData.getFooter());
+				}
+			} catch (SerializationException e) {
+				MessageBox.showSimpleMessage(AFTER_HTTP_POST_FROM_PLUGIN,
+						JSGRID_DESERIALIZATION_ERROR + " GridAddData: " + e.getMessage());
 			}
 		}
 
@@ -854,8 +887,7 @@ public class JSTreeGridPluginPanel extends JSBaseGridPluginPanel {
 				}
 
 			} catch (SerializationException e) {
-				MessageBox.showSimpleMessage("afterHttpPostFromPlugin",
-						// AppCurrContext.getInstance().getBundleMap().get(JSGRID_DESERIALIZATION_ERROR)
+				MessageBox.showSimpleMessage(AFTER_HTTP_POST_FROM_PLUGIN,
 						JSGRID_DESERIALIZATION_ERROR + " Events: " + e.getMessage());
 			}
 		}

@@ -311,7 +311,7 @@ public final class XMLJSONConverter {
 	 */
 	public static SAXParser createSAXParser() {
 		SAXParserFactory factory = SAXParserFactory.newInstance();
-		factory.setNamespaceAware(false);
+		factory.setNamespaceAware(true);
 		factory.setValidating(false);
 		SAXParser parser = null;
 		try {

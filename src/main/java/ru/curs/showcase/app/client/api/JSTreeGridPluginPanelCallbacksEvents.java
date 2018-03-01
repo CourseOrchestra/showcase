@@ -41,8 +41,8 @@ public final class JSTreeGridPluginPanelCallbacksEvents {
 	}
 
 	public static void pluginAfterLoadData(final String pluginId, final String stringEvents,
-			final String wrongSelection) {
-		getCurrentPanel(pluginId).pluginAfterLoadData(stringEvents, wrongSelection);
+			final String stringAddData, final String wrongSelection) {
+		getCurrentPanel(pluginId).pluginAfterLoadData(stringEvents, stringAddData, wrongSelection);
 	}
 
 	public static void pluginAfterPartialUpdate(final String pluginId, final String stringEvents) {
