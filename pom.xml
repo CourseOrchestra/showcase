@@ -1559,7 +1559,7 @@
         <artifactId>maven-antrun-plugin</artifactId>
         <executions>
           <execution>
-            <phase>package</phase>
+            <phase>generate-resources</phase>
             <configuration>
               <target>
 			  <property environment="env" />
