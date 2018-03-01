@@ -1574,7 +1574,7 @@
         <artifactId>maven-antrun-plugin</artifactId>
         <executions>
           <execution>
-            <phase>generate-resources</phase>
+            <phase>compile</phase>
             <configuration>
               <tasks>
                  <copy file="src/main/resources/buildNumber.txt"
