@@ -128,9 +128,18 @@ try {
 					results = Rest.prototype.fetchRange.call(this, kwArgs);
 					results.then(function(results){
 						var events = null;
+						var addData = null;
+						
+						if(results && (!results[0]) && results["addData_D13k82F9g7_"]){
+							addData = results["addData_D13k82F9g7_"];
+						}
+						
 						if(results[0]){
 							if(results[0]["events"]){
 								events = results[0]["events"];
+							}
+							if(results[0]["addData_D13k82F9g7_"]){
+								addData = results[0]["addData_D13k82F9g7_"];
 							}
 						}
 						var wrongSelection = "";
@@ -158,7 +167,7 @@ try {
 					        }
 							grid.needAdjustSelectionRecords = null;
 						}
-						gwtAfterLoadDataTree(elementId, events, wrongSelection);
+						gwtAfterLoadDataTree(elementId, events, addData, wrongSelection);
 						
 						if(grid && grid.expandAllRecords && metadata["common"]["selRecId"] && needActionExpandAllRecords){
 							for(var i = 0; i<results.length; i++){

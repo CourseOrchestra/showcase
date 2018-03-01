@@ -221,7 +221,7 @@ try {
 								
 								if(results[0]["dgridNewPosition"]){
 									arrGrids[parentId].dgridNewPosition = results[0]["dgridNewPosition"];
-									arrGrids[parentId].dgridNewPositionId = results[0][store.idProperty];
+									arrGrids[parentId].dgridNewPositionId = results[0]["dgridNewPositionId"];
 								}
 								
 								if(results[0]["needRecreateWebsocket"]){
@@ -734,7 +734,8 @@ try {
 			}
 			
 			if(firstLoading){
-				gwtAfterClickLyra(elementId, metadata["common"]["selRecId"], metadata["common"]["selColId"], getSelection());				
+//				gwtAfterClickLyra(elementId, metadata["common"]["selRecId"], metadata["common"]["selColId"], getSelection());
+				gwtAfterClickLyra(elementId, grid.row(event.grid._focusedNode).id, grid.column(event.grid._focusedNode).label, getSelection());				
 			} else {
 				setTimeout(function(){
 					if(!grid.readonly){

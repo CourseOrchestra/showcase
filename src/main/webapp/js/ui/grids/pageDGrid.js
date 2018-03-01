@@ -124,9 +124,18 @@ try {
 					results = Rest.prototype.fetchRange.call(this, kwArgs);
 					results.then(function(results){
 						var events = null;
+						var addData = null;
+						
+						if(results && (!results[0]) && results["addData_D13k82F9g7_"]){
+							addData = results["addData_D13k82F9g7_"];
+						}
+						
 						if(results[0]){
 							if(results[0]["events"]){
 								events = results[0]["events"];
+							}
+							if(results[0]["addData_D13k82F9g7_"]){
+								addData = results[0]["addData_D13k82F9g7_"];
 							}
 						}
 						var wrongSelection = "";
@@ -154,7 +163,7 @@ try {
 					        }
 							grid.needAdjustSelectionRecords = null;
 						}
-						gwtAfterLoadData(elementId, events, arrGrids[parentId]._total, wrongSelection);
+						gwtAfterLoadData(elementId, events, addData, arrGrids[parentId]._total, wrongSelection);
 						
 						if(grid){
 							grid.dirty = {};
