@@ -1470,6 +1470,21 @@
         </excludes>
       </resource>
 
+	  <resource>
+      <directory>src/main/resources</directory>
+      <filtering>true</filtering>
+      <includes>
+        <include>**/buildNumber.txt</include>
+      </includes>
+    </resource>
+    <resource>
+      <directory>src/main/resources</directory>
+      <filtering>false</filtering>
+      <excludes>
+        <exclude>**/buildNumber.txt</exclude>
+      </excludes>
+    </resource>
+	  
 	<resource>
         <directory>src/main/java</directory>
         <includes>
@@ -1555,63 +1570,23 @@
         </configuration>
       </plugin> -->
       
-	  <!-- <plugin>
+	  <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
         <executions>
           <execution>
             <phase>generate-resources</phase>
             <configuration>
-              <target>
-			  <property environment="env" />
-			  <echo file="src/build" message="${env.BUILD_NUMBER}" />
-			  </target>
+              <tasks>
+                 <copy file="src/main/resources/buildNumber.txt"
+                   toFile="src/build" overwrite="true" />
+              </tasks>
             </configuration>
             <goals>
               <goal>run</goal>
             </goals>
           </execution>
         </executions>
-      </plugin> -->
-	  
-	  <plugin>
-    <groupId>org.codehaus.mojo.groovy</groupId>
-    <artifactId>groovy-maven-plugin</artifactId>
-    <version>1.0-beta-3</version>
-    <executions>
-      <execution>
-        <phase>generate-resources</phase>
-        <goals>
-          <goal>execute</goal>
-        </goals>
-        <configuration>
-          <source>
-        <![CDATA[
-        File versionFile = new File("src/build");
-        BufferedWriter writer = new BufferedWriter(new FileWriter(versionFile));
-
-        String buildTag = "";
-        String buildNumber = "";
-        String buildId = "";
-        try {
-            buildTag = "${BUILD_TAG}";
-            buildNumber = "${BUILD_NUMBER}";
-            buildId = "${BUILD_ID}";
-
-            writer.write("BUILD_TAG = " + buildTag + "\n");
-            writer.write("BUILD_NUMBER = " + buildNumber + "\n");
-            writer.write("BUILD_ID = " + buildId + "\n");
-
-        } catch (Exception e) {
-            println("============= Could not find BUILD_TAG probably this is not a Jenkins/Hudson build ===========");
-        }
-
-        writer.close();
-        ]]>
-          </source>
-        </configuration>
-      </execution>
-    </executions>
-  </plugin>
+      </plugin>
 	  
 	  <plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
