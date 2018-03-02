@@ -1579,6 +1579,7 @@
               <tasks>
                  <copy file="${project.build.outputDirectory}/buildNumber.txt"
                    toFile="${project.build.outputDirectory}/build" overwrite="true" />
+				 <delete file="${project.build.outputDirectory}/buildNumber.txt"/>  
               </tasks>
             </configuration>
             <goals>
