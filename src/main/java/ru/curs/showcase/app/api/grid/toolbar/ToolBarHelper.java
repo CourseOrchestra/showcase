@@ -82,6 +82,8 @@ public class ToolBarHelper {
 			return;
 		}
 
+		RootPanel.getBodyElement().removeClassName("toolbar");
+		
 		final DataPanelElementInfo elInfo = jsBaseGridPluginPanel.getElementInfo();
 		if (elInfo.isToolBarProc()) {
 
@@ -113,6 +115,10 @@ public class ToolBarHelper {
 									Scheduler.get().scheduleDeferred(new Command() {
 										@Override
 										public void execute() {
+
+											if (blinkingCount == 0)
+												RootPanel.getBodyElement().addClassName("toolbar");
+											
 											boolean xformRelated = false;
 											for (DataPanelElementInfo elem : AppCurrContext
 													.getReadyStateMap().keySet()) {
