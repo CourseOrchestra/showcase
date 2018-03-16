@@ -17,8 +17,8 @@ import ru.curs.showcase.util.UserAndSessionDetails;
 
 public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices {
 
-	private static final Logger LOGGER =
-		LoggerFactory.getLogger(IPTokenBasedRememberMeServices.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(IPTokenBasedRememberMeServices.class);
 
 	private static final ThreadLocal<HttpServletRequest> requestHolder =
 		new ThreadLocal<HttpServletRequest>();
@@ -47,8 +47,11 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 				new SignedUsernamePasswordAuthenticationToken(username, password);
 			SecurityContextHolder.getContext().setAuthentication(authRequest);
 			UserAndSessionDetails userAndSessionDetails = new UserAndSessionDetails(request);
-			userAndSessionDetails.setUserInfo(
-					new UserInfo(username, username, username, null, null, (String) null));
+			String sid =
+				((UserAndSessionDetails) successfulAuthentication.getDetails()).getUserInfo()
+						.getSid();
+			userAndSessionDetails.setUserInfo(new UserInfo(username, sid, username, null, null,
+					(String) null));
 			userAndSessionDetails.setOauth2Token(null);
 			userAndSessionDetails.setAuthViaAuthServer(false);
 			authRequest.setDetails(userAndSessionDetails);
@@ -76,8 +79,9 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 
 	@Override
 	protected String makeTokenSignature(long tokenExpiryTime, String username, String password) {
-		String signature = DigestUtils.md5DigestAsHex((username + ":" + tokenExpiryTime + ":"
-				+ password + ":" + getKey() + ":" + getUserIPAddress(getContext())).getBytes());
+		String signature =
+			DigestUtils.md5DigestAsHex((username + ":" + tokenExpiryTime + ":" + password + ":"
+					+ getKey() + ":" + getUserIPAddress(getContext())).getBytes());
 		return signature;
 		// SignedUsernamePasswordAuthenticationToken authToken =
 		// new SignedUsernamePasswordAuthenticationToken(username, password);
@@ -92,8 +96,13 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 		if (tokens.length < 4) {
 			String pwd = request.getParameter("j_password");
 
-			String[] tokensWithPassword = Arrays.copyOf(tokens, tokens.length + 1);
-			tokensWithPassword[tokensWithPassword.length - 1] = pwd;
+			String sid =
+				((UserAndSessionDetails) (SecurityContextHolder.getContext().getAuthentication())
+						.getDetails()).getUserInfo().getSid();
+
+			String[] tokensWithPassword = Arrays.copyOf(tokens, tokens.length + 2);
+			tokensWithPassword[tokensWithPassword.length - 2] = pwd;
+			tokensWithPassword[tokensWithPassword.length - 1] = sid;
 			// getUserIPAddress(request);
 			super.setCookie(tokensWithPassword, maxAge, request, response);
 		} else
@@ -101,15 +110,14 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 	}
 
 	@Override
-	protected UserDetails processAutoLoginCookie(String[] cookieTokens, HttpServletRequest request,
-			HttpServletResponse response) {
+	protected UserDetails processAutoLoginCookie(String[] cookieTokens,
+			HttpServletRequest request, HttpServletResponse response) {
 		try {
 			setContext(request);
-			String sss = cookieTokens[3];
 			SignedUsernamePasswordAuthenticationToken authToken =
 				new SignedUsernamePasswordAuthenticationToken(cookieTokens[0], cookieTokens[3]);
 			UserAndSessionDetails userAndSessionDetails = new UserAndSessionDetails(request);
-			userAndSessionDetails.setUserInfo(new UserInfo(cookieTokens[0], cookieTokens[0],
+			userAndSessionDetails.setUserInfo(new UserInfo(cookieTokens[0], cookieTokens[4],
 					cookieTokens[0], null, null, (String) null));
 			userAndSessionDetails.setOauth2Token(null);
 			userAndSessionDetails.setAuthViaAuthServer(false);
@@ -117,9 +125,12 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 			SecurityContextHolder.getContext().setAuthentication(authToken);
 			request.getSession().setAttribute("remembermeAuthenticated", "true");
 			try {
-				AppInfoSingleton.getAppInfo().getCelestaInstance().login(
-						AppInfoSingleton.getAppInfo().getSesid(),
-						((UserAndSessionDetails) authToken.getDetails()).getUserInfo().getSid());
+				AppInfoSingleton
+						.getAppInfo()
+						.getCelestaInstance()
+						.login(AppInfoSingleton.getAppInfo().getSesid(),
+								((UserAndSessionDetails) authToken.getDetails()).getUserInfo()
+										.getSid());
 			} catch (Exception e) {
 				e.printStackTrace();
 				if (AppInfoSingleton.getAppInfo().isEnableLogLevelError()) {
