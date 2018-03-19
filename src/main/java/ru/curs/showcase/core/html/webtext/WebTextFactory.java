@@ -47,6 +47,14 @@ public class WebTextFactory extends HTMLBasedElementFactory {
 	}
 
 	@Override
+	protected String replaceVariables(final String data) {
+		String ret = super.replaceVariables(data);
+		ret = ret.replace("_figurnayaskobka_", "{");
+
+		return ret;
+	}
+
+	@Override
 	protected void correctSettingsAndData() {
 		// не используется
 	}
