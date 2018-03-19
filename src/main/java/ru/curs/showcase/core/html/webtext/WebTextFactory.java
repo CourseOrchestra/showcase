@@ -47,11 +47,11 @@ public class WebTextFactory extends HTMLBasedElementFactory {
 	}
 
 	@Override
-	protected String replaceVariables(final String data) {
-		String ret = super.replaceVariables(data);
-		ret = ret.replace("_figurnayaskobka_", "{");
+	protected String replaceVariables(final String in) {
+		String out = in.replace("_figurnayaskobka_", "{");
+		out = super.replaceVariables(out);
 
-		return ret;
+		return out;
 	}
 
 	@Override
