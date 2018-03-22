@@ -95,6 +95,11 @@ public final class ServerState implements SerializableElement {
 	 */
 	private Integer pageSplitterWidth;
 
+	/**
+	 * настройка открытия pdf-файлов в новой вкладке браузера.
+	 */
+	private String downloadAttributeForBlankTab = "";
+
 	public String getAppVersion() {
 		return appVersion;
 	}
@@ -230,4 +235,13 @@ public final class ServerState implements SerializableElement {
 	public void setPageSplitterWidth(final Integer aPageSplitterWidth) {
 		pageSplitterWidth = aPageSplitterWidth;
 	}
+
+	public String getDownloadAttributeForBlankTab() {
+		return downloadAttributeForBlankTab;
+	}
+
+	public void setDownloadAttributeForBlankTab(final String aDownloadAttributeForBlankTab) {
+		downloadAttributeForBlankTab = aDownloadAttributeForBlankTab;
+	}
+
 }
