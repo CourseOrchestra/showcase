@@ -5,11 +5,12 @@ import java.net.URLEncoder;
 
 import org.apache.commons.fileupload.FileUploadException;
 
-import com.google.gwt.user.client.rpc.SerializationException;
-
 import ru.curs.showcase.app.api.datapanel.DataPanelElementInfo;
 import ru.curs.showcase.app.api.event.CompositeContext;
+import ru.curs.showcase.runtime.*;
 import ru.curs.showcase.util.*;
+
+import com.google.gwt.user.client.rpc.SerializationException;
 
 /**
  * Базовый обработчик для сервлетов, предназначенных для передачи файлов на
@@ -36,11 +37,22 @@ public abstract class AbstractDownloadHandler extends AbstractFilesHandler {
 	protected void fillResponse() throws IOException {
 		String encName = URLEncoder.encode(outputFile.getName(), TextUtils.DEF_ENCODING);
 		encName = encName.replaceAll("\\+", "%20");
-		setContentType();
 		getResponse().setCharacterEncoding(TextUtils.DEF_ENCODING);
 
-		getResponse().setHeader("Content-Disposition",
-				String.format("attachment; filename*=UTF-8''%s", encName));
+		setContentType();
+
+		String downloadAttributeForBlankTab =
+			UserDataUtils.getOptionalProp(ServerStateFactory.HAS_DOWNLOAD_ATTRIBUTE_FOR_BLANK_TAB);
+		boolean hasDownloadAttributeForBlankTab = Boolean.valueOf(downloadAttributeForBlankTab);
+
+		if (outputFile.getName().endsWith(".pdf") && hasDownloadAttributeForBlankTab) {
+			getResponse().setContentType("application/pdf");
+			getResponse().setHeader("Content-Disposition",
+					String.format("inline; filename*=UTF-8''%s", encName));
+		} else {
+			getResponse().setHeader("Content-Disposition",
+					String.format("attachment; filename*=UTF-8''%s", encName));
+		}
 
 		try (OutputStream out = getResponse().getOutputStream()) {
 			out.write(outputFile.getData().toByteArray());
@@ -62,8 +74,7 @@ public abstract class AbstractDownloadHandler extends AbstractFilesHandler {
 	@Override
 	protected void getParams() throws SerializationException, FileUploadException, IOException {
 		setContext((CompositeContext) deserializeObject(getParam(getContextClass())));
-		setElementInfo(
-				(DataPanelElementInfo) deserializeObject(getParam(DataPanelElementInfo.class)));
+		setElementInfo((DataPanelElementInfo) deserializeObject(getParam(DataPanelElementInfo.class)));
 	}
 
 	protected Class<? extends CompositeContext> getContextClass() {
