@@ -29,6 +29,8 @@ public final class ServerStateFactory {
 	private static final String BUILD_FILE = "build";
 	private static final String VERSION_FILE = "version.properties";
 	private static final String PAGE_SPLITTER_WIDTH = "page.splitter.width";
+	public static final String HAS_DOWNLOAD_ATTRIBUTE_FOR_BLANK_TAB =
+		"has.download.attribute.for.blank.tab";
 
 	private ServerStateFactory() {
 		throw new UnsupportedOperationException();
@@ -100,6 +102,15 @@ public final class ServerStateFactory {
 			intValue = Integer.valueOf(value);
 		}
 		state.setPageSplitterWidth(intValue);
+
+		String downloadAttributeForBlankTab =
+			UserDataUtils.getOptionalProp(HAS_DOWNLOAD_ATTRIBUTE_FOR_BLANK_TAB);
+		boolean hasDownloadAttributeForBlankTab = Boolean.valueOf(downloadAttributeForBlankTab);
+		if (hasDownloadAttributeForBlankTab) {
+			state.setDownloadAttributeForBlankTab("_blank");
+		} else {
+			state.setDownloadAttributeForBlankTab("");
+		}
 
 		return state;
 	}
