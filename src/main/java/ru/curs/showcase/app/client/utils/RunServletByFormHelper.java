@@ -2,6 +2,7 @@ package ru.curs.showcase.app.client.utils;
 
 import ru.curs.showcase.app.api.datapanel.DataPanelElementInfo;
 import ru.curs.showcase.app.api.event.CompositeContext;
+import ru.curs.showcase.app.client.AppCurrContext;
 
 import com.google.gwt.user.client.rpc.*;
 import com.google.gwt.user.client.ui.*;
@@ -32,7 +33,8 @@ public abstract class RunServletByFormHelper extends FormPanel {
 	private String errorCaption = "";
 
 	public RunServletByFormHelper() {
-		super();
+		super(AppCurrContext.getInstance().getServerCurrentState()
+				.getDownloadAttributeForBlankTab());
 	}
 
 	public VerticalPanel getPanel() {
