@@ -331,6 +331,8 @@ public final class ProductionModeInitializer {
 		if (fprocessor != null) {
 			try {
 				fprocessor.processForLoginJsp(new CopyFileAction(solutions.getParent()));
+				fprocessor.processForSecurityXml(new CopyFileAction(solutions.getParent()
+						+ File.separator + "WEB-INF"));
 			} catch (IOException e) {
 				isFileCopied = false;
 				LOGGER.error(String.format(FILE_COPY_ERROR, e.getMessage()));
