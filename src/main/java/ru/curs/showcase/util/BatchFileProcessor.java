@@ -174,6 +174,19 @@ public class BatchFileProcessor {
 		}
 	}
 
+	public void processForSecurityXml(final FileAction action) throws IOException {
+		File[] flist = getFilesList();
+		if (flist == null) {
+			return;
+		}
+		for (File f : flist) {
+			if (f.isFile() && ("security.xml".equals(f.getName()))) {
+				action.perform(f);
+			} else if (f.isDirectory()) {
+			}
+		}
+	}
+
 	private String getParentDir() {
 		if (includeSourceDir) {
 			return sourceDir.getParent();
