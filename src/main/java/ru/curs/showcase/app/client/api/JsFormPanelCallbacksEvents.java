@@ -41,7 +41,10 @@ public final class JsFormPanelCallbacksEvents {
 		JsFormPanel jsFormPanel = (JsFormPanel) ActionExecuter.getElementPanelById(elementId);
 		JSONObject params = new JSONObject();
 		params.put("procId", new JSONString(procId));
-		params.put("data", new JSONString(data));
+		if (data != null)
+			params.put("data", new JSONString(data));
+		else
+			params.put("data", new JSONString(""));
 		jsFormPanel.executeHttpRequests("submit", params, false,
 				new Callback<XHRRequestSuccessData, Object>() {
 
@@ -77,7 +80,10 @@ public final class JsFormPanelCallbacksEvents {
 		JsFormPanel jsFormPanel = (JsFormPanel) ActionExecuter.getElementPanelById(elementId);
 		JSONObject params = new JSONObject();
 		params.put("procId", new JSONString(procId));
-		params.put("data", new JSONString(data));
+		if (data != null)
+			params.put("data", new JSONString(data));
+		else
+			params.put("data", new JSONString(""));
 		final CallbackResult result = new CallbackResult();
 		jsFormPanel.executeHttpRequests("submit", params, true,
 				new Callback<XHRRequestSuccessData, Object>() {
