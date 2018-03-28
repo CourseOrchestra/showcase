@@ -12,6 +12,7 @@ import org.xml.sax.*;
 import com.google.gwt.user.client.rpc.SerializationException;
 
 import ru.curs.celesta.CelestaException;
+import ru.curs.celesta.dbutils.BasicCursor;
 import ru.curs.celesta.dbutils.Cursor;
 import ru.curs.celesta.score.Table;
 import ru.curs.fastxl.*;
@@ -336,7 +337,13 @@ public class LyraGridDataFactory {
 			((JSONObject) data.get(0)).put("dgridNewPosition", dgridNewPosition);
 
 			basicGridForm.externalAction(c -> {
-				Object[] keyValues = ((Cursor) c).getCurrentKeyValues();
+				Object[] keyValues;
+				if (c instanceof Cursor)
+					keyValues = ((Cursor) c).getCurrentKeyValues();
+				else
+					//TODO: реализовать нормально механизм определения PK для представлений
+					keyValues = Arrays.copyOfRange(c._currentValues(), 0, 1);
+
 				String recId = getIdByKeyValues(keyValues);
 				((JSONObject) data.get(0)).put("dgridNewPositionId", recId);
 				return null;
