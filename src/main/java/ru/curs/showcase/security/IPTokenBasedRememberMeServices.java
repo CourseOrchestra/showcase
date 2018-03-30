@@ -1,5 +1,6 @@
 package ru.curs.showcase.security;
 
+import java.net.*;
 import java.util.Arrays;
 
 import javax.servlet.http.*;
@@ -120,10 +121,12 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 			userAndSessionDetails.setUserInfo(new UserInfo(cookieTokens[0], cookieTokens[4],
 					cookieTokens[0], null, null, (String) null));
 			userAndSessionDetails.setOauth2Token(null);
-			userAndSessionDetails.setAuthViaAuthServer(false);
+			// userAndSessionDetails.setAuthViaAuthServer(false);
 			authToken.setDetails(userAndSessionDetails);
 			SecurityContextHolder.getContext().setAuthentication(authToken);
 			request.getSession().setAttribute("remembermeAuthenticated", "true");
+
+			HttpURLConnection c = null;
 			try {
 				AppInfoSingleton
 						.getAppInfo()
@@ -131,16 +134,31 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 						.login(AppInfoSingleton.getAppInfo().getSesid(),
 								((UserAndSessionDetails) authToken.getDetails()).getUserInfo()
 										.getSid());
+
+				String url = SecurityParamsFactory.getLocalAuthServerUrl();
+				URL server =
+					new URL(url
+							+ String.format("/login?sesid=%s&login=%s&pwd=%s",
+									request.getSession(false).getId(),
+									AuthServerAuthenticationProvider.encodeParam(cookieTokens[0]),
+									AuthServerAuthenticationProvider.encodeParam(cookieTokens[3])));
+
+				c = (HttpURLConnection) server.openConnection();
+				c.setRequestMethod("GET");
+				c.connect();
 			} catch (Exception e) {
 				e.printStackTrace();
 				if (AppInfoSingleton.getAppInfo().isEnableLogLevelError()) {
 					LOGGER.error("Ошибка привязки сессии приложения к пользователю в celesta", e);
 				}
+			} finally {
+				if (c != null)
+					c.disconnect();
 			}
 		} finally {
 			// setContext(null);
 		}
-		return super.processAutoLoginCookie(Arrays.copyOf(cookieTokens, cookieTokens.length - 1),
+		return super.processAutoLoginCookie(Arrays.copyOf(cookieTokens, cookieTokens.length - 2),
 				request, response);
 
 	}
