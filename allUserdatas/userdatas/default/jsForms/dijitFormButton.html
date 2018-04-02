@@ -15,7 +15,19 @@
     var callback = function(resulData) {
       if (resulData) {
         if (resulData.isError) {
-          dom.byId("result1").innerHTML += "Failure. Error message: '"+resulData.message+"'";
+        	//dom.byId("result1").innerHTML += "Failure. Error message: '"+resulData.message+"'";
+         	var index1 =
+        		resulData.message.indexOf("<strong>Error message:</strong>");
+			var index2 = resulData.message.indexOf("</body>");
+			var errorMessage =
+				resulData.message
+						.substring(
+								index1
+										+ "<strong>Error message:</strong>"
+												.length, index2).trim();
+			dom.byId("result1").innerHTML += "Failure. Error message: '"+errorMessage+"'";
+			showErrorMessageWindow("Error message", errorMessage);
+        
         } else {
           dom.byId("result1").innerHTML += "Success! Received data: '"+resulData+"'";
         }
