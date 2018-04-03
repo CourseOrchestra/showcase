@@ -97,7 +97,7 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 	@Override
 	protected void setCookie(String[] tokens, int maxAge, HttpServletRequest request,
 			HttpServletResponse response) {
-		if (tokens.length < 4) {
+		if (tokens.length < 6) {
 			String pwd = request.getParameter("j_password");
 			String sid =
 				((UserAndSessionDetails) (SecurityContextHolder.getContext().getAuthentication())
