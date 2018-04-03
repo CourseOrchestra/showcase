@@ -146,6 +146,7 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 				c = (HttpURLConnection) server.openConnection();
 				c.setRequestMethod("GET");
 				c.connect();
+				c.getResponseCode();
 			} catch (Exception e) {
 				e.printStackTrace();
 				if (AppInfoSingleton.getAppInfo().isEnableLogLevelError()) {
