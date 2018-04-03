@@ -41,17 +41,20 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 			Authentication successfulAuthentication) {
 		try {
 			setContext(request);
-			String username = request.getParameter("j_username");
+			String login = request.getParameter("j_username");
 			String password = request.getParameter("j_password");
 			String domain = request.getParameter("j_domain");
 			SignedUsernamePasswordAuthenticationToken authRequest =
-				new SignedUsernamePasswordAuthenticationToken(username, password);
+				new SignedUsernamePasswordAuthenticationToken(login, password);
 			SecurityContextHolder.getContext().setAuthentication(authRequest);
 			UserAndSessionDetails userAndSessionDetails = new UserAndSessionDetails(request);
 			String sid =
 				((UserAndSessionDetails) successfulAuthentication.getDetails()).getUserInfo()
 						.getSid();
-			userAndSessionDetails.setUserInfo(new UserInfo(username, sid, username, null, null,
+			String name =
+				((UserAndSessionDetails) successfulAuthentication.getDetails()).getUserInfo()
+						.getFullName();
+			userAndSessionDetails.setUserInfo(new UserInfo(login, sid, name, null, null,
 					(String) null));
 			userAndSessionDetails.setOauth2Token(null);
 			userAndSessionDetails.setAuthViaAuthServer(false);
@@ -96,14 +99,17 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 			HttpServletResponse response) {
 		if (tokens.length < 4) {
 			String pwd = request.getParameter("j_password");
-
 			String sid =
 				((UserAndSessionDetails) (SecurityContextHolder.getContext().getAuthentication())
 						.getDetails()).getUserInfo().getSid();
+			String name =
+				((UserAndSessionDetails) (SecurityContextHolder.getContext().getAuthentication())
+						.getDetails()).getUserInfo().getFullName();
 
-			String[] tokensWithPassword = Arrays.copyOf(tokens, tokens.length + 2);
-			tokensWithPassword[tokensWithPassword.length - 2] = pwd;
-			tokensWithPassword[tokensWithPassword.length - 1] = sid;
+			String[] tokensWithPassword = Arrays.copyOf(tokens, tokens.length + 3);
+			tokensWithPassword[tokensWithPassword.length - 3] = pwd;
+			tokensWithPassword[tokensWithPassword.length - 2] = sid;
+			tokensWithPassword[tokensWithPassword.length - 1] = name;
 			// getUserIPAddress(request);
 			super.setCookie(tokensWithPassword, maxAge, request, response);
 		} else
@@ -119,7 +125,7 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 				new SignedUsernamePasswordAuthenticationToken(cookieTokens[0], cookieTokens[3]);
 			UserAndSessionDetails userAndSessionDetails = new UserAndSessionDetails(request);
 			userAndSessionDetails.setUserInfo(new UserInfo(cookieTokens[0], cookieTokens[4],
-					cookieTokens[0], null, null, (String) null));
+					cookieTokens[5], null, null, (String) null));
 			userAndSessionDetails.setOauth2Token(null);
 			// userAndSessionDetails.setAuthViaAuthServer(false);
 			authToken.setDetails(userAndSessionDetails);
@@ -159,7 +165,7 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 		} finally {
 			// setContext(null);
 		}
-		return super.processAutoLoginCookie(Arrays.copyOf(cookieTokens, cookieTokens.length - 2),
+		return super.processAutoLoginCookie(Arrays.copyOf(cookieTokens, cookieTokens.length - 3),
 				request, response);
 
 	}
