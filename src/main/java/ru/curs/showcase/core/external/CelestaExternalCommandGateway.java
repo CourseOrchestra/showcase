@@ -38,8 +38,10 @@ public class CelestaExternalCommandGateway implements ExternalCommandGateway {
 		String tempSesId = String.format("WebService%08X", (new Random()).nextInt());
 		try {
 			AppInfoSingleton.getAppInfo().getCelestaInstance().login(tempSesId, "userCelestaSid");
-			PyObject pObj = AppInfoSingleton.getAppInfo().getCelestaInstance().runPython(tempSesId,
-					source, request);
+			AppInfoSingleton.getAppInfo().getSessionSidsMap().put(tempSesId, "userCelestaSid");
+			PyObject pObj =
+				AppInfoSingleton.getAppInfo().getCelestaInstance()
+						.runPython(tempSesId, source, request);
 
 			Object obj = pObj.__tojava__(Object.class);
 			if (obj == null) {
@@ -56,6 +58,7 @@ public class CelestaExternalCommandGateway implements ExternalCommandGateway {
 		} finally {
 			try {
 				AppInfoSingleton.getAppInfo().getCelestaInstance().logout(tempSesId, false);
+				AppInfoSingleton.getAppInfo().getSessionSidsMap().remove(tempSesId);
 			} catch (Exception e) {
 				throw new MyException(ExceptionType.SOLUTION,
 						"При запуске процедуры Celesta произошла ошибка: " + e.getMessage());
