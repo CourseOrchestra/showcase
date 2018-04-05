@@ -50,8 +50,11 @@ public class ControlMemoryServlet extends HttpServlet {
 					Properties celestaProperties =
 						AppInfoSingleton.getAppInfo().getCelestaInstance().getSetupProperties();
 					AppInfoSingleton.getAppInfo().getCelestaInstance().close();
-					AppInfoSingleton.getAppInfo()
-							.setCelestaInstance(Celesta.createInstance(celestaProperties));
+					AppInfoSingleton.getAppInfo().setCelestaInstance(
+							Celesta.createInstance(celestaProperties));
+
+					AppInfoSingleton.getAppInfo().getSessionSidsMap()
+							.forEach(AppInfoSingleton.getAppInfo().getCelestaInstance()::login);
 
 					AppInfoSingleton.getAppInfo().setIsCelestaInitialized(true);
 				} catch (Exception ex) {
