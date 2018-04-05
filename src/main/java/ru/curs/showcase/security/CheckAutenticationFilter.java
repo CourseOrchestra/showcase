@@ -63,10 +63,11 @@ public class CheckAutenticationFilter implements Filter {
 				}
 				AuthServerUtils.init(url);
 
-				if (AppInfoSingleton.getAppInfo()
-						.getAuthViaAuthServerForSession(httpReq.getSession().getId())) {
-					UserInfo ud = AuthServerUtils.getTheAuthServerAlias()
-							.isAuthenticated(httpReq.getSession().getId());
+				if (AppInfoSingleton.getAppInfo().getAuthViaAuthServerForSession(
+						httpReq.getSession().getId())) {
+					UserInfo ud =
+						AuthServerUtils.getTheAuthServerAlias().isAuthenticated(
+								httpReq.getSession().getId());
 					// if
 					// (SecurityContextHolder.getContext().getAuthentication()
 					// !=
@@ -94,13 +95,15 @@ public class CheckAutenticationFilter implements Filter {
 						// "/login.jsp");
 
 					} else {
-						Authentication auth = AppInfoSingleton.getAppInfo()
-								.getSessionAuthenticationMapForCrossDomainEntrance()
-								.get(httpReq.getSession().getId());
+						Authentication auth =
+							AppInfoSingleton.getAppInfo()
+									.getSessionAuthenticationMapForCrossDomainEntrance()
+									.get(httpReq.getSession().getId());
 						if (auth != null) {
 							if (((UserAndSessionDetails) auth.getDetails()) != null) {
-								String sid = ((UserAndSessionDetails) auth.getDetails())
-										.getUserInfo().getSid();
+								String sid =
+									((UserAndSessionDetails) auth.getDetails()).getUserInfo()
+											.getSid();
 								if (!ud.getSid().equals(sid)) {
 									((UserAndSessionDetails) auth.getDetails()).setUserInfo(ud);
 									SecurityContextHolder.getContext().setAuthentication(auth);
@@ -114,7 +117,8 @@ public class CheckAutenticationFilter implements Filter {
 
 					String esiaAuthenticated =
 						(String) (httpReq.getSession(false).getAttribute("esiaAuthenticated"));
-					if ((esiaAuthenticated != null) && ("true".equals(esiaAuthenticated))
+					if ((esiaAuthenticated != null)
+							&& ("true".equals(esiaAuthenticated))
 							&& AppInfoSingleton.getAppInfo()
 									.getOrInitSessionInfoObject(httpReq.getSession().getId())
 									.isAuthViaESIA()) {
@@ -122,8 +126,9 @@ public class CheckAutenticationFilter implements Filter {
 						return;
 					}
 
-					String remembermeAuthenticated = (String) (httpReq.getSession(false)
-							.getAttribute("remembermeAuthenticated"));
+					String remembermeAuthenticated =
+						(String) (httpReq.getSession(false)
+								.getAttribute("remembermeAuthenticated"));
 					if ((remembermeAuthenticated != null)
 							&& ("true".equals(remembermeAuthenticated))) {
 						boolean presented = false;
@@ -175,8 +180,16 @@ public class CheckAutenticationFilter implements Filter {
 										.setAnonymousUserAndSessionDetails(userAndSessionDetails);
 								String sesid = userAndSessionDetails.getSessionId();
 								try {
-									AppInfoSingleton.getAppInfo().getCelestaInstance().login(sesid,
-											userAndSessionDetails.getUserInfo().getSid());
+									AppInfoSingleton
+											.getAppInfo()
+											.getCelestaInstance()
+											.login(sesid,
+													userAndSessionDetails.getUserInfo().getSid());
+									AppInfoSingleton
+											.getAppInfo()
+											.getSessionSidsMap()
+											.put(sesid,
+													userAndSessionDetails.getUserInfo().getSid());
 								} catch (Exception e) {
 									if (AppInfoSingleton.getAppInfo().isEnableLogLevelError()) {
 										LOGGER.error(
@@ -190,8 +203,8 @@ public class CheckAutenticationFilter implements Filter {
 								response.reset();
 								response.setContentType("text/html");
 								response.setCharacterEncoding(TextUtils.DEF_ENCODING);
-								response.getWriter()
-										.append(ExchangeConstants.SESSION_NOT_AUTH_SIGN);
+								response.getWriter().append(
+										ExchangeConstants.SESSION_NOT_AUTH_SIGN);
 								response.getWriter().close();
 
 							}
