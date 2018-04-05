@@ -102,6 +102,8 @@ public class ShowcaseLogoutServlet extends HttpServlet {
 
 		}
 
+		AppInfoSingleton.getAppInfo().getSessionSidsMap().remove(sesid);
+
 		String esiaAuthenticated =
 			(String) (request.getSession(false).getAttribute("esiaAuthenticated"));
 		if ((esiaAuthenticated != null) && ("true".equals(esiaAuthenticated))) {
