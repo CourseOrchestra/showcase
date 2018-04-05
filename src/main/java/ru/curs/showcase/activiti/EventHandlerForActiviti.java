@@ -94,8 +94,10 @@ public class EventHandlerForActiviti implements ActivitiEventListener {
 		String tempSesId = String.format("Celesta%08X", (new Random()).nextInt());
 		try {
 			AppInfoSingleton.getAppInfo().getCelestaInstance().login(tempSesId, "super");
-			PyObject pObj = AppInfoSingleton.getAppInfo().getCelestaInstance().runPython(tempSesId,
-					procName, event);
+			AppInfoSingleton.getAppInfo().getSessionSidsMap().put(tempSesId, "super");
+			PyObject pObj =
+				AppInfoSingleton.getAppInfo().getCelestaInstance()
+						.runPython(tempSesId, procName, event);
 			Object obj = pObj.__tojava__(Object.class);
 		} catch (CelestaException e) {
 			if (e.getMessage().contains("Traceback")) {
@@ -111,6 +113,7 @@ public class EventHandlerForActiviti implements ActivitiEventListener {
 		} finally {
 			try {
 				AppInfoSingleton.getAppInfo().getCelestaInstance().logout(tempSesId, false);
+				AppInfoSingleton.getAppInfo().getSessionSidsMap().remove(tempSesId);
 			} catch (Exception e) {
 				if (e.getMessage().contains("Traceback")) {
 					int ind = e.getMessage().indexOf("Traceback");
@@ -141,9 +144,10 @@ public class EventHandlerForActiviti implements ActivitiEventListener {
 					throw new SettingsFileOpenException(procName, SettingsFileType.JYTHON);
 				}
 			}
-			String cmd = String.format(
-					"from org.python.core import codecs; codecs.setDefaultEncoding('utf-8'); from %s import %s",
-					parent, className);
+			String cmd =
+				String.format(
+						"from org.python.core import codecs; codecs.setDefaultEncoding('utf-8'); from %s import %s",
+						parent, className);
 			try {
 				setupJythonLogging(interpreter);
 				interpreter.exec(cmd);
