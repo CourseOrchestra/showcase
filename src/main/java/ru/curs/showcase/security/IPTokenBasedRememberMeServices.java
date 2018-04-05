@@ -140,6 +140,12 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 						.login(AppInfoSingleton.getAppInfo().getSesid(),
 								((UserAndSessionDetails) authToken.getDetails()).getUserInfo()
 										.getSid());
+				AppInfoSingleton
+						.getAppInfo()
+						.getSessionSidsMap()
+						.put(AppInfoSingleton.getAppInfo().getSesid(),
+								((UserAndSessionDetails) authToken.getDetails()).getUserInfo()
+										.getSid());
 
 				String url = SecurityParamsFactory.getLocalAuthServerUrl();
 				URL server =
