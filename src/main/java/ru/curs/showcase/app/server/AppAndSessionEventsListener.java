@@ -22,7 +22,7 @@ import ru.curs.showcase.runtime.*;
 import ru.curs.showcase.security.*;
 import ru.curs.showcase.security.esia.*;
 import ru.curs.showcase.security.logging.Event.TypeEvent;
-import ru.curs.showcase.security.logging.SecurityLoggingCommand;
+import ru.curs.showcase.security.logging.*;
 
 /**
  * Перехватчик старта приложения и сессии. Служит для инициализации приложения.
@@ -33,8 +33,8 @@ import ru.curs.showcase.security.logging.SecurityLoggingCommand;
 public class AppAndSessionEventsListener implements ServletContextListener, HttpSessionListener {
 	private static final String SHOWCASE_LOADING = "Showcase загружается...";
 
-	private static final Logger LOGGER =
-		LoggerFactory.getLogger(AppAndSessionEventsListener.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(AppAndSessionEventsListener.class);
 
 	private AbstractRefreshableWebApplicationContext actx;
 
@@ -103,9 +103,10 @@ public class AppAndSessionEventsListener implements ServletContextListener, Http
 
 			if (AppInfoSingleton.getAppInfo().getShowcaseAppOnStartMessage().isEmpty()) {
 
-				File platformPoFile = new File(AppInfoSingleton.getAppInfo().getUserdataRoot()
-						+ File.separator + "common.sys" + File.separator + "resources"
-						+ File.separator + "platform.po");
+				File platformPoFile =
+					new File(AppInfoSingleton.getAppInfo().getUserdataRoot() + File.separator
+							+ "common.sys" + File.separator + "resources" + File.separator
+							+ "platform.po");
 
 				File platformPoFileDefault =
 					new File(AppInfoSingleton.getAppInfo().getResourcesDirRoot() + File.separator
@@ -124,11 +125,13 @@ public class AppAndSessionEventsListener implements ServletContextListener, Http
 				if (AppInfoSingleton.getAppInfo().getShowcaseAppOnStartMessage().isEmpty()) {
 					// Установка анонимного входа
 					Properties props = UserDataUtils.getGeneralProperties();
-					boolean pr = Boolean.parseBoolean(props
-							.getProperty("showcase.authentication.anonymous", "false").trim());
+					boolean pr =
+						Boolean.parseBoolean(props.getProperty(
+								"showcase.authentication.anonymous", "false").trim());
 
-					CustomAccessProvider cap = ApplicationContextProvider.getApplicationContext()
-							.getBean("customAccessProvider", CustomAccessProvider.class);
+					CustomAccessProvider cap =
+						ApplicationContextProvider.getApplicationContext().getBean(
+								"customAccessProvider", CustomAccessProvider.class);
 					if (pr) {
 						cap.setAccess("permitAll");
 					}
@@ -140,8 +143,9 @@ public class AppAndSessionEventsListener implements ServletContextListener, Http
 						contextPath = "/";
 					mBeanServer = ManagementFactory.getPlatformMBeanServer();
 					try {
-						objectName = new ObjectName("Catalina:type=Manager,context=" + contextPath
-								+ ",host=localhost");
+						objectName =
+							new ObjectName("Catalina:type=Manager,context=" + contextPath
+									+ ",host=localhost");
 					} catch (MalformedObjectNameException e1) {
 						// e1.printStackTrace();
 					}
@@ -170,8 +174,9 @@ public class AppAndSessionEventsListener implements ServletContextListener, Http
 						// e.printStackTrace();
 					}
 
-					WebApplicationContext ctx = WebApplicationContextUtils
-							.getWebApplicationContext(arg0.getServletContext());
+					WebApplicationContext ctx =
+						WebApplicationContextUtils.getWebApplicationContext(arg0
+								.getServletContext());
 					actx = (AbstractRefreshableWebApplicationContext) ctx;
 					actx.refresh();
 
@@ -218,12 +223,13 @@ public class AppAndSessionEventsListener implements ServletContextListener, Http
 								AppInfoSingleton.getAppInfo().setIsCelestaInitialized(true);
 							} else {
 								if (AppInfoSingleton.getAppInfo().isEnableLogLevelWarning()) {
-									LOGGER.warn(
-											"Celesta properties (in app.properties) is not set");
+									LOGGER.warn("Celesta properties (in app.properties) is not set");
 								}
-								AppInfoSingleton.getAppInfo()
-										.setCelestaInitializationException(new Exception(
-												"Celesta properties (in app.properties) is not set"));
+								AppInfoSingleton
+										.getAppInfo()
+										.setCelestaInitializationException(
+												new Exception(
+														"Celesta properties (in app.properties) is not set"));
 							}
 						} catch (Exception ex) {
 							if (AppInfoSingleton.getAppInfo().isEnableLogLevelError()) {
@@ -294,30 +300,32 @@ public class AppAndSessionEventsListener implements ServletContextListener, Http
 					+ getActiveSessions());
 		}
 
-		SecurityContext context = (SecurityContext) destrHttpSession
-				.getAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY);
+		SecurityContext context =
+			(SecurityContext) destrHttpSession
+					.getAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY);
 		if (context != null) {
 			Authentication auth = context.getAuthentication();
 			if (auth != null) {
 				TypeEvent typeEvent = TypeEvent.SESSIONTIMEOUT;
-				if (destrHttpSession
-						.getAttribute(SecurityLoggingCommand.IS_CLICK_LOGOUT) != null) {
+				if (destrHttpSession.getAttribute(SecurityLoggingCommand.IS_CLICK_LOGOUT) != null) {
 					typeEvent = TypeEvent.LOGOUT;
 					decrementingAuthenticatedSessions();
 				}
 				if (typeEvent == TypeEvent.SESSIONTIMEOUT) {
 					decrementingAuthenticatedSessions();
 				}
-				SecurityLoggingCommand logCommand = new SecurityLoggingCommand(
-						new CompositeContext(), null, destrHttpSession, typeEvent);
+				SecurityLoggingCommand logCommand =
+					new SecurityLoggingCommand(new CompositeContext(), null, destrHttpSession,
+							typeEvent);
 				logCommand.execute();
 			}
 		}
 
 		try {
 
-			AppInfoSingleton.getAppInfo().getCelestaInstance().logout(destrHttpSession.getId(),
-					false);
+			AppInfoSingleton.getAppInfo().getCelestaInstance()
+					.logout(destrHttpSession.getId(), false);
+			AppInfoSingleton.getAppInfo().getSessionSidsMap().remove(destrHttpSession.getId());
 
 			// Celesta.getInstance().logout(destrHttpSession.getId(), false);
 		} catch (Exception e) {
