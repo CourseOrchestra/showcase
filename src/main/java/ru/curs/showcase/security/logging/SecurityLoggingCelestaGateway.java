@@ -31,16 +31,16 @@ public class SecurityLoggingCelestaGateway implements SecurityLoggingGateway {
 				|| event.getTypeEvent() == TypeEvent.SESSIONTIMEOUT) {
 			String tempSesId = String.format("Logging%08X", (new Random()).nextInt());
 			try {
-				AppInfoSingleton.getAppInfo().getCelestaInstance().login(tempSesId,
-						"userCelestaSid");
+				AppInfoSingleton.getAppInfo().getCelestaInstance()
+						.login(tempSesId, "userCelestaSid");
+				AppInfoSingleton.getAppInfo().getSessionSidsMap().put(tempSesId, "userCelestaSid");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 
-			helper.runPythonWithSessionSet(tempSesId, procName,
-					new Object[] {
-							// event.getContext(),
-							event.getXml(), event.getTypeEvent().toString() });
+			helper.runPythonWithSessionSet(tempSesId, procName, new Object[] {
+					// event.getContext(),
+					event.getXml(), event.getTypeEvent().toString() });
 
 		} else if (event.getTypeEvent() == TypeEvent.LOGIN) {
 
@@ -54,8 +54,9 @@ public class SecurityLoggingCelestaGateway implements SecurityLoggingGateway {
 
 			if ("master".equals(username)) {
 				try {
-					AppInfoSingleton.getAppInfo().getCelestaInstance().login(sesid,
-							"userCelestaSid");
+					AppInfoSingleton.getAppInfo().getCelestaInstance()
+							.login(sesid, "userCelestaSid");
+					AppInfoSingleton.getAppInfo().getSessionSidsMap().put(sesid, "userCelestaSid");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -67,21 +68,19 @@ public class SecurityLoggingCelestaGateway implements SecurityLoggingGateway {
 				context.addSessionParams(map);
 				helper = new CelestaHelper<String>(context, String.class) {
 					@Override
-					protected Object[] mergeAddAndGeneralParameters(final CompositeContext context,
-							final Object[] additionalParams) {
+					protected Object[] mergeAddAndGeneralParameters(
+							final CompositeContext context, final Object[] additionalParams) {
 						return additionalParams;
 					}
 				};
 			}
-			helper.runPythonWithSessionSet(sesid, procName,
-					new Object[] {
-							// event.getContext(),
-							event.getXml(), event.getTypeEvent().toString() });
+			helper.runPythonWithSessionSet(sesid, procName, new Object[] {
+					// event.getContext(),
+					event.getXml(), event.getTypeEvent().toString() });
 		} else {
-			helper.runPython(procName,
-					new Object[] {
-							// event.getContext(),
-							event.getXml(), event.getTypeEvent().toString() });
+			helper.runPython(procName, new Object[] {
+					// event.getContext(),
+					event.getXml(), event.getTypeEvent().toString() });
 		}
 	}
 }
