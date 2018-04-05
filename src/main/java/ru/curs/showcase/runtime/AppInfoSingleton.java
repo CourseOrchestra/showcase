@@ -51,8 +51,14 @@ public final class AppInfoSingleton {
 	/**
 	 * Карта пользовательских сессий.
 	 */
-	private final Map<String, SessionInfo> sessionInfoMap =
-		Collections.synchronizedMap(new HashMap<String, SessionInfo>());
+	private final Map<String, SessionInfo> sessionInfoMap = Collections
+			.synchronizedMap(new HashMap<String, SessionInfo>());
+
+	/**
+	 * Карта пользовательских сессий и соответствующих им сидов.
+	 */
+	private final Map<String, String> sessionSidsMap = Collections
+			.synchronizedMap(new HashMap<String, String>());
 
 	private String sesid = "";
 
@@ -73,8 +79,8 @@ public final class AppInfoSingleton {
 
 	private List<String> additionalParametersList = new ArrayList<String>();
 
-	private final SortedSet<String> executedProc =
-		Collections.synchronizedSortedSet(new TreeSet<String>());
+	private final SortedSet<String> executedProc = Collections
+			.synchronizedSortedSet(new TreeSet<String>());
 	/**
 	 * Карта, используемая для устранения проблемы того, что имя пользователя
 	 * остаётся старым при повторном входе при кросс-доменной аутентификации,
@@ -177,8 +183,8 @@ public final class AppInfoSingleton {
 		return lastLogEvents;
 	}
 
-	public synchronized Collection<LoggingEventDecorator>
-			getLastLogEvents(final ServletRequest request) {
+	public synchronized Collection<LoggingEventDecorator> getLastLogEvents(
+			final ServletRequest request) {
 		SortedMap<String, List<String>> params;
 		try {
 			params = ServletUtils.prepareURLParamsMap((HttpServletRequest) request);
@@ -189,8 +195,8 @@ public final class AppInfoSingleton {
 		return getLastLogEvents(params);
 	}
 
-	public Collection<LoggingEventDecorator>
-			getLastLogEvents(final Map<String, List<String>> params) {
+	public Collection<LoggingEventDecorator> getLastLogEvents(
+			final Map<String, List<String>> params) {
 		Collection<LoggingEventDecorator> result = new ArrayList<>();
 
 		skip: for (LoggingEventDecorator event : lastLogEvents) {
@@ -216,6 +222,10 @@ public final class AppInfoSingleton {
 
 	public Map<String, SessionInfo> getSessionInfoMap() {
 		return sessionInfoMap;
+	}
+
+	public Map<String, String> getSessionSidsMap() {
+		return sessionSidsMap;
 	}
 
 	public String getServletContainerVersion() {
@@ -342,8 +352,7 @@ public final class AppInfoSingleton {
 	 * @param pass
 	 *            - пароль.
 	 */
-	public void setAuthServerCrossAppPasswordForSession(final String sessionId,
-			final String pass) {
+	public void setAuthServerCrossAppPasswordForSession(final String sessionId, final String pass) {
 		SessionInfo si = getOrInitSessionInfoObject(sessionId);
 		si.setAuthServerCrossAppPassword(pass);
 	}
@@ -497,8 +506,8 @@ public final class AppInfoSingleton {
 		cache.put(key, state);
 	}
 
-	private String getSessionKeyForCaching(final String sessionId, final DataPanelElementInfo dpei,
-			final CompositeContext context) {
+	private String getSessionKeyForCaching(final String sessionId,
+			final DataPanelElementInfo dpei, final CompositeContext context) {
 		return sessionId + AppInfoSingleton.getAppInfo().getCurUserDataId()
 				+ dpei.getKeyForCaching(context);
 	}
@@ -546,8 +555,7 @@ public final class AppInfoSingleton {
 
 	public long numberofDataPanelCacheSizeBytes() {
 		long n = 0L;
-		for (Cache.Entry<String, DataPanel> s : AppInfoSingleton.getAppInfo()
-				.getDataPanelCache()) {
+		for (Cache.Entry<String, DataPanel> s : AppInfoSingleton.getAppInfo().getDataPanelCache()) {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			try {
 				ObjectOutputStream oos = new ObjectOutputStream(baos);
@@ -659,8 +667,7 @@ public final class AppInfoSingleton {
 		return celestainitializationException;
 	}
 
-	public void
-			setCelestaInitializationException(final Exception acelestainitializationException) {
+	public void setCelestaInitializationException(final Exception acelestainitializationException) {
 		this.celestainitializationException = acelestainitializationException;
 	}
 
