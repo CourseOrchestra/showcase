@@ -61,13 +61,15 @@ public final class ShowcaseRestServlet extends HttpServlet {
 			try {
 				url = SecurityParamsFactory.getLocalAuthServerUrl();
 			} catch (SettingsFileOpenException e1) {
-				throw new AuthenticationServiceException(SecurityParamsFactory.APP_PROP_READ_ERROR,
-						e1);
+				throw new AuthenticationServiceException(
+						SecurityParamsFactory.APP_PROP_READ_ERROR, e1);
 			}
 
-			server = new URL(url + String.format("/checkcredentials?login=%s&pwd=%s",
-					AuthServerAuthenticationProvider.encodeParam(usr),
-					AuthServerAuthenticationProvider.encodeParam(pwd)));
+			server =
+				new URL(url
+						+ String.format("/checkcredentials?login=%s&pwd=%s",
+								AuthServerAuthenticationProvider.encodeParam(usr),
+								AuthServerAuthenticationProvider.encodeParam(pwd)));
 
 			HttpURLConnection c = null;
 
@@ -82,8 +84,8 @@ public final class ShowcaseRestServlet extends HttpServlet {
 						ud = l.get(0);
 						ud.setResponseCode(c.getResponseCode());
 					} catch (TransformerException e) {
-						throw new ServletException(
-								AuthServerUtils.AUTH_SERVER_DATA_ERROR + e.getMessage(), e);
+						throw new ServletException(AuthServerUtils.AUTH_SERVER_DATA_ERROR
+								+ e.getMessage(), e);
 					}
 					userSid = ud.getSid();
 				} else {
@@ -98,17 +100,17 @@ public final class ShowcaseRestServlet extends HttpServlet {
 
 			if (userSid != null) {
 				try {
-
 					AppInfoSingleton.getAppInfo().getCelestaInstance().login(sesId, userSid);
+					AppInfoSingleton.getAppInfo().getSessionSidsMap().put(sesId, userSid);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			} else {
 				response.setCharacterEncoding("UTF-8");
-				response.getWriter()
-						.write("ОШИБКА выполнения REST запроса restlogin: Логин пользователя ''"
-								+ usr + "'' неуспешен. Неверная пара логин-пароль.");
+				response.getWriter().write(
+						"ОШИБКА выполнения REST запроса restlogin: Логин пользователя ''" + usr
+								+ "'' неуспешен. Неверная пара логин-пароль.");
 
 				response.setStatus(403);
 				response.getWriter().close();
@@ -122,6 +124,7 @@ public final class ShowcaseRestServlet extends HttpServlet {
 			addAccessControlAllowOriginPropertyToResponceHeader(response);
 			try {
 				AppInfoSingleton.getAppInfo().getCelestaInstance().logout(sesId, false);
+				AppInfoSingleton.getAppInfo().getSessionSidsMap().remove(sesId);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -163,9 +166,10 @@ public final class ShowcaseRestServlet extends HttpServlet {
 		if (restProc.endsWith(".cl") || restProc.endsWith(".celesta"))
 
 			try {
-				responcseData = RESTGateway.executeRESTcommand(requestType,
-						truncateRequestUrl(requestUrl), requestData, getHeadersJson(request),
-						getUrlParamsJson(request), sesId, restProc, clientIP);
+				responcseData =
+					RESTGateway.executeRESTcommand(requestType, truncateRequestUrl(requestUrl),
+							requestData, getHeadersJson(request), getUrlParamsJson(request),
+							sesId, restProc, clientIP);
 			} catch (RESTGateway.ShowcaseRESTUnauthorizedException e) {
 
 				response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
@@ -173,9 +177,10 @@ public final class ShowcaseRestServlet extends HttpServlet {
 
 			}
 		if (restProc.endsWith(".py"))
-			responcseData = RESTGateway.executeRESTcommandFromJythonProc(requestType,
-					truncateRequestUrl(requestUrl), requestData, getHeadersJson(request),
-					getUrlParamsJson(request), restProc, clientIP);
+			responcseData =
+				RESTGateway.executeRESTcommandFromJythonProc(requestType,
+						truncateRequestUrl(requestUrl), requestData, getHeadersJson(request),
+						getUrlParamsJson(request), restProc, clientIP);
 
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(responcseData.getResponseData());
