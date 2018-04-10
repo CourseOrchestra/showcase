@@ -3,6 +3,7 @@ package ru.curs.showcase.app.client;
 import java.util.*;
 
 import com.google.gwt.core.client.*;
+import com.google.gwt.http.client.URL;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONString;
 import com.google.gwt.user.client.Timer;
@@ -27,6 +28,8 @@ public class JSLiveGridPluginPanel extends JSBaseGridPluginPanel {
 	private static final String PROC100 = "100%";
 
 	private static final String STRING_SELECTED_RECORD_IDS_SEPARATOR = "D13&82#9g7";
+
+	private static final String URL_FILE_DOWNLOAD = "/gridFileDownload";
 
 	private static final String JSGRID_DESERIALIZATION_ERROR =
 		CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
@@ -140,7 +143,7 @@ public class JSLiveGridPluginPanel extends JSBaseGridPluginPanel {
 															$wnd.gwtAfterPartialUpdate = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginAfterPartialUpdate(Ljava/lang/String;Ljava/lang/String;);
 															$wnd.gwtAfterClick = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginAfterClick(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);															
 															$wnd.gwtAfterDoubleClick = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginAfterDoubleClick(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);
-															$wnd.gwtProcessFileDownload = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginProcessFileDownload(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);
+															$wnd.gwtProcessFileDownload = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginProcessFileDownload(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);
 															$wnd.gwtShowMessage = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginShowMessage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);
 															   $wnd.gwtShowErrorMessage = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginShowErrorMessage(Ljava/lang/String;Ljava/lang/String;);
 															   $wnd.gwtToolbarRunAction = @ru.curs.showcase.app.client.api.JSLiveGridPluginPanelCallbacksEvents::pluginToolbarRunAction(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;);
@@ -599,43 +602,91 @@ public class JSLiveGridPluginPanel extends JSBaseGridPluginPanel {
 		return $wnd.eval(procName + "(" + params + ");");
 	}-*/;
 
-	public void pluginProcessFileDownload(final String recId, final String colId) {
-		String colLinkId = null;
-		for (GridColumnConfig lgcc : gridMetadata.getColumns()) {
-			if (colId.equals(lgcc.getId())) {
-				colLinkId = lgcc.getLinkId();
-				break;
+	public void pluginProcessFileDownload(final String recId, final String colId,
+			final String downloadFileByGetMethod) {
+
+		if ("true".equalsIgnoreCase(downloadFileByGetMethod)) {
+			String colLinkId = null;
+			for (GridColumnConfig lgcc : gridMetadata.getColumns()) {
+				if (colId.equals(lgcc.getId())) {
+					colLinkId = lgcc.getLinkId();
+					break;
+				}
 			}
-		}
 
-		if (colLinkId != null) {
-			DownloadHelper dh = DownloadHelper.getInstance();
-			dh.setEncoding(FormPanel.ENCODING_URLENCODED);
-			dh.clear();
+			if (colLinkId != null) {
+				DownloadHelper dh = DownloadHelper.getInstance();
+				dh.setEncoding(FormPanel.ENCODING_URLENCODED);
+				dh.clear();
 
-			dh.setErrorCaption(
-					// AppCurrContext.getInstance().getBundleMap().get("grid_error_caption_file_download"));
-					CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
-							ERROR_WHEN_DOWNLOADING_FILE));
-			dh.setAction(ExchangeConstants.SECURED_SERVLET_PREFIX + "/gridFileDownload");
+				dh.setErrorCaption(CourseClientLocalization.gettext(
+						AppCurrContext.getInstance().getDomain(), ERROR_WHEN_DOWNLOADING_FILE));
+				dh.setAction(ExchangeConstants.SECURED_SERVLET_PREFIX + URL_FILE_DOWNLOAD);
 
-			try {
-				dh.addParam("linkId", colLinkId);
+				for (String key : getContext().getSessionParamsMap().keySet()) {
+					if ("perspective".equalsIgnoreCase(key) || "userdata".equalsIgnoreCase(key)) {
+						dh.addParam(key,
+								URL.encode(getContext().getSessionParamsMap().get(key).get(0)));
+						break;
+					}
+				}
 
-				dh.addParam(getContext().getClass().getName(),
-						getContext().toParamForHttpPost(getObjectSerializer()));
-				dh.addParam(DataPanelElementInfo.class.getName(),
-						getElementInfo().toParamForHttpPost(getObjectSerializer()));
+				dh.addParam("elementId", URL.encode(getElementInfo().getId().getString()));
 
-				dh.addParam("recordId", recId);
+				dh.addParam("linkId", URL.encode(colLinkId));
 
-				dh.submit();
-			} catch (SerializationException e) {
-				ru.curs.showcase.app.client.MessageBox.showSimpleMessage(
-						// AppCurrContext.getInstance().getBundleMap().get("grid_error_caption_file_download"),
-						CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
-								ERROR_WHEN_DOWNLOADING_FILE),
-						e.getMessage());
+				DataPanelElementProc proc = getElementInfo().getProcById(colLinkId);
+				if (proc != null) {
+					dh.addParam("procName", URL.encode(proc.getName()));
+				}
+
+				dh.addParam("recordId", URL.encode(recId));
+
+				dh.setMethod(FormPanel.METHOD_GET);
+				try {
+					dh.submit();
+				} finally {
+					dh.setMethod(FormPanel.METHOD_POST);
+				}
+
+			}
+
+		} else {
+			String colLinkId = null;
+			for (GridColumnConfig lgcc : gridMetadata.getColumns()) {
+				if (colId.equals(lgcc.getId())) {
+					colLinkId = lgcc.getLinkId();
+					break;
+				}
+			}
+
+			if (colLinkId != null) {
+				DownloadHelper dh = DownloadHelper.getInstance();
+				dh.setEncoding(FormPanel.ENCODING_URLENCODED);
+				dh.clear();
+
+				dh.setErrorCaption(CourseClientLocalization.gettext(
+						AppCurrContext.getInstance().getDomain(), ERROR_WHEN_DOWNLOADING_FILE));
+				dh.setAction(ExchangeConstants.SECURED_SERVLET_PREFIX + URL_FILE_DOWNLOAD);
+
+				try {
+					dh.addParam("linkId", colLinkId);
+
+					dh.addParam(getContext().getClass().getName(),
+							getContext().toParamForHttpPost(getObjectSerializer()));
+					dh.addParam(DataPanelElementInfo.class.getName(),
+							getElementInfo().toParamForHttpPost(getObjectSerializer()));
+
+					dh.addParam("recordId", recId);
+					// dh.addParam("recordId", "12идентификатор_файла 3");
+
+					dh.submit();
+				} catch (SerializationException e) {
+					ru.curs.showcase.app.client.MessageBox
+							.showSimpleMessage(CourseClientLocalization.gettext(
+									AppCurrContext.getInstance().getDomain(),
+									ERROR_WHEN_DOWNLOADING_FILE), e.getMessage());
+				}
 			}
 		}
 	}
@@ -651,7 +702,7 @@ public class JSLiveGridPluginPanel extends JSBaseGridPluginPanel {
 				// AppCurrContext.getInstance().getBundleMap().get("grid_error_caption_file_download"));
 				CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
 						ERROR_WHEN_DOWNLOADING_FILE));
-		dh.setAction(ExchangeConstants.SECURED_SERVLET_PREFIX + "/gridFileDownload");
+		dh.setAction(ExchangeConstants.SECURED_SERVLET_PREFIX + URL_FILE_DOWNLOAD);
 
 		try {
 			dh.addParam("linkId", downloadLinkId);

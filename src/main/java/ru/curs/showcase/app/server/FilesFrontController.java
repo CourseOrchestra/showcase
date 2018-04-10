@@ -20,9 +20,8 @@ public final class FilesFrontController extends HttpServlet {
 	public void doPost(final HttpServletRequest request, final HttpServletResponse response)
 			throws ServletException, IOException {
 		String servlet = request.getServletPath();
-		servlet =
-			servlet.replace("/" + ExchangeConstants.SECURED_SERVLET_PREFIX + "/", "")
-					.toUpperCase();
+		servlet = servlet.replace("/" + ExchangeConstants.SECURED_SERVLET_PREFIX + "/", "")
+				.toUpperCase();
 		FilesFrontControllerAction action = null;
 		try {
 			action = FilesFrontControllerAction.valueOf(servlet);
@@ -52,4 +51,28 @@ public final class FilesFrontController extends HttpServlet {
 		}
 		handler.handle(request, response);
 	}
+
+	@Override
+	public void doGet(final HttpServletRequest request, final HttpServletResponse response)
+			throws ServletException, IOException {
+		String servlet = request.getServletPath();
+		servlet = servlet.replace("/" + ExchangeConstants.SECURED_SERVLET_PREFIX + "/", "")
+				.toUpperCase();
+		FilesFrontControllerAction action = null;
+		try {
+			action = FilesFrontControllerAction.valueOf(servlet);
+		} catch (IllegalArgumentException e) {
+			throw new HTTPRequestUnknownParamException(servlet);
+		}
+		AbstractFilesHandler handler = null;
+		switch (action) {
+		case GRIDFILEDOWNLOAD:
+			handler = new GridFileDownloadHandlerByGetMethod();
+			break;
+		default:
+			throw new NotImplementedYetException();
+		}
+		handler.handle(request, response);
+	}
+
 }

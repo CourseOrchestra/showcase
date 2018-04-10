@@ -57,8 +57,8 @@ public final class JSLyraGridPluginPanelCallbacksEvents {
 	}
 
 	public static void pluginProcessFileDownload(final String pluginId, final String recId,
-			final String colId) {
-		getCurrentPanel(pluginId).pluginProcessFileDownload(recId, colId);
+			final String colId, final String downloadFileByGetMethod) {
+		getCurrentPanel(pluginId).pluginProcessFileDownload(recId, colId, downloadFileByGetMethod);
 	}
 
 	public static void pluginShowMessage(final String pluginId, final String stringMessage,

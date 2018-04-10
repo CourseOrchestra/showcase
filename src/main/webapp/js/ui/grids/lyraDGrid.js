@@ -375,6 +375,16 @@ try {
 					switch (this["valueType"]) {
 					    case "DOWNLOAD":
 							if(value && (value.trim()!="")){
+								
+								var recId = object.id; 
+								var colId = this.id;
+								var downloadFileByGetMethod = "false";
+								
+								if(value.indexOf(";downloadFileByGetMethod=") > -1){
+									downloadFileByGetMethod = value.substring(value.indexOf(";downloadFileByGetMethod=")+25, value.length);
+									value = value.substring(0, value.indexOf(";downloadFileByGetMethod="));
+								}
+								
 								div.innerHTML = 
 									"<tbody>" +
 										"<tr>";
@@ -385,7 +395,7 @@ try {
 								}
 								div.innerHTML = div.innerHTML +										
 											"<td  align=\"center\" style=\"vertical-align: middle;\">" +
-													"<button onclick=\"gwtProcessFileDownloadLyra('"+elementId+"', '"+object.id+"', '"+this.id+"')\">" +
+													"<button onclick=\"gwtProcessFileDownloadLyra('"+elementId+"', '"+recId+"', '"+colId+"', '"+downloadFileByGetMethod+"')\">" +
 															"<img src="+metadata["columns"][k]["urlImageFileDownload"]+" title=\"Загрузить файл с сервера\"  style=\"vertical-align: middle; align: right; width: 8px; height: 8px;  \"   >" +
 													"</button>" +
 											"</td>" +

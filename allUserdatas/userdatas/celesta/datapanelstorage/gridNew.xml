@@ -5,6 +5,18 @@
 		<element id="6" type="webtext" transform="bal.xsl" />
 	</tab>
 	
+	
+	<tab id="02" name="downloadFile">
+		<element id="0201" type="grid" subtype="JS_LIVE_GRID" proc="g1.grid.getData.celesta"
+		plugin="liveDGrid"
+		>
+			<proc id="metadata" name="g1.grid.getSetting.celesta" type="METADATA"/>
+			<proc id="download" name="g1.grid.downloadFile.celesta" type="DOWNLOAD" />
+			<proc id="toolBar" name="g1.grid.gridToolBar.celesta" type="TOOLBAR"/>
+		</element>
+	</tab>
+	
+	
 	<tab id="12_1" name="jsLiveGridNew">
  		<element id="102_1" type="GRID"  subtype="JS_LIVE_GRID" proc="g1.jsLiveGridNew.getData.celesta" 
 		    plugin="liveDGrid">
