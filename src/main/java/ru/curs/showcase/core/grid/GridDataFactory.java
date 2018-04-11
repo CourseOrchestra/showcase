@@ -187,7 +187,7 @@ public class GridDataFactory extends CompBasedElementFactory {
 	/**
 	 * Формирует грид на основе XML-датасета.
 	 */
-	private class XmlDSHandler extends DefaultHandler {
+	private final class XmlDSHandler extends DefaultHandler {
 
 		private boolean processRecord = false;
 		private boolean processValue = false;
@@ -198,7 +198,7 @@ public class GridDataFactory extends CompBasedElementFactory {
 
 		private HashMap<String, String> rec = null;
 
-		public XmlDSHandler() {
+		private XmlDSHandler() {
 			super();
 
 		}
@@ -630,6 +630,8 @@ public class GridDataFactory extends CompBasedElementFactory {
 			} else {
 				if (objAddData != null) {
 					result.setData(objAddData.toJSONString());
+				} else {
+					result.setData(data.toJSONString());
 				}
 			}
 
