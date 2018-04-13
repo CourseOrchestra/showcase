@@ -1,3 +1,24 @@
+function disableGridToolBar(parentId) {
+	require({async:true},
+			[
+             "dijit/registry",
+	         "dijit/Toolbar",
+             "dijit/popup"
+	     ], function(registry, Toolbar, popup){
+		
+    		 var w = registry.byId(parentId);
+    		 if(w){
+    		  	popup.close(w.popupWidget);
+    		  	
+        	    for(var i = 0; i < w.getChildren().length; i++){
+        	        w.getChildren()[i].set("disabled", true);
+        	    }
+    		 }
+	     });	
+}
+
+
+
 function createGridToolBarImmediately(elementId, parentId, metadata) {
 	require({async:true},
 			[

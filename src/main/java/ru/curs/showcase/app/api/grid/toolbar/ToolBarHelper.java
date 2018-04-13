@@ -82,8 +82,11 @@ public class ToolBarHelper {
 			return;
 		}
 
+		String params = "'" + jsBaseGridPluginPanel.getDivIdToolBar() + "'";
+		disableToolBar(params);
+
 		RootPanel.getBodyElement().removeClassName("toolbar");
-		
+
 		final DataPanelElementInfo elInfo = jsBaseGridPluginPanel.getElementInfo();
 		if (elInfo.isToolBarProc()) {
 
@@ -118,7 +121,7 @@ public class ToolBarHelper {
 
 											if (blinkingCount == 0)
 												RootPanel.getBodyElement().addClassName("toolbar");
-											
+
 											boolean xformRelated = false;
 											for (DataPanelElementInfo elem : AppCurrContext
 													.getReadyStateMap().keySet()) {
@@ -494,6 +497,17 @@ public class ToolBarHelper {
 	private void createJSSeparator(final JSONObject jsonItem) {
 		jsonItem.put("type", new JSONString(String.valueOf("separator")));
 	}
+
+	private native void disableToolBar(final String params) /*-{
+
+		try {
+			$wnd.eval("disableGridToolBar(" + params + ");");
+		} catch (e) {
+			$wnd.safeIncludeJS("js/ui/grids/toolbar.js");
+			$wnd.eval("disableGridToolBar(" + params + ");");
+		}
+
+	}-*/;
 
 	private native void runToolBar(final String params) /*-{
 

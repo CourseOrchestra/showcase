@@ -77,16 +77,6 @@ padding: 0px 20px 0px 0px;
 
 
 
-.plugin-navigator-grid {
-   	height: 99%  !important  ;
-}
-
-.plugin-navigator-grid-column {
-	  border: none !important ;
-}
-
-
-
 .claro .dojoxCalendarColumnView td {
   border-top:1px dotted #ccc;
 }
@@ -132,6 +122,14 @@ padding: 0px 20px 0px 0px;
     height: 18px;
     text-align: center;
 }
+.dijitDisabled .exportToExcelCurrentPage {
+    background-image: url('../resources/internal/ExportToExcelCurrentPageDisabled.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+
 .exportToExcelAll {
     background-image: url('../resources/internal/ExportToExcelAll.png');
     background-repeat: no-repeat;
@@ -139,6 +137,14 @@ padding: 0px 20px 0px 0px;
     height: 18px;
     text-align: center;
 }
+.dijitDisabled .exportToExcelAll {
+    background-image: url('../resources/internal/ExportToExcelAllDisabled.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+
 .copyToClipboard {
     background-image: url('../resources/internal/CopyToClipboard.png');
     background-repeat: no-repeat;
@@ -146,6 +152,14 @@ padding: 0px 20px 0px 0px;
     height: 18px;
     text-align: center;
 }
+.dijitDisabled .copyToClipboard {
+    background-image: url('../resources/internal/CopyToClipboardDisabled.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+
 .filter {
     background-image: url('../resources/internal/filter.png');
     background-repeat: no-repeat;
@@ -153,6 +167,14 @@ padding: 0px 20px 0px 0px;
     height: 18px;
     text-align: center;
 }
+.dijitDisabled .filter {
+    background-image: url('../resources/internal/filterDisabled.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+
 .addRecord {
     background-image: url('../resources/internal/AddRecord.png');
     background-repeat: no-repeat;
@@ -160,6 +182,14 @@ padding: 0px 20px 0px 0px;
     height: 18px;
     text-align: center;
 }
+.dijitDisabled .addRecord {
+    background-image: url('../resources/internal/AddRecordDisabled.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+
 .save {
     background-image: url('../resources/internal/Save.png');
     background-repeat: no-repeat;
@@ -167,8 +197,23 @@ padding: 0px 20px 0px 0px;
     height: 18px;
     text-align: center;
 }
+.dijitDisabled .save {
+    background-image: url('../resources/internal/SaveDisabled.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+
 .revert {
     background-image: url('../resources/internal/Revert.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+.dijitDisabled .revert {
+    background-image: url('../resources/internal/RevertDisabled.png');
     background-repeat: no-repeat;
     width: 18px;
     height: 18px;
@@ -265,6 +310,23 @@ padding: 0px 20px 0px 0px;
     background: url('../resources/internal/selectAllImage.png') no-repeat center center;
 }
 */
+
+
+.plugin-navigator-contentPane {
+   	width: inherit !important;
+ 	border: none !important;   	 
+    margin: 0 !important;
+    padding: 0 !important; 	
+}
+
+.plugin-navigator-grid {
+   	height: 100%;
+	border: none;
+}
+
+.plugin-navigator-grid-column {
+	border: none;
+}
 
 
 
