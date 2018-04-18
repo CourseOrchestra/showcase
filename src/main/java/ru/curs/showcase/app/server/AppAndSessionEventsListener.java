@@ -103,16 +103,36 @@ public class AppAndSessionEventsListener implements ServletContextListener, Http
 
 			if (AppInfoSingleton.getAppInfo().getShowcaseAppOnStartMessage().isEmpty()) {
 
-				File platformPoFile =
-					new File(AppInfoSingleton.getAppInfo().getUserdataRoot() + File.separator
-							+ "common.sys" + File.separator + "resources" + File.separator
-							+ "platform.po");
+				boolean isPlatformPoExists = true;
+
+				File solutionsDir = new File(AppInfoSingleton.getAppInfo().getSolutionsDirRoot());
+				File[] userdatasList = solutionsDir.listFiles();
+				for (File userdata : userdatasList) {
+					if (!userdata.getName().startsWith("common.")
+							&& !"general".equals(userdata.getName())) {
+						File platformPoFile =
+							new File(AppInfoSingleton.getAppInfo().getSolutionsDirRoot()
+									+ File.separator + userdata.getName() + File.separator
+									+ "resources" + File.separator + "platform.po");
+						if (!platformPoFile.exists()) {
+							isPlatformPoExists = false;
+							break;
+						}
+					}
+				}
+
+				// File platformPoFile =
+				// new File(AppInfoSingleton.getAppInfo().getUserdataRoot() +
+				// File.separator
+				// + "common.sys" + File.separator + "resources" +
+				// File.separator
+				// + "platform.po");
 
 				File platformPoFileDefault =
 					new File(AppInfoSingleton.getAppInfo().getResourcesDirRoot() + File.separator
 							+ "platform.po");
 
-				if (!platformPoFile.exists()) {
+				if (!isPlatformPoExists) {
 					if (!platformPoFileDefault.exists()) {
 						LOGGER.error("ОШИБКА: Не удалось найти дефолтный файл platform.po "
 								+ "локализации клиенсткой части Showcase");
