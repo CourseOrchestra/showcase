@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<websockets>
+	<websocket proc="testtemplates.proc1.doRun1.cl" refreshInterval="10000" />
+	<websocket proc="testtemplates.proc2.doRun2.cl" refreshInterval="-1" />
+</websockets>
