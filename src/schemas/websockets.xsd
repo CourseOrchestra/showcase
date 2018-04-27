@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="specialTypes.xsd" />
+
+<xs:element name="websockets">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="websocket" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="proc" type="xs:string" use="required" />
+						<xs:attribute name="refreshInterval" type="xs:integer" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+</xs:element>
+	
+</xs:schema>
