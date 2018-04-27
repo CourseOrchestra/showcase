@@ -60,6 +60,13 @@ public final class AppInfoSingleton {
 	private final Map<String, String> sessionSidsMap = Collections
 			.synchronizedMap(new HashMap<String, String>());
 
+	/**
+	 * Карта сессий и карт имён челеста-процедур и соответствующих им таймеров,
+	 * используемая в функционале вэбсокетов.
+	 */
+	private final Map<String, HashMap<String, Timer>> procTimerMap = Collections
+			.synchronizedMap(new HashMap<String, HashMap<String, Timer>>());
+
 	private String sesid = "";
 
 	private String oldSesid = "";
@@ -782,5 +789,9 @@ public final class AppInfoSingleton {
 
 	public Map<String, Authentication> getSessionAuthenticationMapForCrossDomainEntrance() {
 		return sessionAuthenticationMapForCrossDomainEntrance;
+	}
+
+	public Map<String, HashMap<String, Timer>> getProcTimerMap() {
+		return procTimerMap;
 	}
 }
