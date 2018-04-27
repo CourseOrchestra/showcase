@@ -84,6 +84,44 @@
   jsFormAction('${elementId}','l1');
  }
 </script>
+
+<script type="text/javascript">
+ function doWebSocketsAction() {
+	 var protocol;
+		if(window.location.protocol.indexOf("https") > -1){
+			protocol = "wss";
+		} else {
+			protocol = "ws";
+		}
+		
+		var webSocket = new WebSocket(protocol+"://"+window.location.host+window.location.pathname+"secured/ws");
+	 
+	 //var webSocket = new WebSocket("ws://localhost:8484/Showcase/secured/ws");
+
+	webSocket.onmessage = function(evt) { alert(evt.data); }; 
+	 
+	 webSocket.onopen = function() {
+		  alert("Соединение установлено.");
+		  webSocket.send("proc1");
+		  webSocket.send("proc2");
+		  setTimeout(webSocket.send("stopProc1"), 5000);
+		};
+
+	webSocket.onclose = function(event) {
+		  if (event.wasClean) {
+		    alert('Соединение закрыто чисто');
+		  } else {
+		    alert('Обрыв соединения'); // например, "убит" процесс сервера
+		  }
+		  alert('Код: ' + event.code + ' причина: ' + event.reason);
+		};
+
+	webSocket.onerror = function(error) {
+			  alert("Ошибка " + error.message);
+			};
+ }
+</script>
+
 <button id="submitAsynchDBButton" type="button"></button>
 <button id="submitSynchDBButton" type="button"></button>
 <div></div>
@@ -92,4 +130,6 @@
 <div id="result1"></div>
 <div>----------</div>
 <button id="doActionButton" type="button" onclick="doActionJsAction();">doActionButton</button>
+<div>----------</div>
+<button id="doWebSockets" type="button" onclick="doWebSocketsAction();">doWebSocketsButton</button>
 <div>----------</div>
