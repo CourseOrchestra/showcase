@@ -12,6 +12,8 @@
 	<http pattern="/js/dojo/_firebug/firebug.js" security="none"/>
 	<http pattern="/js/dojo/selector/acme.js" security="none"/>
 	<http pattern="/js/course/geo/ge/resources/icons/*" security="none"/>
+	<http pattern="/js/dijit/**" security="none"/>
+	<http pattern="/js/dojox/**" security="none"/>
 	<http pattern="/getImage*" security="none"/>
 	<http pattern="/solutions/default/resources/favicon.ico*" security="none"/>
 	<http pattern="/favicon.ico*" security="none"/>
