@@ -61,7 +61,9 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 			authRequest.setDetails(userAndSessionDetails);
 			// SecurityContextHolder.getContext().setAuthentication(successfulAuthentication);
 			request.getSession(false).setAttribute("remembermeAuthenticated", "true");
-			AppInfoSingleton.getAppInfo().setSesid(request.getSession(false).getId());
+			AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
+					.put(request.getRemoteAddr(), request.getSession(false).getId());
+
 			// try {
 			// Celesta.getInstance().login(request.getSession(false).getId(),
 			// ((UserAndSessionDetails)
@@ -137,13 +139,17 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 				AppInfoSingleton
 						.getAppInfo()
 						.getCelestaInstance()
-						.login(AppInfoSingleton.getAppInfo().getSesid(),
+						.login(// request.getSession(false).getId(),
+						AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
+								.get(request.getRemoteAddr()),
 								((UserAndSessionDetails) authToken.getDetails()).getUserInfo()
 										.getSid());
 				AppInfoSingleton
 						.getAppInfo()
 						.getSessionSidsMap()
-						.put(AppInfoSingleton.getAppInfo().getSesid(),
+						.put(// request.getSession(false).getId(),
+						AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
+								.get(request.getRemoteAddr()),
 								((UserAndSessionDetails) authToken.getDetails()).getUserInfo()
 										.getSid());
 
