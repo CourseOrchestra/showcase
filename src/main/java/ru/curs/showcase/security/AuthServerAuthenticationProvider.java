@@ -63,8 +63,18 @@ public class AuthServerAuthenticationProvider implements AuthenticationProvider 
 		String url = "";
 		String login = arg1.getPrincipal().toString();
 		String pwd = arg1.getCredentials().toString();
+
 		String sesid = ((UserAndSessionDetails) arg1.getDetails()).getSessionId();
-		String oldSesid = AppInfoSingleton.getAppInfo().getSesid();
+		// String oldSesid = AppInfoSingleton.getAppInfo().getSesid();
+		String[] arr =
+			AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap().values()
+					.toArray(new String[0]);
+		String oldSesid = arr.length > 0 ? arr[arr.length - 1] : "";
+		if (sesid == null && "".equals(oldSesid)) {
+			sesid = "RestfulSessId";
+			oldSesid = "RestfulSessId";
+		}
+
 		String groupProviders =
 			((UserAndSessionDetails) arg1.getDetails()).getUserInfo().getGroupProviders();
 
