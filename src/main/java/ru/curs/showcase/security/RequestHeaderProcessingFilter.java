@@ -64,7 +64,9 @@ public class RequestHeaderProcessingFilter extends AbstractAuthenticationProcess
 			new SignedUsernamePasswordAuthenticationToken(username, password);
 
 		HttpSession session = request.getSession();
-		AppInfoSingleton.getAppInfo().setSesid(session.getId());
+		// AppInfoSingleton.getAppInfo().setSesid(session.getId());
+		AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
+				.put(request.getRemoteAddr(), request.getSession(false).getId());
 
 		@SuppressWarnings("unchecked")
 		Enumeration<String> en = session.getAttributeNames();
