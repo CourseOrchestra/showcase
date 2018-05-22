@@ -69,7 +69,14 @@ public final class SessionUtils {
 		if (getUserAndSessionDetails() != null) {
 			String sessionID = getUserAndSessionDetails().getSessionId();
 			if (sessionID == null) {
-				return AppInfoSingleton.getAppInfo().getSesid();
+				// return AppInfoSingleton.getAppInfo().getSesid();
+				String[] arr =
+					AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap().values()
+							.toArray(new String[0]);
+				if (arr.length > 0)
+					return arr[arr.length - 1];
+				else
+					return TEST_SESSION;
 			}
 			return getUserAndSessionDetails().getSessionId();
 		} else {
