@@ -97,6 +97,12 @@ public final class AppInfoSingleton {
 		Collections.synchronizedMap(new HashMap<String, Authentication>());
 
 	/**
+	 * Карта, используемая в нуждах функционала "запомнить меня".
+	 */
+	private final Map<String, String> remoteAddrSessionMap = Collections
+			.synchronizedMap(new HashMap<String, String>());
+
+	/**
 	 * Идентификатор userdata в текущем запросе.
 	 */
 	private final ThreadLocal<String> curUserDataId = new ThreadLocal<String>();
@@ -794,4 +800,9 @@ public final class AppInfoSingleton {
 	public Map<String, HashMap<String, Timer>> getProcTimerMap() {
 		return procTimerMap;
 	}
+
+	public Map<String, String> getRemoteAddrSessionMap() {
+		return remoteAddrSessionMap;
+	}
+
 }
