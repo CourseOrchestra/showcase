@@ -70,11 +70,17 @@ public final class SessionUtils {
 			String sessionID = getUserAndSessionDetails().getSessionId();
 			if (sessionID == null) {
 				// return AppInfoSingleton.getAppInfo().getSesid();
-				String[] arr =
-					AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap().values()
-							.toArray(new String[0]);
-				if (arr.length > 0)
-					return arr[arr.length - 1];
+				// String[] arr =
+				// AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap().values()
+				// .toArray(new String[0]);
+				// if (arr.length > 0)
+				// return arr[arr.length - 1];
+				String remoteAddr = getUserAndSessionDetails().getRemoteAddress();
+				if (remoteAddr != null)
+					sessionID =
+						AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap().get(remoteAddr);
+				if (sessionID != null)
+					return sessionID;
 				else
 					return TEST_SESSION;
 			}
