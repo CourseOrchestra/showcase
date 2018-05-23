@@ -1265,11 +1265,16 @@ public final class UserDataUtils {
 			sesid = ((WebAuthenticationDetails) auth.getDetails()).getSessionId();
 			if (sesid == null) {
 				// sesid = AppInfoSingleton.getAppInfo().getSesid();
-				String[] arr =
-					AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap().values()
-							.toArray(new String[0]);
-				if (arr.length > 0)
-					sesid = arr[arr.length - 1];
+				// String[] arr =
+				// AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap().values()
+				// .toArray(new String[0]);
+				// if (arr.length > 0)
+				// sesid = arr[arr.length - 1];
+				String remoteAddr =
+					((WebAuthenticationDetails) auth.getDetails()).getRemoteAddress();
+				if (remoteAddr != null)
+					sesid =
+						AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap().get(remoteAddr);
 			}
 			if (AppInfoSingleton.getAppInfo().getLocalizedBundleCache().get(sesid) == null) {
 				bundle = CourseLocalization.getLocalizedResourseBundle();
