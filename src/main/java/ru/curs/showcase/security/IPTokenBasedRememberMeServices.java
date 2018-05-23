@@ -133,23 +133,25 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 			authToken.setDetails(userAndSessionDetails);
 			SecurityContextHolder.getContext().setAuthentication(authToken);
 			request.getSession().setAttribute("remembermeAuthenticated", "true");
+			AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
+					.put(request.getRemoteAddr(), request.getSession(false).getId());
 
 			HttpURLConnection c = null;
 			try {
 				AppInfoSingleton
 						.getAppInfo()
 						.getCelestaInstance()
-						.login(// request.getSession(false).getId(),
-						AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
-								.get(request.getRemoteAddr()),
+						.login(request.getSession(false).getId(),
+						// AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
+						// .get(request.getRemoteAddr()),
 								((UserAndSessionDetails) authToken.getDetails()).getUserInfo()
 										.getSid());
 				AppInfoSingleton
 						.getAppInfo()
 						.getSessionSidsMap()
-						.put(// request.getSession(false).getId(),
-						AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
-								.get(request.getRemoteAddr()),
+						.put(request.getSession(false).getId(),
+						// AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
+						// .get(request.getRemoteAddr()),
 								((UserAndSessionDetails) authToken.getDetails()).getUserInfo()
 										.getSid());
 
