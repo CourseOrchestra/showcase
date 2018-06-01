@@ -89,9 +89,10 @@ public class RESTGateway {
 
 		} finally {
 			try {
-				if (!isRestWithCelestaAuthentication)
+				if (!isRestWithCelestaAuthentication) {
 					AppInfoSingleton.getAppInfo().getCelestaInstance().logout(tempSesId, false);
-				AppInfoSingleton.getAppInfo().getSessionSidsMap().remove(tempSesId);
+					AppInfoSingleton.getAppInfo().getSessionSidsMap().remove(tempSesId);
+				}
 			} catch (Exception e) {
 				throw new ShowcaseRESTException(ExceptionType.SOLUTION,
 						"Пля выполнении REST запроса произошла ошибка при попытке выйти из сессии в celesta: "
