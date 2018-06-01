@@ -61,8 +61,8 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 			authRequest.setDetails(userAndSessionDetails);
 			// SecurityContextHolder.getContext().setAuthentication(successfulAuthentication);
 			request.getSession(false).setAttribute("remembermeAuthenticated", "true");
-			AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
-					.put(request.getRemoteAddr(), request.getSession(false).getId());
+			// AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
+			// .put(request.getRemoteAddr(), request.getSession(false).getId());
 
 			// try {
 			// Celesta.getInstance().login(request.getSession(false).getId(),
@@ -99,7 +99,7 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 	@Override
 	protected void setCookie(String[] tokens, int maxAge, HttpServletRequest request,
 			HttpServletResponse response) {
-		if (tokens.length < 6) {
+		if (tokens.length < 7) {
 			String pwd = request.getParameter("j_password");
 			String sid =
 				((UserAndSessionDetails) (SecurityContextHolder.getContext().getAuthentication())
@@ -108,10 +108,13 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 				((UserAndSessionDetails) (SecurityContextHolder.getContext().getAuthentication())
 						.getDetails()).getUserInfo().getFullName();
 
-			String[] tokensWithPassword = Arrays.copyOf(tokens, tokens.length + 3);
-			tokensWithPassword[tokensWithPassword.length - 3] = pwd;
-			tokensWithPassword[tokensWithPassword.length - 2] = sid;
-			tokensWithPassword[tokensWithPassword.length - 1] = name;
+			String[] tokensWithPassword = Arrays.copyOf(tokens, tokens.length + 4);
+			tokensWithPassword[tokensWithPassword.length - 4] = pwd;
+			tokensWithPassword[tokensWithPassword.length - 3] = sid;
+			tokensWithPassword[tokensWithPassword.length - 2] = name;
+			tokensWithPassword[tokensWithPassword.length - 1] =
+				AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
+						.get(request.getRemoteAddr());
 			// getUserIPAddress(request);
 			super.setCookie(tokensWithPassword, maxAge, request, response);
 		} else
@@ -133,6 +136,27 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 			authToken.setDetails(userAndSessionDetails);
 			SecurityContextHolder.getContext().setAuthentication(authToken);
 			request.getSession().setAttribute("remembermeAuthenticated", "true");
+			try {
+				AppInfoSingleton
+						.getAppInfo()
+						.getCelestaInstance()
+						.login(cookieTokens[6],
+								((UserAndSessionDetails) authToken.getDetails()).getUserInfo()
+										.getSid());
+				AppInfoSingleton
+						.getAppInfo()
+						.getSessionSidsMap()
+						.put(cookieTokens[6],
+								((UserAndSessionDetails) authToken.getDetails()).getUserInfo()
+										.getSid());
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (AppInfoSingleton.getAppInfo().isEnableLogLevelError()) {
+					LOGGER.error(
+							"Ошибка привязки старой сессии приложения к пользователю в celesta", e);
+				}
+			}
+
 			AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
 					.put(request.getRemoteAddr(), request.getSession(false).getId());
 
