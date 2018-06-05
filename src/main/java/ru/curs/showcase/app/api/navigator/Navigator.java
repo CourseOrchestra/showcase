@@ -56,6 +56,11 @@ public class Navigator implements SerializableElement {
 	 */
 	private String welcomeTabCaption = null;
 
+	/**
+	 * Высота группы навигатора.
+	 */
+	private Double groupHeight;
+
 	public final List<NavigatorGroup> getGroups() {
 		return groups;
 	}
@@ -117,6 +122,14 @@ public class Navigator implements SerializableElement {
 
 	public void setWelcomeTabCaption(final String aWelcomeTabCaption) {
 		welcomeTabCaption = aWelcomeTabCaption;
+	}
+
+	public Double getGroupHeight() {
+		return groupHeight;
+	}
+
+	public void setGroupHeight(final Double aGroupHeight) {
+		groupHeight = aGroupHeight;
 	}
 
 }
