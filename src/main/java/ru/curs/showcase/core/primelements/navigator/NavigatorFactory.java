@@ -13,7 +13,6 @@ import ru.curs.showcase.core.event.ActionFactory;
 import ru.curs.showcase.runtime.UserDataUtils;
 import ru.curs.showcase.util.*;
 import ru.curs.showcase.util.xml.*;
-import ru.curs.showcase.util.xml.XMLUtils;
 
 /**
  * Фабрика для создания навигатора.
@@ -28,6 +27,7 @@ public final class NavigatorFactory extends StartTagSAXHandler {
 	private static final String XML_ERROR_MES = "описание навигатора";
 	private static final String GRP_ICONS_DIR_PARAM_NAME = "navigator.icons.dir.name";
 	private static final String GRP_DEF_ICON_PARAM_NAME = "navigator.def.icon.name";
+	private static final String GRP_HEIGHT_PARAM = "navigator.group.height";
 
 	private static final String NAVIGATOR = "NAVIGATOR";
 
@@ -44,6 +44,11 @@ public final class NavigatorFactory extends StartTagSAXHandler {
 	 * Имя иконки по умолчанию.
 	 */
 	private final String groupDefIcon;
+
+	/**
+	 * Высота группы навигатора.
+	 */
+	private final Double groupHeight;
 
 	/**
 	 * Конструируемый навигатор.
@@ -71,6 +76,9 @@ public final class NavigatorFactory extends StartTagSAXHandler {
 
 		groupIconsDir = UserDataUtils.getRequiredProp(GRP_ICONS_DIR_PARAM_NAME);
 		groupDefIcon = UserDataUtils.getRequiredProp(GRP_DEF_ICON_PARAM_NAME);
+		groupHeight =
+			UserDataUtils.getOptionalProp(GRP_HEIGHT_PARAM) != null ? Double
+					.parseDouble(UserDataUtils.getOptionalProp(GRP_HEIGHT_PARAM).trim()) : 4;
 		actionFactory = new ActionFactory(aCallContext);
 
 		Date dt2 = new Date();
@@ -129,6 +137,7 @@ public final class NavigatorFactory extends StartTagSAXHandler {
 			if (attrs.getIndex(WIDTH_TAG) > -1) {
 				result.setWidth(attrs.getValue(WIDTH_TAG));
 			}
+			result.setGroupHeight(groupHeight);
 			return null;
 		}
 		return new ContinueObject();
