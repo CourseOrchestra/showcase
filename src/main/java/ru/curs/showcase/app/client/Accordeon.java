@@ -35,6 +35,11 @@ public class Accordeon {
 	private static String tempMainContext = null;
 
 	/**
+	 * Navigator group height.
+	 */
+	private static double m = 4;
+
+	/**
 	 * @return the tempMainContext
 	 */
 	public static String getTempMainContext() {
@@ -221,7 +226,7 @@ public class Accordeon {
 	}
 
 	private void fillAccordeon(final Navigator navigator) {
-		final int m = 4;
+		m = navigator.getGroupHeight();
 
 		backState();
 
@@ -246,9 +251,10 @@ public class Accordeon {
 			}
 		});
 
+		String groupString = "";
 		for (int i = 0; i < navigator.getGroups().size(); i++) {
-			accordeon.add(getGroupTreeWidget(navigator.getGroups().get(i)),
-					getGroupString(navigator.getGroups().get(i)), true, m);
+			groupString = getGroupString(navigator.getGroups().get(i));
+			accordeon.add(getGroupTreeWidget(navigator.getGroups().get(i)), groupString, true, m);
 		}
 	}
 
@@ -258,7 +264,11 @@ public class Accordeon {
 
 		final int n = 5;
 		hPanel.setSpacing(n);
-		hPanel.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
+		if (m >= 3.5) {
+			hPanel.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
+		} else {
+			hPanel.setVerticalAlignment(HasVerticalAlignment.ALIGN_TOP);
+		}
 
 		Image im = new Image();
 		im.setUrl(ng.getImageId()); // by default
