@@ -61,8 +61,8 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 			authRequest.setDetails(userAndSessionDetails);
 			// SecurityContextHolder.getContext().setAuthentication(successfulAuthentication);
 			request.getSession(false).setAttribute("remembermeAuthenticated", "true");
-			// AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
-			// .put(request.getRemoteAddr(), request.getSession(false).getId());
+			AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
+					.put(request.getRemoteAddr(), request.getSession(false).getId());
 
 			// try {
 			// Celesta.getInstance().login(request.getSession(false).getId(),
