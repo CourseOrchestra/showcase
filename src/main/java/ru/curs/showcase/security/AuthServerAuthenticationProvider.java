@@ -265,7 +265,8 @@ public class AuthServerAuthenticationProvider implements AuthenticationProvider 
 		// привязки сессии приложения к пользователю celesta
 		// if (AppInfoSingleton.getAppInfo().getIsCelestaInitialized()) {
 		try {
-			AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap().put(remoteAddr, sesid);
+			// AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap().put(remoteAddr,
+			// sesid);
 
 			AppInfoSingleton
 					.getAppInfo()
