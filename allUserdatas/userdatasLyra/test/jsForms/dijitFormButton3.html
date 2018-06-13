@@ -1,0 +1,77 @@
+
+
+<script type="text/javascript">
+
+
+require(
+	[ "vue/vue", "vue/bootstrap-vue"], function(Vue, bootstrapVue){
+		
+		
+		Vue.use(bootstrapVue);
+		
+		//setTimeout(function(){
+			
+	        var example2 = new Vue({
+	        	  el: '#example23',
+	        	  
+	        	  data: {
+	          	  },
+	        	  
+	        	  methods: {
+	          	  	fileDownload: function () {
+	      	    		lyraGridEvents.$emit('file-download','testgrain.testgridform5vue.TestGridForm5vue','grid5', 'testgrain.grid_download1');
+	          	    },
+	          	  },
+	          	  
+	        });
+
+		//}, 0);
+		
+        
+        
+	});
+	
+
+
+</script>
+
+
+
+
+<!-- 
+<link rel="stylesheet" href="js/vue/bootstrap.min.css" />
+ -->
+<link rel="stylesheet" href="js/vue/bootstrap-vue.css" />
+
+
+
+<div id="example23">
+  
+<b-form-group>
+  <p></p>
+  <b-button-toolbar>
+    <b-button-group>
+		<b-button v-on:click="fileDownload">Download file</b-button>
+    </b-button-group> 	
+  </b-button-toolbar>
+  <p></p>
+</b-form-group>
+
+  <p></p>
+
+  <lyra-grid 
+  	formclass  = "testgrain.testgridform5vue.TestGridForm5vue"
+  	instanceid="grid5"  	 
+	maincontext = "This is mainContext for lyra-vue grid5"
+	addcontext  = '{"part1": "part1","part2": "part2","refreshParams": {"selectKey": "","sort": "code","filter": ""}}'
+  >	
+  </lyra-grid>
+           
+  <p></p>           
+
+  
+</div>
+
+
+
+

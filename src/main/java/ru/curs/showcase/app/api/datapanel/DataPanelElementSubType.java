@@ -23,6 +23,10 @@ public enum DataPanelElementSubType implements SerializableElement {
 	/**
 	 * JS-Грид. Lyra.
 	 */
-	JS_LYRA_GRID;
+	JS_LYRA_GRID,
+	/**
+	 * JS-Грид. Lyra_Vue.
+	 */
+	JS_LYRA_VUE_GRID;
 
 }

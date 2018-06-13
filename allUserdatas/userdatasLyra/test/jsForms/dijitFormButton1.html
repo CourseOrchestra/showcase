@@ -1,0 +1,331 @@
+
+
+<script type="text/javascript">
+
+
+require(
+	[ "vue/vue", "vue/bootstrap-vue"], function(Vue, bootstrapVue){
+		
+		Vue.use(bootstrapVue);
+		
+		try {
+			example2.$destroy();
+			example3.$destroy();
+		} catch (err) {
+//            console.log(err);
+		}
+		
+
+		
+		//setTimeout(function(){
+			
+	        example2 = new Vue({
+	        	  el: '#example21',
+	        	  
+	        	  data: {
+	        		  message: '',
+        			  addcontext:
+        				'{'+
+	    				'"part1": "part1",'+
+  	    				'"part2": "part2",'+	
+
+  	    				'"refreshParams": {'+
+  	    			    //74000004000079300
+  	    			    //current
+  	    				'"selectKey": "current",'+          	    				
+  	    				'"sort": "name,code",'+          	    				
+  	    				//'"sort": "ocatd",'+
+  	    				'"filter": "filter conditions"'+
+  	    				'}'+
+  	    				'}'
+	        		  
+	          	  },
+	        	  
+	        	  methods: {
+          	    	refresh1: function () {
+          	    		lyraGridEvents.$emit(
+          	    				'refresh', 
+          	    				'testgrain.testgridform3vue.TestGridForm3vue',
+          	    				'grid1',
+          	    				'{'+
+          	    				'	"part1": "part1",'+
+          	    				'	"part2": "part2",'+	
+
+          	    				'	"refreshParams": {'+
+              	    			//74000004000079300          	    				
+          	    				'		"selectKey": "",'+          	    				
+          	    				//'		"sort": "name,code",'+          	    				
+          	    				'		"sort": "ocatd",'+
+          	    				'		"filter": ""'+
+          	    				'	}'+
+          	    				'}'
+          	    				
+   	    				);
+	          	    },
+          	    	refresh2: function () {
+          	    		lyraGridEvents.$emit(
+          	    				'refresh', 
+          	    				'testgrain.testgridform3vue.TestGridForm3vue',          	    				
+          	    				'grid2',
+          	    				'{'+
+          	    				'	"part1": "part1",'+
+          	    				'	"part2": "part2",'+	
+
+          	    				'	"refreshParams": {'+
+          	    			//74000004000079300
+          	    				'		"selectKey": "",'+
+          	    				//'		"sort": "name,code",'+          	    				
+          	    				'		"sort": "ocatd",'+
+          	    				'		"filter": "filter conditions"'+
+          	    				'	}'+
+          	    				'}'
+          	    				
+   	    				);
+	          	    },
+          	    	refresh3: function () {
+          	    		lyraGridEvents.$emit(
+          	    				'refresh', 
+          	    				'testgrain.testgridform3vue.TestGridForm3vue',          	    				
+          	    				'grid3',
+          	    				'{'+
+          	    				'	"part1": "part1",'+
+          	    				'	"part2": "part2",'+	
+
+          	    				'	"refreshParams": {'+
+          	    			//74000004000079300
+          	    				'		"selectKey": "",'+
+          	    				'		"sort": "name,code",'+          	    				
+          	    				//'		"sort": "ocatd",'+
+          	    				'		"filter": "filter conditions"'+
+          	    				'	}'+
+          	    				'}'
+          	    				
+   	    				);
+	          	    },
+	          	    
+	      	    	refresh44: function () {
+	      	    		lyraGridEvents.$emit('refresh',	'testgrain.testgridform3vue.TestGridForm3vue', 'grid1', this.addcontext);
+	          	    },
+	          	    
+		          	clear: function () {
+	              		this.message = '';
+	              	},
+	          	    
+	          	  	select1: function (formClass, instanceId, obj) {
+	                    console.log("select1");
+	              		this.message = this.message+'\n'+"event:select1"+'\n'+"formClass="+formClass+", instanceId="+instanceId+'\n'+JSON.stringify(obj);
+	              	},
+	              	select2: function (formClass, instanceId, obj) {
+	              		console.log("select2");
+	              		this.message = this.message+'\n'+"event:select2"+'\n'+"formClass="+formClass+", instanceId="+instanceId+'\n'+JSON.stringify(obj);
+	              	},
+	              	select3: function (formClass, instanceId, obj) {
+	              		console.log("select3");
+	              		this.message = this.message+'\n'+"event:select3"+'\n'+"formClass="+formClass+", instanceId="+instanceId+'\n'+JSON.stringify(obj);
+	              	},
+	              	
+	          	  	dblclicked1: function (formClass, instanceId, obj) {
+	              		this.message = this.message+'\n'+"event:dblclicked1"+'\n'+"formClass="+formClass+", instanceId="+instanceId+'\n'+JSON.stringify(obj);
+	              	},
+	              	dblclicked2: function (formClass, instanceId, obj) {
+	              		this.message = this.message+'\n'+"event:dblclicked2"+'\n'+"formClass="+formClass+", instanceId="+instanceId+'\n'+JSON.stringify(obj);
+	              	},
+	              	dblclicked3: function (formClass, instanceId, obj) {
+	              		this.message = this.message+'\n'+"event:dblclicked3"+'\n'+"formClass="+formClass+", instanceId="+instanceId+'\n'+JSON.stringify(obj);
+	              	},
+	              	
+	          	    
+	          	  },
+	          	  
+	              mounted: function () {
+	            	  
+	            		try {
+	        				if(on2){
+	        					return;
+	        				}        	  
+	            		} catch (err) {
+	                        //console.log(err);
+	            		}
+	            	  
+	            	  
+	          		on2 = lyraGridEvents.$on('select', function(formClass, instanceId, obj) {
+	                    console.log("example2.lyraGridEvents.select");
+	                    example2.message = example2.message+'\n'+"event:select_lyraGridEvents_example2"+'\n'+"formClass="+formClass+", instanceId="+instanceId+'\n'+JSON.stringify(obj);
+	          		});
+	            	  
+		    	  }
+	          	  
+	        });
+
+		//}, 0);
+		
+		
+        
+        
+        example3 = new Vue({
+      	  el: '#example31',
+      	  methods: {
+    	    	refresh1: function () {
+    	    		lyraGridEvents.$emit('refresh', 'testgrain.testgridform3vue.TestGridForm3vue', 'grid1');
+          	    },
+      	    	refresh2: function () {
+      	    		lyraGridEvents.$emit('refresh', 'testgrain.testgridform3vue.TestGridForm3vue', 'grid2');
+          	    },
+      	    	refresh3: function () {
+      	    		lyraGridEvents.$emit('refresh', 'testgrain.testgridform3vue.TestGridForm3vue', 'grid3');
+          	    }
+       	  },
+        
+        
+          mounted: function () {
+        	  
+      		try {
+				if(on3){
+					return;
+				}        	  
+    		} catch (err) {
+                //console.log(err);
+    		}
+        	  
+      	  
+        		on3 = lyraGridEvents.$on('select', function(formClass, instanceId, obj) {
+        			
+                    console.log("example3.lyraGridEvents.select");
+                    
+          			example2.message = example2.message+'\n'+"event:select_lyraGridEvents_example3"+'\n'+"formClass="+formClass+", instanceId="+instanceId+'\n'+JSON.stringify(obj);
+          			//Из других закладок тоже вызывается, поэтому ошибки
+          		});
+        		
+    	  }
+        
+        
+        
+      	});
+        
+		
+        
+        
+	});
+	
+
+
+</script>
+
+
+
+
+<!-- 
+<link rel="stylesheet" href="js/vue/bootstrap.min.css" />
+ -->
+<link rel="stylesheet" href="js/vue/bootstrap-vue.css" />
+
+
+
+<div id="example21">
+  
+<b-form-group
+            label = "Events" label-for="textarea">
+            
+            <b-form-textarea style="width:1150px;"
+              id="textarea" v-model="message" :rows="20" :max-rows="20">
+            </b-form-textarea>
+            
+            <p></p>
+            
+            <b-form-textarea style="width:1150px;"
+              id="addcontext" v-model="addcontext" :rows="3" :max-rows="3">
+            </b-form-textarea>
+            
+
+<!--   <h2>This is vue-component b-button-toolbar</h2> -->            
+  <b-button-toolbar>
+    <b-button-group>  
+		<b-button v-on:click="clear">Clear events</b-button>  
+    </b-button-group>
+    <p></p>
+    <b-button-group>  
+		<b-button v-on:click="refresh1">Refresh grid1</b-button>  
+		<b-button v-on:click="refresh2">Refresh grid2</b-button>
+ 		<b-button v-on:click="refresh3">Refresh grid3</b-button>
+ 		<b-button v-on:click="refresh44">ALL Refresh grid1</b-button> 		
+    </b-button-group>
+    <p></p>
+  </b-button-toolbar>            
+            
+            
+</b-form-group>
+
+  <p></p>
+
+<!--
+	addcontext  = '{"part1": "part1","part2": "part2","refreshParams": {"selectKey": "","sort": "name desc,code desc","filter": "filter conditions"}}'
+	
+	
+	addcontext  = '{"part1": "part1","part2": "part2"}'
+		
+-->
+
+  <lyra-grid 
+  	formclass  = "testgrain.testgridform3vue.TestGridForm3vue"
+	instanceid="grid1"
+  	
+	maincontext = "This is mainContext for lyra-vue grid1"
+	addcontext  = '{"part1": "part1","part2": "part2","refreshParams": {"selectKey": "","sort": "ocatd","filter": ""}}'	
+
+	v-on:select="select1"
+	v-on:dblclick="dblclicked1"	
+	
+  >	
+  </lyra-grid>
+  
+  <p></p>
+  
+  <lyra-grid
+  	formclass  = "testgrain.testgridform3vue.TestGridForm3vue"
+   	instanceid="grid2"
+  	
+	maincontext = "This is mainContext for lyra-vue grid2"
+	addcontext  = '{"part1": "part1","part2": "part2","refreshParams": {"selectKey": "","sort": "code","filter": "filter conditions"}}'
+	
+	v-on:select="select2"
+	v-on:dblclick="dblclicked2"
+		
+  >	
+  </lyra-grid>
+  
+  <p></p>  
+  
+  <lyra-grid 
+  	formclass  = "testgrain.testgridform3vue.TestGridForm3vue"
+  	instanceid="grid3"  	 
+  	
+	maincontext = "This is mainContext for lyra-vue grid3"
+	addcontext  = '{"part1": "part1","part2": "part2","refreshParams": {"selectKey": "","sort": "name,code","filter": "filter conditions"}}'	
+	
+	v-on:select="select3"
+	v-on:dblclick="dblclicked3"
+		
+  >	
+  </lyra-grid>
+  
+  
+</div>
+
+
+<div id="example31">
+  <p></p>
+
+  <b-button-toolbar>
+    <b-button-group>  
+		<b-button v-on:click="refresh1">Refresh grid1</b-button>  
+		<b-button v-on:click="refresh2">Refresh grid2</b-button>
+ 		<b-button v-on:click="refresh3">Refresh grid3</b-button>
+    </b-button-group> 	
+  </b-button-toolbar>            
+              
+</div>
+
+
+
+
+

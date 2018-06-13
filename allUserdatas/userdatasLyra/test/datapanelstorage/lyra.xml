@@ -2,12 +2,28 @@
 <datapanel>
 
 
-
   <tab id="6" name="showcase (пустая таблица)">	
  	<element id="621" type="GRID" subtype="JS_LYRA_GRID" proc="testgrain.testgridform4.TestGridForm4" 
 	    plugin="lyraDGrid">
 	</element>
   </tab>
+  
+  
+  <tab id="17" name="lyra-vue">
+   <element id="1" type="jsForm" template="dijitFormButton.html" showLoadingMessage="true">
+      <proc id="submit01" name="jsFormSubmit" type="JSFORMSUBMIT" />
+      <proc id="submit02" name="jsForm.py" type="JSFORMSUBMIT" />
+    </element>
+    <element id="2" type="jsForm" template="closeModal.html" neverShowInPanel="true"/>    
+  </tab>
+
+
+<!--     <element id="1" type="jsForm" template="jsFormTemplate"/> -->
+<!--     <element id="1" type="jsForm" template="jsForm.py"/> -->
+ 
+
+<!--
+ -->  
 
 
 
@@ -32,6 +48,33 @@
 		<proc id="020101" name="testgrain.toolbar_grid_new" type="TOOLBAR"/>
 	</element>
   </tab>
+
+
+
+
+
+
+
+
+
+<!--
+  <tab id="18" name="lyra-vue2">
+   <element id="181" type="jsForm" template="dijitFormButton2.html" showLoadingMessage="true">
+      <proc id="submit01" name="jsFormSubmit" type="JSFORMSUBMIT" />
+      <proc id="submit02" name="jsForm.py" type="JSFORMSUBMIT" />
+    </element>
+    <element id="182" type="jsForm" template="closeModal.html" neverShowInPanel="true"/>    
+  </tab>
+-->
+
+
+
+
+
+
+
+
+
 
 
 

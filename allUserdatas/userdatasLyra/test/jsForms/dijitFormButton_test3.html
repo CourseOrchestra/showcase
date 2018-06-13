@@ -1,0 +1,65 @@
+
+
+<script type="text/javascript">
+
+
+require(["vue/vue"], function(Vue){		
+        
+        var example1 = new Vue({
+        	  el: '#example31',
+        	  data: {
+        	    message: 'Hello'
+        	  },
+        	  computed: {
+        	    // a computed getter
+        	    reversedMessage: function () {
+        	      // `this` points to the vm instance
+        	      return this.message.split('').reverse().join('')
+        	    }
+        	  }
+        	});
+        
+        
+        var example2 = new Vue({
+        	  el: '#example32',
+        	  data: {
+        	    counter: 0
+        	  }
+        	});
+        
+        
+        
+        
+	});
+	
+
+
+</script>
+
+
+
+
+<!-- 
+<link rel="stylesheet" href="js/vue/bootstrap.min.css" />
+ -->
+<link rel="stylesheet" href="js/vue/bootstrap-vue.css" />
+
+
+
+<div id="example31">
+  <p>Original message: "{{ message }}"</p>
+  <p>Computed reversed message: "{{ reversedMessage }}"</p>
+</div>
+
+<div id="example32">
+  <button v-on:click="counter += 1">Add</button>
+  <p>The button above has been clicked {{ counter }} times.</p>
+</div>
+
+              
+</div>
+
+
+
+
+

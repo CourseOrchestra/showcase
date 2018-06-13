@@ -42,12 +42,18 @@ class TestGridForm32(GridForm):
         
         self.getFormProperties().setHeader(u'''<h1 class="testStyle">'''+context.getShowcaseContext().getMain()+'''</h1>''')
         
-        if context.getShowcaseContext().getAdditional() == None:
-                print 'addcontext=None';
-                self.rec().tryFirst();
-        else: 
-                print 'addcontext="'+context.getShowcaseContext().getAdditional()+'"';
-                self.rec().code = context.getShowcaseContext().getAdditional()
+        #if context.getShowcaseContext().getAdditional() == None:
+        #        print 'addcontext=None';
+        #        self.rec().tryFirst();
+        #else: 
+        #        print 'addcontext="'+context.getShowcaseContext().getAdditional()+'"';
+        #        self.rec().code = context.getShowcaseContext().getAdditional()
+
+
+                
+
+        #self.rec().code = '59014001000027400'
+        self.rec().tryFirst();
                 
         
             

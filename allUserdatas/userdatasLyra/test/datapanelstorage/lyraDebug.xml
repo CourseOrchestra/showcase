@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+
+
+
+  <tab id="201" name="showcase (пустая таблица)">	
+ 	<element id="201" type="GRID" subtype="JS_LYRA_GRID" proc="testgrain.testgridform4.TestGridForm4" 
+	    plugin="lyraDGrid">
+	</element>
+  </tab>
+
+
+
+
+  <tab id="101" name="test1">
+   <element id="101" type="jsForm" template="dijitFormButton_test1.html" showLoadingMessage="true">
+    </element>
+  </tab>
+  <tab id="102" name="test2">
+   <element id="102" type="jsForm" template="dijitFormButton_test2.html" showLoadingMessage="true">
+    </element>
+  </tab>
+  <tab id="103" name="test3">
+   <element id="103" type="jsForm" template="dijitFormButton_test3.html" showLoadingMessage="true">
+    </element>
+  </tab>
+  <tab id="104" name="test4">
+   <element id="104" type="jsForm" template="dijitFormButton_test4.html" showLoadingMessage="true">
+    </element>
+  </tab>
+  
+  
+
+
+<!--
+ -->  
+
+  
+</datapanel>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

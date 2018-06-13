@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datapanel>
+
+
+  <tab id="1" name="Main">
+   <element id="1" type="jsForm" template="dijitFormButton1.html" showLoadingMessage="true">
+    </element>
+  </tab>
+  
+  <tab id="101" name="Столбцы">
+   <element id="101" type="jsForm" template="dijitFormButton101.html" showLoadingMessage="true">
+    </element>
+  </tab>
+
+  <tab id="2" name="Экспорт в Excel, Экспорт в буфер обмена">
+   <element id="2" type="jsForm" template="dijitFormButton2.html" showLoadingMessage="true">
+    </element>
+  </tab>
+  
+  <tab id="3" name="Download файлов">
+   <element id="3" type="jsForm" template="dijitFormButton3.html" showLoadingMessage="true">
+    </element>
+  </tab>
+  
+  <tab id="4" name="Задание css для строки грида, Выделение ячейки">
+   <element id="4" type="jsForm" template="dijitFormButton4.html" showLoadingMessage="true">
+    </element>
+  </tab>
+ 
+  <tab id="5" name="Профайлы">
+   <element id="5" type="jsForm" template="dijitFormButton5.html" showLoadingMessage="true">
+    </element>
+  </tab>
+
+  <tab id="6" name="Различные типы столбцов">
+   <element id="6" type="jsForm" template="dijitFormButton6.html" showLoadingMessage="true">
+    </element>
+  </tab>
+
+
+
+
+
+<!--
+ -->  
+
+  
+</datapanel>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

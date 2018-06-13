@@ -550,7 +550,9 @@ public class JSLiveGridPluginPanel extends JSBaseGridPluginPanel {
 				getToolBarHelper().fillToolBarImmediately();
 			}
 
+			// if (selected.recId == null) {
 			toolBarHelper.fillToolBar();
+			// }
 
 			runGrid(gridMetadata.getJSInfo().getCreateProc(), params);
 

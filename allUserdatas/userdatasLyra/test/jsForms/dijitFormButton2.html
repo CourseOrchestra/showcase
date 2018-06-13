@@ -1,0 +1,92 @@
+
+
+<script type="text/javascript">
+
+
+require(
+	[ "vue/vue", "vue/bootstrap-vue"], function(Vue, bootstrapVue){
+		
+		
+		Vue.use(bootstrapVue);
+		
+		//setTimeout(function(){
+			
+	        var example2 = new Vue({
+	        	  el: '#example22',
+	        	  
+	        	  data: {
+	        		  
+	          	  },
+	        	  
+	        	  methods: {
+	          	  	exportToClipboard: function () {
+	      	    		lyraGridEvents.$emit('export-to-clipboard','testgrain.testgridform32vue.TestGridForm32vue','grid4');
+	          	    },
+	          	  	exportToExcelCurrent: function () {
+	      	    		lyraGridEvents.$emit('export-to-excel','testgrain.testgridform32vue.TestGridForm32vue','grid4', 'current', 'lyraVueExportToExcelCurrent');
+	          	    },
+	          	  	exportToExcelAll: function () {
+	      	    		lyraGridEvents.$emit('export-to-excel','testgrain.testgridform32vue.TestGridForm32vue','grid4', 'all', 'lyraVueExportToExcelAll');
+	          	    },
+
+	          	  },
+	          	  
+	        });
+
+		//}, 0);
+		
+		
+        
+      	});
+        
+		
+        
+        
+
+	
+
+
+</script>
+
+
+
+
+<!--
+<link rel="stylesheet" href="js/vue/bootstrap.min.css" />
+-->
+ 
+<link rel="stylesheet" href="js/vue/bootstrap-vue.css" />
+
+
+
+<div id="example22">
+  
+<b-form-group>
+  <p></p>
+  <b-button-toolbar>
+    <b-button-group>
+		<b-button v-on:click="exportToClipboard">Clipboard</b-button>  
+		<b-button v-on:click="exportToExcelCurrent">Excel. Current</b-button>
+		<b-button v-on:click="exportToExcelAll">Excel. ALL</b-button>
+    </b-button-group> 	
+  </b-button-toolbar>
+  <p></p>
+</b-form-group>
+           
+  <p></p>           
+           
+  <lyra-grid 
+  	formclass  = "testgrain.testgridform32vue.TestGridForm32vue"
+  	instanceid="grid4"  	 
+	maincontext = "This is mainContext for lyra-vue grid32"
+	addcontext  = '{"part1": "part1","part2": "part2","refreshParams": {"selectKey": "","sort": "name,code","filter": "filter conditions"}}'
+  >	
+  </lyra-grid>
+           
+              
+</div>
+
+
+
+
+

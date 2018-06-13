@@ -56,6 +56,9 @@ create table street4(
 	socr varchar(10) NOT NULL,
 	--index varchar(6) NOT NULL,
 	gninmb varchar(4) NOT NULL,
+/**
+ {"visible": false}
+ */
 	uno varchar(4) NOT NULL,
 	ocatd varchar(11) NOT NULL
 	
@@ -74,6 +77,8 @@ create index ix_street43 on street4 (name, gninmb);
 
 create index ix_street44 on street4 (ocatd);
 
+create index ix_street45 on street4 (rnum);
+
 
 
 
@@ -91,6 +96,10 @@ create table street5(
 	
 	socr varchar(10) NOT NULL,
 	--index varchar(6) NOT NULL,
+	
+/**
+ {"visible": false}
+ */
 	gninmb varchar(4) NOT NULL,
 	uno varchar(4) NOT NULL,
 	ocatd varchar(11) NOT NULL
@@ -163,6 +172,37 @@ Logo varchar(255)  NULL,
 
 /**
  {"subtype": "DOWNLOAD", "linkId": "12"}
+ */
+File2 varchar(255) NULL,
+
+/**
+ {"subtype": "LINK"}
+ */
+Url varchar(255)  NULL
+);
+
+
+create table websitesVue (
+code int identity not null primary key,
+Name varchar(64) NOT NULL,
+
+/**
+ {"subtype": "IMAGE"}
+ */
+Picture varchar(255)  NULL,
+
+/**
+ {"subtype": "DOWNLOAD", "linkId": "testgrain.grid_download1"}
+ */
+File1 varchar(255) NULL,
+
+/**
+ {"subtype": "LINK", "width": 150}
+ */
+Logo varchar(255)  NULL,
+
+/**
+ {"subtype": "DOWNLOAD", "linkId": "testgrain.grid_download2"}
  */
 File2 varchar(255) NULL,
 

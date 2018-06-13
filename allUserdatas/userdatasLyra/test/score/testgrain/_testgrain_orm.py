@@ -1,5 +1,5 @@
 # coding=UTF-8
-# Source grain parameters: version=1.0, len=3452, crc32=905B2AFC; compiler=9.
+# Source grain parameters: version=1.0, len=4069, crc32=4934A888; compiler=12.
 """
 THIS MODULE IS BEING CREATED AUTOMATICALLY EVERY TIME CELESTA STARTS.
 DO NOT MODIFY IT AS YOUR CHANGES WILL BE LOST.
@@ -7,9 +7,11 @@ DO NOT MODIFY IT AS YOUR CHANGES WILL BE LOST.
 import ru.curs.celesta.dbutils.Cursor as Cursor
 import ru.curs.celesta.dbutils.ViewCursor as ViewCursor
 import ru.curs.celesta.dbutils.ReadOnlyTableCursor as ReadOnlyTableCursor
+import ru.curs.celesta.dbutils.MaterializedViewCursor as MaterializedViewCursor
+import ru.curs.celesta.dbutils.ParameterizedViewCursor as ParameterizedViewCursor
 from java.lang import Object
 from jarray import array
-from java.util import Calendar, GregorianCalendar
+from java.util import Calendar, GregorianCalendar, HashSet, HashMap
 from java.sql import Timestamp
 import datetime
 
@@ -30,8 +32,11 @@ class testCursor(Cursor):
     onPostInsert = []
     onPreUpdate  = []
     onPostUpdate = []
-    def __init__(self, context):
-        Cursor.__init__(self, context)
+    def __init__(self, context, fields = []):
+        if fields:
+            Cursor.__init__(self, context, HashSet(fields))
+        else:
+            Cursor.__init__(self, context)
         self.code = None
         self.attrVarchar = None
         self.attrInt = None
@@ -49,39 +54,50 @@ class testCursor(Cursor):
     def _tableName(self):
         return 'test'
     def _parseResult(self, rs):
-        self.code = rs.getInt('code')
-        if rs.wasNull():
-            self.code = None
-        self.attrVarchar = rs.getString('attrVarchar')
-        if rs.wasNull():
-            self.attrVarchar = None
-        self.attrInt = rs.getInt('attrInt')
-        if rs.wasNull():
-            self.attrInt = None
-        self.f1 = rs.getBoolean('f1')
-        if rs.wasNull():
-            self.f1 = None
-        self.f2 = rs.getBoolean('f2')
-        if rs.wasNull():
-            self.f2 = None
-        self.f4 = rs.getDouble('f4')
-        if rs.wasNull():
-            self.f4 = None
-        self.f5 = rs.getDouble('f5')
-        if rs.wasNull():
-            self.f5 = None
-        self.f6 = rs.getString('f6')
-        if rs.wasNull():
-            self.f6 = None
-        self.f7 = rs.getString('f7')
-        if rs.wasNull():
-            self.f7 = None
-        self.f8 = rs.getTimestamp('f8')
-        if rs.wasNull():
-            self.f8 = None
-        self.f9 = rs.getTimestamp('f9')
-        if rs.wasNull():
-            self.f9 = None
+        if self.inRec('code'):
+            self.code = rs.getInt('code')
+            if rs.wasNull():
+                self.code = None
+        if self.inRec('attrVarchar'):
+            self.attrVarchar = rs.getString('attrVarchar')
+            if rs.wasNull():
+                self.attrVarchar = None
+        if self.inRec('attrInt'):
+            self.attrInt = rs.getInt('attrInt')
+            if rs.wasNull():
+                self.attrInt = None
+        if self.inRec('f1'):
+            self.f1 = rs.getBoolean('f1')
+            if rs.wasNull():
+                self.f1 = None
+        if self.inRec('f2'):
+            self.f2 = rs.getBoolean('f2')
+            if rs.wasNull():
+                self.f2 = None
+        if self.inRec('f4'):
+            self.f4 = rs.getDouble('f4')
+            if rs.wasNull():
+                self.f4 = None
+        if self.inRec('f5'):
+            self.f5 = rs.getDouble('f5')
+            if rs.wasNull():
+                self.f5 = None
+        if self.inRec('f6'):
+            self.f6 = rs.getString('f6')
+            if rs.wasNull():
+                self.f6 = None
+        if self.inRec('f7'):
+            self.f7 = rs.getString('f7')
+            if rs.wasNull():
+                self.f7 = None
+        if self.inRec('f8'):
+            self.f8 = rs.getTimestamp('f8')
+            if rs.wasNull():
+                self.f8 = None
+        if self.inRec('f9'):
+            self.f9 = rs.getTimestamp('f9')
+            if rs.wasNull():
+                self.f9 = None
         self.recversion = rs.getInt('recversion')
     def _setFieldValue(self, name, value):
         setattr(self, name, value)
@@ -153,8 +169,11 @@ class streetCursor(Cursor):
     onPostInsert = []
     onPreUpdate  = []
     onPostUpdate = []
-    def __init__(self, context):
-        Cursor.__init__(self, context)
+    def __init__(self, context, fields = []):
+        if fields:
+            Cursor.__init__(self, context, HashSet(fields))
+        else:
+            Cursor.__init__(self, context)
         self.name = None
         self.rnum = None
         self.code = None
@@ -168,27 +187,34 @@ class streetCursor(Cursor):
     def _tableName(self):
         return 'street'
     def _parseResult(self, rs):
-        self.name = rs.getString('name')
-        if rs.wasNull():
-            self.name = None
-        self.rnum = rs.getInt('rnum')
-        if rs.wasNull():
-            self.rnum = None
-        self.code = rs.getString('code')
-        if rs.wasNull():
-            self.code = None
-        self.socr = rs.getString('socr')
-        if rs.wasNull():
-            self.socr = None
-        self.gninmb = rs.getString('gninmb')
-        if rs.wasNull():
-            self.gninmb = None
-        self.uno = rs.getString('uno')
-        if rs.wasNull():
-            self.uno = None
-        self.ocatd = rs.getString('ocatd')
-        if rs.wasNull():
-            self.ocatd = None
+        if self.inRec('name'):
+            self.name = rs.getString('name')
+            if rs.wasNull():
+                self.name = None
+        if self.inRec('rnum'):
+            self.rnum = rs.getInt('rnum')
+            if rs.wasNull():
+                self.rnum = None
+        if self.inRec('code'):
+            self.code = rs.getString('code')
+            if rs.wasNull():
+                self.code = None
+        if self.inRec('socr'):
+            self.socr = rs.getString('socr')
+            if rs.wasNull():
+                self.socr = None
+        if self.inRec('gninmb'):
+            self.gninmb = rs.getString('gninmb')
+            if rs.wasNull():
+                self.gninmb = None
+        if self.inRec('uno'):
+            self.uno = rs.getString('uno')
+            if rs.wasNull():
+                self.uno = None
+        if self.inRec('ocatd'):
+            self.ocatd = rs.getString('ocatd')
+            if rs.wasNull():
+                self.ocatd = None
         self.recversion = rs.getInt('recversion')
     def _setFieldValue(self, name, value):
         setattr(self, name, value)
@@ -252,8 +278,11 @@ class street4Cursor(Cursor):
     onPostInsert = []
     onPreUpdate  = []
     onPostUpdate = []
-    def __init__(self, context):
-        Cursor.__init__(self, context)
+    def __init__(self, context, fields = []):
+        if fields:
+            Cursor.__init__(self, context, HashSet(fields))
+        else:
+            Cursor.__init__(self, context)
         self.name = None
         self.rnum = None
         self.code = None
@@ -267,27 +296,34 @@ class street4Cursor(Cursor):
     def _tableName(self):
         return 'street4'
     def _parseResult(self, rs):
-        self.name = rs.getString('name')
-        if rs.wasNull():
-            self.name = None
-        self.rnum = rs.getInt('rnum')
-        if rs.wasNull():
-            self.rnum = None
-        self.code = rs.getString('code')
-        if rs.wasNull():
-            self.code = None
-        self.socr = rs.getString('socr')
-        if rs.wasNull():
-            self.socr = None
-        self.gninmb = rs.getString('gninmb')
-        if rs.wasNull():
-            self.gninmb = None
-        self.uno = rs.getString('uno')
-        if rs.wasNull():
-            self.uno = None
-        self.ocatd = rs.getString('ocatd')
-        if rs.wasNull():
-            self.ocatd = None
+        if self.inRec('name'):
+            self.name = rs.getString('name')
+            if rs.wasNull():
+                self.name = None
+        if self.inRec('rnum'):
+            self.rnum = rs.getInt('rnum')
+            if rs.wasNull():
+                self.rnum = None
+        if self.inRec('code'):
+            self.code = rs.getString('code')
+            if rs.wasNull():
+                self.code = None
+        if self.inRec('socr'):
+            self.socr = rs.getString('socr')
+            if rs.wasNull():
+                self.socr = None
+        if self.inRec('gninmb'):
+            self.gninmb = rs.getString('gninmb')
+            if rs.wasNull():
+                self.gninmb = None
+        if self.inRec('uno'):
+            self.uno = rs.getString('uno')
+            if rs.wasNull():
+                self.uno = None
+        if self.inRec('ocatd'):
+            self.ocatd = rs.getString('ocatd')
+            if rs.wasNull():
+                self.ocatd = None
         self.recversion = rs.getInt('recversion')
     def _setFieldValue(self, name, value):
         setattr(self, name, value)
@@ -351,8 +387,11 @@ class street5Cursor(Cursor):
     onPostInsert = []
     onPreUpdate  = []
     onPostUpdate = []
-    def __init__(self, context):
-        Cursor.__init__(self, context)
+    def __init__(self, context, fields = []):
+        if fields:
+            Cursor.__init__(self, context, HashSet(fields))
+        else:
+            Cursor.__init__(self, context)
         self.name = None
         self.rnum = None
         self.code = None
@@ -366,27 +405,34 @@ class street5Cursor(Cursor):
     def _tableName(self):
         return 'street5'
     def _parseResult(self, rs):
-        self.name = rs.getString('name')
-        if rs.wasNull():
-            self.name = None
-        self.rnum = rs.getInt('rnum')
-        if rs.wasNull():
-            self.rnum = None
-        self.code = rs.getString('code')
-        if rs.wasNull():
-            self.code = None
-        self.socr = rs.getString('socr')
-        if rs.wasNull():
-            self.socr = None
-        self.gninmb = rs.getString('gninmb')
-        if rs.wasNull():
-            self.gninmb = None
-        self.uno = rs.getString('uno')
-        if rs.wasNull():
-            self.uno = None
-        self.ocatd = rs.getString('ocatd')
-        if rs.wasNull():
-            self.ocatd = None
+        if self.inRec('name'):
+            self.name = rs.getString('name')
+            if rs.wasNull():
+                self.name = None
+        if self.inRec('rnum'):
+            self.rnum = rs.getInt('rnum')
+            if rs.wasNull():
+                self.rnum = None
+        if self.inRec('code'):
+            self.code = rs.getString('code')
+            if rs.wasNull():
+                self.code = None
+        if self.inRec('socr'):
+            self.socr = rs.getString('socr')
+            if rs.wasNull():
+                self.socr = None
+        if self.inRec('gninmb'):
+            self.gninmb = rs.getString('gninmb')
+            if rs.wasNull():
+                self.gninmb = None
+        if self.inRec('uno'):
+            self.uno = rs.getString('uno')
+            if rs.wasNull():
+                self.uno = None
+        if self.inRec('ocatd'):
+            self.ocatd = rs.getString('ocatd')
+            if rs.wasNull():
+                self.ocatd = None
         self.recversion = rs.getInt('recversion')
     def _setFieldValue(self, name, value):
         setattr(self, name, value)
@@ -450,8 +496,11 @@ class street6Cursor(Cursor):
     onPostInsert = []
     onPreUpdate  = []
     onPostUpdate = []
-    def __init__(self, context):
-        Cursor.__init__(self, context)
+    def __init__(self, context, fields = []):
+        if fields:
+            Cursor.__init__(self, context, HashSet(fields))
+        else:
+            Cursor.__init__(self, context)
         self.name = None
         self.rnum = None
         self.code = None
@@ -465,27 +514,34 @@ class street6Cursor(Cursor):
     def _tableName(self):
         return 'street6'
     def _parseResult(self, rs):
-        self.name = rs.getString('name')
-        if rs.wasNull():
-            self.name = None
-        self.rnum = rs.getInt('rnum')
-        if rs.wasNull():
-            self.rnum = None
-        self.code = rs.getString('code')
-        if rs.wasNull():
-            self.code = None
-        self.socr = rs.getString('socr')
-        if rs.wasNull():
-            self.socr = None
-        self.gninmb = rs.getString('gninmb')
-        if rs.wasNull():
-            self.gninmb = None
-        self.uno = rs.getString('uno')
-        if rs.wasNull():
-            self.uno = None
-        self.ocatd = rs.getString('ocatd')
-        if rs.wasNull():
-            self.ocatd = None
+        if self.inRec('name'):
+            self.name = rs.getString('name')
+            if rs.wasNull():
+                self.name = None
+        if self.inRec('rnum'):
+            self.rnum = rs.getInt('rnum')
+            if rs.wasNull():
+                self.rnum = None
+        if self.inRec('code'):
+            self.code = rs.getString('code')
+            if rs.wasNull():
+                self.code = None
+        if self.inRec('socr'):
+            self.socr = rs.getString('socr')
+            if rs.wasNull():
+                self.socr = None
+        if self.inRec('gninmb'):
+            self.gninmb = rs.getString('gninmb')
+            if rs.wasNull():
+                self.gninmb = None
+        if self.inRec('uno'):
+            self.uno = rs.getString('uno')
+            if rs.wasNull():
+                self.uno = None
+        if self.inRec('ocatd'):
+            self.ocatd = rs.getString('ocatd')
+            if rs.wasNull():
+                self.ocatd = None
         self.recversion = rs.getInt('recversion')
     def _setFieldValue(self, name, value):
         setattr(self, name, value)
@@ -549,8 +605,11 @@ class test2Cursor(Cursor):
     onPostInsert = []
     onPreUpdate  = []
     onPostUpdate = []
-    def __init__(self, context):
-        Cursor.__init__(self, context)
+    def __init__(self, context, fields = []):
+        if fields:
+            Cursor.__init__(self, context, HashSet(fields))
+        else:
+            Cursor.__init__(self, context)
         self.code = None
         self.name = None
         self.context = context
@@ -559,12 +618,14 @@ class test2Cursor(Cursor):
     def _tableName(self):
         return 'test2'
     def _parseResult(self, rs):
-        self.code = rs.getInt('code')
-        if rs.wasNull():
-            self.code = None
-        self.name = rs.getString('name')
-        if rs.wasNull():
-            self.name = None
+        if self.inRec('code'):
+            self.code = rs.getInt('code')
+            if rs.wasNull():
+                self.code = None
+        if self.inRec('name'):
+            self.name = rs.getString('name')
+            if rs.wasNull():
+                self.name = None
         self.recversion = rs.getInt('recversion')
     def _setFieldValue(self, name, value):
         setattr(self, name, value)
@@ -618,8 +679,11 @@ class websitesCursor(Cursor):
     onPostInsert = []
     onPreUpdate  = []
     onPostUpdate = []
-    def __init__(self, context):
-        Cursor.__init__(self, context)
+    def __init__(self, context, fields = []):
+        if fields:
+            Cursor.__init__(self, context, HashSet(fields))
+        else:
+            Cursor.__init__(self, context)
         self.code = None
         self.Name = None
         self.Picture = None
@@ -633,27 +697,34 @@ class websitesCursor(Cursor):
     def _tableName(self):
         return 'websites'
     def _parseResult(self, rs):
-        self.code = rs.getInt('code')
-        if rs.wasNull():
-            self.code = None
-        self.Name = rs.getString('Name')
-        if rs.wasNull():
-            self.Name = None
-        self.Picture = rs.getString('Picture')
-        if rs.wasNull():
-            self.Picture = None
-        self.File1 = rs.getString('File1')
-        if rs.wasNull():
-            self.File1 = None
-        self.Logo = rs.getString('Logo')
-        if rs.wasNull():
-            self.Logo = None
-        self.File2 = rs.getString('File2')
-        if rs.wasNull():
-            self.File2 = None
-        self.Url = rs.getString('Url')
-        if rs.wasNull():
-            self.Url = None
+        if self.inRec('code'):
+            self.code = rs.getInt('code')
+            if rs.wasNull():
+                self.code = None
+        if self.inRec('Name'):
+            self.Name = rs.getString('Name')
+            if rs.wasNull():
+                self.Name = None
+        if self.inRec('Picture'):
+            self.Picture = rs.getString('Picture')
+            if rs.wasNull():
+                self.Picture = None
+        if self.inRec('File1'):
+            self.File1 = rs.getString('File1')
+            if rs.wasNull():
+                self.File1 = None
+        if self.inRec('Logo'):
+            self.Logo = rs.getString('Logo')
+            if rs.wasNull():
+                self.Logo = None
+        if self.inRec('File2'):
+            self.File2 = rs.getString('File2')
+            if rs.wasNull():
+                self.File2 = None
+        if self.inRec('Url'):
+            self.Url = rs.getString('Url')
+            if rs.wasNull():
+                self.Url = None
         self.recversion = rs.getInt('recversion')
     def _setFieldValue(self, name, value):
         setattr(self, name, value)
@@ -692,6 +763,115 @@ class websitesCursor(Cursor):
             f(self)
     def _getBufferCopy(self, context):
         result = websitesCursor(context)
+        result.copyFieldsFrom(self)
+        return result
+    def copyFieldsFrom(self, c):
+        self.code = c.code
+        self.Name = c.Name
+        self.Picture = c.Picture
+        self.File1 = c.File1
+        self.Logo = c.Logo
+        self.File2 = c.File2
+        self.Url = c.Url
+        self.recversion = c.recversion
+    def iterate(self):
+        if self.tryFindSet():
+            while True:
+                yield self
+                if not self.nextInSet():
+                    break
+
+class websitesVueCursor(Cursor):
+    onPreDelete  = []
+    onPostDelete = []
+    onPreInsert  = []
+    onPostInsert = []
+    onPreUpdate  = []
+    onPostUpdate = []
+    def __init__(self, context, fields = []):
+        if fields:
+            Cursor.__init__(self, context, HashSet(fields))
+        else:
+            Cursor.__init__(self, context)
+        self.code = None
+        self.Name = None
+        self.Picture = None
+        self.File1 = None
+        self.Logo = None
+        self.File2 = None
+        self.Url = None
+        self.context = context
+    def _grainName(self):
+        return 'testgrain'
+    def _tableName(self):
+        return 'websitesVue'
+    def _parseResult(self, rs):
+        if self.inRec('code'):
+            self.code = rs.getInt('code')
+            if rs.wasNull():
+                self.code = None
+        if self.inRec('Name'):
+            self.Name = rs.getString('Name')
+            if rs.wasNull():
+                self.Name = None
+        if self.inRec('Picture'):
+            self.Picture = rs.getString('Picture')
+            if rs.wasNull():
+                self.Picture = None
+        if self.inRec('File1'):
+            self.File1 = rs.getString('File1')
+            if rs.wasNull():
+                self.File1 = None
+        if self.inRec('Logo'):
+            self.Logo = rs.getString('Logo')
+            if rs.wasNull():
+                self.Logo = None
+        if self.inRec('File2'):
+            self.File2 = rs.getString('File2')
+            if rs.wasNull():
+                self.File2 = None
+        if self.inRec('Url'):
+            self.Url = rs.getString('Url')
+            if rs.wasNull():
+                self.Url = None
+        self.recversion = rs.getInt('recversion')
+    def _setFieldValue(self, name, value):
+        setattr(self, name, value)
+    def _clearBuffer(self, withKeys):
+        if withKeys:
+            self.code = None
+        self.Name = None
+        self.Picture = None
+        self.File1 = None
+        self.Logo = None
+        self.File2 = None
+        self.Url = None
+    def _currentKeyValues(self):
+        return array([None if self.code == None else int(self.code)], Object)
+    def _currentValues(self):
+        return array([None if self.code == None else int(self.code), None if self.Name == None else unicode(self.Name), None if self.Picture == None else unicode(self.Picture), None if self.File1 == None else unicode(self.File1), None if self.Logo == None else unicode(self.Logo), None if self.File2 == None else unicode(self.File2), None if self.Url == None else unicode(self.Url)], Object)
+    def _setAutoIncrement(self, val):
+        self.code = val
+    def _preDelete(self):
+        for f in websitesVueCursor.onPreDelete:
+            f(self)
+    def _postDelete(self):
+        for f in websitesVueCursor.onPostDelete:
+            f(self)
+    def _preInsert(self):
+        for f in websitesVueCursor.onPreInsert:
+            f(self)
+    def _postInsert(self):
+        for f in websitesVueCursor.onPostInsert:
+            f(self)
+    def _preUpdate(self):
+        for f in websitesVueCursor.onPreUpdate:
+            f(self)
+    def _postUpdate(self):
+        for f in websitesVueCursor.onPostUpdate:
+            f(self)
+    def _getBufferCopy(self, context):
+        result = websitesVueCursor(context)
         result.copyFieldsFrom(self)
         return result
     def copyFieldsFrom(self, c):

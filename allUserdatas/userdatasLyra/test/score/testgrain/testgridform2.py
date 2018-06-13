@@ -24,5 +24,6 @@ class TestGridForm2(GridForm):
     
 
     def getGridHeight(self):
-        return 20
+        #return 20
+        return 50    
 

@@ -1,0 +1,134 @@
+
+
+<script type="text/javascript">
+
+
+require(
+	[ "vue/vue", "vue/bootstrap-vue"], function(Vue, bootstrapVue){
+		
+		Vue.use(bootstrapVue);
+		
+		
+		
+	        var example2 = new Vue({
+	        	  el: '#example201',
+	        	  
+	        	  data: {
+	        		  message: '',
+        			  addcontext:
+        				'{'+
+	    				'"part1": "part1",'+
+  	    				'"part2": "part2",'+	
+
+  	    				'"refreshParams": {'+
+  	    			    //74000004000079300
+  	    			    //current
+  	    				'"selectKey": "current",'+          	    				
+  	    				'"sort": "name,code",'+          	    				
+  	    				//'"sort": "ocatd",'+
+  	    				'"filter": "filter conditions"'+
+  	    				'}'+
+  	    				'}'
+	        		  
+	          	  },
+	        	  
+	        	  methods: {
+	          	    
+	          	  	hideColumns: function () {
+	          	  	    var arr = [{id:"code",visible:false},{id:"socr",visible:false}];
+	      	    		lyraGridEvents.$emit('set-columns-visibility','testgrain.testgridform38vue.TestGridForm38vue','grid9', arr);
+	          	    },
+	          	  	showColumns: function () {
+	          	  	    var arr = [{id:"code",visible:true},{id:"socr",visible:true}];
+	      	    		lyraGridEvents.$emit('set-columns-visibility','testgrain.testgridform38vue.TestGridForm38vue','grid9', arr);
+	          	  	},
+
+	          	  
+	          	  	columnsInfo: function (formClass, instanceId, obj) {
+	              		this.message = this.message+'\n'+"event:columns-info"+'\n'+"formClass="+formClass+", instanceId="+instanceId+'\n'+JSON.stringify(obj);
+	              	},
+	          	    
+		          	clear: function () {
+	              		this.message = '';
+	              	},
+	          	    
+	          	    
+	          	  },
+	          	  
+	              mounted: function () {
+		    	  }
+	          	  
+	        });
+
+		//}, 0);
+		
+		
+        
+        
+        
+	});
+	
+
+
+</script>
+
+
+
+
+<!-- 
+<link rel="stylesheet" href="js/vue/bootstrap.min.css" />
+ -->
+<link rel="stylesheet" href="js/vue/bootstrap-vue.css" />
+
+
+
+<div id="example201">
+  
+<b-form-group
+            label = "Events" label-for="textarea">
+            
+            <b-form-textarea style="width:1150px;"
+              id="textarea" v-model="message" :rows="20" :max-rows="20">
+            </b-form-textarea>
+            
+            <p></p>
+            
+
+<!--   <h2>This is vue-component b-button-toolbar</h2> -->            
+  <b-button-toolbar>
+    <b-button-group>  
+		<b-button v-on:click="clear">Clear events</b-button>  
+    </b-button-group>
+    <p></p>
+    <p></p>    
+    <b-button-group>
+		<b-button v-on:click="hideColumns">hideColumns</b-button>  
+		<b-button v-on:click="showColumns">showColumns</b-button>		
+    </b-button-group>
+    <p></p>
+  </b-button-toolbar>            
+            
+            
+</b-form-group>
+
+  <lyra-grid 
+  	formclass  = "testgrain.testgridform38vue.TestGridForm38vue"
+  	instanceid="grid9"
+	maincontext = "This is mainContext for lyra-vue grid9"
+	addcontext  = '{"part1": "part1","part2": "part2","refreshParams": {"selectKey": "","sort": "name,code","filter": ""}}'
+	
+	v-on:columns-info="columnsInfo"
+	
+  >	
+  </lyra-grid>
+
+  
+  
+</div>
+
+
+
+
+
+
+

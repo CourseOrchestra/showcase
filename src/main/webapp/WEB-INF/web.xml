@@ -81,7 +81,7 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   <session-config>
-    <session-timeout>30</session-timeout>
+    <session-timeout>300</session-timeout>
   </session-config>
   <filter>
     <filter-name>CacheControlFilter</filter-name>
@@ -127,12 +127,29 @@
     <url-pattern>/secured/JSSelectorService</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>JSTreeSelectorService</servlet-name>
+    <servlet-class>ru.curs.showcase.app.server.JSTreeSelectorService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JSTreeSelectorService</servlet-name>
+    <url-pattern>/secured/JSTreeSelectorService</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>JSLyraGridService</servlet-name>
     <servlet-class>ru.curs.showcase.app.server.JSLyraGridService</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>JSLyraGridService</servlet-name>
     <url-pattern>/secured/JSLyraGridService</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>JSLyraVueGridService</servlet-name>
+    <servlet-class>ru.curs.showcase.app.server.JSLyraVueGridService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JSLyraVueGridService</servlet-name>
+    <url-pattern>/secured/JSLyraVueGridMeta</url-pattern>
+    <url-pattern>/secured/JSLyraVueGridData</url-pattern>    
   </servlet-mapping>
   <servlet>
     <servlet-name>MeasureDownloadSpeed</servlet-name>
@@ -179,6 +196,22 @@
   <servlet-mapping>
     <servlet-name>isAuthenticatedServlet</servlet-name>
     <url-pattern>/auth/isAuthenticatedServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>isAutologinServlet</servlet-name>
+    <servlet-class>ru.curs.showcase.security.ShowcaseIsAutologinServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>isAutologinServlet</servlet-name>
+    <url-pattern>/auth/isAutologinServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowcaseFileUploader</servlet-name>
+    <servlet-class>ru.curs.showcase.app.server.file.ShowcaseFileUploader</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowcaseFileUploader</servlet-name>
+    <url-pattern>/fileupload</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>logoutServlet</servlet-name>

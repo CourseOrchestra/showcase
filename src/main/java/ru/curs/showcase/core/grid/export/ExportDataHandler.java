@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import com.google.gwt.user.client.rpc.SerializationException;
 import com.google.gwt.user.server.rpc.impl.ServerSerializationStreamReader;
 
-import ru.curs.showcase.app.api.datapanel.*;
+import ru.curs.showcase.app.api.datapanel.DataPanelElementInfo;
 import ru.curs.showcase.app.api.event.CompositeContext;
 import ru.curs.showcase.app.api.grid.*;
 import ru.curs.showcase.app.server.*;
@@ -33,13 +33,22 @@ public class ExportDataHandler {
 			if (eInfo.getExportDataProc() == null
 					|| GridToExcelExportType.CURRENTPAGE.equals(gridToExcelExportType)) {
 				// Прежний функционал выгрузки в Excel
-				if (eInfo.getSubtype() == DataPanelElementSubType.JS_LYRA_GRID) {
-					LyraGridToExcelHandler handler = new LyraGridToExcelHandler();
-					handler.handle(request, response);
-				} else {
-					GridToExcelHandler handler = new GridToExcelHandler();
-					handler.handle(request, response);
+
+				switch (eInfo.getSubtype()) {
+				case JS_LYRA_GRID:
+					LyraGridToExcelHandler lyraGridToExcelHandler = new LyraGridToExcelHandler();
+					lyraGridToExcelHandler.handle(request, response);
+					break;
+				case JS_LYRA_VUE_GRID:
+					LyraVueGridToExcelHandler lyraVueGridToExcelHandler =
+						new LyraVueGridToExcelHandler();
+					lyraVueGridToExcelHandler.handle(request, response);
+					break;
+				default:
+					GridToExcelHandler gridToExcelHandler = new GridToExcelHandler();
+					gridToExcelHandler.handle(request, response);
 				}
+
 				return;
 			}
 

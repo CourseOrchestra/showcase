@@ -1,4 +1,7 @@
 # coding=UTF-8
+
+import json
+
 from lyra.gridForm import GridForm
 from lyra.basicForm import form
 from lyra.basicForm import formfield
@@ -39,8 +42,23 @@ class TestGridForm3(GridForm):
         
         
     def _beforeShow(self, context):
+        print 'LLLLLLLLLLLLLLL44.__beforeShow'
+        print 'Main'
+        print context.getShowcaseContext().getMain();
+        print 'Additional'
+        print context.getShowcaseContext().getAdditional();
+        print 'Filter'
+        print context.getShowcaseContext().getFilter();
+        print 'Session'
+        print context.getShowcaseContext().getSession();
+        print 'ElementId'
+        print context.getShowcaseContext().getElementId();
+        print 'OrderBy'
+        print context.getShowcaseContext().getOrderBy();
+        
         
         self.getFormProperties().setHeader(u'''<h1 class="testStyle">'''+context.getShowcaseContext().getMain()+'''</h1>''')
+        
         
         if context.getShowcaseContext().getAdditional() == None:
                 print 'addcontext=None';
@@ -48,7 +66,14 @@ class TestGridForm3(GridForm):
         else: 
                 print 'addcontext="'+context.getShowcaseContext().getAdditional()+'"';
                 self.rec().code = context.getShowcaseContext().getAdditional()
+
+
+        #self.rec().code = '03007000023001900'
+        #self.rec().rnum = u'''967025'''
+        #self.rec().gnimb = '7725'
+        #self.rec().code = '63012000044006700'
                 
+        #self.rec().code = '03007000023001900'
         
             
         
@@ -56,25 +81,39 @@ class TestGridForm3(GridForm):
         
         #raise Exception(u"ddddddd")        
 
-        print 'ffffffffffffffffffffffff44._getCursor'
+        print 'LLLLLLLLLLLLLLL44._getCursor'
+        print 'Main'
         print context.getShowcaseContext().getMain();
+        print 'Additional'
+        print context.getShowcaseContext().getAdditional();
+        print 'Filter'
+        print context.getShowcaseContext().getFilter();
+        print 'Session'
+        print context.getShowcaseContext().getSession();
+        print 'ElementId'
+        print context.getShowcaseContext().getElementId();
+        print 'OrderBy'
         print context.getShowcaseContext().getOrderBy();
+        
 
         c = street4Cursor(context)
         
         
+        
         if context.getShowcaseContext().getOrderBy() == None:
                 print '1'
-                c.orderBy('name')
-#                c.orderBy('uno')
+                c.orderBy('name')                
+#                c.orderBy('ocatd')
+
         else: 
                 print '2'
                 c.orderBy(*context.getShowcaseContext().getOrderBy())
                 
                 self.getFormProperties().setFooter(u'''<h1 class="testStyle">'''+context.getShowcaseContext().getOrderBy()[0]+'''</h1>''')
                 
-       
+      
 #        c.orderBy('name')
+#        c.orderBy('uno')
 #        c.orderBy('code DESC')
 #        c.orderBy('name DESC', 'code DESC')
 #        c.orderBy('name aSC')
@@ -94,6 +133,7 @@ class TestGridForm3(GridForm):
     
     def get_properties_(self):
         
+        
         name = self.rec()._currentValues()[0]
         
         ret = u'''
@@ -104,6 +144,7 @@ class TestGridForm3(GridForm):
         <styleClass name="jslivegrid-record-bold"/>
         <styleClass name="jslivegrid-record-italic"/>
 -->        
+        
         
 
                     <event name="row_single_click">
