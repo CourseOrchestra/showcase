@@ -49,11 +49,6 @@
 	
 <dependencies>
 
-<dependency>
-    <groupId>org.json</groupId>
-    <artifactId>json</artifactId>
-    <version>20180130</version>
-</dependency>
 
 
 <dependency>
@@ -69,6 +64,12 @@
             <version>6.1-SNAPSHOT</version>
     </dependency>
  
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20171018</version>
+</dependency>
+
  
     <dependency>
       <groupId>com.google.gwt</groupId>
