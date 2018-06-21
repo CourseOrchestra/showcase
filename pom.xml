@@ -7,6 +7,14 @@
   <name>showcase</name>
   <description>Showcase - GPL platform for business logic development</description>
   
+<!--   <distributionManagement> -->
+<!-- 		<repository> -->
+<!-- 			<id>curs</id> -->
+<!-- 			<url>http://nexus.curs.ru:8081/repository/curs</url> -->
+<!-- 		</repository> -->
+<!-- </distributionManagement>  -->
+  
+  
   <organization>
         <name>CURS</name>
         <url>https://corchestra.ru</url>
@@ -40,6 +48,13 @@
   </scm> -->
 	
 <dependencies>
+
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20180130</version>
+</dependency>
+
 
 <dependency>
       <groupId>com.google.gwt</groupId>
@@ -975,11 +990,11 @@
 	<scope>provided</scope>
 </dependency>
 
-<dependency>
-    <groupId>org.json</groupId>
-    <artifactId>java-json</artifactId>
-    <version>1.0.0</version>
-</dependency>
+<!-- <dependency> -->
+<!--     <groupId>org.json</groupId> -->
+<!--     <artifactId>java-json</artifactId> -->
+<!--     <version>1.0.0</version> -->
+<!-- </dependency> -->
 
 <dependency>
     <groupId>javax.activation</groupId>
