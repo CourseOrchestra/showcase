@@ -7,14 +7,6 @@
   <name>showcase</name>
   <description>Showcase - GPL platform for business logic development</description>
   
-<!--   <distributionManagement> -->
-<!-- 		<repository> -->
-<!-- 			<id>curs</id> -->
-<!-- 			<url>http://nexus.curs.ru:8081/repository/curs</url> -->
-<!-- 		</repository> -->
-<!-- </distributionManagement>  -->
-  
-  
   <organization>
         <name>CURS</name>
         <url>https://corchestra.ru</url>
