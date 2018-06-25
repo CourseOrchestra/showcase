@@ -283,6 +283,14 @@ require(
 </b-form-group>
 
   <p></p>
+  
+  <lyra-grid 
+  	formclass  = "testgrain.testgridform39vue.TestGridForm39vue"
+  	instanceid="grid10"
+	maincontext = "This is mainContext for lyra-vue grid10"
+	addcontext  = '{"part1": "part1","part2": "part2","refreshParams": {"selectKey": "","sort": "name,code","filter": ""}}'
+  >	
+  </lyra-grid>
 
   <lyra-grid 
   	formclass  = "testgrain.testgridform38vue.TestGridForm38vue"
@@ -291,7 +299,6 @@ require(
 	addcontext  = '{"part1": "part1","part2": "part2","refreshParams": {"selectKey": "","sort": "name,code","filter": ""}}'
 	
 	v-on:columns-info="columnsInfo"
-	
   >	
   </lyra-grid>
 

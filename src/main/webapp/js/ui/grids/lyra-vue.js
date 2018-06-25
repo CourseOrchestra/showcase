@@ -113,10 +113,11 @@ function createLyraVueDGrid(userdata, vueComponent, parentId, gridDivId, metadat
 		         "dstore/QueryResults",
 				 "dstore/Rest",
 				 "dstore/Cache",
-		     	 "dojo/when",	         
+		     	 "dojo/when",	  
+		         "dojo/dom-construct",		     	 
 				 "dojo/domReady!"
 		         ],	function(
-		        	 lang, List, Grid, ColumnResizer, ColumnHider, ColumnReorder, Selection, CellSelection, Keyboard, declare, QueryResults, Rest, Cache, when, domReady	        		 
+		        	 lang, List, Grid, ColumnResizer, ColumnHider, ColumnReorder, Selection, CellSelection, Keyboard, declare, QueryResults, Rest, Cache, when, domConstruct, domReady	        		 
 			     ){
 	    	
 			
@@ -406,7 +407,61 @@ function createLyraVueDGrid(userdata, vueComponent, parentId, gridDivId, metadat
 				
 				userdata: userdata,
 				formClass: formClass,
-				instanceId: instanceId
+				instanceId: instanceId,
+				
+				
+				
+				showFooter: metadata["common"]["summaryRow"],
+
+				summary: metadata["common"]["summaryRow"] ? JSON.parse(metadata["common"]["summaryRow"]) : null,
+				
+		        buildRendering: function () {
+		            this.inherited(arguments);
+		 
+		            var areaNode = this.summaryAreaNode =
+		                domConstruct.create('div', {
+		                    className: 'summary-row',
+		                    role: 'row',
+		                    style: { overflow: 'hidden' }
+		                }, this.footerNode);
+
+		            this.on('scroll', lang.hitch(this, function () {
+		                areaNode.scrollLeft = this.getScrollPosition().x;
+		            }));
+		        },
+		 
+		        _updateColumns: function () {
+		            this.inherited(arguments);
+		            if (this.summary) {
+		                this._setSummary(this.summary);
+		            }
+		        },
+		 
+		        _renderSummaryCell: function (item, cell, column) {
+		            var value = item[column.field] || '';
+		            cell.appendChild(document.createTextNode(value));
+		        },
+		 
+		        _setSummary: function (data) {
+		            var tableNode = this.summaryTableNode;
+		 
+		            this.summary = data;
+		 
+		            if (tableNode) {
+		                domConstruct.destroy(tableNode);
+		            }
+		 
+		            tableNode = this.summaryTableNode =
+		                this.createRowCells('td',
+		                    lang.hitch(this, '_renderSummaryCell', data));
+		            this.summaryAreaNode.appendChild(tableNode);
+		 
+		            if (this._started) {
+		                this.resize();
+		            }
+		        }
+				
+				
 				
 			},  gridDivId);
 		    arrGrids[parentId] = grid;
@@ -541,7 +596,20 @@ function createLyraVueDGrid(userdata, vueComponent, parentId, gridDivId, metadat
 				grid.styleColumn(metadata["columns"][k]["id"], metadata["columns"][k]["style"]);
 			}
 			
-			
+	        if (grid.summary) {
+	        	grid._setSummary(grid.summary);
+	        	grid._adjustFooterCellsWidths();
+	        }
+
+	        
+			grid.on("dgrid-columnreorder", function(event){
+				setTimeout(function(){
+	    	        if (event.grid.summary) {
+	    	        	event.grid._adjustFooterCellsWidths();
+	    	        }
+				});
+			});
+	        
 			grid.on("dgrid-select", function(event){
 				if(event.parentType && ((event.parentType.indexOf("mouse") > -1) || (event.parentType.indexOf("pointer") > -1))){
 					return;

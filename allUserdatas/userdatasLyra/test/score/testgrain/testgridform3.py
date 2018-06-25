@@ -129,6 +129,18 @@ class TestGridForm3(GridForm):
 
     def getGridHeight(self):
         return 50
+
+    
+    def getSummaryRow(self):
+        return u'''
+            {
+                "name": "NAME",
+                "rnum": "RNUM",    
+                "code": "CODE",        
+                "socr": "SOCR",        
+                "gninmb": "GNINMB",        
+                "ocatd": "OCATD"        
+            }'''
     
     
     def get_properties_(self):

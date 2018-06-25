@@ -2,6 +2,19 @@
 <datapanel>
 
 
+  <tab id="5" name="showcase (actions, ...)">	
+ 	<element id="521" type="GRID" subtype="JS_LYRA_GRID" proc="testgrain.testgridform3.TestGridForm3">
+	    
+		<proc id="020101" name="testgrain.toolbar_grid_new" type="TOOLBAR"/>
+	    			
+	</element>
+	
+	<element id="443" type="webtext" proc="webtext/selectedRowWriter.py" hideOnLoad="true" />		 
+	<element id="444" type="webtext" proc="testgrain.webtext_filter_and_add" hideOnLoad="true" />
+	
+  </tab>
+
+
   <tab id="6" name="showcase (пустая таблица)">	
  	<element id="621" type="GRID" subtype="JS_LYRA_GRID" proc="testgrain.testgridform4.TestGridForm4" 
 	    plugin="lyraDGrid">
@@ -28,17 +41,6 @@
 
 
 
-  <tab id="5" name="showcase (actions, ...)">	
- 	<element id="521" type="GRID" subtype="JS_LYRA_GRID" proc="testgrain.testgridform3.TestGridForm3">
-	    
-		<proc id="020101" name="testgrain.toolbar_grid_new" type="TOOLBAR"/>
-	    			
-	</element>
-	
-	<element id="443" type="webtext" proc="webtext/selectedRowWriter.py" hideOnLoad="true" />		 
-	<element id="444" type="webtext" proc="testgrain.webtext_filter_and_add" hideOnLoad="true" />
-	
-  </tab>
 
 
 

@@ -12,6 +12,11 @@
     </element>
   </tab>
 
+  <tab id="102" name="Итоговая строка">
+   <element id="102" type="jsForm" template="dijitFormButton102.html" showLoadingMessage="true">
+    </element>
+  </tab>
+
   <tab id="2" name="Экспорт в Excel, Экспорт в буфер обмена">
    <element id="2" type="jsForm" template="dijitFormButton2.html" showLoadingMessage="true">
     </element>

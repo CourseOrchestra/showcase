@@ -129,6 +129,8 @@ public class LyraGridMetaFactory {
 			result.setFooter(basicGridForm.getFormProperties().getFooter());
 		}
 
+		result.setSummaryRow(basicGridForm.getSummaryRow());
+
 		if (basicGridForm.orderByColumnNames().length > 1) {
 			String s = "";
 			for (int i = 0; i < basicGridForm.orderByColumnNames().length; i++) {

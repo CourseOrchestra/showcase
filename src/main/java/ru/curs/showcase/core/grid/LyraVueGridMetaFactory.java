@@ -329,6 +329,11 @@ public class LyraVueGridMetaFactory {
 			common.put("primaryKey", s);
 		}
 
+		String summaryRow = basicGridForm.getSummaryRow();
+		if (summaryRow != null) {
+			common.put("summaryRow", summaryRow);
+		}
+
 		metadata.put("common", common);
 
 		int count = 0;

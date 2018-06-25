@@ -432,6 +432,10 @@ public class JSLyraGridPluginPanel extends JSBaseGridPluginPanel {
 			common.put("isNeedCreateWebSocket", new JSONString("true"));
 		}
 
+		if (gridMetadata.getSummaryRow() != null) {
+			common.put("summaryRow", new JSONString(gridMetadata.getSummaryRow()));
+		}
+
 		metadata.put("common", common);
 
 		JSONObject columns = new JSONObject();
@@ -524,7 +528,9 @@ public class JSLyraGridPluginPanel extends JSBaseGridPluginPanel {
 		p.add(hpHeader);
 		// ----------------------------------------
 
-		toolBarHelper = getToolBarHelper();
+		toolBarHelper =
+
+			getToolBarHelper();
 
 		// if (gridMetadata.getUISettings().getGridWidth().contains("px")) {
 		// int ind = gridMetadata.getUISettings().getGridWidth().indexOf("px");
@@ -552,7 +558,9 @@ public class JSLyraGridPluginPanel extends JSBaseGridPluginPanel {
 
 		// ----------------------------------------
 
-		try {
+		try
+
+		{
 
 			if (gridMetadata.getUISettings().isToolbarCreateImmediately()) {
 				getToolBarHelper().fillToolBarImmediately();

@@ -1,0 +1,85 @@
+
+
+<script type="text/javascript">
+
+
+require(
+	[ "vue/vue", "vue/bootstrap-vue"], function(Vue, bootstrapVue){
+		
+		Vue.use(bootstrapVue);
+		
+		
+		
+	        var example2 = new Vue({
+	        	  el: '#example201',
+	        	  
+	        	  data: {
+	        		  message: '',
+        			  addcontext:
+        				'{'+
+	    				'"part1": "part1",'+
+  	    				'"part2": "part2",'+	
+
+  	    				'"refreshParams": {'+
+  	    			    //74000004000079300
+  	    			    //current
+  	    				'"selectKey": "current",'+          	    				
+  	    				'"sort": "name,code",'+          	    				
+  	    				//'"sort": "ocatd",'+
+  	    				'"filter": "filter conditions"'+
+  	    				'}'+
+  	    				'}'
+	        		  
+	          	  },
+	        	  
+	        	  methods: {
+	          	    
+	          	  },
+	          	  
+	              mounted: function () {
+		    	  }
+	          	  
+	        });
+
+		//}, 0);
+		
+		
+        
+        
+        
+	});
+	
+
+
+</script>
+
+
+
+
+<!-- 
+<link rel="stylesheet" href="js/vue/bootstrap.min.css" />
+ -->
+<link rel="stylesheet" href="js/vue/bootstrap-vue.css" />
+
+
+
+<div id="example201">
+
+  <lyra-grid 
+  	formclass  = "testgrain.testgridform39vue.TestGridForm39vue"
+  	instanceid="grid10"
+	maincontext = "This is mainContext for lyra-vue grid10"
+	addcontext  = '{"part1": "part1","part2": "part2","refreshParams": {"selectKey": "","sort": "name,code","filter": ""}}'
+  >	
+  </lyra-grid>
+
+  
+  
+</div>
+
+
+
+
+
+
+

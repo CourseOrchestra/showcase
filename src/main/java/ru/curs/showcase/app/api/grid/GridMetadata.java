@@ -43,12 +43,22 @@ public class GridMetadata extends DataPanelCompBasedElement implements SizeEstim
 	 */
 	private GridUISettings uiSettings = new GridUISettings();
 
+	private String summaryRow = null;
+
 	public GridMetadata() {
 		super();
 	}
 
 	public GridMetadata(final DataPanelElementInfo aElInfo) {
 		super(aElInfo);
+	}
+
+	public String getSummaryRow() {
+		return summaryRow;
+	}
+
+	public void setSummaryRow(final String aSummaryRow) {
+		summaryRow = aSummaryRow;
 	}
 
 	public GridUISettings getUISettings() {
