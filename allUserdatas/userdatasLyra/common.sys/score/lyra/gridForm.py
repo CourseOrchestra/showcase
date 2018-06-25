@@ -17,6 +17,9 @@ class GridForm(BasicGridForm):
     def getGridHeight(self):
         return 50
     
+    def getSummaryRow(self):
+        pass
+    
     def _beforeShow(self, context):
         '''Override this method to implement some actions 
         to be performed before the grid is shown or refreshed, 
