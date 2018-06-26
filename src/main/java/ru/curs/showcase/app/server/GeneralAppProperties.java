@@ -48,7 +48,7 @@ public class GeneralAppProperties {
 			try {
 				String url =
 					getProperty(UserDataUtils.RDBMS_PREFIX + UserDataUtils.CELESTA_CONNECTION_URL)
-							.toLowerCase();
+							.trim().toLowerCase();
 
 				final String mssql = "sqlserver";
 				final String postgresql = "postgresql";
@@ -79,12 +79,16 @@ public class GeneralAppProperties {
 				}
 
 				DriverManager.registerDriver(result);
-				DriverManager.getConnection(getProperty(UserDataUtils.RDBMS_PREFIX
-						+ UserDataUtils.CELESTA_CONNECTION_URL),
-						getProperty(UserDataUtils.RDBMS_PREFIX
-								+ UserDataUtils.CELESTA_CONNECTION_USERNAME),
-						getProperty(UserDataUtils.RDBMS_PREFIX
-								+ UserDataUtils.CELESTA_CONNECTION_PASSWORD));
+				DriverManager.getConnection(
+						getProperty(
+								UserDataUtils.RDBMS_PREFIX + UserDataUtils.CELESTA_CONNECTION_URL)
+								.trim(),
+						getProperty(
+								UserDataUtils.RDBMS_PREFIX
+										+ UserDataUtils.CELESTA_CONNECTION_USERNAME).trim(),
+						getProperty(
+								UserDataUtils.RDBMS_PREFIX
+										+ UserDataUtils.CELESTA_CONNECTION_PASSWORD).trim());
 
 			} catch (InstantiationException | IllegalAccessException | ClassNotFoundException
 					| SQLException e) {
@@ -101,7 +105,8 @@ public class GeneralAppProperties {
 			URL server;
 			HttpURLConnection c = null;
 			try {
-				server = new URL(getProperty(SecurityParamsFactory.LOCAL_AUTH_SERVER_URL_PARAM));
+				server =
+					new URL(getProperty(SecurityParamsFactory.LOCAL_AUTH_SERVER_URL_PARAM).trim());
 
 				c = (HttpURLConnection) server.openConnection();
 				c.setRequestMethod("GET");
