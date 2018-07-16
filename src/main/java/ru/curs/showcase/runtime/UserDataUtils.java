@@ -2680,4 +2680,51 @@ public final class UserDataUtils {
 		return data;
 	}
 
+	/**
+	 * Метод, служащий для вычленения из текста строк, ограниченных сигнатурой,
+	 * используемой для перевода с помощью Gettext.
+	 * 
+	 * @param value
+	 *            - входящий текст
+	 * @return список вычлененных строк
+	 */
+	public static List<String> getLocalizationTokensList(final String value) {
+		List<String> tokensList = new ArrayList<>();
+		String data = value;
+
+		if (data.contains("$localize(_(\""))
+			while (data.contains("$localize(_(\"")) {
+				int index1 = data.indexOf("$localize(_(");
+				int index = data.indexOf("\"))", index1);
+
+				String substr1 = "";
+
+				if (index1 != -1 && index != -1)
+					substr1 = data.substring(index1 + "$localize(_(".length() + 1, index);
+
+				if (!"".equals(substr1)) {
+					data = data.replace("$localize(_(\"" + substr1 + "\"))", "");
+					tokensList.add(substr1);
+				}
+			}
+
+		if (data.contains("$localize(gettext(\""))
+			while (data.contains("$localize(gettext(\"")) {
+				int index2 = data.indexOf("$localize(gettext(");
+				int index = data.indexOf("\"))", index2);
+
+				String substr2 = "";
+
+				if (index2 != -1 && index != -1)
+					substr2 = data.substring(index2 + "$localize(gettext(".length() + 1, index);
+
+				if (!"".equals(substr2)) {
+					data = data.replace("$localize(gettext(\"" + substr2 + "\"))", "");
+					tokensList.add(substr2);
+				}
+			}
+
+		return tokensList;
+	}
+
 }
