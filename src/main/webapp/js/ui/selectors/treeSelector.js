@@ -84,7 +84,7 @@ function showTreeSelector(selectorParam) {
 
 		var content4 =	        
 	        '<div class="dijitDialogPaneActionBar">'+
-	        '	<button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onFocus:function(){selectorDialog.executeOK();selectorDialog.hide();}" class="server-treeselector-okbutton-element">OK</button>'+	        
+	        '	<button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onClick:function(){selectorDialog.executeOK();selectorDialog.hide();}" class="server-treeselector-okbutton-element">OK</button>'+	        
 	        ' 	<button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onClick:function(){selectorDialog.hide();}" class="server-treeselector-cancelbutton-element">'+localizedParams["cancelTitle"]+'</button>'+
 	        '</div>';
 		

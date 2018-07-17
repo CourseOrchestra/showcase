@@ -79,7 +79,7 @@ function showMultiSelector(selectorParam) {
 
 		var content4 =	        
 	        '<div class="dijitDialogPaneActionBar">'+
-	        '	<button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onFocus:function(){selectorDialog.executeOK();selectorDialog.hide();selectorDialog.delayAfterHide();}" class="server-multiselector-okbutton-element">OK</button>'+	        
+	        '	<button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onClick:function(){selectorDialog.executeOK();selectorDialog.hide();selectorDialog.delayAfterHide();}" class="server-multiselector-okbutton-element">OK</button>'+	        
 	        ' 	<button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onClick:function(){selectorDialog.hide();selectorDialog.delayAfterHide();}" class="server-multiselector-cancelbutton-element">'+localizedParams["cancelTitle"]+'</button>'+
 	        '</div>';
 		
@@ -546,11 +546,6 @@ function showMultiSelector(selectorParam) {
 	     function getSelectedDataHeight(){
 	    	 if ((navigator.userAgent.search("Chrome/63") >= 0) 
 	    			 || (navigator.userAgent.search("Chrome/64") >= 0)
- 	    			 || (navigator.userAgent.search("Chrome/65") >= 0)
-	    			 || (navigator.userAgent.search("Chrome/66") >= 0)
-	    			 || (navigator.userAgent.search("Chrome/67") >= 0)
-	    			 || (navigator.userAgent.search("Chrome/68") >= 0)
-	    			 || (navigator.userAgent.search("Chrome/69") >= 0)
 	    			 ){
 	    		 return getDataHeight();
 	    	 } else {

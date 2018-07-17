@@ -78,7 +78,7 @@ function showSelector(selectorParam) {
 
 		var content4 =	        
 	        '<div class="dijitDialogPaneActionBar">'+
-	        '	<button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onFocus:function(){selectorDialog.executeOK();selectorDialog.hide();selectorDialog.delayAfterHide();}" class="server-selector-okbutton-element">OK</button>'+	        
+	        '	<button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onClick:function(){selectorDialog.executeOK();selectorDialog.hide();selectorDialog.delayAfterHide();}" class="server-selector-okbutton-element">OK</button>'+	        
 	        ' 	<button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onClick:function(){selectorDialog.hide();selectorDialog.delayAfterHide();}" class="server-selector-cancelbutton-element">'+localizedParams["cancelTitle"]+'</button>'+
 	        '</div>';
 		
