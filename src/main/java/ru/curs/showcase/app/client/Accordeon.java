@@ -5,18 +5,18 @@ package ru.curs.showcase.app.client;
 
 import java.util.*;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.Style.Unit;
-import com.google.gwt.event.logical.shared.*;
-import com.google.gwt.user.client.Timer;
-import com.google.gwt.user.client.ui.*;
-
 import ru.curs.showcase.app.api.ID;
 import ru.curs.showcase.app.api.event.CompositeContext;
 import ru.curs.showcase.app.api.navigator.*;
 import ru.curs.showcase.app.api.services.*;
 import ru.curs.showcase.app.client.internationalization.CourseClientLocalization;
 import ru.curs.showcase.app.client.utils.MultiUserData;
+
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.event.logical.shared.*;
+import com.google.gwt.user.client.Timer;
+import com.google.gwt.user.client.ui.*;
 
 /**
  * @author anlug
@@ -144,10 +144,11 @@ public class Accordeon {
 		// GWTServiceCallback<Navigator>(AppCurrContext
 		// .getInstance().getInternationalizedMessages()
 		// .error_of_navigator_data_retrieving_from_server()) {
-		dataService.getNavigator(context,
+		dataService.getNavigator(
+				context,
 				new GWTServiceCallback<Navigator>(
-						// AppCurrContext.getInstance().getBundleMap().get("error_of_navigator_data_retrieving_from_server"))
-						// {
+				// AppCurrContext.getInstance().getBundleMap().get("error_of_navigator_data_retrieving_from_server"))
+				// {
 						CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
 								"when retrieving navigator data from server")) {
 
@@ -161,9 +162,11 @@ public class Accordeon {
 					public void onSuccess(final Navigator navigator) {
 						ProgressWindow.closeProgressWindow();
 
-						AppCurrContext.getInstance().getMainPanel().generateMainPanel(
-								!navigator.getHideOnLoad(), navigator.getWidth(),
-								navigator.getWelcomeTabCaption());
+						AppCurrContext
+								.getInstance()
+								.getMainPanel()
+								.generateMainPanel(!navigator.getHideOnLoad(),
+										navigator.getWidth(), navigator.getWelcomeTabCaption());
 
 						// navigator.getWidth()
 						fillAccordeon(navigator);
@@ -284,7 +287,7 @@ public class Accordeon {
 			// return new
 			// HTML(AppCurrContext.getInstance().getInternationalizedMessages().empty());
 			return new HTML(
-					// AppCurrContext.getInstance().getBundleMap().get("empty"));
+			// AppCurrContext.getInstance().getBundleMap().get("empty"));
 					CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
 							"Empty"));
 		}
@@ -571,10 +574,11 @@ public class Accordeon {
 		// GWTServiceCallback<Navigator>(AppCurrContext
 		// .getInstance().getInternationalizedMessages()
 		// .error_of_navigator_data_retrieving_from_server()) {
-		dataService.getNavigator(context,
+		dataService.getNavigator(
+				context,
 				new GWTServiceCallback<Navigator>(
-						// AppCurrContext.getInstance().getBundleMap().get("error_of_navigator_data_retrieving_from_server"))
-						// {
+				// AppCurrContext.getInstance().getBundleMap().get("error_of_navigator_data_retrieving_from_server"))
+				// {
 						CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
 								"when retrieving navigator data from server")) {
 
