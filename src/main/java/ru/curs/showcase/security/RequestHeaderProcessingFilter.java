@@ -1,6 +1,7 @@
 package ru.curs.showcase.security;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.*;
 import java.util.*;
 
 import javax.servlet.ServletException;
@@ -11,7 +12,7 @@ import org.springframework.security.web.authentication.AbstractAuthenticationPro
 
 import ru.curs.showcase.app.api.UserInfo;
 import ru.curs.showcase.app.server.AppAndSessionEventsListener;
-import ru.curs.showcase.runtime.AppInfoSingleton;
+import ru.curs.showcase.runtime.*;
 import ru.curs.showcase.security.logging.Event.TypeEvent;
 import ru.curs.showcase.security.logging.*;
 import ru.curs.showcase.util.UserAndSessionDetails;
@@ -46,6 +47,9 @@ public class RequestHeaderProcessingFilter extends AbstractAuthenticationProcess
 	@Override
 	public Authentication attemptAuthentication(final HttpServletRequest request,
 			final HttpServletResponse response) throws IOException, ServletException {
+		AppInfoSingleton.getAppInfo().setPrintWriterForCelesta(
+				generatePrintWriterForCelesta(request));
+
 		ShowcaseAuthenticationSuccessHandler successHandler =
 			ApplicationContextProvider.getApplicationContext().getBean(
 					"customAuthenticationSuccessHandler",
@@ -117,4 +121,29 @@ public class RequestHeaderProcessingFilter extends AbstractAuthenticationProcess
 
 		return authentication;
 	}
+
+	private PrintWriter generatePrintWriterForCelesta(HttpServletRequest request) {
+		PrintWriter writer = null;
+		try {
+			String property = UserDataUtils.getGeneralOptionalProp("celesta.file.logging.path");
+			if (property != null) {
+				int index = property.trim().lastIndexOf(".txt");
+				String fileName =
+					(property.trim().substring(0, index) + request.getRemoteAddr()).replace(":",
+							"").replace(".", "")
+							+ ".txt";
+				if (fileName.startsWith("\\", 1) || fileName.startsWith("/", 1))
+					fileName = fileName.substring(0, 1) + ":" + fileName.substring(1);
+				File file = new File(fileName);
+				if (!file.exists())
+					Files.createFile(Paths.get(fileName));
+				writer = new PrintWriter(file);
+			}
+			return writer;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }

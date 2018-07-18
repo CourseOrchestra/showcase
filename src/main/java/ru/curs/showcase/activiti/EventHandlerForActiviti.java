@@ -95,11 +95,29 @@ public class EventHandlerForActiviti implements ActivitiEventListener {
 		try {
 			AppInfoSingleton.getAppInfo().getCelestaInstance().login(tempSesId, "super");
 			AppInfoSingleton.getAppInfo().getSessionSidsMap().put(tempSesId, "super");
+			if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+				AppInfoSingleton
+						.getAppInfo()
+						.getPrintWriterForCelesta()
+						.println(
+								"Сессия с id " + tempSesId + " и sid 'super' залогинена в celesta");
+				AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+			}
 			PyObject pObj =
 				AppInfoSingleton.getAppInfo().getCelestaInstance()
 						.runPython(tempSesId, procName, event);
 			Object obj = pObj.__tojava__(Object.class);
 		} catch (CelestaException e) {
+			if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+				AppInfoSingleton
+						.getAppInfo()
+						.getPrintWriterForCelesta()
+						.println(
+								"Ошибка celesta-процедуры " + procName + " c id сессии "
+										+ tempSesId);
+				AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+			}
+
 			if (e.getMessage().contains("Traceback")) {
 				int ind = e.getMessage().indexOf("Traceback");
 				String ex = e.getMessage().substring(0, ind - 1).trim();
@@ -114,6 +132,15 @@ public class EventHandlerForActiviti implements ActivitiEventListener {
 			try {
 				AppInfoSingleton.getAppInfo().getCelestaInstance().logout(tempSesId, false);
 				AppInfoSingleton.getAppInfo().getSessionSidsMap().remove(tempSesId);
+				if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+					AppInfoSingleton
+							.getAppInfo()
+							.getPrintWriterForCelesta()
+							.println(
+									"Сессия с id " + tempSesId
+											+ " и sid 'super' разлогинена из celesta");
+					AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+				}
 			} catch (Exception e) {
 				if (e.getMessage().contains("Traceback")) {
 					int ind = e.getMessage().indexOf("Traceback");

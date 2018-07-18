@@ -277,6 +277,18 @@ public class AuthServerAuthenticationProvider implements AuthenticationProvider 
 					.getAppInfo()
 					.getSessionSidsMap()
 					.put(sesid, ((UserAndSessionDetails) arg1.getDetails()).getUserInfo().getSid());
+			if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+				AppInfoSingleton
+						.getAppInfo()
+						.getPrintWriterForCelesta()
+						.println(
+								"Сессия с id "
+										+ sesid
+										+ " и sid '"
+										+ ((UserAndSessionDetails) arg1.getDetails())
+												.getUserInfo().getSid() + "' залогинена в celesta");
+				AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+			}
 		} catch (Exception e) {
 			if (AppInfoSingleton.getAppInfo().isEnableLogLevelError()) {
 				LOGGER.error("Ошибка привязки сессии приложения к пользователю в celesta", e);

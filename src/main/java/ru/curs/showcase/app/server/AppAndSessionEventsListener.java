@@ -346,6 +346,15 @@ public class AppAndSessionEventsListener implements ServletContextListener, Http
 			AppInfoSingleton.getAppInfo().getCelestaInstance()
 					.logout(destrHttpSession.getId(), false);
 			AppInfoSingleton.getAppInfo().getSessionSidsMap().remove(destrHttpSession.getId());
+			if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+				AppInfoSingleton
+						.getAppInfo()
+						.getPrintWriterForCelesta()
+						.println(
+								"Сессия с id " + destrHttpSession.getId()
+										+ " разлогинена из celesta");
+				AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+			}
 
 			// Celesta.getInstance().logout(destrHttpSession.getId(), false);
 		} catch (Exception e) {

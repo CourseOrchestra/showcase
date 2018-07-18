@@ -125,6 +125,11 @@ public final class ShowcaseRestServlet extends HttpServlet {
 			try {
 				AppInfoSingleton.getAppInfo().getCelestaInstance().logout(sesId, false);
 				AppInfoSingleton.getAppInfo().getSessionSidsMap().remove(sesId);
+				if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+					AppInfoSingleton.getAppInfo().getPrintWriterForCelesta()
+							.println("Сессия с id " + sesId + " разлогинена из celesta");
+					AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

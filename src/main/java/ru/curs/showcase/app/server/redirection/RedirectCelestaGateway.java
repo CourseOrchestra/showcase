@@ -25,8 +25,9 @@ public class RedirectCelestaGateway implements RedirectGateway {
 		}
 
 		try {
-			PyObject pObj = AppInfoSingleton.getAppInfo().getCelestaInstance().runPython(sesId,
-					correctedRedirectionProc, initialUrl);
+			PyObject pObj =
+				AppInfoSingleton.getAppInfo().getCelestaInstance()
+						.runPython(sesId, correctedRedirectionProc, initialUrl);
 
 			Object obj = pObj.__tojava__(Object.class);
 			if (obj == null) {
@@ -37,6 +38,16 @@ public class RedirectCelestaGateway implements RedirectGateway {
 			}
 
 		} catch (CelestaException e) {
+			if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+				AppInfoSingleton
+						.getAppInfo()
+						.getPrintWriterForCelesta()
+						.println(
+								"Ошибка celesta-процедуры " + redirectionProc + " c id сессии "
+										+ sesId);
+				AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+			}
+
 			throw new RedirectException(ExceptionType.SOLUTION,
 					"При запуске процедуры Celesta произошла ошибка: " + e.getMessage());
 

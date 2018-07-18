@@ -392,6 +392,11 @@ public class XFormPanel extends BasicElementPanelBasis {
 
 		xf.getElement().setId(xform.getSubformId());
 
+		if (!checkExistDivForSubform(xform.getSubformId())) {
+			loadedInDOM = false;
+			return;
+		}
+
 		instrumentForm(xform.getXFormParts(), xform.getSubformId());
 		loadedInDOM = true;
 
@@ -452,6 +457,14 @@ public class XFormPanel extends BasicElementPanelBasis {
 		$wnd.XsltForms_load.subform(subform, subformId);
 	}-*/;
 
+	private static native boolean checkExistDivForSubform(final String subformId) /*-{
+		if ($doc.getElementById(subformId)) {
+			return true;
+		} else {
+			return false;
+		}
+	}-*/;
+
 	/**
 	 * Закрывает X-форму, деиницилизирует инструментовку и подчищает все
 	 * динамически созданные скрипты и стили.
@@ -459,7 +472,9 @@ public class XFormPanel extends BasicElementPanelBasis {
 	private static native void unloadSubformById(final String subformId) /*-{
 
 		//Выгружаем подформу
-		$wnd.XsltForms_unload.subform(subformId);
+		if ($doc.getElementById(subformId)) {
+			$wnd.XsltForms_unload.subform(subformId);
+		}
 
 		//Подчищаем динамические стили
 		var hdr = $doc.getElementsByTagName('head')[0];

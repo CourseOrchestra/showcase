@@ -34,6 +34,15 @@ public class SecurityLoggingCelestaGateway implements SecurityLoggingGateway {
 				AppInfoSingleton.getAppInfo().getCelestaInstance()
 						.login(tempSesId, "userCelestaSid");
 				AppInfoSingleton.getAppInfo().getSessionSidsMap().put(tempSesId, "userCelestaSid");
+				if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+					AppInfoSingleton
+							.getAppInfo()
+							.getPrintWriterForCelesta()
+							.println(
+									"Сессия с id " + tempSesId
+											+ " и sid 'userCelestaSid' залогинена в celesta");
+					AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -57,6 +66,15 @@ public class SecurityLoggingCelestaGateway implements SecurityLoggingGateway {
 					AppInfoSingleton.getAppInfo().getCelestaInstance()
 							.login(sesid, "userCelestaSid");
 					AppInfoSingleton.getAppInfo().getSessionSidsMap().put(sesid, "userCelestaSid");
+					if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+						AppInfoSingleton
+								.getAppInfo()
+								.getPrintWriterForCelesta()
+								.println(
+										"Сессия с id " + sesid
+												+ " и sid 'userCelestaSid' залогинена в celesta");
+						AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

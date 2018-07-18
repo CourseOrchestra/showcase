@@ -39,6 +39,16 @@ public class CelestaExternalCommandGateway implements ExternalCommandGateway {
 		try {
 			AppInfoSingleton.getAppInfo().getCelestaInstance().login(tempSesId, "userCelestaSid");
 			AppInfoSingleton.getAppInfo().getSessionSidsMap().put(tempSesId, "userCelestaSid");
+			if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+				AppInfoSingleton
+						.getAppInfo()
+						.getPrintWriterForCelesta()
+						.println(
+								"Сессия с id " + tempSesId
+										+ " и sid 'userCelestaSid' залогинена в celesta");
+				AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+			}
+
 			PyObject pObj =
 				AppInfoSingleton.getAppInfo().getCelestaInstance()
 						.runPython(tempSesId, source, request);
@@ -52,6 +62,15 @@ public class CelestaExternalCommandGateway implements ExternalCommandGateway {
 			}
 
 		} catch (CelestaException e) {
+			if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+				AppInfoSingleton
+						.getAppInfo()
+						.getPrintWriterForCelesta()
+						.println(
+								"Ошибка celesta-процедуры " + source + " c id сессии " + tempSesId);
+				AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+			}
+
 			throw new MyException(ExceptionType.SOLUTION,
 					"При запуске процедуры Celesta произошла ошибка: " + e.getMessage());
 
@@ -59,6 +78,15 @@ public class CelestaExternalCommandGateway implements ExternalCommandGateway {
 			try {
 				AppInfoSingleton.getAppInfo().getCelestaInstance().logout(tempSesId, false);
 				AppInfoSingleton.getAppInfo().getSessionSidsMap().remove(tempSesId);
+				if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+					AppInfoSingleton
+							.getAppInfo()
+							.getPrintWriterForCelesta()
+							.println(
+									"Сессия с id " + tempSesId
+											+ " и sid 'userCelestaSid' разлогинена из celesta");
+					AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+				}
 			} catch (Exception e) {
 				throw new MyException(ExceptionType.SOLUTION,
 						"При запуске процедуры Celesta произошла ошибка: " + e.getMessage());

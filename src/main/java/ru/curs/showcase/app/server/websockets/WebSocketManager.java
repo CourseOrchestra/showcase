@@ -125,6 +125,15 @@ public class WebSocketManager {
 		try {
 			AppInfoSingleton.getAppInfo().getCelestaInstance().login(tempSesId, "userCelestaSid");
 			AppInfoSingleton.getAppInfo().getSessionSidsMap().put(tempSesId, "userCelestaSid");
+			if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+				AppInfoSingleton
+						.getAppInfo()
+						.getPrintWriterForCelesta()
+						.println(
+								"Сессия с id " + tempSesId
+										+ " и sid 'userCelestaSid' залогинена в celesta");
+				AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+			}
 
 			PyObject pObj =
 				AppInfoSingleton.getAppInfo().getCelestaInstance().runPython(tempSesId, procName);
@@ -139,6 +148,16 @@ public class WebSocketManager {
 			}
 
 		} catch (CelestaException e) {
+			if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+				AppInfoSingleton
+						.getAppInfo()
+						.getPrintWriterForCelesta()
+						.println(
+								"Ошибка celesta-процедуры " + procName + " c id сессии "
+										+ tempSesId);
+				AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+			}
+
 			throw new ShowcaseWebSocketException(ExceptionType.SOLUTION,
 					"При запуске процедуры Celesta для WebSocket произошла ошибка: "
 							+ e.getMessage());
@@ -146,6 +165,15 @@ public class WebSocketManager {
 			try {
 				AppInfoSingleton.getAppInfo().getCelestaInstance().logout(tempSesId, false);
 				AppInfoSingleton.getAppInfo().getSessionSidsMap().remove(tempSesId);
+				if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+					AppInfoSingleton
+							.getAppInfo()
+							.getPrintWriterForCelesta()
+							.println(
+									"Сессия с id " + tempSesId
+											+ " и sid 'userCelestaSid' разлогинена из celesta");
+					AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+				}
 			} catch (Exception e) {
 				throw new ShowcaseWebSocketException(ExceptionType.SOLUTION,
 						"Пля выполнении WebSocket операции произошла ошибка при попытке выйти из сессии в celesta: "

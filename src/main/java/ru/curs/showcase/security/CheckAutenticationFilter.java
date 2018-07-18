@@ -190,6 +190,20 @@ public class CheckAutenticationFilter implements Filter {
 											.getSessionSidsMap()
 											.put(sesid,
 													userAndSessionDetails.getUserInfo().getSid());
+									if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+										AppInfoSingleton
+												.getAppInfo()
+												.getPrintWriterForCelesta()
+												.println(
+														"Сессия с id "
+																+ sesid
+																+ " и sid '"
+																+ userAndSessionDetails
+																		.getUserInfo().getSid()
+																+ "' залогинена в celesta");
+										AppInfoSingleton.getAppInfo().getPrintWriterForCelesta()
+												.flush();
+									}
 								} catch (Exception e) {
 									if (AppInfoSingleton.getAppInfo().isEnableLogLevelError()) {
 										LOGGER.error(

@@ -2,11 +2,11 @@ package ru.curs.showcase.app.client.api;
 
 import java.util.List;
 
-import com.google.gwt.core.client.*;
-import com.google.gwt.json.client.*;
-
 import ru.curs.showcase.app.api.html.*;
 import ru.curs.showcase.app.client.*;
+
+import com.google.gwt.core.client.*;
+import com.google.gwt.json.client.*;
 
 /**
  * Класс реализующий функции обратного вызова из JsForm.
@@ -118,8 +118,8 @@ public final class JsFormPanelCallbacksEvents {
 			HTMLEventManager eventManager = jsForm.getEventManager();
 			List<HTMLEvent> events = eventManager.getEventForLink(linkId);
 			for (HTMLEvent event : events) {
-				AppCurrContext.getInstance().setCurrentActionFromElement(event.getAction(),
-						jsForm);
+				AppCurrContext.getInstance()
+						.setCurrentActionFromElement(event.getAction(), jsForm);
 				ActionExecuter.execAction();
 			}
 		}
@@ -148,8 +148,7 @@ public final class JsFormPanelCallbacksEvents {
 	}
 
 	// CHECKSTYLE:OFF
-	private static final native void invokeCallbackFn(JavaScriptObject callbackFn,
-			Object data)/*-{
+	private static final native void invokeCallbackFn(JavaScriptObject callbackFn, Object data)/*-{
 		callbackFn(data);
 	}-*/;
 

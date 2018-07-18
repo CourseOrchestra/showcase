@@ -1,7 +1,7 @@
 package ru.curs.showcase.app.server;
 
 import java.io.IOException;
-import java.util.Properties;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -55,6 +55,18 @@ public class ControlMemoryServlet extends HttpServlet {
 
 					AppInfoSingleton.getAppInfo().getSessionSidsMap()
 							.forEach(AppInfoSingleton.getAppInfo().getCelestaInstance()::login);
+					if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+						for (Map.Entry<String, String> entry : AppInfoSingleton.getAppInfo()
+								.getSessionSidsMap().entrySet()) {
+							AppInfoSingleton
+									.getAppInfo()
+									.getPrintWriterForCelesta()
+									.println(
+											"Сессия с id " + entry.getKey() + " и sid '"
+													+ entry.getValue() + "' залогинена в celesta");
+							AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+						}
+					}
 
 					AppInfoSingleton.getAppInfo().setIsCelestaInitialized(true);
 				} catch (Exception ex) {

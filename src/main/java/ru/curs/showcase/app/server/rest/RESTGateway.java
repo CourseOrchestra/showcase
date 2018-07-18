@@ -60,6 +60,15 @@ public class RESTGateway {
 				AppInfoSingleton.getAppInfo().getCelestaInstance()
 						.login(tempSesId, "userCelestaSid");
 				AppInfoSingleton.getAppInfo().getSessionSidsMap().put(tempSesId, "userCelestaSid");
+				if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+					AppInfoSingleton
+							.getAppInfo()
+							.getPrintWriterForCelesta()
+							.println(
+									"Сессия с id " + tempSesId
+											+ " и sid 'userCelestaSid' залогинена в celesta");
+					AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+				}
 			}
 
 			PyObject pObj =
@@ -78,6 +87,16 @@ public class RESTGateway {
 			}
 
 		} catch (CelestaException e) {
+			if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+				AppInfoSingleton
+						.getAppInfo()
+						.getPrintWriterForCelesta()
+						.println(
+								"Ошибка celesta-процедуры " + restProc + " c id сессии "
+										+ tempSesId);
+				AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+			}
+
 			if (e.getMessage().contains("Session") & e.getMessage().contains("is not logged in"))
 				throw new ShowcaseRESTUnauthorizedException(ExceptionType.SOLUTION,
 						"При запуске процедуры Celesta для выполнения REST запроса произошла ошибка: "
@@ -92,6 +111,15 @@ public class RESTGateway {
 				if (!isRestWithCelestaAuthentication) {
 					AppInfoSingleton.getAppInfo().getCelestaInstance().logout(tempSesId, false);
 					AppInfoSingleton.getAppInfo().getSessionSidsMap().remove(tempSesId);
+					if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+						AppInfoSingleton
+								.getAppInfo()
+								.getPrintWriterForCelesta()
+								.println(
+										"Сессия с id " + tempSesId
+												+ " и sid 'userCelestaSid' разлогинена из celesta");
+						AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+					}
 				}
 			} catch (Exception e) {
 				throw new ShowcaseRESTException(ExceptionType.SOLUTION,

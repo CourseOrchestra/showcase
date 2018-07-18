@@ -149,6 +149,19 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 						.put(cookieTokens[6],
 								((UserAndSessionDetails) authToken.getDetails()).getUserInfo()
 										.getSid());
+				if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+					AppInfoSingleton
+							.getAppInfo()
+							.getPrintWriterForCelesta()
+							.println(
+									"Сессия с id "
+											+ cookieTokens[6]
+											+ " и sid '"
+											+ ((UserAndSessionDetails) authToken.getDetails())
+													.getUserInfo().getSid()
+											+ "' залогинена в celesta");
+					AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 				if (AppInfoSingleton.getAppInfo().isEnableLogLevelError()) {
@@ -178,6 +191,19 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 						// .get(request.getRemoteAddr()),
 								((UserAndSessionDetails) authToken.getDetails()).getUserInfo()
 										.getSid());
+				if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+					AppInfoSingleton
+							.getAppInfo()
+							.getPrintWriterForCelesta()
+							.println(
+									"Сессия с id "
+											+ request.getSession(false).getId()
+											+ " и sid '"
+											+ ((UserAndSessionDetails) authToken.getDetails())
+													.getUserInfo().getSid()
+											+ "' залогинена в celesta");
+					AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+				}
 
 				String url = SecurityParamsFactory.getLocalAuthServerUrl();
 				URL server =

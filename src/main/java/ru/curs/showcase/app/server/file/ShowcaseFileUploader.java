@@ -68,6 +68,16 @@ public class ShowcaseFileUploader extends HttpServlet {
 			}
 
 		} catch (CelestaException e) {
+			if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+				AppInfoSingleton
+						.getAppInfo()
+						.getPrintWriterForCelesta()
+						.println(
+								"Ошибка celesta-процедуры " + procName + " c id сессии "
+										+ request.getSession().getId());
+				AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+			}
+
 			if (e.getMessage().contains("Session") & e.getMessage().contains("is not logged in")) {
 				LOGGER.error("При запуске процедуры Celesta для загрузки файла на сервер произошла ошибка: "
 						+ e.getMessage());

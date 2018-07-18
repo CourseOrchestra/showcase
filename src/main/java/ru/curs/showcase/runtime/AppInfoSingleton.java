@@ -40,6 +40,12 @@ public final class AppInfoSingleton {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(AppInfoSingleton.class);
 
+	/**
+	 * PrintWriter для логгирования челеста-процедур, логинов и логаутов из
+	 * челеста.
+	 */
+	private PrintWriter printWriterForCelesta = null;
+
 	/** Список userdata. */
 	private final Map<String, UserData> userdatas = new HashMap<String, UserData>();
 
@@ -227,6 +233,14 @@ public final class AppInfoSingleton {
 
 	public synchronized void addLogEvent(final LoggingEventDecorator event) {
 		lastLogEvents.add(event);
+	}
+
+	public PrintWriter getPrintWriterForCelesta() {
+		return printWriterForCelesta;
+	}
+
+	public void setPrintWriterForCelesta(final PrintWriter pw) {
+		printWriterForCelesta = pw;
 	}
 
 	private AppInfoSingleton() {

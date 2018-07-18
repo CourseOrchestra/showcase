@@ -1,10 +1,9 @@
 package ru.curs.showcase.core.celesta;
 
-import java.io.IOException;
+import java.io.*;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.python.core.PyObject;
-import org.slf4j.*;
 import org.xml.sax.SAXException;
 
 import ru.curs.celesta.*;
@@ -36,8 +35,10 @@ public class CelestaHelper<T> {
 	private static final String LYRAPLAYER_GET_FORM_INSTANCE =
 		"lyra.lyraplayer.getFormInstance.cl";
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(CelestaHelper.class);
+	// private static final Logger LOGGER =
+	// LoggerFactory.getLogger(CelestaHelper.class);
 
+	private final PrintWriter out = AppInfoSingleton.getAppInfo().getPrintWriterForCelesta();
 	private final CompositeContext contex;
 	private final Class<T> resultType;
 
@@ -104,7 +105,34 @@ public class CelestaHelper<T> {
 		Object[] params = mergeAddAndGeneralParameters(this.contex, additionalParams);
 		// String userSID = SessionUtils.getCurrentUserSID();
 		String sesID = SessionUtils.getCurrentSessionId();
-		LOGGER.info("Выполняется celesta-процедура " + sProcName + " c id сессии " + sesID);
+		// LOGGER.info("Выполняется celesta-процедура " + sProcName +
+		// " c id сессии " + sesID);
+
+		Boolean b = null;
+		if (additionalParams.length > 0 && additionalParams[0] instanceof String) {
+			String str = (String) additionalParams[0];
+			b =
+				!((str.contains("{") && str.contains(":") && str.contains("}")) || (str
+						.contains("<") && str.contains(">") && (str.contains("</") || str
+						.contains("/>"))));
+		}
+
+		if (out != null) {
+			if (additionalParams.length > 0) {
+				if (additionalParams[0] instanceof String) {
+					String str = (String) additionalParams[0];
+					if (b != null && b) {
+						out.println("Выполняется celesta-процедура " + sProcName + " c id сессии "
+								+ sesID + " c id элемента " + str);
+					}
+
+				}
+			} else if (additionalParams.length == 0 || !(additionalParams[0] instanceof String)
+					|| (b != null && !b)) {
+				out.println("Выполняется celesta-процедура " + sProcName + " c id сессии " + sesID);
+			}
+			out.flush();
+		}
 
 		String procName = CelestaUtils.getRealProcName(sProcName);
 		PyObject result;
@@ -141,8 +169,23 @@ public class CelestaHelper<T> {
 			}
 
 		} catch (CelestaException ex) {
-
-			LOGGER.error("Ошибка celesta-процедуры " + sProcName + " c id сессии " + sesID);
+			// LOGGER.error("Ошибка celesta-процедуры " + sProcName +
+			// " c id сессии " + sesID);
+			if (out != null) {
+				if (additionalParams.length > 0) {
+					if (additionalParams[0] instanceof String) {
+						String str = (String) additionalParams[0];
+						if (b != null && b) {
+							out.println("Ошибка celesta-процедуры " + sProcName + " c id сессии "
+									+ sesID + " c id элемента " + str);
+						}
+					}
+				} else if (additionalParams.length == 0
+						|| !(additionalParams[0] instanceof String) || (b != null && !b)) {
+					out.println("Ошибка celesta-процедуры " + sProcName + " c id сессии " + sesID);
+				}
+				out.flush();
+			}
 
 			UserMessage um = getUserMessage(receiver);
 			if ((um != null) && (um.getType() == MessageType.ERROR)) {

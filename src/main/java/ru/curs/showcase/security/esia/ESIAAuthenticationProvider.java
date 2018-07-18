@@ -36,6 +36,19 @@ public class ESIAAuthenticationProvider implements AuthenticationProvider {
 			try {
 				AppInfoSingleton.getAppInfo().getCelestaInstance()
 						.login(userAndSessionDetails.getSessionId(), userInfo.getSid());
+				AppInfoSingleton.getAppInfo().getSessionSidsMap()
+						.put(userAndSessionDetails.getSessionId(), userInfo.getSid());
+				if (AppInfoSingleton.getAppInfo().getPrintWriterForCelesta() != null) {
+					AppInfoSingleton
+							.getAppInfo()
+							.getPrintWriterForCelesta()
+							.println(
+									"Сессия с id " + userAndSessionDetails.getSessionId()
+											+ " и sid '" + userInfo.getSid()
+											+ "' залогинена в celesta");
+					AppInfoSingleton.getAppInfo().getPrintWriterForCelesta().flush();
+				}
+
 			} catch (Exception e) {
 				if (AppInfoSingleton.getAppInfo().isEnableLogLevelError()) {
 					LOGGER.error("Ошибка привязки сессии приложения к пользователю в celesta", e);
