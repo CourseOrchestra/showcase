@@ -9332,9 +9332,27 @@ XsltForms_setvalue.prototype.run = function(element, ctx) {
 };
 
 	
+
+
+//[KURS
+XsltForms_setvalue.prototype.runFast = function(element, ctx) {
+	var node = this.binding.bind_evaluate(element.xfElement.subform, ctx)[0];
+	if (node) {
+		if (this.context) {
+			ctx = this.context.xpath_evaluate(element.xfElement.subform, ctx)[0];
+		}
+		var value = this.value? XsltForms_globals.stringValue(this.context ? this.value.xpath_evaluate(ctx, ctx, element.xfElement.subform) : this.value.xpath_evaluate(node, ctx, element.xfElement.subform)) : this.literal;
+		XsltForms_browser.setValue(node, value || "");
+		document.getElementById(XsltForms_browser.getMeta(node.ownerDocument.documentElement, "model")).xfElement.addChange(node);
+		XsltForms_browser.debugConsole.write("Setvalue " + node.nodeName + " = " + value); 
+	}
+};
+//KURS]	
+
+
 		
-		
-		
+
+
 function XsltForms_toggle(subform, caseId, ifexpr, whileexpr, iterateexpr) {
 	this.subform = subform;
 	this.caseId = caseId;
@@ -9429,7 +9447,7 @@ XsltForms_unload.prototype.run = function(element, ctx) {
 	XsltForms_browser.debugConsole.write("unload-done");
 };
 
-		
+
 
 XsltForms_unload.subform = function(targetid, ref) {
 	if (ref) {
@@ -10368,6 +10386,11 @@ XsltForms_input.prototype.initEvents = function(input, canActivate) {
 	if (this.inputmode) {
 		XsltForms_browser.events.attach(input, "keyup", XsltForms_input.keyUpInputMode);
 	}
+	
+// [KURS
+	XsltForms_browser.events.attach(input, "drop", XsltForms_input.drop);	
+// KURS]
+	
 	if (canActivate) {
 		XsltForms_browser.events.attach(input, "keydown", XsltForms_input.keyDownActivate);
 		XsltForms_browser.events.attach(input, "keypress", XsltForms_input.keyPressActivate);
@@ -10384,7 +10407,21 @@ XsltForms_input.prototype.initEvents = function(input, canActivate) {
 };
 
 
+
+
+//[KURS
+XsltForms_input.drop = function(event) {
+	var xf = XsltForms_control.getXFElement(this);
+	if(xf){
+		setTimeout(function(){
+			xf.valueChanged(xf.input.value);
+		}, 0);
+	}
+}
+//KURS]
+
 		
+
 
 XsltForms_input.prototype.blur = function(target) {
 	XsltForms_globals.focus = null;
@@ -13982,9 +14019,9 @@ function setXFormByXPath(ok, selected, xpathMapping, subformId)
 		for (var xpath in xpathMapping) {
 		   var value = xpathMapping[xpath];
            if (isXPath(value)) {
-          	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, getXPath(xpath)),getXPath(value),null,null,null)).run(element);            	
+          	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, getXPath(xpath)),getXPath(value),null,null,null)).runFast(element);            	
            }else {
-           	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, getXPath(xpath)),null,selected[value],null,null)).run(element);
+           	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, getXPath(xpath)),null,selected[value],null,null)).runFast(element);
            }
 		}	
 		
@@ -14131,7 +14168,7 @@ function insertXFormByXPath(ok, selected, xpathRoot, xpathMapping, needClear, su
 		    for (var i = 0; i < selected.length; i++) {
    		        for (var col in value) {
    			        xpathFull = getXPath(xpath)+"/"+value[col];
-              	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, xpathFull),null,selected[i][col],null,null)).run(element);
+              	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, xpathFull),null,selected[i][col],null,null)).runFast(element);
    		        }
   
 // OLD    		(new XsltForms_insert(null, null, null, null, "last", "after", getXPath(xpath), getXPath(xpathRoot), null, null)).run(null, getXPath(xpathRoot));
@@ -14141,7 +14178,7 @@ function insertXFormByXPath(ok, selected, xpathRoot, xpathMapping, needClear, su
    		
   		    for (var col in value) {
 			    xpathFull = getXPath(xpath)+"/"+value[col];
-          	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, xpathFull),null,map[col],null,null)).run(element);		    	
+          	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, xpathFull),null,map[col],null,null)).runFast(element);		    	
  		    }
    		
 			break;
@@ -14173,7 +14210,7 @@ function insertFilenamesByXPath(subformId, inputName, filenamesMapping, needClea
 	if (XsltForms_browser.isIE && (!input.files)) {
 		filename = input.value;
 		
-  	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, origin),null,filename,null,null)).run(element);
+  	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, origin),null,filename,null,null)).runFast(element);
 		(new XsltForms_insert(subform, "file", null, null, "last", "after", origin, getXPath(filenamesMapping), null, null)).run(element, getXPath(filenamesMapping));
 		
 	}
@@ -14182,7 +14219,7 @@ function insertFilenamesByXPath(subformId, inputName, filenamesMapping, needClea
 	    for (var x = 0; x < input.files.length; x++) {
 			filename = input.files[x].name;
 			
-	   	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, origin),null,filename,null,null)).run(element);
+	   	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, origin),null,filename,null,null)).runFast(element);
 			(new XsltForms_insert(subform, "file", null, null, "last", "after", origin, getXPath(filenamesMapping), null, null)).run(element, getXPath(filenamesMapping));
 	    }
 	}
