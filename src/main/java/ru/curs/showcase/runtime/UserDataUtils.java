@@ -2688,43 +2688,77 @@ public final class UserDataUtils {
 	 *            - входящий текст
 	 * @return список вычлененных строк
 	 */
-	public static List<String> getLocalizationTokensList(final String value) {
-		List<String> tokensList = new ArrayList<>();
-		String data = value;
+	public static ArrayList<String> getLocalizationTokensList(final String value) {
+		ArrayList<String> tokensList = new ArrayList<>();
 
-		if (data.contains("$localize(_(\""))
-			while (data.contains("$localize(_(\"")) {
-				int index1 = data.indexOf("$localize(_(");
-				int index = data.indexOf("\"))", index1);
+		if (value.contains("$localize"))
+			for (String data : value.split("localize")) {
 
-				String substr1 = "";
+				if (data.contains("(_(\""))
+					while (data.contains("(_(\"")) {
+						int index1 = data.indexOf("(_(");
+						int index = data.indexOf("\"))", index1);
 
-				if (index1 != -1 && index != -1)
-					substr1 = data.substring(index1 + "$localize(_(".length() + 1, index);
+						String substr1 = "";
 
-				if (!"".equals(substr1)) {
-					data = data.replace("$localize(_(\"" + substr1 + "\"))", "");
-					tokensList.add(substr1);
-				}
-			}
+						if (index1 != -1 && index != -1)
+							substr1 = data.substring(index1 + "(_(".length() + 1, index);
 
-		if (data.contains("$localize(gettext(\""))
-			while (data.contains("$localize(gettext(\"")) {
-				int index2 = data.indexOf("$localize(gettext(");
-				int index = data.indexOf("\"))", index2);
+						if (!"".equals(substr1)) {
+							data = data.replace("(_(\"" + substr1 + "\"))", "");
+							tokensList.add(substr1);
+						}
+					}
 
-				String substr2 = "";
+				if (data.contains("(_('"))
+					while (data.contains("(_('")) {
+						int index1 = data.indexOf("(_(");
+						int index = data.indexOf("'))", index1);
 
-				if (index2 != -1 && index != -1)
-					substr2 = data.substring(index2 + "$localize(gettext(".length() + 1, index);
+						String substr1 = "";
 
-				if (!"".equals(substr2)) {
-					data = data.replace("$localize(gettext(\"" + substr2 + "\"))", "");
-					tokensList.add(substr2);
-				}
+						if (index1 != -1 && index != -1)
+							substr1 = data.substring(index1 + "(_(".length() + 1, index);
+
+						if (!"".equals(substr1)) {
+							data = data.replace("(_('" + substr1 + "'))", "");
+							tokensList.add(substr1);
+						}
+					}
+
+				if (data.contains("(gettext(\""))
+					while (data.contains("(gettext(\"")) {
+						int index2 = data.indexOf("(gettext(");
+						int index = data.indexOf("\"))", index2);
+
+						String substr2 = "";
+
+						if (index2 != -1 && index != -1)
+							substr2 = data.substring(index2 + "(gettext(".length() + 1, index);
+
+						if (!"".equals(substr2)) {
+							data = data.replace("(gettext(\"" + substr2 + "\"))", "");
+							tokensList.add(substr2);
+						}
+					}
+
+				if (data.contains("(gettext('"))
+					while (data.contains("(gettext('")) {
+						int index2 = data.indexOf("(gettext(");
+						int index = data.indexOf("'))", index2);
+
+						String substr2 = "";
+
+						if (index2 != -1 && index != -1)
+							substr2 = data.substring(index2 + "(gettext(".length() + 1, index);
+
+						if (!"".equals(substr2)) {
+							data = data.replace("(gettext('" + substr2 + "'))", "");
+							tokensList.add(substr2);
+						}
+					}
 			}
 
 		return tokensList;
 	}
-
 }
