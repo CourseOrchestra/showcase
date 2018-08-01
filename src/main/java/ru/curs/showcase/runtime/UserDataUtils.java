@@ -2761,4 +2761,27 @@ public final class UserDataUtils {
 
 		return tokensList;
 	}
+
+	/**
+	 * Ещё один метод, служащий для вычленения из текста строк, ограниченных
+	 * сигнатурой, используемой для перевода с помощью Gettext.
+	 * 
+	 * @param value
+	 *            - входящий текст
+	 * @return список вычлененных строк
+	 */
+	public static ArrayList<String> getTokensList(final String value) {
+		ArrayList<String> tokensList = new ArrayList<>();
+
+		Matcher m =
+			Pattern.compile(
+					"[$]{1}localize[(]{1}([_]{1}|gettext)[(]{1}[\"']{1}(.*?)[\"']{1}[)]{2}")
+					.matcher(value);
+		while (m.find()) {
+			tokensList.add(m.group(2));
+		}
+
+		return tokensList;
+	}
+
 }
