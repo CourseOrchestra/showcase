@@ -574,6 +574,19 @@ try {
 						rowElement.className = rowElement.className +" "+ object.rowstyle +" ";
 				 }
 			     return rowElement;
+			},
+			
+			clickFromEditor: function (recId, colId) {
+				if(this.row(recId) && this.column(colId)){
+					if(!this.readonly){
+						if(this.currentRowId != recId){
+							this.currentRowId = recId;
+							this.save();
+						}
+					}
+					
+					//gwtAfterClick(elementId, recId, this.column(colId).label, getSelection());
+				}
 			}
 			
 		},  parentId);

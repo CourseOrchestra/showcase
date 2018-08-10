@@ -291,6 +291,20 @@ var eventHandler2 = function(chartEvent) {
 // need for dgrids !!
 var arrGrids = {};
 
+function gridClickFromEditor(editor)
+{
+	var colId = editor.focusNode.offsetParent.columnId;
+	
+	var complexId = editor.focusNode.offsetParent.offsetParent.parentElement.id;
+	
+	var ind = complexId.indexOf("-row-");
+	
+	var gridId = complexId.substring(0,ind);
+	var recId = complexId.substring(ind+5);
+	
+	var grid = arrGrids[gridId];
+	grid.clickFromEditor(recId, colId);
+}
 
 
 function measureDownloadSpeed(contentSize)  
