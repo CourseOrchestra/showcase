@@ -221,21 +221,24 @@ this.safePreviewNode.style.backgroundColor=_17(hex);
 }
 },_setHuePoint:function(evt){
 var _35=this.PICKER_HUE_SELECTOR_H/2;
-var _36=evt.layerY-_35;
+var _36=evt.layerY||(evt.y-evt.target.getBoundingClientRect().top);
+_36-=_35;
 if(this.animatePoint){
 fx.slideTo({node:this.hueCursorNode,duration:this.slideDuration,top:_36,left:0,onEnd:_3.hitch(this,function(){
-this._updateColor(false);
+this._updateColor(true);
 _f.focus(this.hueCursorNode);
 })}).play();
 }else{
 _5.style(this.hueCursorNode,"top",_36+"px");
-this._updateColor(false);
+this._updateColor(true);
 }
 },_setPoint:function(evt){
 var _37=this.PICKER_SAT_SELECTOR_H/2;
 var _38=this.PICKER_SAT_SELECTOR_W/2;
-var _39=evt.layerY-_37;
-var _3a=evt.layerX-_38;
+var _39=evt.layerY||(evt.y-evt.target.getBoundingClientRect().top);
+_39-=_37;
+var _3a=evt.layerX||(evt.x-evt.target.getBoundingClientRect().left);
+_3a-=_38;
 if(evt){
 _f.focus(evt.target);
 }
@@ -246,7 +249,7 @@ _f.focus(this.cursorNode);
 })}).play();
 }else{
 _5.style(this.cursorNode,{left:_3a+"px",top:_39+"px"});
-this._updateColor(false);
+this._updateColor(true);
 }
 },_handleKey:function(e){
 },focus:function(){

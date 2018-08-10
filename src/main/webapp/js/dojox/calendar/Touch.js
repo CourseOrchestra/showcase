@@ -83,7 +83,9 @@ delete this._pendingSelectedItem;
 this.selectFromEvent(e,null,null,false);
 }
 }
+if(!p.touchMoved&&(Math.abs(_f.x-p.start.x)>10||Math.abs(_f.y-p.start.y)>10)){
 p.touchMoved=true;
+}
 if(this._editingGesture){
 _7.stop(e);
 if(p.itemBeginDispatched){

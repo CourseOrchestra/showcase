@@ -5,12 +5,13 @@ define("dijit/tree/dndSource", [
 	"dojo/dom-class", // domClass.add
 	"dojo/dom-geometry", // domGeometry.position
 	"dojo/_base/lang", // lang.mixin lang.hitch
+	"dojo/mouse",
 	"dojo/on", // subscribe
 	"dojo/touch",
 	"dojo/topic",
 	"dojo/dnd/Manager", // DNDManager.manager
 	"./_dndSelector"
-], function(array, declare, dndCommon, domClass, domGeometry, lang, on, touch, topic, DNDManager, _dndSelector){
+], function(array, declare, dndCommon, domClass, domGeometry, lang, mouse, on, touch, topic, DNDManager, _dndSelector){
 
 	// module:
 	//		dijit/tree/dndSource
@@ -260,10 +261,14 @@ define("dijit/tree/dndSource", [
 			//		onmousedown/ontouchend event
 			// tags:
 			//		private
-			this.mouseDown = true;
-			this.mouseButton = e.button;
-			this._lastX = e.pageX;
-			this._lastY = e.pageY;
+
+			if(e.type == "touchstart" || mouse.isLeft(e)){	// ignore right click
+				this.mouseDown = true;
+				this.mouseButton = e.button;
+				this._lastX = e.pageX;
+				this._lastY = e.pageY;
+			}
+
 			this.inherited(arguments);
 		},
 
@@ -395,7 +400,8 @@ define("dijit/tree/dndSource", [
 			if(this.containerState == "Over"){
 				var tree = this.tree,
 					model = tree.model,
-					target = this.targetAnchor;
+					target = this.targetAnchor,
+					doExpand = false; // this is so we don't expand the sibling above
 
 				this.isDragging = false;
 
@@ -418,6 +424,7 @@ define("dijit/tree/dndSource", [
 					}
 				}else{
 					newParentItem = (target && target.item) || tree.item;
+					doExpand = true;
 				}
 
 				// If necessary, use this variable to hold array of hashes to pass to model.newItem()
@@ -469,7 +476,9 @@ define("dijit/tree/dndSource", [
 
 				// Expand the target node (if it's currently collapsed) so the user can see
 				// where their node was dropped.   In particular since that node is still selected.
-				this.tree._expandNode(target);
+				if(doExpand) {
+					this.tree._expandNode(target);
+				}
 			}
 			this.onDndCancel();
 		},

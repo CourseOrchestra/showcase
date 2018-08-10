@@ -253,6 +253,27 @@ define([
 		},
 
 		_singleSelectionHandler: function (event, target) {
+			
+// [KURS	
+			if(this.navigatorGrid){
+				
+				if(this.swapSelectExpand){
+			        if((event.target.previousSibling) && (target.className.indexOf("withChildren") > -1)){
+			        	return;
+			        }
+				}else{
+			        if((event.target.localName && (event.target.localName == "img")) || (event.target.className.indexOf("dgrid-expando-icon") > -1)){
+			        	return;
+			        }
+				}
+				
+				this.clearSelection();
+				this.select(target);
+				this._lastSelected = target;
+				return;
+			}
+//KURS]				
+			
 			// summary:
 			//		Selection handler for "single" mode, where only one target may be
 			//		selected at a time.

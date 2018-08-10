@@ -39,16 +39,16 @@ return _1a;
 return [on(cn,_18(this.leftClickToOpen?"click":"contextmenu"),function(evt){
 evt.stopPropagation();
 evt.preventDefault();
-if((new Date()).getTime()<this._lastKeyDown+500){
+if((new Date()).getTime()<_1b._lastKeyDown+500){
 return;
 }
 _1b._scheduleOpen(this,_13,{x:evt.pageX,y:evt.pageY},evt.target);
 }),on(cn,_18("keydown"),function(evt){
-if(evt.keyCode==93||(evt.shiftKey&&evt.keyCode==_8.F10)||(this.leftClickToOpen&&evt.keyCode==_8.SPACE)){
+if(evt.keyCode==93||(evt.shiftKey&&evt.keyCode==_8.F10)||(_1b.leftClickToOpen&&evt.keyCode==_8.SPACE)){
 evt.stopPropagation();
 evt.preventDefault();
 _1b._scheduleOpen(this,_13,null,evt.target);
-this._lastKeyDown=(new Date()).getTime();
+_1b._lastKeyDown=(new Date()).getTime();
 }
 })];
 });

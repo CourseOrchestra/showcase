@@ -14,6 +14,9 @@ define("dijit/_editor/nls/LinkDialog", { root:
 })
 //end v1.x content
 ,
+"bs": true,
+"mk": true,
+"sr": true,
 "zh": true,
 "zh-tw": true,
 "uk": true,
@@ -39,6 +42,7 @@ define("dijit/_editor/nls/LinkDialog", { root:
 "he": true,
 "fr": true,
 "fi": true,
+"eu": true,
 "es": true,
 "el": true,
 "de": true,

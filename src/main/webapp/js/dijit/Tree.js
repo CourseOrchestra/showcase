@@ -1,5 +1,5 @@
 //>>built
-require({cache:{"url:dijit/templates/Tree.html":"<div role=\"tree\">\n\t<div class=\"dijitInline dijitTreeIndent\" style=\"position: absolute; top: -9999px\" data-dojo-attach-point=\"indentDetector\"></div>\n\t<div class=\"dijitTreeExpando dijitTreeExpandoLoading\" data-dojo-attach-point=\"rootLoadingIndicator\"></div>\n\t<div data-dojo-attach-point=\"containerNode\" class=\"dijitTreeContainer\" role=\"presentation\">\n\t</div>\n</div>\n","url:dijit/templates/TreeNode.html":"<div class=\"dijitTreeNode\" role=\"presentation\"\n\t><div data-dojo-attach-point=\"rowNode\" class=\"dijitTreeRow\" role=\"presentation\"\n\t\t><span data-dojo-attach-point=\"expandoNode\" class=\"dijitInline dijitTreeExpando\" role=\"presentation\"></span\n\t\t><span data-dojo-attach-point=\"expandoNodeText\" class=\"dijitExpandoText\" role=\"presentation\"></span\n\t\t><span data-dojo-attach-point=\"contentNode\"\n\t\t\tclass=\"dijitTreeContent\" role=\"presentation\">\n\t\t\t<span role=\"presentation\" class=\"dijitInline dijitIcon dijitTreeIcon\" data-dojo-attach-point=\"iconNode\"></span\n\t\t\t><span data-dojo-attach-point=\"labelNode,focusNode\" class=\"dijitTreeLabel\" role=\"treeitem\"\n\t\t\t\t   tabindex=\"-1\" aria-selected=\"false\" id=\"${id}_label\"></span>\n\t\t</span\n\t></div>\n\t<div data-dojo-attach-point=\"containerNode\" class=\"dijitTreeNodeContainer\" role=\"presentation\"\n\t\t style=\"display: none;\" aria-labelledby=\"${id}_label\"></div>\n</div>\n"}});
+require({cache:{"url:dijit/templates/TreeNode.html":"<div class=\"dijitTreeNode\" role=\"presentation\"\n\t><div data-dojo-attach-point=\"rowNode\" class=\"dijitTreeRow\" role=\"presentation\"\n\t\t><span data-dojo-attach-point=\"expandoNode\" class=\"dijitInline dijitTreeExpando\" role=\"presentation\"></span\n\t\t><span data-dojo-attach-point=\"expandoNodeText\" class=\"dijitExpandoText\" role=\"presentation\"></span\n\t\t><span data-dojo-attach-point=\"contentNode\"\n\t\t\tclass=\"dijitTreeContent\" role=\"presentation\">\n\t\t\t<span role=\"presentation\" class=\"dijitInline dijitIcon dijitTreeIcon\" data-dojo-attach-point=\"iconNode\"></span\n\t\t\t><span data-dojo-attach-point=\"labelNode,focusNode\" class=\"dijitTreeLabel\" role=\"treeitem\"\n\t\t\t\t   tabindex=\"-1\" aria-selected=\"false\" id=\"${id}_label\"></span>\n\t\t</span\n\t></div>\n\t<div data-dojo-attach-point=\"containerNode\" class=\"dijitTreeNodeContainer\" role=\"presentation\"\n\t\t style=\"display: none;\" aria-labelledby=\"${id}_label\"></div>\n</div>\n","url:dijit/templates/Tree.html":"<div role=\"tree\">\n\t<div class=\"dijitInline dijitTreeIndent\" style=\"position: absolute; top: -9999px\" data-dojo-attach-point=\"indentDetector\"></div>\n\t<div class=\"dijitTreeExpando dijitTreeExpandoLoading\" data-dojo-attach-point=\"rootLoadingIndicator\"></div>\n\t<div data-dojo-attach-point=\"containerNode\" class=\"dijitTreeContainer\" role=\"presentation\">\n\t</div>\n</div>\n"}});
 define("dijit/Tree",["dojo/_base/array","dojo/aspect","dojo/cookie","dojo/_base/declare","dojo/Deferred","dojo/promise/all","dojo/dom","dojo/dom-class","dojo/dom-geometry","dojo/dom-style","dojo/errors/create","dojo/fx","dojo/has","dojo/_base/kernel","dojo/keys","dojo/_base/lang","dojo/on","dojo/topic","dojo/touch","dojo/when","./a11yclick","./focus","./registry","./_base/manager","./_Widget","./_TemplatedMixin","./_Container","./_Contained","./_CssStateMixin","./_KeyNavMixin","dojo/text!./templates/TreeNode.html","dojo/text!./templates/Tree.html","./tree/TreeStoreModel","./tree/ForestStoreModel","./tree/_dndSelector","dojo/query!css2"],function(_1,_2,_3,_4,_5,_6,_7,_8,_9,_a,_b,_c,_d,_e,_f,_10,on,_11,_12,_13,_14,_15,_16,_17,_18,_19,_1a,_1b,_1c,_1d,_1e,_1f,_20,_21,_22){
 function _23(d){
 return _10.delegate(d.promise||d,{addCallback:function(_24){
@@ -11,6 +11,9 @@ this.otherwise(_25);
 var _26=_4("dijit._TreeNode",[_18,_19,_1a,_1b,_1c],{item:null,isTreeNode:true,label:"",_setLabelAttr:function(val){
 this.labelNode[this.labelType=="html"?"innerHTML":"innerText" in this.labelNode?"innerText":"textContent"]=val;
 this._set("label",val);
+if(_d("dojo-bidi")){
+this.applyTextDir(this.labelNode);
+}
 },labelType:"text",isExpandable:null,isExpanded:false,state:"NotLoaded",templateString:_1e,baseClass:"dijitTreeNode",cssStateNodes:{rowNode:"dijitTreeRow"},_setTooltipAttr:{node:"rowNode",type:"attribute",attribute:"title"},buildRendering:function(){
 this.inherited(arguments);
 this._setExpando();
@@ -144,10 +147,10 @@ delete _3b._openedNodes[_47];
 }
 _3b._saveExpandedNodes();
 }
-if(_3b.lastFocusedChild&&!_7.isDescendant(_3b.lastFocusedChild,_3b.domNode)){
+if(_3b.lastFocusedChild&&!_7.isDescendant(_3b.lastFocusedChild.domNode,_3b.domNode)){
 delete _3b.lastFocusedChild;
 }
-if(_3e&&!_7.isDescendant(_3e,_3b.domNode)){
+if(_3e&&!_7.isDescendant(_3e.domNode,_3b.domNode)){
 _3b.focus();
 }
 _41.destroyRecursive();
@@ -316,6 +319,7 @@ this.domNode.removeAttribute("aria-labelledby");
 }
 }
 rn.labelNode.setAttribute("role","presentation");
+rn.labelNode.removeAttribute("aria-selected");
 rn.containerNode.setAttribute("role","tree");
 rn.containerNode.setAttribute("aria-expanded","true");
 rn.containerNode.setAttribute("aria-multiselectable",!this.dndController.singular);
@@ -392,7 +396,7 @@ throw new _54.PathError("Could not expand path at "+_6f);
 return _23(this.pendingCommandsPromise=this.pendingCommandsPromise.always(function(){
 return _6(_1.map(_6a,function(_72){
 _72=_1.map(_72,function(_73){
-return _10.isString(_73)?_73:_6b.model.getIdentity(_73);
+return _73&&_10.isObject(_73)?_6b.model.getIdentity(_73):_73;
 });
 if(_72.length){
 return _6c(_72,[_6b.rootNode]);
@@ -627,10 +631,10 @@ var _ba=_b9.getParent();
 if(_ba){
 _ba.removeChild(_b9);
 }
-if(this.lastFocusedChild&&!_7.isDescendant(this.lastFocusedChild,this.domNode)){
+if(this.lastFocusedChild&&!_7.isDescendant(this.lastFocusedChild.domNode,this.domNode)){
 delete this.lastFocusedChild;
 }
-if(this.focusedChild&&!_7.isDescendant(this.focusedChild,this.domNode)){
+if(this.focusedChild&&!_7.isDescendant(this.focusedChild.domNode,this.domNode)){
 this.focus();
 }
 _b9.destroyRecursive();

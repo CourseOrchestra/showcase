@@ -126,7 +126,7 @@ if(_2d<=1||_2d==Infinity){
 _2d=c[this._pixelCount];
 }
 _2d--;
-var _2e=(this.value-this.minimum)*_2d/(this.maximum-this.minimum)+_2b;
+var _2e=Math.round((this.value-this.minimum)*_2d/(this.maximum-this.minimum))+_2b;
 if(_2e<0){
 _2e=0;
 }
@@ -149,6 +149,9 @@ this._bumpValue(e.keyCode==_6.PAGE_DOWN?-this.pageIncrement:-1);
 },increment:function(e){
 this._bumpValue(e.keyCode==_6.PAGE_UP?this.pageIncrement:1);
 },_mouseWheeled:function(evt){
+if(!this.focused){
+return;
+}
 evt.stopPropagation();
 evt.preventDefault();
 this._bumpValue(evt.wheelDelta<0?-1:1,true);

@@ -1,7 +1,7 @@
 //>>built
 require({cache:{"url:dijit/layout/templates/TabContainer.html":"<div class=\"dijitTabContainer\">\n\t<div class=\"dijitTabListWrapper\" data-dojo-attach-point=\"tablistNode\"></div>\n\t<div data-dojo-attach-point=\"tablistSpacer\" class=\"dijitTabSpacer ${baseClass}-spacer\"></div>\n\t<div class=\"dijitTabPaneWrapper ${baseClass}-container\" data-dojo-attach-point=\"containerNode\"></div>\n</div>\n"}});
-define("dijit/layout/_TabContainerBase",["dojo/_base/declare","dojo/dom-class","dojo/dom-geometry","dojo/dom-style","./StackContainer","./utils","../registry","../_TemplatedMixin","dojo/text!./templates/TabContainer.html"],function(_1,_2,_3,_4,_5,_6,_7,_8,_9){
-return _1("dijit.layout._TabContainerBase",[_5,_8],{tabPosition:"top",baseClass:"dijitTabContainer",tabStrip:false,nested:false,templateString:_9,postMixInProperties:function(){
+define("dijit/layout/_TabContainerBase",["dojo/_base/declare","dojo/dom-class","dojo/dom-geometry","dojo/dom-style","./StackContainer","./utils","../_TemplatedMixin","dojo/text!./templates/TabContainer.html"],function(_1,_2,_3,_4,_5,_6,_7,_8){
+return _1("dijit.layout._TabContainerBase",[_5,_7],{tabPosition:"top",baseClass:"dijitTabContainer",tabStrip:false,nested:false,templateString:_8,postMixInProperties:function(){
 this.baseClass+=this.tabPosition.charAt(0).toUpperCase()+this.tabPosition.substr(1).replace(/-.*/,"");
 this.srcNodeRef&&_4.set(this.srcNodeRef,"visibility","hidden");
 this.inherited(arguments);
@@ -19,8 +19,11 @@ _2.add(this.containerNode,"dijitTabPaneWrapperNested");
 }else{
 _2.add(this.domNode,"tabStrip-"+(this.tabStrip?"enabled":"disabled"));
 }
-},_setupChild:function(_a){
-_2.add(_a.domNode,"dijitTabPane");
+},_setupChild:function(_9){
+_2.add(_9.domNode,"dijitTabPane");
+this.inherited(arguments);
+},removeChild:function(_a){
+_2.remove(_a.domNode,"dijitTabPane");
 this.inherited(arguments);
 },startup:function(){
 if(this._started){
@@ -59,11 +62,5 @@ if(this.tablist){
 this.tablist.destroy(_e);
 }
 this.inherited(arguments);
-},selectChild:function(_f,_10){
-if(this._focused){
-_f=_7.byId(_f);
-this.tablist.pane2button(_f.id).focus();
-}
-return this.inherited(arguments);
 }});
 });

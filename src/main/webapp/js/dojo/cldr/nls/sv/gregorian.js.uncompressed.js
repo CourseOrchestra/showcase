@@ -108,20 +108,20 @@ define(
 	"dateFormatItem-yQQQQ": "y QQQQ",
 	"field-year": "År",
 	"dateFormatItem-MMdd": "dd/MM",
-	"field-hour": "timme",
+	"field-hour": "Timme",
 	"months-format-abbr": [
-		"jan",
-		"feb",
-		"mar",
-		"apr",
+		"jan.",
+		"feb.",
+		"mars",
+		"apr.",
 		"maj",
-		"jun",
-		"jul",
-		"aug",
-		"sep",
-		"okt",
-		"nov",
-		"dec"
+		"juni",
+		"juli",
+		"aug.",
+		"sep.",
+		"okt.",
+		"nov.",
+		"dec."
 	],
 	"field-sat-relative+0": "lördag denna vecka",
 	"field-sat-relative+1": "lördag nästa vecka",
@@ -134,18 +134,18 @@ define(
 	"field-thu-relative+1": "torsdag nästa vecka",
 	"dateFormatItem-H": "HH",
 	"months-standAlone-abbr": [
-		"Jan",
-		"Feb",
-		"Mar",
-		"Apr",
+		"Jan.",
+		"Feb.",
+		"Mars",
+		"Apr.",
 		"Maj",
-		"Jun",
-		"Jul",
-		"Aug",
-		"Sep",
-		"Okt",
-		"Nov",
-		"Dec"
+		"Juni",
+		"Juli",
+		"Aug.",
+		"Sep.",
+		"Okt.",
+		"Nov.",
+		"Dec."
 	],
 	"quarters-format-abbr": [
 		"K1",
@@ -183,9 +183,7 @@ define(
 	"field-sun-relative+1": "söndag nästa vecka",
 	"eraAbbr": [
 		"f.Kr.",
-		"f.v.t.",
-		"e.Kr.",
-		"v.t."
+		"e.Kr."
 	],
 	"field-minute": "Minut",
 	"field-dayperiod": "fm/em",
@@ -257,9 +255,7 @@ define(
 	],
 	"eraNames": [
 		"före Kristus",
-		"före västerländsk tideräkning",
-		"efter Kristus",
-		"västerländsk tideräkning"
+		"efter Kristus"
 	],
 	"dateFormatItem-yMMMd": "d MMM y",
 	"days-format-narrow": [

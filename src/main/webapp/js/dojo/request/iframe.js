@@ -1,5 +1,5 @@
 /*
-	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Copyright (c) 2004-2016, The JS Foundation All Rights Reserved.
 	Available via Academic Free License >= 2.1 OR the modified BSD license.
 	see: http://dojotoolkit.org/license for details
 */
@@ -221,7 +221,7 @@ if(_3a!=="html"){
 if(_3a==="xml"){
 if(doc.documentElement.tagName.toLowerCase()==="html"){
 _8("a",doc.documentElement).orphan();
-var _3b=doc.documentElement.innerText;
+var _3b=doc.documentElement.innerText||doc.documentElement.textContent;
 _3b=_3b.replace(/>\s+</g,"><");
 _37.text=_6.trim(_3b);
 }else{

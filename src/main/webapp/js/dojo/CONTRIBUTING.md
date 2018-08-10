@@ -27,17 +27,16 @@ If your desired contribution is more than a non-trivial fix, you should discuss 
 
 ## Contributor License Agreement
 
-We require all contributions, to be covered under the Dojo Foundation's [Contributor License Agreement][cla].  This can
+We require all contributions, to be covered under the JS Foundation's [Contributor License Agreement][cla].  This can
 be done electronically and essentially ensures that you are making it clear that your contributions are your
-contributions, you have the legal right to contribute and you are transferring the copyright of your works to the Dojo 
+contributions, you have the legal right to contribute and you are transferring the copyright of your works to the Dojo
 Foundation.
 
 If you are an unfamiliar contributor to the committer assessing your pull request, it is best to make it clear how
-you are covered by a CLA in the notes of the pull request.  The committer will [verify][claCheck] your status.
+you are covered by a CLA in the notes of the pull request.  A bot will verify your status.
 
-If your GitHub user id you are submitting your pull request from differs from the Dojo Community ID or e-mail address
-which you have signed your CLA under, you should specifically note what you have your CLA filed under (and for CCLA
-that you are listed under your companies authorised contributors).
+If your GitHub user id you are submitting your pull request from differs from the e-mail address
+which you have signed your CLA under, you should specifically note what you have your CLA filed under.
 
 # Submitting a Pull Request
 
@@ -52,14 +51,14 @@ to follow step 3 and beyond:
 6. Issue a Pull Request to the official repository
 7. Your Pull Request is reviewed by a committer and merged into the repository
 
-*Note* While there are other ways to accomplish the steps using other tools, the examples here will assume the most
+*Note*: While there are other ways to accomplish the steps using other tools, the examples here will assume the most
 actions will be performed via the `git` command line.
 
 ## 1. Fork the Repository
 
-When logged into your GitHub account, and you are viewing one of the main repositories, you will see the *Fork* button.
-Clicking this button will show you which repositories your can fork to.  Choose your own account.  Once the process
-finishes, you will have your own repository that is "forked" from the GitHub one.
+When logged in to your GitHub account, and you are viewing one of the main repositories, you will see the *Fork* button.
+Clicking this button will show you which organizations your can fork to.  Choose your own account.  Once the process
+finishes, you will have your own repository that is "forked" from the official one.
 
 Forking is a GitHub term and not a git term.  Git is a wholly distributed source control system and simply worries
 about local and remote repositories and allows you to manage your code against them.  GitHub then adds this additional
@@ -79,7 +78,7 @@ It is important that you clone recursively for ``dojox``, ``demos`` or ``util``b
 submodules.  You won't be able to submit your changes to the repositories that way though.  If you are working on any of
 these sub-projects, you should contact those project leads to see if their workflow differs.
 
-You should also setup the `upstream` repository.  This will allow you to take changes from the "master" repository
+You should also set up the `upstream` repository.  This will allow you to take changes from the "master" repository
 and merge them into your local clone and then push them to your GitHub fork:
 
 ```bash
@@ -194,7 +193,7 @@ documentation appropriately or added the appropriate inline documentation.
 
 If the pull request changes the functional behaviour or is fixing a defect, the unit test cases should be modified to
 reflect this.  The committer reviewing your pull request is likely to request the appropriate changes in the test
-cases.  Dojo utilises its own test harness called [D.O.H.][] and is available as part of the [dojo/util][] repository.
+cases.  Dojo utilises [Intern][] for all new tests, and has legacy support for its previous generation test harness called [D.O.H.][] and is available as part of the [dojo/util][] repository. All new tests should be authored using Intern.
 
 It is expected that you will have tested your changes against the existing test cases and appropriate platforms prior to
 submitting your pull request.
@@ -215,10 +214,10 @@ unfamiliar to those who are just starting to contribute.
 [bug database]: http://bugs.dojotoolkit.org/
 [support forum]: http://dojotoolkit.org/community/
 [dojo-contrib]: http://mail.dojotoolkit.org/mailman/listinfo/dojo-contributors
-[cla]: http://dojofoundation.org/about/cla
-[claCheck]: http://dojofoundation.org/about/claCheck
+[cla]: https://js.foundation/CLA/
 [Creating a Pull Request]: https://help.github.com/articles/creating-a-pull-request
 [Fork a Repo]: https://help.github.com/articles/fork-a-repo
+[Intern]: http://theintern.io/
 [styleguide]: http://dojotoolkit.org/reference-guide/developer/styleguide.html
 [DojoDoc]: http://dojotoolkit.org/reference-guide/developer/markup.html
 [D.O.H.]: http://dojotoolkit.org/reference-guide/util/doh.html

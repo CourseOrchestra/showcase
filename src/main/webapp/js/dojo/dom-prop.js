@@ -1,12 +1,12 @@
 /*
-	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Copyright (c) 2004-2016, The JS Foundation All Rights Reserved.
 	Available via Academic Free License >= 2.1 OR the modified BSD license.
 	see: http://dojotoolkit.org/license for details
 */
 
 //>>built
 define("dojo/dom-prop",["exports","./_base/kernel","./sniff","./_base/lang","./dom","./dom-style","./dom-construct","./_base/connect"],function(_1,_2,_3,_4,_5,_6,_7,_8){
-var _9={},_a=0,_b=_2._scopeName+"attrid";
+var _9={},_a=1,_b=_2._scopeName+"attrid";
 _3.add("dom-textContent",function(_c,_d,_e){
 return "textContent" in _e;
 });

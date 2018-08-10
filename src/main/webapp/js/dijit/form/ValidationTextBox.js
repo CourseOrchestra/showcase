@@ -1,8 +1,7 @@
 //>>built
 require({cache:{"url:dijit/form/templates/ValidationTextBox.html":"<div class=\"dijit dijitReset dijitInline dijitLeft\"\n\tid=\"widget_${id}\" role=\"presentation\"\n\t><div class='dijitReset dijitValidationContainer'\n\t\t><input class=\"dijitReset dijitInputField dijitValidationIcon dijitValidationInner\" value=\"&#935; \" type=\"text\" tabIndex=\"-1\" readonly=\"readonly\" role=\"presentation\"\n\t/></div\n\t><div class=\"dijitReset dijitInputField dijitInputContainer\"\n\t\t><input class=\"dijitReset dijitInputInner\" data-dojo-attach-point='textbox,focusNode' autocomplete=\"off\"\n\t\t\t${!nameAttrSetting} type='${type}'\n\t/></div\n></div>\n"}});
 define("dijit/form/ValidationTextBox",["dojo/_base/declare","dojo/_base/kernel","dojo/_base/lang","dojo/i18n","./TextBox","../Tooltip","dojo/text!./templates/ValidationTextBox.html","dojo/i18n!./nls/validate"],function(_1,_2,_3,_4,_5,_6,_7){
-var _8;
-return _8=_1("dijit.form.ValidationTextBox",_5,{templateString:_7,required:false,promptMessage:"",invalidMessage:"$_unset_$",missingMessage:"$_unset_$",message:"",constraints:{},pattern:".*",regExp:"",regExpGen:function(){
+var _8=_1("dijit.form.ValidationTextBox",_5,{templateString:_7,required:false,promptMessage:"",invalidMessage:"$_unset_$",missingMessage:"$_unset_$",message:"",constraints:{},pattern:".*",regExp:"",regExpGen:function(){
 },state:"",tooltipPosition:[],_deprecateRegExp:function(_9,_a){
 if(_a!=_8.prototype[_9]){
 _2.deprecated("ValidationTextBox id="+this.id+", set('"+_9+"', ...) is deprecated.  Use set('pattern', ...) instead.","","2.0");
@@ -145,4 +144,5 @@ this.inherited(arguments);
 _6.hide(this.domNode);
 this.inherited(arguments);
 }});
+return _8;
 });

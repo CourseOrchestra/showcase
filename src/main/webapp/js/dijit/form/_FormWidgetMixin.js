@@ -2,11 +2,14 @@
 define("dijit/form/_FormWidgetMixin",["dojo/_base/array","dojo/_base/declare","dojo/dom-attr","dojo/dom-style","dojo/_base/lang","dojo/mouse","dojo/on","dojo/sniff","dojo/window","../a11y"],function(_1,_2,_3,_4,_5,_6,on,_7,_8,_9){
 return _2("dijit.form._FormWidgetMixin",null,{name:"",alt:"",value:"",type:"text","aria-label":"focusNode",tabIndex:"0",_setTabIndexAttr:"focusNode",disabled:false,intermediateChanges:false,scrollOnFocus:true,_setIdAttr:"focusNode",_setDisabledAttr:function(_a){
 this._set("disabled",_a);
+if(/^(button|input|select|textarea|optgroup|option|fieldset)$/i.test(this.focusNode.tagName)){
 _3.set(this.focusNode,"disabled",_a);
+}else{
+this.focusNode.setAttribute("aria-disabled",_a?"true":"false");
+}
 if(this.valueNode){
 _3.set(this.valueNode,"disabled",_a);
 }
-this.focusNode.setAttribute("aria-disabled",_a?"true":"false");
 if(_a){
 this._set("hovering",false);
 this._set("active",false);

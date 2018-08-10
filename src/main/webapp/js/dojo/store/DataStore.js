@@ -1,5 +1,5 @@
 /*
-	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Copyright (c) 2004-2016, The JS Foundation All Rights Reserved.
 	Available via Academic Free License >= 2.1 OR the modified BSD license.
 	see: http://dojotoolkit.org/license for details
 */
@@ -9,14 +9,14 @@ define("dojo/store/DataStore",["../_base/lang","../_base/declare","../Deferred",
 var _7=null;
 return _2("dojo.store.DataStore",_7,{target:"",constructor:function(_8){
 _1.mixin(this,_8);
-if(!"idProperty" in _8){
+if(!("idProperty" in _8)){
 var _9;
 try{
 _9=this.store.getIdentityAttributes();
 }
 catch(e){
 }
-this.idProperty=(!_9||!idAttributes[0])||this.idProperty;
+this.idProperty=(_1.isArray(_9)?_9[0]:_9)||this.idProperty;
 }
 var _a=this.store.getFeatures();
 if(!_a["dojo.data.api.Read"]){
@@ -83,80 +83,80 @@ var _1e=this.store;
 var _1f=this.idProperty;
 var _20=new _3();
 if(typeof id=="undefined"){
-_1e.newItem(_1c);
+var _21=_1e.newItem(_1c);
 _1e.save({onComplete:function(){
-_20.resolve(_1c);
-},onError:function(_21){
-_20.reject(_21);
+_20.resolve(_21);
+},onError:function(_22){
+_20.reject(_22);
 }});
 }else{
-_1e.fetchItemByIdentity({identity:id,onItem:function(_22){
-if(_22){
+_1e.fetchItemByIdentity({identity:id,onItem:function(_23){
+if(_23){
 if(_1d.overwrite===false){
 return _20.reject(new Error("Overwriting existing object not allowed"));
 }
 for(var i in _1c){
-if(i!=_1f&&_1c.hasOwnProperty(i)&&_1e.getValue(_22,i)!=_1c[i]){
-_1e.setValue(_22,i,_1c[i]);
+if(i!=_1f&&_1c.hasOwnProperty(i)&&_1e.getValue(_23,i)!=_1c[i]){
+_1e.setValue(_23,i,_1c[i]);
 }
 }
 }else{
 if(_1d.overwrite===true){
 return _20.reject(new Error("Creating new object not allowed"));
 }
-_1e.newItem(_1c);
+var _23=_1e.newItem(_1c);
 }
 _1e.save({onComplete:function(){
-_20.resolve(_1c);
-},onError:function(_23){
-_20.reject(_23);
-}});
+_20.resolve(_23);
 },onError:function(_24){
 _20.reject(_24);
 }});
+},onError:function(_25){
+_20.reject(_25);
+}});
 }
 return _20.promise;
-},add:function(_25,_26){
-(_26=_26||{}).overwrite=false;
-return this.put(_25,_26);
+},add:function(_26,_27){
+(_27=_27||{}).overwrite=false;
+return this.put(_26,_27);
 },remove:function(id){
-var _27=this.store;
-var _28=new _3();
-this.store.fetchItemByIdentity({identity:id,onItem:function(_29){
+var _28=this.store;
+var _29=new _3();
+this.store.fetchItemByIdentity({identity:id,onItem:function(_2a){
 try{
-if(_29==null){
-_28.resolve(false);
+if(_2a==null){
+_29.resolve(false);
 }else{
-_27.deleteItem(_29);
-_27.save();
-_28.resolve(true);
+_28.deleteItem(_2a);
+_28.save();
+_29.resolve(true);
 }
 }
 catch(error){
-_28.reject(error);
+_29.reject(error);
 }
-},onError:function(_2a){
-_28.reject(_2a);
+},onError:function(_2b){
+_29.reject(_2b);
 }});
-return _28.promise;
-},query:function(_2b,_2c){
-var _2d;
-var _2e=new _3(function(){
-_2d.abort&&_2d.abort();
+return _29.promise;
+},query:function(_2c,_2d){
+var _2e;
+var _2f=new _3(function(){
+_2e.abort&&_2e.abort();
 });
-_2e.total=new _3();
-var _2f=this._objectConverter(function(_30){
-return _30;
+_2f.total=new _3();
+var _30=this._objectConverter(function(_31){
+return _31;
 });
-_2d=this.store.fetch(_1.mixin({query:_2b,onBegin:function(_31){
-_2e.total.resolve(_31);
-},onComplete:function(_32){
-_2e.resolve(_4.map(_32,_2f));
-},onError:function(_33){
-_2e.reject(_33);
-}},_2c));
-return _5(_2e);
-},getIdentity:function(_34){
-return _34[this.idProperty];
+_2e=this.store.fetch(_1.mixin({query:_2c,onBegin:function(_32){
+_2f.total.resolve(_32);
+},onComplete:function(_33){
+_2f.resolve(_4.map(_33,_30));
+},onError:function(_34){
+_2f.reject(_34);
+}},_2d));
+return _5(_2f);
+},getIdentity:function(_35){
+return _35[this.idProperty];
 }});
 });

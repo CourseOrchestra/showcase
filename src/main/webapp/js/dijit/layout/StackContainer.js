@@ -94,7 +94,7 @@ _1c=_b.byId(_1c);
 if(this.selectedChildWidget!=_1c){
 d=this._transition(_1c,this.selectedChildWidget,_1d);
 this._set("selectedChildWidget",_1c);
-_9.publish(this.id+"-selectChild",_1c);
+_9.publish(this.id+"-selectChild",_1c,this._focused);
 if(this.persist){
 _2(this.id+"_selectedChild",this.selectedChildWidget.id);
 }
@@ -149,7 +149,7 @@ _4.replace(_26._wrapper,"dijitHidden","dijitVisible");
 }
 _26.onHide&&_26.onHide();
 },closeChild:function(_27){
-var _28=_27.onClose&&_27.onClose(this,_27);
+var _28=!_27.onClose||_27.onClose(this,_27);
 if(_28){
 this.removeChild(_27);
 _27.destroyRecursive();

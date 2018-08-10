@@ -1,5 +1,5 @@
 /*
-	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Copyright (c) 2004-2016, The JS Foundation All Rights Reserved.
 	Available via Academic Free License >= 2.1 OR the modified BSD license.
 	see: http://dojotoolkit.org/license for details
 */
@@ -9,7 +9,7 @@ define("dojo/dom-attr",["exports","./sniff","./_base/lang","./dom","./dom-style"
 var _7={innerHTML:1,textContent:1,className:1,htmlFor:_2("ie"),value:1},_8={classname:"class",htmlfor:"for",tabindex:"tabIndex",readonly:"readOnly"};
 function _9(_a,_b){
 var _c=_a.getAttributeNode&&_a.getAttributeNode(_b);
-return _c&&_c.specified;
+return !!_c&&_c.specified;
 };
 _1.has=function hasAttr(_d,_e){
 var lc=_e.toLowerCase();

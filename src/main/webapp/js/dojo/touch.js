@@ -1,5 +1,5 @@
 /*
-	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Copyright (c) 2004-2016, The JS Foundation All Rights Reserved.
 	Available via Academic Free License >= 2.1 OR the modified BSD license.
 	see: http://dojotoolkit.org/license for details
 */
@@ -53,6 +53,9 @@ return _27;
 }while(_27=_27.parentNode);
 };
 function _28(e,_29,_2a){
+if(_7.isRight(e)){
+return;
+}
 var _2b=_26(e.target);
 _11=!e.target.disabled&&_2b&&_2b.dojoClick;
 if(_11){
@@ -75,12 +78,18 @@ _11=_11&&(e.changedTouches?e.changedTouches[0].target:e.target)==_13&&Math.abs((
 }
 };
 _9.doc.addEventListener(_29,function(e){
+if(_7.isRight(e)){
+return;
+}
 _2c(e);
 if(_12){
 e.preventDefault();
 }
 },true);
 _9.doc.addEventListener(_2a,function(e){
+if(_7.isRight(e)){
+return;
+}
 _2c(e);
 if(_11){
 _18=(new Date()).getTime();
@@ -89,33 +98,43 @@ if(_2d.tagName==="LABEL"){
 _2d=_3.byId(_2d.getAttribute("for"))||_2d;
 }
 var src=(e.changedTouches)?e.changedTouches[0]:e;
-var _2e=document.createEvent("MouseEvents");
-_2e._dojo_click=true;
-_2e.initMouseEvent("click",true,true,e.view,e.detail,src.screenX,src.screenY,src.clientX,src.clientY,e.ctrlKey,e.altKey,e.shiftKey,e.metaKey,0,null);
+function _2e(_2f){
+var evt=document.createEvent("MouseEvents");
+evt._dojo_click=true;
+evt.initMouseEvent(_2f,true,true,e.view,e.detail,src.screenX,src.screenY,src.clientX,src.clientY,e.ctrlKey,e.altKey,e.shiftKey,e.metaKey,0,null);
+return evt;
+};
+var _30=_2e("mousedown");
+var _31=_2e("mouseup");
+var _32=_2e("click");
 setTimeout(function(){
-on.emit(_2d,"click",_2e);
+on.emit(_2d,"mousedown",_30);
+on.emit(_2d,"mouseup",_31);
+on.emit(_2d,"click",_32);
 _18=(new Date()).getTime();
 },0);
 }
 },true);
-function _2f(_30){
-_9.doc.addEventListener(_30,function(e){
-if(!e._dojo_click&&(new Date()).getTime()<=_18+1000&&!(e.target.tagName=="INPUT"&&_4.contains(e.target,"dijitOffScreen"))){
+function _33(_34){
+_9.doc.addEventListener(_34,function(e){
+var _35=e.target;
+if(_11&&!e._dojo_click&&(new Date()).getTime()<=_18+1000&&!(_35.tagName=="INPUT"&&_4.contains(_35,"dijitOffScreen"))){
 e.stopPropagation();
 e.stopImmediatePropagation&&e.stopImmediatePropagation();
-if(_30=="click"&&(e.target.tagName!="INPUT"||e.target.type=="radio"||e.target.type=="checkbox")&&e.target.tagName!="TEXTAREA"&&e.target.tagName!="AUDIO"&&e.target.tagName!="VIDEO"){
+if(_34=="click"&&(_35.tagName!="INPUT"||(_35.type=="radio"&&(_4.contains(_35,"dijitCheckBoxInput")||_4.contains(_35,"mblRadioButton")))||(_35.type=="checkbox"&&(_4.contains(_35,"dijitCheckBoxInput")||_4.contains(_35,"mblCheckBox"))))&&_35.tagName!="TEXTAREA"&&_35.tagName!="AUDIO"&&_35.tagName!="VIDEO"){
 e.preventDefault();
 }
 }
 },true);
 };
-_2f("click");
-_2f("mousedown");
-_2f("mouseup");
+_33("click");
+_33("mousedown");
+_33("mouseup");
 }
 }
 };
-var _31;
+var _36;
+if(_6("touch")){
 if(_b){
 _8(function(){
 _9.doc.addEventListener(_c.down,function(evt){
@@ -123,53 +142,52 @@ _28(evt,_c.move,_c.up);
 },true);
 });
 }else{
-if(_f){
 _8(function(){
-_31=_9.body();
+_36=_9.body();
 _9.doc.addEventListener("touchstart",function(evt){
 _19=(new Date()).getTime();
-var _32=_31;
-_31=evt.target;
-on.emit(_32,"dojotouchout",{relatedTarget:_31,bubbles:true});
-on.emit(_31,"dojotouchover",{relatedTarget:_32,bubbles:true});
+var _37=_36;
+_36=evt.target;
+on.emit(_37,"dojotouchout",{relatedTarget:_36,bubbles:true});
+on.emit(_36,"dojotouchover",{relatedTarget:_37,bubbles:true});
 _28(evt,"touchmove","touchend");
 },true);
-function _33(evt){
-var _34=_5.delegate(evt,{bubbles:true});
+function _38(evt){
+var _39=_5.delegate(evt,{bubbles:true});
 if(_6("ios")>=6){
-_34.touches=evt.touches;
-_34.altKey=evt.altKey;
-_34.changedTouches=evt.changedTouches;
-_34.ctrlKey=evt.ctrlKey;
-_34.metaKey=evt.metaKey;
-_34.shiftKey=evt.shiftKey;
-_34.targetTouches=evt.targetTouches;
+_39.touches=evt.touches;
+_39.altKey=evt.altKey;
+_39.changedTouches=evt.changedTouches;
+_39.ctrlKey=evt.ctrlKey;
+_39.metaKey=evt.metaKey;
+_39.shiftKey=evt.shiftKey;
+_39.targetTouches=evt.targetTouches;
 }
-return _34;
+return _39;
 };
 on(_9.doc,"touchmove",function(evt){
 _19=(new Date()).getTime();
-var _35=_9.doc.elementFromPoint(evt.pageX-(_a?0:_9.global.pageXOffset),evt.pageY-(_a?0:_9.global.pageYOffset));
-if(_35){
-if(_31!==_35){
-on.emit(_31,"dojotouchout",{relatedTarget:_35,bubbles:true});
-on.emit(_35,"dojotouchover",{relatedTarget:_31,bubbles:true});
-_31=_35;
+var _3a=_9.doc.elementFromPoint(evt.pageX-(_a?0:_9.global.pageXOffset),evt.pageY-(_a?0:_9.global.pageYOffset));
+if(_3a){
+if(_36!==_3a){
+on.emit(_36,"dojotouchout",{relatedTarget:_3a,bubbles:true});
+on.emit(_3a,"dojotouchover",{relatedTarget:_36,bubbles:true});
+_36=_3a;
 }
-if(!on.emit(_35,"dojotouchmove",_33(evt))){
+if(!on.emit(_3a,"dojotouchmove",_38(evt))){
 evt.preventDefault();
 }
 }
 });
 on(_9.doc,"touchend",function(evt){
 _19=(new Date()).getTime();
-var _36=_9.doc.elementFromPoint(evt.pageX-(_a?0:_9.global.pageXOffset),evt.pageY-(_a?0:_9.global.pageYOffset))||_9.body();
-on.emit(_36,"dojotouchend",_33(evt));
+var _3b=_9.doc.elementFromPoint(evt.pageX-(_a?0:_9.global.pageXOffset),evt.pageY-(_a?0:_9.global.pageYOffset))||_9.body();
+on.emit(_3b,"dojotouchend",_38(evt));
 });
 });
 }
 }
-var _37={press:_1a("mousedown","touchstart",_c.down),move:_1a("mousemove","dojotouchmove",_c.move),release:_1a("mouseup","dojotouchend",_c.up),cancel:_1a(_7.leave,"touchcancel",_b?_c.cancel:null),over:_1a("mouseover","dojotouchover",_c.over),out:_1a("mouseout","dojotouchout",_c.out),enter:_7._eventHandler(_1a("mouseover","dojotouchover",_c.over)),leave:_7._eventHandler(_1a("mouseout","dojotouchout",_c.out))};
-1&&(_1.touch=_37);
-return _37;
+var _3c={press:_1a("mousedown","touchstart",_c.down),move:_1a("mousemove","dojotouchmove",_c.move),release:_1a("mouseup","dojotouchend",_c.up),cancel:_1a(_7.leave,"touchcancel",_b?_c.cancel:null),over:_1a("mouseover","dojotouchover",_c.over),out:_1a("mouseout","dojotouchout",_c.out),enter:_7._eventHandler(_1a("mouseover","dojotouchover",_c.over)),leave:_7._eventHandler(_1a("mouseout","dojotouchout",_c.out))};
+1&&(_1.touch=_3c);
+return _3c;
 });

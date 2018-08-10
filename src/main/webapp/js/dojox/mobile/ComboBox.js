@@ -50,7 +50,7 @@ _7.set(this.domNode,"aria-expanded","true");
 if(_10.id){
 _7.set(this.domNode,"aria-owns",_10.id);
 }
-if(_e("touch")){
+if(_e("touch")&&(!_e("ios")||_e("ios")<8)){
 _4.global.scrollBy(0,_5.position(_12,false).y);
 }
 if(!this._preparedNode){

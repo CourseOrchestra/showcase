@@ -53,7 +53,9 @@ this.labelKey.push(key);
 }
 return this;
 },getSeriesStats:function(){
-return dc.collectSimpleStats(this.series);
+return dc.collectSimpleStats(this.series,function(v){
+return v===null;
+});
 },render:function(dim,_14){
 if(!this.dirty){
 return this;
@@ -83,7 +85,7 @@ _23=r-_29;
 }
 r/=(1+_2a);
 var _33={cx:_14.l+rx,cy:_14.t+ry,r:r};
-for(i=this.series.length-1;i>=0;i--){
+for(var i=0;i<this.series.length;i++){
 _2e=this.series[i];
 if(!this.dirty&&!_2e.dirty){
 t.skip();

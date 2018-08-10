@@ -24,6 +24,9 @@ this._arrowReleased(_f);
 this._arrowPressed(_f,(_f==this.upArrowNode)?1:-1,inc);
 }
 },_wheelTimer:null,_mouseWheeled:function(evt){
+if(!this.focused){
+return;
+}
 evt.stopPropagation();
 evt.preventDefault();
 var _10=evt.wheelDelta/120;
@@ -69,13 +72,3 @@ this.own(_6.addListener(this.upArrowNode,this.textbox,{keyCode:_2.UP_ARROW,ctrlK
 //KURS]
 }});
 });
-
-
-
-
-
-
-
-
-
-

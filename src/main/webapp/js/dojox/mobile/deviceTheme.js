@@ -46,7 +46,7 @@ return _6?_6.toUrl(_10):_3.baseUrl+"../"+_10;
 this.setDm=function(_11){
 dm=_11;
 };
-this.themeMap=_3.themeMap||[["Holodark","holodark",[]],["Android 3","holodark",[]],["Android 4","holodark",[]],["Android","android",[]],["BlackBerry","blackberry",[]],["BB10","blackberry",[]],["ios7","ios7",[]],["iPhone;.*OS 7_","ios7",[]],["iPhone;.*OS 8_","ios7",[]],["iPad;.*OS 7_","ios7",[]],["iPad;.*OS 8_","ios7",[]],["iPhone","iphone",[]],["iPad","iphone",[this.toUrl("dojox/mobile/themes/iphone/ipad.css")]],["WindowsPhone","windows",[]],["Windows Phone","windows",[]],["Trident","iphone",[]],["Custom","custom",[]],[".*","iphone",[]]];
+this.themeMap=_3.themeMap||[["Holodark","holodark",[]],["Android [3-9]","holodark",[]],["Android","android",[]],["BlackBerry","blackberry",[]],["BB10","blackberry",[]],["ios7","ios7",[]],["iPhone;.*OS ([7-9]|1[0-9])_","ios7",[]],["iPad;.*OS ([7-9]|1[0-9])_","ios7",[]],["iPhone","iphone",[]],["iPad","iphone",[this.toUrl("dojox/mobile/themes/iphone/ipad.css")]],["WindowsPhone","windows",[]],["Windows Phone","windows",[]],["Trident","ios7",[]],["Custom","custom",[]],[".*","ios7",[]]];
 dm.loadedCssFiles=[];
 this.loadDeviceTheme=function(_12){
 var t=_3.mblThemeFiles||dm.themeFiles||["@theme"];

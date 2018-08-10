@@ -1,5 +1,5 @@
 /*
-	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Copyright (c) 2004-2016, The JS Foundation All Rights Reserved.
 	Available via Academic Free License >= 2.1 OR the modified BSD license.
 	see: http://dojotoolkit.org/license for details
 */
@@ -41,11 +41,11 @@ return doc.parentWindow||doc.defaultView;
 },scrollIntoView:function(_17,pos){
 try{
 _17=_4.byId(_17);
-var doc=_17.ownerDocument||_3.doc,_18=_3.body(doc),_19=doc.documentElement||_18.parentNode,_1a=_2("ie"),_1b=_2("webkit");
+var doc=_17.ownerDocument||_3.doc,_18=_3.body(doc),_19=doc.documentElement||_18.parentNode,_1a=_2("ie")||_2("trident"),_1b=_2("webkit");
 if(_17==_18||_17==_19){
 return;
 }
-if(!(_2("mozilla")||_1a||_1b||_2("opera")||_2("trident"))&&("scrollIntoView" in _17)){
+if(!(_2("mozilla")||_1a||_1b||_2("opera")||_2("trident")||_2("edge"))&&("scrollIntoView" in _17)){
 _17.scrollIntoView(false);
 return;
 }
@@ -73,12 +73,8 @@ _24.h=_1e;
 if(_1f==_19&&(_1a||_2("trident"))&&rtl){
 _24.x+=_1f.offsetWidth-_24.w;
 }
-if(_24.x<0||!_1a||_1a>=9||_2("trident")){
 _24.x=0;
-}
-if(_24.y<0||!_1a||_1a>=9||_2("trident")){
 _24.y=0;
-}
 }else{
 var pb=_5.getPadBorderExtents(el);
 _24.w-=pb.w;
@@ -118,7 +114,7 @@ var l=_20.x-_24.x,t=_20.y-_24.y,r=l+_20.w-_24.w,bot=t+_20.h-_24.h;
 var s,old;
 if(r*l>0&&(!!el.scrollLeft||el==_1f||el.scrollWidth>el.offsetHeight)){
 s=Math[l<0?"max":"min"](l,r);
-if(rtl&&((_1a==8&&!_1c)||_1a>=9||_2("trident"))){
+if(rtl&&((_1a==8&&!_1c)||_2("trident")>=5)){
 s=-s;
 }
 old=el.scrollLeft;

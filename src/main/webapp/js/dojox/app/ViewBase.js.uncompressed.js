@@ -51,7 +51,8 @@ define("dojox/app/ViewBase", ["require", "dojo/when", "dojo/on", "dojo/dom-attr"
 			var vcDef = this._loadViewController();
 			when(vcDef, lang.hitch(this, function(controller){
 				if(controller){
-					lang.mixin(this, controller);
+					//lang.mixin(this, controller);
+					declare.safeMixin(this, controller);
 				}
 			}));
 			return vcDef;

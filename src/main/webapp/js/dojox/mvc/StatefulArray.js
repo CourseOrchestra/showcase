@@ -2,7 +2,7 @@
 define("dojox/mvc/StatefulArray",["dojo/_base/lang","dojo/Stateful"],function(_1,_2){
 function _3(a){
 if(a._watchElementCallbacks){
-a._watchElementCallbacks();
+a._watchElementCallbacks(undefined,[],[]);
 }
 return a;
 };

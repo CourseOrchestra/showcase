@@ -28,7 +28,7 @@ _10.cleanGroup(s);
 });
 }
 var t=this.chart.theme,ht=this._hScaler.scaler.getTransformerFromModel(this._hScaler),vt=this._vScaler.scaler.getTransformerFromModel(this._vScaler),_11=this.events();
-for(var i=this.series.length-1;i>=0;--i){
+for(var i=0;i<this.series.length;i++){
 var run=this.series[i];
 if(!this.dirty&&!run.dirty){
 t.skip();
@@ -63,7 +63,7 @@ return t.addMixin(_12,"circle",_19,true);
 };
 if(_12.series.shadow){
 _16=_3.map(_13,function(_1a,i){
-if(_1a!==null){
+if(!this.isNullValue(_1a)){
 var _1b=_18(run.data[i]),_1c=_1b.series.shadow;
 var _1d=s.createCircle({cx:_1a.x+_1c.dx,cy:_1a.y+_1c.dy,r:_1a.radius}).setStroke(_1c).setFill(_1c.color);
 if(this.animate){
@@ -79,9 +79,9 @@ run.dyn.shadow=_16[_16.length-1].getStroke();
 }
 if(_12.series.outline){
 _15=_3.map(_13,function(_1e,i){
-if(_1e!==null){
+if(!this.isNullValue(_1e)){
 var _1f=_18(run.data[i]),_20=dc.makeStroke(_1f.series.outline);
-_20.width=2*_20.width+_12.series.stroke.width;
+_20.width=2*_20.width+(_12.series.stroke&&_12.series.stroke.width||0);
 var _21=s.createCircle({cx:_1e.x,cy:_1e.y,r:_1e.radius}).setStroke(_20);
 if(this.animate){
 this._animateBubble(_21,_e.height-_f.b,_1e.radius);
@@ -95,7 +95,7 @@ run.dyn.outline=_15[_15.length-1].getStroke();
 }
 }
 _14=_3.map(_13,function(_22,i){
-if(_22!==null){
+if(!this.isNullValue(_22)){
 var _23=_18(run.data[i]),_24={x:_22.x-_22.radius,y:_22.y-_22.radius,width:2*_22.radius,height:2*_22.radius};
 var _25=this._plotFill(_23.series.fill,_e,_f);
 _25=this._shapeFill(_25,_24);

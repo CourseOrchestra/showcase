@@ -25,7 +25,7 @@ return this._startDef;
 var _b=this._loadViewController();
 _2(_b,_6.hitch(this,function(_c){
 if(_c){
-_6.mixin(this,_c);
+_5.safeMixin(this,_c);
 }
 }));
 return _b;
