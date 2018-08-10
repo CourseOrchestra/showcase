@@ -320,7 +320,7 @@ define("dijit/form/Select", [
 			var lbl = (this.labelType === 'text' ? (newDisplay || '')
 					.replace(/&/g, '&amp;').replace(/</g, '&lt;') :
 					newDisplay) || this.emptyLabel;
-			this.containerNode.innerHTML = '<span role="option" class="dijitReset dijitInline ' + this.baseClass.replace(/\s+|$/g, "Label ") + '">' + lbl + '</span>';
+			this.containerNode.innerHTML = '<span role="option" aria-selected="true" class="dijitReset dijitInline ' + this.baseClass.replace(/\s+|$/g, "Label ") + '">' + lbl + '</span>';
 		},
 
 		validate: function(/*Boolean*/ isFocused){
@@ -413,6 +413,9 @@ define("dijit/form/Select", [
 		_onFocus: function(){
 			this.validate(true);	// show tooltip if second focus of required tooltip, but no selection
 			// Note: not calling superclass _onFocus() to avoid _KeyNavMixin::_onFocus() setting tabIndex --> -1
+// [KURS
+			gridClickFromEditor(this);
+// KURS]			
 		},
 
 		_onBlur: function(){
