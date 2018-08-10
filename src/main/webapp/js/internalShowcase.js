@@ -23,6 +23,7 @@ function setCurrentUserDetailsForViewInHTMLControl(preffix)
 
 }
 
+
 function safeIncludeJS(jsFile) { 
 	        dojo.xhrGet({ 
 	                url: jsFile, 
