@@ -4,7 +4,7 @@ return _1("dijit._HasDropDown",_f,{_buttonNode:null,_arrowWrapperNode:null,_popu
 if(this.disabled||this.readOnly){
 return;
 }
-if(e.type!="MSPointerDown"&&e.type!="pointerdown"){
+if(e.type!="MSPointerDown"){
 e.preventDefault();
 }
 this.own(on.once(this.ownerDocument,_b.release,_a.hitch(this,"_onDropDownMouseUp")));
@@ -148,6 +148,7 @@ _1b._set("_opened",false);
 if(this.forceWidth||(this.autoWidth&&_1a.offsetWidth>_18._popupWrapper.offsetWidth)){
 var _1d=_1a.offsetWidth-_18._popupWrapper.offsetWidth;
 var _1e={w:_18.domNode.offsetWidth+_1d};
+this._origStyle=_19.style.cssText;
 if(_a.isFunction(_18.resize)){
 _18.resize(_1e);
 }else{
@@ -178,6 +179,10 @@ this.focus();
 }
 _e.close(this.dropDown);
 this._opened=false;
+}
+if(this._origStyle){
+this.dropDown.domNode.style.cssText=this._origStyle;
+delete this._origStyle;
 }
 }});
 });

@@ -112,7 +112,12 @@ define([
 				return result;
 			});
 */
+            id = encodeURIComponent(id);
 			var initialResponse = request(hasId ? this.target +"?"+ id : this.target, {
+			
+			
+			    //sync: true,
+			
 				method: 'POST',
 				data: object,
 				handleAs: "json",	

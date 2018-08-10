@@ -1,5 +1,5 @@
 //>>built
-require({cache:{"url:dijit/form/templates/DropDownBox.html":"<div class=\"dijit dijitReset dijitInline dijitLeft\"\n\tid=\"widget_${id}\"\n\trole=\"combobox\"\n\taria-haspopup=\"true\"\n\tdata-dojo-attach-point=\"_popupStateNode\"\n\t><div class='dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer'\n\t\tdata-dojo-attach-point=\"_buttonNode\" role=\"presentation\"\n\t\t><input class=\"dijitReset dijitInputField dijitArrowButtonInner\" value=\"&#9660; \" type=\"text\" tabIndex=\"-1\" readonly=\"readonly\" role=\"button presentation\" aria-hidden=\"true\"\n\t\t\t${_buttonInputDisabled}\n\t/></div\n\t><div class='dijitReset dijitValidationContainer'\n\t\t><input class=\"dijitReset dijitInputField dijitValidationIcon dijitValidationInner\" value=\"&#935; \" type=\"text\" tabIndex=\"-1\" readonly=\"readonly\" role=\"presentation\"\n\t/></div\n\t><div class=\"dijitReset dijitInputField dijitInputContainer\"\n\t\t><input class='dijitReset dijitInputInner' ${!nameAttrSetting} type=\"text\" autocomplete=\"off\"\n\t\t\tdata-dojo-attach-point=\"textbox,focusNode\" role=\"textbox\"\n\t/></div\n></div>\n"}});
+require({cache:{"url:dijit/form/templates/DropDownBox.html":"<div class=\"dijit dijitReset dijitInline dijitLeft\"\n\tid=\"widget_${id}\"\n\trole=\"combobox\"\n\taria-haspopup=\"true\"\n\tdata-dojo-attach-point=\"_popupStateNode\"\n\t><div class='dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer'\n\t\tdata-dojo-attach-point=\"_buttonNode\" role=\"presentation\"\n\t\t><input class=\"dijitReset dijitInputField dijitArrowButtonInner\" value=\"&#9660; \" type=\"text\" tabIndex=\"-1\" readonly=\"readonly\" role=\"button presentation\" aria-hidden=\"true\"\n\t\t\t${_buttonInputDisabled}\n\t/></div\n\t><div class='dijitReset dijitValidationContainer'\n\t\t><input class=\"dijitReset dijitInputField dijitValidationIcon dijitValidationInner\" value=\"&#935; \" type=\"text\" tabIndex=\"-1\" readonly=\"readonly\" role=\"presentation\"\n\t/></div\n\t><div class=\"dijitReset dijitInputField dijitInputContainer\"\n\t\t><input class='dijitReset dijitInputInner' ${!nameAttrSetting} type=\"${type}\" autocomplete=\"off\"\n\t\t\tdata-dojo-attach-point=\"textbox,focusNode\" role=\"textbox\"\n\t/></div\n></div>\n"}});
 define("dijit/form/_DateTimeTextBox",["dojo/date","dojo/date/locale","dojo/date/stamp","dojo/_base/declare","dojo/_base/lang","./RangeBoundTextBox","../_HasDropDown","dojo/text!./templates/DropDownBox.html"],function(_1,_2,_3,_4,_5,_6,_7,_8){
 new Date("X");
 var _9=_4("dijit.form._DateTimeTextBox",[_6,_7],{templateString:_8,hasDownArrow:true,cssStateNodes:{"_buttonNode":"dijitDownArrowButton"},_unboundedConstraints:{},pattern:_2.regexp,datePackage:"",postMixInProperties:function(){
@@ -29,6 +29,9 @@ return _3.toISOString(val,_16);
 _17=_17||{};
 this.dateModule=_17.datePackage?_5.getObject(_17.datePackage,false):_1;
 this.dateClassObj=this.dateModule.Date||Date;
+if(!(this.dateClassObj instanceof Date)){
+this.value=new this.dateClassObj(this.value);
+}
 this.dateLocaleModule=_17.datePackage?_5.getObject(_17.datePackage+".locale",false):_2;
 this._set("pattern",this.dateLocaleModule.regexp);
 this._invalidDate=this.constructor.prototype.value.toString();
@@ -47,9 +50,15 @@ _18.fullYear=true;
 var _19=_3.fromISOString;
 if(typeof _18.min=="string"){
 _18.min=_19(_18.min);
+if(!(this.dateClassObj instanceof Date)){
+_18.min=new this.dateClassObj(_18.min);
+}
 }
 if(typeof _18.max=="string"){
 _18.max=_19(_18.max);
+if(!(this.dateClassObj instanceof Date)){
+_18.max=new this.dateClassObj(_18.max);
+}
 }
 this.inherited(arguments);
 this._unboundedConstraints=_5.mixin({},this.constraints,{min:null,max:null});
@@ -67,17 +76,22 @@ if(_1b instanceof Date&&!(this.dateClassObj instanceof Date)){
 _1b=new this.dateClassObj(_1b);
 }
 }
-this.inherited(arguments);
+this.inherited(arguments,[_1b,_1c,_1d]);
 if(this.value instanceof Date){
 this.filterString="";
 }
-if(this.dropDown){
+if(_1c!==false&&this.dropDown){
 this.dropDown.set("value",_1b,false);
 }
 },_set:function(_1e,_1f){
+if(_1e=="value"){
+if(_1f instanceof Date&&!(this.dateClassObj instanceof Date)){
+_1f=new this.dateClassObj(_1f);
+}
 var _20=this._get("value");
-if(_1e=="value"&&_20 instanceof Date&&this.compare(_1f,_20)==0){
+if(_20 instanceof this.dateClassObj&&this.compare(_1f,_20)==0){
 return;
+}
 }
 this.inherited(arguments);
 },_setDropDownDefaultValueAttr:function(val){

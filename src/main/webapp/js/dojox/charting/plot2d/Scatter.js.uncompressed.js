@@ -58,7 +58,7 @@ define("dojox/charting/plot2d/Scatter", ["dojo/_base/lang", "dojo/_base/array", 
 				df.forEachRev(this.series, function(item){ item.cleanGroup(s); });
 			}
 			var t = this.chart.theme, events = this.events();
-			for(var i = this.series.length - 1; i >= 0; --i){
+			for(var i = 0; i < this.series.length; i++){
 				var run = this.series[i];
 				if(!this.dirty && !run.dirty){
 					t.skip();
@@ -124,7 +124,7 @@ define("dojox/charting/plot2d/Scatter", ["dojo/_base/lang", "dojo/_base/array", 
 					}
 					if(finalTheme.marker.outline){
 						var outline = dc.makeStroke(finalTheme.marker.outline);
-						outline.width = 2 * outline.width + finalTheme.marker.stroke.width;
+						outline.width = 2 * outline.width + (finalTheme.marker.stroke && finalTheme.marker.stroke.width || 0);
 						outlineMarkers[i] = s.createPath(path).setStroke(outline);
 						if(this.animate){
 							this._animateScatter(outlineMarkers[i], dim.height - offsets.b);

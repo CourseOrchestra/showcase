@@ -12,7 +12,7 @@ return parseInt(i,10);
 });
 },postCreate:function(){
 this.inherited(arguments);
-this.value.sort(this._isReversed()?_f:_10);
+this.value.sort(_10);
 var _12=this;
 var _13=_1(_14,{constructor:function(){
 this.widget=_12;
@@ -93,9 +93,6 @@ var _1c=_2.isArray(_1a)?[this._getBumpValue(_1a[0].change,_1a[0].useMaxValue),th
 this._setValueAttr(_1c,true,_1b);
 },_getBumpValue:function(_1d,_1e){
 var idx=_1e?1:0;
-if(this._isReversed()){
-idx=1-idx;
-}
 var s=_6.getComputedStyle(this.sliderBarContainer),c=_7.getContentBox(this.sliderBarContainer,s),_1f=this.discreteValues,_20=this.value[idx];
 if(_1f<=1||_1f==Infinity){
 _1f=c[this._pixelCount];
@@ -144,27 +141,15 @@ var _2f=_2d/_2e;
 var _30=Math.round(_2c/_2f);
 return (this.maximum-this.minimum)*_30/_2e+this.minimum;
 },_setValueAttr:function(_31,_32,_33){
-var _34=this.value;
+var _34=_2.clone(this.value);
 if(!_2.isArray(_31)){
-if(_33){
-if(this._isReversed()){
-_34[0]=_31;
-}else{
-_34[1]=_31;
-}
-}else{
-if(this._isReversed()){
-_34[1]=_31;
-}else{
-_34[0]=_31;
-}
-}
+_34[_33?1:0]=_31;
 }else{
 _34=_31;
 }
 this._lastValueReported="";
-this.valueNode.value=this.value=_31=_34;
-this.value.sort(this._isReversed()?_f:_10);
+this.valueNode.value=_31=_34;
+_34.sort(_10);
 this.sliderHandle.setAttribute("aria-valuenow",_34[0]);
 this.sliderHandleMax.setAttribute("aria-valuenow",_34[1]);
 _c.prototype._setValueAttr.apply(this,arguments);

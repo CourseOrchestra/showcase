@@ -1,5 +1,5 @@
 /*
-	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Copyright (c) 2004-2016, The JS Foundation All Rights Reserved.
 	Available via Academic Free License >= 2.1 OR the modified BSD license.
 	see: http://dojotoolkit.org/license for details
 */
@@ -71,7 +71,7 @@ var _1a=null;
 if(_15.form){
 var _1b=_5.byId(_15.form);
 var _1c=_1b.getAttributeNode("action");
-_19.url=_19.url||(_1c?_1c.value:null);
+_19.url=_19.url||(_1c?_1c.value:(_1.doc?_1.doc.URL:null));
 _1a=_6.toObject(_1b);
 }
 var _1d=[{}];

@@ -203,7 +203,7 @@ _15=_3.evaluateConstraint(_5,_5.constraints[_12],_12,_e);
 if(!_15){
 _7[_7.length]=_e.name;
 }else{
-if(!_15.isValid){
+if(typeof _15!=="boolean"&&!_15.isValid){
 _7[_7.length]={field:_e.name,message:_15.message};
 }
 }

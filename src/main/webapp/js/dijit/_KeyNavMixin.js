@@ -123,7 +123,7 @@ _1d=-1;
 break;
 }
 _21=this._getNextFocusableChild(_21,1);
-}while(_21!=_22);
+}while(_21&&_21!=_22);
 });
 _1e();
 this.onKeyboardSearch(_1b,evt,_1c,_1d);

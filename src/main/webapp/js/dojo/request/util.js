@@ -1,121 +1,125 @@
 /*
-	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Copyright (c) 2004-2016, The JS Foundation All Rights Reserved.
 	Available via Academic Free License >= 2.1 OR the modified BSD license.
 	see: http://dojotoolkit.org/license for details
 */
 
 //>>built
-define("dojo/request/util",["exports","../errors/RequestError","../errors/CancelError","../Deferred","../io-query","../_base/array","../_base/lang","../promise/Promise"],function(_1,_2,_3,_4,_5,_6,_7,_8){
-_1.deepCopy=function deepCopy(_9,_a){
-for(var _b in _a){
-var _c=_9[_b],_d=_a[_b];
-if(_c!==_d){
-if(_c&&typeof _c==="object"&&_d&&typeof _d==="object"){
-_1.deepCopy(_c,_d);
+define("dojo/request/util",["exports","../errors/RequestError","../errors/CancelError","../Deferred","../io-query","../_base/array","../_base/lang","../promise/Promise","../has"],function(_1,_2,_3,_4,_5,_6,_7,_8,_9){
+_1.deepCopy=function deepCopy(_a,_b){
+for(var _c in _b){
+var _d=_a[_c],_e=_b[_c];
+if(_d!==_e){
+if(_d&&typeof _d==="object"&&_e&&typeof _e==="object"){
+if(_e instanceof Date){
+_a[_c]=new Date(_e);
 }else{
-_9[_b]=_d;
+_1.deepCopy(_d,_e);
+}
+}else{
+_a[_c]=_e;
 }
 }
 }
-return _9;
+return _a;
 };
-_1.deepCreate=function deepCreate(_e,_f){
-_f=_f||{};
-var _10=_7.delegate(_e),_11,_12;
-for(_11 in _e){
-_12=_e[_11];
-if(_12&&typeof _12==="object"){
-_10[_11]=_1.deepCreate(_12,_f[_11]);
+_1.deepCreate=function deepCreate(_f,_10){
+_10=_10||{};
+var _11=_7.delegate(_f),_12,_13;
+for(_12 in _f){
+_13=_f[_12];
+if(_13&&typeof _13==="object"){
+_11[_12]=_1.deepCreate(_13,_10[_12]);
 }
 }
-return _1.deepCopy(_10,_f);
+return _1.deepCopy(_11,_10);
 };
-var _13=Object.freeze||function(obj){
+var _14=Object.freeze||function(obj){
 return obj;
 };
-function _14(_15){
-return _13(_15);
+function _15(_16){
+return _14(_16);
 };
-function _16(_17){
-return _17.data||_17.text;
+function _17(_18){
+return _18.data!==undefined?_18.data:_18.text;
 };
-_1.deferred=function deferred(_18,_19,_1a,_1b,_1c,_1d){
-var def=new _4(function(_1e){
-_19&&_19(def,_18);
-if(!_1e||!(_1e instanceof _2)&&!(_1e instanceof _3)){
-return new _3("Request canceled",_18);
+_1.deferred=function deferred(_19,_1a,_1b,_1c,_1d,_1e){
+var def=new _4(function(_1f){
+_1a&&_1a(def,_19);
+if(!_1f||!(_1f instanceof _2)&&!(_1f instanceof _3)){
+return new _3("Request canceled",_19);
 }
-return _1e;
+return _1f;
 });
-def.response=_18;
-def.isValid=_1a;
-def.isReady=_1b;
-def.handleResponse=_1c;
-function _1f(_20){
-_20.response=_18;
-throw _20;
+def.response=_19;
+def.isValid=_1b;
+def.isReady=_1c;
+def.handleResponse=_1d;
+function _20(_21){
+_21.response=_19;
+throw _21;
 };
-var _21=def.then(_14).otherwise(_1f);
+var _22=def.then(_15).otherwise(_20);
 if(_1.notify){
-_21.then(_7.hitch(_1.notify,"emit","load"),_7.hitch(_1.notify,"emit","error"));
+_22.then(_7.hitch(_1.notify,"emit","load"),_7.hitch(_1.notify,"emit","error"));
 }
-var _22=_21.then(_16);
-var _23=new _8();
-for(var _24 in _22){
-if(_22.hasOwnProperty(_24)){
-_23[_24]=_22[_24];
+var _23=_22.then(_17);
+var _24=new _8();
+for(var _25 in _23){
+if(_23.hasOwnProperty(_25)){
+_24[_25]=_23[_25];
 }
 }
-_23.response=_21;
-_13(_23);
-if(_1d){
-def.then(function(_25){
-_1d.call(def,_25);
-},function(_26){
-_1d.call(def,_18,_26);
+_24.response=_22;
+_14(_24);
+if(_1e){
+def.then(function(_26){
+_1e.call(def,_26);
+},function(_27){
+_1e.call(def,_19,_27);
 });
 }
-def.promise=_23;
-def.then=_23.then;
+def.promise=_24;
+def.then=_24.then;
 return def;
 };
-_1.addCommonMethods=function addCommonMethods(_27,_28){
-_6.forEach(_28||["GET","POST","PUT","DELETE"],function(_29){
-_27[(_29==="DELETE"?"DEL":_29).toLowerCase()]=function(url,_2a){
-_2a=_7.delegate(_2a||{});
-_2a.method=_29;
-return _27(url,_2a);
+_1.addCommonMethods=function addCommonMethods(_28,_29){
+_6.forEach(_29||["GET","POST","PUT","DELETE"],function(_2a){
+_28[(_2a==="DELETE"?"DEL":_2a).toLowerCase()]=function(url,_2b){
+_2b=_7.delegate(_2b||{});
+_2b.method=_2a;
+return _28(url,_2b);
 };
 });
 };
-_1.parseArgs=function parseArgs(url,_2b,_2c){
-var _2d=_2b.data,_2e=_2b.query;
-if(_2d&&!_2c){
-if(typeof _2d==="object"){
-_2b.data=_5.objectToQuery(_2d);
+_1.parseArgs=function parseArgs(url,_2c,_2d){
+var _2e=_2c.data,_2f=_2c.query;
+if(_2e&&!_2d){
+if(typeof _2e==="object"&&(!(_9("native-xhr2"))||!(_2e instanceof ArrayBuffer||_2e instanceof Blob))){
+_2c.data=_5.objectToQuery(_2e);
 }
 }
-if(_2e){
-if(typeof _2e==="object"){
-_2e=_5.objectToQuery(_2e);
+if(_2f){
+if(typeof _2f==="object"){
+_2f=_5.objectToQuery(_2f);
 }
-if(_2b.preventCache){
-_2e+=(_2e?"&":"")+"request.preventCache="+(+(new Date));
+if(_2c.preventCache){
+_2f+=(_2f?"&":"")+"request.preventCache="+(+(new Date));
 }
 }else{
-if(_2b.preventCache){
-_2e="request.preventCache="+(+(new Date));
+if(_2c.preventCache){
+_2f="request.preventCache="+(+(new Date));
 }
 }
-if(url&&_2e){
-url+=(~url.indexOf("?")?"&":"?")+_2e;
+if(url&&_2f){
+url+=(~url.indexOf("?")?"&":"?")+_2f;
 }
-return {url:url,options:_2b,getHeader:function(_2f){
+return {url:url,options:_2c,getHeader:function(_30){
 return null;
 }};
 };
-_1.checkStatus=function(_30){
-_30=_30||0;
-return (_30>=200&&_30<300)||_30===304||_30===1223||!_30;
+_1.checkStatus=function(_31){
+_31=_31||0;
+return (_31>=200&&_31<300)||_31===304||_31===1223||!_31;
 };
 });

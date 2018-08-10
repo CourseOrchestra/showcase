@@ -5,7 +5,6 @@ define( "dojox/calendar/nls/ru/buttons", {
 	dayButton: "День",
 	weekButton: "Неделя",
 	fourDaysButton: "4 дня",
-	monthButton: "Месяц",
-	sixMonthButton: "6 месяцев"
+	monthButton: "Месяц"
 }
 );

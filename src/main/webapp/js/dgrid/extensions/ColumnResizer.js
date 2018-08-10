@@ -426,6 +426,42 @@ define([
 			delete this._targetCell;
 		},
 
+// [KURS
+		_adjustFooterCellsWidths : function () {
+			var columnSizes = this._columnSizes,
+				colNodes, colWidths;
+
+			if (!this._resizedColumns) {
+				colNodes = query('.dgrid-cell', this.headerNode);
+
+				if (this.columnSets && this.columnSets.length) {
+					colNodes = colNodes.filter(function (node) {
+						var idx = node.columnId.split('-');
+						return idx[0] === '0' && !(node.columnId in columnSizes);
+					});
+				}
+				else if (this.subRows && this.subRows.length > 1) {
+					colNodes = colNodes.filter(function (node) {
+						return node.columnId.charAt(0) === '0' && !(node.columnId in columnSizes);
+					});
+				}
+
+				colWidths = colNodes.map(function (colNode) {
+					return colNode.offsetWidth;
+				});
+
+				colNodes.forEach(function (colNode, i) {
+					resizeColumnWidth(this, colNode.columnId, colWidths[i], null, false);
+				}, this);
+			}
+
+			var	obj = this._getResizedColumnWidths(),
+				lastCol = obj.lastColId;
+
+			resizeColumnWidth(this, lastCol, 'auto', 'mouseup');
+		},
+// KURS]		
+		
 		_updateResizerPosition: function (e) {
 			// Summary:
 			//      updates position of resizer bar as mouse moves

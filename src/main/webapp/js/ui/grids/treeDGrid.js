@@ -1,7 +1,6 @@
 function createTreeDGrid(elementId, parentId, metadata) {
 	
 
-	
 try {
 	
 	

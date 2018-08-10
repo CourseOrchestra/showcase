@@ -16,10 +16,6 @@ define("dojox/mdnd/adapter/DndFromDojo", ["dojo/_base/kernel",
 	
 		// dropIndicatorSize: Object
 		//		size by default of dropIndicator (display only into a D&D Area)
-		dropIndicatorSize : {'w':0,'h':50},
-	
-		// dropIndicatorSize: Object
-		//		size by default of dropIndicator (display only into a D&D Area)
 		dropIndicatorSize: {'w':0,'h':50},
 	
 		// _areaManager: Object
@@ -47,7 +43,7 @@ define("dojox/mdnd/adapter/DndFromDojo", ["dojo/_base/kernel",
 		_subscribeHandler: null,
 	
 		constructor: function(){
-			this._areaManager = dojox.mdnd.areaManager();
+			this._areaManager = AreaManager.areaManager();
 			this._dojoManager = Manager.manager();
 			this._currentArea = null;
 			this._moveHandler = null;

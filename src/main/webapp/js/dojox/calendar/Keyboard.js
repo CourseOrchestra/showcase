@@ -48,7 +48,7 @@ if(!_10&&_a==0){
 _10=true;
 }
 var _11=_b[_a];
-if(this.itemToRenderer[_11.id]!=null){
+if(this.rendererManager.itemToRenderer[_11.id]!=null){
 this.set("focusedItem",_11);
 return;
 }
@@ -162,7 +162,7 @@ if(_1b!=null){
 if(this._isEditing){
 this._endItemEditing("keyboard",false);
 }else{
-var _1c=this.itemToRenderer[_1b.id];
+var _1c=this.rendererManager.itemToRenderer[_1b.id];
 if(_1c&&_1c.length>0&&this.isItemEditable(_1b,_1c[0].kind)){
 this._edProps={renderer:_1c[0],rendererKind:_1c[0].kind,tempEditedItem:_1b,liveLayout:this.liveLayout};
 this.set("selectedItem",_1b);

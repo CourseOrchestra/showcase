@@ -1,5 +1,5 @@
 // wrapped by build app
-define("dojox/xmpp/ChatService", ["dijit","dojo","dojox"], function(dijit,dojo,dojox){
+define("dojox/xmpp/ChatService", ["dojo","dijit","dojox"], function(dojo,dijit,dojox){
 dojo.provide("dojox.xmpp.ChatService");
 
 dojox.xmpp.chat = {

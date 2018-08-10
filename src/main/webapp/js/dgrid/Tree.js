@@ -346,10 +346,34 @@ define([
 				column.renderExpando = this._defaultRenderExpando;
 			}
 
+			
+// [KURS			
+			
 			// Set up the event listener once and use event delegation for better memory use.
-			this._treeColumnListeners.push(this.on(column.expandOn ||
-					'.dgrid-expando-icon:click,' + colSelector + ':dblclick,' + colSelector + ':keydown',
+//			this._treeColumnListeners.push(this.on(column.expandOn ||
+//					'.dgrid-expando-icon:click,' + colSelector + ':dblclick,' + colSelector + ':keydown',
+//				function (event) {
+				
+			// Set up the event listener once and use event delegation for better memory use.
+			
+			var lsn = column.expandOn ||
+			'.dgrid-expando-icon:click,' + colSelector + ':dblclick,' + colSelector + ':keydown';
+			
+			if(grid.navigatorGrid && grid.swapSelectExpand){
+				lsn = column.expandOn ||
+				colSelector + ':dblclick,' + colSelector + ':click,' + colSelector + ':keydown';
+			}
+			
+			this._treeColumnListeners.push(this.on(lsn,
 				function (event) {
+				
+					if(grid.navigatorGrid && grid.swapSelectExpand){
+						if((event.target.localName && (event.target.localName == "img")) || (event.target.className.indexOf("dgrid-expando-icon") > -1)){
+							return;			        	
+						}
+					}
+//KURS]					
+				
 					var row = grid.row(event);
 					if ((!grid.collection.mayHaveChildren || grid.collection.mayHaveChildren(row.data)) &&
 						(event.type !== 'keydown' || event.keyCode === 32) && !(event.type === 'dblclick' &&

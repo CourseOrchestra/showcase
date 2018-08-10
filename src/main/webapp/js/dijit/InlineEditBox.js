@@ -220,7 +220,11 @@ return this.set("value",val);
 },_setValueAttr:function(val){
 val=_c.trim(val);
 var _2b=this.renderAsHtml?val:val.replace(/&/gm,"&amp;").replace(/</gm,"&lt;").replace(/>/gm,"&gt;").replace(/"/gm,"&quot;").replace(/\n/g,"<br>");
+if(this.editorParams&&this.editorParams.type==="password"){
+this.displayNode.innerHTML="********";
+}else{
 this.displayNode.innerHTML=_2b||this.noValueIndicator;
+}
 this._set("value",val);
 if(this._started){
 this.defer(function(){

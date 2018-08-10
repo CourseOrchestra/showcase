@@ -1,13 +1,11 @@
 //>>built
 define("dojox/mvc/_atBindingMixin",["dojo/_base/array","dojo/_base/lang","dojo/_base/declare","dojo/has","dojo/Stateful","./resolve","./sync"],function(_1,_2,_3,_4,_5,_6,_7){
-if(_4("mvc-bindings-log-api")){
-function _8(_9,_a){
+var _8=(_4("mvc-bindings-log-api"))?function(_9,_a){
 return [_9._setIdAttr||!_9.declaredClass?_9:_9.declaredClass,_a].join(":");
-};
-function _b(_c,_d){
+}:"";
+var _b=(_4("mvc-bindings-log-api"))?function(_c,_d){
 console.warn(_d+" could not be resolved"+(typeof _c=="string"?(" with "+_c):"")+".");
-};
-}
+}:"";
 function _e(w){
 var _f;
 try{

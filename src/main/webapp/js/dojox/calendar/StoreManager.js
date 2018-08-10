@@ -98,6 +98,9 @@ this._observeHandler=_1b.observe(_4.hitch(this,this._updateItems),true);
 }
 _1b=_1b.map(_4.hitch(this,function(_1c){
 var _1d=_1a.itemToRenderItem(_1c,_19);
+if(_1d.id==null){
+console.err("The data item "+_1c.summary+" must have an unique identifier from the store.getIdentity(). The calendar will NOT work properly.");
+}
 _1d._item=_1c;
 return _1d;
 }));

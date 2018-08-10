@@ -15,11 +15,24 @@ define("dijit/form/NumberTextBox", [
 	var getDecimalInfo = function(constraints){
 		var constraints = constraints || {},
 			bundle = i18n.getLocalization("dojo.cldr", "number", i18n.normalizeLocale(constraints.locale)),
-			pattern = constraints.pattern ? constraints.pattern : bundle[(constraints.type || "decimal")+"Format"],
-			placesSpecified = typeof constraints.places == "number",
-			// The "places" property trumps the pattern property if both are specified in number.format, we follow the same
-			// logic here
-			places = placesSpecified ? constraints.places : (pattern.indexOf(".") != -1 ? pattern.split(".")[1].replace(/[^#0]/g, "").length : 0);
+			pattern = constraints.pattern ? constraints.pattern : bundle[(constraints.type || "decimal")+"Format"];
+
+		// The number of places in the constraint can be specified in several ways,
+		// the resolution order is:
+		//
+		// 1. If constraints.places is a number, use that
+		// 2. If constraints.places is a string, which specifies a range, use the range max (e.g. 0,4)
+		// 3. If a pattern is specified, use the implicit number of places in the pattern.
+		// 4. If neither constraints.pattern or constraints.places is specified, use the locale default pattern
+		var places;
+		if(typeof constraints.places == "number"){
+			places = constraints.places;
+		}else if(typeof constraints.places === "string" && constraints.places.length > 0){
+			places = constraints.places.replace(/.*,/, "");
+		}else{
+			places = (pattern.indexOf(".") != -1 ? pattern.split(".")[1].replace(/[^#0]/g, "").length : 0);
+		}
+
 		return { sep: bundle.decimal, places: places };
 	};
 
@@ -174,8 +187,13 @@ define("dijit/form/NumberTextBox", [
 			//		Replaceable function to convert a formatted string to a number value
 			// tags:
 			//		protected extension
-
-			var v = this._parser(value, lang.mixin({}, constraints, (this.editOptions && this.focused) ? this.editOptions : {}));
+			var parserOptions = lang.mixin({}, constraints, (this.editOptions && this.focused) ? this.editOptions : {})
+			if(this.focused && parserOptions.places != null /* or undefined */){
+				var places = parserOptions.places;
+				var maxPlaces = typeof places === "number" ? places : Number(places.split(",").pop()); // handle number and range
+				parserOptions.places = "0," + maxPlaces;
+			}
+			var v = this._parser(value, parserOptions);
 			if(this.editOptions && this.focused && isNaN(v)){
 				v = this._parser(value, constraints); // parse w/o editOptions: not technically needed but is nice for the user
 			}

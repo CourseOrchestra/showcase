@@ -6,11 +6,13 @@ define("dojox/calendar/nls/buttons", { root: {
 	dayButton: "Day",
 	weekButton: "Week",
 	fourDaysButton: "4 Days",
-	monthButton: "Month",
-	sixMonthButton: "6 Months"
+	monthButton: "Month"
 }
 //end v1.x content
 ,
+"bs": true,
+"mk": true,
+"sr": true,
 "zh": true,
 "zh-tw": true,
 "uk": true,
@@ -39,6 +41,7 @@ define("dojox/calendar/nls/buttons", { root: {
 "fi": true,
 "es": true,
 "el": true,
+"eu": true,
 "de": true,
 "da": true,
 "cs": true,

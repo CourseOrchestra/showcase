@@ -17,7 +17,7 @@ var _13=this.options||[];
 if(_12==null){
 return _13;
 }
-if(_9.isArray(_12)){
+if(_9.isArrayLike(_12)){
 return _1.map(_12,"return this.getOptions(item);",this);
 }
 if(_9.isString(_12)){
@@ -41,14 +41,14 @@ return _13[_12];
 }
 return null;
 },addOption:function(_15){
-_1.forEach(_9.isArray(_15)?_15:[_15],function(i){
+_1.forEach(_9.isArrayLike(_15)?_15:[_15],function(i){
 if(i&&_9.isObject(i)){
 this.options.push(i);
 }
 },this);
 this._loadChildren();
 },removeOption:function(_16){
-var _17=this.getOptions(_9.isArray(_16)?_16:[_16]);
+var _17=this.getOptions(_9.isArrayLike(_16)?_16:[_16]);
 _1.forEach(_17,function(_18){
 if(_18){
 this.options=_1.filter(this.options,function(_19){
@@ -59,7 +59,7 @@ this._removeOptionItem(_18);
 },this);
 this._loadChildren();
 },updateOption:function(_1a){
-_1.forEach(_9.isArray(_1a)?_1a:[_1a],function(i){
+_1.forEach(_9.isArrayLike(_1a)?_1a:[_1a],function(i){
 var _1b=this.getOptions({value:i.value}),k;
 if(_1b){
 for(k in i){
@@ -171,10 +171,10 @@ this._pseudoLoadChildren(_2d);
 }
 this.onLoadDeferred.resolve(true);
 this.onSetStore();
-}),function(err){
+}),_9.hitch(this,function(err){
 console.error("dijit.form.Select: "+err.toString());
 this.onLoadDeferred.reject(err);
-});
+}));
 }
 return _22;
 },_setValueAttr:function(_32,_33){
@@ -188,7 +188,7 @@ return;
 if(_32==null){
 return;
 }
-if(_9.isArray(_32)){
+if(_9.isArrayLike(_32)){
 _32=_1.map(_32,function(_34){
 return _9.isObject(_34)?_34:{value:_34};
 });

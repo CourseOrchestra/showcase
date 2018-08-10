@@ -12,9 +12,10 @@ return o.y;
 }
 };
 var _c=Math.PI/4,_d=Math.PI/2;
-var _e=_3(_8("dojo-bidi")?"dojox.charting.action2d.NonBidiTooltip":"dojox.charting.action2d.Tooltip",_7,{defaultParams:{text:_a,mouseOver:true},optionalParams:{},constructor:function(_f,_10,_11){
+var _e=_3(_8("dojo-bidi")?"dojox.charting.action2d.NonBidiTooltip":"dojox.charting.action2d.Tooltip",_7,{defaultParams:{text:_a,mouseOver:true,defaultPosition:["after-centered","before-centered"]},optionalParams:{},constructor:function(_f,_10,_11){
 this.text=_11&&_11.text?_11.text:_a;
 this.mouseOver=_11&&_11.mouseOver!=undefined?_11.mouseOver:true;
+this.defaultPosition=_11&&_11.defaultPosition!=undefined?_11.defaultPosition:["after-centered","before-centered"];
 this.connect();
 },process:function(o){
 if(o.type==="onplotreset"||o.type==="onmouseout"){
@@ -28,7 +29,7 @@ return;
 if(!o.shape||(this.mouseOver&&o.type!=="onmouseover")||(!this.mouseOver&&o.type!=="onclick")){
 return;
 }
-var _12={type:"rect"},_13=["after-centered","before-centered"];
+var _12={type:"rect"},_13=this.defaultPosition;
 switch(o.element){
 case "marker":
 _12.x=o.cx;

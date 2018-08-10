@@ -1,24 +1,24 @@
 //>>built
 require({cache:{"url:dojox/calendar/templates/ColumnView.html":"<div data-dojo-attach-events=\"keydown:_onKeyDown\">\n\t\n\t<div data-dojo-attach-point=\"header\" class=\"dojoxCalendarHeader\">\n\t\t<div class=\"dojoxCalendarYearColumnHeader\" data-dojo-attach-point=\"yearColumnHeader\">\n\t\t\t<table cellspacing=\"0\" cellpadding=\"0\"><tr><td><span data-dojo-attach-point=\"yearColumnHeaderContent\"></span></td></tr></table>\t\t\n\t\t</div>\n\t\t<div data-dojo-attach-point=\"columnHeader\" class=\"dojoxCalendarColumnHeader\">\n\t\t\t<table data-dojo-attach-point=\"columnHeaderTable\" class=\"dojoxCalendarColumnHeaderTable\" cellpadding=\"0\" cellspacing=\"0\"></table>\n\t\t</div>\n\t</div>\n\t\n\t<div data-dojo-attach-point=\"secondarySheetNode\"></div>\n\t\n\t<div data-dojo-attach-point=\"subHeader\" class=\"dojoxCalendarSubHeader\">\n\t\t<div class=\"dojoxCalendarSubRowHeader\">\n\t\t\t<table cellspacing=\"0\" cellpadding=\"0\"><tr><td></td></tr></table>\t\t\n\t\t</div>\n\t\t<div data-dojo-attach-point=\"subColumnHeader\" class=\"dojoxCalendarSubColumnHeader\">\n\t\t\t<table data-dojo-attach-point=\"subColumnHeaderTable\" class=\"dojoxCalendarSubColumnHeaderTable\" cellpadding=\"0\" cellspacing=\"0\"></table>\n\t\t</div>\n\t</div>\n\t\n\t<div data-dojo-attach-point=\"scrollContainer\" class=\"dojoxCalendarScrollContainer\">\n\t\t<div data-dojo-attach-point=\"sheetContainer\" style=\"position:relative;left:0;right:0;margin:0;padding:0\">\n\t\t\t<div data-dojo-attach-point=\"rowHeader\" class=\"dojoxCalendarRowHeader\">\n\t\t\t\t<table data-dojo-attach-point=\"rowHeaderTable\" class=\"dojoxCalendarRowHeaderTable\" cellpadding=\"0\" cellspacing=\"0\"></table>\n\t\t\t</div>\n\t\t\t<div data-dojo-attach-point=\"grid\" class=\"dojoxCalendarGrid\">\n\t\t\t\t<table data-dojo-attach-point=\"gridTable\" class=\"dojoxCalendarGridTable\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%\"></table>\n\t\t\t</div>\n\t\t\t<div data-dojo-attach-point=\"itemContainer\" class=\"dojoxCalendarContainer\" data-dojo-attach-event=\"mousedown:_onGridMouseDown,mouseup:_onGridMouseUp,ondblclick:_onGridDoubleClick,touchstart:_onGridTouchStart,touchmove:_onGridTouchMove,touchend:_onGridTouchEnd\">\n\t\t\t\t<table data-dojo-attach-point=\"itemContainerTable\" class=\"dojoxCalendarContainerTable\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%\"></table>\n\t\t\t</div>\n\t\t</div> \n\t</div>\n\t\n\t<div data-dojo-attach-point=\"vScrollBar\" class=\"dojoxCalendarVScrollBar\">\n\t\t<div data-dojo-attach-point=\"vScrollBarContent\" style=\"visibility:hidden;position:relative;width:1px;height:1px;\" ></div>\n\t</div>\n\t\n\t<div data-dojo-attach-point=\"hScrollBar\" class=\"dojoxCalendarHScrollBar\">\n\t\t<div data-dojo-attach-point=\"hScrollBarContent\" style=\"visibility:hidden;position:relative;width:1px;height:1px;\" ></div>\n\t</div>\n\t\n</div>\n"}});
-define("dojox/calendar/ColumnView",["dojo/_base/array","dojo/_base/declare","dojo/_base/event","dojo/_base/lang","dojo/_base/sniff","dojo/_base/fx","dojo/dom","dojo/dom-class","dojo/dom-style","dojo/dom-geometry","dojo/dom-construct","dojo/on","dojo/date","dojo/date/locale","dojo/query","dojox/html/metrics","./SimpleColumnView","dojo/text!./templates/ColumnView.html","./ColumnViewSecondarySheet"],function(_1,_2,_3,_4,_5,fx,_6,_7,_8,_9,_a,on,_b,_c,_d,_e,_f,_10,_11){
-return _2("dojox.calendar.ColumnView",_f,{templateString:_10,baseClass:"dojoxCalendarColumnView",secondarySheetClass:_11,secondarySheetProps:null,headerPadding:3,_showSecondarySheet:true,buildRendering:function(){
+define("dojox/calendar/ColumnView",["dojo/_base/array","dojo/_base/declare","dojo/_base/event","dojo/_base/lang","dojo/_base/sniff","dojo/_base/fx","dojo/dom","dojo/dom-class","dojo/dom-style","dojo/dom-geometry","dojo/dom-construct","dojo/on","dojo/date","dojo/date/locale","dojo/query","./SimpleColumnView","dojo/text!./templates/ColumnView.html","./ColumnViewSecondarySheet"],function(_1,_2,_3,_4,_5,fx,_6,_7,_8,_9,_a,on,_b,_c,_d,_e,_f,_10){
+return _2("dojox.calendar.ColumnView",_e,{templateString:_f,baseClass:"dojoxCalendarColumnView",secondarySheetClass:_10,secondarySheetProps:null,headerPadding:3,_showSecondarySheet:true,buildRendering:function(){
 this.inherited(arguments);
 if(this.secondarySheetNode){
-var _12=_4.mixin({owner:this},this.secondarySheetProps);
-this.secondarySheet=new this.secondarySheetClass(_12,this.secondarySheetNode);
+var _11=_4.mixin({owner:this},this.secondarySheetProps);
+this.secondarySheet=new this.secondarySheetClass(_11,this.secondarySheetNode);
 this.secondarySheetNode=this.secondarySheet.domNode;
 }
-},destroy:function(_13){
+},destroy:function(_12){
 if(this.secondarySheet){
-this.secondarySheet.destroy(_13);
+this.secondarySheet.destroy(_12);
 }
 this.inherited(arguments);
-},_setVisibility:function(_14){
+},_setVisibility:function(_13){
 this.inherited(arguments);
 if(this.secondarySheet){
-this.secondarySheet._setVisibility(_14);
+this.secondarySheet._setVisibility(_13);
 }
-},resize:function(_15){
+},resize:function(_14){
 this.inherited(arguments);
 if(this.secondarySheet){
 this.secondarySheet.resize();
@@ -29,18 +29,21 @@ if(this.secondarySheet){
 this.secondarySheet._layoutRenderers(this.secondarySheet.renderData);
 }
 },onRowHeaderClick:function(e){
-},_setSubColumnsAttr:function(_16){
+},_setSubColumnsAttr:function(_15){
 var old=this.get("subColumns");
-if(old!=_16){
+if(old!=_15){
 this._secondaryHeightInvalidated=true;
 }
-this._set("subColumns",_16);
-},refreshRendering:function(){
+this._set("subColumns",_15);
+},refreshRendering:function(_16){
 this.inherited(arguments);
 if(this._secondaryHeightInvalidated){
 this._secondaryHeightInvalidated=false;
 var h=_9.getMarginBox(this.secondarySheetNode).h;
 this.resizeSecondarySheet(h);
+}
+if(_16&&this.secondarySheet){
+this.secondarySheet.refreshRendering(true);
 }
 },resizeSecondarySheet:function(_17){
 if(this.secondarySheetNode){

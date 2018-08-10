@@ -1,6 +1,6 @@
 //>>built
 define("dijit/BackgroundIframe",["require","./main","dojo/_base/config","dojo/dom-construct","dojo/dom-style","dojo/_base/lang","dojo/on","dojo/sniff"],function(_1,_2,_3,_4,_5,_6,on,_7){
-_7.add("config-bgIframe",(_7("ie")&&!/IEMobile\/10\.0/.test(navigator.userAgent))||(_7("trident")&&/Windows NT 6.[01]/.test(navigator.userAgent)));
+_7.add("config-bgIframe",(_7("ie")||_7("trident"))&&!/IEMobile\/10\.0/.test(navigator.userAgent));
 var _8=new function(){
 var _9=[];
 this.pop=function(){

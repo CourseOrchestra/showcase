@@ -1,5 +1,5 @@
 //>>built
-define("dojox/calendar/ViewBase",["dojo/_base/declare","dojo/_base/lang","dojo/_base/array","dojo/_base/window","dojo/_base/event","dojo/_base/html","dojo/sniff","dojo/query","dojo/dom","dojo/dom-style","dojo/dom-class","dojo/dom-construct","dojo/dom-geometry","dojo/on","dojo/date","dojo/date/locale","dojo/when","dijit/_WidgetBase","dojox/widget/_Invalidating","dojox/widget/Selection","dojox/calendar/time","./StoreMixin","./StoreManager","./RendererManager"],function(_1,_2,_3,_4,_5,_6,_7,_8,_9,_a,_b,_c,_d,on,_e,_f,_10,_11,_12,_13,_14,_15,_16,_17){
+define("dojox/calendar/ViewBase",["dojo/_base/declare","dojo/_base/lang","dojo/_base/array","dojo/_base/window","dojo/_base/event","dojo/_base/html","dojo/sniff","dojo/query","dojo/dom","dojo/dom-style","dojo/dom-class","dojo/dom-construct","dojo/dom-geometry","dojo/on","dojo/date","dojo/date/locale","dojo/when","dijit/_WidgetBase","dojox/widget/_Invalidating","dojox/widget/Selection","./time","./StoreMixin","./StoreManager","./RendererManager"],function(_1,_2,_3,_4,_5,_6,_7,_8,_9,_a,_b,_c,_d,on,_e,_f,_10,_11,_12,_13,_14,_15,_16,_17){
 return _1("dojox.calendar.ViewBase",[_11,_15,_12,_13],{datePackage:_e,_calendar:"gregorian",viewKind:null,_layoutStep:1,_layoutUnit:"day",resizeCursor:"n-resize",formatItemTimeFunc:null,_cssDays:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],_getFormatItemTimeFuncAttr:function(){
 if(this.formatItemTimeFunc){
 return this.formatItemTimeFunc;
@@ -19,21 +19,21 @@ this.storeManager.on("layoutInvalidated",_2.hitch(this,this._refreshItemsRenderi
 this.storeManager.on("dataLoaded",_2.hitch(this,function(_19){
 this.set("items",_19);
 }));
+this.storeManager.on("renderersInvalidated",_2.hitch(this,function(_1a){
+this.updateRenderers(_1a);
+}));
 this.rendererManager=new _17({owner:this});
 this.rendererManager.on("rendererCreated",_2.hitch(this,this._onRendererCreated));
 this.rendererManager.on("rendererReused",_2.hitch(this,this._onRendererReused));
 this.rendererManager.on("rendererRecycled",_2.hitch(this,this._onRendererRecycled));
 this.rendererManager.on("rendererDestroyed",_2.hitch(this,this._onRendererDestroyed));
-this.rendererManager.on("layoutInvalidated",_2.hitch(this,this._refreshItemsRendering));
-this.rendererManager.on("renderersInvalidated",_2.hitch(this,function(_1a){
-this.updateRenderers(_1a);
-}));
 this.decorationStoreManager=new _16({owner:this,_ownerItemsProperty:"decorationItems"});
 this.decorationStoreManager.on("layoutInvalidated",_2.hitch(this,this._refreshDecorationItemsRendering));
 this.decorationStoreManager.on("dataLoaded",_2.hitch(this,function(_1b){
 this.set("decorationItems",_1b);
 }));
 this.decorationRendererManager=new _17({owner:this});
+this._setupDayRefresh();
 },destroy:function(_1c){
 this.rendererManager.destroy();
 this.decorationRendererManager.destroy();
@@ -41,6 +41,21 @@ while(this._viewHandles.length>0){
 this._viewHandles.pop().remove();
 }
 this.inherited(arguments);
+},_setupDayRefresh:function(){
+var now=this.newDate(new Date());
+var d=_14.floor(now,"day",1,this.dateClassObj);
+var d=this.dateModule.add(d,"day",1);
+if(d.getHours()==23){
+d=this.dateModule.add(d,"hour",2);
+}else{
+d=_14.floorToDay(d,true,this.dateClassObj);
+}
+setTimeout(_2.hitch(this,function(){
+if(!this._isEditing){
+this.refreshRendering(true);
+}
+this._setupDayRefresh();
+}),d.getTime()-now.getTime()+5000);
 },resize:function(_1d){
 if(_1d){
 _d.setMarginBox(this.domNode,_1d);

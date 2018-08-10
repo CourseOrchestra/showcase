@@ -1,5 +1,5 @@
 /*
-	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Copyright (c) 2004-2016, The JS Foundation All Rights Reserved.
 	Available via Academic Free License >= 2.1 OR the modified BSD license.
 	see: http://dojotoolkit.org/license for details
 */
@@ -60,6 +60,7 @@ return _17.apply(this,arguments);
 return _19;
 };
 on.parse=function(_1a,_1b,_1c,_1d,_1e,_1f){
+var _20;
 if(_1b.call){
 return _1b.call(_1f,_1a,_1c);
 }
@@ -67,7 +68,7 @@ if(_1b instanceof Array){
 _20=_1b;
 }else{
 if(_1b.indexOf(",")>-1){
-var _20=_1b.split(/\s*,\s*/);
+_20=_1b.split(/\s*,\s*/);
 }
 }
 if(_20){
@@ -121,7 +122,7 @@ return _2f(_24,_25,_26);
 throw new Error("Target must be an event emitter");
 };
 on.matches=function(_30,_31,_32,_33,_34){
-_34=_34&&_34.matches?_34:_2.query;
+_34=_34&&(typeof _34.matches=="function")?_34:_2.query;
 _33=_33!==false;
 if(_30.nodeType!=1){
 _30=_30.parentNode;
@@ -145,6 +146,7 @@ return on(_38,_3b(_3c),_39);
 return on(_38,_36,function(_3e){
 var _3f=_3c(_3e.target);
 if(_3f){
+_3e.selectorTarget=_3f;
 return _39.call(_3f,_3e);
 }
 });
@@ -369,10 +371,12 @@ if(!("rotation" in _66)){
 _66.rotation=0;
 _66.scale=1;
 }
+if(window.TouchEvent&&_65 instanceof TouchEvent){
 var _69=_66.changedTouches[0];
 for(var i in _69){
 delete _66[i];
 _66[i]=_69[i];
+}
 }
 }
 return _64.call(this,_66);

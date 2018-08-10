@@ -1,5 +1,5 @@
 /*
-	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Copyright (c) 2004-2016, The JS Foundation All Rights Reserved.
 	Available via Academic Free License >= 2.1 OR the modified BSD license.
 	see: http://dojotoolkit.org/license for details
 */
@@ -10,10 +10,10 @@ _5.add("native-xhr",function(){
 return typeof XMLHttpRequest!=="undefined";
 });
 _5.add("dojo-force-activex-xhr",function(){
-return _5("activex")&&!document.addEventListener&&window.location.protocol==="file:";
+return _5("activex")&&window.location.protocol==="file:";
 });
 _5.add("native-xhr2",function(){
-if(!_5("native-xhr")){
+if(!_5("native-xhr")||_5("dojo-force-activex-xhr")){
 return;
 }
 var x=new XMLHttpRequest();
@@ -30,7 +30,7 @@ if(!_5("native-response-type")){
 return;
 }
 var x=new XMLHttpRequest();
-x.open("GET","/",true);
+x.open("GET","https://dojotoolkit.org/",true);
 x.responseType="blob";
 var _6=x.responseType;
 x.abort();
@@ -56,131 +56,150 @@ catch(e){
 _a=e;
 }
 }
+var _c;
 if(_a){
 this.reject(_a);
 }else{
+try{
+_3(_9);
+}
+catch(e){
+_c=e;
+}
 if(_4.checkStatus(_b.status)){
+if(!_c){
 this.resolve(_9);
 }else{
+this.reject(_c);
+}
+}else{
+if(!_c){
 _a=new _1("Unable to load "+_9.url+" status: "+_b.status,_9);
+this.reject(_a);
+}else{
+_a=new _1("Unable to load "+_9.url+" status: "+_b.status+" and an error in handleAs: transformation of response",_9);
 this.reject(_a);
 }
 }
+}
 };
-var _c,_d,_e,_f;
+var _d,_e,_f,_10;
 if(_5("native-xhr2")){
-_c=function(_10){
+_d=function(_11){
 return !this.isFulfilled();
 };
-_f=function(dfd,_11){
-_11.xhr.abort();
+_10=function(dfd,_12){
+_12.xhr.abort();
 };
-_e=function(_12,dfd,_13){
-function _14(evt){
-dfd.handleResponse(_13);
-};
+_f=function(_13,dfd,_14){
 function _15(evt){
-var _16=evt.target;
-var _17=new _1("Unable to load "+_13.url+" status: "+_16.status,_13);
-dfd.handleResponse(_13,_17);
+dfd.handleResponse(_14);
 };
-function _18(evt){
+function _16(evt){
+var _17=evt.target;
+var _18=new _1("Unable to load "+_14.url+" status: "+_17.status,_14);
+dfd.handleResponse(_14,_18);
+};
+function _19(evt){
 if(evt.lengthComputable){
-_13.loaded=evt.loaded;
-_13.total=evt.total;
-dfd.progress(_13);
+_14.loaded=evt.loaded;
+_14.total=evt.total;
+dfd.progress(_14);
 }else{
-if(_13.xhr.readyState===3){
-_13.loaded=evt.position;
-dfd.progress(_13);
+if(_14.xhr.readyState===3){
+_14.loaded=("loaded" in evt)?evt.loaded:evt.position;
+dfd.progress(_14);
 }
 }
 };
-_12.addEventListener("load",_14,false);
-_12.addEventListener("error",_15,false);
-_12.addEventListener("progress",_18,false);
+_13.addEventListener("load",_15,false);
+_13.addEventListener("error",_16,false);
+_13.addEventListener("progress",_19,false);
 return function(){
-_12.removeEventListener("load",_14,false);
-_12.removeEventListener("error",_15,false);
-_12.removeEventListener("progress",_18,false);
-_12=null;
+_13.removeEventListener("load",_15,false);
+_13.removeEventListener("error",_16,false);
+_13.removeEventListener("progress",_19,false);
+_13=null;
 };
 };
 }else{
-_c=function(_19){
-return _19.xhr.readyState;
-};
 _d=function(_1a){
-return 4===_1a.xhr.readyState;
+return _1a.xhr.readyState;
 };
-_f=function(dfd,_1b){
-var xhr=_1b.xhr;
-var _1c=typeof xhr.abort;
-if(_1c==="function"||_1c==="object"||_1c==="unknown"){
+_e=function(_1b){
+return 4===_1b.xhr.readyState;
+};
+_10=function(dfd,_1c){
+var xhr=_1c.xhr;
+var _1d=typeof xhr.abort;
+if(_1d==="function"||_1d==="object"||_1d==="unknown"){
 xhr.abort();
 }
 };
 }
-function _1d(_1e){
-return this.xhr.getResponseHeader(_1e);
+function _1e(_1f){
+return this.xhr.getResponseHeader(_1f);
 };
-var _1f,_20={data:null,query:null,sync:false,method:"GET"};
-function xhr(url,_21,_22){
-var _23=_5("native-formdata")&&_21&&_21.data&&_21.data instanceof FormData;
-var _24=_4.parseArgs(url,_4.deepCreate(_20,_21),_23);
-url=_24.url;
-_21=_24.options;
-var _25,_26=function(){
-_25&&_25();
+var _20,_21={data:null,query:null,sync:false,method:"GET"};
+function xhr(url,_22,_23){
+var _24=_5("native-formdata")&&_22&&_22.data&&_22.data instanceof FormData;
+var _25=_4.parseArgs(url,_4.deepCreate(_21,_22),_24);
+url=_25.url;
+_22=_25.options;
+if(_5("ie")<=10){
+url=url.split("#")[0];
+}
+var _26,_27=function(){
+_26&&_26();
 };
-var dfd=_4.deferred(_24,_f,_c,_d,_8,_26);
-var _27=_24.xhr=xhr._create();
-if(!_27){
+var dfd=_4.deferred(_25,_10,_d,_e,_8,_27);
+var _28=_25.xhr=xhr._create();
+if(!_28){
 dfd.cancel(new _1("XHR was not created"));
-return _22?dfd:dfd.promise;
+return _23?dfd:dfd.promise;
 }
-_24.getHeader=_1d;
-if(_e){
-_25=_e(_27,dfd,_24);
+_25.getHeader=_1e;
+if(_f){
+_26=_f(_28,dfd,_25);
 }
-var _28=_21.data,_29=!_21.sync,_2a=_21.method;
+var _29=typeof (_22.data)==="undefined"?null:_22.data,_2a=!_22.sync,_2b=_22.method;
 try{
-_27.open(_2a,url,_29,_21.user||_1f,_21.password||_1f);
-if(_21.withCredentials){
-_27.withCredentials=_21.withCredentials;
+_28.open(_2b,url,_2a,_22.user||_20,_22.password||_20);
+if(_22.withCredentials){
+_28.withCredentials=_22.withCredentials;
 }
-if(_5("native-response-type")&&_21.handleAs in _7){
-_27.responseType=_7[_21.handleAs];
+if(_5("native-response-type")&&_22.handleAs in _7){
+_28.responseType=_7[_22.handleAs];
 }
-var _2b=_21.headers,_2c=_23?false:"application/x-www-form-urlencoded";
-if(_2b){
-for(var hdr in _2b){
+var _2c=_22.headers,_2d=_24?false:"application/x-www-form-urlencoded";
+if(_2c){
+for(var hdr in _2c){
 if(hdr.toLowerCase()==="content-type"){
-_2c=_2b[hdr];
+_2d=_2c[hdr];
 }else{
-if(_2b[hdr]){
-_27.setRequestHeader(hdr,_2b[hdr]);
+if(_2c[hdr]){
+_28.setRequestHeader(hdr,_2c[hdr]);
 }
 }
 }
 }
-if(_2c&&_2c!==false){
-_27.setRequestHeader("Content-Type",_2c);
+if(_2d&&_2d!==false){
+_28.setRequestHeader("Content-Type",_2d);
 }
-if(!_2b||!("X-Requested-With" in _2b)){
-_27.setRequestHeader("X-Requested-With","XMLHttpRequest");
+if(!_2c||!("X-Requested-With" in _2c)){
+_28.setRequestHeader("X-Requested-With","XMLHttpRequest");
 }
 if(_4.notify){
-_4.notify.emit("send",_24,dfd.promise.cancel);
+_4.notify.emit("send",_25,dfd.promise.cancel);
 }
-_27.send(_28);
+_28.send(_29);
 }
 catch(e){
 dfd.reject(e);
 }
 _2(dfd);
-_27=null;
-return _22?dfd:dfd.promise;
+_28=null;
+return _23?dfd:dfd.promise;
 };
 xhr._create=function(){
 throw new Error("XMLHTTP not available");
