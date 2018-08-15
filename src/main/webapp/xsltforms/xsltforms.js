@@ -14019,9 +14019,9 @@ function setXFormByXPath(ok, selected, xpathMapping, subformId)
 		for (var xpath in xpathMapping) {
 		   var value = xpathMapping[xpath];
            if (isXPath(value)) {
-          	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, getXPath(xpath)),getXPath(value),null,null,null)).runFast(element);            	
+          	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, getXPath(xpath)),getXPath(value),null,null,null)).run(element);            	
            }else {
-           	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, getXPath(xpath)),null,selected[value],null,null)).runFast(element);
+           	    (new XsltForms_setvalue(subform, new XsltForms_binding(null, getXPath(xpath)),null,selected[value],null,null)).run(element);
            }
 		}	
 		
