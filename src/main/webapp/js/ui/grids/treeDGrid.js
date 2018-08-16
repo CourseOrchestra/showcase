@@ -348,12 +348,16 @@ try {
 								}
 								div.innerHTML = div.innerHTML +										
 											"<td  align=\"center\" style=\"vertical-align: middle;\">" +
-													"<button onclick=\"gwtProcessFileDownloadTree('"+elementId+"', '"+recId+"', '"+colId+"', '"+downloadFileByGetMethod+"')\">" +
+													"<button>" +
 															"<img src="+metadata["columns"][k]["urlImageFileDownload"]+" title=\"Загрузить файл с сервера\"  style=\"vertical-align: middle; align: right; width: 8px; height: 8px;  \"   >" +
 													"</button>" +
 											"</td>" +
 										"</tr>" +
 									"</tbody>";
+								
+								div.title = value;
+								
+								div.setAttribute("onclick", "gwtProcessFileDownloadTree('"+elementId+"', '"+recId+"', '"+colId+"', '"+downloadFileByGetMethod+"')");
 							}else{
 								div.innerHTML = value;
 							}
