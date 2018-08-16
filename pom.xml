@@ -961,13 +961,13 @@
 	<dependency>
 			<groupId>oracle.xdb</groupId>
 			<artifactId>xdb</artifactId>
-			<version>RELEASE</version>
+			<version>curs.RELEASE</version>
 		</dependency>
 	
 		<dependency>
 			<groupId>org.apache.xerces</groupId>
 			<artifactId>xercesPatchedByKurs</artifactId>
-			<version>RELEASE</version>
+			<version>curs.RELEASE</version>
 		</dependency>	
         <dependency>
 		    <groupId>org.eclipse.wst</groupId>
