@@ -580,6 +580,17 @@ public final class AppInfoSingleton {
 		return cache;
 	}
 
+	/**
+	 * Специальный кэш, используемый для локализации с помощью Gettext, в
+	 * котором предполагается хранить язык локализации и объект ResourceBundle.
+	 */
+	public Cache<Object, Object> getLocalizedBundleCacheForWS() {
+		CacheManager cm = getCacheManager();
+		Cache<Object, Object> cache =
+			cm.getCache("localizedBundleCacheForWS", Object.class, Object.class);
+		return cache;
+	}
+	
 	public long numberofDataPanelCacheSizeBytes() {
 		long n = 0L;
 		for (Cache.Entry<String, DataPanel> s : AppInfoSingleton.getAppInfo().getDataPanelCache()) {
