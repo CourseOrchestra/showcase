@@ -146,4 +146,15 @@
     <ehcache:heap size="10000" unit="entries"/>
   </ehcache:cache>
   
+<ehcache:cache alias="localizedBundleCacheForWS">
+    
+   <ehcache:expiry>
+    	<ehcache:ttl unit="seconds">3600</ehcache:ttl>
+    </ehcache:expiry>
+	
+    <ehcache:eviction-prioritizer>LFU</ehcache:eviction-prioritizer>
+
+    <ehcache:heap size="10000" unit="entries"/>
+  </ehcache:cache>
+	 
  </ehcache:config>
