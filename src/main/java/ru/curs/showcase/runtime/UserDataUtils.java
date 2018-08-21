@@ -2728,10 +2728,8 @@ public final class UserDataUtils {
 
 		Matcher m = Pattern.compile(regexp).matcher(value);
 
-		if (bundle != null) {
-			if (m.find()) {
+		if (bundle != null && m.find()) {
 				data = data.replace(m.group(), CourseLocalization.gettext(bundle, m.group(3)));
-			}
 		}
 
 		return data;
@@ -2760,10 +2758,8 @@ public final class UserDataUtils {
 
 		Matcher m = Pattern.compile(regexp).matcher(value);
 
-		if (bundle != null) {
-			if (m.find()) {
+		if (bundle != null && m.find()) {
 				data = data.replace(m.group(), CourseLocalization.gettext(bundle, m.group(3)));
-			}
 		}
 
 		return data;
