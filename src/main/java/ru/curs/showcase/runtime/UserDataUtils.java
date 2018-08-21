@@ -2681,6 +2681,95 @@ public final class UserDataUtils {
 	}
 
 	/**
+	 * Метод, служущаий для перевода строк с помощью Gettext в серверной части
+	 * Showcase и использующий в своей реализации регулярные выражения.
+	 * 
+	 * @param value
+	 *            - входящая строка
+	 * @return переведённая строка
+	 */
+	public static String modifyVariablesUsingRegExp(final String value) {
+		String data = value;
+		if (data == null)
+			return null;
+
+		ResourceBundle bundle = null;
+		String sesid = "";
+		if (SecurityContextHolder.getContext().getAuthentication() != null) {
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+			sesid = ((WebAuthenticationDetails) auth.getDetails()).getSessionId();
+			if (sesid == null) {
+				// sesid = AppInfoSingleton.getAppInfo().getSesid();
+				// String[] arr =
+				// AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap().values()
+				// .toArray(new String[0]);
+				// if (arr.length > 0)
+				// sesid = arr[arr.length - 1];
+				String remoteAddr =
+					((WebAuthenticationDetails) auth.getDetails()).getRemoteAddress();
+				if (remoteAddr != null)
+					sesid =
+						AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap().get(remoteAddr);
+			}
+			if (AppInfoSingleton.getAppInfo().getLocalizedBundleCache().get(sesid) == null) {
+				bundle = CourseLocalization.getLocalizedResourseBundle();
+				if (bundle != null)
+					AppInfoSingleton.getAppInfo().getLocalizedBundleCache().put(sesid, bundle);
+			}
+		}
+		bundle =
+			(ResourceBundle) AppInfoSingleton.getAppInfo().getLocalizedBundleCache().get(sesid);
+
+		if (bundle == null)
+			bundle = CourseLocalization.getLocalizedResourseBundle();
+
+		String regexp =
+			"[$]{1}localize[(]{1}([_]{1}|gettext)[(]{1}([\"']{1}|[&]{1}[#]{1}34;)(.*?)([&]{1}[#]{1}34;|[\"']{1})[)]{2}";
+
+		Matcher m = Pattern.compile(regexp).matcher(value);
+
+		if (bundle != null) {
+			if (m.find()) {
+				data = data.replace(m.group(), CourseLocalization.gettext(bundle, m.group(3)));
+			}
+		}
+
+		return data;
+	}
+
+	/**
+	 * Метод, служащий для перевода строк с помощью Gettext, c учётом
+	 * передаваемого языка для вэб-сервисов, и использующий в своей реализации
+	 * регулярные выражения.
+	 * 
+	 * @param lang
+	 *            - передаваемый язык
+	 * @param value
+	 *            - входящая строка
+	 * @return переведённая строка
+	 */
+	public static String modifyVariablesForWSUsingRegExp(final String value, String lang) {
+		String data = value;
+		if (data == null)
+			return null;
+
+		ResourceBundle bundle = CourseLocalization.getLocalizedResourseBundle(lang);
+
+		String regexp =
+			"[$]{1}localize[(]{1}([_]{1}|gettext)[(]{1}([\"']{1}|[&]{1}[#]{1}34;)(.*?)([&]{1}[#]{1}34;|[\"']{1})[)]{2}";
+
+		Matcher m = Pattern.compile(regexp).matcher(value);
+
+		if (bundle != null) {
+			if (m.find()) {
+				data = data.replace(m.group(), CourseLocalization.gettext(bundle, m.group(3)));
+			}
+		}
+
+		return data;
+	}
+
+	/**
 	 * Метод, служащий для вычленения из текста строк, ограниченных сигнатурой,
 	 * используемой для перевода с помощью Gettext.
 	 * 
