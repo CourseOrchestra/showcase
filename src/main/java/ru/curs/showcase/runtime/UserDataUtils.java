@@ -2339,7 +2339,16 @@ public final class UserDataUtils {
 		if (data == null)
 			return null;
 
-		ResourceBundle bundle = CourseLocalization.getLocalizedResourseBundle(lang);
+		ResourceBundle bundle = null;
+		if (AppInfoSingleton.getAppInfo().getLocalizedBundleCacheForWS().get(lang) == null) {
+			bundle = CourseLocalization.getLocalizedResourseBundle(lang);
+			if (bundle != null)
+				AppInfoSingleton.getAppInfo().getLocalizedBundleCacheForWS().put(lang, bundle);
+
+		}
+		bundle =
+			(ResourceBundle) AppInfoSingleton.getAppInfo().getLocalizedBundleCacheForWS()
+					.get(lang);
 
 		if (bundle != null) {
 
@@ -2699,12 +2708,6 @@ public final class UserDataUtils {
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			sesid = ((WebAuthenticationDetails) auth.getDetails()).getSessionId();
 			if (sesid == null) {
-				// sesid = AppInfoSingleton.getAppInfo().getSesid();
-				// String[] arr =
-				// AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap().values()
-				// .toArray(new String[0]);
-				// if (arr.length > 0)
-				// sesid = arr[arr.length - 1];
 				String remoteAddr =
 					((WebAuthenticationDetails) auth.getDetails()).getRemoteAddress();
 				if (remoteAddr != null)
@@ -2729,7 +2732,7 @@ public final class UserDataUtils {
 		Matcher m = Pattern.compile(regexp).matcher(value);
 
 		if (bundle != null && m.find()) {
-				data = data.replace(m.group(), CourseLocalization.gettext(bundle, m.group(3)));
+			data = data.replace(m.group(), CourseLocalization.gettext(bundle, m.group(3)));
 		}
 
 		return data;
@@ -2751,7 +2754,16 @@ public final class UserDataUtils {
 		if (data == null)
 			return null;
 
-		ResourceBundle bundle = CourseLocalization.getLocalizedResourseBundle(lang);
+		ResourceBundle bundle = null;
+		if (AppInfoSingleton.getAppInfo().getLocalizedBundleCacheForWS().get(lang) == null) {
+			bundle = CourseLocalization.getLocalizedResourseBundle(lang);
+			if (bundle != null)
+				AppInfoSingleton.getAppInfo().getLocalizedBundleCacheForWS().put(lang, bundle);
+
+		}
+		bundle =
+			(ResourceBundle) AppInfoSingleton.getAppInfo().getLocalizedBundleCacheForWS()
+					.get(lang);
 
 		String regexp =
 			"[$]{1}localize[(]{1}([_]{1}|gettext)[(]{1}([\"']{1}|[&]{1}[#]{1}34;)(.*?)([&]{1}[#]{1}34;|[\"']{1})[)]{2}";
@@ -2759,7 +2771,7 @@ public final class UserDataUtils {
 		Matcher m = Pattern.compile(regexp).matcher(value);
 
 		if (bundle != null && m.find()) {
-				data = data.replace(m.group(), CourseLocalization.gettext(bundle, m.group(3)));
+			data = data.replace(m.group(), CourseLocalization.gettext(bundle, m.group(3)));
 		}
 
 		return data;
