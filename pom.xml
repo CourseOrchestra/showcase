@@ -1660,6 +1660,7 @@
           <module>ru.curs.showcase.app.App</module>
           <logLevel>INFO</logLevel>
           <copyWebapp>true</copyWebapp>
+	  <noServer>true</noServer>
         </configuration>
       </plugin>
       <plugin>
