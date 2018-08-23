@@ -1659,8 +1659,7 @@
           <compileReport>true</compileReport>
           <module>ru.curs.showcase.app.App</module>
           <logLevel>INFO</logLevel>
-         <!-- <copyWebapp>true</copyWebapp>
-	  <noServer>true</noServer> -->
+         <copyWebapp>true</copyWebapp>
         </configuration>
       </plugin>
       <plugin>
