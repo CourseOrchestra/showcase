@@ -34,7 +34,7 @@ import static ru.curs.showcase.util.XMLJSONConverter.jsonToXml;
          */
         @Test
         @DisplayName("not null tests")
-        void firstTest() {
+        void notNullTests() {
             assertAll(
                     () -> assertNotNull(xmlToJson("<root><a>&#xA;</a></root>")),
                     () -> assertNotNull(xmlToJson("<root><name>Bell в модификации Walsh && mm& &mm &amp; Kliegman</name></root>")),
@@ -52,7 +52,7 @@ import static ru.curs.showcase.util.XMLJSONConverter.jsonToXml;
          */
         @Test
         @DisplayName("equals test")
-        void secondTest() throws SAXException, IOException {
+        void equalsTest() throws SAXException, IOException {
             assertEquals(xmlToJson("<root xmlns=\"http://share.curs.ru\" "
                     + "xmlns:si=\"http://share.curs.ru/svn\">"
                     + "<si:size si:mmm=\"ok\"/>"
@@ -67,7 +67,7 @@ import static ru.curs.showcase.util.XMLJSONConverter.jsonToXml;
          */
         @Test
         @DisplayName("another equals test")
-        void anotherSecondTest() throws JSONException, TransformerException, ParserConfigurationException {
+        void complicatedEqualsTest() throws JSONException, TransformerException, ParserConfigurationException {
             assertEquals(jsonToXml("{\"qs\":{\"#sorted\":[{\"q\":[{\"@d\":\"31\",\"#text\":\"1\"},{\"@d\":\"32\",\"#text\":\"2\"},{\"@d\":\"33\",\"#text\":\"4\"}]}]}}"),
                     "<qs>\r\n" +
                     "<q d=\"31\">1</q>\r\n" +
@@ -83,7 +83,7 @@ import static ru.curs.showcase.util.XMLJSONConverter.jsonToXml;
          */
         @Test
         @DisplayName("other equals test")
-        void afterSecondTests() throws SAXException, IOException
+        void otherStartingAttributesTests() throws SAXException, IOException
         {
             assertEquals(xmlToJson("<root><size mmm=\"ok\"/></root>", false),"{\"root\":{\"size\":{\"mmm\":\"ok\"}}}");
         }
@@ -97,7 +97,7 @@ import static ru.curs.showcase.util.XMLJSONConverter.jsonToXml;
          */
         @Test
         @DisplayName("truth test")
-        void thirdTest() throws JSONException, TransformerException, ParserConfigurationException {
+        void truthTest() throws JSONException, TransformerException, ParserConfigurationException {
             assertTrue(jsonToXml("{\"root\":{\"size\":{\"@mmm\":\"ok\"}}}").contains("<size mmm=\"ok\"/>"));
         }
 
@@ -108,7 +108,7 @@ import static ru.curs.showcase.util.XMLJSONConverter.jsonToXml;
          */
         @Test
         @DisplayName("throws test")
-        void forthtest() throws JSONException {
+        void throwsTest() throws JSONException {
             assertThrows(NullPointerException.class, () -> jsonToXml("{\"root\":{\"size\":{\"@mmm\":\"ok\"}}"));
         }
 
