@@ -74,7 +74,7 @@
             if(defaultSavedRequest.getQueryString() != null &&
                     defaultSavedRequest.getQueryString().contains("autologin=true")){
                      autologin = "true";
-            }%>
+            %>
 
             dojo.xhrGet({
                 sync: true,
@@ -95,7 +95,7 @@
                 }
             });
 
-            <%}%>
+          <%}}%>
 
             var w;
             <%if (UserDataUtils.getGeneralOptionalProp("security.crossdomain.authentication") != null && "true".equalsIgnoreCase(UserDataUtils.getGeneralOptionalProp("security.crossdomain.authentication").trim())) {%>
