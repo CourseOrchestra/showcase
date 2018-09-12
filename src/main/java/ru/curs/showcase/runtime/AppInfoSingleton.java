@@ -90,7 +90,8 @@ public final class AppInfoSingleton {
 		this.celesta = acelesta;
 	}
 
-	private List<String> additionalParametersList = new ArrayList<String>();
+	private List<String> additionalParametersList = Collections
+			.synchronizedList(new ArrayList<String>());
 
 	private final SortedSet<String> executedProc = Collections
 			.synchronizedSortedSet(new TreeSet<String>());
@@ -590,7 +591,7 @@ public final class AppInfoSingleton {
 			cm.getCache("localizedBundleCacheForWS", Object.class, Object.class);
 		return cache;
 	}
-	
+
 	public long numberofDataPanelCacheSizeBytes() {
 		long n = 0L;
 		for (Cache.Entry<String, DataPanel> s : AppInfoSingleton.getAppInfo().getDataPanelCache()) {
