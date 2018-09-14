@@ -5,6 +5,9 @@ package ru.curs.showcase.app.client;
 
 import java.util.Date;
 
+import ru.curs.showcase.app.api.MessageType;
+import ru.curs.showcase.app.client.internationalization.CourseClientLocalization;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.event.logical.shared.*;
@@ -13,9 +16,6 @@ import com.google.gwt.resources.client.*;
 import com.google.gwt.user.client.*;
 import com.google.gwt.user.client.Event.NativePreviewEvent;
 import com.google.gwt.user.client.ui.*;
-
-import ru.curs.showcase.app.api.MessageType;
-import ru.curs.showcase.app.client.internationalization.CourseClientLocalization;
 
 /**
  * Интерфейс, ссылающийся на иконки, которые могут понадобится в окне сообщений
@@ -78,8 +78,8 @@ public final class MessageBox {
 	/**
 	 * GWT сервис для доступа к иконкам, хранящимся на сервере.
 	 */
-	private static ImagesForDialogBox images =
-		(ImagesForDialogBox) GWT.create(ImagesForDialogBox.class);
+	private static ImagesForDialogBox images = (ImagesForDialogBox) GWT
+			.create(ImagesForDialogBox.class);
 
 	// private static DataServiceAsync dataService;
 
@@ -236,8 +236,9 @@ public final class MessageBox {
 				break;
 			}
 		} else {
-			String url = Window.Location.getProtocol() + "//" + Window.Location.getHost()
-					+ Window.Location.getPath() + messageSubtype;
+			String url =
+				Window.Location.getProtocol() + "//" + Window.Location.getHost()
+						+ Window.Location.getPath() + messageSubtype;
 			im1.setUrl(url);
 		}
 
@@ -327,38 +328,52 @@ public final class MessageBox {
 			dp.setContent(textArea);
 			// }
 
-			final String messageToCopy = "Time: "
-					+ formattedDate + "\r\n\r\nUser: " + AppCurrContext.getInstance()
-							.getServerCurrentState().getUserInfo().getCaption()
-					+ "\r\n\r\n" + hideMessage;
+			final String messageToCopy =
+				"Time: "
+						+ formattedDate
+						+ "\r\n\r\nUser: "
+						+ AppCurrContext.getInstance().getServerCurrentState().getUserInfo()
+								.getCaption() + "\r\n\r\n" + hideMessage;
 
-			Button copy = new Button(CourseClientLocalization
-					.gettext(AppCurrContext.getInstance().getDomain(), "Copy"));
-			copy.addClickHandler(new ClickHandler() {
-				@Override
-				public void onClick(final ClickEvent event) {
-					// if (dataService == null) {
-					// dataService = GWT.create(DataService.class);
-					// }
-					//
-					// dataService.copyToClipboard(messageToCopy, new
-					// AsyncCallback<Void>() {
-					//
-					// @Override
-					// public void onFailure(final Throwable arg0) {
-					// Window.alert("Clipboard Error: " + arg0);
-					// }
-					//
-					// @Override
-					// public void onSuccess(Void arg0) {
-					// // Ничего не выводим
-					// }
-					// });
-					// }
+			Button copy =
+				new Button(CourseClientLocalization.gettext(AppCurrContext.getInstance()
+						.getDomain(), "Copy"));
 
-					copyToClipboard(messageToCopy);
-				}
-			});
+			copy.getElement().setId("copy_to_clipboard_button");
+			copy.getElement().setAttribute("data-clipboard-text", messageToCopy);
+			copy.getElement().addClassName("copy_to_clipboard_button");
+
+			copyWithClipboardJS();
+
+			// copy.addClickHandler(new ClickHandler() {
+			// @Override
+			// public void onClick(final ClickEvent event) {
+			// copyWithZeroClipboard(messageToCopy);
+
+			// if (dataService == null) {
+			// dataService = GWT.create(DataService.class);
+			// }
+			//
+			// dataService.copyToClipboard(messageToCopy, new
+			// AsyncCallback<Void>() {
+			//
+			// @Override
+			// public void onFailure(final Throwable arg0) {
+			// Window.alert("Clipboard Error: " + arg0);
+			// }
+			//
+			// @Override
+			// public void onSuccess(Void arg0) {
+			// // Ничего не выводим
+			// }
+			// });
+			// }
+
+			// copyToClipboard(messageToCopy);
+
+			// }
+			// });
+
 			HorizontalPanel leftPanel = new HorizontalPanel();
 			leftPanel.setSize("100%", "100%");
 			leftPanel.add(copy);
@@ -384,37 +399,51 @@ public final class MessageBox {
 	}
 
 	public static void showErrorMessageWindow(final String caption, final String message) {
-		DialogBox db = showMessageWithDetails(
-				CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
-						caption),
-				CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
-						message),
-				"", MessageType.ERROR, Boolean.FALSE, (String) null);
+		DialogBox db =
+			showMessageWithDetails(CourseClientLocalization.gettext(AppCurrContext.getInstance()
+					.getDomain(), caption), CourseClientLocalization.gettext(AppCurrContext
+					.getInstance().getDomain(), message), "", MessageType.ERROR, Boolean.FALSE,
+					(String) null);
 		db.center();
 		db.show();
 	}
 
 	public static void showWarningMessageWindow(final String caption, final String message) {
-		DialogBox db = showMessageWithDetails(
-				CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
-						caption),
-				CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
-						message),
-				"", MessageType.WARNING, Boolean.FALSE, (String) null);
+		DialogBox db =
+			showMessageWithDetails(CourseClientLocalization.gettext(AppCurrContext.getInstance()
+					.getDomain(), caption), CourseClientLocalization.gettext(AppCurrContext
+					.getInstance().getDomain(), message), "", MessageType.WARNING, Boolean.FALSE,
+					(String) null);
 		db.center();
 		db.show();
 	}
 
 	public static void showInfoMessageWindow(final String caption, final String message) {
-		DialogBox db = showMessageWithDetails(
-				CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
-						caption),
-				CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
-						message),
-				"", MessageType.INFO, Boolean.FALSE, (String) null);
+		DialogBox db =
+			showMessageWithDetails(CourseClientLocalization.gettext(AppCurrContext.getInstance()
+					.getDomain(), caption), CourseClientLocalization.gettext(AppCurrContext
+					.getInstance().getDomain(), message), "", MessageType.INFO, Boolean.FALSE,
+					(String) null);
 		db.center();
 		db.show();
 	}
+
+	public static native void copyWithClipboardJS()/*-{
+		var clipboard = new $wnd.ClipboardJS('.copy_to_clipboard_button');
+
+		//		clipboard.on('success', function(e) {
+		//			//console.info('Action:', e.action);
+		//			//console.info('Text:', e.text);
+		//			//console.info('Trigger:', e.trigger);
+		//			//e.clearSelection();
+		//		});
+		//
+		//		clipboard.on('error', function(e) {
+		//			console.error('Action:', e.action);
+		//			console.error('Trigger:', e.trigger);
+		//		});
+
+	}-*/;
 
 	public static native void copyToClipboard(String text) /*-{
 		var textArea = $doc.createElement("textarea");
