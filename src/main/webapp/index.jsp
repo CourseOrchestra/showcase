@@ -94,7 +94,8 @@ var protocol = window.location.protocol;
     <link rel="stylesheet" href="js/dgrid/css/skins/claro.css"/>
     
     <script language="javascript" src="js/Gettext.js"></script>
-     
+    <script language="javascript" src="js/clipboard.js"></script>
+	
      <%if((new File(AppInfoSingleton.getAppInfo().getSolutionsDirRoot() + File.separator +
     		 userdataId + File.separator + "resources" + File.separator +
     		 UserDataUtils.getFinalPlatformPoFile(userdataId))).exists()){ %>
