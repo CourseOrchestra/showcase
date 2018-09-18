@@ -39,14 +39,26 @@ public class DataPanelElementContext implements SerializableElement {
 	@Override
 	public String toString() {
 		String res = "";
+
 		if (compositeContext != null) {
 			res = compositeContext.toString();
 		}
+
 		if (elementInfo != null) {
-			res = res + ExchangeConstants.LINE_SEPARATOR + "panel=" + getPanelId().getString()
-					+ ExchangeConstants.LINE_SEPARATOR + "elementId=" + getElementId().getString()
-					+ ExchangeConstants.LINE_SEPARATOR;
+			res = res + ExchangeConstants.LINE_SEPARATOR;
+
+			if (getPanelId() != null) {
+				res = res + "panel=" + getPanelId().getString();
+			}
+
+			if (getElementId() != null) {
+				res = res + ExchangeConstants.LINE_SEPARATOR + "elementId="
+						+ getElementId().getString();
+			}
+
+			res = res + ExchangeConstants.LINE_SEPARATOR;
 		}
+
 		return res;
 	}
 
@@ -63,7 +75,8 @@ public class DataPanelElementContext implements SerializableElement {
 	}
 
 	public ID getPanelId() {
-		if (elementInfo != null) {
+		if ((elementInfo != null) && (elementInfo.getTab() != null)
+				&& (elementInfo.getTab().getDataPanel() != null)) {
 			return elementInfo.getTab().getDataPanel().getId();
 		}
 		return null;
