@@ -59,6 +59,11 @@ define([
 			column.sortable = false;
 
 			column.renderCell = function (object, value, cell) {
+// [KURS				
+				if(object.hideSelector && (object.hideSelector.toLowerCase() == "true")){
+					return;
+				}
+// KURS]							
 				var row = object && self.row(object);
 				value = row && self.selection[row.id];
 				renderSelectorInput(column, !!value, cell, object);
