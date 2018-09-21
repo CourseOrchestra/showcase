@@ -63,7 +63,11 @@ public class JSTreeSelectorService extends HttpServlet {
 
 		org.json.JSONArray data = null;
 		try {
-			String json = XMLJSONConverter.xmlToJson(result.getData(), false);
+
+			String stringData =
+				result.getData().replaceAll("<item ", "<item toJsonArray=\"true\" ");
+
+			String json = XMLJSONConverter.xmlToJson(stringData, false);
 			if (!json.trim().isEmpty()) {
 				JSONObject jo = new JSONObject(json);
 				JSONObject items = jo.optJSONObject("items");
@@ -76,7 +80,13 @@ public class JSTreeSelectorService extends HttpServlet {
 			}
 
 			for (int i = 0; i < data.length(); i++) {
-				org.json.JSONObject obj = (org.json.JSONObject) data.get(i);
+
+				org.json.JSONObject obj;
+				if (data.get(i) instanceof org.json.JSONObject) {
+					obj = (org.json.JSONObject) data.get(i);
+				} else {
+					obj = (org.json.JSONObject) ((org.json.JSONArray) data.get(i)).get(0);
+				}
 
 				if (obj.isNull("hasChildren") && (!obj.isNull("leaf"))) {
 					boolean leaf = obj.getBoolean("leaf");
