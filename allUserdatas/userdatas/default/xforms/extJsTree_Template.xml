@@ -59,7 +59,7 @@
 
 
 	<!-- 
-	-->	
+	
 			<xf:trigger>
 				<xf:label>Вызов ExtJsTree плагина</xf:label>
 				<xf:action ev:event="DOMActivate">
@@ -222,7 +222,9 @@
 
 		
 <hr/>		
-					
+		
+		
+-->
 			
 			<!-- 
 					{field: 'id', label: 'Код'},
@@ -241,6 +243,8 @@
 			
 			
 		    <xf:treeselector
+		        expandAllRecords = "true" 
+		    
 		        buttonLabel        = "Вызов нового триселектора"
    		        windowCaption      = "'Выбор данных из дерева'"
    		        
