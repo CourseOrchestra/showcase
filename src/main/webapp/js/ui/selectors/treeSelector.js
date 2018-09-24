@@ -433,10 +433,8 @@ function showTreeSelector(selectorParam) {
 		    
 		    allowSelectAll: !single && getAllowSelectAll(),
 		    
-		    expandAllRecords: getExpandAllRecords(),
-		    
 			shouldExpand: function (row, level, previouslyExpanded) {
-				if(this.expandAllRecords){
+				if(row.data.expand && (row.data.expand.toLowerCase() == "true")){
 					if((row.data.hasChildren == "1") || (row.data.hasChildren == "true")){
 						return true;
 					}else{
@@ -516,9 +514,6 @@ function showTreeSelector(selectorParam) {
 	     }
 	     function getAllowSelectAll(){
 	    	 return selectorParam.allowSelectAll ? selectorParam.allowSelectAll : false;
-	     }
-	     function getExpandAllRecords(){
-	    	 return selectorParam.expandAllRecords ? selectorParam.expandAllRecords : false;
 	     }
 	     
     });	
