@@ -431,9 +431,27 @@ function showTreeSelector(selectorParam) {
 			
 		    single: single,
 		    
-		    allowSelectAll: !single && getAllowSelectAll()
+		    allowSelectAll: !single && getAllowSelectAll(),
+		    
+		    expandAllRecords: getExpandAllRecords(),
+		    
+			shouldExpand: function (row, level, previouslyExpanded) {
+				if(this.expandAllRecords){
+					if((row.data.hasChildren == "1") || (row.data.hasChildren == "true")){
+						return true;
+					}else{
+						return false;
+					}
+				}else{
+					return this.inherited(arguments);
+				}
+			},
 			
 		 }, 'selectorGrid');
+
+		 selectorGrid.on("dgrid-refresh-complete", function(event) {
+			 //this.expandAllRecords = false;
+		 });
 		 
 		 selectorGrid.on("dgrid-select", function(event){
 				if(!event.grid.single && getCheckParent()){
@@ -499,8 +517,9 @@ function showTreeSelector(selectorParam) {
 	     function getAllowSelectAll(){
 	    	 return selectorParam.allowSelectAll ? selectorParam.allowSelectAll : false;
 	     }
-
-	     
+	     function getExpandAllRecords(){
+	    	 return selectorParam.expandAllRecords ? selectorParam.expandAllRecords : false;
+	     }
 	     
     });	
 }
