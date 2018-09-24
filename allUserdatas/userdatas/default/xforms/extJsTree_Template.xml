@@ -243,8 +243,6 @@
 			
 			
 		    <xf:treeselector
-		        expandAllRecords = "true" 
-		    
 		        buttonLabel        = "Вызов нового триселектора"
    		        windowCaption      = "'Выбор данных из дерева'"
    		        
