@@ -90,7 +90,8 @@ public final class AppInfoSingleton {
 		this.celesta = acelesta;
 	}
 
-	private List<String> additionalParametersList = new ArrayList<String>();
+	private List<String> additionalParametersList = Collections
+			.synchronizedList(new ArrayList<String>());
 
 	private final SortedSet<String> executedProc = Collections
 			.synchronizedSortedSet(new TreeSet<String>());
@@ -577,6 +578,17 @@ public final class AppInfoSingleton {
 		CacheManager cm = getCacheManager();
 		Cache<Object, Object> cache =
 			cm.getCache("localizedBundleCache", Object.class, Object.class);
+		return cache;
+	}
+
+	/**
+	 * Специальный кэш, используемый для локализации с помощью Gettext, в
+	 * котором предполагается хранить язык локализации и объект ResourceBundle.
+	 */
+	public Cache<Object, Object> getLocalizedBundleCacheForWS() {
+		CacheManager cm = getCacheManager();
+		Cache<Object, Object> cache =
+			cm.getCache("localizedBundleCacheForWS", Object.class, Object.class);
 		return cache;
 	}
 

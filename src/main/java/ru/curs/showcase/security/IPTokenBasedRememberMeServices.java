@@ -54,8 +54,19 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 			String name =
 				((UserAndSessionDetails) successfulAuthentication.getDetails()).getUserInfo()
 						.getFullName();
-			userAndSessionDetails.setUserInfo(new UserInfo(login, sid, name, null, null,
-					(String) null));
+			// String groupProviders =
+			// ((UserAndSessionDetails)
+			// (SecurityContextHolder.getContext().getAuthentication())
+			// .getDetails()).getUserInfo().getGroupProviders();
+			String[] additionalParameters =
+				((UserAndSessionDetails) successfulAuthentication.getDetails()).getUserInfo()
+						.getAdditionalParameters();
+			if (additionalParameters != null)
+				userAndSessionDetails.setUserInfo(new UserInfo(login, sid, name, null, null,
+						(String) null, additionalParameters));
+			else
+				userAndSessionDetails.setUserInfo(new UserInfo(login, sid, name, null, null,
+						(String) null));
 			userAndSessionDetails.setOauth2Token(null);
 			userAndSessionDetails.setAuthViaAuthServer(false);
 			authRequest.setDetails(userAndSessionDetails);
@@ -99,7 +110,12 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 	@Override
 	protected void setCookie(String[] tokens, int maxAge, HttpServletRequest request,
 			HttpServletResponse response) {
-		if (tokens.length < 7) {
+		String[] additionalParameters =
+			((UserAndSessionDetails) (SecurityContextHolder.getContext().getAuthentication())
+					.getDetails()).getUserInfo().getAdditionalParameters();
+		int length = additionalParameters != null ? additionalParameters.length : 0;
+
+		if (tokens.length < (7 + length)) {
 			String pwd = request.getParameter("j_password");
 			String sid =
 				((UserAndSessionDetails) (SecurityContextHolder.getContext().getAuthentication())
@@ -108,14 +124,26 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 				((UserAndSessionDetails) (SecurityContextHolder.getContext().getAuthentication())
 						.getDetails()).getUserInfo().getFullName();
 
-			String[] tokensWithPassword = Arrays.copyOf(tokens, tokens.length + 4);
-			tokensWithPassword[tokensWithPassword.length - 4] = pwd;
-			tokensWithPassword[tokensWithPassword.length - 3] = sid;
-			tokensWithPassword[tokensWithPassword.length - 2] = name;
-			tokensWithPassword[tokensWithPassword.length - 1] =
+			// String groupProviders =
+			// ((UserAndSessionDetails)
+			// (SecurityContextHolder.getContext().getAuthentication())
+			// .getDetails()).getUserInfo().getGroupProviders();
+
+			String[] tokensWithPassword = Arrays.copyOf(tokens, tokens.length + 4 + length);
+			tokensWithPassword[tokensWithPassword.length - (4 + length)] = pwd;
+			tokensWithPassword[tokensWithPassword.length - (3 + length)] = sid;
+			tokensWithPassword[tokensWithPassword.length - (2 + length)] = name;
+			tokensWithPassword[tokensWithPassword.length - (1 + length)] =
 				AppInfoSingleton.getAppInfo().getRemoteAddrSessionMap()
 						.get(request.getRemoteAddr());
 			// getUserIPAddress(request);
+			// tokensWithPassword[tokensWithPassword.length - (1 + length)] =
+			// groupProviders;
+
+			for (int k = length; k > 0; k--)
+				tokensWithPassword[tokensWithPassword.length - k] =
+					additionalParameters[length - k];
+
 			super.setCookie(tokensWithPassword, maxAge, request, response);
 		} else
 			super.setCookie(tokens, maxAge, request, response);
@@ -129,8 +157,11 @@ public class IPTokenBasedRememberMeServices extends TokenBasedRememberMeServices
 			SignedUsernamePasswordAuthenticationToken authToken =
 				new SignedUsernamePasswordAuthenticationToken(cookieTokens[0], cookieTokens[3]);
 			UserAndSessionDetails userAndSessionDetails = new UserAndSessionDetails(request);
+			String[] tokensArray = new String[cookieTokens.length - 7];
+			for (int i = 0; i < cookieTokens.length - 7; i++)
+				tokensArray[i] = cookieTokens[7 + i];
 			userAndSessionDetails.setUserInfo(new UserInfo(cookieTokens[0], cookieTokens[4],
-					cookieTokens[5], null, null, (String) null));
+					cookieTokens[5], null, null, (String) null, tokensArray));
 			userAndSessionDetails.setOauth2Token(null);
 			// userAndSessionDetails.setAuthViaAuthServer(false);
 			authToken.setDetails(userAndSessionDetails);
