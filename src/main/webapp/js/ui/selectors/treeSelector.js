@@ -93,6 +93,8 @@ function showTreeSelector(selectorParam) {
 
 		selectorSearchString = null;
 		var selectorStartsWith = null;
+		
+		var allSelected = {};
 
 		selectorDialog = new Dialog({			 
 
@@ -150,15 +152,12 @@ function showTreeSelector(selectorParam) {
 		    },
 		    
 		    executeOK: function(){
-		    	
 		    	if(single){
 			    	var selected = null;
-			        for(var id in selectorGrid.selection){
-			            if(selectorGrid.selection[id]){
-			            	selected = selectorGrid.row(id).data;
-			            	break;
-			            }
+			        for(var id in allSelected){
+				        selected = allSelected[id];
 			        }
+			        
 			        if(!selected){
 			        	selected = {};
 			        }
@@ -176,10 +175,9 @@ function showTreeSelector(selectorParam) {
 			    	}
 		    	}else{
 			    	var selected = [];
-			        for(var id in selectorGrid.selection){
-			            if(selectorGrid.selection[id] && selectorGrid.row(id) && selectorGrid.row(id).data){
-					        selected.push(selectorGrid.row(id).data);
-			            }
+			    	
+			        for(var id in allSelected){
+				        selected.push(allSelected[id]);
 			        }
 			    	
 		       	    if(selectorParam.xpathRoot && selectorParam.xpathMapping){
@@ -250,6 +248,7 @@ function showTreeSelector(selectorParam) {
 					}
 					
 					if(results){
+						
 						for (var i = 0; i < results.length; i++) {
 							if(results[i].checked && (results[i].checked.toLowerCase() == "true")){
 								if(selectorGrid){
@@ -260,9 +259,12 @@ function showTreeSelector(selectorParam) {
 								            	selectorGrid.deselect(id);
 								            }
 								        }
+								        for (var id in allSelected){
+								        	delete allSelected[id];
+								        } 
 									}
 									
-									selectorGrid.select(results[i].id);
+									allSelected[results[i].id] = results[i];
 									
 									if(selectorGrid.single){
 										break;
@@ -271,6 +273,11 @@ function showTreeSelector(selectorParam) {
 								}
 							}
 						}
+						
+				        for(var id in allSelected){
+					        selectorGrid.select(allSelected[id]);
+				        }
+				        
 					}
 					
 			    }, function(err){
@@ -446,16 +453,15 @@ function showTreeSelector(selectorParam) {
 			},
 			
 		 }, 'selectorGrid');
-
-		 selectorGrid.on("dgrid-refresh-complete", function(event) {
-			 //this.expandAllRecords = false;
-		 });
 		 
 		 selectorGrid.on("dgrid-select", function(event){
 				if(!event.grid.single && getCheckParent()){
 					var parentId = event.rows[0].data["parentId_D13k82F9g7"];
 					event.grid.select(parentId);
 				}
+				
+			    allSelected[event.rows[0]["id"]] = event.rows[0].data;
+			    
 		 });
 		 
 		 selectorGrid.on("dgrid-deselect", function(event){
@@ -463,7 +469,42 @@ function showTreeSelector(selectorParam) {
 					var parentId = event.rows[0].data["parentId_D13k82F9g7"];
 					event.grid.deselect(parentId);
 				}
+				
+				delete allSelected[event.rows[0]["id"]];
+				
 		 });
+
+		 
+		 if(single){
+	    	 if(selectorParam.needInitSelection && selectorParam.xpathMapping){
+	    		 var initSelection = getInitSelectionForSingleSelector(selectorParam.xpathMapping);
+	    		 if(initSelection && initSelection.id && (initSelection.id.length > 0)){
+	    			 allSelected[initSelection.id] = initSelection;
+	    		 }
+	    	 }
+		 }else{
+	    	 if(selectorParam.needInitSelection && selectorParam.xpathRoot && selectorParam.xpathMapping){
+	    		 var initSelection = getInitSelection(selectorParam.xpathRoot, selectorParam.xpathMapping);
+	    		 if(initSelection){
+	    			 var indId = 0;
+	        		 for(var j = 0; j < initSelection.names.length; j++){
+	        			 if(initSelection.names[j] == "id"){
+	        				 indId = j;
+	        				 break;
+	        			 }
+	        		 }
+	    			 
+	    			 var length = initSelection.values[0].length;
+	        		 for(var i = 0; i < length; i++){
+	        			 var data = {};
+	            		 for(var j = 0; j < initSelection.values.length; j++){
+	            			 data[initSelection.names[j]] = initSelection.values[j][i];
+	            		 }
+	            		 allSelected[initSelection.values[indId][i]] = data; 
+	        		 }
+	    		 }
+	    	 }
+		 }
 		 
 		 
 		 selectorDialog.show();
