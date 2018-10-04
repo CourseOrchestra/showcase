@@ -1,5 +1,7 @@
 package ru.curs.showcase.app.api;
 
+import java.util.Map;
+
 /**
  * Информация о деталях пользователя (таких как e-mail, sid пользователя, полное
  * имя пользователя, телефон), например получаемая из AuthServer.
@@ -39,7 +41,7 @@ public final class UserInfo implements SerializableElement {
 	// * Дополнительный параметр.
 	// */
 	// private String additionalParameter;
-	private String[] additionalParameters;
+	private Map<String, String> additionalParameters;
 
 	/**
 	 * СНИЛС пользователя.
@@ -84,7 +86,7 @@ public final class UserInfo implements SerializableElement {
 
 	public UserInfo(final String aLogin, final String aSid, final String aName,
 			final String aEmail, final String aPhone, final String agroupProviders,
-			final String... anAdditionalParameter) {
+			final Map<String, String> anAdditionalParameter) {
 		this.login = aLogin;
 		this.sid = aSid;
 		this.name = aName;
@@ -95,7 +97,8 @@ public final class UserInfo implements SerializableElement {
 	}
 
 	public UserInfo(final String aLogin, final String aSid, final String aName,
-			final String aEmail, final String aPhone, final String... anAdditionalParameter) {
+			final String aEmail, final String aPhone,
+			final Map<String, String> anAdditionalParameter) {
 		this.login = aLogin;
 		this.sid = aSid;
 		this.name = aName;
@@ -159,7 +162,7 @@ public final class UserInfo implements SerializableElement {
 		this.groupProviders = agroupProviders;
 	}
 
-	public String[] getAdditionalParameters() {
+	public Map<String, String> getAdditionalParameters() {
 		return additionalParameters;
 	}
 
