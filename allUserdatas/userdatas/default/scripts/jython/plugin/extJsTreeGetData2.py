@@ -66,10 +66,10 @@ def mainproc(attributes):
     
     data = u'''
     <items>
-        <item id="'''+parentId+'''1" name="Название1 записи '''+parentId+'''1'''+curValue+'''" column1="Значение1" column2="solutions/default/resources/imagesingrid/test.jpg"  leaf="false" checked="true"                      />
+        <item id="'''+parentId+'''1" name="Название1 записи '''+parentId+'''1'''+curValue+'''" column1="Значение1" column2="solutions/default/resources/imagesingrid/test.jpg"  leaf="false" checked="false"                      />
         <item id="'''+parentId+'''2" name="Название2 записи '''+parentId+'''2'''+curValue+'''" column1="Значение2" column2="solutions/default/resources/imagesingrid/test.jpg"  leaf="false"                  hasChildren="true"  />
         <item id="'''+parentId+'''3" name="Название3 записи '''+parentId+'''3'''+curValue+'''" column1="Значение3" column2="solutions/default/resources/imagesingrid/test.jpg"                                hasChildren="false" />        
-        <item id="'''+parentId+'''4" name="Название4 записи '''+parentId+'''4'''+curValue+'''" column1="Значение4" column2="solutions/default/resources/imagesingrid/test.jpg"               checked="true"   hasChildren="true"  />        
+        <item id="'''+parentId+'''4" name="Название4 записи '''+parentId+'''4'''+curValue+'''" column1="Значение4" column2="solutions/default/resources/imagesingrid/test.jpg"               checked="false"   hasChildren="true"  />        
     </items>'''
 
 

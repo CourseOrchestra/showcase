@@ -243,6 +243,8 @@
 			
 			
 		    <xf:treeselector
+		        needInitSelection = "true"
+		    
 		        buttonLabel        = "Вызов нового триселектора"
    		        windowCaption      = "'Выбор данных из дерева'"
    		        
@@ -299,6 +301,8 @@
 
 
 		    <xf:treeselector
+   		        needInitSelection = "true"
+		    
 		        buttonLabel        = "Вызов нового триселектора без картинок на ноды"
    		        windowCaption      = "'Выбор данных из дерева'"
    		        
