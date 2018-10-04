@@ -11,7 +11,7 @@ import org.xml.sax.*;
 import org.xml.sax.helpers.DefaultHandler;
 
 import ru.curs.showcase.app.api.UserInfo;
-import ru.curs.showcase.runtime.*;
+import ru.curs.showcase.runtime.XSLTransformerPoolFactory;
 
 /**
  * Класс утилит для получения информации о пользователе (деталей, таких как
@@ -37,9 +37,6 @@ public final class UserInfoUtils {
 	 */
 	public static List<UserInfo> parseStream(final InputStream is) throws TransformerException {
 		final List<UserInfo> result = new LinkedList<UserInfo>();
-
-		AppInfoSingleton.getAppInfo().getAdditionalParametersList().clear();
-
 		final ContentHandler ch = new DefaultHandler() {
 			@Override
 			public void startElement(final String uri, final String localName,
@@ -47,20 +44,16 @@ public final class UserInfoUtils {
 				if ("user".equals(localName)) {
 					String[] params = new String[atts.getLength()];
 					String[] values = new String[atts.getLength()];
+					Map<String, String> additionalParametersMap = new HashMap<>();
 					for (int i = 0; i < atts.getLength(); i++) {
 						params[i] = atts.getLocalName(i);
 						values[i] = atts.getValue(params[i]);
-
-						synchronized (AppInfoSingleton.getAppInfo()
-								.getAdditionalParametersList()) {
-							AppInfoSingleton.getAppInfo().getAdditionalParametersList()
-									.add(params[i]);
-						}
-
+						additionalParametersMap.put(params[i], values[i]);
 					}
-					UserInfo ui = new UserInfo(atts.getValue("login"), atts.getValue("SID"),
-							atts.getValue("name"), atts.getValue("email"), atts.getValue("phone"),
-							values);
+					UserInfo ui =
+						new UserInfo(atts.getValue("login"), atts.getValue("SID"),
+								atts.getValue("name"), atts.getValue("email"),
+								atts.getValue("phone"), additionalParametersMap);
 					result.add(ui);
 				}
 			}
