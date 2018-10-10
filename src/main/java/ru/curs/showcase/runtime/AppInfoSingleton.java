@@ -110,6 +110,13 @@ public final class AppInfoSingleton {
 			.synchronizedMap(new HashMap<String, String>());
 
 	/**
+	 * Карта, используемая для получения информации о браузере, которая в
+	 * дальнейшем будет добавлена в session context.
+	 */
+	private final Map<String, String> browserInformationMap = Collections
+			.synchronizedMap(new HashMap<String, String>());
+
+	/**
 	 * Идентификатор userdata в текущем запросе.
 	 */
 	private final ThreadLocal<String> curUserDataId = new ThreadLocal<String>();
@@ -831,4 +838,7 @@ public final class AppInfoSingleton {
 		return remoteAddrSessionMap;
 	}
 
+	public Map<String, String> getBrowserInformationMap() {
+		return browserInformationMap;
+	}
 }
