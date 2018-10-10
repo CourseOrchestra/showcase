@@ -186,6 +186,18 @@ public final class XMLSessionContextGenerator extends GeneralXMLHelper {
 		info.getDocumentElement().appendChild(node);
 		node.appendChild(info.createTextNode(SessionUtils.getRemoteAddress()));
 
+		String sessionId = SessionUtils.getCurrentSessionId();
+		String useragent = AppInfoSingleton.getAppInfo().getBrowserInformationMap().get(sessionId);
+		if (useragent != null) {
+			node = info.createElement("browsertype");
+			info.getDocumentElement().appendChild(node);
+			node.appendChild(info.createTextNode((BrowserType.detect(useragent)).toString()));
+
+			node = info.createElement("browserversion");
+			info.getDocumentElement().appendChild(node);
+			node.appendChild(info.createTextNode(BrowserType.detectVersion(useragent)));
+		}
+
 		// node = info.createElement(ADD_PARAM_TAG);
 		// info.getDocumentElement().appendChild(node);
 		// node.appendChild(info.createTextNode(SessionUtils.getAdditionalParameter()));
@@ -288,6 +300,20 @@ public final class XMLSessionContextGenerator extends GeneralXMLHelper {
 		node.appendChild(info
 				.createTextNode(((CompositeContextOnBasisOfUserAndSessionDetails) context)
 						.getUserAndSessionDetails().getRemoteAddress()));
+
+		String sessionId =
+			((CompositeContextOnBasisOfUserAndSessionDetails) context).getUserAndSessionDetails()
+					.getSessionId();
+		String useragent = AppInfoSingleton.getAppInfo().getBrowserInformationMap().get(sessionId);
+		if (useragent != null) {
+			node = info.createElement("browsertype");
+			info.getDocumentElement().appendChild(node);
+			node.appendChild(info.createTextNode((BrowserType.detect(useragent)).toString()));
+
+			node = info.createElement("browserversion");
+			info.getDocumentElement().appendChild(node);
+			node.appendChild(info.createTextNode(BrowserType.detectVersion(useragent)));
+		}
 
 		// node = info.createElement(ADD_PARAM_TAG);
 		// info.getDocumentElement().appendChild(node);
