@@ -359,7 +359,14 @@ function showMultiSelector(selectorParam) {
 						gwtSelectorShowMessage(results["message_D13k82F9g7"]);
 					}
 			    }, function(err){
-					gwtSelectorShowErrorMessage(err.response.text);
+			    	if(err.response){
+			    		gwtSelectorShowErrorMessage(err.response.text);
+			    	}else{
+				    	if(err.message.indexOf("Unexpected token S in JSON at position 0")>-1){
+							window.location.replace(window.appContextPath + "/sestimeout.jsp");
+							return;
+				    	}
+			    	}
 				});
 				
 				return results;

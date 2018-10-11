@@ -8217,6 +8217,12 @@ XsltForms_submission.prototype.submit = function() {
 					if (!synchr && req.readyState !== 4) {
 						return;
 					}
+// [KURS
+					if(req.responseText.indexOf("SessionNotAuthenticated")>-1){
+						window.location.replace(window.appContextPath + "/sestimeout.jsp");
+						return;
+					}
+// KURS]
 					try {
 						if (req.status === 1223) {
 							req.status = 204;

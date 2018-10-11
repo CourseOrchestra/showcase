@@ -2,16 +2,17 @@ package ru.curs.showcase.app.client.utils;
 
 import java.util.Map.Entry;
 
+import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.dom.client.*;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.*;
+
 import ru.curs.showcase.app.api.*;
 import ru.curs.showcase.app.api.datapanel.*;
 import ru.curs.showcase.app.api.html.XFormContext;
 import ru.curs.showcase.app.client.*;
 import ru.curs.showcase.app.client.api.CompleteHandler;
 import ru.curs.showcase.app.client.internationalization.CourseClientLocalization;
-
-import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.dom.client.*;
-import com.google.gwt.user.client.rpc.*;
 
 /**
  * Класс для загрузки файлов на сервер прямо из XForm.
@@ -101,7 +102,8 @@ public class InlineUploader {
 		}
 	}
 
-	private void submitInlineForm(final DataPanelElementInfo dpei, final JavaScriptObject element) {
+	private void submitInlineForm(final DataPanelElementInfo dpei,
+			final JavaScriptObject element) {
 		boolean isFilesSelected = false;
 		try {
 			FormElement form = (FormElement) FormElement.as(element);
@@ -135,9 +137,10 @@ public class InlineUploader {
 			}
 		} catch (SerializationException e) {
 			MessageBox.showSimpleMessage(
-			// AppCurrContext.getInstance().getBundleMap().get("xforms_upload_error"),
+					// AppCurrContext.getInstance().getBundleMap().get("xforms_upload_error"),
 					CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
-							"File uploading error"), e.getMessage());
+							"File uploading error"),
+					e.getMessage());
 		}
 
 	}
@@ -171,36 +174,42 @@ public class InlineUploader {
 
 		String mess = getErrorByIFrame(iframeName);
 		if (mess != null) {
+
+			if (mess.contains(ExchangeConstants.SESSION_NOT_AUTH_SIGN)) {
+				Window.Location.assign(AccessToDomModel.getAppContextPath() + "/sestimeout.jsp");
+				return;
+			}
+
 			if (mess.contains(ExchangeConstants.OK_MESSAGE_TEXT_BEGIN)
 					&& mess.contains(ExchangeConstants.OK_MESSAGE_TEXT_END)) {
 				result = true;
 
-				String textMessage =
-					mess.substring(mess.indexOf(ExchangeConstants.OK_MESSAGE_TEXT_BEGIN)
-							+ ExchangeConstants.OK_MESSAGE_TEXT_BEGIN.length(),
-							mess.lastIndexOf(ExchangeConstants.OK_MESSAGE_TEXT_END));
+				String textMessage = mess.substring(
+						mess.indexOf(ExchangeConstants.OK_MESSAGE_TEXT_BEGIN)
+								+ ExchangeConstants.OK_MESSAGE_TEXT_BEGIN.length(),
+						mess.lastIndexOf(ExchangeConstants.OK_MESSAGE_TEXT_END));
 
-				String typeMessage =
-					mess.substring(mess.indexOf(ExchangeConstants.OK_MESSAGE_TYPE_BEGIN)
-							+ ExchangeConstants.OK_MESSAGE_TYPE_BEGIN.length(),
-							mess.lastIndexOf(ExchangeConstants.OK_MESSAGE_TYPE_END));
+				String typeMessage = mess.substring(
+						mess.indexOf(ExchangeConstants.OK_MESSAGE_TYPE_BEGIN)
+								+ ExchangeConstants.OK_MESSAGE_TYPE_BEGIN.length(),
+						mess.lastIndexOf(ExchangeConstants.OK_MESSAGE_TYPE_END));
 
-				String captionMessage =
-					mess.substring(mess.indexOf(ExchangeConstants.OK_MESSAGE_CAPTION_BEGIN)
-							+ ExchangeConstants.OK_MESSAGE_CAPTION_BEGIN.length(),
-							mess.lastIndexOf(ExchangeConstants.OK_MESSAGE_CAPTION_END));
+				String captionMessage = mess.substring(
+						mess.indexOf(ExchangeConstants.OK_MESSAGE_CAPTION_BEGIN)
+								+ ExchangeConstants.OK_MESSAGE_CAPTION_BEGIN.length(),
+						mess.lastIndexOf(ExchangeConstants.OK_MESSAGE_CAPTION_END));
 
 				if ("null".equalsIgnoreCase(captionMessage)) {
 					captionMessage =
-					// AppCurrContext.getInstance().getBundleMap().get("okMessage");
+						// AppCurrContext.getInstance().getBundleMap().get("okMessage");
 						CourseClientLocalization.gettext(AppCurrContext.getInstance().getDomain(),
 								"Message");
 				}
 
-				String subtypeMessage =
-					mess.substring(mess.indexOf(ExchangeConstants.OK_MESSAGE_SUBTYPE_BEGIN)
-							+ ExchangeConstants.OK_MESSAGE_SUBTYPE_BEGIN.length(),
-							mess.lastIndexOf(ExchangeConstants.OK_MESSAGE_SUBTYPE_END));
+				String subtypeMessage = mess.substring(
+						mess.indexOf(ExchangeConstants.OK_MESSAGE_SUBTYPE_BEGIN)
+								+ ExchangeConstants.OK_MESSAGE_SUBTYPE_BEGIN.length(),
+						mess.lastIndexOf(ExchangeConstants.OK_MESSAGE_SUBTYPE_END));
 
 				if ("null".equalsIgnoreCase(subtypeMessage)) {
 					subtypeMessage = null;
@@ -218,8 +227,8 @@ public class InlineUploader {
 					WebUtils.onFailure(caught, "Error");
 
 				} catch (SerializationException e) {
-					MessageBox.showSimpleMessage("showErrorMessage()", "DeserializationError: "
-							+ e.getMessage());
+					MessageBox.showSimpleMessage("showErrorMessage()",
+							"DeserializationError: " + e.getMessage());
 				}
 			}
 		}
