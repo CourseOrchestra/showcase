@@ -169,7 +169,14 @@ try {
 						}
 						
 				    }, function(err){
-						gwtShowErrorMessage(elementId, err.response.text);
+				    	if(err.response){
+				    		gwtShowErrorMessage(elementId, err.response.text);
+				    	}else{
+					    	if(err.message.indexOf("Unexpected token S in JSON at position 0")>-1){
+								window.location.replace(window.appContextPath + "/sestimeout.jsp");
+								return;
+					    	}
+				    	}
 					});
 					
 					return results;
