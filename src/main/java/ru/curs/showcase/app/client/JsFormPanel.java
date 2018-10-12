@@ -259,7 +259,8 @@ public class JsFormPanel extends BasicElementPanelBasis {
 		}
 
 		RequestParam param = JsonUtils.safeEval(paramObj.toString());
-		doHttpRequests(param, sync, callback);
+		doHttpRequests(param, sync, AppCurrContext.getInstance().getServerCurrentState()
+				.getCustomErrorMessageEnabledState(), callback);
 	}
 
 	/**
@@ -276,7 +277,7 @@ public class JsFormPanel extends BasicElementPanelBasis {
 	 */
 	// CHECKSTYLE:OFF
 	private static native void doHttpRequests(final RequestParam param, final boolean sync,
-			final Callback<?, ?> callback)/*-{
+			final boolean customErrorMessageEnabled, final Callback<?, ?> callback)/*-{
 			$wnd.require([ 'dojo/request/xhr' ], function(xhr) {
 				var xhrArgs = {
 					data : param,
@@ -287,9 +288,16 @@ public class JsFormPanel extends BasicElementPanelBasis {
 				function(data) {
 					callback.@com.google.gwt.core.client.Callback::onSuccess(Ljava/lang/Object;)(data);
 				}, function(err) {
+					
+					var message = err.response ? err.response.text : err.message;
+					if(message && (message.indexOf("SessionNotAuthenticated")>-1)){
+						$wnd.location.replace($wnd.appContextPath + "/sestimeout.jsp");
+						return;
+					}
+					
 					callback.@com.google.gwt.core.client.Callback::onFailure(Ljava/lang/Object;)({
 //						message : err.message,
-						message : err.response ? err.response.text : err.message,
+						message : customErrorMessageEnabled ? 'Упс! Что-то пошло не так...' : err.response.text,
 						status : err.response ? err.response.status : '',
 						data : err.response ? err.response.data : '',
 						isError : true
