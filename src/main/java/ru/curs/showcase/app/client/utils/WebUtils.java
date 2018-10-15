@@ -1,13 +1,13 @@
 package ru.curs.showcase.app.client.utils;
 
+import ru.curs.showcase.app.api.*;
+import ru.curs.showcase.app.api.services.*;
+import ru.curs.showcase.app.client.*;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.SerializationStreamFactory;
 import com.google.gwt.user.client.ui.Frame;
-
-import ru.curs.showcase.app.api.*;
-import ru.curs.showcase.app.api.services.*;
-import ru.curs.showcase.app.client.MessageBox;
 
 /**
  * Различные web-утилиты.
@@ -153,8 +153,9 @@ public final class WebUtils {
 			Window.Location.assign(AccessToDomModel.getAppContextPath() + "/sestimeout.jsp");
 		} else {
 
-			if ((GeneralException.getOriginalExceptionClass(caught) != null) && GeneralException
-					.getOriginalExceptionClass(caught).contains("ValidateException")) {
+			if ((GeneralException.getOriginalExceptionClass(caught) != null)
+					&& GeneralException.getOriginalExceptionClass(caught).contains(
+							"ValidateException")) {
 
 				String textMessage = caught.getMessage();
 				if ((textMessage == null) || textMessage.isEmpty()) {
@@ -182,17 +183,27 @@ public final class WebUtils {
 					str = msgErrorCaption;
 				}
 
-				if (GeneralException.generateDetailedInfo(caught)
-						.contains("com.google.gwt.user.client.rpc.StatusCodeException")) {
-					MessageBox.showMessageWithDetails("Нет связи с сервером",
-							"Проверьте наличие связи с сервером или обратитесь к администратору вашей сети",
-							GeneralException.generateDetailedInfo(caught), MessageType.ERROR, true,
-							null);
+				if (GeneralException.generateDetailedInfo(caught).contains(
+						"com.google.gwt.user.client.rpc.StatusCodeException")) {
+					MessageBox
+							.showMessageWithDetails(
+									"Нет связи с сервером",
+									"Проверьте наличие связи с сервером или обратитесь к администратору вашей сети",
+									GeneralException.generateDetailedInfo(caught),
+									MessageType.ERROR, true, null);
 				} else {
-					MessageBox.showMessageWithDetails(str, caught.getMessage(),
-							GeneralException.generateDetailedInfo(caught),
-							GeneralException.getMessageType(caught),
-							GeneralException.needDetailedInfo(caught), null);
+					if (!AppCurrContext.getInstance().getServerCurrentState()
+							.getCustomErrorMessageEnabledState()) {
+						MessageBox.showMessageWithDetails(str, caught.getMessage(),
+								GeneralException.generateDetailedInfo(caught),
+								GeneralException.getMessageType(caught),
+								GeneralException.needDetailedInfo(caught), null);
+					} else if (AppCurrContext.getInstance().getServerCurrentState()
+							.getCustomErrorMessageEnabledState()
+							&& GeneralException.getMessageType(caught) == MessageType.ERROR) {
+						MessageBox.showErrorMessageWindowWithoutWebConsoleLink("Ошибка",
+								"Возникла ошибка. Обратитесь к администраторам");
+					}
 				}
 			}
 

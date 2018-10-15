@@ -100,6 +100,11 @@ public final class ServerState implements SerializableElement {
 	 */
 	private String downloadAttributeForBlankTab = "";
 
+	/**
+	 * Настройка включения кастомного сообщения об ошибке.
+	 */
+	private boolean customErrorMessageEnabledState = false;
+
 	public String getAppVersion() {
 		return appVersion;
 	}
@@ -244,4 +249,11 @@ public final class ServerState implements SerializableElement {
 		downloadAttributeForBlankTab = aDownloadAttributeForBlankTab;
 	}
 
+	public boolean getCustomErrorMessageEnabledState() {
+		return customErrorMessageEnabledState;
+	}
+
+	public void setCustomErrorMessageEnabledState(final boolean state) {
+		customErrorMessageEnabledState = state;
+	}
 }

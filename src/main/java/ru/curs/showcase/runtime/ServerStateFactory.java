@@ -31,6 +31,7 @@ public final class ServerStateFactory {
 	private static final String PAGE_SPLITTER_WIDTH = "page.splitter.width";
 	public static final String HAS_DOWNLOAD_ATTRIBUTE_FOR_BLANK_TAB =
 		"has.download.attribute.for.blank.tab";
+	public static final String CUSTOM_ERROR_MESSAGE_ENABLED = "custom.error.message.enabled";
 
 	private ServerStateFactory() {
 		throw new UnsupportedOperationException();
@@ -110,6 +111,14 @@ public final class ServerStateFactory {
 			state.setDownloadAttributeForBlankTab("_blank");
 		} else {
 			state.setDownloadAttributeForBlankTab("");
+		}
+
+		String customErrorMessageEnabled =
+			UserDataUtils.getGeneralOptionalProp(CUSTOM_ERROR_MESSAGE_ENABLED);
+		if (customErrorMessageEnabled != null) {
+			boolean customErrorMessageEnabledState =
+				Boolean.valueOf(customErrorMessageEnabled.trim());
+			state.setCustomErrorMessageEnabledState(customErrorMessageEnabledState);
 		}
 
 		return state;
