@@ -201,8 +201,8 @@ public final class WebUtils {
 					} else if (AppCurrContext.getInstance().getServerCurrentState()
 							.getCustomErrorMessageEnabledState()
 							&& GeneralException.getMessageType(caught) == MessageType.ERROR) {
-						MessageBox.showErrorMessageWindow("Error message",
-								"Упс! Что-то пошло не так. Обратитесь в службу поддержки");
+						MessageBox.showErrorMessageWindowWithoutWebConsoleLink("Ошибка",
+								"Возникла ошибка. Обратитесь к администраторам");
 					}
 				}
 			}

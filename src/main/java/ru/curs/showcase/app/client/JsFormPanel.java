@@ -288,16 +288,9 @@ public class JsFormPanel extends BasicElementPanelBasis {
 				function(data) {
 					callback.@com.google.gwt.core.client.Callback::onSuccess(Ljava/lang/Object;)(data);
 				}, function(err) {
-					
-					var message = err.response ? err.response.text : err.message;
-					if(message && (message.indexOf("SessionNotAuthenticated")>-1)){
-						$wnd.location.replace($wnd.appContextPath + "/sestimeout.jsp");
-						return;
-					}
-					
 					callback.@com.google.gwt.core.client.Callback::onFailure(Ljava/lang/Object;)({
 //						message : err.message,
-						message : customErrorMessageEnabled ? 'Упс! Что-то пошло не так...' : err.response.text,
+						message : customErrorMessageEnabled ? 'Возникла ошибка...' : err.response.text,
 						status : err.response ? err.response.status : '',
 						data : err.response ? err.response.data : '',
 						isError : true
