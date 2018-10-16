@@ -1,13 +1,17 @@
 package ru.curs.showcase.test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+
+//import static org.junit.Assert.*;
 
 import java.io.*;
 import java.sql.*;
 import java.util.*;
 
 import org.custommonkey.xmlunit.XMLUnit;
-import org.junit.*;
+//import org.junit.*;
 
 import ru.curs.showcase.app.api.*;
 import ru.curs.showcase.app.api.datapanel.*;
@@ -75,15 +79,15 @@ public class AbstractTest extends GeneralXMLHelper {
 	 * Действия, которые должны выполняться перед запуском любых тестовых
 	 * классов.
 	 */
-	@BeforeClass
-	@org.testng.annotations.BeforeClass
+	@BeforeAll
+	//@org.testng.annotations.BeforeClass
 	public static void beforeClass() {
 		AppInitializer.initialize();
 		AppInitializer.finishUserdataSetupAndCheckLoggingOverride();
 		initTestSession();
 	}
 
-	@Before
+	@BeforeEach
 	public void beforeTest() {
 		XMLUnit.setIgnoreAttributeOrder(true);
 		XMLUnit.setIgnoreComments(true);
@@ -94,8 +98,8 @@ public class AbstractTest extends GeneralXMLHelper {
 	/**
 	 * Очистка информации о текущей userdata после каждого теста.
 	 */
-	@After
-	@org.testng.annotations.AfterTest
+	@AfterEach
+	//@org.testng.annotations.AfterTest
 	public void afterTest() {
 		resetUserData();
 	}
