@@ -1,13 +1,16 @@
 package ru.curs.showcase.test.runtime;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.io.*;
 import java.lang.management.ManagementFactory;
 
 import javax.management.MalformedObjectNameException;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 import ru.curs.showcase.app.server.*;
 import ru.curs.showcase.runtime.*;
@@ -72,7 +75,9 @@ public final class UserDataUtilsTest extends AbstractTestWithDefaultUserData {
 		checkDir(UserDataUtils.SCHEMASDIR);
 		checkDir(SettingsFileType.XFORM.getFileDir());
 
-		assertTrue("Папка с XSD схемами не найдена", (new File(AppInfoSingleton.getAppInfo()
+		//assertTrue("Папка с XSD схемами не найдена", (new File(AppInfoSingleton.getAppInfo()
+				//.getWebAppPath() + "/WEB-INF/classes/" + UserDataUtils.SCHEMASDIR)).exists());
+		assertTrue((new File(AppInfoSingleton.getAppInfo()
 				.getWebAppPath() + "/WEB-INF/classes/" + UserDataUtils.SCHEMASDIR)).exists());
 	}
 
@@ -94,20 +99,26 @@ public final class UserDataUtilsTest extends AbstractTestWithDefaultUserData {
 		assertNull(UserDataUtils.getOptionalProp(UserDataUtils.FOOTER_HEIGHT_PROP, TEST2_USERDATA));
 	}
 
-	@Test(expected = NoSuchUserDataException.class)
+	@Test
+			//(expected = NoSuchUserDataException.class)
 	public void testAppPropsExists() {
-		UserDataUtils.checkAppPropsExists("test33");
+		assertThrows(NoSuchUserDataException.class, () -> {
+			UserDataUtils.checkAppPropsExists("test33");
+		});
 	}
 
-	@Test(expected = SettingsFileOpenException.class)
+	@Test
+			//(expected = SettingsFileOpenException.class)
 	public void testCheckUserdatas() {
-		try {
-			AppInfoSingleton.getAppInfo().getUserdatas().put("test34", new UserData("c:\\"));
-			UserDataUtils.checkUserdatas();
-		} finally {
-			AppInfoSingleton.getAppInfo().getUserdatas().clear();
-			AppInitializer.finishUserdataSetupAndCheckLoggingOverride();
-		}
+		assertThrows(SettingsFileOpenException.class, () -> {
+			try {
+				AppInfoSingleton.getAppInfo().getUserdatas().put("test34", new UserData("c:\\"));
+				UserDataUtils.checkUserdatas();
+			} finally {
+				AppInfoSingleton.getAppInfo().getUserdatas().clear();
+				AppInitializer.finishUserdataSetupAndCheckLoggingOverride();
+			}
+		});
 	}
 
 	@Test
@@ -147,6 +158,7 @@ public final class UserDataUtilsTest extends AbstractTestWithDefaultUserData {
 
 	@Test
 	public void isCommonSysExist() {
+		System.out.println("UserdataRoot: " + AppInfoSingleton.getAppInfo().getUserdataRoot());
 		assertTrue((new File(AppInfoSingleton.getAppInfo().getUserdataRoot() + "/" + "common.sys"))
 				.exists());
 	}
