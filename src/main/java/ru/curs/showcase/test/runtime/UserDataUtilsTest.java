@@ -102,7 +102,7 @@ public final class UserDataUtilsTest extends AbstractTestWithDefaultUserData {
 	@Test
 			//(expected = NoSuchUserDataException.class)
 	public void testAppPropsExists() {
-		Assertions.assertThrows(NoSuchUserDataException.class, () -> {
+		assertThrows(NoSuchUserDataException.class, () -> {
 			UserDataUtils.checkAppPropsExists("test33");
 		});
 	}
@@ -110,7 +110,7 @@ public final class UserDataUtilsTest extends AbstractTestWithDefaultUserData {
 	@Test
 			//(expected = SettingsFileOpenException.class)
 	public void testCheckUserdatas() {
-		Assertions.assertThrows(SettingsFileOpenException.class, () -> {
+		assertThrows(SettingsFileOpenException.class, () -> {
 			try {
 				AppInfoSingleton.getAppInfo().getUserdatas().put("test34", new UserData("c:\\"));
 				UserDataUtils.checkUserdatas();
