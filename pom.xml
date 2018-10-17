@@ -1489,7 +1489,7 @@
 <dependency>
     <groupId>org.springframework.data</groupId>
     <artifactId>spring-data-commons</artifactId>
-    <version>1.7.2.RELEASE</version>
+    <version>1.13.11.RELEASE</version>
     <scope>provided</scope>
 </dependency>
 <dependency>
