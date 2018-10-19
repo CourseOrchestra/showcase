@@ -1,10 +1,13 @@
 package ru.curs.showcase.test.grid;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.sql.*;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 import ru.curs.showcase.app.api.datapanel.DataPanelElementInfo;
 import ru.curs.showcase.app.api.event.CompositeContext;
@@ -84,6 +87,7 @@ public class GridGatewayTest extends AbstractTestWithDefaultUserData {
 	 * @throws SQLException
 	 */
 	@Test
+	@Disabled
 	public void testGetSettingsOnly() throws SQLException {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo elInfo = getTestGridInfo2();

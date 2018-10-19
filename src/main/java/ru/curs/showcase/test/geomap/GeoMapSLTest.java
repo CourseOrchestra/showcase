@@ -1,10 +1,13 @@
 package ru.curs.showcase.test.geomap;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.io.*;
 
-import org.junit.*;
+//import org.junit.*;
 
 import ru.curs.showcase.app.api.ExchangeConstants;
 import ru.curs.showcase.app.api.datapanel.*;
@@ -32,10 +35,8 @@ public class GeoMapSLTest extends AbstractTest {
 	 * БД.
 	 */
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testFromDBStaticData() {
+	@Disabled
+	public	void testFromDBStaticData() {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo element = getDPElement("test.xml", "2", "05");
 
@@ -71,10 +72,8 @@ public class GeoMapSLTest extends AbstractTest {
 	}
 
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testMapWithOutIndicators() {
+	@Disabled
+	public	void testMapWithOutIndicators() {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo elInfo = new DataPanelElementInfo("id", DataPanelElementType.GEOMAP);
 		generateTestTabWithElement(elInfo);
@@ -85,10 +84,8 @@ public class GeoMapSLTest extends AbstractTest {
 	}
 
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testJython() {
+	@Disabled
+	public	void testJython() {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo elInfo = new DataPanelElementInfo("id", DataPanelElementType.GEOMAP);
 		elInfo.setProcName("geomap/GeoMapSimple.py");
@@ -101,10 +98,8 @@ public class GeoMapSLTest extends AbstractTest {
 	}
 
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testReplaceVariables() {
+	@Disabled
+	public	void testReplaceVariables() {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo elInfo = new DataPanelElementInfo("id", DataPanelElementType.GEOMAP);
 		generateTestTabWithElement(elInfo);

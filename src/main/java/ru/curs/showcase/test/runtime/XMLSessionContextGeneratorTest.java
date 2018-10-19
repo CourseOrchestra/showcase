@@ -1,12 +1,15 @@
 package ru.curs.showcase.test.runtime;
 
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
 import static org.custommonkey.xmlunit.XMLAssert.assertXMLEqual;
-import static org.junit.Assert.fail;
+//import static org.junit.Assert.fail;
 
 import java.io.*;
 import java.util.*;
 
-import org.junit.*;
+//import org.junit.*;
 import org.xml.sax.SAXException;
 
 import ru.curs.showcase.app.api.datapanel.*;
@@ -27,24 +30,19 @@ import ru.curs.showcase.util.xml.XMLSessionContextGenerator;
 public class XMLSessionContextGeneratorTest extends AbstractTest {
 
 	@Test
-	@Ignore
-	// !!!
-			public
-			void generatorShouldAddRelatedDataToSessionContext() throws SAXException, IOException {
+	public	void generatorShouldAddRelatedDataToSessionContext() throws SAXException, IOException {
 		CompositeContext context = CompositeContext.createCurrent();
 		getExtGridContext(context);
 		XMLSessionContextGenerator generator = new XMLSessionContextGenerator(context);
 		String res = generator.generate();
+		System.out.println(res);
 
 		String example = getTestData("sessionContextWithRelated.xml");
 		assertXMLEqual(example, res);
 	}
 
 	@Test
-	@Ignore
-	// !!!
-			public
-			void selfRelatedElementIsAllowed() throws SAXException, IOException {
+	public	void selfRelatedElementIsAllowed() throws SAXException, IOException {
 		XFormContext context = new XFormContext(CompositeContext.createCurrent());
 		context.setFormData("<model/>");
 		getExtGridContext(context);
@@ -53,16 +51,15 @@ public class XMLSessionContextGeneratorTest extends AbstractTest {
 
 		XMLSessionContextGenerator generator = new XMLSessionContextGenerator(context, elInfo);
 		String res = generator.generate();
+		System.out.println(res);
 
 		String example = getTestData("sessionContextWithSelfRelated.xml");
 		assertXMLEqual(example, res);
 	}
 
 	@Test
-	@Ignore
-	// !!!
-			public
-			void userdataShouldBeSetToDefaultIfNoURLParamInContext() throws IOException,
+	@Disabled
+	public void userdataShouldBeSetToDefaultIfNoURLParamInContext() throws IOException,
 					SAXException {
 		Map<String, List<String>> params = new TreeMap<>();
 		CompositeContext context = getTestContext3();
@@ -88,10 +85,8 @@ public class XMLSessionContextGeneratorTest extends AbstractTest {
 	}
 
 	@Test
-	@Ignore
-	// !!!
-			public
-			void urlParamsShouldBeAddedToSessionContext() throws IOException, SAXException {
+	@Disabled
+	public void urlParamsShouldBeAddedToSessionContext() throws IOException, SAXException {
 		Map<String, List<String>> params = generateTestURLParams(TEST1_USERDATA);
 		final int elID = 5;
 		Action action = getAction(TREE_MULTILEVEL_XML, 0, elID);

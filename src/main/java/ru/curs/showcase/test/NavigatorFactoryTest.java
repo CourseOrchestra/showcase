@@ -1,10 +1,13 @@
 package ru.curs.showcase.test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.io.InputStream;
 
-import org.junit.*;
+//import org.junit.*;
 
 import ru.curs.showcase.app.api.ExchangeConstants;
 import ru.curs.showcase.app.api.datapanel.DataPanelElementContext;
@@ -54,6 +57,7 @@ public class NavigatorFactoryTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
+	@Disabled
 	public void testNavigatorFromFile() {
 		CompositeContext context =
 			new CompositeContext(generateTestURLParams(ExchangeConstants.DEFAULT_USERDATA));
@@ -103,10 +107,8 @@ public class NavigatorFactoryTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testWithSelector() {
+	@Disabled
+	public	void testWithSelector() {
 		NavigatorSelector selector = new NavigatorSelector();
 		CompositeContext context = getTestContext1();
 		context.setSession("<" + XMLSessionContextGenerator.SESSION_CONTEXT_TAG + "/>");
@@ -119,10 +121,8 @@ public class NavigatorFactoryTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testFromDB() {
+	@Disabled
+	public	void testFromDB() {
 		CompositeContext context = generateContextWithSessionInfo();
 		NavigatorFactory factory = new NavigatorFactory(context);
 		try (PrimElementsGateway gateway = new NavigatorDBGateway()) {
@@ -132,10 +132,7 @@ public class NavigatorFactoryTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testFromDBWithException() {
+	public	void testFromDBWithException() {
 		CompositeContext context = generateContextWithSessionInfo();
 		try (PrimElementsGateway gateway = new NavigatorDBGateway()) {
 			gateway.getRawData(context, "generationtree_re");
@@ -153,10 +150,8 @@ public class NavigatorFactoryTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void navigatorCanBeCreatedByExecutingMSSQLFile() {
+	@Disabled
+	public	void navigatorCanBeCreatedByExecutingMSSQLFile() {
 		CompositeContext context = generateContextWithSessionInfo();
 		NavigatorFactory factory = new NavigatorFactory(context);
 		try (PrimElementsGateway gateway = new NavigatorMSSQLExecGateway()) {

@@ -1,12 +1,15 @@
 package ru.curs.showcase.test.html;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.io.IOException;
 
 import javax.xml.parsers.DocumentBuilder;
 
-import org.junit.*;
+//import org.junit.*;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -14,8 +17,10 @@ import ru.curs.showcase.app.api.ExchangeConstants;
 import ru.curs.showcase.app.api.datapanel.*;
 import ru.curs.showcase.app.api.event.CompositeContext;
 import ru.curs.showcase.app.api.html.*;
+import ru.curs.showcase.core.ValidateException;
 import ru.curs.showcase.core.html.*;
 import ru.curs.showcase.core.html.xform.*;
+import ru.curs.showcase.core.jython.JythonException;
 import ru.curs.showcase.runtime.UserDataUtils;
 import ru.curs.showcase.test.AbstractTestWithDefaultUserData;
 import ru.curs.showcase.util.TextUtils;
@@ -35,10 +40,8 @@ public class XFormFactoryTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testXFormsFactory() {
+	@Disabled
+	public	void testXFormsFactory() {
 		createFactory();
 	}
 
@@ -49,10 +52,8 @@ public class XFormFactoryTest extends AbstractTestWithDefaultUserData {
 	 * @throws Exception
 	 */
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testBuild() throws Exception {
+	@Disabled
+	public	void testBuild() throws Exception {
 		XFormFactory factory = createFactory();
 		factory.build();
 	}
@@ -67,10 +68,8 @@ public class XFormFactoryTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testDBTemplate() throws Exception {
+	@Disabled
+	public	void testDBTemplate() throws Exception {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo element = new DataPanelElementInfo("id", DataPanelElementType.XFORMS);
 		generateTestTabWithElement(element);
@@ -87,10 +86,8 @@ public class XFormFactoryTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testUserdataAddToXForms() throws Exception {
+	@Disabled
+	public	void testUserdataAddToXForms() throws Exception {
 		DataPanelElementInfo elInfo = new DataPanelElementInfo("id", DataPanelElementType.XFORMS);
 		elInfo.setProcName("xforms_proc_all");
 		elInfo.setTemplateName("Showcase_Template_all.xml");
@@ -113,10 +110,7 @@ public class XFormFactoryTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testGenerateUploaders() throws SAXException, IOException {
+	public	void testGenerateUploaders() throws SAXException, IOException {
 		DocumentBuilder builder = XMLUtils.createBuilder();
 		Document doc =
 			builder.parse(UserDataUtils.loadUserDataToStream(SettingsFileType.XFORM.getFileDir()
@@ -131,18 +125,19 @@ public class XFormFactoryTest extends AbstractTestWithDefaultUserData {
 		XFormTemplateModificator.generateUploaders(doc, dpei, "testSubformId");
 	}
 
-	// @Test(expected = ValidateException.class)
+	@Test
+			//(expected = ValidateException.class)
 	public void testJythonSubmissionException() {
-		XFormContext context = new XFormContext();
-		HTMLAdvGateway gateway = new XFormJythonGateway();
-		gateway.scriptTransform("xform/submission.py", context);
+		assertThrows(JythonException.class, () -> {
+			XFormContext context = new XFormContext();
+			HTMLAdvGateway gateway = new XFormJythonGateway();
+			gateway.scriptTransform("xform/submission.py", context);
+		});
 	}
 
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testSimpleSelectors() throws Exception {
+	@Disabled
+	public	void testSimpleSelectors() throws Exception {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo element = new DataPanelElementInfo("id", DataPanelElementType.XFORMS);
 		generateTestTabWithElement(element);

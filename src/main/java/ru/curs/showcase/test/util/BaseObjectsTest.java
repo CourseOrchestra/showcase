@@ -1,11 +1,14 @@
 package ru.curs.showcase.test.util;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.io.*;
 import java.util.*;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 import ru.curs.showcase.app.api.BrowserType;
 import ru.curs.showcase.app.api.event.CompositeContext;
@@ -75,7 +78,7 @@ public class BaseObjectsTest extends AbstractTestWithDefaultUserData {
 	 */
 	@Test
 	public void testBatchFileProcessorAndDeleteDir() throws IOException {
-		String sourceDir = "userdatas/default/css";
+		String sourceDir = "allUserdatas/userdatas/default/css";
 		String destDir = "tmp/css";
 
 		File dir = new File(destDir);
@@ -175,9 +178,7 @@ public class BaseObjectsTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	// !!! corrected
-			public
-			void testJSONObjectSerializer() {
+	public	void testJSONObjectSerializer() {
 		ObjectSerializer serializer = new JSONObjectSerializer();
 		CompositeContext context = CompositeContext.createCurrent();
 		String data = serializer.serialize(context);
@@ -189,7 +190,8 @@ public class BaseObjectsTest extends AbstractTestWithDefaultUserData {
 		String expected =
 			"{\n" + "  \"main\": \"current\",\n" + "  \"additional\": \"current\",\n"
 					+ "  \"session\": null,\n" + "  \"filter\": null,\n"
-					+ "  \"partialUpdate\": false" + "\n}";
+					+ "  \"partialUpdate\": false,\n"  + "  \"currentDatapanelWidth\": 0,\n"
+					+ "  \"currentDatapanelHeight\": 0" + "\n}";
 
 		assertEquals(expected, data);
 	}

@@ -1,14 +1,17 @@
 package ru.curs.showcase.test.html;
 
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
 import static org.custommonkey.xmlunit.XMLAssert.assertXMLEqual;
-import static org.junit.Assert.*;
+//import static org.junit.Assert.*;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 
 import javax.xml.parsers.DocumentBuilder;
 
-import org.junit.*;
+//import org.junit.*;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -35,8 +38,7 @@ public class WebTextSLTest extends AbstractTestWithDefaultUserData {
 	 * Основной тест для проверки работы WebTextDBGateway.
 	 */
 	@Test
-	@Ignore
-	// !!!
+	@Disabled
 	public void testGetDataBySP() {
 		CompositeContext context = getTestContext2();
 		DataPanelElementInfo element = getDPElement(TEST2_XML, "1", "1");
@@ -51,6 +53,7 @@ public class WebTextSLTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
+	@Disabled
 	public void testGetDataBySQLScript() throws SAXException, IOException {
 		CompositeContext context = new CompositeContext();
 		context.setMain(MAIN_CONDITION);
@@ -101,8 +104,7 @@ public class WebTextSLTest extends AbstractTestWithDefaultUserData {
 	 * @throws NoSuchMethodException
 	 */
 	@Test
-	@Ignore
-	// !!!
+	@Disabled
 	public void testEventsAndDefAction() throws IllegalAccessException, InvocationTargetException,
 			NoSuchMethodException {
 		CompositeContext context = getTestContext2();
@@ -156,8 +158,6 @@ public class WebTextSLTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	@Ignore
-	// !!!
 	public void testJythonTransform() {
 		DataPanelElementInfo el = new DataPanelElementInfo("id", DataPanelElementType.WEBTEXT);
 		CompositeContext context = getTestContext3();
@@ -170,8 +170,6 @@ public class WebTextSLTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	@Ignore
-	// !!!
 	public void testSPTransform() {
 		DataPanelElementInfo el = new DataPanelElementInfo("id", DataPanelElementType.WEBTEXT);
 		CompositeContext context = getTestContext3();

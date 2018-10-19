@@ -1,10 +1,13 @@
 package ru.curs.showcase.test.util;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//port static org.junit.Assert.*;
 
 import java.io.*;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 import ru.curs.showcase.test.AbstractTestWithDefaultUserData;
 import ru.curs.showcase.util.*;

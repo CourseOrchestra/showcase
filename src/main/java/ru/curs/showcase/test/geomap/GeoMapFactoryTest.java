@@ -1,8 +1,11 @@
 package ru.curs.showcase.test.geomap;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
 
-import org.junit.*;
+//import static org.junit.Assert.*;
+
+//import org.junit.*;
 
 import ru.curs.showcase.app.api.datapanel.*;
 import ru.curs.showcase.app.api.event.CompositeContext;
@@ -30,10 +33,8 @@ public class GeoMapFactoryTest extends AbstractTestWithDefaultUserData {
 	 * @throws Exception
 	 */
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testFromDBDynamicData() throws Exception {
+	@Disabled
+	public	void testFromDBDynamicData() throws Exception {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo element = getDPElement("test.xml", "2", "05");
 
@@ -116,10 +117,8 @@ public class GeoMapFactoryTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testTemplateCheckWrongConnectionFile() throws Exception {
+	@Disabled
+	public	void testTemplateCheckWrongConnectionFile() throws Exception {
 		CompositeContext context = getTestContext2();
 		DataPanelElementInfo elInfo = new DataPanelElementInfo("id", DataPanelElementType.GEOMAP);
 		generateTestTabWithElement(elInfo);
@@ -139,10 +138,8 @@ public class GeoMapFactoryTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testTemplateCheckWrongStructure() throws Exception {
+	@Disabled
+	public	void testTemplateCheckWrongStructure() throws Exception {
 		CompositeContext context = getTestContext2();
 		DataPanelElementInfo elInfo = new DataPanelElementInfo("id", DataPanelElementType.GEOMAP);
 		generateTestTabWithElement(elInfo);
@@ -161,10 +158,8 @@ public class GeoMapFactoryTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testTemplateCheckWrongNums() throws Exception {
+	@Disabled
+	public	void testTemplateCheckWrongNums() throws Exception {
 		CompositeContext context = getTestContext2();
 		DataPanelElementInfo elInfo = new DataPanelElementInfo("id", DataPanelElementType.GEOMAP);
 		generateTestTabWithElement(elInfo);
@@ -183,8 +178,7 @@ public class GeoMapFactoryTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	@Ignore
-	// !!!
+	@Disabled
 	public void testJython() throws Exception {
 		CompositeContext context = getTestContext1();
 		context.setSession("</" + XMLSessionContextGenerator.SESSION_CONTEXT_TAG + ">");
@@ -210,10 +204,8 @@ public class GeoMapFactoryTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testLoadByXmlDs() throws Exception {
+	@Disabled
+	public	void testLoadByXmlDs() throws Exception {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo element = getDPElement(TEST2_XML, "5", "54");
 

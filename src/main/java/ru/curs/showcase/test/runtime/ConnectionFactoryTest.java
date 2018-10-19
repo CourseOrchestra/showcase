@@ -1,10 +1,13 @@
 package ru.curs.showcase.test.runtime;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.sql.Connection;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 import ru.curs.showcase.runtime.ConnectionFactory;
 import ru.curs.showcase.test.AbstractTestWithDefaultUserData;

@@ -1,18 +1,24 @@
 package ru.curs.showcase.test.event;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
-import org.junit.*;
+//import org.junit.*;
 
 import ru.curs.showcase.app.api.*;
 import ru.curs.showcase.app.api.datapanel.*;
 import ru.curs.showcase.app.api.event.*;
 import ru.curs.showcase.app.api.grid.GridContext;
+import ru.curs.showcase.app.api.grid.GridEvent;
 import ru.curs.showcase.app.api.html.XFormContext;
+import ru.curs.showcase.core.ValidateException;
 import ru.curs.showcase.core.event.*;
+import ru.curs.showcase.core.jython.JythonException;
 import ru.curs.showcase.test.AbstractTestWithDefaultUserData;
 import ru.curs.showcase.util.ReflectionUtils;
 
@@ -184,53 +190,55 @@ public class ActionAndContextTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
+	@Disabled
 	public void testActualizeActions() {
-		// Grid grid = createTestGrid();
-		// CompositeContext context = new CompositeContext();
-		// context.setMain(MAIN_CONDITION);
-		// context.setAdditional(NEW_ADD_CONDITION);
-		// grid.actualizeActions(context);
-		//
-		// assertEquals(MAIN_CONDITION,
-		// grid.getEventManager().getEvents().get(0).getAction()
-		// .getDataPanelLink().getElementLinks().get(0).getContext().getMain());
-		// assertEquals(MAIN_CONDITION,
-		// grid.getDefaultAction().getDataPanelLink().getElementLinks()
-		// .get(0).getContext().getMain());
-		// assertEquals(MAIN_CONDITION,
-		// grid.getDefaultAction().getServerActivities().get(0)
-		// .getContext().getMain());
-		//
-		// assertEquals(NEW_ADD_CONDITION,
-		// grid.getEventManager().getEvents().get(0).getAction()
-		// .getDataPanelLink().getElementLinks().get(0).getContext().getAdditional());
-		// assertEquals(NEW_ADD_CONDITION,
-		// grid.getDefaultAction().getDataPanelLink()
-		// .getElementLinks().get(0).getContext().getAdditional());
-		// assertEquals(NEW_ADD_CONDITION,
-		// grid.getDefaultAction().getServerActivities().get(0)
-		// .getContext().getAdditional());
-		// assertEquals(NEW_ADD_CONDITION,
-		// grid.getDefaultAction().getClientActivities().get(0)
-		// .getContext().getAdditional());
+//		 Grid grid = createTestGrid();
+//		 CompositeContext context = new CompositeContext();
+//		 context.setMain(MAIN_CONDITION);
+//		 context.setAdditional(NEW_ADD_CONDITION);
+//		 grid.actualizeActions(context);
+//
+//		 assertEquals(MAIN_CONDITION,
+//		 grid.getEventManager().getEvents().get(0).getAction()
+//		 .getDataPanelLink().getElementLinks().get(0).getContext().getMain());
+//		 assertEquals(MAIN_CONDITION,
+//		 grid.getDefaultAction().getDataPanelLink().getElementLinks()
+//		 .get(0).getContext().getMain());
+//		 assertEquals(MAIN_CONDITION,
+//		 grid.getDefaultAction().getServerActivities().get(0)
+//		 .getContext().getMain());
+//
+//		 assertEquals(NEW_ADD_CONDITION,
+//		 grid.getEventManager().getEvents().get(0).getAction()
+//		 .getDataPanelLink().getElementLinks().get(0).getContext().getAdditional());
+//		 assertEquals(NEW_ADD_CONDITION,
+//		 grid.getDefaultAction().getDataPanelLink()
+//		 .getElementLinks().get(0).getContext().getAdditional());
+//		 assertEquals(NEW_ADD_CONDITION,
+//		 grid.getDefaultAction().getServerActivities().get(0)
+//		 .getContext().getAdditional());
+//		 assertEquals(NEW_ADD_CONDITION,
+//		 grid.getDefaultAction().getClientActivities().get(0)
+//		 .getContext().getAdditional());
 	}
 
-	// private Grid createTestGrid() {
-	// Grid grid = new Grid();
-	// GridEvent event = new GridEvent();
-	// event.setRecordId("01");
-	// Action action = createCurrentTestAction();
-	// event.setAction(action);
-	// grid.getEventManager().getEvents().add(event);
-	// grid.setDefaultAction(action);
-	// return grid;
-	// }
+//	 private Grid createTestGrid() {
+//	 Grid grid = new Grid();
+//	 GridEvent event = new GridEvent();
+//	 event.setRecordId("01");
+//	 Action action = createCurrentTestAction();
+//	 event.setAction(action);
+//	 grid.getEventManager().getEvents().add(event);
+//	 grid.setDefaultAction(action);
+//	 return grid;
+//	 }
 
 	/**
 	 * Тест на действие обновления навигатора.
 	 * 
 	 */
 	@Test
+	@Disabled
 	public void testRefreshNavigatorAction() {
 		final int el2 = 2;
 		Action action = getAction(TREE_MULTILEVEL_XML, 0, el2);
@@ -249,6 +257,7 @@ public class ActionAndContextTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
+	@Disabled
 	public void testActionModalInfo() {
 		Action action = new Action();
 		assertNull(action.getModalWindowInfo());
@@ -345,6 +354,7 @@ public class ActionAndContextTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
+	@Disabled
 	public void testActionFilterBy() {
 		final int actionWithChildNumber = 5;
 		Action action = getAction(TREE_MULTILEVEL_XML, 0, actionWithChildNumber);
@@ -376,6 +386,7 @@ public class ActionAndContextTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
+	@Disabled
 	public void testActionKeepUserSettings() {
 		Action action = new Action(DataPanelActionType.RELOAD_ELEMENTS);
 		action.getDataPanelLink().getElementLinks().add(new DataPanelElementLink());
@@ -402,10 +413,8 @@ public class ActionAndContextTest extends AbstractTestWithDefaultUserData {
 	 * Проверка считывания блока действия, касающегося серверной активности.
 	 */
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testServerActivityRead() {
+	@Disabled
+	public	void testServerActivityRead() {
 		final int actionNumber = 1;
 		Action action = getAction(TREE_MULTILEVEL_V2_XML, 0, actionNumber);
 		assertTrue(action.containsServerActivity());
@@ -473,10 +482,8 @@ public class ActionAndContextTest extends AbstractTestWithDefaultUserData {
 	 * связанные с навигатором и инф. панелью.
 	 */
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testReadClientActivity() {
+	@Disabled
+	public	void testReadClientActivity() {
 		final int actionNumber = 1;
 		Action action = getAction(TREE_MULTILEVEL_V2_XML, 0, actionNumber);
 		assertTrue(action.containsClientActivity());
@@ -510,6 +517,7 @@ public class ActionAndContextTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
+	@Disabled
 	public void testActionSetAdditionalContext() {
 		final int actionWithChildNumber = 5;
 		Action action = getAction(TREE_MULTILEVEL_XML, 0, actionWithChildNumber);
@@ -523,6 +531,7 @@ public class ActionAndContextTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
+	@Disabled
 	public void testActionSetMainContext() {
 		final int actionWithChildNumber = 5;
 		Action action = getAction(TREE_MULTILEVEL_XML, 0, actionWithChildNumber);
@@ -534,6 +543,7 @@ public class ActionAndContextTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
+	@Disabled
 	public void testSetRelated() {
 		final int actionWithChildNumber = 5;
 		Action action = getAction(TREE_MULTILEVEL_XML, 0, actionWithChildNumber);
@@ -563,25 +573,33 @@ public class ActionAndContextTest extends AbstractTestWithDefaultUserData {
 		assertEquals(SESSION_CONDITION, ces.getSession());
 	}
 
-	// !!! @Test(expected = JythonException.class)
+	@Test
+			//(expected = JythonException.class)
 	public void testJythonActivityException() {
-		Activity activity = Activity.newServerActivity("id", "TestJythonProc.py");
-		CompositeContext context = new CompositeContext();
-		activity.setContext(context);
-		ActivityGateway gateway = new ActivityJythonGateway();
-		gateway.exec(activity);
+		assertThrows(JythonException.class, () ->
+		{
+			Activity activity = Activity.newServerActivity("id", "TestJythonProc.py");
+			CompositeContext context = new CompositeContext();
+			activity.setContext(context);
+			ActivityGateway gateway = new ActivityJythonGateway();
+			gateway.exec(activity);
+		});
 	}
 
-	// !!! @Test(expected = ValidateException.class)
+	@Test
+			//(expected = ValidateException.class)
 	public void testJythonNoValidateActivity() {
-		Activity activity = Activity.newServerActivity("id", "NoValidateJythonProc.py");
-		CompositeContext context = new CompositeContext();
-		context.setMain("Мейн контекст");
-		context.setSession("<sessioninfo/>");
-		activity.setContext(context);
+		assertThrows(JythonException.class, () ->
+		{
+			Activity activity = Activity.newServerActivity("id", "NoValidateJythonProc.py");
+			CompositeContext context = new CompositeContext();
+			context.setMain("Мейн контекст");
+			context.setSession("<sessioninfo/>");
+			activity.setContext(context);
 
-		ActivityGateway gateway = new ActivityJythonGateway();
-		gateway.exec(activity);
+			ActivityGateway gateway = new ActivityJythonGateway();
+			gateway.exec(activity);
+		});
 	}
 
 	@Test
@@ -615,15 +633,19 @@ public class ActionAndContextTest extends AbstractTestWithDefaultUserData {
 		assertNotNull(test.toString());
 	}
 
-	@Test(expected = AppLogicError.class)
+	@Test
+			//(expected = AppLogicError.class)
 	public void testWrongGetKeepUserSettings() {
-		DataPanelElementInfo elementInfo =
-			new DataPanelElementInfo("id", DataPanelElementType.WEBTEXT);
-		Action ac = new Action();
-		NavigatorElementLink nlink = new NavigatorElementLink();
-		nlink.setId("id");
-		ac.setNavigatorElementLink(nlink);
-		elementInfo.getKeepUserSettings(ac);
+		assertThrows(AppLogicError.class, () ->
+		{
+			DataPanelElementInfo elementInfo =
+					new DataPanelElementInfo("id", DataPanelElementType.WEBTEXT);
+			Action ac = new Action();
+			NavigatorElementLink nlink = new NavigatorElementLink();
+			nlink.setId("id");
+			ac.setNavigatorElementLink(nlink);
+			elementInfo.getKeepUserSettings(ac);
+		});
 	}
 
 	@Test

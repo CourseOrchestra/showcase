@@ -1,10 +1,13 @@
 package ru.curs.showcase.test.util;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.sql.*;
 
-import org.junit.*;
+//import org.junit.*;
 
 import ru.curs.showcase.runtime.*;
 import ru.curs.showcase.test.AbstractTestWithDefaultUserData;
@@ -25,8 +28,6 @@ public class DBConnectionsTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
-	@Ignore
-	// !!!
 	public void testConnectionsSimple() {
 		Connection conn1 = ConnectionFactory.getInstance().acquire();
 		try {
@@ -41,8 +42,7 @@ public class DBConnectionsTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 * @throws SQLException
 	 */
-	@Test
-	@Repeat(count = 2)
+	@RepeatedTest(2)
 	public void testConnectionsMany() throws SQLException {
 		Connection conn1 = ConnectionFactory.getInstance().acquire();
 		Connection conn2 = ConnectionFactory.getInstance().acquire();

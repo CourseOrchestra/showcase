@@ -1,12 +1,16 @@
 package ru.curs.showcase.test.event;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
 
-import org.junit.*;
+//import static org.junit.Assert.*;
+
+//import org.junit.*;
 
 import ru.curs.showcase.app.api.ExchangeConstants;
 import ru.curs.showcase.app.api.event.*;
 import ru.curs.showcase.core.event.*;
+import ru.curs.showcase.core.sp.DBQueryException;
 import ru.curs.showcase.runtime.AppInfoSingleton;
 import ru.curs.showcase.test.AbstractTest;
 
@@ -23,8 +27,7 @@ public class ActionAndContextSLTest extends AbstractTest {
 	 * 
 	 */
 	@Test
-	@Ignore
-	// !!!
+	@Disabled
 	public void testServerActivityExec() {
 		final int actionNumber = 1;
 		Action action = getAction(TREE_MULTILEVEL_V2_XML, 0, actionNumber);
@@ -39,8 +42,7 @@ public class ActionAndContextSLTest extends AbstractTest {
 	 * проверка правильной инициализации контекста сессии и userdata.
 	 */
 	@Test
-	@Ignore
-	// !!!
+	@Disabled
 	public void testServerActivityExecTwice() {
 		final int actionNumber = 1;
 		Action action = getAction(TREE_MULTILEVEL_V2_XML, 0, actionNumber);
@@ -58,20 +60,25 @@ public class ActionAndContextSLTest extends AbstractTest {
 	 * Проверка выполнения действия на сервере, приводящего к ошибке.
 	 * 
 	 */
-	// !!! @Test(expected = DBQueryException.class)
+	@Test
+			//(expected = DBQueryException.class)
+	@Disabled
 	public void testServerActivityExecFail() {
-		final int actionNumber = 2;
-		AppInfoSingleton.getAppInfo().setCurUserDataId("test1");
-		Action action = getAction(TREE_MULTILEVEL_V2_XML, 0, actionNumber);
-		action.getContext().setSessionParamsMap(generateTestURLParamsForSL(TEST1_USERDATA));
-		Activity act = action.getServerActivities().get(0);
-		ServerActivitySelector selector = new ServerActivitySelector(act);
-		ActivityGateway gateway = selector.getGateway();
-		gateway.exec(act);
+		assertThrows(DBQueryException.class, () ->
+		{
+			final int actionNumber = 2;
+			AppInfoSingleton.getAppInfo().setCurUserDataId("test1");
+			Action action = getAction(TREE_MULTILEVEL_V2_XML, 0, actionNumber);
+			action.getContext().setSessionParamsMap(generateTestURLParamsForSL(TEST1_USERDATA));
+			Activity act = action.getServerActivities().get(0);
+			ServerActivitySelector selector = new ServerActivitySelector(act);
+			ActivityGateway gateway = selector.getGateway();
+			gateway.exec(act);
+		});
 	}
 
 	@Test
-	@Ignore
+	//@Ignore
 	// !!!
 	public void testJythonActivity() {
 		Action action = new Action();
@@ -89,7 +96,7 @@ public class ActionAndContextSLTest extends AbstractTest {
 	}
 
 	@Test
-	@Ignore
+	//@Ignore
 	// !!!
 	public void testJythonSAXActivity() {
 		Action action = new Action();
