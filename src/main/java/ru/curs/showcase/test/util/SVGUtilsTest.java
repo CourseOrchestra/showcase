@@ -1,8 +1,11 @@
 package ru.curs.showcase.test.util;
 
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
 import java.io.*;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 import ru.curs.showcase.test.AbstractTestWithDefaultUserData;
 import ru.curs.showcase.util.SVGConvertor;
@@ -33,12 +36,15 @@ public class SVGUtilsTest extends AbstractTestWithDefaultUserData {
 		convertor.svgFileToJPGFile(inputFile, outputFile);
 	}
 
-	@Test(expected = SVGConvertException.class)
+	@Test
+			//(expected = SVGConvertException.class)
 	public void testSVGFileToJPGFileException() {
-		String inputFile = TEST_ROOT + "ShowcaseDataGrid_test.css";
-		String outputFile = TMP + "geomap.jpg";
-		SVGConvertor convertor = new SVGConvertor();
-		convertor.svgFileToJPGFile(inputFile, outputFile);
+		assertThrows(SVGConvertException.class, () -> {
+			String inputFile = TEST_ROOT + "ShowcaseDataGrid_test.css";
+			String outputFile = TMP + "geomap.jpg";
+			SVGConvertor convertor = new SVGConvertor();
+			convertor.svgFileToJPGFile(inputFile, outputFile);
+		});
 	}
 
 	@Test
@@ -55,12 +61,15 @@ public class SVGUtilsTest extends AbstractTestWithDefaultUserData {
 		convertor.svgFileToPNGFile(inputFile, outputFile);
 	}
 
-	@Test(expected = SVGConvertException.class)
+	@Test
+			//(expected = SVGConvertException.class)
 	public void testSVGFileToPNGFileException() {
-		String inputFile = TEST_ROOT + "ShowcaseDataGrid_test.css";
-		String outputFile = TMP + "geomap.png";
-		SVGConvertor convertor = new SVGConvertor();
-		convertor.svgFileToPNGFile(inputFile, outputFile);
+		assertThrows(SVGConvertException.class, () -> {
+			String inputFile = TEST_ROOT + "ShowcaseDataGrid_test.css";
+			String outputFile = TMP + "geomap.png";
+			SVGConvertor convertor = new SVGConvertor();
+			convertor.svgFileToPNGFile(inputFile, outputFile);
+		});
 	}
 
 }

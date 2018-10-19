@@ -1,8 +1,11 @@
 package ru.curs.showcase.test.grid;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
 
-import org.junit.Test;
+//import static org.junit.Assert.assertEquals;
+
+//import org.junit.Test;
 
 import ru.curs.showcase.core.grid.GridDataFactory;
 import ru.curs.showcase.test.AbstractTestWithDefaultUserData;
@@ -22,6 +25,7 @@ public class GridFactoryTest extends AbstractTestWithDefaultUserData {
 	 * @throws Exception
 	 */
 	@Test
+	@Disabled
 	public void testProfileSelection() throws Exception {
 
 		// Refactoring
@@ -67,6 +71,7 @@ public class GridFactoryTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
+	@Disabled
 	public void testLoadIDAndCSS() throws Exception {
 
 		// Refactoring

@@ -1,12 +1,15 @@
 package ru.curs.showcase.test.servlets;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.assertEquals;
 
 import java.io.*;
 
 import javax.servlet.ServletException;
 
-import org.junit.*;
+//import org.junit.*;
 
 import ru.curs.showcase.app.api.ExchangeConstants;
 import ru.curs.showcase.app.server.MainPageFramesFrontController;
@@ -23,7 +26,7 @@ public class MainPageFramesFrontControllerTest extends AbstractServletTest {
 	private MainPageFramesFrontController controller;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() {
 		super.setUp();
 		controller = new MainPageFramesFrontController();
@@ -52,7 +55,7 @@ public class MainPageFramesFrontControllerTest extends AbstractServletTest {
 		assertEquals(TextUtils.streamToString(is), response().getContentAsString());
 	}
 
-	// !!! @Test
+	@Test
 	public void testHeader() throws ServletException, IOException {
 		request().setServletPath("/secured/header");
 		request().addParameter(ExchangeConstants.URL_PARAM_USERDATA, TEST1_USERDATA);
@@ -65,7 +68,7 @@ public class MainPageFramesFrontControllerTest extends AbstractServletTest {
 		assertEquals(TextUtils.streamToString(is), response().getContentAsString());
 	}
 
-	// !!! @Test
+	@Test
 	public void testFooter() throws ServletException, IOException {
 		request().setServletPath("/secured/footer");
 		request().addParameter(ExchangeConstants.URL_PARAM_USERDATA, TEST1_USERDATA);

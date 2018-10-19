@@ -1,6 +1,9 @@
 package ru.curs.showcase.test.runtime;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.io.*;
 import java.sql.*;
@@ -8,7 +11,7 @@ import java.sql.*;
 import javax.xml.transform.*;
 import javax.xml.transform.stream.*;
 
-import org.junit.*;
+//import org.junit.*;
 import org.python.util.PythonInterpreter;
 
 import ru.curs.showcase.runtime.*;
@@ -64,11 +67,16 @@ public class PoolsTest extends AbstractTestWithDefaultUserData {
 		factory.release(xf4, BAL_XSL);
 	}
 
-	@Test(expected = IOException.class)
+	@Test
+			//(expected = IOException.class)
 	public void xslPoolShouldRaiseExceptionForWrongTransformFile()
 			throws TransformerConfigurationException, IOException {
-		XSLTransformerPoolFactory factory = XSLTransformerPoolFactory.getInstance();
-		factory.acquire("fake_trans.xsl");
+		assertThrows(TransformerConfigurationException.class, () -> {
+			XSLTransformerPoolFactory factory = XSLTransformerPoolFactory.getInstance();
+			factory.acquire("fake_trans.xsl");
+		});
+
+
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -95,7 +103,7 @@ public class PoolsTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	@Ignore
+	//@Ignore
 	// !!!
 	public void jythonPoolShouldKeepInterpretersForReuse()
 			throws TransformerConfigurationException, IOException {
@@ -103,7 +111,7 @@ public class PoolsTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	@Ignore
+	//@Ignore
 	// !!!
 	public void jythonInterprepersFor2UserdatasShouldBeDifferent()
 			throws TransformerConfigurationException, IOException {
@@ -127,7 +135,7 @@ public class PoolsTest extends AbstractTestWithDefaultUserData {
 		checkPool(ConnectionFactory.getInstance());
 	}
 
-	// !!! @Test
+	@Test
 	public void dbConnectionsFor2UserdatasShouldBeDifferent()
 			throws TransformerConfigurationException, IOException {
 		checkUserdatasPool(ConnectionFactory.getInstance());
@@ -163,7 +171,7 @@ public class PoolsTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	@Ignore
+	//@Ignore
 	// !!!
 	public void jythonPoolShouldReturnGoodInterpreper() throws TransformerConfigurationException,
 			IOException {

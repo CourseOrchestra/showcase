@@ -1,12 +1,15 @@
 package ru.curs.showcase.test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.io.*;
 
 import javax.xml.parsers.DocumentBuilder;
 
-import org.junit.*;
+//import org.junit.*;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -43,8 +46,6 @@ public class NavigatorGatewayTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	@Ignore
-	// !!!
 	public void testJythonNavigator() {
 		AppInfoSingleton.getAppInfo().setCurUserDataId(TEST1_USERDATA);
 		CompositeContext context = new CompositeContext();

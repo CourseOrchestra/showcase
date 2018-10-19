@@ -1,8 +1,11 @@
 package ru.curs.showcase.test.html;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
 
-import org.junit.Test;
+//import static org.junit.Assert.assertTrue;
+
+//import org.junit.Test;
 
 import ru.curs.showcase.app.api.datapanel.DataPanelElementInfo;
 import ru.curs.showcase.app.api.event.CompositeContext;
@@ -18,6 +21,7 @@ import ru.curs.showcase.test.AbstractTestWithDefaultUserData;
  * @author den
  * 
  */
+
 public class HTMLVariablesFactoryTest extends AbstractTestWithDefaultUserData {
 
 	/**
@@ -27,6 +31,7 @@ public class HTMLVariablesFactoryTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
+	@Disabled
 	public void testXFormsVariables() throws Exception {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo element = getDPElement(TEST1_1_XML, "2", "0205");

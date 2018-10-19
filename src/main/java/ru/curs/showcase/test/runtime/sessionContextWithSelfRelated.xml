@@ -1,29 +1,41 @@
 <sessioncontext>
-   <username></username>
+   <username/>
    <sid>testSID</sid>
+   <login/>
    <sessionid>testSession</sessionid>
    <email/>
    <fullusername/>
    <phone/>
+   <snils/>
+   <firstname/>
+   <lastname/>
+   <middlename/>
+   <gender/>
+   <birthdate/>
+   <birthplace/>
+   <trusted/>
    <ip/>
    <userdata>default</userdata>
    <related>
-      <xformsContext id="08">
-         <additional>current</additional>
-         <formData><model/></formData>
-      </xformsContext>
       <gridContext id="01">
-         <additional><add>value</add></additional>
-         <filter><filter>filter_value</filter></filter>
-         <sortedColumn id="colId" sorting="ASC" width="10px"/>
-         <pageInfo number="1" size="2"/>
-         <liveInfo limit="50" offset="0" totalCount="0"/>
+         <additional>&lt;add>value&lt;/add></additional>
+         <filter>&lt;filter>filter_value&lt;/filter></filter>
+         <partialUpdate>false</partialUpdate>
+         <currentDatapanelWidth>0</currentDatapanelWidth>
+         <currentDatapanelHeight>0</currentDatapanelHeight>
+         <liveInfo limit="50" offset="0" pageNumber="1" totalCount="0"/>
+         <gridFilterInfo/>
+         <updateParents>false</updateParents>
          <currentRecordId>curRecordId</currentRecordId>
          <currentColumnId>curColumnId</currentColumnId>
-         <selectedRecordId>r1</selectedRecordId>
          <selectedRecordId>r2</selectedRecordId>
-         <currentDatapanelWidth>0</currentDatapanelWidth>
-         <currentDatapanelHeight>0</currentDatapanelHeight>         
       </gridContext>
+      <xformsContext id="08">
+         <additional>current</additional>
+         <partialUpdate>false</partialUpdate>
+         <currentDatapanelWidth>0</currentDatapanelWidth>
+         <currentDatapanelHeight>0</currentDatapanelHeight>
+         <formData>&lt;model/></formData>
+      </xformsContext>
    </related>
 </sessioncontext>

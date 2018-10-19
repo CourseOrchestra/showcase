@@ -1,8 +1,11 @@
 package ru.curs.showcase.test.grid;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
 
-import org.junit.Test;
+//import static org.junit.Assert.*;
+
+//import org.junit.Test;
 
 import ru.curs.showcase.app.api.datapanel.*;
 import ru.curs.showcase.app.api.event.CompositeContext;
@@ -22,6 +25,7 @@ public class GridToolBarCommandTest extends AbstractTestWithDefaultUserData {
 	 * с использованием хранимой процедуры.
 	 */
 	@Test
+	@Disabled
 	public void testDBSource() {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo elInfo = new DataPanelElementInfo("0101", DataPanelElementType.GRID);

@@ -1,13 +1,16 @@
 package ru.curs.showcase.test.servlets;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.assertEquals;
 
 import java.io.*;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 
-import org.junit.*;
+//import org.junit.*;
 import org.springframework.core.io.FileSystemResourceLoader;
 import org.springframework.mock.web.*;
 
@@ -33,7 +36,7 @@ public abstract class AbstractServletTest extends AbstractTest {
 	protected static final String TEXT_HTML = "text/html";
 	private static ServletContext servletContext;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		initRequest();
 		response = new MockHttpServletResponse();
@@ -48,12 +51,12 @@ public abstract class AbstractServletTest extends AbstractTest {
 		request.addHeader("User-Agent", FIREFOX_UA);
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() {
 		resetUserData();
 	}
 
-	@BeforeClass
+	@BeforeAll
 	public static void setUpCLass() {
 		servletContext = new MockServletContext("/WebContent", new FileSystemResourceLoader());
 		AppInitializer.initialize();
@@ -64,7 +67,7 @@ public abstract class AbstractServletTest extends AbstractTest {
 	 * Отключать кэш и JDBC драйвера нельзя. В первом случае потому что нет
 	 * функции включения. А во втором - потому что нужно будет заново загружать.
 	 */
-	@AfterClass
+	@AfterAll
 	public static void tearDownClass() {
 		JMXBeanRegistrator.unRegister();
 	}

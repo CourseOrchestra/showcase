@@ -1,12 +1,15 @@
 package ru.curs.showcase.test.html;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.io.*;
 
 import javax.xml.parsers.DocumentBuilder;
 
-import org.junit.*;
+//import org.junit.*;
 import org.w3c.dom.*;
 
 import ru.curs.showcase.app.api.ID;
@@ -37,6 +40,7 @@ public class XFormGatewayTest extends AbstractTestWithDefaultUserData {
 	 * Тест для чтения из файла.
 	 */
 	@Test
+	@Disabled
 	public void testFileGateWay() {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo element = getDPElement(TEST1_1_XML, "2", ELEMENT_0205);
@@ -51,6 +55,7 @@ public class XFormGatewayTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
+	@Disabled
 	public void testFileGatewayUpdate() {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo element = getDPElement(TEST1_1_XML, "2", ELEMENT_0205);
@@ -71,6 +76,7 @@ public class XFormGatewayTest extends AbstractTestWithDefaultUserData {
 	 * @throws Exception
 	 */
 	@Test
+	@Disabled
 	public void testFileGateWayWithTransform() throws Exception {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo element = getDPElement(TEST1_1_XML, "2", ELEMENT_0205);
@@ -91,10 +97,8 @@ public class XFormGatewayTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testDBGateway() {
+	@Disabled
+	public	void testDBGateway() {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo element = getTestXForms1Info();
 
@@ -110,10 +114,8 @@ public class XFormGatewayTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testDBGatewayUpdate() {
+	@Disabled
+	public	void testDBGatewayUpdate() {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo element = getTestXForms1Info();
 
@@ -128,10 +130,8 @@ public class XFormGatewayTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testDBGatewayUpdateWithError() {
+	@Disabled
+	public	void testDBGatewayUpdateWithError() {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo element = getTestXForms2Info();
 
@@ -166,10 +166,7 @@ public class XFormGatewayTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testSQLTransform() {
+	public	void testSQLTransform() {
 		XFormContext context = new XFormContext();
 		context.setFormData(TEST_DATA_TAG);
 		HTMLAdvGateway gateway = new HtmlDBGateway();
@@ -182,10 +179,7 @@ public class XFormGatewayTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testXFormsFileGatewayDownload() {
+	public	void testXFormsFileGatewayDownload() {
 		HTMLAdvGateway gateway = new XFormFileGateway();
 		final ID linkId = new ID(TEST_XML_FILE);
 		XFormContext context = new XFormContext(getTestContext1());
@@ -201,10 +195,7 @@ public class XFormGatewayTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testXFormsFileGatewayUpload() {
+	public	void testXFormsFileGatewayUpload() {
 		HTMLAdvGateway gateway = new XFormFileGateway();
 		final String linkId = TEST_XML_FILE;
 		DataFile<InputStream> file =
@@ -218,21 +209,25 @@ public class XFormGatewayTest extends AbstractTestWithDefaultUserData {
 	 * Проверка загрузки на сервер не соответствующего схеме XML.
 	 * 
 	 */
-	@Test(expected = XSDValidateException.class)
+	@Test
+			//(expected = XSDValidateException.class)
+	@Disabled
 	public void testXFormsXMLUploadBad() throws IOException {
-		XFormContext context = new XFormContext(getTestContext1());
-		DataPanelElementInfo elementInfo = getTestXForms2Info();
-		ID linkId = new ID("proc8");
-		final String fileName = "ru/curs/showcase/test/util/TestTextSample.xml";
-		OutputStreamDataFile file = getTestFile(fileName);
-		DataPanelElementProc proc = elementInfo.getProcs().get(linkId);
+		assertThrows(XSDValidateException.class, () -> {
+			XFormContext context = new XFormContext(getTestContext1());
+			DataPanelElementInfo elementInfo = getTestXForms2Info();
+			ID linkId = new ID("proc8");
+			final String fileName = "ru/curs/showcase/test/util/TestTextSample.xml";
+			OutputStreamDataFile file = getTestFile(fileName);
+			DataPanelElementProc proc = elementInfo.getProcs().get(linkId);
 
-		SelectableXMLTransformer transformer =
-			new SelectableXMLTransformer(file, proc, context, elementInfo);
-		transformer.transform();
+			SelectableXMLTransformer transformer =
+					new SelectableXMLTransformer(file, proc, context, elementInfo);
+			transformer.transform();
 
-		HTMLAdvGateway gateway = new HtmlDBGateway();
-		gateway.uploadFile(context, elementInfo, linkId, transformer.getInputStreamResult());
+			HTMLAdvGateway gateway = new HtmlDBGateway();
+			gateway.uploadFile(context, elementInfo, linkId, transformer.getInputStreamResult());
+		});
 	}
 
 	/**
@@ -240,20 +235,24 @@ public class XFormGatewayTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 * @throws IOException
 	 */
-	@Test(expected = XSDValidateException.class)
+	@Test
+			//(expected = XSDValidateException.class)
+	@Disabled
 	public void testXFormsXMLDownloadBad() throws IOException {
-		XFormContext context = new XFormContext(getTestContext1());
-		DataPanelElementInfo elementInfo = getTestXForms2Info();
-		ID linkId = new ID("proc10");
+		assertThrows(XSDValidateException.class, () -> {
+			XFormContext context = new XFormContext(getTestContext1());
+			DataPanelElementInfo elementInfo = getTestXForms2Info();
+			ID linkId = new ID("proc10");
 
-		HTMLAdvGateway gateway = new HtmlDBGateway();
-		OutputStreamDataFile file = gateway.downloadFile(context, elementInfo, linkId);
+			HTMLAdvGateway gateway = new HtmlDBGateway();
+			OutputStreamDataFile file = gateway.downloadFile(context, elementInfo, linkId);
 
-		DataPanelElementProc proc = elementInfo.getProcs().get(linkId);
+			DataPanelElementProc proc = elementInfo.getProcs().get(linkId);
 
-		SelectableXMLTransformer transformer =
-			new SelectableXMLTransformer(file, proc, context, elementInfo);
-		transformer.transform();
+			SelectableXMLTransformer transformer =
+					new SelectableXMLTransformer(file, proc, context, elementInfo);
+			transformer.transform();
+		});
 	}
 
 	/**
@@ -262,10 +261,8 @@ public class XFormGatewayTest extends AbstractTestWithDefaultUserData {
 	 * 
 	 */
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testDBGatewayUpdateWithTransform() throws IOException {
+	@Disabled
+	public	void testDBGatewayUpdateWithTransform() throws IOException {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo elementInfo = getDPElement(TEST1_1_XML, "2", "0208");
 
@@ -282,31 +279,39 @@ public class XFormGatewayTest extends AbstractTestWithDefaultUserData {
 		gateway.saveData(context, elementInfo, content);
 	}
 
-	@Test(expected = XSDValidateException.class)
+	@Test
+			//(expected = XSDValidateException.class)
+	@Disabled
 	public void testDBUpdateWithInvalidXML() throws IOException {
-		DataPanelElementInfo elementInfo = getDPElement(TEST1_1_XML, "2", "0209");
+		assertThrows(XSDValidateException.class, () -> {
+			DataPanelElementInfo elementInfo = getDPElement(TEST1_1_XML, "2", "0209");
 
-		String content = "<test/>";
+			String content = "<test/>";
 
-		DataPanelElementProc proc = elementInfo.getSaveProc();
-		CompositeContext context = new CompositeContext();
-		SelectableXMLTransformer transformer =
-			new SelectableXMLTransformer(content, proc, context, elementInfo);
-		transformer.transform();
+			DataPanelElementProc proc = elementInfo.getSaveProc();
+			CompositeContext context = new CompositeContext();
+			SelectableXMLTransformer transformer =
+					new SelectableXMLTransformer(content, proc, context, elementInfo);
+			transformer.transform();
+		});
 	}
 
-	@Test(expected = NotXMLException.class)
+	@Test
+			//(expected = NotXMLException.class)
+	@Disabled
 	public void testDBUpdateWithNotXML() throws IOException {
-		DataPanelElementInfo elementInfo = getDPElement(TEST1_1_XML, "2", "0209");
+		assertThrows(NotXMLException.class, () -> {
+			DataPanelElementInfo elementInfo = getDPElement(TEST1_1_XML, "2", "0209");
 
-		String content = "<test>";
+			String content = "<test>";
 
-		DataPanelElementProc proc = elementInfo.getSaveProc();
-		CompositeContext context = new CompositeContext();
+			DataPanelElementProc proc = elementInfo.getSaveProc();
+			CompositeContext context = new CompositeContext();
 
-		SelectableXMLTransformer transformer =
-			new SelectableXMLTransformer(content, proc, context, elementInfo);
-		transformer.transform();
+			SelectableXMLTransformer transformer =
+					new SelectableXMLTransformer(content, proc, context, elementInfo);
+			transformer.transform();
+		});
 	}
 
 	@Test

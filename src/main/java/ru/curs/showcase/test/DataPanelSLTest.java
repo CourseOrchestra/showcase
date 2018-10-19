@@ -1,8 +1,11 @@
 package ru.curs.showcase.test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
 
-import org.junit.*;
+//import static org.junit.Assert.*;
+
+//import org.junit.*;
 
 import ru.curs.showcase.app.api.datapanel.*;
 import ru.curs.showcase.app.api.event.*;
@@ -19,6 +22,7 @@ public class DataPanelSLTest extends AbstractTest {
 	private static final String DATAPANEL_TEST_SQL = "datapanel/test221.sql";
 
 	@Test
+	@Disabled
 	public void testBySLFromFile() {
 		Action action = new Action(DataPanelActionType.RELOAD_PANEL);
 		action.setContext(CompositeContext.createCurrent());
@@ -38,10 +42,8 @@ public class DataPanelSLTest extends AbstractTest {
 	}
 
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testBySLFromDB() {
+	@Disabled
+	public	void testBySLFromDB() {
 		Action action = new Action(DataPanelActionType.RELOAD_PANEL);
 		action.setContext(CompositeContext.createCurrent());
 		DataPanelLink dpLink = new DataPanelLink();
@@ -55,6 +57,7 @@ public class DataPanelSLTest extends AbstractTest {
 	}
 
 	@Test
+	@Disabled
 	public void datapanelCanBeGeneratedByMSSQLScript() {
 		Action action = new Action(DataPanelActionType.RELOAD_PANEL);
 		action.setContext(CompositeContext.createCurrent());
@@ -71,10 +74,8 @@ public class DataPanelSLTest extends AbstractTest {
 	}
 
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testBySLFromJython() {
+	@Disabled
+	public	void testBySLFromJython() {
 		Action action = new Action(DataPanelActionType.RELOAD_PANEL);
 		action.setContext(CompositeContext.createCurrent());
 		DataPanelLink dpLink = new DataPanelLink();
@@ -97,6 +98,7 @@ public class DataPanelSLTest extends AbstractTest {
 	}
 
 	@Test
+	@Disabled
 	public void testShowLoadingMessage() {
 		Action action = new Action(DataPanelActionType.RELOAD_PANEL);
 		action.setContext(CompositeContext.createCurrent());
@@ -114,6 +116,7 @@ public class DataPanelSLTest extends AbstractTest {
 	}
 
 	@Test
+	@Disabled
 	public void testGridElementAttrsReading() {
 		Action action = new Action(DataPanelActionType.RELOAD_PANEL);
 		action.setContext(CompositeContext.createCurrent());
@@ -131,6 +134,7 @@ public class DataPanelSLTest extends AbstractTest {
 	}
 
 	@Test
+	@Disabled
 	public void testComplexTableReading() {
 		Action action = new Action(DataPanelActionType.RELOAD_PANEL);
 		action.setContext(CompositeContext.createCurrent());
@@ -148,6 +152,7 @@ public class DataPanelSLTest extends AbstractTest {
 	}
 
 	@Test
+	@Disabled
 	public void testGetActiveTabForAction() {
 		Action action = new Action(DataPanelActionType.RELOAD_PANEL);
 		action.setContext(CompositeContext.createCurrent());

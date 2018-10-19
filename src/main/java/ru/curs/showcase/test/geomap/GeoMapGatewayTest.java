@@ -1,6 +1,8 @@
 package ru.curs.showcase.test.geomap;
 
-import org.junit.*;
+import org.junit.jupiter.api.*;
+
+//import org.junit.*;
 
 import ru.curs.showcase.app.api.datapanel.*;
 import ru.curs.showcase.app.api.event.CompositeContext;
@@ -20,10 +22,8 @@ public class GeoMapGatewayTest extends AbstractTestWithDefaultUserData {
 	 * Основная функция тестирования шлюза.
 	 */
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testGetData() {
+	@Disabled
+	public void testGetData() {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo element = getDPElement("test.xml", "2", "05");
 
@@ -32,8 +32,6 @@ public class GeoMapGatewayTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	@Ignore
-	// !!!
 	public void testGetDataJython() {
 		CompositeContext context = getTestContext1();
 		context.setSession("</" + XMLSessionContextGenerator.SESSION_CONTEXT_TAG + ">");

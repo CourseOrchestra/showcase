@@ -1,8 +1,11 @@
 package ru.curs.showcase.test.html;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
 
-import org.junit.*;
+//import static org.junit.Assert.*;
+
+//import org.junit.*;
 
 import ru.curs.showcase.app.api.MainPage;
 import ru.curs.showcase.app.api.event.CompositeContext;
@@ -23,10 +26,7 @@ public class HTMLVariablesSLTest extends AbstractTest {
 	 * Проверка переменных в коде фреймов главной страницы.
 	 */
 	@Test
-	@Ignore
-	// !!!
-			public
-			void testFramesVariables() {
+	public	void testFramesVariables() {
 		CompositeContext context = new CompositeContext(generateTestURLParams(TEST1_USERDATA));
 		MainPageGetCommand command = new MainPageGetCommand(context);
 		MainPage page = command.execute();

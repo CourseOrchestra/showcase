@@ -1,11 +1,14 @@
 package ru.curs.showcase.test.event;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.io.*;
 import java.util.*;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 import ru.curs.showcase.app.api.*;
 import ru.curs.showcase.app.api.event.*;
@@ -212,15 +215,19 @@ public class EventsTest extends AbstractTestWithDefaultUserData {
 		assertNull(events.iterator().next().getAction().getContext().getSession());
 	}
 
-	@Test(expected = ServerObjectCreateCloseException.class)
+	@Test
+			//(expected = ServerObjectCreateCloseException.class)
 	public void testEventCreationException() throws IOException {
-		CompositeContext context = new CompositeContext();
-		context.setMain(MAIN_CONDITION);
-		EventFactory<WrongEvent> factory = new EventFactory<WrongEvent>(WrongEvent.class, context);
-		factory.intiForGetSimpleEvents(LINK_ID_TAG);
-		InputStream stream =
-			UserDataUtils.loadUserDataToStream("data/webtext/3buttons_enh.settings.xml");
-		factory.getSimpleEvents(stream);
+		assertThrows(ServerObjectCreateCloseException.class, () ->
+		{
+			CompositeContext context = new CompositeContext();
+			context.setMain(MAIN_CONDITION);
+			EventFactory<WrongEvent> factory = new EventFactory<WrongEvent>(WrongEvent.class, context);
+			factory.intiForGetSimpleEvents(LINK_ID_TAG);
+			InputStream stream =
+					UserDataUtils.loadUserDataToStream("data/webtext/3buttons_enh.settings.xml");
+			factory.getSimpleEvents(stream);
+		});
 	}
 
 }
