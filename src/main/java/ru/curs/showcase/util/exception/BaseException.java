@@ -45,6 +45,14 @@ public abstract class BaseException extends RuntimeException {
 		logAll(this);
 	}
 
+	public BaseException(final ExceptionType aType, final boolean logging) {
+		super();
+		type = aType;
+		if (logging) {
+			logAll(this);
+		}
+	}
+	
 	public BaseException(final ExceptionType aType, final String aMessage) {
 		super(aMessage);
 		type = aType;

@@ -14,7 +14,7 @@ public class BreakSAXLoopException extends BaseException {
 	private static final long serialVersionUID = 5726882721367127175L;
 
 	public BreakSAXLoopException() {
-		super(ExceptionType.CONTROL);
+		super(ExceptionType.CONTROL, false);
 	}
 
 }
