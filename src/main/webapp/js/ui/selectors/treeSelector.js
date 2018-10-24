@@ -272,6 +272,13 @@ function showTreeSelector(selectorParam) {
 									
 								}
 							}
+							
+							if(selectorGrid && getCheckChildren() && !selectorGrid.single){
+								if(selectorGrid.isSelected(results[i]["parentId_D13k82F9g7"])){
+									allSelected[results[i].id] = results[i];
+								}
+							}
+							
 						}
 						
 				        for(var id in allSelected){
@@ -466,6 +473,23 @@ function showTreeSelector(selectorParam) {
 					var parentId = event.rows[0].data["parentId_D13k82F9g7"];
 					event.grid.select(parentId);
 				}
+
+				if(!event.grid.single && getCheckChildren()){
+					if(event.rows[0].element.connected){
+						
+						var childs = event.rows[0].element.connected.childNodes;
+						
+						for (var i = 0; i < childs.length; i++) {
+					    	if(childs[i].id.indexOf("selectorGrid")>-1){
+					    		
+					    		var id = childs[i].id.substring(17, childs[i].id.length);
+					    		
+					    		event.grid.select(id);
+					    		
+					    	}
+						}
+					}
+				}
 				
 			    allSelected[event.rows[0]["id"]] = event.rows[0].data;
 			    
@@ -475,6 +499,23 @@ function showTreeSelector(selectorParam) {
 				if(!event.grid.single && getCheckParent()){
 					var parentId = event.rows[0].data["parentId_D13k82F9g7"];
 					event.grid.deselect(parentId);
+				}
+				
+				if(!event.grid.single && getCheckChildren()){
+					if(event.rows[0].element.connected){
+						
+						var childs = event.rows[0].element.connected.childNodes;
+						
+						for (var i = 0; i < childs.length; i++) {
+					    	if(childs[i].id.indexOf("selectorGrid")>-1){
+					    		
+					    		var id = childs[i].id.substring(17, childs[i].id.length);
+					    		
+					    		event.grid.deselect(id);
+					    		
+					    	}
+						}
+					}
 				}
 				
 				delete allSelected[event.rows[0]["id"]];
@@ -559,6 +600,9 @@ function showTreeSelector(selectorParam) {
 	     }
 	     function getCheckParent(){
 	    	 return selectorParam.checkParent ? selectorParam.checkParent : false;
+	     }
+	     function getCheckChildren(){
+	    	 return selectorParam.checkChildren ? selectorParam.checkChildren : false;
 	     }
 	     function getAllowSelectAll(){
 	    	 return selectorParam.allowSelectAll ? selectorParam.allowSelectAll : false;
