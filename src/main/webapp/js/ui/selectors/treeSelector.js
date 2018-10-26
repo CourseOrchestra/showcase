@@ -249,6 +249,7 @@ function showTreeSelector(selectorParam) {
 					
 					if(results){
 						
+						var needCheckChildren = true;
 						for (var i = 0; i < results.length; i++) {
 							if(results[i].checked && (results[i].checked.toLowerCase() == "true")){
 								if(selectorGrid){
@@ -275,10 +276,26 @@ function showTreeSelector(selectorParam) {
 							
 							if(selectorGrid && getCheckChildren() && !selectorGrid.single){
 								if(selectorGrid.isSelected(results[i]["parentId_D13k82F9g7"])){
-									allSelected[results[i].id] = results[i];
+						    		if(!(results[i].hideSelector == "true")){
+										if(allSelected[results[i].id]){
+											needCheckChildren = false;
+										}
+						    		}
 								}
 							}
 							
+						}
+						
+						if(selectorGrid && getCheckChildren() && !selectorGrid.single){
+							if(results[0] && selectorGrid.isSelected(results[0]["parentId_D13k82F9g7"])){
+								if(needCheckChildren){
+									for (var i = 0; i < results.length; i++) {
+							    		if(!(results[i].hideSelector == "true")){
+							    			allSelected[results[i].id] = results[i];
+							    		}
+									}
+								}
+							}
 						}
 						
 				        for(var id in allSelected){
@@ -469,12 +486,21 @@ function showTreeSelector(selectorParam) {
 		 }, 'selectorGrid');
 		 
 		 selectorGrid.on("dgrid-select", function(event){
+			 
+			 	allSelected[event.rows[0]["id"]] = event.rows[0].data;
+			 
 				if(!event.grid.single && getCheckParent()){
 					var parentId = event.rows[0].data["parentId_D13k82F9g7"];
 					event.grid.select(parentId);
 				}
 
 				if(!event.grid.single && getCheckChildren()){
+					
+					if(event.rows[0].element.secondarySelect){
+						delete event.rows[0].element.secondarySelect;
+						return;
+					}
+					
 					if(event.rows[0].element.connected){
 						
 						var childs = event.rows[0].element.connected.childNodes;
@@ -484,18 +510,24 @@ function showTreeSelector(selectorParam) {
 					    		
 					    		var id = childs[i].id.substring(17, childs[i].id.length);
 					    		
-					    		event.grid.select(id);
-					    		
+					    		if(!(event.grid.row(id).data.hideSelector == "true")){
+						    		event.grid.row(id).element.secondarySelect = true;
+						    		
+						    		event.grid.select(id);
+					    		}
 					    	}
 						}
+						
 					}
+					
+					event.grid.expand(event.rows[0], true);
 				}
-				
-			    allSelected[event.rows[0]["id"]] = event.rows[0].data;
-			    
 		 });
 		 
 		 selectorGrid.on("dgrid-deselect", function(event){
+			 
+				delete allSelected[event.rows[0]["id"]];			 
+			 
 				if(!event.grid.single && getCheckParent()){
 					var parentId = event.rows[0].data["parentId_D13k82F9g7"];
 					event.grid.deselect(parentId);
@@ -517,9 +549,6 @@ function showTreeSelector(selectorParam) {
 						}
 					}
 				}
-				
-				delete allSelected[event.rows[0]["id"]];
-				
 		 });
 
 		 
