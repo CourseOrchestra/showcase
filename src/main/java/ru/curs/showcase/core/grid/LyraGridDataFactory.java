@@ -173,8 +173,6 @@ public class LyraGridDataFactory {
 
 		List<LyraFormData> records;
 
-		System.out.println("context.isFirstLoad(): " + context.isFirstLoad());
-
 		if (context.isFirstLoad()) {
 
 			records = basicGridForm.getRows();
@@ -240,6 +238,7 @@ public class LyraGridDataFactory {
 		}
 
 		System.out.println("LyraGridDataFactory.ddddddddddddd1");
+		System.out.println("context.isFirstLoad(): " + context.isFirstLoad());
 		System.out.println("className: " + basicGridForm.getClass().getSimpleName());
 		System.out.println("position: " + position);
 		System.out.println("lyraNewPosition: " + basicGridForm.getTopVisiblePosition());
@@ -329,16 +328,18 @@ public class LyraGridDataFactory {
 		if (context.isFirstLoad() && (data.size() > 0)
 				&& (basicGridForm.getTopVisiblePosition() > 0)) {
 
-			double d = basicGridForm.getTopVisiblePosition();
-			d = (d / basicGridForm.getApproxTotalCount())
-					* lyraGridAddInfo.getDgridOldTotalCount();
-			int dgridNewPosition = (int) d;
-			((JSONObject) data.get(0)).put("dgridNewPosition", dgridNewPosition);
-
 			basicGridForm.externalAction(c -> {
-				Object[] keyValues = ((Cursor) c).getCurrentKeyValues();
-				String recId = getIdByKeyValues(keyValues);
-				((JSONObject) data.get(0)).put("dgridNewPositionId", recId);
+				if (c instanceof Cursor) {
+					double d = basicGridForm.getTopVisiblePosition();
+					d = (d / basicGridForm.getApproxTotalCount())
+							* lyraGridAddInfo.getDgridOldTotalCount();
+					int dgridNewPosition = (int) d;
+					((JSONObject) data.get(0)).put("dgridNewPosition", dgridNewPosition);
+
+					Object[] keyValues = ((Cursor) c).getCurrentKeyValues();
+					String recId = getIdByKeyValues(keyValues);
+					((JSONObject) data.get(0)).put("dgridNewPositionId", recId);
+				}
 				return null;
 			}, null);
 
