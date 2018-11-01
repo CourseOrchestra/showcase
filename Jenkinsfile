@@ -24,8 +24,8 @@ node {
     }
 
     //if (env.BRANCH_NAME == 'dev') {
-    stage ('Publish build info') {
-        server.publishBuildInfo buildInfo
-    }
+    //stage ('Publish build info') {
+      //  server.publishBuildInfo buildInfo
+    //}
     //}
 }
