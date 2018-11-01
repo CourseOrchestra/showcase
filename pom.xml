@@ -1726,7 +1726,7 @@
 				</executions>
 			</plugin>
            
-	    <plugin>
+<!-- 	    <plugin>
         <groupId>net.ltgt.gwt.maven</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
         <version>1.0-rc-9</version>
@@ -1742,7 +1742,6 @@
           </startupUrls>
         </configuration>
 	<executions>
-    <!-- Generate the module and add it to the webappDirectory/classes/... -->
     <execution>
         <id>compile</id>
         <phase>prepare-package</phase>
@@ -1752,7 +1751,38 @@
     </execution>
     </executions>
       </plugin>
-
+ -->
+	    <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>2.5.1</version>
+		
+        <executions>
+          <execution>
+            <!-- <phase>compile</phase>  -->
+			<goals>
+              <goal>compile</goal>
+			  <!-- <goal>enforce-encoding</goal> -->
+<!--                <goal>generateAsync</goal>  -->
+<!--               <goal>test</goal> -->
+            </goals>
+          </execution>
+        </executions>
+		<configuration>
+          <!-- <draftCompile>true</draftCompile>
+          <strict>true</strict>
+          <inplace>false</inplace> -->
+          <runTarget>index.jsp</runTarget>
+		  <!-- <webappDirectory>src/main/webapp</webappDirectory> -->
+        <!--   <style>${gwt.style}</style>
+          <i18nMessagesBundle>com.domain.client.i18n.Messages</i18nMessagesBundle>
+          <i18nConstantsBundle>comdomain.client.properties.ClientProperties</i18nConstantsBundle> -->         
+          <compileReport>true</compileReport>
+          <module>ru.curs.showcase.app.App</module>
+          <logLevel>INFO</logLevel>
+          <copyWebapp>true</copyWebapp>
+        </configuration>
+      </plugin>
 	    <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>javacc-maven-plugin</artifactId>
