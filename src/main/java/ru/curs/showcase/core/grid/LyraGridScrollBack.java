@@ -68,9 +68,9 @@ public class LyraGridScrollBack implements Runnable {
 			return;
 		}
 
-		if (Math.abs(basicGridForm.getTopVisiblePosition()
-				- lyraGridAddInfo.getLyraOldPosition()) <= lyraApproxTotalCount
-						/ LYRA_SMALLFACTOR) {
+		if ((Math.abs(basicGridForm.getTopVisiblePosition()
+				- lyraGridAddInfo.getLyraOldPosition()) <= lyraApproxTotalCount / LYRA_SMALLFACTOR)
+				|| (basicGridForm.getApproxTotalCount() < basicGridForm.getGridHeight() * 2)) {
 			lyraGridAddInfo.setLyraOldPosition(basicGridForm.getTopVisiblePosition());
 			return;
 		}
@@ -94,6 +94,7 @@ public class LyraGridScrollBack implements Runnable {
 			try {
 				if (webSocketSession.isOpen()) {
 					webSocketSession.getBasicRemote().sendText(String.valueOf(dgridNewPosition));
+					System.out.println("webSocket.sendText: " + dgridNewPosition);
 				} else {
 					System.out.println("webSocketSession is closed");
 					lyraGridAddInfo.setNeedRecreateWebsocket(true);

@@ -74,6 +74,9 @@ public class LyraGridDataFactory {
 
 	private GridToExcelExportType excelExportType = null;
 
+	private int lyraApproxTotalCountBeforeGetRows;
+	private int lyraApproxTotalCountAfterGetRows;
+
 	public LyraGridDataFactory(final LyraGridContext aContext,
 			final DataPanelElementInfo aElInfo) {
 		context = aContext;
@@ -168,8 +171,32 @@ public class LyraGridDataFactory {
 		lyraGridAddInfo.setExcelExportType(null);
 
 		int position = -1;
-		int lyraApproxTotalCount = basicGridForm.getApproxTotalCount();
+		lyraApproxTotalCountBeforeGetRows = basicGridForm.getApproxTotalCount();
 		int dgridDelta = context.getLiveInfo().getOffset() - context.getDgridOldPosition();
+
+		// --------------------------------------
+
+		boolean lyraExactTotalCount = false;
+
+		if (lyraApproxTotalCountBeforeGetRows < basicGridForm.getGridHeight() + 20) {
+
+			if (lyraGridAddInfo.getDgridOldTotalCount() > 0) {
+				lyraApproxTotalCountBeforeGetRows = lyraGridAddInfo.getDgridOldTotalCount();
+			} else {
+				final int[] array = new int[1];
+				basicGridForm.externalAction(c -> {
+					array[0] = c.count();
+					return null;
+				}, null);
+
+				lyraApproxTotalCountBeforeGetRows = array[0];
+			}
+
+			lyraExactTotalCount = true;
+
+		}
+
+		// --------------------------------------
 
 		List<LyraFormData> records;
 
@@ -187,7 +214,7 @@ public class LyraGridDataFactory {
 
 				} else {
 
-					if (lyraApproxTotalCount <= LyraGridScrollBack.DGRID_MAX_TOTALCOUNT) {
+					if (lyraApproxTotalCountBeforeGetRows <= LyraGridScrollBack.DGRID_MAX_TOTALCOUNT) {
 
 						position = context.getLiveInfo().getOffset();
 
@@ -202,11 +229,12 @@ public class LyraGridDataFactory {
 							if (Math.abs(context.getLiveInfo().getOffset()
 									- LyraGridScrollBack.DGRID_MAX_TOTALCOUNT) < LyraGridScrollBack.DGRID_SMALLSTEP) {
 
-								position = lyraApproxTotalCount - context.getLiveInfo().getLimit();
+								position = lyraApproxTotalCountBeforeGetRows
+										- context.getLiveInfo().getLimit();
 
 							} else {
 
-								double d = lyraApproxTotalCount;
+								double d = lyraApproxTotalCountBeforeGetRows;
 								d = d / LyraGridScrollBack.DGRID_MAX_TOTALCOUNT;
 								d = d * context.getLiveInfo().getOffset();
 								position = (int) d;
@@ -227,11 +255,21 @@ public class LyraGridDataFactory {
 
 		}
 
+		// --------------------------------------
+
+		if (lyraExactTotalCount) {
+			lyraApproxTotalCountAfterGetRows = lyraApproxTotalCountBeforeGetRows;
+		} else {
+			lyraApproxTotalCountAfterGetRows = basicGridForm.getApproxTotalCount();
+		}
+
+		// --------------------------------------
+
 		if (records.size() < context.getLiveInfo().getLimit()) {
 			context.getLiveInfo().setTotalCount(records.size());
 		} else {
-			if (basicGridForm.getApproxTotalCount() <= LyraGridScrollBack.DGRID_MAX_TOTALCOUNT) {
-				context.getLiveInfo().setTotalCount(basicGridForm.getApproxTotalCount());
+			if (lyraApproxTotalCountAfterGetRows <= LyraGridScrollBack.DGRID_MAX_TOTALCOUNT) {
+				context.getLiveInfo().setTotalCount(lyraApproxTotalCountAfterGetRows);
 			} else {
 				context.getLiveInfo().setTotalCount(LyraGridScrollBack.DGRID_MAX_TOTALCOUNT);
 			}
@@ -243,9 +281,12 @@ public class LyraGridDataFactory {
 		System.out.println("position: " + position);
 		System.out.println("lyraNewPosition: " + basicGridForm.getTopVisiblePosition());
 		System.out.println("lyraOldPosition: " + lyraGridAddInfo.getLyraOldPosition());
-		System.out.println("lyraApproxTotalCount(before getRows): " + lyraApproxTotalCount);
 		System.out.println(
-				"getApproxTotalCount(after getRows): " + basicGridForm.getApproxTotalCount());
+				"lyraApproxTotalCountBeforeGetRows: " + lyraApproxTotalCountBeforeGetRows);
+		System.out
+				.println("lyraApproxTotalCountAfterGetRows: " + lyraApproxTotalCountAfterGetRows);
+		System.out.println(
+				"basicGridForm.getApproxTotalCount: " + basicGridForm.getApproxTotalCount());
 		System.out.println("records.size(): " + records.size());
 		System.out.println("dGridLimit(): " + context.getLiveInfo().getLimit());
 		System.out.println("dGridTotalCount: " + context.getLiveInfo().getTotalCount());
@@ -257,8 +298,19 @@ public class LyraGridDataFactory {
 
 		JSONArray data = new JSONArray();
 
-		int length = Math.min(records.size(), context.getLiveInfo().getLimit());
-		for (int i = 0; i < length; i++) {
+		int from;
+		int length;
+
+		if (dgridDelta > 0) {
+			from = Math.max(records.size() - context.getLiveInfo().getLimit(), 0);
+			length = records.size();
+		} else {
+			from = 0;
+			length = Math.min(records.size(), context.getLiveInfo().getLimit());
+		}
+
+		for (int i = from; i < length; i++) {
+
 			LyraFormData rec = records.get(i);
 
 			String properties = null;
@@ -331,7 +383,7 @@ public class LyraGridDataFactory {
 			basicGridForm.externalAction(c -> {
 				if (c instanceof Cursor) {
 					double d = basicGridForm.getTopVisiblePosition();
-					d = (d / basicGridForm.getApproxTotalCount())
+					d = (d / lyraApproxTotalCountAfterGetRows)
 							* lyraGridAddInfo.getDgridOldTotalCount();
 					int dgridNewPosition = (int) d;
 					((JSONObject) data.get(0)).put("dgridNewPosition", dgridNewPosition);
