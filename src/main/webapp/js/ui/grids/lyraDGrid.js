@@ -72,9 +72,12 @@ try {
     			
     			var pos = parseInt(message.data);
     			pos = pos * grid.rowHeight;
-    			pos = pos + arrGrids[parentId].getScrollPosition().y-Math.floor(arrGrids[parentId].getScrollPosition().y/grid.rowHeight)*grid.rowHeight;
-    			backScroll = true;
-    			grid.scrollTo({x:0, y:pos});
+    			pos = pos + grid.getScrollPosition().y-Math.floor(grid.getScrollPosition().y/grid.rowHeight)*grid.rowHeight;
+    			pos =  Math.round(pos);
+    			if(!isNaN(pos) && (pos >= 0)){
+    				backScroll = true;
+    				grid.scrollTo({x:0, y:pos});
+    			}
             };
             return webSocket; 
 		}
