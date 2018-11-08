@@ -151,8 +151,11 @@ function createLyraVueDGrid(userdata, vueComponent, parentId, gridDivId, metadat
 	    			var pos = parseInt(message.data);
 	    			pos = pos * grid.rowHeight;
 	    			pos = pos + grid.getScrollPosition().y-Math.floor(grid.getScrollPosition().y/grid.rowHeight)*grid.rowHeight;
-	    			grid.backScroll = true;
-	    			grid.scrollTo({x:0, y:pos});
+	    			pos =  Math.round(pos);
+	    			if(!isNaN(pos) && (pos >= 0)){
+	    				backScroll = true;
+	    				grid.scrollTo({x:0, y:pos});
+	    			}
 	            };
 	            return webSocket; 
 			}
