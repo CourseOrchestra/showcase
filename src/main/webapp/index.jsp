@@ -22,6 +22,18 @@ Cookie cookie = new Cookie("queryString" + request.getServerPort() + webAppName,
 cookie.setPath(AppAndSessionEventsListener.getContextPath());
 response.addCookie(cookie);
 
+Cookie[] cookies2 = request.getCookies();
+if (cookies2 != null && cookies2.length > 0) {
+	for (Cookie cookie2 : cookies2) {
+		if (cookie2.getName().equals("queryString" + request.getServerPort() + webAppName)
+				&& (cookie2.getValue() == null || "".equals(cookie2.getValue()))) {
+			cookie2.setPath(AppAndSessionEventsListener.getContextPath());
+			cookie2.setMaxAge(0);
+			response.addCookie(cookie2);
+		}
+	}
+}
+
 	Cookie[] cookies = request.getCookies();
 	if (cookies != null && cookies.length > 0) {
 		for (Cookie cookie1 : cookies) {
