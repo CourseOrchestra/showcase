@@ -10,6 +10,8 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationSu
 import org.springframework.security.web.savedrequest.*;
 import org.springframework.stereotype.Component;
 
+import ru.curs.showcase.app.server.AppAndSessionEventsListener;
+
 @Component
 public class ShowcaseAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 	@Override
@@ -43,6 +45,12 @@ public class ShowcaseAuthenticationSuccessHandler extends SimpleUrlAuthenticatio
 					if (cookie.getName().equals("queryString" + port + webAppName)
 							&& cookie.getValue() != null && !"".equals(cookie.getValue())) {
 						queryString = cookie.getValue();
+					}
+					if (cookie.getName().equals("queryString" + port + webAppName)
+							&& (cookie.getValue() == null || "".equals(cookie.getValue()))) {
+						cookie.setPath(AppAndSessionEventsListener.getContextPath());
+						cookie.setMaxAge(0);
+						response.addCookie(cookie);
 					}
 				}
 			}
