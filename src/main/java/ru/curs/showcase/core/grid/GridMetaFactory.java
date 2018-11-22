@@ -56,6 +56,10 @@ public class GridMetaFactory extends CompBasedElementFactory {
 	private static final String SORT_COLUMN_TAG = "column";
 	private static final String SORT_DIRECTION_TAG = "direction";
 
+	private static final String SUMMARY_TAG = "summary";
+	private static final String SUMMARY_COLUMN_TAG = "column";
+	private static final String SUMMARY_VALUE_TAG = "value";
+
 	private static final String FILTER_MULTISELECTOR_WINDOWCAPTION_TAG = "windowCaption";
 	private static final String FILTER_MULTISELECTOR_DATAWIDTH_TAG = "dataWidth";
 	private static final String FILTER_MULTISELECTOR_DATAHEIGHT_TAG = "dataHeight";
@@ -96,6 +100,8 @@ public class GridMetaFactory extends CompBasedElementFactory {
 
 	private String decimalSeparator = null;
 	private String groupingSeparator = null;
+
+	private HashMap<String, String> summaryRow = null;
 
 	/**
 	 * Результат работы фабрики.
@@ -325,7 +331,7 @@ public class GridMetaFactory extends CompBasedElementFactory {
 		 */
 		private final String[] startTags = {
 				PROPS_TAG, COL_SETTINGS_TAG, COLUMN_SET_SETTINGS_TAG, COLUMN_HEADER_SETTINGS_TAG,
-				FILTER_MULTISELECTOR_TAG, SORT_TAG };
+				FILTER_MULTISELECTOR_TAG, SORT_TAG, SUMMARY_TAG };
 
 		/**
 		 * Конечные тэги, которые будут обработаны данным обработчиком.
@@ -358,6 +364,9 @@ public class GridMetaFactory extends CompBasedElementFactory {
 			}
 			if (qname.equalsIgnoreCase(SORT_TAG)) {
 				return sortSTARTTAGHandler(attrs);
+			}
+			if (qname.equalsIgnoreCase(SUMMARY_TAG)) {
+				return summarySTARTTAGHandler(attrs);
 			}
 			return null;
 		}
@@ -679,6 +688,23 @@ public class GridMetaFactory extends CompBasedElementFactory {
 			return null;
 		}
 
+		private Object summarySTARTTAGHandler(final Attributes attrs) {
+
+			if ((attrs.getIndex(SUMMARY_COLUMN_TAG) > -1)
+					&& (attrs.getIndex(SUMMARY_VALUE_TAG) > -1)) {
+
+				if (summaryRow == null) {
+					summaryRow = new HashMap<String, String>();
+				}
+
+				summaryRow.put(attrs.getValue(SUMMARY_COLUMN_TAG),
+						attrs.getValue(SUMMARY_VALUE_TAG));
+
+			}
+
+			return null;
+		}
+
 		@Override
 		protected String[] getStartTags() {
 			return startTags;
@@ -841,6 +867,8 @@ public class GridMetaFactory extends CompBasedElementFactory {
 		adjustGridServerState();
 
 		adjustActions();
+
+		setupSummaryRow();
 	}
 
 	private void adjustColumns() {
@@ -927,6 +955,27 @@ public class GridMetaFactory extends CompBasedElementFactory {
 		Action wrong = result.checkActions();
 		if (wrong != null) {
 			throw new IncorrectElementException(CHECK_ACTION_ERROR, wrong);
+		}
+	}
+
+	private void setupSummaryRow() {
+		if (summaryRow != null) {
+
+			String sum = "";
+			for (String col : summaryRow.keySet()) {
+				for (GridColumnConfig column : result.getColumns()) {
+					if (col.equals(column.getCaption())) {
+						if (!sum.isEmpty()) {
+							sum = sum + ", ";
+						}
+						sum = sum + "\"" + column.getId() + "\": \"" + summaryRow.get(col) + "\"";
+						break;
+					}
+				}
+			}
+			sum = "{" + sum + "}";
+			result.setSummaryRow(sum);
+
 		}
 	}
 
