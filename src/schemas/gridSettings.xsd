@@ -10,7 +10,8 @@
                 <xs:element ref="action" minOccurs="0" maxOccurs="1"/>
                 <xs:element ref="properties" minOccurs="1" maxOccurs="1"/>
                 <xs:element ref="filters" minOccurs="0" maxOccurs="1"/>
-                <xs:element ref="sorting" minOccurs="0" maxOccurs="1"/>                
+                <xs:element ref="sorting" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="summaryrow" minOccurs="0" maxOccurs="1"/>
             </xs:all>                       
         </xs:complexType>
     </xs:element>
@@ -51,7 +52,7 @@
             <xs:attribute name="expandAllRecords" type="xs:boolean"/>
             <xs:attribute name="toolbarClassName" type="xs:string"/>
             <xs:attribute name="toolbarStyle" type="xs:string"/>
-            
+            <xs:attribute name="toolbarCreateImmediately" type="xs:string"/>
             
             <xs:attribute name="columnheaderHorAlign" type="notNullType"/>
             <xs:attribute name="columnHorAlign" type="notNullType"/>
@@ -134,5 +135,11 @@
         </xs:complexType>
     </xs:element>    
         
+    <xs:element name="summaryrow">
+        <xs:unique name="columnSummary">
+            <xs:selector xpath="summary"/>
+            <xs:field xpath="@column"/>
+        </xs:unique>
+    </xs:element> 
     
 </xs:schema>
