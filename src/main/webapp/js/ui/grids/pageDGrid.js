@@ -21,7 +21,8 @@ try {
 	    			 "dstore/Rest",
 	    			 "dstore/Trackable",
 	    			 "dstore/Cache",
-	    	     	 "dojo/when",	         
+	    	     	 "dojo/when",	        
+	    	         "dojo/dom-construct",
 	    			 "dojo/domReady!"
 	                 ];
 	
@@ -58,7 +59,7 @@ try {
 
 	
 	require({async:true}, arrScripts,	function(
-        		 lang, has, List, Grid, Pagination, CompoundColumns, ColumnSet, ColumnResizer, Selection, CellSelection, Editor, Keyboard, declare, QueryResults, Rest, Trackable, Cache, when, domReady, 
+        		 lang, has, List, Grid, Pagination, CompoundColumns, ColumnSet, ColumnResizer, Selection, CellSelection, Editor, Keyboard, declare, QueryResults, Rest, Trackable, Cache, when, domConstruct, domReady, 
 	        	 Button,DropDownButton,ComboButton,ToggleButton,CurrencyTextBox,DateTextBox,NumberSpinner,NumberTextBox,TextBox,TimeTextBox,ValidationTextBox,SimpleTextarea,Textarea,Select,ComboBox,MultiSelect,FilteringSelect,HorizontalSlider,VerticalSlider,CheckBox,RadioButton,DataList        		 
 		     ){
 		
@@ -612,7 +613,57 @@ try {
 					
 					//gwtAfterClick(elementId, recId, this.column(colId).label, getSelection());
 				}
-			}
+			},
+			
+			showFooter: metadata["common"]["summaryRow"],
+
+			summary: metadata["common"]["summaryRow"] ? JSON.parse(metadata["common"]["summaryRow"]) : null,
+			
+	        buildRendering: function () {
+	            this.inherited(arguments);
+	 
+	            var areaNode = this.summaryAreaNode =
+	                domConstruct.create('div', {
+	                    className: 'summary-row',
+	                    role: 'row',
+	                    style: { overflow: 'hidden' }
+	                }, this.footerNode);
+
+	            this.on('scroll', lang.hitch(this, function () {
+	                areaNode.scrollLeft = this.getScrollPosition().x;
+	            }));
+	        },
+	 
+	        _updateColumns: function () {
+	            this.inherited(arguments);
+	            if (this.summary) {
+	                this._setSummary(this.summary);
+	            }
+	        },
+	 
+	        _renderSummaryCell: function (item, cell, column) {
+	            var value = item[column.field] || '';
+	            cell.appendChild(document.createTextNode(value));
+	        },
+	 
+	        _setSummary: function (data) {
+	            var tableNode = this.summaryTableNode;
+	 
+	            this.summary = data;
+	 
+	            if (tableNode) {
+	                domConstruct.destroy(tableNode);
+	            }
+	 
+	            tableNode = this.summaryTableNode =
+	                this.createRowCells('td',
+	                    lang.hitch(this, '_renderSummaryCell', data));
+	            this.summaryAreaNode.appendChild(tableNode);
+	 
+	            if (this._started) {
+	                this.resize();
+	            }
+	        }
 			
 		},  parentId);
 	    arrGrids[parentId] = grid;
@@ -638,6 +689,11 @@ try {
 				}
 			}
 		}
+		
+        if (grid.summary) {
+        	grid._setSummary(grid.summary);
+        	grid._adjustFooterCellsWidths();
+        }
 		
 		
 		grid.on("dgrid-select", function(event){

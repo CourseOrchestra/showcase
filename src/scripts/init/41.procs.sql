@@ -31981,6 +31981,15 @@ set @gridsettings_str='<gridsettings>
 <!--
 -->
 
+
+        <summaryrow>
+					<summary  column="Код"  		 value="КОД"/>        	
+					<summary  column="Название"  value="НАЗВАНИЕ"/>        	
+					<summary  column="Картинка"  value="КАРТИНКА"/>        	
+        </summaryrow>
+
+
+
         <sorting>
 					<sort column="Название" direction="ASC"/>        
         </sorting>
@@ -32150,7 +32159,16 @@ set @gridsettings_str='
 					<col id="Идентификатор" width="100px" editor="{editOn: has(''touch'') ? ''click'' : ''dblclick'', editor: ''text''}" readonly = "false" />        
 					<col id="Код" width="50px" readonly = "false" editor="{editor: CheckBox}" />
 					<col id="Картинка" width="50px" type="IMAGE" readonly = "false" editor="{editor: CheckBox}" />
-        </columns>        
+        </columns>  
+
+
+        <summaryrow>
+					<summary  column="Код"  		 value="КОД"/>        	
+					<summary  column="Название"  value="НАЗВАНИЕ"/>        	
+					<summary  column="Картинка"  value="КАРТИНКА"/>        	
+        </summaryrow>
+
+
 						<action>
 							<main_context>current</main_context>
                             <datapanel type="current" tab="current">
@@ -32607,6 +32625,14 @@ editor="{editOn: has(''touch'') ? ''click'' : ''dblclick'',
 
 <!--
 -->
+
+        <summaryrow>
+					<summary  column="Код"  		 value="КОД"/>        	
+					<summary  column="Название"  value="НАЗВАНИЕ"/>        	
+					<summary  column="Картинка"  value="КАРТИНКА"/>        	
+        </summaryrow>
+
+
 
         <sorting>
 					<sort column="Название" direction="ASC"/>        

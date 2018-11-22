@@ -434,6 +434,10 @@ public class JSTreeGridPluginPanel extends JSBaseGridPluginPanel {
 					.gettext(AppCurrContext.getInstance().getDomain(), "Save")));
 		}
 
+		if (gridMetadata.getSummaryRow() != null) {
+			common.put("summaryRow", new JSONString(gridMetadata.getSummaryRow()));
+		}
+
 		metadata.put("common", common);
 
 		JSONObject columns = new JSONObject();
