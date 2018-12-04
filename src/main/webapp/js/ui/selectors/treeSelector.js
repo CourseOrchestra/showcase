@@ -496,9 +496,16 @@ function showTreeSelector(selectorParam) {
 
 				if(!event.grid.single && getCheckChildren()){
 					
+					var needExpand = true;
+					
 					if(event.rows[0].element.secondarySelect){
 						delete event.rows[0].element.secondarySelect;
-						return;
+						
+						needExpand = false;
+						
+						if(!event.rows[0].element.connected){
+							return;	
+						}
 					}
 					
 					if(event.rows[0].element.connected){
@@ -520,7 +527,10 @@ function showTreeSelector(selectorParam) {
 						
 					}
 					
-					event.grid.expand(event.rows[0], true);
+					if(needExpand){
+						event.grid.expand(event.rows[0], true);
+					}
+					
 				}
 		 });
 		 
