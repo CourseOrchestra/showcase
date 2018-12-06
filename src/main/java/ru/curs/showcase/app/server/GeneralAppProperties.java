@@ -5,6 +5,8 @@ import java.net.*;
 import java.sql.*;
 import java.util.*;
 
+import org.slf4j.*;
+
 import ru.curs.showcase.runtime.*;
 import ru.curs.showcase.security.SecurityParamsFactory;
 import ru.curs.showcase.util.exception.*;
@@ -17,6 +19,8 @@ import ru.curs.showcase.util.exception.*;
  */
 
 public class GeneralAppProperties {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(GeneralAppProperties.class);
 
 	private final Map<String, String> map = new HashMap<String, String>();
 
@@ -44,55 +48,83 @@ public class GeneralAppProperties {
 					UserDataUtils.RDBMS_PREFIX + UserDataUtils.CELESTA_CONNECTION_URL,
 					SettingsFileType.GENERAL_APP_PROPERTIES);
 		} else {
-			Driver result = null;
-			try {
-				String url =
-					getProperty(UserDataUtils.RDBMS_PREFIX + UserDataUtils.CELESTA_CONNECTION_URL)
-							.trim().toLowerCase();
+			String databaseConnectionsAmount =
+				getProperty("zero.configuration.database.connections.amount");
+			String databaseConnectionsInterval =
+				getProperty("zero.configuration.database.connections.interval");
 
-				final String mssql = "sqlserver";
-				final String postgresql = "postgresql";
-				final String oracle = "oracle";
+			int retriesMax =
+				databaseConnectionsAmount != null ? (Integer.valueOf(databaseConnectionsAmount
+						.trim()) + 1) : 2;
 
-				SQLServerType st = null;
-				if (url.indexOf(mssql) > -1) {
-					st = SQLServerType.MSSQL;
-				} else {
-					if (url.indexOf(postgresql) > -1) {
-						st = SQLServerType.POSTGRESQL;
-					} else {
-						if (url.indexOf(oracle) > -1) {
-							st = SQLServerType.ORACLE;
-						}
-					}
-				}
+			for (int retries = 1; retries < retriesMax; retries++) {
 
-				if (st == SQLServerType.POSTGRESQL) {
-					result = (Driver) Class.forName("org.postgresql.Driver").newInstance();
-				} else if (st == SQLServerType.ORACLE) {
-					result =
-						(Driver) Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
-				} else if (st == SQLServerType.MSSQL) {
-					result =
-						(Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
-								.newInstance();
-				}
+				LOGGER.info("Идёт проверка подключения к базе данных. Попытка " + retries);
 
-				DriverManager.registerDriver(result);
-				DriverManager.getConnection(
+				Driver result = null;
+				try {
+					String url =
 						getProperty(
 								UserDataUtils.RDBMS_PREFIX + UserDataUtils.CELESTA_CONNECTION_URL)
-								.trim(),
-						getProperty(
-								UserDataUtils.RDBMS_PREFIX
-										+ UserDataUtils.CELESTA_CONNECTION_USERNAME).trim(),
-						getProperty(
-								UserDataUtils.RDBMS_PREFIX
-										+ UserDataUtils.CELESTA_CONNECTION_PASSWORD).trim());
+								.trim().toLowerCase();
 
-			} catch (InstantiationException | IllegalAccessException | ClassNotFoundException
-					| SQLException e) {
-				throw new RuntimeException("Не удаётся подключиться к указанной базе данных");
+					final String mssql = "sqlserver";
+					final String postgresql = "postgresql";
+					final String oracle = "oracle";
+
+					SQLServerType st = null;
+					if (url.indexOf(mssql) > -1) {
+						st = SQLServerType.MSSQL;
+					} else {
+						if (url.indexOf(postgresql) > -1) {
+							st = SQLServerType.POSTGRESQL;
+						} else {
+							if (url.indexOf(oracle) > -1) {
+								st = SQLServerType.ORACLE;
+							}
+						}
+					}
+
+					if (st == SQLServerType.POSTGRESQL) {
+						result = (Driver) Class.forName("org.postgresql.Driver").newInstance();
+					} else if (st == SQLServerType.ORACLE) {
+						result =
+							(Driver) Class.forName("oracle.jdbc.driver.OracleDriver")
+									.newInstance();
+					} else if (st == SQLServerType.MSSQL) {
+						result =
+							(Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
+									.newInstance();
+					}
+
+					DriverManager.registerDriver(result);
+					DriverManager.getConnection(
+							getProperty(
+									UserDataUtils.RDBMS_PREFIX
+											+ UserDataUtils.CELESTA_CONNECTION_URL).trim(),
+							getProperty(
+									UserDataUtils.RDBMS_PREFIX
+											+ UserDataUtils.CELESTA_CONNECTION_USERNAME).trim(),
+							getProperty(
+									UserDataUtils.RDBMS_PREFIX
+											+ UserDataUtils.CELESTA_CONNECTION_PASSWORD).trim());
+
+					retries = retriesMax;
+				} catch (InstantiationException | IllegalAccessException | ClassNotFoundException
+						| SQLException e) {
+					if (databaseConnectionsAmount != null
+							&& retries < Integer.valueOf(databaseConnectionsAmount.trim())) {
+						try {
+							Thread.sleep(databaseConnectionsInterval != null ? Long
+									.valueOf(databaseConnectionsInterval.trim()) : 0L);
+						} catch (NumberFormatException | InterruptedException e1) {
+						}
+						continue;
+					} else {
+						throw new RuntimeException(
+								"Не удаётся подключиться к указанной базе данных");
+					}
+				}
 			}
 		}
 
@@ -102,29 +134,55 @@ public class GeneralAppProperties {
 					SecurityParamsFactory.LOCAL_AUTH_SERVER_URL_PARAM,
 					SettingsFileType.GENERAL_APP_PROPERTIES);
 		} else {
-			URL server;
-			HttpURLConnection c = null;
-			try {
-				server =
-					new URL(getProperty(SecurityParamsFactory.LOCAL_AUTH_SERVER_URL_PARAM).trim());
+			String mellophoneConnectionsAmount =
+				getProperty("zero.configuration.mellophone.connections.amount");
+			String mellophoneConnectionsInterval =
+				getProperty("zero.configuration.mellophone.connections.interval");
 
-				c = (HttpURLConnection) server.openConnection();
-				c.setRequestMethod("GET");
-				c.setReadTimeout(3000);
-				c.setDoInput(true);
+			int retriesMax =
+				mellophoneConnectionsAmount != null ? (Integer.valueOf(mellophoneConnectionsAmount
+						.trim()) + 1) : 2;
 
-				if (getProperty("zero.configuration.check.mellophone") == null
-						|| "true".equalsIgnoreCase(getProperty(
-								"zero.configuration.check.mellophone").trim())) {
-					c.connect();
-				}
+			for (int retries = 1; retries < retriesMax; retries++) {
 
-			} catch (IOException e) {
-				throw new RuntimeException(
-						"Невозможно подключиться к меллофону по указанному адресу", e);
-			} finally {
-				if (c != null) {
-					c.disconnect();
+				LOGGER.info("Идёт проверка подключения к меллофону. Попытка " + retries);
+
+				URL server;
+				HttpURLConnection c = null;
+				try {
+					server =
+						new URL(getProperty(SecurityParamsFactory.LOCAL_AUTH_SERVER_URL_PARAM)
+								.trim());
+
+					c = (HttpURLConnection) server.openConnection();
+					c.setRequestMethod("GET");
+					c.setReadTimeout(3000);
+					c.setDoInput(true);
+
+					if (getProperty("zero.configuration.check.mellophone") == null
+							|| "true".equalsIgnoreCase(getProperty(
+									"zero.configuration.check.mellophone").trim())) {
+						c.connect();
+					}
+
+					retries = retriesMax;
+				} catch (IOException e) {
+					if (mellophoneConnectionsAmount != null
+							&& retries < Integer.valueOf(mellophoneConnectionsAmount.trim())) {
+						try {
+							Thread.sleep(mellophoneConnectionsInterval != null ? Long
+									.valueOf(mellophoneConnectionsInterval.trim()) : 0L);
+						} catch (NumberFormatException | InterruptedException e1) {
+						}
+						continue;
+					} else {
+						throw new RuntimeException(
+								"Невозможно подключиться к меллофону по указанному адресу", e);
+					}
+				} finally {
+					if (c != null) {
+						c.disconnect();
+					}
 				}
 			}
 		}
