@@ -49,7 +49,11 @@ public class SecurityLoggingCommand extends ServiceLayerCommand<Void> {
 				// httpSession = this.request.getSession();
 				httpSession =
 					(HttpSession) this.request.getSession(false).getAttribute("newSession");
-				event.add("IP", this.request.getRemoteAddr());
+				String ipAddress = this.request.getHeader("X-FORWARDED-FOR");
+				if (ipAddress == null) {
+					ipAddress = request.getRemoteAddr();
+				}
+				event.add("IP", ipAddress);
 				event.add("Host", this.request.getRemoteHost());
 				String userAgent = ServletUtils.getUserAgent(this.request);
 				BrowserType browserType = BrowserType.detect(userAgent);
