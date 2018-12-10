@@ -49,11 +49,41 @@ public class SecurityLoggingCommand extends ServiceLayerCommand<Void> {
 				// httpSession = this.request.getSession();
 				httpSession =
 					(HttpSession) this.request.getSession(false).getAttribute("newSession");
-				String ipAddress = this.request.getHeader("X-FORWARDED-FOR");
-				if (ipAddress == null) {
-					ipAddress = request.getRemoteAddr();
+				String ip = request.getHeader("X-Forwarded-For");
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("Proxy-Client-IP");
 				}
-				event.add("IP", ipAddress);
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("WL-Proxy-Client-IP");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("HTTP_X_FORWARDED");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("HTTP_X_CLUSTER_CLIENT_IP");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("HTTP_CLIENT_IP");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("HTTP_FORWARDED_FOR");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("HTTP_FORWARDED");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("HTTP_VIA");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("REMOTE_ADDR");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getRemoteAddr();
+				}
+				event.add("IP", ip);
 				event.add("Host", this.request.getRemoteHost());
 				String userAgent = ServletUtils.getUserAgent(this.request);
 				BrowserType browserType = BrowserType.detect(userAgent);
