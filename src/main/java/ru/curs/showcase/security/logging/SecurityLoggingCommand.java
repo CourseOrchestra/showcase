@@ -51,6 +51,9 @@ public class SecurityLoggingCommand extends ServiceLayerCommand<Void> {
 					(HttpSession) this.request.getSession(false).getAttribute("newSession");
 				String ip = request.getHeader("X-Forwarded-For");
 				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("X-Real-IP");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
 					ip = request.getHeader("Proxy-Client-IP");
 				}
 				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
@@ -94,7 +97,7 @@ public class SecurityLoggingCommand extends ServiceLayerCommand<Void> {
 				event.add("UserAgent", userAgent);
 				Exception securityLastExeption =
 					(Exception) httpSession.getAttribute("SPRING_SECURITY_LAST_EXCEPTION");
-				if (securityLastExeption != null)
+				if (securityLastExeption != null && event.getTypeEvent() == TypeEvent.LOGINERROR)
 					event.add("SecurityLastExeption", securityLastExeption.getMessage());
 			} else if (this.session != null) {
 				httpSession = this.session;
