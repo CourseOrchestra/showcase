@@ -614,7 +614,7 @@ try {
 					//gwtAfterClick(elementId, recId, this.column(colId).label, getSelection());
 				}
 			},
-			
+/*			
 			showFooter: metadata["common"]["summaryRow"],
 
 			summary: metadata["common"]["summaryRow"] ? JSON.parse(metadata["common"]["summaryRow"]) : null,
@@ -664,7 +664,7 @@ try {
 	                this.resize();
 	            }
 	        }
-			
+*/			
 		},  parentId);
 	    arrGrids[parentId] = grid;
 
@@ -689,12 +689,12 @@ try {
 				}
 			}
 		}
-		
+/*		
         if (grid.summary) {
         	grid._setSummary(grid.summary);
         	grid._adjustFooterCellsWidths();
         }
-		
+*/		
 		
 		grid.on("dgrid-select", function(event){
 			if(event.parentType && ((event.parentType.indexOf("mouse") > -1) || (event.parentType.indexOf("pointer") > -1))){
