@@ -147,15 +147,16 @@ function createLyraVueDGrid(userdata, vueComponent, parentId, gridDivId, metadat
 	            };
 	            webSocket.onmessage = function(message){
 	    			var grid = arrGrids[parentId];
-	    			
-	    			var pos = parseInt(message.data);
-	    			pos = pos * grid.rowHeight;
-	    			pos = pos + grid.getScrollPosition().y-Math.floor(grid.getScrollPosition().y/grid.rowHeight)*grid.rowHeight;
-	    			pos =  Math.round(pos);
-	    			if(!isNaN(pos) && (pos >= 0)){
-	    				backScroll = true;
-	    				grid.scrollTo({x:0, y:pos});
-	    			}
+	                if (grid.needBackScroll) {
+		    			var pos = parseInt(message.data);
+		    			pos = pos * grid.rowHeight;
+		    			pos = pos + grid.getScrollPosition().y-Math.floor(grid.getScrollPosition().y/grid.rowHeight)*grid.rowHeight;
+		    			pos =  Math.round(pos);
+		    			if(!isNaN(pos) && (pos >= 0)){
+		    				grid.backScroll = true;
+		    				grid.scrollTo({x:0, y:pos});
+		    			}
+	                }
 	            };
 	            return webSocket; 
 			}
@@ -396,6 +397,8 @@ function createLyraVueDGrid(userdata, vueComponent, parentId, gridDivId, metadat
 			    backScroll: false,
 			    resScroll: null,
 			    
+                needBackScroll: true,
+			    
 				
 				dgridOldPosition: 0,
 				limit: parseInt(metadata["common"]["limit"]), 
@@ -494,6 +497,8 @@ function createLyraVueDGrid(userdata, vueComponent, parentId, gridDivId, metadat
 							return results;
 							
 					} else {
+						
+						this.grid.needBackScroll = true;
 						
 						var results = null;
 
@@ -704,9 +709,14 @@ function createLyraVueDGrid(userdata, vueComponent, parentId, gridDivId, metadat
 						var pos = parseInt(event.grid.dgridNewPosition);
 						pos = pos * event.grid.rowHeight;
 						event.grid.backScroll = true;
+                        event.grid.needBackScroll = false;
 						event.grid.scrollTo({x:0, y:pos});
 						
 						event.grid.select(event.grid.row(event.grid.dgridNewPositionId));
+                        event.grid.row(event.grid.dgridNewPositionId).element.scrollIntoView({
+                            block: "start",
+                            behavior: "smooth"
+                        });
 						
 						event.grid.dgridNewPosition = null;
 						event.grid.dgridNewPositionId = null;

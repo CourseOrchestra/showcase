@@ -69,15 +69,16 @@ try {
             };
             webSocket.onmessage = function(message){
     			var grid = arrGrids[parentId];
-    			
-    			var pos = parseInt(message.data);
-    			pos = pos * grid.rowHeight;
-    			pos = pos + grid.getScrollPosition().y-Math.floor(grid.getScrollPosition().y/grid.rowHeight)*grid.rowHeight;
-    			pos =  Math.round(pos);
-    			if(!isNaN(pos) && (pos >= 0)){
-    				backScroll = true;
-    				grid.scrollTo({x:0, y:pos});
-    			}
+                if (needBackScroll) {
+        			var pos = parseInt(message.data);
+        			pos = pos * grid.rowHeight;
+        			pos = pos + grid.getScrollPosition().y-Math.floor(grid.getScrollPosition().y/grid.rowHeight)*grid.rowHeight;
+        			pos =  Math.round(pos);
+        			if(!isNaN(pos) && (pos >= 0)){
+        				backScroll = true;
+        				grid.scrollTo({x:0, y:pos});
+        			}
+                }
             };
             return webSocket; 
 		}
@@ -97,6 +98,7 @@ try {
 //----------------------Debug		    
 		    var backScroll = false;
 		    var resScroll = null;
+		    var needBackScroll = true;
 //----------------------Debug
 		    
 
@@ -133,6 +135,8 @@ try {
 //----------------------Debug
 						
 					} else {
+						needBackScroll = true;						
+						
 						var results = null;
 
 						var sortColId  = null;
@@ -860,9 +864,14 @@ try {
 					var pos = parseInt(arrGrids[parentId].dgridNewPosition);
 					pos = pos * arrGrids[parentId].rowHeight;
 					backScroll = true;
+                    needBackScroll = false;
 					arrGrids[parentId].scrollTo({x:0, y:pos});
 					
 					event.grid.select(event.grid.row(event.grid.dgridNewPositionId));
+                    event.grid.row(event.grid.dgridNewPositionId).element.scrollIntoView({
+                        block: "start",
+                        behavior: "smooth"
+                    });
 					
 					arrGrids[parentId].dgridNewPosition = null;
 					arrGrids[parentId].dgridNewPositionId = null;
