@@ -713,7 +713,10 @@ function createLyraVueDGrid(userdata, vueComponent, parentId, gridDivId, metadat
 						event.grid.scrollTo({x:0, y:pos});
 						
 						event.grid.select(event.grid.row(event.grid.dgridNewPositionId));
-                        event.grid.row(event.grid.dgridNewPositionId).element.scrollIntoView();
+                        event.grid.row(event.grid.dgridNewPositionId).element.scrollIntoView({
+                            block: "start",
+                            behavior: "smooth"
+                        });
 						
 						event.grid.dgridNewPosition = null;
 						event.grid.dgridNewPositionId = null;

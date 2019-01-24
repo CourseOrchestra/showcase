@@ -868,6 +868,10 @@ try {
 					arrGrids[parentId].scrollTo({x:0, y:pos});
 					
 					event.grid.select(event.grid.row(event.grid.dgridNewPositionId));
+                    event.grid.row(event.grid.dgridNewPositionId).element.scrollIntoView({
+                        block: "start",
+                        behavior: "smooth"
+                    });
 					
 					arrGrids[parentId].dgridNewPosition = null;
 					arrGrids[parentId].dgridNewPositionId = null;
