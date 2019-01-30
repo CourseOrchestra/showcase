@@ -1,8 +1,11 @@
 package ru.curs.showcase.test.html;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
 
-import org.junit.*;
+//import static org.junit.Assert.*;
+
+//import org.junit.*;
 
 import ru.curs.showcase.app.api.datapanel.*;
 import ru.curs.showcase.app.api.event.CompositeContext;
@@ -11,6 +14,7 @@ import ru.curs.showcase.core.ValidateException;
 import ru.curs.showcase.core.html.*;
 import ru.curs.showcase.core.html.webtext.WebTextGetCommand;
 import ru.curs.showcase.test.AbstractTestWithDefaultUserData;
+import ru.curs.showcase.util.exception.SettingsFileOpenException;
 import ru.curs.showcase.util.xml.XMLUtils;
 
 /**
@@ -27,8 +31,7 @@ public class WebTextGatewayAndFactoryTest extends AbstractTestWithDefaultUserDat
 	 * 
 	 */
 	@Test
-	@Ignore
-	// !!!
+	@Disabled
 	public void testGetStaticDataBySP() {
 		String prefix = "<root>";
 		CompositeContext context = getTestContext2();
@@ -41,18 +44,19 @@ public class WebTextGatewayAndFactoryTest extends AbstractTestWithDefaultUserDat
 		assertTrue(out.startsWith(prefix));
 	}
 
-	// !!! @Test(expected = SettingsFileOpenException.class)
+	@Test
+			//(expected = SettingsFileOpenException.class)
 	public void testNotExistsJython() {
-		DataPanelElementInfo elInfo = new DataPanelElementInfo("id", DataPanelElementType.WEBTEXT);
-		elInfo.setProcName("webtext_pas.py");
-		CompositeContext context = new CompositeContext();
-		HTMLJythonGateway gateway = new HTMLJythonGateway();
-		gateway.getRawData(context, elInfo);
+		assertThrows(SettingsFileOpenException.class, () -> {
+			DataPanelElementInfo elInfo = new DataPanelElementInfo("id", DataPanelElementType.WEBTEXT);
+			elInfo.setProcName("webtext_pas.py");
+			CompositeContext context = new CompositeContext();
+			HTMLJythonGateway gateway = new HTMLJythonGateway();
+			gateway.getRawData(context, elInfo);
+		});
 	}
 
 	@Test
-	@Ignore
-	// !!!
 	public void testValidateExceptionInJython() {
 		DataPanelElementInfo elInfo = new DataPanelElementInfo("id", DataPanelElementType.WEBTEXT);
 		elInfo.setProcName(WEB_TEXT_GET_JYTHON_PROC_PY);
@@ -70,8 +74,6 @@ public class WebTextGatewayAndFactoryTest extends AbstractTestWithDefaultUserDat
 	}
 
 	@Test
-	@Ignore
-	// !!!
 	public void testJythonGetData() {
 		final String region = "Алтайский край";
 
@@ -93,8 +95,6 @@ public class WebTextGatewayAndFactoryTest extends AbstractTestWithDefaultUserDat
 	}
 
 	@Test
-	@Ignore
-	// !!!
 	public void testJythonGetSettings() {
 		final String region = "Алтайский край";
 
@@ -129,25 +129,29 @@ public class WebTextGatewayAndFactoryTest extends AbstractTestWithDefaultUserDat
 		assertNotNull(raw.getSettings());
 	}
 
-	@Test(expected = ValidateException.class)
+	@Test
+			//(expected = ValidateException.class)
 	public void webtextSQLScriptsCanReturnErrorCodeAndMessage() {
-		CompositeContext context = getTestContext2();
-		DataPanelElementInfo elementInfo =
-			new DataPanelElementInfo("id", DataPanelElementType.WEBTEXT);
-		elementInfo.setProcName("webtext/testErrorReturn.sql");
-		HTMLGateway gateway = new HtmlMSSQLExecGateway();
-		gateway.getRawData(context, elementInfo);
-
+		assertThrows(ValidateException.class, () -> {
+			CompositeContext context = getTestContext2();
+			DataPanelElementInfo elementInfo =
+					new DataPanelElementInfo("id", DataPanelElementType.WEBTEXT);
+			elementInfo.setProcName("webtext/testErrorReturn.sql");
+			HTMLGateway gateway = new HtmlMSSQLExecGateway();
+			gateway.getRawData(context, elementInfo);
+		});
 	}
 
-	@Test(expected = ValidateException.class)
+	@Test
+			//(expected = ValidateException.class)
 	public void webtextSQLScriptsCanReturnScecialExceptionWithCode() {
-		CompositeContext context = getTestContext2();
-		DataPanelElementInfo elementInfo =
-			new DataPanelElementInfo("id", DataPanelElementType.WEBTEXT);
-		elementInfo.setProcName("webtext/testRaiseException.sql");
-		HTMLGateway gateway = new HtmlMSSQLExecGateway();
-		gateway.getRawData(context, elementInfo);
-
+		assertThrows(ValidateException.class, () -> {
+			CompositeContext context = getTestContext2();
+			DataPanelElementInfo elementInfo =
+					new DataPanelElementInfo("id", DataPanelElementType.WEBTEXT);
+			elementInfo.setProcName("webtext/testRaiseException.sql");
+			HTMLGateway gateway = new HtmlMSSQLExecGateway();
+			gateway.getRawData(context, elementInfo);
+		});
 	}
 }

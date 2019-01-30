@@ -1,10 +1,13 @@
 package ru.curs.showcase.test.util;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.lang.reflect.InvocationTargetException;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 import ru.curs.showcase.app.api.CanBeCurrent;
 import ru.curs.showcase.app.api.event.CompositeContext;
@@ -43,10 +46,13 @@ public class ReflectionUtilsTest extends AbstractTest {
 		assertNull(ReflectionUtils.getPropValueByFieldName(context, "filter"));
 	}
 
-	@Test(expected = NoSuchMethodException.class)
+	@Test
+			//(expected = NoSuchMethodException.class)
 	public void testGetPropValueForFieldError() throws NoSuchMethodException,
 			IllegalAccessException, InvocationTargetException {
-		ReflectionUtils.getPropValueByFieldName(new CompositeContext(), "fakeProp");
+		assertThrows(NoSuchMethodException.class, () ->
+		ReflectionUtils.getPropValueByFieldName(new CompositeContext(), "fakeProp")
+		);
 	}
 
 	/**

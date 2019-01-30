@@ -1,6 +1,8 @@
 package ru.curs.showcase.test.chart;
 
-import org.junit.*;
+import org.junit.jupiter.api.*;
+
+//import org.junit.*;
 
 import ru.curs.showcase.app.api.datapanel.*;
 import ru.curs.showcase.app.api.event.CompositeContext;
@@ -29,8 +31,6 @@ public class ChartGatewayTest extends AbstractTestWithDefaultUserData {
 	}
 
 	@Test
-	@Ignore
-	// !!!
 	public void testGetDataFormJython() {
 		CompositeContext context = getTestContext1();
 		context.setSession("<" + XMLSessionContextGenerator.SESSION_CONTEXT_TAG + "/>");

@@ -1,5 +1,7 @@
 package ru.curs.showcase.runtime;
 
+import java.util.Map;
+
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -183,7 +185,7 @@ public final class SessionUtils {
 	// return null;
 	// }
 
-	public static String[] getAdditionalParameters() {
+	public static Map<String, String> getAdditionalParameters() {
 		if (getUserAndSessionDetails() != null) {
 			return getUserAndSessionDetails().getUserInfo().getAdditionalParameters();
 		}

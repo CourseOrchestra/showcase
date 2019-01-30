@@ -163,6 +163,8 @@ public final class ProductionModeInitializer {
 		String path = aServletContext.getRealPath("") + "/index.jsp";
 		path = path.replaceAll("\\\\", "/");
 		path = path.substring(0, path.lastIndexOf('/'));
+		if(path.contains("WebContent"));
+			path = path.replace("WebContent", "src/main/webapp");
 		AppInfoSingleton.getAppInfo().setWebAppPath(path);
 	}
 
@@ -282,33 +284,48 @@ public final class ProductionModeInitializer {
 	}
 
 	private static void copyClientExtLib(final ServletContext aServletContext) {
+		// File generalResRoot =
+		// new File(AppInfoSingleton.getAppInfo().getUserdataRoot() + "/"
+		// + UserDataUtils.GENERAL_RES_ROOT + "/js");
+
+		File generalResRoot = null;
 		Boolean isAllFilesCopied = true;
-		File generalResRoot =
-			new File(AppInfoSingleton.getAppInfo().getUserdataRoot() + "/"
-					+ UserDataUtils.GENERAL_RES_ROOT + "/js");
+		File userdataRoot = new File(AppInfoSingleton.getAppInfo().getUserdataRoot());
+		File[] list = userdataRoot.listFiles();
 
-		String[] files = null;
-		if (generalResRoot.exists()) {
-			files = generalResRoot.list();
-		}
+		for (int c = list.length - 1; c >= 0; c--) {
+			File f = list[c];
+			if (f.getName().startsWith("common")) {
+				generalResRoot =
+					new File(AppInfoSingleton.getAppInfo().getUserdataRoot() + "/" + f.getName()
+							+ "/js");
 
-		BatchFileProcessor fprocessor = null;
-		if (files != null) {
-			for (String s : files) {
-				if ("clientextlib".equals(s)) {
-					fprocessor =
-						new BatchFileProcessor(generalResRoot.getAbsolutePath() + "/clientextlib",
-								new RegexFilenameFilter("^[.].*", false));
+				String[] files = null;
+				if (generalResRoot.exists()) {
+					files = generalResRoot.list();
 				}
-			}
-		}
 
-		if (fprocessor != null) {
-			try {
-				fprocessor.process(new CopyFileAction(aServletContext.getRealPath("/" + "js")));
-			} catch (IOException e) {
-				isAllFilesCopied = false;
-				LOGGER.error(String.format(FILE_COPY_ERROR, e.getMessage()));
+				BatchFileProcessor fprocessor = null;
+				if (files != null) {
+					for (String s : files) {
+						if ("clientextlib".equals(s)) {
+							fprocessor =
+								new BatchFileProcessor(generalResRoot.getAbsolutePath()
+										+ "/clientextlib",
+										new RegexFilenameFilter("^[.].*", false));
+						}
+					}
+				}
+
+				if (fprocessor != null) {
+					try {
+						fprocessor.process(new CopyFileAction(aServletContext.getRealPath("/"
+								+ "js")));
+					} catch (IOException e) {
+						isAllFilesCopied = false;
+						LOGGER.error(String.format(FILE_COPY_ERROR, e.getMessage()));
+					}
+				}
 			}
 		}
 

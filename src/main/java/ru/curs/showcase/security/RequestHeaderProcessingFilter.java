@@ -87,6 +87,9 @@ public class RequestHeaderProcessingFilter extends AbstractAuthenticationProcess
 			newSession.setAttribute(str, values.get(str));
 		}
 
+		AppInfoSingleton.getAppInfo().getBrowserInformationMap()
+				.put(request.getSession(false).getId(), request.getHeader("User-Agent"));
+
 		request.getSession(false).setAttribute("username", username);
 		// request.getSession(false).setAttribute("password", password);
 

@@ -398,6 +398,51 @@ public final class MessageBox {
 		return dlg;
 	}
 
+	public static void showErrorMessageWindowWithoutWebConsoleLink(final String caption,
+			final String message) {
+		final DialogBox dlg = createDialogBoxWithClosingOnEsc();
+
+		dlg.getElement().getStyle().setZIndex(Z_INDEX);
+
+		dlg.setSize(SIZE_ONE_HUNDRED_PERCENTS, SIZE_ONE_HUNDRED_PERCENTS);
+		VerticalPanel dialogContents = new VerticalPanel();
+		dialogContents.setSize(SIZE_ONE_HUNDRED_PERCENTS, SIZE_ONE_HUNDRED_PERCENTS);
+		final int n = 10;
+		dialogContents.setSpacing(n);
+		dlg.setWidget(dialogContents);
+		dlg.setAnimationEnabled(true);
+		dlg.setGlassEnabled(true);
+		dlg.setText(caption);
+		Button ok = new Button("OK");
+		ok.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(final ClickEvent event) {
+				dlg.hide();
+			}
+		});
+
+		HorizontalPanel horPan = new HorizontalPanel();
+		final int n5 = 5;
+		horPan.setSpacing(n5);
+		dialogContents.add(horPan);
+
+		horPan.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
+		horPan.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
+
+		Image im1 = new Image();
+		im1.setResource(images.getErrorIcon());
+		horPan.add(im1);
+
+		Label l = new Label(message);
+		horPan.setCellHorizontalAlignment(l, HasHorizontalAlignment.ALIGN_LEFT);
+		horPan.add(l);
+		dialogContents.add(ok);
+		dialogContents.setCellHorizontalAlignment(ok, HasHorizontalAlignment.ALIGN_RIGHT);
+		dlg.center();
+		ok.setFocus(true);
+		dlg.show();
+	}
+
 	public static void showErrorMessageWindow(final String caption, final String message) {
 		DialogBox db =
 			showMessageWithDetails(CourseClientLocalization.gettext(AppCurrContext.getInstance()

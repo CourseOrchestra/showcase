@@ -49,7 +49,44 @@ public class SecurityLoggingCommand extends ServiceLayerCommand<Void> {
 				// httpSession = this.request.getSession();
 				httpSession =
 					(HttpSession) this.request.getSession(false).getAttribute("newSession");
-				event.add("IP", this.request.getRemoteAddr());
+				String ip = request.getHeader("X-Forwarded-For");
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("X-Real-IP");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("Proxy-Client-IP");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("WL-Proxy-Client-IP");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("HTTP_X_FORWARDED");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("HTTP_X_CLUSTER_CLIENT_IP");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("HTTP_CLIENT_IP");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("HTTP_FORWARDED_FOR");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("HTTP_FORWARDED");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("HTTP_VIA");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getHeader("REMOTE_ADDR");
+				}
+				if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+					ip = request.getRemoteAddr();
+				}
+				event.add("IP", ip);
 				event.add("Host", this.request.getRemoteHost());
 				String userAgent = ServletUtils.getUserAgent(this.request);
 				BrowserType browserType = BrowserType.detect(userAgent);
@@ -60,7 +97,7 @@ public class SecurityLoggingCommand extends ServiceLayerCommand<Void> {
 				event.add("UserAgent", userAgent);
 				Exception securityLastExeption =
 					(Exception) httpSession.getAttribute("SPRING_SECURITY_LAST_EXCEPTION");
-				if (securityLastExeption != null)
+				if (securityLastExeption != null && event.getTypeEvent() == TypeEvent.LOGINERROR)
 					event.add("SecurityLastExeption", securityLastExeption.getMessage());
 			} else if (this.session != null) {
 				httpSession = this.session;

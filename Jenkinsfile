@@ -17,15 +17,15 @@ node {
 
     try{
         stage ('Exec Maven') {
-            rtMaven.run pom: 'pom.xml', goals: 'clean -Dbuild.number=${BUILD_NUMBER} install', buildInfo: buildInfo
+            rtMaven.run pom: 'pom.xml', goals: 'clean -Dbuild.number=${BUILD_NUMBER} package', buildInfo: buildInfo
         }
     } finally {
         //junit '**/surefire-reports/**/*.xml'
     }
 
     //if (env.BRANCH_NAME == 'dev') {
-    stage ('Publish build info') {
-        server.publishBuildInfo buildInfo
-    }
+    //stage ('Publish build info') {
+      //  server.publishBuildInfo buildInfo
+    //}
     //}
 }

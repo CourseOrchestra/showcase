@@ -1,12 +1,15 @@
 package ru.curs.showcase.test.servlets;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.junit.Test;
+//import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import ru.curs.showcase.util.*;
@@ -20,9 +23,7 @@ import ru.curs.showcase.util.*;
 public class BaseServletTest extends AbstractServletTest {
 
 	@Test
-	// !!! corrected
-			public
-			void testFillErrorResponce() throws IOException {
+	public	void testFillErrorResponce() throws IOException {
 		final String message = "ошибка";
 		preCheckResponse();
 		ServletUtils.fillErrorResponce(response(), message, false);
@@ -67,9 +68,7 @@ public class BaseServletTest extends AbstractServletTest {
 	}
 
 	@Test
-	// !!! corrected
-			public
-			void testDoNoCasheResponse() {
+	public	void testDoNoCasheResponse() {
 		assertNull(response().getHeader("Pragma"));
 		ServletUtils.doNoCasheResponse(response());
 		checkForNoCashe(response());

@@ -1,13 +1,16 @@
 package ru.curs.showcase.test.servlets;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
-import org.junit.*;
+//import org.junit.*;
 
 import ru.curs.showcase.app.server.ControlMemoryServlet;
 
@@ -22,7 +25,7 @@ public class ControlMemoryServletTest extends AbstractServletTest {
 	private ControlMemoryServlet servlet;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() {
 		super.setUp();
 		servlet = new ControlMemoryServlet();

@@ -221,8 +221,10 @@ public class AuthServerAuthenticationProvider implements AuthenticationProvider 
 							throw new BadCredentialsException(innerMessage);
 						}
 
-						LOGGER.info("Пользователю " + login
-								+ " не удалось войти в систему: Bad credentials");
+						LOGGER.info("Пользователю "
+								+ login
+								+ " не удалось войти в систему: Bad credentials. В поле пароля были введены следующие символы: "
+								+ pwd);
 						throw new BadCredentialsException("Bad credentials");
 
 					}

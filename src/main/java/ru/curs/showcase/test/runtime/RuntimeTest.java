@@ -1,12 +1,15 @@
 package ru.curs.showcase.test.runtime;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+//import static org.junit.Assert.*;
 
 import java.sql.SQLException;
 import java.util.*;
 
 import org.ehcache.Cache;
-import org.junit.*;
+//import org.junit.*;
 
 import ru.curs.showcase.app.api.*;
 import ru.curs.showcase.app.api.datapanel.DataPanelElementInfo;
@@ -67,7 +70,8 @@ public class RuntimeTest extends AbstractTest {
 	/**
 	 * Базовый тест на запись и чтение URLParams.
 	 */
-	// !!! @Test
+	@Test
+	@Disabled
 	public void testSessionInfoForGetChart() {
 		Map<String, List<String>> params = generateTestURLParams(TEST1_USERDATA);
 
@@ -95,6 +99,7 @@ public class RuntimeTest extends AbstractTest {
 	 * Проверка установки информации о сессии для функции получения инф. панели.
 	 */
 	@Test
+	@Disabled
 	public void testSessionInfoForGetDP() {
 		Map<String, List<String>> params = generateTestURLParams(TEST1_USERDATA);
 		final int elID = 5;
@@ -130,13 +135,16 @@ public class RuntimeTest extends AbstractTest {
 	/**
 	 * Проверка установки несуществующей userdata.
 	 */
-	@Test(expected = NoSuchUserDataException.class)
+	@Test
+			//(expected = NoSuchUserDataException.class)
 	public void testNotExistUserdata() {
-		Map<String, ArrayList<String>> params = new TreeMap<>();
-		ArrayList<String> value3 = new ArrayList<>();
-		value3.add(NOT_EXIST_USERDATA_ID);
-		params.put(ExchangeConstants.URL_PARAM_USERDATA, value3);
-		AppInfoSingleton.getAppInfo().setCurUserDataIdFromMap(params);
+		assertThrows(NoSuchUserDataException.class, () -> {
+			Map<String, ArrayList<String>> params = new TreeMap<>();
+			ArrayList<String> value3 = new ArrayList<>();
+			value3.add(NOT_EXIST_USERDATA_ID);
+			params.put(ExchangeConstants.URL_PARAM_USERDATA, value3);
+			AppInfoSingleton.getAppInfo().setCurUserDataIdFromMap(params);
+		});
 	}
 
 	/**
@@ -237,7 +245,7 @@ public class RuntimeTest extends AbstractTest {
 	}
 
 	@Test
-	@Ignore
+	//@Ignore
 	// !!!
 			public
 			void testExecutedProc() {
@@ -260,7 +268,7 @@ public class RuntimeTest extends AbstractTest {
 	 *      ServerCurrentStateBuilder
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	// !!!
 			public
 			void serverStateFactoryShouldReturnCorrectState() throws SQLException {
@@ -301,7 +309,7 @@ public class RuntimeTest extends AbstractTest {
 	}
 
 	@Test
-	@Ignore
+	//@Ignore
 	// !!!
 			public
 			void testDoAfterCheck() {

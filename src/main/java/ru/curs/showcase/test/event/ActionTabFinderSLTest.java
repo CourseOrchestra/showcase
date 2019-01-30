@@ -1,8 +1,11 @@
 package ru.curs.showcase.test.event;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
 
-import org.junit.Test;
+//import static org.junit.Assert.assertEquals;
+
+//import org.junit.Test;
 
 import ru.curs.showcase.app.api.datapanel.*;
 import ru.curs.showcase.app.api.event.CompositeContext;
@@ -19,7 +22,8 @@ import ru.curs.showcase.test.AbstractTest;
  * 
  */
 public class ActionTabFinderSLTest extends AbstractTest {
-	// !!! @Test
+	@Test
+	@Disabled
 	public void testReadFirstTabFromDBFromNavigatorDynSessionContext() {
 		CompositeContext context = new CompositeContext();
 		context.setSessionParamsMap(generateTestURLParamsForSL(TEST1_USERDATA));
@@ -31,10 +35,8 @@ public class ActionTabFinderSLTest extends AbstractTest {
 	}
 
 	@Test
-	// @Ignore
-	// !!!
-			public
-			void testReadFirstTabFromDBFromEventDynMainContext() {
+	@Disabled
+	public	void testReadFirstTabFromDBFromEventDynMainContext() {
 		CompositeContext context = getTestContext1();
 		DataPanelElementInfo elInfo = new DataPanelElementInfo("01", DataPanelElementType.WEBTEXT);
 		elInfo.setProcName("webtext_dyn_dp_main");
@@ -46,7 +48,8 @@ public class ActionTabFinderSLTest extends AbstractTest {
 				.getDataPanelLink().getTabId().getString());
 	}
 
-	// !!! @Test
+	@Test
+	@Disabled
 	public void testReadFirstTabFromDBFromEventDynSessionContext() {
 		CompositeContext context = new CompositeContext();
 		context.setSessionParamsMap(generateTestURLParamsForSL(TEST1_USERDATA));

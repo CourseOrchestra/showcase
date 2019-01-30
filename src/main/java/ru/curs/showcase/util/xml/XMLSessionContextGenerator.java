@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 import javax.xml.bind.*;
 
 import org.slf4j.*;
-import org.w3c.dom.Document;
+import org.w3c.dom.*;
 import org.w3c.dom.Element;
 
 import ru.curs.showcase.app.api.*;
@@ -114,16 +114,17 @@ public final class XMLSessionContextGenerator extends GeneralXMLHelper {
 	}
 
 	private static Document createXML() {
-		Document info = XMLUtils.createBuilder().getDOMImplementation().createDocument("",
-				SESSION_CONTEXT_TAG, null);
+		Document info =
+			XMLUtils.createBuilder().getDOMImplementation()
+					.createDocument("", SESSION_CONTEXT_TAG, null);
 		return info;
 	}
 
 	private void addUserNode() {
 		Element node = info.createElement(USERNAME_TAG);
 		info.getDocumentElement().appendChild(node);
-		node.appendChild(info.createTextNode(
-				ru.curs.showcase.runtime.SessionUtils.getCurrentSessionUserName()));
+		node.appendChild(info.createTextNode(ru.curs.showcase.runtime.SessionUtils
+				.getCurrentSessionUserName()));
 
 		node = info.createElement(SID_TAG);
 		info.getDocumentElement().appendChild(node);
@@ -185,20 +186,29 @@ public final class XMLSessionContextGenerator extends GeneralXMLHelper {
 		info.getDocumentElement().appendChild(node);
 		node.appendChild(info.createTextNode(SessionUtils.getRemoteAddress()));
 
+		String sessionId = SessionUtils.getCurrentSessionId();
+		String useragent = AppInfoSingleton.getAppInfo().getBrowserInformationMap().get(sessionId);
+		if (useragent != null) {
+			node = info.createElement("browsertype");
+			info.getDocumentElement().appendChild(node);
+			node.appendChild(info.createTextNode((BrowserType.detect(useragent)).toString()));
+
+			node = info.createElement("browserversion");
+			info.getDocumentElement().appendChild(node);
+			node.appendChild(info.createTextNode(BrowserType.detectVersion(useragent)));
+		}
+
 		// node = info.createElement(ADD_PARAM_TAG);
 		// info.getDocumentElement().appendChild(node);
 		// node.appendChild(info.createTextNode(SessionUtils.getAdditionalParameter()));
 
-		String[] additionalParameters = SessionUtils.getAdditionalParameters();
-		List<String> listAddPar = AppInfoSingleton.getAppInfo().getAdditionalParametersList();
-		if (additionalParameters != null && additionalParameters.length > 0
-				&& listAddPar.size() > 0) {
-			for (int k = 0; k < additionalParameters.length; k++) {
-				if (!listAddPar.get(k).equals("SID") && !listAddPar.get(k).equals("login")
-						&& !listAddPar.get(k).equals("name")) {
-					node = info.createElement(listAddPar.get(k));
+		Map<String, String> additionalParameters = SessionUtils.getAdditionalParameters();
+		if (additionalParameters != null && additionalParameters.size() > 0) {
+			for (String key : additionalParameters.keySet()) {
+				if (!"SID".equals(key) && !"login".equals(key) && !"name".equals(key)) {
+					node = info.createElement(key);
 					info.getDocumentElement().appendChild(node);
-					node.appendChild(info.createTextNode(additionalParameters[k]));
+					node.appendChild(info.createTextNode(additionalParameters.get(key)));
 				}
 			}
 		}
@@ -219,8 +229,9 @@ public final class XMLSessionContextGenerator extends GeneralXMLHelper {
 
 	private void addUserNodeOnBasisOfUserAndSessionDetails() {
 
-		UserInfo ui = ((CompositeContextOnBasisOfUserAndSessionDetails) context)
-				.getUserAndSessionDetails().getUserInfo();
+		UserInfo ui =
+			((CompositeContextOnBasisOfUserAndSessionDetails) context).getUserAndSessionDetails()
+					.getUserInfo();
 
 		Element node = info.createElement(USERNAME_TAG);
 		info.getDocumentElement().appendChild(node);
@@ -236,8 +247,8 @@ public final class XMLSessionContextGenerator extends GeneralXMLHelper {
 
 		node = info.createElement(SESSIONID_TAG);
 		info.getDocumentElement().appendChild(node);
-		node.appendChild(
-				info.createTextNode(((CompositeContextOnBasisOfUserAndSessionDetails) context)
+		node.appendChild(info
+				.createTextNode(((CompositeContextOnBasisOfUserAndSessionDetails) context)
 						.getUserAndSessionDetails().getSessionId()));
 
 		node = info.createElement(EMAIL_TAG);
@@ -286,24 +297,35 @@ public final class XMLSessionContextGenerator extends GeneralXMLHelper {
 
 		node = info.createElement(IP_TAG);
 		info.getDocumentElement().appendChild(node);
-		node.appendChild(
-				info.createTextNode(((CompositeContextOnBasisOfUserAndSessionDetails) context)
+		node.appendChild(info
+				.createTextNode(((CompositeContextOnBasisOfUserAndSessionDetails) context)
 						.getUserAndSessionDetails().getRemoteAddress()));
+
+		String sessionId =
+			((CompositeContextOnBasisOfUserAndSessionDetails) context).getUserAndSessionDetails()
+					.getSessionId();
+		String useragent = AppInfoSingleton.getAppInfo().getBrowserInformationMap().get(sessionId);
+		if (useragent != null) {
+			node = info.createElement("browsertype");
+			info.getDocumentElement().appendChild(node);
+			node.appendChild(info.createTextNode((BrowserType.detect(useragent)).toString()));
+
+			node = info.createElement("browserversion");
+			info.getDocumentElement().appendChild(node);
+			node.appendChild(info.createTextNode(BrowserType.detectVersion(useragent)));
+		}
 
 		// node = info.createElement(ADD_PARAM_TAG);
 		// info.getDocumentElement().appendChild(node);
 		// node.appendChild(info.createTextNode(SessionUtils.getAdditionalParameter()));
 
-		String[] additionalParameters = ui.getAdditionalParameters();
-		List<String> listAddPar = AppInfoSingleton.getAppInfo().getAdditionalParametersList();
-		if (additionalParameters != null && additionalParameters.length > 0
-				&& listAddPar.size() > 0) {
-			for (int k = 0; k < additionalParameters.length; k++) {
-				if (!listAddPar.get(k).equals("SID") && !listAddPar.get(k).equals("login")
-						&& !listAddPar.get(k).equals("name")) {
-					node = info.createElement(listAddPar.get(k));
+		Map<String, String> additionalParameters = ui.getAdditionalParameters();
+		if (additionalParameters != null && additionalParameters.size() > 0) {
+			for (String key : additionalParameters.keySet()) {
+				if (!"SID".equals(key) && !"login".equals(key) && !"name".equals(key)) {
+					node = info.createElement(key);
 					info.getDocumentElement().appendChild(node);
-					node.appendChild(info.createTextNode(additionalParameters[k]));
+					node.appendChild(info.createTextNode(additionalParameters.get(key)));
 				}
 			}
 		}
@@ -327,11 +349,13 @@ public final class XMLSessionContextGenerator extends GeneralXMLHelper {
 		info.getDocumentElement().appendChild(node);
 		String value = null;
 		if (aMap.get(ExchangeConstants.URL_PARAM_PERSPECTIVE) != null) {
-			value = Arrays.toString(aMap.get(ExchangeConstants.URL_PARAM_PERSPECTIVE).toArray())
-					.replace("[", "").replace("]", "");
+			value =
+				Arrays.toString(aMap.get(ExchangeConstants.URL_PARAM_PERSPECTIVE).toArray())
+						.replace("[", "").replace("]", "");
 		} else if (aMap.get(ExchangeConstants.URL_PARAM_USERDATA) != null) {
-			value = Arrays.toString(aMap.get(ExchangeConstants.URL_PARAM_USERDATA).toArray())
-					.replace("[", "").replace("]", "");
+			value =
+				Arrays.toString(aMap.get(ExchangeConstants.URL_PARAM_USERDATA).toArray())
+						.replace("[", "").replace("]", "");
 		} else {
 			value = ExchangeConstants.DEFAULT_USERDATA;
 		}
