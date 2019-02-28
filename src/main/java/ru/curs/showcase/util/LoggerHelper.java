@@ -5,6 +5,8 @@ import java.util.Date;
 
 import org.slf4j.*;
 
+import ru.curs.showcase.runtime.AppInfoSingleton;
+
 /**
  * Класс, содержащий общие функции для логирования.
  * 
@@ -39,8 +41,9 @@ public final class LoggerHelper {
 					+ String.valueOf(dtEnd.getTime() - dtBegin.getTime()) + " " + elementType
 					+ " " + elementSubType;
 
-		LOGGER.info(mess);
-
+		if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
+			LOGGER.info(mess);
+		}
 	}
 
 }
