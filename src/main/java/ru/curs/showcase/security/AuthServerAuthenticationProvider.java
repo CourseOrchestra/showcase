@@ -179,7 +179,10 @@ public class AuthServerAuthenticationProvider implements AuthenticationProvider 
 							if (servletResponseMessage
 									.contains("locked out for too many unsuccessful login attempts")
 									&& servletResponseMessage.contains("Резюме:")) {
-								LOGGER.info("Пользователь " + login + " заблокирован меллофоном");
+								if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
+									LOGGER.info("Пользователь " + login
+											+ " заблокирован меллофоном");
+								}
 								String time_to_unlock =
 									servletResponseMessage.substring(servletResponseMessage
 											.indexOf("Time to unlock"));
@@ -190,7 +193,10 @@ public class AuthServerAuthenticationProvider implements AuthenticationProvider 
 							if (servletResponseMessage
 									.contains("locked out for too many unsuccessful login attempts")
 									&& !servletResponseMessage.contains("Резюме:")) {
-								LOGGER.info("Пользователь " + login + " заблокирован меллофоном");
+								if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
+									LOGGER.info("Пользователь " + login
+											+ " заблокирован меллофоном");
+								}
 								String time_to_unlock =
 									servletResponseMessage.substring(servletResponseMessage
 											.indexOf("Time to unlock"));
@@ -200,8 +206,10 @@ public class AuthServerAuthenticationProvider implements AuthenticationProvider 
 						}
 
 						if (servletResponseMessage.contains("is blocked permanently")) {
-							LOGGER.info("Пользователь " + login
-									+ " заблокирован на постоянной основе");
+							if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
+								LOGGER.info("Пользователь " + login
+										+ " заблокирован на постоянной основе");
+							}
 							throw new BadCredentialsException("User '" + login
 									+ "' is blocked by administrator");
 						}
@@ -217,14 +225,19 @@ public class AuthServerAuthenticationProvider implements AuthenticationProvider 
 								servletResponseMessage.substring(indexBegin + beginMessageLength,
 										indexEnd).trim();
 
-							LOGGER.info(innerMessage);
+							if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
+								LOGGER.info(innerMessage);
+							}
 							throw new BadCredentialsException(innerMessage);
 						}
 
-						LOGGER.info("Пользователю "
-								+ login
-								+ " не удалось войти в систему: Bad credentials. В поле пароля были введены следующие символы: "
-								+ pwd);
+						if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
+							LOGGER.info("Пользователю "
+									+ login
+									+ " не удалось войти в систему: Bad credentials. В поле пароля были введены следующие символы: "
+									+ pwd);
+						}
+
 						throw new BadCredentialsException("Bad credentials");
 
 					}
@@ -237,7 +250,9 @@ public class AuthServerAuthenticationProvider implements AuthenticationProvider 
 					| IllegalFormatException | NullPointerException | IOException
 					| IndexOutOfBoundsException e) {
 
-				LOGGER.error("", e);
+				if (AppInfoSingleton.getAppInfo().isEnableLogLevelError()) {
+					LOGGER.error("", e);
+				}
 
 				if ("Bad credentials".equals(e.getMessage())) {
 					throw new BadCredentialsException(e.getMessage(), e);
