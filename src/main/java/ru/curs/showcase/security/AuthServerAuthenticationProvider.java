@@ -179,8 +179,8 @@ public class AuthServerAuthenticationProvider implements AuthenticationProvider 
 							if (servletResponseMessage
 									.contains("locked out for too many unsuccessful login attempts")
 									&& servletResponseMessage.contains("Резюме:")) {
-								if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
-									LOGGER.info("Пользователь " + login
+								if (AppInfoSingleton.getAppInfo().isEnableLogLevelWarning()) {
+									LOGGER.warn("Пользователь " + login
 											+ " заблокирован меллофоном");
 								}
 								String time_to_unlock =
@@ -193,8 +193,8 @@ public class AuthServerAuthenticationProvider implements AuthenticationProvider 
 							if (servletResponseMessage
 									.contains("locked out for too many unsuccessful login attempts")
 									&& !servletResponseMessage.contains("Резюме:")) {
-								if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
-									LOGGER.info("Пользователь " + login
+								if (AppInfoSingleton.getAppInfo().isEnableLogLevelWarning()) {
+									LOGGER.warn("Пользователь " + login
 											+ " заблокирован меллофоном");
 								}
 								String time_to_unlock =
@@ -206,8 +206,8 @@ public class AuthServerAuthenticationProvider implements AuthenticationProvider 
 						}
 
 						if (servletResponseMessage.contains("is blocked permanently")) {
-							if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
-								LOGGER.info("Пользователь " + login
+							if (AppInfoSingleton.getAppInfo().isEnableLogLevelWarning()) {
+								LOGGER.warn("Пользователь " + login
 										+ " заблокирован на постоянной основе");
 							}
 							throw new BadCredentialsException("User '" + login
@@ -225,14 +225,14 @@ public class AuthServerAuthenticationProvider implements AuthenticationProvider 
 								servletResponseMessage.substring(indexBegin + beginMessageLength,
 										indexEnd).trim();
 
-							if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
-								LOGGER.info(innerMessage);
+							if (AppInfoSingleton.getAppInfo().isEnableLogLevelWarning()) {
+								LOGGER.warn(innerMessage);
 							}
 							throw new BadCredentialsException(innerMessage);
 						}
 
-						if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
-							LOGGER.info("Пользователю "
+						if (AppInfoSingleton.getAppInfo().isEnableLogLevelWarning()) {
+							LOGGER.warn("Пользователю "
 									+ login
 									+ " не удалось войти в систему: Bad credentials. В поле пароля были введены следующие символы: "
 									+ pwd);
