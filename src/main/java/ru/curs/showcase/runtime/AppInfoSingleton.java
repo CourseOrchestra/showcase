@@ -143,6 +143,7 @@ public final class AppInfoSingleton {
 	private boolean enableLogLevelInfo = true;
 	private boolean enableLogLevelWarning = true;
 	private boolean enableLogLevelError = true;
+	private boolean enableLogLevelDebug = false;
 
 	/**
 	 * Переменная, которая содержит в себе информацию о том, будет ли хоть в
@@ -739,6 +740,14 @@ public final class AppInfoSingleton {
 
 	public void setEnableLogLevelError(final boolean aEnableLogLevelError) {
 		enableLogLevelError = aEnableLogLevelError;
+	}
+
+	public boolean isEnableLogLevelDebug() {
+		return enableLogLevelDebug;
+	}
+
+	public void setEnableLogLevelDebug(final boolean aEnableLogLevelDebug) {
+		enableLogLevelDebug = aEnableLogLevelDebug;
 	}
 
 	public boolean isEnableActiviti() {
