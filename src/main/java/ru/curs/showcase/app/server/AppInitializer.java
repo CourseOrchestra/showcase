@@ -30,7 +30,7 @@ public final class AppInitializer {
 	private static final String ENABLE_LOG_LEVEL_INFO = "enable.log.level.info";
 	private static final String ENABLE_LOG_LEVEL_WARNING = "enable.log.level.warning";
 	private static final String ENABLE_LOG_LEVEL_ERROR = "enable.log.level.error";
-
+	private static final String ENABLE_LOG_LEVEL_DEBUG = "enable.log.level.debug";;
 	private static final String ENABLE_ACTIVITI = "activiti.enable";
 
 	private static final String COPY_USERDATAS = "copy.userdatas";
@@ -78,6 +78,12 @@ public final class AppInitializer {
 		if (value != null) {
 			boolValue = Boolean.valueOf(value);
 			AppInfoSingleton.getAppInfo().setEnableLogLevelError(boolValue);
+		}
+
+		value = UserDataUtils.getGeneralOptionalProp(ENABLE_LOG_LEVEL_DEBUG);
+		if (value != null) {
+			boolValue = Boolean.valueOf(value);
+			AppInfoSingleton.getAppInfo().setEnableLogLevelDebug(boolValue);
 		}
 	}
 
@@ -130,8 +136,7 @@ public final class AppInitializer {
 
 	private static void initClassPath() {
 		File file = new File(".");
-		//AppInfoSingleton.getAppInfo().setWebAppPath(file.getAbsolutePath() + "/WebContent");
-		AppInfoSingleton.getAppInfo().setWebAppPath(file.getAbsolutePath() + "/src/main/webapp");
+		AppInfoSingleton.getAppInfo().setWebAppPath(file.getAbsolutePath() + "/WebContent");
 	}
 
 	/**
