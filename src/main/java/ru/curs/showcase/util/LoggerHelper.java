@@ -41,8 +41,8 @@ public final class LoggerHelper {
 					+ String.valueOf(dtEnd.getTime() - dtBegin.getTime()) + " " + elementType
 					+ " " + elementSubType;
 
-		if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
-			LOGGER.info(mess);
+		if (AppInfoSingleton.getAppInfo().isEnableLogLevelDebug()) {
+			LOGGER.debug(mess);
 		}
 	}
 
