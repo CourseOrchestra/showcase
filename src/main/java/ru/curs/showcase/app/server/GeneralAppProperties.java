@@ -59,7 +59,9 @@ public class GeneralAppProperties {
 
 			for (int retries = 1; retries < retriesMax; retries++) {
 
-				LOGGER.info("Идёт проверка подключения к базе данных. Попытка " + retries);
+				if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
+					LOGGER.info("Идёт проверка подключения к базе данных. Попытка " + retries);
+				}
 
 				Driver result = null;
 				try {
@@ -145,7 +147,9 @@ public class GeneralAppProperties {
 
 			for (int retries = 1; retries < retriesMax; retries++) {
 
-				LOGGER.info("Идёт проверка подключения к меллофону. Попытка " + retries);
+				if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
+					LOGGER.info("Идёт проверка подключения к меллофону. Попытка " + retries);
+				}
 
 				URL server;
 				HttpURLConnection c = null;
