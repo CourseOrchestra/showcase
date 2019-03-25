@@ -124,7 +124,7 @@
         function checkIsAuthenticatedSession() {
             dojo.xhrGet({
                 sync: true,
-                url: "<%=request.getContextPath()%>/auth/isAuthenticatedServlet?sesid=<%=request.getSession().getId()%>",
+                url: "./auth/isAuthenticatedServlet?sesid=<%=request.getSession().getId()%>",
                 handleAs: "json",
                 preventCache: true,
                 timeout: 10000,
@@ -179,7 +179,7 @@
 </c:if>
 <span id="helloMessage" style="font-size: 27px;color:green">Авторизация в КУРС: Showcase</span>
 <span id="informationMessage" style="font-family: sans-serif;"></span>
-<form name="formlogin" method="POST" action="<c:url value="/j_spring_security_check" />" style="display:none">
+<form name="formlogin" method="POST" action="<./j_spring_security_check"/>" style="display:none">
     <table>
 
 
