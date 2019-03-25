@@ -179,7 +179,7 @@
 </c:if>
 <span id="helloMessage" style="font-size: 27px;color:green">Авторизация в КУРС: Showcase</span>
 <span id="informationMessage" style="font-family: sans-serif;"></span>
-<form name="formlogin" method="POST" action="<./j_spring_security_check"/>" style="display:none">
+<form name="formlogin" method="POST" action="./j_spring_security_check" style="display:none">
     <table>
 
 
