@@ -78,7 +78,7 @@
 
             dojo.xhrGet({
                 sync: true,
-                url: "<%=request.getContextPath()%>/auth/isAutologinServlet?autologin=<%=autologin%>",
+                url: "./auth/isAutologinServlet?autologin=<%=autologin%>",
                 handleAs: 'json',
                 preventCache: true,
                 timeout: 10000,
