@@ -47,24 +47,23 @@ public final class MainXFormGetCommand {
 	}
 
 	private void logOutput(final String html) {
-		if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
+		if (AppInfoSingleton.getAppInfo().isEnableLogLevelDebug()) {
 			Marker marker = MarkerFactory.getDetachedMarker(XMLUtils.XSL_MARKER);
 			marker.add(HandlingDirection.OUTPUT.getMarker());
 			marker.add(MarkerFactory.getMarker(String.format("xslTransform=%s",
 					XSLTransformerPoolFactory.XSLTFORMS_XSL)));
-			LOGGER.info(marker, html);
+			LOGGER.debug(marker, html);
 		}
 	}
 
 	private void logInput(final Document template) {
-		if (!(LOGGER.isInfoEnabled() && AppInfoSingleton.getAppInfo().isEnableLogLevelInfo())) {
+		if (!(LOGGER.isDebugEnabled() && AppInfoSingleton.getAppInfo().isEnableLogLevelDebug())) {
 			return;
 		}
 		Marker marker = MarkerFactory.getDetachedMarker(XMLUtils.XSL_MARKER);
 		marker.add(HandlingDirection.INPUT.getMarker());
 		marker.add(MarkerFactory.getMarker(String.format("xslTransform=%s",
 				XSLTransformerPoolFactory.XSLTFORMS_XSL)));
-		LOGGER.info(marker, XMLUtils.documentToString(template));
-
+		LOGGER.debug(marker, XMLUtils.documentToString(template));
 	}
 }
