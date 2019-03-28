@@ -132,8 +132,8 @@ public final class XFormProducer extends GeneralXMLHelper {
 			final org.w3c.dom.Document tempData) throws TransformerException, IOException {
 		insertActualData(xml, tempData);
 
-		if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
-			LOGGER.info("debugg_после вставки реальных данных_" + XMLUtils.documentToString(xml));
+		if (AppInfoSingleton.getAppInfo().isEnableLogLevelDebug()) {
+			LOGGER.debug("debugg_после вставки реальных данных_" + XMLUtils.documentToString(xml));
 		}
 
 		return transform(xml);
@@ -181,8 +181,8 @@ public final class XFormProducer extends GeneralXMLHelper {
 				if (n.getAttributes().getNamedItem(ID_TAG).getTextContent().toLowerCase()
 						.contains(MAIN_INSTANCE.toLowerCase())) {
 
-					if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
-						LOGGER.info("debugg_mainInstance_количество детей в начале_1__"
+					if (AppInfoSingleton.getAppInfo().isEnableLogLevelDebug()) {
+						LOGGER.debug("debugg_mainInstance_количество детей в начале_1__"
 								+ n.getChildNodes().getLength());
 					}
 
@@ -190,15 +190,15 @@ public final class XFormProducer extends GeneralXMLHelper {
 						n.removeChild(n.getFirstChild());
 					}
 
-					if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
-						LOGGER.info("debugg_mainInstance_количество детей после первого удаления_2__"
+					if (AppInfoSingleton.getAppInfo().isEnableLogLevelDebug()) {
+						LOGGER.debug("debugg_mainInstance_количество детей после первого удаления_2__"
 								+ n.getChildNodes().getLength());
 					}
 
 					n.setTextContent("");
 
-					if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
-						LOGGER.info("debugg_mainInstance_количество детей после второго удаления_3__"
+					if (AppInfoSingleton.getAppInfo().isEnableLogLevelDebug()) {
+						LOGGER.debug("debugg_mainInstance_количество детей после второго удаления_3__"
 								+ n.getChildNodes().getLength());
 					}
 
