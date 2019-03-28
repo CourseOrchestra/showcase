@@ -123,7 +123,9 @@ public abstract class JythonQuery<T> {
 					String value = String.valueOf(data, offset, count);
 					if (!value.trim().isEmpty()) {
 						Marker marker = MarkerFactory.getDetachedMarker(JYTHON_MARKER);
-						LOGGER.info(marker, value);
+						if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
+							LOGGER.info(marker, value);
+						}
 					}
 				}
 			}
