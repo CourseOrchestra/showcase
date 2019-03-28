@@ -164,7 +164,7 @@ public abstract class ServiceLayerCommand<T> {
 	}
 
 	protected void logInputParams() {
-		if (!(LOGGER.isInfoEnabled() && AppInfoSingleton.getAppInfo().isEnableLogLevelInfo())) {
+		if (!(LOGGER.isDebugEnabled() && AppInfoSingleton.getAppInfo().isEnableLogLevelDebug())) {
 			return;
 		}
 
@@ -179,7 +179,7 @@ public abstract class ServiceLayerCommand<T> {
 					marker.add(HandlingDirection.INPUT.getMarker());
 					marker.add(MarkerFactory.getMarker(String.format("class=%s \r\nmethod=%s",
 							method.getReturnType().getSimpleName(), method.getName())));
-					LOGGER.info(marker, serializer.serialize(methodResult));
+					LOGGER.debug(marker, serializer.serialize(methodResult));
 				} catch (IllegalAccessException | IllegalArgumentException
 						| InvocationTargetException e) {
 					throw new ServerLogicError(e);
@@ -206,7 +206,7 @@ public abstract class ServiceLayerCommand<T> {
 	 * объект получился слишком большой.
 	 */
 	protected void logOutput() {
-		if (!(LOGGER.isInfoEnabled() && AppInfoSingleton.getAppInfo().isEnableLogLevelInfo())) {
+		if (!(LOGGER.isDebugEnabled() && AppInfoSingleton.getAppInfo().isEnableLogLevelDebug())) {
 			return;
 		}
 		if (result == null) {
@@ -215,14 +215,15 @@ public abstract class ServiceLayerCommand<T> {
 
 		Marker marker = MarkerFactory.getDetachedMarker(SERVLET_MARKER);
 		marker.add(HandlingDirection.OUTPUT.getMarker());
-		marker.add(MarkerFactory
-				.getMarker(String.format("class=%s", result.getClass().getSimpleName())));
+		marker.add(MarkerFactory.getMarker(String.format("class=%s", result.getClass()
+				.getSimpleName())));
 		if (result instanceof SizeEstimate) {
 			SizeEstimate se = (SizeEstimate) result;
 			long esimateValue = se.sizeEstimate();
 			if (esimateValue > MAX_LOG_OBJECT_SIZE) {
 				Runtime.getRuntime().gc();
-				LOGGER.info(marker,
+				LOGGER.debug(
+						marker,
 						String.format(
 								"Оценка размера возвращаемого объекта: %d байт. Объект не будет выведен в лог.",
 								esimateValue));
@@ -230,8 +231,7 @@ public abstract class ServiceLayerCommand<T> {
 			}
 		}
 
-		LOGGER.info(marker, serializer.serialize(result));
-
+		LOGGER.debug(marker, serializer.serialize(result));
 	}
 
 	protected abstract void mainProc() throws Exception;
