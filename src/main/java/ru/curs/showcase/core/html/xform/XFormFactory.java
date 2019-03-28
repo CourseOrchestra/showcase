@@ -87,20 +87,21 @@ public final class XFormFactory extends HTMLBasedElementFactory {
 		result.setSubformId(subformId);
 
 		Date dt2 = new Date();
-		LoggerHelper.profileToLog(
-				getElementInfo().getFullId() + ". Формирование документа шаблона.", dt1, dt2,
-				getElementInfo().getType().toString(), "");
+		LoggerHelper.profileToLog(getElementInfo().getFullId()
+				+ ". Формирование документа шаблона.", dt1, dt2, getElementInfo().getType()
+				.toString(), "");
 
 		dt1 = new Date();
 
-		template = XFormTemplateModificator.modify(template, getSource().getCallContext(),
-				getElementInfo(), result.getSubformId());
+		template =
+			XFormTemplateModificator.modify(template, getSource().getCallContext(),
+					getElementInfo(), result.getSubformId());
 		logInput(template);
 
 		dt2 = new Date();
-		LoggerHelper.profileToLog(
-				getElementInfo().getFullId() + ". Модификация документа шаблона.", dt1, dt2,
-				getElementInfo().getType().toString(), "");
+		LoggerHelper.profileToLog(getElementInfo().getFullId()
+				+ ". Модификация документа шаблона.", dt1, dt2, getElementInfo().getType()
+				.toString(), "");
 
 		try {
 			dt1 = new Date();
@@ -110,10 +111,9 @@ public final class XFormFactory extends HTMLBasedElementFactory {
 			// getSource().getData());
 
 			dt2 = new Date();
-			LoggerHelper.profileToLog(
-					getElementInfo().getFullId()
-							+ ". XSL-преобразование документа шаблона в HTML-строку.",
-					dt1, dt2, getElementInfo().getType().toString(), "");
+			LoggerHelper.profileToLog(getElementInfo().getFullId()
+					+ ". XSL-преобразование документа шаблона в HTML-строку.", dt1, dt2,
+					getElementInfo().getType().toString(), "");
 
 			dt1 = new Date();
 
@@ -135,37 +135,36 @@ public final class XFormFactory extends HTMLBasedElementFactory {
 			}
 
 			dt2 = new Date();
-			LoggerHelper.profileToLog(
-					getElementInfo().getFullId()
-							+ ". Разрезание на части для отображения на странице.",
-					dt1, dt2, getElementInfo().getType().toString(), "");
+			LoggerHelper.profileToLog(getElementInfo().getFullId()
+					+ ". Разрезание на части для отображения на странице.", dt1, dt2,
+					getElementInfo().getType().toString(), "");
 
 			result.setXFormParts(lst);
 		} catch (TransformerException | XMLStreamException | IOException e) {
-			throw new XSLTTransformException(
-					String.format(XFORMS_CREATE_ERROR, getElementInfo().getFullId()), e);
+			throw new XSLTTransformException(String.format(XFORMS_CREATE_ERROR, getElementInfo()
+					.getFullId()), e);
 		}
 	}
 
 	private void logOutput() {
-		if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
+		if (AppInfoSingleton.getAppInfo().isEnableLogLevelDebug()) {
 			Marker marker = MarkerFactory.getDetachedMarker(XMLUtils.XSL_MARKER);
 			marker.add(HandlingDirection.OUTPUT.getMarker());
-			marker.add(MarkerFactory.getMarker(
-					String.format("xslTransform=%s", XSLTransformerPoolFactory.XSLTFORMS_XSL)));
-			LOGGER.info(marker, html);
+			marker.add(MarkerFactory.getMarker(String.format("xslTransform=%s",
+					XSLTransformerPoolFactory.XSLTFORMS_XSL)));
+			LOGGER.debug(marker, html);
 		}
 	}
 
 	private void logInput(final Document template) {
-		if (!(LOGGER.isInfoEnabled() && AppInfoSingleton.getAppInfo().isEnableLogLevelInfo())) {
+		if (!(LOGGER.isDebugEnabled() && AppInfoSingleton.getAppInfo().isEnableLogLevelDebug())) {
 			return;
 		}
 		Marker marker = MarkerFactory.getDetachedMarker(XMLUtils.XSL_MARKER);
 		marker.add(HandlingDirection.INPUT.getMarker());
-		marker.add(MarkerFactory.getMarker(
-				String.format("xslTransform=%s", XSLTransformerPoolFactory.XSLTFORMS_XSL)));
-		LOGGER.info(marker, XMLUtils.documentToString(template));
+		marker.add(MarkerFactory.getMarker(String.format("xslTransform=%s",
+				XSLTransformerPoolFactory.XSLTFORMS_XSL)));
+		LOGGER.debug(marker, XMLUtils.documentToString(template));
 	}
 
 	private String replaceVariables() {
@@ -185,8 +184,9 @@ public final class XFormFactory extends HTMLBasedElementFactory {
 	}
 
 	private void addUserDataToSubmissions() {
-		String servletQuery = ExchangeConstants.SECURED_SERVLET_PREFIX + "/"
-				+ ExchangeConstants.SUBMIT_SERVLET + "?";
+		String servletQuery =
+			ExchangeConstants.SECURED_SERVLET_PREFIX + "/" + ExchangeConstants.SUBMIT_SERVLET
+					+ "?";
 		String userDataParam =
 			"userdata=" + AppInfoSingleton.getAppInfo().getCurUserDataId() + "&amp;";
 
