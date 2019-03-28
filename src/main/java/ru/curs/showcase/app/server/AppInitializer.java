@@ -64,25 +64,25 @@ public final class AppInitializer {
 
 		value = UserDataUtils.getGeneralOptionalProp(ENABLE_LOG_LEVEL_INFO);
 		if (value != null) {
-			boolValue = Boolean.valueOf(value);
+			boolValue = Boolean.valueOf(value.trim());
 			AppInfoSingleton.getAppInfo().setEnableLogLevelInfo(boolValue);
 		}
 
 		value = UserDataUtils.getGeneralOptionalProp(ENABLE_LOG_LEVEL_WARNING);
 		if (value != null) {
-			boolValue = Boolean.valueOf(value);
+			boolValue = Boolean.valueOf(value.trim());
 			AppInfoSingleton.getAppInfo().setEnableLogLevelWarning(boolValue);
 		}
 
 		value = UserDataUtils.getGeneralOptionalProp(ENABLE_LOG_LEVEL_ERROR);
 		if (value != null) {
-			boolValue = Boolean.valueOf(value);
+			boolValue = Boolean.valueOf(value.trim());
 			AppInfoSingleton.getAppInfo().setEnableLogLevelError(boolValue);
 		}
 
 		value = UserDataUtils.getGeneralOptionalProp(ENABLE_LOG_LEVEL_DEBUG);
 		if (value != null) {
-			boolValue = Boolean.valueOf(value);
+			boolValue = Boolean.valueOf(value.trim());
 			AppInfoSingleton.getAppInfo().setEnableLogLevelDebug(boolValue);
 		}
 	}
