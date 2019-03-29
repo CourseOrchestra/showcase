@@ -57,8 +57,8 @@ public final class ExecServerActivityCommand extends ServiceLayerCommand<VoidEle
 			ServerActivitySelector selector = new ServerActivitySelector(act);
 			gateway = selector.getGateway();
 			gateway.exec(act);
-			if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
-				LOGGER.info(SERVER_ACTION_EXECUTED + getSerializer().serialize(act));
+			if (AppInfoSingleton.getAppInfo().isEnableLogLevelDebug()) {
+				LOGGER.debug(SERVER_ACTION_EXECUTED + getSerializer().serialize(act));
 			}
 
 			if ((okMessage == null) && (act.getContext().getOkMessage() != null)) {
