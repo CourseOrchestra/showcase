@@ -4,7 +4,7 @@ import java.io.*;
 
 import javax.xml.parsers.SAXParser;
 
-import org.xml.sax.SAXException;
+import org.xml.sax.*;
 import org.xml.sax.helpers.DefaultHandler;
 
 import ru.curs.showcase.util.exception.BaseException;
@@ -31,7 +31,13 @@ public class SimpleSAX {
 	public boolean parse() {
 		SAXParser parser = XMLUtils.createSAXParser();
 		try {
-			parser.parse(stream, saxHandler);
+			Reader reader = new InputStreamReader(stream, "UTF-8");
+
+			InputSource is = new InputSource(reader);
+			// is.setEncoding("UTF-8");
+
+			parser.parse(is, saxHandler);
+			// parser.parse(stream, saxHandler);
 		} catch (SAXException | IOException | BaseException | XMLError e) {
 			stdSAXErrorHandler(e);
 			return false;
