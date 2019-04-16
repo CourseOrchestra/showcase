@@ -1,6 +1,7 @@
 package ru.curs.showcase.util.xml;
 
 import java.io.*;
+import java.nio.charset.*;
 
 import javax.xml.parsers.SAXParser;
 
@@ -31,10 +32,9 @@ public class SimpleSAX {
 	public boolean parse() {
 		SAXParser parser = XMLUtils.createSAXParser();
 		try {
-			Reader reader = new InputStreamReader(stream, "UTF-8");
-
+			Reader reader = new InputStreamReader(stream, Charset.forName("UTF-8"));
 			InputSource is = new InputSource(reader);
-			// is.setEncoding("UTF-8");
+			is.setEncoding(StandardCharsets.UTF_8.name());
 
 			parser.parse(is, saxHandler);
 			// parser.parse(stream, saxHandler);
