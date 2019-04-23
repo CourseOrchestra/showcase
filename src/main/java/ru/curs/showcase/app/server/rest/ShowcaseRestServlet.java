@@ -205,28 +205,23 @@ public final class ShowcaseRestServlet extends HttpServlet {
 		}
 
 		if (AppInfoSingleton.getAppInfo().isEnableLogLevelInfo()) {
-			LOGGER.info("Using Rest WebService. \nCalled procedure: "
-					+ restProc
-					+ "\nRequest Type: "
-					+ requestType
-					+ "\nRequest URL: "
-					+ requestUrl
-					+ "\nClient IP: "
-					+ clientIP
-					+ "\nUser Token: "
-					+ userToken
-					+ "\nAccept Language: "
-					+ acceptLanguage
-					+ "\nRequest Data: "
-					+ requestData
-					+ "\nRequest URL Params: "
-					+ requestURLParams
-					+ "\nResponse Code: "
-					+ responcseData.getResponseCode()
-					+ "\nResponse Data: "
-					+ StringEscapeUtils.unescapeJava(responcseData.getResponseData().substring(0,
-							200)) + " ... (Total: " + responcseData.getResponseData().length()
-					+ " symbols)");
+			if (requestData.length() > 200) {
+				requestData =
+					requestData.substring(0, 200) + " ... (Total: " + requestData.length()
+							+ " symbols)";
+			}
+			String respData = responcseData.getResponseData();
+			if (respData.length() > 200) {
+				respData =
+					respData.substring(0, 200) + " ... (Total: " + respData.length() + " symbols)";
+			}
+			LOGGER.info("Using Rest WebService. \nCalled procedure: " + restProc
+					+ "\nRequest Type: " + requestType + "\nRequest URL: " + requestUrl
+					+ "\nClient IP: " + clientIP + "\nUser Token: " + userToken
+					+ "\nAccept Language: " + acceptLanguage + "\nRequest Data: " + requestData
+					+ "\nRequest URL Params: " + requestURLParams + "\nResponse Code: "
+					+ responcseData.getResponseCode() + "\nResponse Data: "
+					+ StringEscapeUtils.unescapeJava(respData));
 		}
 
 		response.getWriter().close();
