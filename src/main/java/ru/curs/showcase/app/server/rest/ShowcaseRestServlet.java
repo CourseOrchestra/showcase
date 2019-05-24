@@ -8,7 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.xml.transform.TransformerException;
 
-import org.apache.commons.lang3.StringEscapeUtils;
 import org.json.JSONObject;
 import org.slf4j.*;
 import org.springframework.security.authentication.AuthenticationServiceException;
@@ -220,8 +219,7 @@ public final class ShowcaseRestServlet extends HttpServlet {
 					+ "\nClient IP: " + clientIP + "\nUser Token: " + userToken
 					+ "\nAccept Language: " + acceptLanguage + "\nRequest Data: " + requestData
 					+ "\nRequest URL Params: " + requestURLParams + "\nResponse Code: "
-					+ responcseData.getResponseCode() + "\nResponse Data: "
-					+ StringEscapeUtils.unescapeJava(respData));
+					+ responcseData.getResponseCode() + "\nResponse Data: " + respData);
 		}
 
 		response.getWriter().close();
